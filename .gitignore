@@ -1,0 +1,7 @@
+.env
+.next
+dist
+build
+node_modules
+public/design
+public/icons.svg
