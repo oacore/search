@@ -1,0 +1,6 @@
+/* stylelint-disable selector-max-id */
+html,
+body,
+#__next {
+  height: 100%;
+}
