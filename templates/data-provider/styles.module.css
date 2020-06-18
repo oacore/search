@@ -1,0 +1,8 @@
+.submit-section {
+  display: flex;
+  margin-top: 2rem;
+
+  & > *:not(:first-child) {
+    margin-left: 1rem;
+  }
+}

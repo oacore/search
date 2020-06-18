@@ -19,7 +19,7 @@
     "@sentry/browser": "^5.15.5",
     "@sentry/node": "^5.15.5",
     "core-js": "^3.6.5",
-    "next": "^9.4.1",
+    "next": "^9.4.4",
     "next-images": "^1.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
