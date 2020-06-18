@@ -5,6 +5,7 @@ import '@oacore/design/lib/index.css'
 
 import './global.css'
 
+import Layout from 'modules/layout'
 import { Sentry } from 'utils/sentry'
 
 process.on('unhandledRejection', (err) => {
@@ -54,7 +55,11 @@ class App extends NextApp {
   render() {
     const { Component, pageProps } = this.props
 
-    return <Component {...pageProps} />
+    return (
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    )
   }
 }
 

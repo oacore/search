@@ -1,0 +1,12 @@
+.layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  padding-top: 20%;
+  background: var(--gray-100);
+}
+
+.content {
+  width: 60%;
+}

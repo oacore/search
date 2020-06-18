@@ -50,11 +50,15 @@ const nextConfig = {
     //   use: ['source-map-loader'],
     //   enforce: 'pre',
     // })
-
     Object.assign(config.resolve.alias, {
       'config': path.join(__dirname, 'config.js'),
       'utils': path.join(__dirname, 'utils'),
+      'templates': path.join(__dirname, 'templates'),
+      'modules': path.join(__dirname, 'modules'),
       '@sentry/node': config.isServer ? '@sentry/node' : '@sentry/browser',
+
+      'react': path.join(__dirname, 'node_modules', 'react'),
+      'react-dom': path.join(__dirname, 'node_modules', 'react-dom'),
     })
 
     return config
