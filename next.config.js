@@ -55,6 +55,7 @@ const nextConfig = {
     Object.assign(config.resolve.alias, {
       'api': path.join(__dirname, 'api'),
       'main': path.join(__dirname, 'main'),
+      'hooks': path.join(__dirname, 'hooks'),
       'config': path.join(__dirname, 'config.js'),
       'store': path.join(__dirname, 'store'),
       'utils': path.join(__dirname, 'utils'),
