@@ -51,6 +51,7 @@ const nextConfig = {
     //   enforce: 'pre',
     // })
     Object.assign(config.resolve.alias, {
+      'api': path.join(__dirname, 'api'),
       'config': path.join(__dirname, 'config.js'),
       'utils': path.join(__dirname, 'utils'),
       'templates': path.join(__dirname, 'templates'),
