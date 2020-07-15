@@ -5,11 +5,13 @@ import styles from './styles.module.css'
 
 import RegistrationLayout from 'modules/registration-layout'
 
-const DataProviderPageTemplate = () => {
-  const handleChange = () => {}
+const DataProviderPageTemplate = ({ onSubmit, onChange }) => {
+  const handleChange = (event) => {
+    if (onChange) onChange(event)
+  }
   const handleSubmit = (event) => {
     event.preventDefault()
-    // API call here probably
+    if (onSubmit) onSubmit(event)
   }
 
   return (
