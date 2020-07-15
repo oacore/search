@@ -4,7 +4,7 @@ import { useStaticRendering, observer } from 'mobx-react-lite'
 import RootStore from './root'
 
 const isServer = typeof window === 'undefined'
-const GlobalContext = createContext({})
+export const GlobalContext = createContext({})
 let globalStore = null
 
 useStaticRendering(isServer)

@@ -5,33 +5,39 @@ import styles from './styles.module.css'
 
 import RegistrationLayout from 'modules/registration-layout'
 
-const DataProviderPageTemplate = ({ onSubmit, onChange }) => {
-  const handleChange = (event) => {
-    if (onChange) onChange(event)
-  }
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    if (onSubmit) onSubmit(event)
-  }
+const DataProviderPageTemplate = React.forwardRef(
+  (
+    { url, onSubmit, onUrlChange, helperMessage, variant, isFormValid = false },
+    ref
+  ) => {
+    const handleSubmit = (event) => {
+      event.preventDefault()
+      if (onSubmit) onSubmit(event)
+    }
 
-  return (
-    <RegistrationLayout>
-      <form onChange={handleChange} onSubmit={handleSubmit}>
-        <TextField
-          id="data-provider-url"
-          type="text"
-          name="dataProviderUrl"
-          label="Data provider URL"
-          helper="It can be any URL: homepage address, any data resource address, OAI-PMH endpoint or RIOXX endpoint"
-          placeholder="For example: oro.open.ac.uk"
-        />
-        <div className={styles.submitSection}>
-          <Button variant="contained" disabled>
-            Continue
-          </Button>
-        </div>
-      </form>
-    </RegistrationLayout>
-  )
-}
+    return (
+      <RegistrationLayout>
+        <form ref={ref} onSubmit={handleSubmit}>
+          <TextField
+            id="data-provider-url"
+            type="url"
+            name="dataProviderUrl"
+            label="Data provider URL"
+            helper={helperMessage}
+            placeholder="For example: oro.open.ac.uk"
+            value={url}
+            onChange={onUrlChange}
+            variant={variant}
+            required
+          />
+          <div className={styles.submitSection}>
+            <Button variant="contained" disabled={!isFormValid}>
+              Continue
+            </Button>
+          </div>
+        </form>
+      </RegistrationLayout>
+    )
+  }
+)
 export default DataProviderPageTemplate
