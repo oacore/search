@@ -45,13 +45,16 @@ const nextConfig = {
       }
     })
 
+    // TODO: Enable 3th party source maps once we use Sentry
     // config.module.rules.push({
     //   test: /\.js$/,
     //   use: ['source-map-loader'],
     //   enforce: 'pre',
     // })
+
     Object.assign(config.resolve.alias, {
       'api': path.join(__dirname, 'api'),
+      'main': path.join(__dirname, 'main'),
       'config': path.join(__dirname, 'config.js'),
       'utils': path.join(__dirname, 'utils'),
       'templates': path.join(__dirname, 'templates'),
