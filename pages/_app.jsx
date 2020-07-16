@@ -1,11 +1,11 @@
 import React from 'react'
 import NextApp from 'next/app'
 
-import '@oacore/design/lib/index.css'
-
-import './global.css'
-
+import Main from 'main'
 import { Sentry } from 'utils/sentry'
+
+import '@oacore/design/lib/index.css'
+import 'main/global.css'
 
 process.on('unhandledRejection', (err) => {
   Sentry.captureException(err)
@@ -54,7 +54,11 @@ class App extends NextApp {
   render() {
     const { Component, pageProps } = this.props
 
-    return <Component {...pageProps} />
+    return (
+      <Main>
+        <Component {...pageProps} />
+      </Main>
+    )
   }
 }
 

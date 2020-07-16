@@ -1,4 +1,4 @@
-import { useRedirect } from './_app/hooks'
+import { useRedirect } from 'main/hooks'
 
 const Index = () => {
   useRedirect('/data-providers/data-provider')
