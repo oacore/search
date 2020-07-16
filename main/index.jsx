@@ -5,7 +5,7 @@ import Head from './head'
 import { initStore, GlobalProvider } from 'store'
 
 const Main = ({ children }) => {
-  const store = useRef(initStore)
+  const store = useRef(initStore())
   // TODO: Create App Layout
   return (
     <GlobalProvider store={store.current}>
