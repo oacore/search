@@ -56,6 +56,7 @@ const nextConfig = {
       'api': path.join(__dirname, 'api'),
       'main': path.join(__dirname, 'main'),
       'config': path.join(__dirname, 'config.js'),
+      'store': path.join(__dirname, 'store'),
       'utils': path.join(__dirname, 'utils'),
       'templates': path.join(__dirname, 'templates'),
       'modules': path.join(__dirname, 'modules'),
