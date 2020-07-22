@@ -14,11 +14,13 @@ const useDataProviderController = () => {
 
   useDebouncedEffect(
     () => {
-      if (dataProvider.query === '') return
-      if (!formRef.current?.dataProviderUrl.checkValidity()) {
+      if (dataProvider.query === '' || !formRef.current) return
+
+      if (!formRef.current.dataProviderUrl.checkValidity()) {
         formRef.current.dataProviderUrl.reportValidity()
         return
       }
+
       dataProvider.retrieve()
     },
     [dataProvider.query],
@@ -45,16 +47,18 @@ const getHelperMessage = ({ query, created, duplicated, error }) => {
 
   if (created) {
     return {
-      message: `We found OAI-PMH endpoint at ${created.url}`,
+      message: `We found OAI-PMH endpoint at ${created.oaiPmhEndpoint}`,
       variant: 'success',
     }
   }
 
-  if (duplicated.length) {
+  if (duplicated) {
     return {
       message:
         `${query} ${
-          duplicated.length > 1 ? `and ${duplicated.length - 1} more are` : 'is'
+          duplicated.existingDataProviders?.length > 1
+            ? `and ${duplicated.existingDataProviders?.length - 1} more are`
+            : 'is'
         } already` +
         ' in our system. If you host more than one repository on the same domain,' +
         ' please specify exact OAI-PMH endpoint',
