@@ -89,11 +89,8 @@ const DataProviderPage = () => {
       }}
       isFormValid={dataProvider.created}
       onSubmit={handleSubmitForm}
-      helperMessage={
-        dataProvider.isLoading ? 'Loading (to be removed)' : message
-      }
-      variant={dataProvider.isLoading ? 'normal' : variant}
-      // TODO: Show loading icon in input addon
+      helperMessage={dataProvider.isLoading ? '' : message}
+      variant={dataProvider.isLoading ? 'progress' : variant}
       isLoading={dataProvider.isLoading}
     />
   )

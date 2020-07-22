@@ -28,6 +28,7 @@ const DataProviderPageTemplate = React.forwardRef(
             value={url}
             onChange={onUrlChange}
             variant={variant}
+            statusIcon
             required
           />
           <div className={styles.submitSection}>
