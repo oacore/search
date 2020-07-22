@@ -1,0 +1,23 @@
+.container {
+  --side-bar-width: 12rem;
+  --app-bar-skip: 3.5rem;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding-top: var(--app-bar-skip);
+  overflow-x: auto;
+  background: var(--gray-200);
+}
+
+.main {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.app-bar {
+  top: 0;
+  left: 0;
+}

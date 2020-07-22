@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextField, Button } from '@oacore/design'
+import { TextField, Button, Card } from '@oacore/design'
 
 import styles from './styles.module.css'
 
@@ -17,7 +17,8 @@ const DataProviderPageTemplate = React.forwardRef(
 
     return (
       <RegistrationLayout>
-        <form ref={ref} onSubmit={handleSubmit}>
+        <Card.Title>Register new data provider</Card.Title>
+        <form ref={ref} className={styles.form} onSubmit={handleSubmit}>
           <TextField
             id="data-provider-url"
             type="url"
