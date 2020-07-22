@@ -1,4 +1,8 @@
-import { computed, observable, action } from 'mobx'
+import { observable, action } from 'mobx'
+
+import invalidatePreviousRequests from '../utils/invalidatePreviousRequests'
+
+import apiRequest from 'api'
 
 class DataProvider {
   @observable query = ''
@@ -7,31 +11,32 @@ class DataProvider {
 
   @observable created = null
 
-  @observable duplicated = []
+  @observable duplicated = null
 
   @observable error = null
 
-  @computed
-  get isLoading() {
-    return this.request !== null
-  }
+  @observable isLoading = false
 
   @action
-  retrieve() {
-    if (this.query === '') return
-    this.reset()
-    clearTimeout(this.request)
-    this.request = setTimeout(() => {
-      if (this.query === 'https://success.url')
-        this.created = { url: this.query }
-      else if (this.query === 'https://duplicate.url')
-        this.duplicated = [{ url: this.query }]
-      else if (this.query === 'https://multiple-duplicates.url')
-        this.duplicated = [{ url: this.query }, { url: this.query }]
-      else this.error = true
-
-      this.request = null
-    }, 1000)
+  @invalidatePreviousRequests
+  async retrieve(signal) {
+    this.isLoading = true
+    try {
+      const { data } = await apiRequest('/data-providers', {
+        method: 'POST',
+        body: JSON.stringify({
+          uri: this.query,
+        }),
+        signal,
+      })
+      this.created = data
+    } catch (error) {
+      const { status, data } = error
+      if (status === 409) this.duplicated = data
+      else this.error = error
+    } finally {
+      this.isLoading = false
+    }
   }
 
   @action reset() {
