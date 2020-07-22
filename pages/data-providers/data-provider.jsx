@@ -71,9 +71,9 @@ const getHelperMessage = ({ query, created, duplicated, error }) => {
 }
 
 const DataProviderPage = () => {
+  const router = useRouter()
   const handleSubmitForm = () => {
-    // TODO: Handle next step. Show success message
-    // router.push('/next-step')
+    router.push('/data-providers/finalisation')
   }
 
   const [formRef, dataProvider] = useDataProviderController()
