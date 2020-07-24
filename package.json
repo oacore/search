@@ -14,6 +14,9 @@
   },
   "homepage": "https://github.com/oacore/search#readme",
   "dependencies": {
+    "@mdx-js/loader": "^1.6.14",
+    "@mdx-js/react": "^1.6.14",
+    "@next/mdx": "^9.4.4",
     "@oacore/design": "^0.3.4",
     "@oacore/stylelint-config-base": "^1.0.6",
     "@sentry/browser": "^5.15.5",
@@ -24,7 +27,8 @@
     "next": "^9.4.4",
     "next-images": "^1.4.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "remark-frontmatter": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

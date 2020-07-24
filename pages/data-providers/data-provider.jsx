@@ -4,6 +4,12 @@ import { useRouter } from 'next/router'
 import { withGlobalStore, GlobalContext } from 'store'
 import DataProviderPageTemplate from 'templates/data-provider'
 import useDebouncedEffect from 'hooks/use-debounced-effect'
+import {
+  DefaultHelperMessage,
+  NewDataProviderHelperMessage,
+  UnknownDataProviderHelperMessage,
+  DuplicatedDataProviderHelperMessage,
+} from 'texts/data-providers/helper-messages'
 
 // TODO: Pages should be just a thin layer of NextJS.
 //       Find a better place for it.
@@ -38,39 +44,37 @@ const useDataProviderController = () => {
 const getHelperMessage = ({ query, created, duplicated, error }) => {
   if (error) {
     return {
-      message:
-        'We could not find any OAI-PMH endpoint.' +
-        ' Please try it with another URL.',
-      variant: 'error',
+      message: <UnknownDataProviderHelperMessage />,
+      variant: UnknownDataProviderHelperMessage.variant,
     }
   }
 
   if (created) {
     return {
-      message: `We found OAI-PMH endpoint at ${created.oaiPmhEndpoint}`,
-      variant: 'success',
+      message: (
+        <NewDataProviderHelperMessage oaiPmhEndpoint={created.oaiPmhEndpoint} />
+      ),
+      variant: NewDataProviderHelperMessage.variant,
     }
   }
 
   if (duplicated) {
     return {
-      message:
-        `${query} ${
-          duplicated.existingDataProviders?.length > 1
-            ? `and ${duplicated.existingDataProviders?.length - 1} more are`
-            : 'is'
-        } already` +
-        ' in our system. If you host more than one repository on the same domain,' +
-        ' please specify exact OAI-PMH endpoint',
-      variant: 'error',
+      message: (
+        <DuplicatedDataProviderHelperMessage
+          query={query}
+          existingDataProvidersCount={
+            duplicated.existingDataProviders?.length || 0
+          }
+        />
+      ),
+      variant: DuplicatedDataProviderHelperMessage.variant,
     }
   }
 
   return {
-    message:
-      'It can be any URL: homepage address, any data resource address,' +
-      ' OAI-PMH endpoint or RIOXX endpoint',
-    variant: 'normal',
+    message: <DefaultHelperMessage />,
+    variant: DefaultHelperMessage.variant,
   }
 }
 
