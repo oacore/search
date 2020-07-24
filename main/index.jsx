@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { MDXProvider } from '@mdx-js/react'
 
 import Head from './head'
 
@@ -10,8 +11,10 @@ const Main = ({ children }) => {
 
   return (
     <GlobalProvider store={store.current}>
-      <Head />
-      <Layout>{children}</Layout>
+      <MDXProvider>
+        <Head />
+        <Layout>{children}</Layout>
+      </MDXProvider>
     </GlobalProvider>
   )
 }
