@@ -1,4 +1,10 @@
-import React, { useEffect, useContext, useRef } from 'react'
+import React, {
+  useEffect,
+  useContext,
+  useRef,
+  useState,
+  useCallback,
+} from 'react'
 import { useRouter } from 'next/router'
 
 import { withGlobalStore, GlobalContext } from 'store'
@@ -11,6 +17,11 @@ const useDataProviderController = () => {
   const formRef = useRef(null)
   const router = useRouter()
   const { dataProvider } = useContext(GlobalContext)
+
+  const resetDataProvider = useCallback(
+    () => dataProvider.reset({ query: true }),
+    []
+  )
 
   useDebouncedEffect(
     () => {
@@ -32,10 +43,10 @@ const useDataProviderController = () => {
       dataProvider.query = router.query?.dataProviderUrl
   }, [router.query?.dataProviderUrl])
 
-  return [formRef, dataProvider]
+  return [formRef, dataProvider, resetDataProvider]
 }
 
-const getHelperMessage = ({ query, created, duplicated, error }) => {
+const getHelperMessage = ({ created, duplicated, error }) => {
   if (error) {
     return {
       message:
@@ -55,9 +66,9 @@ const getHelperMessage = ({ query, created, duplicated, error }) => {
   if (duplicated) {
     return {
       message:
-        `${query} ${
-          duplicated.existingDataProviders?.length > 1
-            ? `and ${duplicated.existingDataProviders?.length - 1} more are`
+        `${duplicated.existingDataProviders[0].oaiPmhEndpoint} ${
+          duplicated.existingDataProviders.length > 1
+            ? `and ${duplicated.existingDataProviders.length - 1} more are`
             : 'is'
         } already` +
         ' in our system. If you host more than one repository on the same domain,' +
@@ -74,13 +85,38 @@ const getHelperMessage = ({ query, created, duplicated, error }) => {
   }
 }
 
-const DataProviderPage = () => {
+const DataProviderPage = ({ store }) => {
   const router = useRouter()
-  const handleSubmitForm = () => {
-    router.push('/data-providers/finalisation')
-  }
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+  const [formRef, dataProvider, resetDataProvider] = useDataProviderController()
 
-  const [formRef, dataProvider] = useDataProviderController()
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      if (url.startsWith('/data-providers')) {
+        const newUrl = new URL(url, window.location)
+        const urlParams = new URLSearchParams(newUrl.search)
+        if (urlParams.get('success') && store.dataProvider.created)
+          setShowSuccessMessage(true)
+        else {
+          setShowSuccessMessage(false)
+          resetDataProvider()
+        }
+      }
+    }
+
+    router.events.on('routeChangeStart', handleRouteChange)
+
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [])
+
+  const handleSubmitForm = () => {
+    router.push({
+      pathname: router.pathname,
+      query: { success: true },
+    })
+  }
 
   const { message, variant } = getHelperMessage(dataProvider)
 
@@ -96,6 +132,8 @@ const DataProviderPage = () => {
       helperMessage={dataProvider.isLoading ? '' : message}
       variant={dataProvider.isLoading ? 'progress' : variant}
       isLoading={dataProvider.isLoading}
+      showSuccessMessage={showSuccessMessage}
+      oaiPmhUrl={store.created?.oaiPmhUrl}
     />
   )
 }

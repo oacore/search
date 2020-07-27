@@ -20,6 +20,7 @@ class DataProvider {
   @action
   @invalidatePreviousRequests
   async retrieve(signal) {
+    this.reset()
     this.isLoading = true
     try {
       const { data } = await apiRequest('/data-providers', {
@@ -39,11 +40,12 @@ class DataProvider {
     }
   }
 
-  @action reset() {
+  @action reset({ query } = { query: false }) {
     this.request = null
     this.created = null
-    this.duplicated = []
+    this.duplicated = null
     this.error = null
+    if (query) this.query = ''
   }
 }
 
