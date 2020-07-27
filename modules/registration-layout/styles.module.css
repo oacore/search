@@ -1,5 +1,7 @@
 .layout {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 50rem;
   margin: 20% auto 0;
 }
