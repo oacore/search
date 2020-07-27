@@ -1,8 +1,3 @@
-import { useRedirect } from 'main/hooks'
-
-const Index = () => {
-  useRedirect('/data-providers/data-provider')
-  return null
-}
+const Index = () => null
 
 export default Index
