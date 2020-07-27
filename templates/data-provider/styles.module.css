@@ -10,3 +10,11 @@
 .form {
   margin-top: 2rem;
 }
+
+.message {
+  align-self: center;
+}
+
+.reset-button {
+  align-self: flex-start;
+}
