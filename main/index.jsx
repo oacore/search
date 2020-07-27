@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { MDXProvider } from '@mdx-js/react'
+import 'mobx-react-lite/batchingForReactDom'
 
 import Head from './head'
 
