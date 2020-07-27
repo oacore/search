@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import { MDXProvider } from '@mdx-js/react'
 import 'mobx-react-lite/batchingForReactDom'
 
 import Head from './head'
@@ -12,10 +11,8 @@ const Main = ({ children }) => {
 
   return (
     <GlobalProvider store={store.current}>
-      <MDXProvider>
-        <Head />
-        <Layout>{children}</Layout>
-      </MDXProvider>
+      <Head />
+      <Layout>{children}</Layout>
     </GlobalProvider>
   )
 }

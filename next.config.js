@@ -2,13 +2,6 @@ const path = require('path')
 
 const withImages = require('next-images')
 const withSourceMaps = require('@zeit/next-source-maps')
-const frontmatter = require('remark-frontmatter')
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [frontmatter],
-  },
-})
 
 const envConfig = require('./config')
 
@@ -66,7 +59,6 @@ const nextConfig = {
       'config': path.join(__dirname, 'config.js'),
       'store': path.join(__dirname, 'store'),
       'utils': path.join(__dirname, 'utils'),
-      'texts': path.join(__dirname, 'texts'),
       'templates': path.join(__dirname, 'templates'),
       'modules': path.join(__dirname, 'modules'),
       '@sentry/node': config.isServer ? '@sentry/node' : '@sentry/browser',
@@ -79,4 +71,4 @@ const nextConfig = {
   },
 }
 
-module.exports = withMDX(withSourceMaps(withImages(nextConfig)))
+module.exports = withSourceMaps(withImages(nextConfig))
