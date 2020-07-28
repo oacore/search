@@ -112,6 +112,9 @@ const DataProviderPage = ({ store }) => {
   }, [])
 
   const handleSubmitForm = () => {
+    // Form most likely submitted with enter in safari
+    if (!dataProvider.created) return
+
     router.push({
       pathname: router.pathname,
       query: { success: true },
