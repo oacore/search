@@ -1,3 +1,11 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 50rem;
+  margin: 20% auto 0;
+}
+
 .submit-section {
   display: flex;
   margin-top: 2rem;

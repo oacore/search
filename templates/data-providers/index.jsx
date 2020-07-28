@@ -4,8 +4,6 @@ import { TextField, Button, Card } from '@oacore/design'
 import styles from './styles.module.css'
 import SuccessMessage from './success-message'
 
-import RegistrationLayout from 'modules/registration-layout'
-
 const DataProviderPageTemplate = React.forwardRef(
   (
     {
@@ -26,7 +24,7 @@ const DataProviderPageTemplate = React.forwardRef(
     }
 
     return (
-      <RegistrationLayout>
+      <Card className={styles.layout}>
         {showSuccessMessage && <SuccessMessage oaiPmhUrl={oaiPmhUrl} />}
         {!showSuccessMessage && (
           <>
@@ -53,7 +51,7 @@ const DataProviderPageTemplate = React.forwardRef(
             </form>
           </>
         )}
-      </RegistrationLayout>
+      </Card>
     )
   }
 )
