@@ -8,7 +8,7 @@ import React, {
 import { useRouter } from 'next/router'
 
 import { withGlobalStore, GlobalContext } from 'store'
-import DataProviderPageTemplate from 'templates/data-provider'
+import DataProviderPageTemplate from 'templates/data-providers'
 import useDebouncedEffect from 'hooks/use-debounced-effect'
 
 // TODO: Pages should be just a thin layer of NextJS.
