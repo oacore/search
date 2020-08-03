@@ -6,6 +6,7 @@ import React, {
   useCallback,
 } from 'react'
 import { useRouter } from 'next/router'
+import { Link } from '@oacore/design'
 
 import { withGlobalStore, GlobalContext } from 'store'
 import DataProviderPageTemplate from 'templates/data-providers'
@@ -49,9 +50,16 @@ const useDataProviderController = () => {
 const getHelperMessage = ({ created, duplicated, error }) => {
   if (error) {
     return {
-      message:
-        'We could not find any OAI-PMH endpoint.' +
-        ' Please try it with another URL.',
+      message: (
+        <>
+          We could detect neither repository nor journal. Please, provide the
+          exact OAI-PMH endpoint URL. If you are having trouble contact us at{' '}
+          <Link href="mailto:thet&#101;&#97;m&#64;c&#111;re&#46;&#97;c&#46;&#117;k">
+            thet&#101;&#97;m&#64;c&#111;re&#46;&#97;c&#46;&#117;k
+          </Link>
+          .
+        </>
+      ),
       variant: 'error',
     }
   }
