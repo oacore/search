@@ -1,5 +1,4 @@
 .container {
-  --side-bar-width: 12rem;
   --app-bar-skip: 3.5rem;
 
   display: flex;
