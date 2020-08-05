@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import 'mobx-react-lite/batchingForReactDom'
 
 import Head from './head'
 
