@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  useContext,
-  useRef,
-  useState,
-  useCallback,
-} from 'react'
+import React, { useEffect, useContext, useRef, useCallback } from 'react'
 import { useRouter } from 'next/router'
 import { Link } from '@oacore/design'
 
@@ -109,39 +103,14 @@ const getHelperMessage = ({ created, duplicated, error }) => {
 }
 
 const DataProviderPage = ({ store }) => {
-  const router = useRouter()
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
   const [formRef, dataProvider, resetDataProvider] = useDataProviderController()
 
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      if (url.startsWith('/data-providers')) {
-        const newUrl = new URL(url, window.location)
-        const urlParams = new URLSearchParams(newUrl.search)
-        if (urlParams.get('success') && store.dataProvider.created)
-          setShowSuccessMessage(true)
-        else {
-          setShowSuccessMessage(false)
-          resetDataProvider()
-        }
-      }
-    }
-
-    router.events.on('routeChangeStart', handleRouteChange)
-
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange)
-    }
-  }, [])
-
   const handleSubmitForm = () => {
-    // Form most likely submitted with enter in safari
+    // Form most likely submitted by pressing Enter key in Safari
     if (!dataProvider.created) return
 
-    router.push({
-      pathname: router.pathname,
-      query: { success: true },
-    })
+    // Resetting the query string after adding the data provider
+    resetDataProvider()
   }
 
   const { message, variant } = getHelperMessage(dataProvider)
@@ -158,7 +127,6 @@ const DataProviderPage = ({ store }) => {
       helperMessage={dataProvider.isLoading ? '' : message}
       variant={dataProvider.isLoading ? 'progress' : variant}
       isLoading={dataProvider.isLoading}
-      showSuccessMessage={showSuccessMessage}
       oaiPmhUrl={store.created?.oaiPmhUrl}
     />
   )
