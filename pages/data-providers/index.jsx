@@ -50,8 +50,6 @@ const useDataProviderController = () => {
 const searchUrlFor = (id) =>
   `https://core.ac.uk/search?q=repositoroes.id:${id}}`
 
-const OAI_PMH_HELP_URL =
-  'https://kmi-ou.atlassian.net/wiki/spaces/KB/pages/4227093/What+is+an+OAI-PMH+endpoint'
 const SUPPORT_EMAIL_URL = 'mailto:t%68%65t%65am%40core%2e%61c%2eu%6b'
 const SUPPORT_EMAIL = decodeURIComponent(
   SUPPORT_EMAIL_URL.slice('mailto:'.length)
@@ -63,10 +61,7 @@ const getHelperMessage = ({ created, duplicated, error }) => {
       message: (
         <>
           We cannot detect a repository or a journal. Please, provide the exact
-          <Link href={OAI_PMH_HELP_URL} external>
-            OAI-PMH endpoint
-          </Link>
-          . If you are having trouble contact us at{' '}
+          OAI-PMH endpoint. If you are having trouble contact us at{' '}
           <Link href={SUPPORT_EMAIL_URL}>{SUPPORT_EMAIL}</Link>.
         </>
       ),
@@ -100,8 +95,7 @@ const getHelperMessage = ({ created, duplicated, error }) => {
               } more are our data providers`
             : 'is our data provider'}{' '}
           already. If you host multiple repositories/journals on the same domain
-          please specify exact{' '}
-          <Link href={OAI_PMH_HELP_URL}>OAI-PMH endpoint</Link> or contact us at{' '}
+          please specify exact OAI-PMH endpoint or contact us at{' '}
           <Link href={SUPPORT_EMAIL_URL} external>
             {SUPPORT_EMAIL}
           </Link>
@@ -113,14 +107,7 @@ const getHelperMessage = ({ created, duplicated, error }) => {
   }
 
   return {
-    message: (
-      <>
-        It can be any resource, home page or an{' '}
-        <Link href={OAI_PMH_HELP_URL} external>
-          OAI-PMH endpoint
-        </Link>
-      </>
-    ),
+    message: 'It can be any resource, home page or an OAI-PMH endpoint',
     variant: 'normal',
   }
 }
