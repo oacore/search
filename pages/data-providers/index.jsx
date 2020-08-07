@@ -47,17 +47,25 @@ const useDataProviderController = () => {
   return [formRef, dataProvider, resetDataProvider]
 }
 
+const searchUrlFor = (id) =>
+  `https://core.ac.uk/search?q=repositoroes.id:${id}}`
+
+const OAI_PMH_HELP_URL =
+  'https://kmi-ou.atlassian.net/wiki/spaces/KB/pages/4227093/What+is+an+OAI-PMH+endpoint'
+const SUPPORT_EMAIL_URL = 'mailto:t%68%65t%65am%40core%2e%61c%2eu%6b'
+const SUPPORT_EMAIL = 'thet&#101;&#97;m&#64;c&#111;re&#46;&#97;c&#46;&#117;k'
+
 const getHelperMessage = ({ created, duplicated, error }) => {
   if (error) {
     return {
       message: (
         <>
-          We could detect neither repository nor journal. Please, provide the
-          exact OAI-PMH endpoint URL. If you are having trouble contact us at{' '}
-          <Link href="mailto:thet&#101;&#97;m&#64;c&#111;re&#46;&#97;c&#46;&#117;k">
-            thet&#101;&#97;m&#64;c&#111;re&#46;&#97;c&#46;&#117;k
+          We cannot detect a repository or a journal. Please, provide the exact
+          <Link href={OAI_PMH_HELP_URL} external>
+            OAI-PMH endpoint
           </Link>
-          .
+          . If you are having trouble contact us at{' '}
+          <Link href={SUPPORT_EMAIL_URL}>{SUPPORT_EMAIL}</Link>.
         </>
       ),
       variant: 'error',
@@ -66,29 +74,51 @@ const getHelperMessage = ({ created, duplicated, error }) => {
 
   if (created) {
     return {
-      message: `We found OAI-PMH endpoint at ${created.oaiPmhEndpoint}`,
+      message: (
+        <>
+          We found {created.name} under the provided URL and added the data
+          provider successfully. We will start harvesting as soon as we approve
+          the adding.
+        </>
+      ),
       variant: 'success',
     }
   }
 
   if (duplicated) {
     return {
-      message:
-        `${duplicated.existingDataProviders[0].oaiPmhEndpoint} ${
-          duplicated.existingDataProviders.length > 1
-            ? `and ${duplicated.existingDataProviders.length - 1} more are`
-            : 'is'
-        } already` +
-        ' in our system. If you host more than one repository on the same domain,' +
-        ' please specify exact OAI-PMH endpoint',
+      message: (
+        <>
+          <a href={searchUrlFor(duplicated.existingDataProviders[0].id)}>
+            {duplicated.existingDataProviders[0].name}
+          </a>{' '}
+          {duplicated.existingDataProviders.length > 1
+            ? `and ${
+                duplicated.existingDataProviders.length - 1
+              } more are our data providers`
+            : 'is our data provider'}{' '}
+          already. If you host multiple repositories/journals on the same domain
+          please specify exact{' '}
+          <Link href={OAI_PMH_HELP_URL}>OAI-PMH endpoint</Link> or contact us at{' '}
+          <Link href={SUPPORT_EMAIL_URL} external>
+            {SUPPORT_EMAIL}
+          </Link>
+          .
+        </>
+      ),
       variant: 'error',
     }
   }
 
   return {
-    message:
-      'It can be any URL: homepage address, any data resource address,' +
-      ' OAI-PMH endpoint or RIOXX endpoint',
+    message: (
+      <>
+        It can be any resource, home page or an{' '}
+        <Link href={OAI_PMH_HELP_URL} external>
+          OAI-PMH endpoint
+        </Link>
+      </>
+    ),
     variant: 'normal',
   }
 }
