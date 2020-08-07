@@ -6,7 +6,7 @@
   min-height: 100%;
   padding-top: var(--app-bar-skip);
   overflow-x: auto;
-  background: var(--gray-200);
+  background: var(--white);
 }
 
 .main {
