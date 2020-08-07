@@ -53,7 +53,9 @@ const searchUrlFor = (id) =>
 const OAI_PMH_HELP_URL =
   'https://kmi-ou.atlassian.net/wiki/spaces/KB/pages/4227093/What+is+an+OAI-PMH+endpoint'
 const SUPPORT_EMAIL_URL = 'mailto:t%68%65t%65am%40core%2e%61c%2eu%6b'
-const SUPPORT_EMAIL = 'thet&#101;&#97;m&#64;c&#111;re&#46;&#97;c&#46;&#117;k'
+const SUPPORT_EMAIL = decodeURIComponent(
+  SUPPORT_EMAIL_URL.slice('mailto:'.length)
+)
 
 const getHelperMessage = ({ created, duplicated, error }) => {
   if (error) {
