@@ -1,0 +1,9 @@
+.item {
+  --app-bar-padding-y: 0.25rem;
+
+  flex: 1;
+}
+
+.search-area {
+  --search-grid-padding: calc(var(--app-bar-logo-width) + 1rem);
+}

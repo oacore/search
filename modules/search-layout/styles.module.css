@@ -3,9 +3,8 @@
 .container {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: calc(var(--search-results-percentage-width) * 100%) auto;
   grid-auto-rows: auto;
-  padding: 5rem;
 }
 
 .search-results {
@@ -43,7 +42,6 @@
 
 @media (--screen-until-desktop) {
   .container {
-    padding: 1rem;
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
   }

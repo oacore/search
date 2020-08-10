@@ -1,5 +1,10 @@
+@custom-media --screen-until-desktop (max-width: 727px);
+
 .container {
   --app-bar-skip: 3.5rem;
+  --app-bar-logo-width: 6rem;
+  --page-padding: calc(var(--app-bar-logo-width) + var(--app-bar-padding-x));
+  --search-results-percentage-width: calc(2 / 3);
 
   display: flex;
   flex-direction: column;
@@ -9,14 +14,28 @@
   background: var(--white);
 }
 
+@media (--screen-until-desktop) {
+  .container {
+    --page-padding: 1rem;
+  }
+}
+
 .main {
   position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;
+  padding: var(--page-padding);
 }
 
 .app-bar {
   top: 0;
   left: 0;
+}
+
+.app-bar .brand {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  width: var(--app-bar-logo-width);
+  white-space: nowrap;
 }
