@@ -3,7 +3,7 @@ import NextHead from 'next/head'
 
 const Head = () => (
   <NextHead>
-    <title>CORE Search</title>
+    <title>CORE – Aggregating the world’s open access research papers</title>
 
     {['64', '128', '256', '512'].map((size) => (
       <link
