@@ -1,10 +1,14 @@
 import React from 'react'
 import { Button } from '@oacore/design'
 
+import styles from './styles.module.css'
+import DataProvidersSelect from './search'
+
 import Search from 'modules/search-layout'
 
 const DataProvidersSearchTemplate = () => (
-  <Search>
+  <Search className={styles.searchArea}>
+    <DataProvidersSelect />
     <Search.ResultStats from={1} to={10} total={9934} />
     <Search.Results>
       <Search.Result>Result 1</Search.Result>
