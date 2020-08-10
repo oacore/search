@@ -3,6 +3,8 @@ import { TextField, Button, Card } from '@oacore/design'
 
 import styles from './styles.module.css'
 
+import Title from 'modules/title'
+
 const DataProviderPageTemplate = React.forwardRef(
   (
     { url, onSubmit, onUrlChange, helperMessage, variant, isFormValid = false },
@@ -15,7 +17,7 @@ const DataProviderPageTemplate = React.forwardRef(
 
     return (
       <Card className={styles.layout}>
-        <Card.Title>Register new data provider</Card.Title>
+        <Title tag={Card.Title}>Register new data provider</Title>
         <form ref={ref} className={styles.form} onSubmit={handleSubmit}>
           <TextField
             id="data-provider-url"
