@@ -6,7 +6,7 @@ const envConfig = require('./config')
 
 const nextConfig = {
   env: envConfig,
-
+  assetPrefix: process.env.BUILD_TARGET === 'aws' ? '/data-providers' : '',
   webpack(config) {
     const { rules } = config.module
 
