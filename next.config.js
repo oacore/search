@@ -3,10 +3,11 @@ const path = require('path')
 const withSourceMaps = require('@zeit/next-source-maps')
 
 const envConfig = require('./config')
+const helpers = require('./utils/helpers')
 
 const nextConfig = {
   env: envConfig,
-  assetPrefix: process.env.BUILD_TARGET === 'aws' ? '/data-providers' : '',
+  assetPrefix: helpers.getAssetsPath(),
   webpack(config) {
     const { rules } = config.module
 
