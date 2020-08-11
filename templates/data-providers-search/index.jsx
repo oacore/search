@@ -3,6 +3,7 @@ import { Button } from '@oacore/design'
 
 import styles from './styles.module.css'
 import DataProvidersSelect from './search'
+import ResultCard from './result-card'
 
 import Search from 'modules/search-layout'
 
@@ -11,10 +12,36 @@ const DataProvidersSearchTemplate = () => (
     <DataProvidersSelect />
     <Search.ResultStats from={1} to={10} total={9934} />
     <Search.Results>
-      <Search.Result>Result 1</Search.Result>
-      <Search.Result>Result 2</Search.Result>
-      <Search.Result>Result 3</Search.Result>
-      <Search.Result>Result 4</Search.Result>
+      <ResultCard
+        repoId={1}
+        title="Aberdeen University Research Archive"
+        homePage="aura.abdn.ac.uk"
+        country="United Kingdom"
+      />
+      <ResultCard
+        repoId={1}
+        title="Aberdeen University Research Archive"
+        homePage="aura.abdn.ac.uk"
+        country="United Kingdom"
+      />
+      <ResultCard
+        repoId={1}
+        title="Aberdeen University Research Archive"
+        homePage="aura.abdn.ac.uk"
+        country="United Kingdom"
+      />
+      <ResultCard
+        repoId={1}
+        title="Aberdeen University Research Archive"
+        homePage="aura.abdn.ac.uk"
+        country="United Kingdom"
+      />
+      <ResultCard
+        repoId={1}
+        title="Aberdeen University Research Archive"
+        homePage="aura.abdn.ac.uk"
+        country="United Kingdom"
+      />
     </Search.Results>
     <Search.Content>
       <p>
