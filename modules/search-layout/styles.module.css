@@ -21,7 +21,6 @@
 }
 
 .result {
-  height: 10rem;
   grid-column: 1;
   background: transparent;
   border: 1px solid var(--gray-200);
