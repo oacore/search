@@ -14,8 +14,8 @@ const config = {
   },
 
   output: {
-    path: path.join(__dirname, 'public/design'),
-    publicPath: process.env.ICONS_PUBLIC_PATH || '/design',
+    path: path.join(__dirname, 'public/static/design'),
+    publicPath: process.env.ICONS_PUBLIC_PATH || '/static/design',
     icons: {
       files: 'icons',
       sprite: 'icons.svg',
