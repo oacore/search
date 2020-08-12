@@ -43,3 +43,8 @@
 .result-metadata li:first-child {
   list-style: none;
 }
+
+.load-more {
+  margin-top: 1rem;
+  border: 1px dashed var(--gray-200);
+}

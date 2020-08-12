@@ -39,6 +39,12 @@
   align-self: start;
 }
 
+.footer {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
 @media (--screen-until-desktop) {
   .container {
     grid-template-columns: 1fr;
