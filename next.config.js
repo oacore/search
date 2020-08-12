@@ -7,7 +7,7 @@ const helpers = require('./utils/helpers')
 
 const nextConfig = {
   env: envConfig,
-  assetPrefix: helpers.getAssetsPath(),
+  assetPrefix: helpers.getAssetsPath(''),
   webpack(config) {
     const { rules } = config.module
 
