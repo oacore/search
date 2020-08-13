@@ -4,3 +4,11 @@ body,
 #__next {
   height: 100%;
 }
+
+.leaflet-popup {
+  margin-bottom: 20px;
+}
+
+.leaflet-popup-content {
+  margin: 13px 19px;
+}

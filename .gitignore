@@ -3,5 +3,4 @@
 dist
 build
 node_modules
-public/design
-public/icons.svg
+public/static/design

@@ -19,6 +19,8 @@
     "@sentry/browser": "^5.20.1",
     "@sentry/node": "^5.20.1",
     "core-js": "^3.6.5",
+    "leaflet": "^1.6.0",
+    "leaflet.markercluster": "^1.4.1",
     "mobx": "^5.15.4",
     "mobx-react-lite": "^2.0.7",
     "next": "^9.5.1",
