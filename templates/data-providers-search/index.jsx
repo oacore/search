@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import { Button } from '@oacore/design'
 
 import styles from './styles.module.css'
@@ -59,35 +59,50 @@ const SearchResults = ({
   )
 }
 
-const DataProvidersSearchTemplate = ({ dataProviders }) => {
-  const [query, setQuery] = useState('')
-  const [dataProvidersOffset, setDataProvidersOffset] = useState(10)
+const DataProvidersSearchTemplate = ({
+  dataProviders,
+  queryParam,
+  dataProvidersOffsetParam,
+  setUrlParams,
+}) => {
+  const [query, setQuery] = useState(queryParam || '')
+  const [dataProvidersOffset, setDataProvidersOffset] = useState(
+    dataProvidersOffsetParam || 10
+  )
   const dataProvidersSearch = useMemo(
     () => normalizeDataProviders(dataProviders),
     [dataProviders]
   )
-  const [results, setResults] = useState(dataProvidersSearch.slice(0, 10))
+  const searchDataProviders = useCallback(
+    (searchTerm) =>
+      dataProvidersSearch.filter(
+        (el) =>
+          el.name?.toLowerCase().search(searchTerm.toLowerCase()) !== -1 ||
+          el.normalizedName.toLowerCase().search(searchTerm.toLowerCase()) !==
+            -1
+      ),
+    [dataProvidersSearch]
+  )
+  const [results, setResults] = useState(
+    searchDataProviders(query).slice(0, 10)
+  )
 
   useEffect(() => {
     setDataProvidersOffset(10)
-
     if (query === '') setResults(normalizeDataProviders(dataProviders))
-    else {
-      setResults(
-        dataProvidersSearch.filter(
-          (el) =>
-            el.name?.toLowerCase().search(query) !== -1 ||
-            el.normalizedName.toLowerCase().search(query) !== -1
-        )
-      )
-    }
+    else setResults(searchDataProviders(query))
   }, [query])
+
+  useEffect(() => {
+    setUrlParams({ query, size: dataProvidersOffset })
+  }, [query, dataProvidersOffset])
 
   return (
     <>
       <DataProvidersSelect
         onQueryChanged={setQuery}
-        dataProvidersSearch={dataProvidersSearch}
+        searchDataProviders={searchDataProviders}
+        initQuery={query}
       />
       <Search className={styles.searchArea}>
         {Boolean(results.length) && (
