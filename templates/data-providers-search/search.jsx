@@ -6,21 +6,17 @@ import styles from './styles.module.css'
 import AppBarItem from 'modules/app-bar-item'
 import Select from 'modules/app-bar-select'
 
-const DataProvidersSelect = ({ dataProvidersSearch, onQueryChanged }) => {
+const DataProvidersSelect = ({
+  initQuery,
+  searchDataProviders,
+  onQueryChanged,
+}) => {
   const [suggestions, setSuggestions] = React.useState([])
-  const [value, setValue] = React.useState('')
+  const [value, setValue] = React.useState(initQuery || '')
 
   const search = useCallback(
     throttle(500, false, (searchTerm) => {
-      setSuggestions(
-        dataProvidersSearch
-          .filter(
-            (el) =>
-              el.name?.search(searchTerm) !== -1 ||
-              el.normalizedName.search(searchTerm) !== -1
-          )
-          .slice(0, 10)
-      )
+      setSuggestions(searchDataProviders(searchTerm).slice(0, 10))
     }),
     []
   )
