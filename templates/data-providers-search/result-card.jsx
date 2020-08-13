@@ -27,7 +27,7 @@ const ResultCard = ({
 
     <ul className={styles.resultMetadata}>
       <li>
-        <Link href={homePage} external>
+        <Link href={homePage} external icon={false}>
           {homePage}
         </Link>
       </li>
