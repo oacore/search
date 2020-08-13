@@ -6,6 +6,7 @@ import DataProvidersSelect from './search'
 import ResultCard from './result-card'
 
 import Search from 'modules/search-layout'
+import RepositoriesMap from 'modules/repositories-map'
 
 // TODO: Fuzzy search via Fuse.js would be better but it's too slow for that
 //       amount of data providers. We should consider migrating to backend
@@ -83,9 +84,7 @@ const DataProvidersSearchTemplate = ({
       ),
     [dataProvidersSearch]
   )
-  const [results, setResults] = useState(
-    searchDataProviders(query).slice(0, 10)
-  )
+  const [results, setResults] = useState(searchDataProviders(query))
 
   useEffect(() => {
     setDataProvidersOffset(10)
@@ -119,6 +118,7 @@ const DataProvidersSearchTemplate = ({
         />
 
         <Search.Content>
+          <RepositoriesMap dataProviders={results} />
           <p>
             We aggregate research papers from data providers all over the world
             including institutional and subject repositories and journal

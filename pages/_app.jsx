@@ -4,6 +4,11 @@ import NextApp from 'next/app'
 import Main from 'main'
 import { Sentry } from 'utils/sentry'
 
+// TODO: Move to map component once
+//       https://github.com/vercel/next.js/issues/12079 is solved
+import 'leaflet/dist/leaflet.css'
+import 'leaflet.markercluster/dist/MarkerCluster.css'
+import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import '@oacore/design/lib/index.css'
 import 'main/global.css'
 
