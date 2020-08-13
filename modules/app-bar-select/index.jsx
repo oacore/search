@@ -6,7 +6,7 @@ import styles from './styles.module.css'
 
 const Select = ({ children, className, ...passProps }) => (
   <UISelect
-    className={classNames.use(styles.select, className).toString()}
+    className={classNames.use(styles.select).join(className)}
     {...passProps}
   >
     {children}
