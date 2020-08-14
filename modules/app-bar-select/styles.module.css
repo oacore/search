@@ -7,7 +7,6 @@
   --form-control-padding-y: 0.5rem;
   --form-control-color: var(--gray-700);
 
-  min-width: 20rem;
   max-width: calc(
     (100vw - 2 * var(--page-padding)) * var(--search-results-percentage-width)
   );
@@ -43,6 +42,10 @@
 @media (--screen-until-desktop) {
   .select {
     max-width: 100%;
+  }
+
+  .select input {
+    min-width: 0;
   }
 
   .select:focus-within {
