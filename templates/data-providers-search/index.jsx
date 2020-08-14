@@ -118,7 +118,11 @@ const DataProvidersSearchTemplate = ({
         />
 
         <Search.Content>
-          <RepositoriesMap dataProviders={results} />
+          <RepositoriesMap
+            dataProviders={
+              query === '' ? results : results.slice(0, dataProvidersOffset)
+            }
+          />
           <p>
             We aggregate research papers from data providers all over the world
             including institutional and subject repositories and journal
