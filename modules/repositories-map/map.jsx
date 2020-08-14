@@ -6,6 +6,9 @@ import styles from './styles.module.css'
 
 import { getAssetsPath } from 'utils/helpers'
 
+// somewhere in the middle of North Atlantic ocean
+const centerPosition = new L.LatLng(26.523257520856546, -43.10211013159716)
+
 const markerIcon = L.icon({
   iconUrl: getAssetsPath('/static/map/marker.svg'),
   iconSize: [32, 32],
@@ -27,11 +30,10 @@ const CustomMap = ({ dataProviders }) => {
         maxZoom: 12,
       }
     )
-    const centerPosition = new L.LatLng(52.04, 0.76) // Milton Keynes position
 
     map.current = L.map(mapContainerRef.current, {
       center: centerPosition,
-      zoom: 3,
+      zoom: 2,
       maxBounds: [
         [-90, -180],
         [90, 180],
