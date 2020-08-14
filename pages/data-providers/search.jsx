@@ -1,5 +1,6 @@
 import React, { useCallback, useState, useMemo, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 import DataProvidersSearchTemplate from 'templates/data-providers-search'
 import apiRequest from 'api'
@@ -17,6 +18,48 @@ const normalizeDataProviders = (dataProviders) =>
       ...el,
       normalizedName: normalize(el.name || ''),
     }))
+
+const generateMetadata = (results) =>
+  JSON.stringify({
+    '@context': 'http://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'item': {
+              '@id': 'https://core.ac.uk',
+              'name': 'CORE',
+            },
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'item': {
+              '@id': `https://core.ac.uk/data-providers/search`,
+              'name': 'Data providers search',
+            },
+          },
+        ],
+      },
+      {
+        '@type': 'SearchResultsPage',
+        'mainEntity': {
+          '@type': 'ItemList',
+          'itemListElement': results.map((el, index) => ({
+            '@type': 'ListItem',
+            'position': index,
+            'item': {
+              '@id': `https://core.ac.uk/search?q=repositories.id:(${el.id})`,
+              'name': el.name,
+            },
+          })),
+        },
+      },
+    ],
+  })
 
 export async function getServerSideProps({ query }) {
   const { data } = await apiRequest('/repositories/formap')
@@ -71,15 +114,32 @@ const SearchPage = ({ dataProviders, params: { query: queryParam, size } }) => {
   }, [query, dataProvidersOffset])
 
   return (
-    <DataProvidersSearchTemplate
-      query={query}
-      setQuery={setQuery}
-      dataProviders={dataProviders}
-      dataProvidersOffset={dataProvidersOffset}
-      results={results}
-      searchDataProviders={searchDataProviders}
-      setDataProvidersOffset={setDataProvidersOffset}
-    />
+    <>
+      <Head>
+        <title>{query ? `${query} - ` : ''}Data providers search</title>
+        <meta
+          name="description"
+          content={`Search over ${dataProviders.length} repositories and journals around the world`}
+        />
+        {/* eslint-disable react/no-danger */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: generateMetadata(results.slice(0, dataProvidersOffset)),
+          }}
+        />
+        {/* eslint-enable react/no-danger */}
+      </Head>
+      <DataProvidersSearchTemplate
+        query={query}
+        setQuery={setQuery}
+        dataProviders={dataProviders}
+        dataProvidersOffset={dataProvidersOffset}
+        results={results}
+        searchDataProviders={searchDataProviders}
+        setDataProvidersOffset={setDataProvidersOffset}
+      />
+    </>
   )
 }
 
