@@ -1,4 +1,11 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react'
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useRef,
+  useLayoutEffect,
+} from 'react'
 import { Button } from '@oacore/design'
 
 import styles from './styles.module.css'
@@ -7,6 +14,9 @@ import ResultCard from './result-card'
 
 import Search from 'modules/search-layout'
 import RepositoriesMap from 'modules/repositories-map'
+
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 // TODO: Fuzzy search via Fuse.js would be better but it's too slow for that
 //       amount of data providers. We should consider migrating to backend
@@ -27,6 +37,11 @@ const SearchResults = ({
   dataProvidersOffset,
   setDataProvidersOffset,
 }) => {
+  const scrollPosition = useRef(0)
+  useIsomorphicLayoutEffect(() => {
+    window.scroll(0, scrollPosition.current)
+  }, [dataProvidersOffset])
+
   if (!results.length) {
     return (
       <Search.Results>
@@ -50,7 +65,10 @@ const SearchResults = ({
       ))}
       {dataProvidersOffset < results.length && (
         <Button
-          onClick={() => setDataProvidersOffset(dataProvidersOffset + 10)}
+          onClick={() => {
+            scrollPosition.current = window.scrollY
+            setDataProvidersOffset(dataProvidersOffset + 10)
+          }}
           className={styles.loadMore}
         >
           Load more
@@ -60,87 +78,85 @@ const SearchResults = ({
   )
 }
 
-const DataProvidersSearchTemplate = ({
-  dataProviders,
-  queryParam,
-  dataProvidersOffsetParam,
-  setUrlParams,
-}) => {
-  const [query, setQuery] = useState(queryParam || '')
-  const [dataProvidersOffset, setDataProvidersOffset] = useState(
-    dataProvidersOffsetParam || 10
-  )
-  const dataProvidersSearch = useMemo(
-    () => normalizeDataProviders(dataProviders),
-    [dataProviders]
-  )
-  const searchDataProviders = useCallback(
-    (searchTerm) =>
-      dataProvidersSearch.filter(
-        (el) =>
-          el.name?.toLowerCase().search(searchTerm.toLowerCase()) !== -1 ||
-          el.normalizedName.toLowerCase().search(searchTerm.toLowerCase()) !==
-            -1
-      ),
-    [dataProvidersSearch]
-  )
-  const [results, setResults] = useState(searchDataProviders(query))
+const DataProvidersSearchTemplate = React.memo(
+  ({ dataProviders, queryParam, dataProvidersOffsetParam, setUrlParams }) => {
+    const [query, setQuery] = useState(queryParam || '')
+    const [dataProvidersOffset, setDataProvidersOffset] = useState(
+      dataProvidersOffsetParam || 10
+    )
+    const dataProvidersSearch = useMemo(
+      () => normalizeDataProviders(dataProviders),
+      [dataProviders]
+    )
+    const searchDataProviders = useCallback(
+      (searchTerm) =>
+        dataProvidersSearch.filter(
+          (el) =>
+            el.name?.toLowerCase().search(searchTerm.toLowerCase()) !== -1 ||
+            el.normalizedName.toLowerCase().search(searchTerm.toLowerCase()) !==
+              -1
+        ),
+      [dataProvidersSearch]
+    )
+    const [results, setResults] = useState(searchDataProviders(query))
 
-  useEffect(() => {
-    setDataProvidersOffset(10)
-    if (query === '') setResults(normalizeDataProviders(dataProviders))
-    else setResults(searchDataProviders(query))
-  }, [query])
+    useEffect(() => {
+      setDataProvidersOffset(10)
+      if (query === '') setResults(normalizeDataProviders(dataProviders))
+      else setResults(searchDataProviders(query))
+    }, [query])
 
-  useEffect(() => {
-    setUrlParams({ query, size: dataProvidersOffset })
-  }, [query, dataProvidersOffset])
+    useEffect(() => {
+      setUrlParams({ query, size: dataProvidersOffset })
+    }, [query, dataProvidersOffset])
 
-  return (
-    <>
-      <DataProvidersSelect
-        onQueryChanged={setQuery}
-        searchDataProviders={searchDataProviders}
-        initQuery={query}
-      />
-      <Search className={styles.searchArea}>
-        {Boolean(results.length) && (
-          <Search.ResultStats
-            from={1}
-            to={Math.min(dataProvidersOffset, results.length)}
-            total={results.length}
-          />
-        )}
-        <SearchResults
-          dataProvidersOffset={dataProvidersOffset}
-          results={results}
-          setDataProvidersOffset={setDataProvidersOffset}
+    return (
+      <>
+        <DataProvidersSelect
+          onQueryChanged={setQuery}
+          searchDataProviders={searchDataProviders}
+          initQuery={query}
         />
-
-        <Search.Content>
-          <RepositoriesMap
-            dataProviders={
-              query === '' ? results : results.slice(0, dataProvidersOffset)
-            }
+        <Search className={styles.searchArea}>
+          {Boolean(results.length) && (
+            <Search.ResultStats
+              from={1}
+              to={Math.min(dataProvidersOffset, results.length)}
+              total={results.length}
+            />
+          )}
+          <SearchResults
+            dataProvidersOffset={dataProvidersOffset}
+            results={results}
+            setDataProvidersOffset={setDataProvidersOffset}
           />
-          <p>
-            We aggregate research papers from data providers all over the world
-            including institutional and subject repositories and journal
-            publishers. This process, which is also called harvesting, allows us
-            to offer search, text mining and analytical capabilities over not
-            only metadata, but also the full text of the research papers making
-            CORE a unique service in the research community. Our dataset
-            currently contains 182,918,912 open access articles, from over tons
-            of thousands journals, collected from over {dataProviders.length}{' '}
-            repositories and journals around the world.
-          </p>
-          <Button variant="outlined">Become data provider</Button>
-        </Search.Content>
-        <Search.Footer>
-          <Button variant="contained">Add data provider</Button>
-        </Search.Footer>
-      </Search>
-    </>
-  )
-}
+
+          <Search.Content>
+            <RepositoriesMap
+              dataProviders={
+                query === '' ? results : results.slice(0, dataProvidersOffset)
+              }
+            />
+            <p>
+              We aggregate research papers from data providers all over the
+              world including institutional and subject repositories and journal
+              publishers. This process, which is also called harvesting, allows
+              us to offer search, text mining and analytical capabilities over
+              not only metadata, but also the full text of the research papers
+              making CORE a unique service in the research community. Our
+              dataset currently contains 182,918,912 open access articles, from
+              over tons of thousands journals, collected from over{' '}
+              {dataProviders.length} repositories and journals around the world.
+            </p>
+            <Button variant="outlined">Become data provider</Button>
+          </Search.Content>
+          <Search.Footer>
+            <Button variant="contained">Add data provider</Button>
+          </Search.Footer>
+        </Search>
+      </>
+    )
+  }
+)
+
 export default DataProvidersSearchTemplate
