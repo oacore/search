@@ -53,7 +53,7 @@ const SearchResults = ({
           onClick={() => setDataProvidersOffset(dataProvidersOffset + 10)}
           className={styles.loadMore}
         >
-          Load more data providers
+          Load more
         </Button>
       )}
     </Search.Results>
