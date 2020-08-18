@@ -48,10 +48,10 @@ const SUPPORT_EMAIL = decodeURIComponent(
   SUPPORT_EMAIL_URL.slice('mailto:'.length)
 )
 
-const getHelperMessage = ({ created, duplicated, error }) => {
+const getMessage = ({ created, duplicated, error }) => {
   if (error) {
     return {
-      message: (
+      helper: (
         <>
           We cannot detect a repository or a journal at this address. Please,
           provide the exact OAI-PMH endpoint. If you are having trouble contact
@@ -64,11 +64,18 @@ const getHelperMessage = ({ created, duplicated, error }) => {
 
   if (created) {
     return {
-      message: (
+      helper: (
         <>
-          We found {created.name} under the provided address and added it to our
-          data provider collection. We will start harvesting as soon as we are
-          able to approve it.
+          We found {created.name} under the entered address and added it to our
+          data provider collection. As soon as we approve adding, we will start
+          harvesting and sent a confirmation email to{' '}
+          <Link
+            href={`mailto:${created.email}`}
+            title="the administrator email address"
+          >
+            {created.email}
+          </Link>
+          .
         </>
       ),
       variant: 'success',
@@ -77,7 +84,7 @@ const getHelperMessage = ({ created, duplicated, error }) => {
 
   if (duplicated) {
     return {
-      message: (
+      helper: (
         <>
           <a href={searchUrlFor(duplicated.existingDataProviders[0].id)}>
             {duplicated.existingDataProviders[0].name}
@@ -97,12 +104,12 @@ const getHelperMessage = ({ created, duplicated, error }) => {
   }
 
   return {
-    message: 'It can be any resource, home page or an OAI-PMH endpoint',
+    helper: 'It can be any resource, home page or an OAI-PMH endpoint',
     variant: 'normal',
   }
 }
 
-const DataProviderPage = ({ store }) => {
+const DataProviderPage = () => {
   const [formRef, dataProvider, resetDataProvider] = useDataProviderController()
 
   const handleSubmitForm = () => {
@@ -113,7 +120,7 @@ const DataProviderPage = ({ store }) => {
     resetDataProvider()
   }
 
-  const { message, variant } = getHelperMessage(dataProvider)
+  const message = getMessage(dataProvider)
 
   return (
     <DataProviderPageTemplate
@@ -124,10 +131,8 @@ const DataProviderPage = ({ store }) => {
       }}
       isFormValid={dataProvider.created}
       onSubmit={handleSubmitForm}
-      helperMessage={dataProvider.isLoading ? '' : message}
-      variant={dataProvider.isLoading ? 'progress' : variant}
+      message={dataProvider.isLoading ? { variant: 'progress' } : message}
       isLoading={dataProvider.isLoading}
-      oaiPmhUrl={store.created?.oaiPmhUrl}
     />
   )
 }

@@ -6,10 +6,7 @@ import styles from './styles.module.css'
 import Title from 'modules/title'
 
 const DataProviderPageTemplate = React.forwardRef(
-  (
-    { url, onSubmit, onUrlChange, helperMessage, variant, isFormValid = false },
-    ref
-  ) => {
+  ({ url, onSubmit, onUrlChange, message, isFormValid = false }, ref) => {
     const handleSubmit = (event) => {
       event.preventDefault()
       if (onSubmit) onSubmit(event)
@@ -24,17 +21,22 @@ const DataProviderPageTemplate = React.forwardRef(
             type="url"
             name="dataProviderUrl"
             label="Data provider URL"
-            helper={helperMessage}
+            helper={message.helper}
             placeholder="For example, https://oro.open.ac.uk"
             value={url}
             onChange={onUrlChange}
-            variant={variant}
+            variant={message.variant}
             statusIcon
             required
           />
           <div className={styles.submitSection}>
-            <Button variant="contained" disabled={!isFormValid}>
-              Done
+            <Button
+              title={message?.finishButtonTitle}
+              type="submit"
+              variant="contained"
+              disabled={!isFormValid}
+            >
+              Finish
             </Button>
           </div>
         </form>
