@@ -17,6 +17,9 @@ module.exports = {
         },
       ],
     },
+    'postcss-custom-media': {
+      importFrom: 'main/media-queries.css',
+    },
     'postcss-extend': {},
   },
 }

@@ -1,5 +1,3 @@
-@custom-media --screen-until-desktop (max-width: 727px);
-
 .container {
   --app-bar-skip: 3.5rem;
   --app-bar-logo-width: 6rem;

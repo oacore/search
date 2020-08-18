@@ -1,5 +1,3 @@
-@custom-media --screen-until-desktop (max-width: 727px);
-
 .select {
   --select-background: var(--gray-200);
   --select-focused-background: var(--white);
