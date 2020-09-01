@@ -16,7 +16,7 @@
   "dependencies": {
     "@oacore/design": "^0.3.4",
     "@oacore/stylelint-config-base": "^1.0.6",
-    "@sentry/browser": "^5.20.1",
+    "@sentry/browser": "^5.22.3",
     "@sentry/node": "^5.20.1",
     "core-js": "^3.6.5",
     "mobx": "^5.15.4",
