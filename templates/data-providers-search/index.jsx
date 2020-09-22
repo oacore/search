@@ -15,6 +15,7 @@ const SearchResults = ({
   results,
   dataProvidersOffset,
   setDataProvidersOffset,
+  children,
 }) => {
   const scrollPosition = useRef(0)
   useIsomorphicLayoutEffect(() => {
@@ -27,6 +28,7 @@ const SearchResults = ({
         <Search.Result>
           <b>No results found</b>
         </Search.Result>
+        {children}
       </Search.Results>
     )
   }
@@ -53,6 +55,7 @@ const SearchResults = ({
           Load more
         </Button>
       )}
+      {children}
     </Search.Results>
   )
 }
@@ -85,7 +88,11 @@ const DataProvidersSearchTemplate = React.memo(
           dataProvidersOffset={dataProvidersOffset}
           results={results}
           setDataProvidersOffset={setDataProvidersOffset}
-        />
+        >
+          <Button variant="contained" className={styles.addDataProviderButton}>
+            Add data provider
+          </Button>
+        </SearchResults>
 
         <Search.Content>
           <RepositoriesMap
@@ -106,9 +113,6 @@ const DataProvidersSearchTemplate = React.memo(
           </p>
           <Button variant="outlined">Become data provider</Button>
         </Search.Content>
-        <Search.Footer>
-          <Button variant="contained">Add data provider</Button>
-        </Search.Footer>
       </Search>
     </>
   )

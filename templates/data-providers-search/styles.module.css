@@ -48,3 +48,9 @@
   margin-top: 1rem;
   border: 1px dashed var(--gray-200);
 }
+
+.add-data-provider-button {
+  align-self: flex-start;
+  width: max-content;
+  margin-top: 2rem;
+}
