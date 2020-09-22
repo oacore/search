@@ -6,7 +6,7 @@
   --form-control-color: var(--gray-700);
 
   max-width: calc(
-    (100vw - 2 * var(--page-padding)) * var(--search-results-percentage-width)
+    (100vw - 2 * var(--page-padding-x)) * var(--search-results-percentage-width)
   );
 
   padding: calc(0.25rem - 1px) 0.25rem 0.25rem;
@@ -50,6 +50,6 @@
     position: absolute;
     right: 1rem;
     left: 1rem;
-    max-width: calc(100vw - var(--page-padding));
+    max-width: calc(100vw - var(--page-padding-x));
   }
 }
