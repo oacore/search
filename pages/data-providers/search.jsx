@@ -65,7 +65,10 @@ export async function getServerSideProps({ query }) {
   const { data } = await apiRequest('/repositories/formap')
   return {
     props: {
-      dataProviders: data,
+      dataProviders:
+        // TODO: Remove once https://github.com/vercel/next.js/issues/16122 is solved
+        //       or once we migrate to backend search
+        process.env.NODE_ENV === 'production' ? data : data.slice(0, 200),
       params: query,
     },
   }
