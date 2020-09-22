@@ -89,7 +89,12 @@ const DataProvidersSearchTemplate = React.memo(
           results={results}
           setDataProvidersOffset={setDataProvidersOffset}
         >
-          <Button variant="contained" className={styles.addDataProviderButton}>
+          <Button
+            tag="a"
+            href="//core.ac.uk/data-providers"
+            variant="contained"
+            className={styles.addDataProviderButton}
+          >
             Add data provider
           </Button>
         </SearchResults>
