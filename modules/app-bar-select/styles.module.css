@@ -48,7 +48,9 @@
 
   .select:focus-within {
     position: absolute;
+    top: var(--app-bar-padding-y);
     right: 1rem;
+    bottom: 0;
     left: 1rem;
     max-width: calc(100vw - var(--page-padding-x));
   }
