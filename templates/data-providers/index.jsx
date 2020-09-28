@@ -6,6 +6,7 @@ import DataProvidersSelect from './search'
 import ResultCard from './result-card'
 import AddDataProviderForm from './form'
 
+import { formatNumber } from 'utils/format-number'
 import Search from 'modules/search-layout'
 import RepositoriesMap from 'modules/repositories-map'
 
@@ -73,6 +74,7 @@ const DataProvidersSearchTemplate = React.memo(
     setShowForm,
     showAddDataProviderForm,
     formRef,
+    totalArticlesCount,
     ...formProps
   }) => (
     <>
@@ -128,9 +130,12 @@ const DataProvidersSearchTemplate = React.memo(
             publishers. This process, which is also called harvesting, allows us
             to offer search, text mining and analytical capabilities over not
             only metadata, but also the full text of the research papers making
-            CORE a unique service in the research community. Our dataset
-            currently contains 182,918,912 open access articles, from over tons
-            of thousands journals, collected from over {dataProviders.length}{' '}
+            CORE a unique service in the research community.
+          </p>
+          <p>
+            Our dataset currently contains {formatNumber(totalArticlesCount)}{' '}
+            open access articles, from over tons of thousands journals,
+            collected from over {formatNumber(dataProviders.length)}{' '}
             repositories and journals around the world.
           </p>
           <Button

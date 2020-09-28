@@ -27,6 +27,7 @@ export async function getServerSideProps({ query }) {
 const SearchPage = ({
   dataProviders,
   params: { query: queryParam, size, action },
+  statistics,
 }) => {
   // custom hooks
   const {
@@ -87,6 +88,7 @@ const SearchPage = ({
           dataProvider.isLoading ? { variant: 'progress' } : getFormMessage()
         }
         isLoading={dataProvider.isLoading}
+        totalArticlesCount={statistics.totalArticlesCount}
       />
     </>
   )
