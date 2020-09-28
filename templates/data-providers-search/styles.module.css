@@ -49,8 +49,8 @@
   border: 1px dashed var(--gray-200);
 }
 
-.add-data-provider-button {
+.add-data-provider {
   align-self: flex-start;
-  width: max-content;
   margin-top: 2rem;
+  color: var(--gray-700);
 }
