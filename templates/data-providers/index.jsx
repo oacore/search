@@ -1,47 +1,150 @@
-import React from 'react'
-import { TextField, Button, Card } from '@oacore/design'
+import React, { useEffect, useRef, useLayoutEffect } from 'react'
+import { Button } from '@oacore/design'
 
 import styles from './styles.module.css'
+import DataProvidersSelect from './search'
+import ResultCard from './result-card'
+import AddDataProviderForm from './form'
 
-import Title from 'modules/title'
+import Search from 'modules/search-layout'
+import RepositoriesMap from 'modules/repositories-map'
 
-const DataProviderPageTemplate = React.forwardRef(
-  ({ url, onSubmit, onUrlChange, message, isFormValid = false }, ref) => {
-    const handleSubmit = (event) => {
-      event.preventDefault()
-      if (onSubmit) onSubmit(event)
-    }
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
+const SearchResults = ({
+  results,
+  dataProvidersOffset,
+  setDataProvidersOffset,
+  children,
+}) => {
+  const scrollPosition = useRef(0)
+  useIsomorphicLayoutEffect(() => {
+    window.scroll(0, scrollPosition.current)
+  }, [dataProvidersOffset])
+
+  if (!results.length) {
     return (
-      <Card className={styles.layout}>
-        <Title tag={Card.Title}>Register new data provider</Title>
-        <form ref={ref} className={styles.form} onSubmit={handleSubmit}>
-          <TextField
-            id="data-provider-url"
-            type="url"
-            name="dataProviderUrl"
-            label="Data provider URL"
-            helper={message.helper}
-            placeholder="For example, https://oro.open.ac.uk"
-            value={url}
-            onChange={onUrlChange}
-            variant={message.variant}
-            statusIcon
-            required
-          />
-          <div className={styles.submitSection}>
-            <Button
-              title={message?.finishButtonTitle}
-              type="submit"
-              variant="contained"
-              disabled={!isFormValid}
-            >
-              Finish
-            </Button>
-          </div>
-        </form>
-      </Card>
+      <Search.Results>
+        <Search.Result>
+          <b>No results found</b>
+        </Search.Result>
+        {children}
+      </Search.Results>
     )
   }
+
+  return (
+    <Search.Results>
+      {results.slice(0, dataProvidersOffset).map((el) => (
+        <ResultCard
+          key={el.id}
+          repoId={el.id}
+          title={el.name}
+          homePage={el.urlHomepage}
+          country={el.repositoryLocation?.countryName || 'unknown location'}
+        />
+      ))}
+      {dataProvidersOffset < results.length && (
+        <Button
+          onClick={() => {
+            scrollPosition.current = window.scrollY
+            setDataProvidersOffset(dataProvidersOffset + 10)
+          }}
+          className={styles.loadMore}
+        >
+          Load more
+        </Button>
+      )}
+      {children}
+    </Search.Results>
+  )
+}
+
+const DataProvidersSearchTemplate = React.memo(
+  ({
+    dataProviders,
+    query,
+    dataProvidersOffset,
+    results,
+    setDataProvidersOffset,
+    searchDataProviders,
+    setQuery,
+    setShowForm,
+    showAddDataProviderForm,
+    formRef,
+    ...formProps
+  }) => (
+    <>
+      <DataProvidersSelect
+        onQueryChanged={setQuery}
+        searchDataProviders={searchDataProviders}
+        initQuery={query}
+      />
+      <Search className={styles.searchArea}>
+        {Boolean(results.length) && (
+          <Search.ResultStats
+            from={1}
+            to={Math.min(dataProvidersOffset, results.length)}
+            total={results.length}
+          />
+        )}
+        <SearchResults
+          dataProvidersOffset={dataProvidersOffset}
+          results={results}
+          setDataProvidersOffset={setDataProvidersOffset}
+        >
+          <div id="add-new-data-provider" className={styles.addDataProvider}>
+            {showAddDataProviderForm ? (
+              <AddDataProviderForm
+                ref={formRef}
+                setShowForm={setShowForm}
+                {...formProps}
+              />
+            ) : (
+              <>
+                <p>
+                  Cannot find your repository or journal in our list? Become a
+                  data provider now!
+                </p>
+                <Button onClick={() => setShowForm(true)} variant="contained">
+                  Add data provider
+                </Button>
+              </>
+            )}
+          </div>
+        </SearchResults>
+
+        <Search.Content>
+          <RepositoriesMap
+            dataProviders={
+              query === '' ? results : results.slice(0, dataProvidersOffset)
+            }
+          />
+          <p>
+            We aggregate research papers from data providers all over the world
+            including institutional and subject repositories and journal
+            publishers. This process, which is also called harvesting, allows us
+            to offer search, text mining and analytical capabilities over not
+            only metadata, but also the full text of the research papers making
+            CORE a unique service in the research community. Our dataset
+            currently contains 182,918,912 open access articles, from over tons
+            of thousands journals, collected from over {dataProviders.length}{' '}
+            repositories and journals around the world.
+          </p>
+          <Button
+            variant="outlined"
+            onClick={() => {
+              setShowForm(true)
+              window.location.hash = 'add-new-data-provider'
+            }}
+          >
+            Become data provider
+          </Button>
+        </Search.Content>
+      </Search>
+    </>
+  )
 )
-export default DataProviderPageTemplate
+
+export default DataProvidersSearchTemplate
