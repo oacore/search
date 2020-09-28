@@ -1,5 +1,6 @@
 import React from 'react'
 import { AppBar, Logo, Button } from '@oacore/design'
+import Link from 'next/link'
 
 import styles from './styles.module.css'
 
@@ -12,13 +13,11 @@ const SearchAppBar = ({ children, className, ...restProps }) => (
     <AppBar.Item tag="nav" className={styles.navigation}>
       <ul className={styles.navigationList}>
         <li>
-          <Button
-            tag="a"
-            href="//core.ac.uk/data/providers"
-            className={styles.link}
-          >
-            Data providers
-          </Button>
+          <Link href="/data-providers" passHref>
+            <Button tag="a" className={styles.link}>
+              Data providers
+            </Button>
+          </Link>
         </li>
         <li>
           <Button tag="a" href="//core.ac.uk/services" className={styles.link}>
