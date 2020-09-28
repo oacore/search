@@ -2,8 +2,7 @@ import React, { useCallback, useState, useMemo, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-import DataProvidersSearchTemplate from 'templates/data-providers-search'
-import apiRequest from 'api'
+import DataProvidersSearchTemplate from 'templates/data-providers/search/template'
 
 // TODO: Fuzzy search via Fuse.js would be better but it's too slow for that
 //       amount of data providers. We should consider migrating to backend
@@ -61,25 +60,15 @@ const generateMetadata = (results) =>
     ],
   })
 
-export async function getServerSideProps({ query }) {
-  const { data } = await apiRequest('/repositories/formap')
-  return {
-    props: {
-      dataProviders:
-        // TODO: Remove once https://github.com/vercel/next.js/issues/16122 is solved
-        //       or once we migrate to backend search
-        process.env.NODE_ENV === 'production' ? data : data.slice(0, 200),
-      params: query,
-    },
-  }
-}
-
-const SearchPage = ({ dataProviders, params: { query: queryParam, size } }) => {
+const DataProvidersSearchPage = ({
+  dataProviders,
+  params: { query: queryParam, size },
+}) => {
   const router = useRouter()
   const setUrlParams = useCallback(
     (params) => {
       const url = {
-        pathname: '/data-providers/search',
+        pathname: '/data-providers',
         query: {
           ...params,
         },
@@ -146,4 +135,4 @@ const SearchPage = ({ dataProviders, params: { query: queryParam, size } }) => {
   )
 }
 
-export default SearchPage
+export default DataProvidersSearchPage
