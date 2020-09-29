@@ -13,8 +13,9 @@
   background: var(--white);
 }
 
-@media (--screen-until-desktop) {
+@media (--screen-until-large-desktop) {
   .container {
+    --search-results-percentage-width: calc(1 / 2);
     --page-padding-x: 1rem;
     --page-padding-y: 1rem;
   }
