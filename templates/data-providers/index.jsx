@@ -117,6 +117,7 @@ const DataProvidersSearchTemplate = React.memo(
 
         <Search.Content>
           <RepositoriesMap
+            className={styles.map}
             dataProviders={
               query === '' ? results : results.slice(0, dataProvidersOffset)
             }

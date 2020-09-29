@@ -68,3 +68,13 @@
   border: 1px solid var(--gray-200);
   box-shadow: none;
 }
+
+.map {
+  height: 30rem;
+}
+
+@media (--screen-until-desktop) {
+  .map {
+    height: 15rem;
+  }
+}
