@@ -58,7 +58,7 @@ const CustomMap = ({ dataProviders }) => {
           repositoryLocation.longitude != null &&
           name
       )
-      .forEach(({ name, repositoryLocation }) => {
+      .forEach(({ id, name, repositoryLocation }) => {
         const marker = L.marker(
           new L.LatLng(
             repositoryLocation.latitude,
@@ -69,7 +69,15 @@ const CustomMap = ({ dataProviders }) => {
             icon: markerIcon,
           }
         )
-        marker.bindPopup(name)
+        marker.bindPopup(
+          `<a
+               href="https://core.ac.uk/search?q=repositories.id:(${id})"
+               target="_blank"
+               rel="noopener noreferrer"
+           >
+            ${name}
+           </a>`
+        )
         markers.addLayer(marker)
       })
 

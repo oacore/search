@@ -12,3 +12,17 @@ body,
 .leaflet-popup-content {
   margin: 13px 19px;
 }
+
+.leaflet-container a {
+  color: var(--link-color, var(--primary));
+  text-decoration: none;
+}
+
+/* This rule overrides the default margin property
+ * hence it's explicitly set here.
+ * https://github.com/oacore/design/blob/master/src/foundation/spacing.css#L66
+ */
+
+.leaflet-popup-tip {
+  margin-top: -10px;
+}
