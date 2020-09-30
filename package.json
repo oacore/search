@@ -20,7 +20,7 @@
     "@sentry/node": "^5.22.3",
     "core-js": "^3.6.5",
     "cssnano": "^4.1.10",
-    "leaflet": "^1.6.0",
+    "leaflet": "^1.7.1",
     "leaflet.markercluster": "^1.4.1",
     "mobx": "^5.15.6",
     "mobx-react-lite": "^2.2.0",
