@@ -23,7 +23,7 @@
     "leaflet": "^1.7.1",
     "leaflet.markercluster": "^1.4.1",
     "mobx": "^5.15.7",
-    "mobx-react-lite": "^2.2.0",
+    "mobx-react-lite": "^2.2.2",
     "next": "^9.5.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
