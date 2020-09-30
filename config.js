@@ -23,6 +23,7 @@ const config = {
   ...env[NODE_ENV],
   SENTRY_DSN: process.env.SENTRY_DSN,
   GA_TRACKING_CODE: process.env.GA_TRACKING_CODE,
+  BUILD_TARGET: process.env.BUILD_TARGET,
 }
 
 validate(config)
