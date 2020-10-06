@@ -1,5 +1,6 @@
 import React from 'react'
-import { Icon, Link, MetadataList } from '@oacore/design'
+import { Icon, Link as UILink, MetadataList } from '@oacore/design'
+import Link from 'next/link'
 
 import styles from './styles.module.css'
 
@@ -17,19 +18,19 @@ const ResultCard = ({
     <span className={styles.resultHeading}>
       <Icon src={icon} aria-hidden />
       <Link
-        className={styles.resultTitle}
-        target="_blank"
-        href={`https://core.ac.uk/search?q=repositories.id:(${repoId})`}
+        as={`/data-providers/${repoId}`}
+        href="/data-providers/[data-provider-id]"
+        passHref
       >
-        {title}
+        <UILink className={styles.resultTitle}>{title}</UILink>
       </Link>
     </span>
 
     <MetadataList className={styles.resultMetadata}>
       <MetadataList.Item id="data-provider-webpage" label="webpage">
-        <Link href={homePage} external icon={false}>
+        <UILink href={homePage} external icon={false}>
           {homePage}
-        </Link>
+        </UILink>
       </MetadataList.Item>
       {country && (
         <MetadataList.Item id="data-provider-country" label="country">
