@@ -15,14 +15,14 @@ const useIsomorphicLayoutEffect =
 
 const SearchResults = ({
   results,
-  dataProvidersOffset,
-  setDataProvidersOffset,
+  dataProvidersSize,
+  setDataProvidersSize,
   children,
 }) => {
   const scrollPosition = useRef(0)
   useIsomorphicLayoutEffect(() => {
     window.scroll(0, scrollPosition.current)
-  }, [dataProvidersOffset])
+  }, [dataProvidersSize])
 
   if (!results.length) {
     return (
@@ -37,7 +37,7 @@ const SearchResults = ({
 
   return (
     <Search.Results>
-      {results.slice(0, dataProvidersOffset).map((el) => (
+      {results.slice(0, dataProvidersSize).map((el) => (
         <ResultCard
           key={el.id}
           repoId={el.id}
@@ -46,11 +46,11 @@ const SearchResults = ({
           country={el.repositoryLocation?.countryName || 'unknown location'}
         />
       ))}
-      {dataProvidersOffset < results.length && (
+      {dataProvidersSize < results.length && (
         <Button
           onClick={() => {
             scrollPosition.current = window.scrollY
-            setDataProvidersOffset(dataProvidersOffset + 10)
+            setDataProvidersSize(dataProvidersSize + 10)
           }}
           className={styles.loadMore}
         >
@@ -66,9 +66,9 @@ const DataProvidersSearchTemplate = React.memo(
   ({
     dataProviders,
     query,
-    dataProvidersOffset,
+    dataProvidersSize,
     results,
-    setDataProvidersOffset,
+    setDataProvidersSize,
     searchDataProviders,
     setQuery,
     setShowForm,
@@ -87,14 +87,14 @@ const DataProvidersSearchTemplate = React.memo(
         {Boolean(results.length) && (
           <Search.ResultStats
             from={1}
-            to={Math.min(dataProvidersOffset, results.length)}
+            to={Math.min(dataProvidersSize, results.length)}
             total={results.length}
           />
         )}
         <SearchResults
-          dataProvidersOffset={dataProvidersOffset}
+          dataProvidersSize={dataProvidersSize}
           results={results}
-          setDataProvidersOffset={setDataProvidersOffset}
+          setDataProvidersOffset={setDataProvidersSize}
         >
           <div id="add-new-data-provider" className={styles.addDataProvider}>
             {showAddDataProviderForm ? (
@@ -121,7 +121,7 @@ const DataProvidersSearchTemplate = React.memo(
           <RepositoriesMap
             className={styles.map}
             dataProviders={
-              query === '' ? results : results.slice(0, dataProvidersOffset)
+              query === '' ? results : results.slice(0, dataProvidersSize)
             }
           />
           <p>
