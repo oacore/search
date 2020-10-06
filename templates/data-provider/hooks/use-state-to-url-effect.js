@@ -1,17 +1,29 @@
 import { useCallback, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-const useStateToUrlEffect = ({ query, size, showForm }) => {
+const useStateToUrlEffect = ({ id, q, from, size }) => {
   const router = useRouter()
   const setUrlParams = useCallback(
     (params) => {
       const url = {
-        pathname: '/data-providers',
-        query: {
-          ...params,
+        href: {
+          pathname: '/data-providers/[data-provider-id]',
+          query: {
+            ...params,
+          },
+        },
+
+        as: {
+          pathname: `/data-providers/${id}`,
+          query: {
+            ...params,
+          },
+        },
+        options: {
+          shallow: true,
         },
       }
-      router.push(url, url, { shallow: true })
+      router.push(url.href, url.as, url.options)
     },
     [router]
   )
@@ -19,14 +31,13 @@ const useStateToUrlEffect = ({ query, size, showForm }) => {
   // reflect state to URL
   useEffect(() => {
     const params = {
-      query,
+      q,
+      from,
       size,
     }
 
-    if (showForm) params.action = 'add'
-
     setUrlParams(params)
-  }, [query, size, showForm])
+  }, [q, from, size])
 }
 
 export default useStateToUrlEffect
