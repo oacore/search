@@ -65,6 +65,7 @@
 
 .map {
   height: 30rem;
+  grid-row: 3;
 }
 
 @media (--screen-until-desktop) {
