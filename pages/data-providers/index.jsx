@@ -35,8 +35,8 @@ export async function getServerSideProps({ query }) {
   }
 }
 
-const SearchPage = observe(() => {
-  const { dataProviders, statistics } = useStore()
+const SearchPage = observe(({ initialState }) => {
+  const { dataProviders, statistics } = useStore(initialState)
   const {
     params: { action, query, size },
     results,
@@ -65,9 +65,9 @@ const SearchPage = observe(() => {
   )
   const setQuery = useCallback(
     (q) => {
-      dataProviders.params.query = q
+      dataProviders.params.q = q
     },
-    [dataProviders.params.query]
+    [dataProviders.params.q]
   )
   const handleUrlChange = useCallback(
     (event) => {

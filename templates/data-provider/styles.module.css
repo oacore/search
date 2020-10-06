@@ -1,0 +1,107 @@
+.layout {
+  z-index: 5;
+}
+
+.title-box {
+  grid-row: 1;
+  margin-bottom: 1rem;
+}
+
+.search {
+  grid-row: 2;
+}
+
+.title {
+  margin-top: 0;
+}
+
+.card:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.claim-card {
+  box-shadow: none;
+}
+
+.claim-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.claim-card-action {
+  margin-top: 1rem;
+  grid-row: 6;
+}
+
+.map-card {
+  grid-row: 5;
+}
+
+.claim-card-action:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.card {
+  min-width: unset;
+}
+
+.result-item {
+  transition: filter 150ms;
+
+  &[aria-busy='true'] {
+    filter: grayscale(100%);
+  }
+}
+
+.card .map {
+  width: auto;
+  margin: calc(-1 * var(--card-padding-y, var(--component-padding-y)))
+    calc(-1 * var(--card-padding-x, var(--component-padding-x)));
+}
+
+.map-caption {
+  margin-top: calc(2 * var(--card-padding-y, var(--component-padding-y)));
+
+  &:empty {
+    display: none;
+  }
+}
+
+.no-results-find {
+  margin-top: 1rem;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.pagination .arrow-pagination {
+  display: flex;
+  align-items: center;
+}
+
+.pagination .arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  color: var(--gray-700);
+  border: none;
+  border-radius: 2rem;
+}
+
+.result-stats {
+  margin-right: 1rem;
+}
+
+.pagination .disabled {
+  text-decoration: none;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
