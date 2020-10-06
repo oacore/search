@@ -35,9 +35,11 @@ class App extends NextApp {
 
   render() {
     const { Component, pageProps, statistics } = this.props
+
+    const { initialState, ...restPageProps } = pageProps || {}
     return (
-      <Main>
-        <Component {...pageProps} statistics={statistics} />
+      <Main initialState={initialState}>
+        <Component {...restPageProps} statistics={statistics} />
       </Main>
     )
   }
