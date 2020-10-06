@@ -1,37 +1,41 @@
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useMemo, useContext } from 'react'
 import { useStaticRendering, observer } from 'mobx-react-lite'
 
 import RootStore from './root'
 
 const isServer = typeof window === 'undefined'
-export const GlobalContext = createContext({})
-let globalStore = null
+
+let store = null
 
 useStaticRendering(isServer)
 
-export const initStore = () => {
+export const initStore = (initialData) => {
+  const storeInner = store ?? new RootStore()
+  storeInner.init(initialData)
+
   // on the server-side a new instance is created for each page request
   // as we don't want to mix between users/requests, etc.
-  if (isServer) return new RootStore()
+  if (isServer) return storeInner
 
-  if (!globalStore) {
-    globalStore = new RootStore()
-    return globalStore
-  }
+  // Create the store once in the client
+  if (!store) store = storeInner
 
-  return globalStore
+  return storeInner
 }
 
-export const withGlobalStore = (Component) => {
-  const ObservableComponent = observer(Component)
-  return (props) => {
-    const context = useContext(GlobalContext)
-    return <ObservableComponent store={context} {...props} />
-  }
-}
-
-export const GlobalProvider = ({ children, store }) => (
-  <GlobalContext.Provider value={store}>{children}</GlobalContext.Provider>
+const StoreContext = createContext({})
+export const StoreProvider = ({ children, store: storeInner }) => (
+  <StoreContext.Provider value={storeInner}>{children}</StoreContext.Provider>
 )
 
-export default GlobalProvider
+export const useStore = () => useContext(StoreContext)
+
+export const useInitStore = (initialState) =>
+  useMemo(() => initStore(initialState), [initialState])
+
+export const observe = (Component) => {
+  const ObservableComponent = observer(Component)
+  return (props) => <ObservableComponent {...props} />
+}
+
+export default StoreProvider

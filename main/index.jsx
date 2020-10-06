@@ -1,18 +1,18 @@
-import React, { useRef } from 'react'
+import React from 'react'
 
 import Head from './head'
 
 import Layout from 'modules/layout'
-import { initStore, GlobalProvider } from 'store'
+import { useInitStore, StoreProvider } from 'store'
 
-const Main = ({ children }) => {
-  const store = useRef(initStore())
+const Main = ({ children, initialState }) => {
+  const store = useInitStore(initialState)
 
   return (
-    <GlobalProvider store={store.current}>
+    <StoreProvider store={store}>
       <Head />
       <Layout>{children}</Layout>
-    </GlobalProvider>
+    </StoreProvider>
   )
 }
 

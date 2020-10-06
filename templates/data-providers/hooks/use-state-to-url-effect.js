@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-const useStateToUrlEffect = ({ query, dataProvidersOffset, showForm }) => {
+const useStateToUrlEffect = ({ query, size, showForm }) => {
   const router = useRouter()
   const setUrlParams = useCallback(
     (params) => {
@@ -20,13 +20,13 @@ const useStateToUrlEffect = ({ query, dataProvidersOffset, showForm }) => {
   useEffect(() => {
     const params = {
       query,
-      size: dataProvidersOffset,
+      size,
     }
 
     if (showForm) params.action = 'add'
 
     setUrlParams(params)
-  }, [query, dataProvidersOffset, showForm])
+  }, [query, size, showForm])
 }
 
 export default useStateToUrlEffect
