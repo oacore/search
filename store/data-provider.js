@@ -1,4 +1,4 @@
-import { observable } from 'mobx'
+import { observable, action } from 'mobx'
 
 import apiRequest from 'api'
 
@@ -30,6 +30,12 @@ class DataProvider {
   static async loadMetadata({ id }) {
     const { data } = await apiRequest(`/data-providers/${id}`)
     return data
+  }
+
+  @action
+  loadPage = async ({ page, id }) => {
+    if (this.page !== page)
+      this.outputs = await DataProvider.loadOutputs({ id, page })
   }
 }
 

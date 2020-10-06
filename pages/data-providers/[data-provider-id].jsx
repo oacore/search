@@ -32,6 +32,7 @@ const DataProviderPage = observe(() => {
   return (
     <DataProviderTemplate
       outputs={dataProvider.outputs}
+      loadPage={dataProvider.loadPage}
       metadata={dataProvider.metadata}
     />
   )
