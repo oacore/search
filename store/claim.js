@@ -4,7 +4,7 @@ import invalidatePreviousRequests from '../utils/invalidatePreviousRequests'
 
 import apiRequest from 'api'
 
-class DataProvider {
+class Claim {
   @observable query = ''
 
   @observable request = null
@@ -49,4 +49,4 @@ class DataProvider {
   }
 }
 
-export default DataProvider
+export default Claim

@@ -6,7 +6,7 @@ import DataProvidersSearchTemplate from 'templates/data-providers'
 import apiRequest from 'api'
 import { generateMetadata } from 'templates/data-providers/utils'
 import {
-  useDataProviderController,
+  useClaimController,
   useDataProvidersSearch,
   useStateToUrlEffect,
 } from 'templates/data-providers/hooks'
@@ -34,10 +34,10 @@ const SearchPage = ({
     formRef,
     showForm,
     setShowForm,
-    dataProvider,
+    claim,
     handleSubmitForm,
     getFormMessage,
-  } = useDataProviderController({ action })
+  } = useClaimController({ action })
 
   const {
     query,
@@ -78,16 +78,14 @@ const SearchPage = ({
         setShowForm={setShowForm}
         showAddDataProviderForm={showForm}
         formRef={formRef}
-        url={dataProvider.query}
+        url={claim.query}
         onUrlChange={(event) => {
-          dataProvider.query = event.target.value
+          claim.query = event.target.value
         }}
-        isFormValid={dataProvider.created}
+        isFormValid={claim.created}
         onSubmit={handleSubmitForm}
-        message={
-          dataProvider.isLoading ? { variant: 'progress' } : getFormMessage()
-        }
-        isLoading={dataProvider.isLoading}
+        message={claim.isLoading ? { variant: 'progress' } : getFormMessage()}
+        isLoading={claim.isLoading}
         totalArticlesCount={statistics.totalArticlesCount}
       />
     </>

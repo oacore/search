@@ -11,7 +11,7 @@ useStaticRendering(isServer)
 
 export const initStore = () => {
   // on the server-side a new instance is created for each page request
-  // as we don't wan't to mix between users/requests, etc.
+  // as we don't want to mix between users/requests, etc.
   if (isServer) return new RootStore()
 
   if (!globalStore) {
