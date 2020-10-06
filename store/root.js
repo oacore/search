@@ -1,7 +1,7 @@
-import DataProvider from './data-provider'
+import Claim from './claim'
 
 class Root {
-  dataProvider = new DataProvider()
+  claim = new Claim()
 }
 
 export default Root
