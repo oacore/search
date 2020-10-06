@@ -1,6 +1,12 @@
 const path = require('path')
 
-const icons = ['office-building']
+const icons = [
+  'office-building',
+  'chevron-left',
+  'chevron-right',
+  'chevron-double-left',
+  'chevron-double-right',
+]
 
 const iconsRoot = path.join(
   path.dirname(require.resolve('@mdi/svg/package.json')),

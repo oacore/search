@@ -16,7 +16,7 @@ const markerIcon = L.icon({
   popupAnchor: [0, -32],
 })
 
-const CustomMap = ({ dataProviders }) => {
+const CustomMap = ({ locations }) => {
   const mapContainerRef = useRef(null)
   const map = useRef(null)
 
@@ -34,7 +34,10 @@ const CustomMap = ({ dataProviders }) => {
     )
 
     map.current = L.map(mapContainerRef.current, {
-      center: centerPosition,
+      center:
+        locations.length > 1
+          ? centerPosition
+          : new L.LatLng(locations[0].latitude, locations[0].longitude),
       zoom: 2,
       maxBounds: [
         [-90, -180],
@@ -52,40 +55,30 @@ const CustomMap = ({ dataProviders }) => {
       icon: markerIcon,
     })
 
-    dataProviders
-      .filter(
-        ({ name, dataProviderLocation }) =>
-          dataProviderLocation != null &&
-          dataProviderLocation.latitude != null &&
-          dataProviderLocation.longitude != null &&
-          name
-      )
-      .forEach(({ id, name, dataProviderLocation }) => {
-        const marker = L.marker(
-          new L.LatLng(
-            dataProviderLocation.latitude,
-            dataProviderLocation.longitude
-          ),
-          {
-            title: name,
-            icon: markerIcon,
-          }
-        )
+    locations.forEach(({ name, href, latitude, longitude }) => {
+      const marker = L.marker(new L.LatLng(latitude, longitude), {
+        title: name,
+        icon: markerIcon,
+      })
+
+      if (href) {
         marker.bindPopup(
           `<a
-               href="https://core.ac.uk/search?q=repositories.id:(${id})"
+               href={href}
                target="_blank"
                rel="noopener noreferrer"
            >
             ${name}
            </a>`
         )
-        markers.addLayer(marker)
-      })
+      } else marker.bindPopup(name)
+
+      markers.addLayer(marker)
+    })
 
     map.current.addLayer(markers)
     return () => map.current.removeLayer(markers)
-  }, [dataProviders])
+  }, [locations])
 
   return <div ref={mapContainerRef} className={styles.map} />
 }

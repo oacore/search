@@ -10,9 +10,13 @@ class Root {
 
   @observable statistics
 
-  init({ dataProviders = {}, statistics = {} } = {}) {
-    this.dataProviders = new DataProviders(dataProviders)
+  constructor({ statistics }) {
     this.statistics = statistics
+  }
+
+  extend({ dataProviders }) {
+    if (!this.dataProviders && dataProviders != null)
+      this.dataProviders = new DataProviders(dataProviders)
   }
 }
 

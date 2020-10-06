@@ -8,7 +8,22 @@ import AddDataProviderForm from './form'
 
 import { formatNumber } from 'utils/format-number'
 import Search from 'modules/search-layout'
-import RepositoriesMap from 'modules/repositories-map'
+import Map from 'modules/map'
+
+const filterAndMapDataProviders = (dataProviders) =>
+  dataProviders
+    .filter(
+      ({ name, dataProviderLocation }) =>
+        dataProviderLocation?.latitude != null &&
+        dataProviderLocation?.longitude != null &&
+        name
+    )
+    .map(({ id, name, dataProviderLocation }) => ({
+      name,
+      href: `https://core.ac.uk/search?q=repositories.id:(${id})`,
+      latitude: dataProviderLocation?.latitude,
+      longitude: dataProviderLocation?.longitude,
+    }))
 
 const getCountryName = (code) => {
   const countryName = countries[String(code).toUpperCase()]
@@ -31,7 +46,7 @@ const SearchResults = ({
 
   if (!results.length) {
     return (
-      <Search.Results>
+      <Search.Main>
         <Search.Result>
           <h2>
             Is there a mistake?{' '}
@@ -49,12 +64,12 @@ const SearchResults = ({
           </p>
         </Search.Result>
         {children}
-      </Search.Results>
+      </Search.Main>
     )
   }
 
   return (
-    <Search.Results>
+    <Search.Main>
       {results.slice(0, dataProvidersSize).map((el) => (
         <ResultCard
           key={el.id}
@@ -76,7 +91,7 @@ const SearchResults = ({
         </Button>
       )}
       {children}
-    </Search.Results>
+    </Search.Main>
   )
 }
 
@@ -153,12 +168,12 @@ const DataProvidersSearchTemplate = React.memo(
           </div>
         </SearchResults>
 
-        <Search.Content>
-          <RepositoriesMap
+        <Search.Sidebar>
+          <Map
             className={styles.map}
-            dataProviders={
+            locations={filterAndMapDataProviders(
               query === '' ? results : results.slice(0, dataProvidersSize)
-            }
+            )}
           />
           <p>
             We aggregate research papers from data providers all over the world
@@ -183,7 +198,7 @@ const DataProvidersSearchTemplate = React.memo(
           >
             Become data provider
           </Button>
-        </Search.Content>
+        </Search.Sidebar>
       </Search>
     )
   }

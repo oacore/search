@@ -1,5 +1,6 @@
 import React from 'react'
 import { Icon, Link, MetadataList } from '@oacore/design'
+import NextLink from 'next/link'
 
 import styles from './styles.module.css'
 
@@ -16,13 +17,11 @@ const ResultCard = ({
   <Search.Result className={styles.resultCard} {...restProps}>
     <span className={styles.resultHeading}>
       <Icon src={icon} aria-hidden />
-      <Link
-        className={styles.resultTitle}
-        target="_blank"
-        href={`https://core.ac.uk/search?q=repositories.id:(${repoId})`}
-      >
-        {title}
-      </Link>
+      <NextLink href={`/data-providers/${repoId}`}>
+        <Link className={styles.resultTitle} href={`/data-providers/${repoId}`}>
+          {title}
+        </Link>
+      </NextLink>
     </span>
 
     <MetadataList className={styles.resultMetadata}>
