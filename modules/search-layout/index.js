@@ -1,12 +1,12 @@
-import Content from './content'
+import Sidebar from './sidebar'
 import Result from './result'
-import Results from './results'
+import Main from './main'
 import Search from './search'
 import ResultStats from './result-stats'
 
-Search.Content = Content
+Search.Sidebar = Sidebar
 Search.Result = Result
-Search.Results = Results
+Search.Main = Main
 Search.ResultStats = ResultStats
 
 export default Search
