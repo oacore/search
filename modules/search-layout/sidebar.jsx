@@ -4,14 +4,14 @@ import { Card } from '@oacore/design'
 
 import styles from './styles.module.css'
 
-const Content = ({ children, className, tag = 'div', ...restProps }) => (
+const Sidebar = ({ children, className, tag = 'div', ...restProps }) => (
   <Card
     tag={tag}
-    className={classNames.use(styles.content, className)}
+    className={classNames.use(styles.sidebar, className)}
     {...restProps}
   >
     {children}
   </Card>
 )
 
-export default Content
+export default Sidebar
