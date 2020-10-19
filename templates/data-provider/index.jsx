@@ -3,7 +3,7 @@ import { SearchResult } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
 
 import DataProviderOutputsSearch from './search'
-// import ClaimCard from './claim-card'
+import ClaimCard from './claim/claim-card'
 import MapCard from './map-card'
 import styles from './styles.module.css'
 import Pagination from './pagination'
@@ -98,7 +98,7 @@ const DataProviderTemplate = ({
           {data.name} is based in{' '}
           {countryName.of(data.location.countryCode.toUpperCase())}
         </MapCard>
-        {/* <ClaimCard name={data.name} /> */}
+        <ClaimCard name={data.name} className={styles.card} />
       </Search.Sidebar>
     </Search>
   )
