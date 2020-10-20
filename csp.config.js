@@ -14,7 +14,7 @@ const config = {
     SELF,
     PRODUCION,
     'data:',
-    'maps.wikimedia.org',
+    '*.openstreetmap.org',
     // Google Analytics may transport data via image:
     // https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#transport
     '*.google-analytics.com',
