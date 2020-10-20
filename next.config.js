@@ -2,12 +2,23 @@ const path = require('path')
 
 const withSourceMaps = require('@zeit/next-source-maps')
 
-const envConfig = require('./config')
+const envConfig = require('./env.config')
+const cspConfig = require('./csp.config')
 const helpers = require('./utils/helpers')
 
 const nextConfig = {
   env: envConfig,
   assetPrefix: helpers.getAssetsPath(''),
+
+  async headers() {
+    return [
+      {
+        source: '/:path(.*)',
+        headers: [{ key: 'Content-Security-Policy', value: cspConfig }],
+      },
+    ]
+  },
+
   webpack(config) {
     const { rules } = config.module
 
