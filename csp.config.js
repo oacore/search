@@ -7,7 +7,9 @@ const PRODUCION = '*.core.ac.uk'
 const config = {
   'default-src': [SELF, PRODUCION],
   'script-src': [SELF, '*.google-analytics.com'],
-  'style-src': [SELF],
+  // TODO: Remove 'unsafe-inline' when the Next.js' bug is resolved
+  // See more: https://github.com/vercel/next.js/issues/17445
+  'style-src': [SELF, "'unsafe-inline'"],
   // Google Analytics may transport data via image:
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#transport
   'img-src': [SELF, PRODUCION, 'data:', '*.google-analytics.com'],
@@ -16,9 +18,6 @@ const config = {
 
 if (process.env.NODE_ENV !== 'production') {
   // Allow hot module replacement using inlined scripts and styles
-  //
-  // Because styles are always built, it could be injected without inlining
-  // See the bug report: https://github.com/oacore/design/pull/350
   config['script-src'].push("'unsafe-inline'", "'unsafe-eval'")
   config['style-src'].push("'unsafe-inline'")
 
