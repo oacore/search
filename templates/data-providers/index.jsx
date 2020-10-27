@@ -132,15 +132,17 @@ const DataProvidersSearchTemplate = React.memo(
             collected from over {formatNumber(dataProviders.length)}{' '}
             repositories and journals around the world.
           </p>
-          <Button
-            variant="outlined"
-            onClick={() => {
-              setShowForm(true)
-              window.location.hash = 'add-new-data-provider'
-            }}
-          >
-            Become data provider
-          </Button>
+          <p>
+            <Button
+              variant="outlined"
+              onClick={() => {
+                setShowForm(true)
+                window.location.hash = 'add-new-data-provider'
+              }}
+            >
+              Become data provider
+            </Button>
+          </p>
 
           <RepositoriesMap
             className={styles.map}
