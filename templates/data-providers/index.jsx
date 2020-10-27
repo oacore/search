@@ -118,12 +118,6 @@ const DataProvidersSearchTemplate = React.memo(
         </SearchResults>
 
         <Search.Content>
-          <RepositoriesMap
-            className={styles.map}
-            dataProviders={
-              query === '' ? results : results.slice(0, dataProvidersSize)
-            }
-          />
           <p>
             We aggregate research papers from data providers all over the world
             including institutional and subject repositories and journal
@@ -147,6 +141,13 @@ const DataProvidersSearchTemplate = React.memo(
           >
             Become data provider
           </Button>
+
+          <RepositoriesMap
+            className={styles.map}
+            dataProviders={
+              query === '' ? results : results.slice(0, dataProvidersSize)
+            }
+          />
         </Search.Content>
       </Search>
     </>
