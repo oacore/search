@@ -8,14 +8,11 @@ import {
   generateMetadata,
   normalizeDataProviders,
 } from 'templates/data-providers/utils'
-import {
-  useClaimController,
-  useStateToUrlEffect,
-} from 'templates/data-providers/hooks'
+import { useClaimController } from 'templates/data-providers/hooks'
+import { useSyncUrlParamsWithStore } from 'hooks/use-sync-url-params-with-store'
 
 export async function getServerSideProps({ query }) {
   const { data } = await apiRequest('/repositories/formap')
-  const { query: queryParam, size, action } = query
 
   return {
     props: {
@@ -27,9 +24,11 @@ export async function getServerSideProps({ query }) {
             normalizeDataProviders(
               process.env.NODE_ENV === 'production' ? data : data.slice(0, 200)
             ),
-          query: queryParam || null,
-          size: size || null,
-          action: action || null,
+          params: {
+            ...Object.fromEntries(
+              Object.entries(query).filter(([, v]) => v != null)
+            ),
+          },
         },
       },
     },
@@ -38,7 +37,12 @@ export async function getServerSideProps({ query }) {
 
 const SearchPage = observe(() => {
   const { dataProviders, statistics } = useStore()
-  const { action, query, data, size, results } = dataProviders
+  const {
+    params: { action, query, size },
+    results,
+    data,
+  } = dataProviders
+
   const {
     formRef,
     showForm,
@@ -48,22 +52,22 @@ const SearchPage = observe(() => {
     getFormMessage,
   } = useClaimController({ action })
 
-  useStateToUrlEffect({ query, showForm, size })
+  useSyncUrlParamsWithStore(dataProviders.params)
 
   const searchDataProviders = useCallback((q) => dataProviders.search(q), [
     dataProviders,
   ])
   const setDataProvidersSize = useCallback(
     (s) => {
-      dataProviders.size = s
+      dataProviders.params.size = s
     },
-    [dataProviders]
+    [dataProviders.params.size]
   )
   const setQuery = useCallback(
     (q) => {
-      dataProviders.query = q
+      dataProviders.params.query = q
     },
-    [dataProviders]
+    [dataProviders.params.query]
   )
   const handleUrlChange = useCallback(
     (event) => {

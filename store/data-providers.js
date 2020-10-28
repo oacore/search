@@ -1,24 +1,36 @@
 import { observable, computed } from 'mobx'
 
+import Params from './params'
+
+const schema = {
+  query: {
+    default: '',
+    convert: (value) => value.toString(),
+  },
+  size: {
+    default: 10,
+    validation: 'number',
+    convert: (value) => Number(value),
+  },
+  action: {
+    default: null,
+    validation: (value) => ['ADD', null].includes(value),
+  },
+}
+
 class DataProviders {
-  @observable query
-
-  @observable size = 10
-
-  @observable action
-
   @observable data
+
+  @observable params
 
   @computed
   get results() {
-    return this.search(this.query)
+    return this.search(this.params.query)
   }
 
-  constructor({ query, size, action, data }) {
-    this.query = query ?? ''
-    this.action = action
-    this.size = Number(size) || 10
+  constructor({ data, params = {} }) {
     this.data = data ?? []
+    this.params = new Params(params, schema)
   }
 
   search(searchTerm) {

@@ -31,7 +31,7 @@ export const StoreProvider = ({ children, store: storeInner }) => (
 export const useStore = () => useContext(StoreContext)
 
 export const useInitStore = (initialState) =>
-  useMemo(() => initStore(initialState), [initialState])
+  useMemo(() => initStore(initialState), [])
 
 export const observe = (Component) => {
   const ObservableComponent = observer(Component)
