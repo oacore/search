@@ -31,7 +31,7 @@ const ResultCard = ({
           {homePage}
         </Link>
       </li>
-      <li>{country}</li>
+      {country && <li>{country}</li>}
     </ul>
   </Search.Result>
 )
