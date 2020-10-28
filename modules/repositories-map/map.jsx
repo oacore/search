@@ -54,17 +54,17 @@ const CustomMap = ({ dataProviders }) => {
 
     dataProviders
       .filter(
-        ({ name, repositoryLocation }) =>
-          repositoryLocation != null &&
-          repositoryLocation.latitude != null &&
-          repositoryLocation.longitude != null &&
+        ({ name, dataProviderLocation }) =>
+          dataProviderLocation != null &&
+          dataProviderLocation.latitude != null &&
+          dataProviderLocation.longitude != null &&
           name
       )
-      .forEach(({ id, name, repositoryLocation }) => {
+      .forEach(({ id, name, dataProviderLocation }) => {
         const marker = L.marker(
           new L.LatLng(
-            repositoryLocation.latitude,
-            repositoryLocation.longitude
+            dataProviderLocation.latitude,
+            dataProviderLocation.longitude
           ),
           {
             title: name,

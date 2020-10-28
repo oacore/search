@@ -37,15 +37,19 @@ const SearchResults = ({
 
   return (
     <Search.Results>
-      {results.slice(0, dataProvidersSize).map((el) => (
-        <ResultCard
-          key={el.id}
-          repoId={el.id}
-          title={el.name}
-          homePage={el.urlHomepage}
-          country={el.repositoryLocation?.countryName || 'unknown location'}
-        />
-      ))}
+      {results.slice(0, dataProvidersSize).map((el) => {
+        console.log(JSON.stringify(el))
+
+        return (
+          <ResultCard
+            key={el.id}
+            repoId={el.id}
+            title={el.name}
+            homePage={el.urlHomepage}
+            country={el.dataProviderLocation?.countryName || 'unknown location'}
+          />
+        )
+      })}
       {dataProvidersSize < results.length && (
         <Button
           onClick={() => {
