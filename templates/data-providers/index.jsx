@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useLayoutEffect } from 'react'
 import { Button } from '@oacore/design'
+import { countries } from 'i18n-iso-countries/langs/en.json'
 
 import styles from './styles.module.css'
 import DataProvidersSelect from './search'
@@ -9,6 +10,11 @@ import AddDataProviderForm from './form'
 import { formatNumber } from 'utils/format-number'
 import Search from 'modules/search-layout'
 import RepositoriesMap from 'modules/repositories-map'
+
+const getCountryName = (code) => {
+  const countryName = countries[String(code).toUpperCase()]
+  return Array.isArray(countryName) ? countryName[0] : countryName
+}
 
 const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect
@@ -37,19 +43,15 @@ const SearchResults = ({
 
   return (
     <Search.Results>
-      {results.slice(0, dataProvidersSize).map((el) => {
-        console.log(JSON.stringify(el))
-
-        return (
-          <ResultCard
-            key={el.id}
-            repoId={el.id}
-            title={el.name}
-            homePage={el.urlHomepage}
-            country={el.dataProviderLocation?.countryName || 'unknown location'}
-          />
-        )
-      })}
+      {results.slice(0, dataProvidersSize).map((el) => (
+        <ResultCard
+          key={el.id}
+          repoId={el.id}
+          title={el.name}
+          homePage={el.urlHomepage}
+          country={getCountryName(el.dataProviderLocation?.countryCode)}
+        />
+      ))}
       {dataProvidersSize < results.length && (
         <Button
           onClick={() => {
