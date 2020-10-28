@@ -16,7 +16,7 @@ const useIsomorphicLayoutEffect =
 const SearchResults = ({
   results,
   dataProvidersSize,
-  setDataProvidersSize,
+  setDataProvidersOffset,
   children,
 }) => {
   const scrollPosition = useRef(0)
@@ -50,7 +50,7 @@ const SearchResults = ({
         <Button
           onClick={() => {
             scrollPosition.current = window.scrollY
-            setDataProvidersSize(dataProvidersSize + 10)
+            setDataProvidersOffset(dataProvidersSize + 10)
           }}
           className={styles.loadMore}
         >
