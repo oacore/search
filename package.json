@@ -28,7 +28,7 @@
     "next": "^9.5.4",
     "react": "^16.14.0",
     "react-dom": "^16.13.1",
-    "throttle-debounce": "^2.3.0"
+    "throttle-debounce": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
