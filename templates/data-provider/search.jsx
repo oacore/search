@@ -1,24 +1,13 @@
-import React, { useCallback, useState } from 'react'
-import { throttle } from 'throttle-debounce'
+import React, { useState } from 'react'
 import { Select } from '@oacore/design'
 
 const DataProviderOutputsSearch = ({
   initQuery,
-  loadSuggestions,
   onQueryChanged,
   className,
 }) => {
-  const [suggestions, setSuggestions] = React.useState([])
   const [value, setValue] = React.useState(initQuery || '')
   const [isInitialised, setIsInitialised] = useState(false)
-
-  const search = useCallback(
-    throttle(500, false, async (searchTerm) => {
-      const newSuggestions = await loadSuggestions(searchTerm)
-      setSuggestions(newSuggestions)
-    }),
-    []
-  )
 
   const handleOnChange = (data) => {
     // TODO: Consider this having in @oacore/design
@@ -30,15 +19,10 @@ const DataProviderOutputsSearch = ({
     }
 
     onQueryChanged(data.value)
-    search(data.value)
   }
 
   const handleOnInput = (data) => {
     setValue(data.value)
-
-    // if id doesn't exists it means user type own text
-    // and didn't use suggestion
-    if (!data.id) search(data.value)
   }
 
   return (
@@ -51,13 +35,7 @@ const DataProviderOutputsSearch = ({
       placeholder="Search over 11K research outputs in Open Research Online"
       prependIcon="#magnify"
       className={className}
-    >
-      {suggestions.map((el) => (
-        <Select.Option key={el.id} id={el.id} value={el.title} icon="#magnify">
-          {el.title}
-        </Select.Option>
-      ))}
-    </Select>
+    />
   )
 }
 

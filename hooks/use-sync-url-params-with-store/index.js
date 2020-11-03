@@ -1,38 +1,64 @@
-import { useEffect, useCallback } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-export const useSyncUrlParamsWithStore = (params) => {
+import useDebouncedEffect from 'hooks/use-debounced-effect'
+
+export const useSyncUrlParamsWithStore = (paramsInstance) => {
   const router = useRouter()
   const setUrlParams = () => {
-    const newParams = Array.from(params.entries()).filter(
+    const { schema, ...params } = paramsInstance
+
+    const newParams = Object.entries(params).filter(
       ([, value]) => value != null
     )
 
-    const query = Object.fromEntries(newParams)
-    router.push(
-      { pathname: router.pathname, query },
-      {
-        // asPath contains url params so we need to get rid of them
-        // and replace them with the new ones.
-        pathname: new URL(router.route, window.location.origin).pathname,
-        query,
-      },
-      { shallow: true }
+    const { pathname: pathnameUrl } = new URL(
+      router.asPath,
+      window.location.origin
     )
+    const { pathname: pathnameAs } = new URL(
+      router.pathname,
+      window.location.origin
+    )
+
+    const urlParams = new URLSearchParams(newParams)
+
+    urlParams.sort()
+
+    if (
+      `${window.location.pathname}${window.location.search}` !==
+      `${pathnameUrl}?${urlParams.toString()}`
+    ) {
+      const updateParams =
+        window.location.search === '' ? router.replace : router.push
+
+      updateParams(
+        {
+          pathname: `${pathnameAs}`,
+          query: { ...router.query, ...urlParams },
+        },
+        `${pathnameUrl}?${urlParams.toString()}`,
+
+        { shallow: true }
+      )
+    }
   }
 
-  const handleRouteChange = useCallback(
-    (nextUrl) => {
-      const { searchParams } = new URL(nextUrl, window.location.origin)
-      Array.from(searchParams.entries()).forEach(([key, value]) => {
+  const handleRouteChange = (nextUrl) => {
+    const { schema, ...params } = paramsInstance
+    const { searchParams } = new URL(nextUrl, window.location.origin)
+
+    const newParams = Array.from(searchParams.entries()).filter(
+      ([key, value]) =>
         // We want to compare like it because URLSearch params doesn't
         // automatically convert param (e.g. size) to number.
         // eslint-disable-next-line eqeqeq
-        if (params.has(key) && params[key] != value) params[key] = value
-      })
-    },
-    [params]
-  )
+        params[key] != value
+    )
+
+    if (newParams.length)
+      paramsInstance.changeParams(Object.fromEntries(newParams))
+  }
 
   useEffect(() => {
     router.events.on('routeChangeComplete', handleRouteChange)
@@ -42,9 +68,15 @@ export const useSyncUrlParamsWithStore = (params) => {
   }, [])
 
   // whenever any param changes in store reflect it to the URL
-  useEffect(() => {
-    setUrlParams()
-  }, Array.from(params.values()))
+  useDebouncedEffect(
+    () => {
+      setUrlParams()
+    },
+    Object.keys(paramsInstance)
+      .sort()
+      .filter((key) => key !== 'schema')
+      .map((key) => paramsInstance[key])
+  )
 }
 
 export default useSyncUrlParamsWithStore

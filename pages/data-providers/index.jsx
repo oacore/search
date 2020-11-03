@@ -35,8 +35,8 @@ export async function getServerSideProps({ query }) {
   }
 }
 
-const SearchPage = observe(() => {
-  const { dataProviders, statistics } = useStore()
+const SearchPage = observe(({ initialState }) => {
+  const { dataProviders, statistics } = useStore(initialState)
   const {
     params: { action, query, size },
     results,
