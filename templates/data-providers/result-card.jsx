@@ -17,11 +17,7 @@ const ResultCard = ({
   <Search.Result className={styles.resultCard} {...restProps}>
     <span className={styles.resultHeading}>
       <Icon src={icon} aria-hidden />
-      <Link
-        as={`/data-providers/${repoId}`}
-        href="/data-providers/[data-provider-id]"
-        passHref
-      >
+      <Link href={`/data-providers/${repoId}`} passHref>
         <UILink className={styles.resultTitle}>{title}</UILink>
       </Link>
     </span>

@@ -5,17 +5,21 @@ import DataProviderOutputsSearch from './search'
 import ClaimCard from './claim-card'
 import MapCard from './map-card'
 import styles from './styles.module.css'
+import Pagination from './pagination'
 
 import Search from 'modules/search-layout'
 
 const DataProviderTemplate = ({
+  basePath,
   outputs,
   metadata,
   query,
   setQuery,
-  loadSuggestions,
-  loadOutputs,
   loading,
+  isLoadingMore,
+  from,
+  size,
+  total,
 }) => {
   const placeholders = Array.from(Array(10).keys())
 
@@ -31,15 +35,14 @@ const DataProviderTemplate = ({
           initQuery={query}
           onQueryChanged={(q) => {
             setQuery(q)
-            loadOutputs()
           }}
           className={styles.search}
-          loadSuggestions={loadSuggestions}
         />
-        {loading
+        {loading && !isLoadingMore
           ? placeholders.map((key) => (
               <SearchResult
                 id={String(key)}
+                key={String(key)}
                 aria-busy="true"
                 tag={Search.Result}
               >
@@ -57,7 +60,7 @@ const DataProviderTemplate = ({
                   data={{
                     title,
                     author,
-                    publicationDate: year,
+                    publicationDate: String(year),
                     thumbnailUrl: `//core.ac.uk/image/${id}/medium`,
                     metadataLink,
                     fullTextLink,
@@ -67,9 +70,27 @@ const DataProviderTemplate = ({
                 </SearchResult>
               )
             })}
+        {isLoadingMore &&
+          placeholders.map((key) => (
+            <SearchResult
+              id={String(key)}
+              key={String(key)}
+              aria-busy="true"
+              tag={Search.Result}
+            >
+              <p data-line-count="2" />
+            </SearchResult>
+          ))}
         {outputs.length === 0 && (
           <div className={styles.noResultsFind}>No results found</div>
         )}
+        <Pagination
+          basePath={basePath}
+          from={from}
+          size={size}
+          total={total}
+          q={query}
+        />
       </Search.Main>
       <Search.Sidebar tag="aside">
         <MapCard metadata={metadata} />

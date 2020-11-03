@@ -50,3 +50,38 @@
 .no-results-find {
   margin-top: 1rem;
 }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.pagination .arrow-pagination {
+  display: flex;
+  align-items: center;
+}
+
+.pagination .arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  color: var(--gray-700);
+  border: none;
+  border-radius: 2rem;
+}
+
+.result-stats {
+  margin-right: 1rem;
+}
+
+.pagination .disabled {
+  text-decoration: none;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}

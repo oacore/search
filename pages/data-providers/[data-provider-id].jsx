@@ -1,64 +1,116 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useRouter } from 'next/router'
 
-import { useStateToUrlEffect } from 'templates/data-provider/hooks'
-import DataProvider from 'store/data-provider'
+import { useSyncUrlParamsWithStore } from 'hooks/use-sync-url-params-with-store'
+import { convertAndValidate } from 'utils/validation'
+import DataProvider, { schema } from 'store/data-provider'
 import { useStore, observe } from 'store'
 import DataProviderTemplate from 'templates/data-provider'
 
 export async function getServerSideProps({ query }) {
   const id = query['data-provider-id']
-  const { q = '', from = 0, size = 10 } = query
+  const params = convertAndValidate({
+    params: Object.fromEntries(
+      Object.entries(query).filter(([, v]) => v != null)
+    ),
+    schema,
+  })
 
-  const outputs = await DataProvider.fetchOutputs({
+  const { q, from, size } = params
+
+  const outputsPromise = DataProvider.fetchOutputs({
     id,
     q,
     from,
     size,
   })
-  const metadata = await DataProvider.loadMetadata({
+  const metadataPromise = DataProvider.fetchMetadata({
     id,
   })
+
+  const [outputs, metadata] = await Promise.allSettled([
+    outputsPromise,
+    metadataPromise,
+  ])
 
   return {
     props: {
       initialState: {
         dataProvider: {
-          outputs,
-          metadata,
+          outputs: outputs.value,
+          metadata: metadata.value,
+          params,
           id,
-          q,
-          from,
-          size,
         },
       },
     },
   }
 }
 
-const DataProviderPage = observe(() => {
-  const { dataProvider } = useStore()
+const DataProviderPage = observe(({ initialState }) => {
+  const router = useRouter()
+  const store = useStore(
+    initialState ?? {
+      initialState: {
+        dataProvider: {
+          id: router.query['data-provider-id'],
+        },
+      },
+    }
+  )
+  const { dataProvider } = store
+  const previousQuery = useRef(dataProvider.params.q)
+  const previousFrom = useRef(dataProvider.params.from)
+  const previousSize = useRef(dataProvider.params.size)
 
-  useStateToUrlEffect({
-    id: dataProvider.id,
-    q: dataProvider.query,
-    from: dataProvider.from,
-    size: dataProvider.size,
-  })
+  useSyncUrlParamsWithStore(dataProvider.params)
+
+  useEffect(() => {
+    // whenever query changes go back to first page
+    if (previousQuery.current !== dataProvider.params.q) {
+      dataProvider.params.changeParams({
+        size: 10,
+        from: 0,
+      })
+    }
+
+    const isLoadMore =
+      previousQuery.current === dataProvider.params.q &&
+      previousFrom.current === dataProvider.params.from &&
+      previousSize.current !== dataProvider.params.size
+
+    const hasChanged =
+      previousQuery.current !== dataProvider.params.q ||
+      previousFrom.current !== dataProvider.params.from ||
+      previousSize.current !== dataProvider.params.size
+
+    previousQuery.current = dataProvider.params.q
+    previousFrom.current = dataProvider.params.from
+    previousSize.current = dataProvider.params.size
+
+    if (hasChanged) dataProvider.loadOutputs({ loadMore: isLoadMore })
+  }, [
+    dataProvider.params.size,
+    dataProvider.params.from,
+    dataProvider.params.q,
+  ])
 
   return (
     <DataProviderTemplate
       outputs={dataProvider.outputs}
       loadPage={dataProvider.loadPage}
       metadata={dataProvider.metadata}
-      loadSuggestions={dataProvider.loadSuggestions}
-      query={dataProvider.query}
+      query={dataProvider.params.q}
       setQuery={(q) => {
-        dataProvider.query = q
+        dataProvider.params.q = q
       }}
-      loadOutputs={dataProvider.loadOutputs}
-      from={dataProvider.from}
-      size={dataProvider.size}
+      from={dataProvider.params.from}
+      size={dataProvider.params.size}
+      // TODO: Get proper value from API
+      total={50000}
       loading={dataProvider.loading}
+      basePath={`/data-providers/${dataProvider.id}`}
+      isLoadingMore={dataProvider.isLoadingMore}
     />
   )
 })
