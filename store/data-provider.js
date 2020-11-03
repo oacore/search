@@ -1,29 +1,52 @@
 import { observable, action } from 'mobx'
 
+import Params from './params'
+
 import apiRequest from 'api'
 
-class DataProvider {
-  @observable outputs
+export const schema = {
+  q: {
+    default: '',
+    convert: 'string',
+    validation: 'string',
+  },
 
+  from: {
+    default: 0,
+    validation: 'number',
+    convert: 'number',
+  },
+  size: {
+    default: 10,
+    validation: 'number',
+    convert: 'number',
+  },
+}
+
+class DataProvider {
   @observable metadata
 
   @observable id
 
-  @observable query
-
-  @observable from
-
-  @observable size
-
   @observable loading = false
 
-  constructor({ id, q, from, size, outputs, metadata }) {
+  @observable isLoadingMore = false
+
+  @observable params
+
+  @observable outputsData
+
+  @observable outputs
+
+  constructor({ id, outputs, metadata, params = {} }) {
     this.id = id
-    this.from = from ?? 0
-    this.size = size ?? 10
-    this.query = q
-    this.outputs = outputs ?? []
-    this.metadata = metadata ?? []
+    this.params = new Params(params, schema)
+
+    if (!outputs) this.loadOutputs()
+    else this.outputs = outputs ?? []
+
+    if (!metadata) this.loadMetadata()
+    else this.metadata = metadata
   }
 
   static async fetchOutputs({ id, from, size, q, ...restParams }) {
@@ -40,31 +63,37 @@ class DataProvider {
     return data
   }
 
-  static async loadMetadata({ id }) {
+  static async fetchMetadata({ id }) {
     const { data } = await apiRequest(`/data-providers/${id}`)
     return data
   }
 
   @action
-  loadOutputs = async () => {
-    // show loading placeholders only when search takes more than 500ms
-    const timeout = setTimeout(() => {
-      this.loading = true
-    }, 500)
-    this.loading = true
-    this.outputs = await DataProvider.fetchOutputs({
-      id: this.id,
-      from: this.from,
-      size: this.size,
-      q: this.query,
-    })
-    clearTimeout(timeout)
-    this.loading = false
+  loadMetadata = async () => {
+    this.metadata = await DataProvider.fetchMetadata({ id: this.id })
   }
 
   @action
-  loadSuggestions = async (searchTerm) =>
-    DataProvider.fetchOutputs({ id: this.id, q: searchTerm, from: 0, size: 10 })
+  loadOutputs = async ({ loadMore = false } = {}) => {
+    this.loading = true
+    this.isLoadingMore = loadMore
+
+    this.outputs = (loadMore ? this.outputs : []).concat(
+      await DataProvider.fetchOutputs({
+        id: this.id,
+        from: loadMore
+          ? this.params.from + this.outputs.length
+          : this.params.from,
+        size: loadMore
+          ? this.params.size - this.outputs.length
+          : this.params.size,
+        q: this.params.q,
+      })
+    )
+
+    this.loading = false
+    this.isLoadingMore = false
+  }
 }
 
 export default DataProvider
