@@ -2,7 +2,7 @@ import React from 'react'
 import { SearchResult } from '@oacore/design'
 
 import DataProviderOutputsSearch from './search'
-import ClaimCard from './claim-card'
+// import ClaimCard from './claim-card'
 import MapCard from './map-card'
 import styles from './styles.module.css'
 import Pagination from './pagination'
@@ -94,7 +94,7 @@ const DataProviderTemplate = ({
       </Search.Main>
       <Search.Sidebar tag="aside">
         <MapCard metadata={metadata} />
-        <ClaimCard name={metadata.name} />
+        {/* <ClaimCard name={metadata.name} /> */}
       </Search.Sidebar>
     </Search>
   )
