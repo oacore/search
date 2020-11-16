@@ -41,10 +41,13 @@
   margin-right: 0.5rem;
 }
 
+.card {
+  min-width: unset;
+}
+
 .card .map {
   width: auto;
-  margin: calc(-1 * var(--card-padding-y)) calc(-1 * var(--card-padding-x))
-    var(--card-padding-x) calc(-1 * var(--card-padding-x));
+  margin: -1rem -1rem 1rem;
 }
 
 .no-results-find {
