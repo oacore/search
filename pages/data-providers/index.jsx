@@ -65,9 +65,9 @@ const SearchPage = observe(({ initialState }) => {
   )
   const setQuery = useCallback(
     (q) => {
-      dataProviders.params.query = q
+      dataProviders.params.q = q
     },
-    [dataProviders.params.query]
+    [dataProviders.params.q]
   )
   const handleUrlChange = useCallback(
     (event) => {
