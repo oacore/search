@@ -3,10 +3,10 @@ import { Button } from '@oacore/design'
 import { countries } from 'i18n-iso-countries/langs/en.json'
 
 import styles from './styles.module.css'
-import DataProvidersSelect from './search'
 import ResultCard from './result-card'
 import AddDataProviderForm from './form'
 
+import { useSearchBar } from 'modules/search-bar/context'
 import { formatNumber } from 'utils/format-number'
 import Search from 'modules/search-layout'
 import RepositoriesMap from 'modules/repositories-map'
@@ -82,13 +82,19 @@ const DataProvidersSearchTemplate = React.memo(
     formRef,
     totalArticlesCount,
     ...formProps
-  }) => (
-    <>
-      <DataProvidersSelect
-        onQueryChanged={setQuery}
-        searchDataProviders={searchDataProviders}
-        initQuery={query}
-      />
+  }) => {
+    useSearchBar({
+      onQueryChanged: setQuery,
+      search: searchDataProviders,
+      initQuery: query,
+      searchBarProps: {
+        label: 'Search data providers',
+        placeholder: 'e.g. repository or journal name',
+        prependIcon: '#magnify',
+      },
+    })
+
+    return (
       <Search className={styles.searchArea}>
         {Boolean(results.length) && (
           <Search.ResultStats
@@ -155,8 +161,8 @@ const DataProvidersSearchTemplate = React.memo(
           </Button>
         </Search.Content>
       </Search>
-    </>
-  )
+    )
+  }
 )
 
 export default DataProvidersSearchTemplate

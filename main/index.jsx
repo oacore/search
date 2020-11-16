@@ -2,6 +2,7 @@ import React from 'react'
 
 import Head from './head'
 
+import SearchBarProvider from 'modules/search-bar/context'
 import Layout from 'modules/layout'
 import { useInitStore, StoreProvider } from 'store'
 
@@ -10,8 +11,10 @@ const Main = ({ children, initialState }) => {
 
   return (
     <StoreProvider store={store}>
-      <Head />
-      <Layout>{children}</Layout>
+      <SearchBarProvider>
+        <Head />
+        <Layout>{children}</Layout>
+      </SearchBarProvider>
     </StoreProvider>
   )
 }

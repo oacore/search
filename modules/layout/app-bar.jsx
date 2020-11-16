@@ -3,12 +3,14 @@ import { AppBar, Logo, Button } from '@oacore/design'
 
 import styles from './styles.module.css'
 
+import SearchBar from 'modules/search-bar'
+
 const SearchAppBar = ({ children, className, ...restProps }) => (
   <AppBar id="app-bar" className={styles.appBar} fixed {...restProps}>
     <AppBar.Brand href="/" className={styles.brand}>
       <Logo />
     </AppBar.Brand>
-    {children}
+    <SearchBar />
     <AppBar.Item tag="nav" className={styles.navigation}>
       <ul className={styles.navigationList}>
         <li>

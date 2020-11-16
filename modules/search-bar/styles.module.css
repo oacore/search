@@ -1,3 +1,9 @@
+.item {
+  --app-bar-padding-y: 0.25rem;
+
+  flex: 1;
+}
+
 .select {
   --select-background: var(--gray-200);
   --select-focused-background: var(--white);
