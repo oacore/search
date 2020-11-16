@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 import { useSyncUrlParamsWithStore } from 'hooks/use-sync-url-params-with-store'
 import { convertAndValidate } from 'utils/validation'
@@ -96,22 +97,36 @@ const DataProviderPage = observe(({ initialState }) => {
   ])
 
   return (
-    <DataProviderTemplate
-      outputs={dataProvider.outputs}
-      loadPage={dataProvider.loadPage}
-      metadata={dataProvider.metadata}
-      query={dataProvider.params.q}
-      setQuery={(q) => {
-        dataProvider.params.q = q
-      }}
-      from={dataProvider.params.from}
-      size={dataProvider.params.size}
-      // TODO: Get proper value from API
-      total={50000}
-      loading={dataProvider.loading}
-      basePath={`/data-providers/${dataProvider.id}`}
-      isLoadingMore={dataProvider.isLoadingMore}
-    />
+    <>
+      <Head>
+        <title>
+          {dataProvider.params.q
+            ? `Search "${dataProvider.params.q}" in ${dataProvider.metadata.name}`
+            : `${dataProvider.metadata.name}`}
+          Data providers search
+        </title>
+        <meta
+          name="description"
+          content={`Search over TODO works in ${dataProvider.metadata.name}.`}
+        />
+      </Head>
+      <DataProviderTemplate
+        outputs={dataProvider.outputs}
+        loadPage={dataProvider.loadPage}
+        metadata={dataProvider.metadata}
+        query={dataProvider.params.q}
+        setQuery={(q) => {
+          dataProvider.params.q = q
+        }}
+        from={dataProvider.params.from}
+        size={dataProvider.params.size}
+        // TODO: Get proper value from API
+        total={50000}
+        loading={dataProvider.loading}
+        basePath={`/data-providers/${dataProvider.id}`}
+        isLoadingMore={dataProvider.isLoadingMore}
+      />
+    </>
   )
 })
 
