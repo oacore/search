@@ -1,31 +1,8 @@
 import React from 'react'
-import { AppBar, Logo, Button } from '@oacore/design'
-
-import styles from './styles.module.css'
-
-import SearchBar from 'modules/search-bar'
+import { Header } from '@oacore/design'
 
 const SearchAppBar = ({ children, className, ...restProps }) => (
-  <AppBar id="app-bar" className={styles.appBar} fixed {...restProps}>
-    <AppBar.Brand href="/" className={styles.brand}>
-      <Logo />
-    </AppBar.Brand>
-    <SearchBar />
-    <AppBar.Item tag="nav" className={styles.navigation}>
-      <ul className={styles.navigationList}>
-        <li>
-          <Button tag="a" href="//core.ac.uk/services" className={styles.link}>
-            Services
-          </Button>
-        </li>
-        <li>
-          <Button tag="a" href="//core.ac.uk/about" className={styles.link}>
-            About
-          </Button>
-        </li>
-      </ul>
-    </AppBar.Item>
-  </AppBar>
+  <Header id="header" {...restProps} />
 )
 
 export default SearchAppBar

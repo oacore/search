@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/oacore/search#readme",
   "dependencies": {
-    "@oacore/design": "^3.2.1",
+    "@oacore/design": "^3.3.0",
     "@oacore/stylelint-config-base": "^1.0.6",
     "@sentry/browser": "^5.27.2",
     "@sentry/node": "^5.27.2",
@@ -26,8 +26,8 @@
     "mobx": "^5.15.7",
     "mobx-react-lite": "^2.2.2",
     "next": "^10.0.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "throttle-debounce": "^3.0.0"
   },
   "devDependencies": {
