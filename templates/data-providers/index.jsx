@@ -1,12 +1,11 @@
-import React, { useEffect, useRef, useLayoutEffect } from 'react'
-import { Button } from '@oacore/design'
+import React, { useEffect, useRef, useLayoutEffect, useCallback } from 'react'
+import { Button, Header } from '@oacore/design'
 import { countries } from 'i18n-iso-countries/langs/en.json'
 
 import styles from './styles.module.css'
 import ResultCard from './result-card'
 import AddDataProviderForm from './form'
 
-import { useSearchBar } from 'modules/search-bar/context'
 import { formatNumber } from 'utils/format-number'
 import Search from 'modules/search-layout'
 import RepositoriesMap from 'modules/repositories-map'
@@ -83,9 +82,21 @@ const DataProvidersSearchTemplate = React.memo(
     totalArticlesCount,
     ...formProps
   }) => {
-    useSearchBar({
+    const getSuggestions = useCallback(
+      (term) => {
+        const matches = searchDataProviders(term)
+        return matches.slice(0, 10).map((dataProvider) => ({
+          id: dataProvider.id,
+          value: dataProvider.name,
+          icon: '#magnify',
+        }))
+      },
+      [searchDataProviders]
+    )
+
+    Header.useSearchBar({
       onQueryChanged: setQuery,
-      search: searchDataProviders,
+      getSuggestions,
       initQuery: query,
       searchBarProps: {
         label: 'Search data providers',

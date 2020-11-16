@@ -1,14 +1,14 @@
 .container {
-  --app-bar-skip: 3.5rem;
   --app-bar-logo-width: 6rem;
-  --page-padding-x: calc(var(--app-bar-logo-width) + var(--app-bar-padding-x));
+
+  /* TODO: Make logo width fixed so the alignment will match */
+  --page-padding-x: 8rem;
   --page-padding-y: calc(var(--page-padding-x) / 2);
   --search-results-percentage-width: calc(2 / 3);
 
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding-top: var(--app-bar-skip);
   overflow-x: auto;
   background: var(--white);
 }
@@ -27,49 +27,6 @@
   flex: 1;
   flex-direction: column;
   padding: var(--page-padding-y) var(--page-padding-x);
-}
-
-.app-bar {
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: var(--app-bar-skip);
-}
-
-.app-bar .brand {
-  display: inline-flex;
-  flex-wrap: nowrap;
-  width: var(--app-bar-logo-width);
-  white-space: nowrap;
-}
-
-.navigation {
-  order: 3;
-}
-
-@media (--screen-until-desktop) {
-  .navigation {
-    display: none;
-  }
-}
-
-.navigation-list {
-  display: inline-flex;
-}
-
-.navigation .link {
-  --button-color: #2a3840;
-
-  text-transform: none;
-}
-
-.navigation .link:hover,
-.navigation .link:focus {
-  --button-color: var(--primary);
-
-  text-transform: none;
 }
 
 .footer {
