@@ -1,0 +1,24 @@
+.group {
+  --form-control-color: var(--gray-500);
+  margin-top: 1rem;
+}
+
+.copy-button {
+  --icon-color: var(--select-clear-input-icon-color);
+  --button-padding-y: 0;
+  --button-padding-x: 0;
+
+  padding: calc(
+      var(--form-control-padding-y) - var(--form-control-border-width) - 0.2rem
+    )
+    calc(0.75rem - var(--form-control-border-width) - 0.2rem);
+  margin: 0.2rem;
+  border: none;
+  border-radius: 2rem;
+}
+
+.append-icon {
+  /* preserve border radius */
+  min-width: 1rem;
+  padding: 0;
+}
