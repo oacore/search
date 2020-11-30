@@ -1,0 +1,118 @@
+.search-result:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.card {
+  min-width: unset;
+}
+
+.card:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.thumbnail-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: var(--elevation-01);
+}
+
+.thumbnail-card > img {
+  max-width: 100%;
+  height: auto;
+}
+
+.thumbnail-card-metadata {
+  align-self: stretch;
+  margin: 0 -1rem -1rem;
+}
+
+.thumbnail-card-metadata > button {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--gray-300);
+}
+
+.thumbnail-card-metadata-show-more {
+  flex-direction: column;
+  padding-top: 1rem;
+  margin: 0 1.5rem 1rem;
+  border-top: 1px solid var(--gray-300);
+}
+
+.repository-name {
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--gray-900);
+  letter-spacing: 0.0015em;
+}
+
+.pdf-size {
+  color: var(--gray-800);
+}
+
+.author-link {
+  color: var(--gray-800);
+  text-decoration: underline;
+}
+
+.chip.contained {
+  color: var(--white);
+  background: var(--primary);
+}
+
+.chip {
+  padding: 2px 4px;
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  border-radius: 4px;
+}
+
+.chip:not(:first-child) {
+  margin-right: 1rem;
+}
+
+.chips-list {
+  margin-bottom: 0;
+}
+
+.chips-list .chips-item::before {
+  content: '';
+}
+
+.card .map {
+  width: auto;
+  margin: -1rem -1rem 1rem;
+}
+
+.keywords-list {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.keywords-list li {
+  display: inline;
+}
+
+.keywords-list li:not(:last-child)::after {
+  content: ',\2000';
+}
+
+.keywords-icon {
+  margin: 0 0.5rem 0.25rem 0;
+  color: var(--gray-800);
+}
+
+.card:hover {
+  box-shadow: var(--elevation-03);
+}

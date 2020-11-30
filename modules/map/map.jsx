@@ -16,7 +16,7 @@ const markerIcon = L.icon({
   popupAnchor: [0, -32],
 })
 
-const CustomMap = ({ locations }) => {
+const CustomMap = ({ locations, zoom = 2 }) => {
   const mapContainerRef = useRef(null)
   const map = useRef(null)
 
@@ -38,7 +38,7 @@ const CustomMap = ({ locations }) => {
         locations.length > 1
           ? centerPosition
           : new L.LatLng(locations[0].latitude, locations[0].longitude),
-      zoom: 2,
+      zoom,
       maxBounds: [
         [-90, -180],
         [90, 180],
