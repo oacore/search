@@ -1,0 +1,68 @@
+.container {
+  position: relative;
+  padding: 0;
+  transition: box-shadow 150ms;
+
+  &:hover {
+    box-shadow: var(--elevation-04);
+  }
+
+  &:focus-within {
+    box-shadow: var(--elevation-04);
+  }
+}
+
+.image {
+  position: relative;
+  display: block;
+
+  & > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--card-border-radius, var(--component-border-radius))
+      var(--card-border-radius, var(--component-border-radius)) 0 0;
+  }
+}
+
+.title {
+  display: block;
+}
+
+/* Disabling !important check for visually-hidden snippet */
+/* stylelint-disable declaration-no-important */
+.title:not(:focus):not(:focus-within) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+/* stylelint-enable declaration-no-important */
+.body {
+  /* TODO: This should go to the design/foundation/colors.css */
+  --outline: 0.12;
+
+  display: block;
+  padding: var(--card-padding-y, var(--component-padding-y))
+    var(--card-padding-x, var(--component-padding-x));
+  margin: 0;
+  border-top: 1px solid hsl(var(--on-surface) / var(--outline));
+}
+
+.name {
+  display: block;
+  font-weight: 600;
+  color: hsl(var(--primary-hsl));
+}
+
+.description {
+  position: relative;
+  z-index: 2;
+  display: block;
+}

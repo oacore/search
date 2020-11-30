@@ -1,0 +1,84 @@
+.search-result:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.card {
+  min-width: unset;
+}
+
+.card:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.repository-name {
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--gray-900);
+  letter-spacing: 0.0015em;
+}
+
+.pdf-size {
+  color: var(--gray-800);
+}
+
+.author-link {
+  color: var(--gray-800);
+  text-decoration: underline;
+}
+
+.chip.contained {
+  color: var(--white);
+  background: var(--primary);
+}
+
+.chip {
+  padding: 2px 4px;
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  border-radius: 4px;
+}
+
+.chip:not(:first-child) {
+  margin-right: 1rem;
+}
+
+.chips-list {
+  margin-bottom: 0;
+}
+
+.chips-list .chips-item::before {
+  content: '';
+}
+
+.card .map {
+  width: auto;
+  margin: -1rem -1rem 1rem;
+}
+
+.keywords-list {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.keywords-list li {
+  display: inline;
+}
+
+.keywords-list li:not(:last-child)::after {
+  content: ',\2000';
+}
+
+.keywords-icon {
+  margin: 0 0.5rem 0.25rem 0;
+  color: var(--gray-800);
+}
+
+.abstract {
+  margin-bottom: var(--spacer);
+}
