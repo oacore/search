@@ -18,7 +18,7 @@
     "@oacore/stylelint-config-base": "^1.0.6",
     "@sentry/browser": "^5.27.2",
     "@sentry/node": "^5.27.2",
-    "core-js": "^3.6.5",
+    "core-js": "^3.8.0",
     "cssnano": "^4.1.10",
     "i18n-iso-countries": "^6.2.2",
     "leaflet": "^1.7.1",
