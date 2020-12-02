@@ -1,13 +1,14 @@
 import { useEffect, useCallback } from 'react'
 import { useRouter } from 'next/router'
 
+import useDebouncedEffect from '../use-debounced-effect'
+
 export const useSyncUrlParamsWithStore = (params) => {
   const router = useRouter()
   const setUrlParams = () => {
     const newParams = Array.from(params.entries()).filter(
       ([, value]) => value != null
     )
-
     const query = Object.fromEntries(newParams)
     router.push(
       { pathname: router.pathname, query },
@@ -42,7 +43,7 @@ export const useSyncUrlParamsWithStore = (params) => {
   }, [])
 
   // whenever any param changes in store reflect it to the URL
-  useEffect(() => {
+  useDebouncedEffect(() => {
     setUrlParams()
   }, Array.from(params.values()))
 }

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import Head from 'next/head'
 
 import { observe, useStore } from 'store'
@@ -45,12 +45,12 @@ const SearchPage = observe(() => {
 
   const {
     formRef,
-    showForm,
-    setShowForm,
     claim,
     handleSubmitForm,
     getFormMessage,
-  } = useClaimController({ action })
+  } = useClaimController()
+
+  const initialAction = useMemo(() => dataProviders.params.action, [])
 
   useSyncUrlParamsWithStore(dataProviders.params)
 
@@ -75,6 +75,17 @@ const SearchPage = observe(() => {
     },
     [claim]
   )
+  const setShowForm = useCallback(
+    (isVisible) => {
+      dataProviders.params.action = isVisible ? 'ADD' : null
+    },
+    [dataProviders.params.action]
+  )
+
+  useEffect(() => {
+    if (!results.length) dataProviders.params.action = 'ADD'
+    else dataProviders.params.action = initialAction
+  }, [results])
 
   return (
     <>
@@ -102,7 +113,7 @@ const SearchPage = observe(() => {
         dataProvidersSize={size}
         setDataProvidersSize={setDataProvidersSize}
         setShowForm={setShowForm}
-        showAddDataProviderForm={showForm}
+        showAddDataProviderForm={Boolean(action === 'ADD')}
         formRef={formRef}
         url={claim.query}
         onUrlChange={handleUrlChange}

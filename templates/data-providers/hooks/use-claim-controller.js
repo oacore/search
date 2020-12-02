@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 
 import { generateFormMessage } from '../utils'
@@ -6,11 +6,10 @@ import { generateFormMessage } from '../utils'
 import { useStore } from 'store'
 import useDebouncedEffect from 'hooks/use-debounced-effect'
 
-const useClaimController = ({ action }) => {
+const useClaimController = () => {
   const formRef = useRef(null)
   const router = useRouter()
   const { claim } = useStore()
-  const [showForm, setShowForm] = useState(Boolean(action === 'add'))
 
   const resetClaim = useCallback(() => claim.reset({ query: true }), [])
 
@@ -46,8 +45,6 @@ const useClaimController = ({ action }) => {
 
   return {
     formRef,
-    showForm,
-    setShowForm,
     claim,
     handleSubmitForm,
     getFormMessage,
