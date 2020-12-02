@@ -33,7 +33,20 @@ const SearchResults = ({
     return (
       <Search.Results>
         <Search.Result>
-          <b>No results found</b>
+          <h2>
+            Is there a mistake?{' '}
+            <span role="img" aria-label="">
+              😔
+            </span>
+          </h2>
+          <p>
+            We could not find any data provider matching your query. If there is
+            an open access repository or a journal you think should be added to
+            CORE, use the form below{' '}
+            <span role="img" aria-label="">
+              👇
+            </span>
+          </p>
         </Search.Result>
         {children}
       </Search.Results>
