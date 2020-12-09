@@ -1,17 +1,12 @@
 import React from 'react'
 import { classNames } from '@oacore/design/lib/utils'
-import { Card } from '@oacore/design'
 
 import styles from './styles.module.css'
 
-const Content = ({ children, className, tag = 'div', ...restProps }) => (
-  <Card
-    tag={tag}
-    className={classNames.use(styles.content, className)}
-    {...restProps}
-  >
+const Content = ({ children, className, ...restProps }) => (
+  <div className={classNames.use(styles.content, className)} {...restProps}>
     {children}
-  </Card>
+  </div>
 )
 
 export default Content

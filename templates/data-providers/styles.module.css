@@ -7,10 +7,6 @@
   }
 }
 
-.search-area {
-  --search-grid-padding: calc(var(--app-bar-logo-width) + 1rem);
-}
-
 .result-card {
   --icon-color: currentColor;
   color: var(--gray-800);
@@ -64,7 +60,7 @@
 }
 
 .map {
-  height: 30rem;
+  height: 15rem;
 }
 
 @media (--screen-until-desktop) {

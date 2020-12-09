@@ -119,7 +119,7 @@ const DataProvidersSearchTemplate = React.memo(
     })
 
     return (
-      <Search className={styles.searchArea}>
+      <Search>
         {Boolean(results.length) && (
           <Search.ResultStats
             from={1}
