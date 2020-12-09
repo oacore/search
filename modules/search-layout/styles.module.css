@@ -1,7 +1,7 @@
 .container {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: calc(var(--search-results-percentage-width) * 100%) auto;
+  grid-template-columns: calc(var(--search-results-ratio) * 100%) auto;
   grid-auto-rows: auto;
 }
 
