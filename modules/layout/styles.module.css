@@ -1,24 +1,9 @@
 .container {
-  --app-bar-logo-width: 6rem;
-
-  /* TODO: Make logo width fixed so the alignment will match */
-  --page-padding-x: 8rem;
-  --page-padding-y: calc(var(--page-padding-x) / 2);
-  --search-results-percentage-width: calc(2 / 3);
-
   display: flex;
   flex-direction: column;
   min-height: 100%;
   overflow-x: auto;
   background: var(--white);
-}
-
-@media (--screen-until-large-desktop) {
-  .container {
-    --search-results-percentage-width: calc(1 / 2);
-    --page-padding-x: 1rem;
-    --page-padding-y: 1rem;
-  }
 }
 
 .main {
