@@ -27,20 +27,6 @@
   --link-color: var(--gray-800);
   --link-hover-color: var(--gray-900);
   --link-visited-color: var(--gray-800);
-
-  display: flex;
-  flex-direction: row;
-  padding: 0;
-  color: var(--gray-800);
-}
-
-.result-metadata li {
-  padding-right: 1rem;
-  list-style-position: inside;
-}
-
-.result-metadata li:first-child {
-  list-style: none;
 }
 
 .load-more {
@@ -61,10 +47,4 @@
 
 .map {
   height: 15rem;
-}
-
-@media (--screen-until-desktop) {
-  .map {
-    height: 15rem;
-  }
 }

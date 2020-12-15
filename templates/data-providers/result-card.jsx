@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, Link } from '@oacore/design'
+import { Icon, Link, MetadataList } from '@oacore/design'
 
 import styles from './styles.module.css'
 
@@ -25,14 +25,18 @@ const ResultCard = ({
       </Link>
     </span>
 
-    <ul className={styles.resultMetadata}>
-      <li>
+    <MetadataList className={styles.resultMetadata}>
+      <MetadataList.Item id="data-provider-webpage" label="webpage">
         <Link href={homePage} external icon={false}>
           {homePage}
         </Link>
-      </li>
-      {country && <li>{country}</li>}
-    </ul>
+      </MetadataList.Item>
+      {country && (
+        <MetadataList.Item id="data-provider-country" label="country">
+          {country}
+        </MetadataList.Item>
+      )}
+    </MetadataList>
   </Search.Result>
 )
 
