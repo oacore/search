@@ -7,7 +7,7 @@ const cspConfig = require('./csp.config')
 const helpers = require('./utils/helpers')
 
 const nextConfig = {
-  env: envConfig,
+  env: envConfigdsalshlhadsdhaalis,
   assetPrefix: helpers.getAssetsPath(''),
 
   async headers() {
