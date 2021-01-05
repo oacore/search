@@ -2,7 +2,7 @@ import React from 'react'
 import { Header } from '@oacore/design'
 
 import SimilarWorks from './similar-works'
-import ThumbnailCard from './thumbnail-card'
+import FullTextThumbnail from './thumbnail-card'
 import Metadata from './metadata'
 import ApiCard from './api-card'
 import Chips from './chips'
@@ -58,10 +58,13 @@ const ArticlePageTemplate = ({
         <SimilarWorks />
       </Search.Main>
       <Search.Sidebar>
-        <ThumbnailCard
-          id={id}
-          repository={repository}
-          repositoryDocument={repositoryDocument}
+        <FullTextThumbnail
+          id={`full-text-thumbnail-${id}`}
+          data={{
+            id,
+            repository,
+            repositoryDocument,
+          }}
         />
         {/* TODO: Connect to real data */}
         <MapCard

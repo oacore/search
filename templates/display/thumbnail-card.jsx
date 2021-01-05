@@ -6,8 +6,14 @@ import styles from './styles.module.css'
 
 import ShowMore from 'modules/show-more'
 
-const ThumbnailCard = ({ id, repository, repositoryDocument }) => (
-  <Card className={classNames.use(styles.card, styles.thumbnailCard)}>
+const FullTextThumbnail = ({
+  data: { id, repository, repositoryDocument },
+  ...passProps
+}) => (
+  <Card
+    className={classNames.use(styles.card, styles.thumbnailCard)}
+    {...passProps}
+  >
     <a href={`//core.ac.uk/reader/${id}`} title="Open in CORE Reader">
       <img src={`//core.ac.uk/image/${id}/large`} alt="" />
     </a>
@@ -27,4 +33,6 @@ const ThumbnailCard = ({ id, repository, repositoryDocument }) => (
   </Card>
 )
 
-export default ThumbnailCard
+FullTextThumbnail.displayName = 'Work.Thumbnail'
+
+export default FullTextThumbnail
