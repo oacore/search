@@ -5,11 +5,8 @@ import { useStore, observe } from 'store'
 import Article from 'store/article'
 import ArticlePageTemplate from 'templates/display'
 
-const addEllipsis = (text, max) => {
-  if (text.length <= max) return text
-
-  return `${text.substring(0, max - 3)}...`
-}
+const addEllipsis = (text, max) =>
+  text.length <= max ? text : `${text.substring(0, max - 3)}...`
 
 const structuredMetadata = (metadata) => {
   const ld = {
