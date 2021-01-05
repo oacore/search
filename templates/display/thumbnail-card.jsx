@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
+import filesize from 'filesize'
 
 import styles from './styles.module.css'
 
@@ -21,8 +22,7 @@ const FullTextThumbnail = ({
       <span className={styles.repositoryName}>{repository.name}</span>
       {repositoryDocument.pdfSize && (
         <span>
-          Provided a free PDF (
-          {(repositoryDocument.pdfSize / 1000000).toFixed(3)} MB)
+          Provided a free PDF ({filesize(repositoryDocument.pdfSize)})
         </span>
       )}
       <ShowMore.More className={styles.thumbnailCardMetadataShowMore}>
