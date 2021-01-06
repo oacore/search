@@ -66,4 +66,19 @@ App.getInitialProps = async () => {
   }
 }
 
+// Dangerously disabling Next.js SSR on development environment to speed-up
+// development with linked packages (to outside the project directory)
+//
+// Related issues on GitHub:
+// - https://github.com/vercel/next.js/issues/5463
+// - https://github.com/vercel/next.js/issues/5638
+// - https://github.com/vercel/next.js/issues/706
+if (process.env.NODE_ENV !== 'production') {
+  const actualRender = App.prototype.render
+  App.prototype.render = function decoratedRender(...args) {
+    if (typeof window == 'undefined') return null
+    return actualRender.apply(this, args)
+  }
+}
+
 export default App
