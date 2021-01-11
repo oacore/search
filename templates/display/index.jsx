@@ -60,10 +60,13 @@ const ArticlePageTemplate = ({
       <Search.Sidebar>
         <FullTextThumbnail
           id={`full-text-thumbnail-${id}`}
+          href={`//core.ac.uk/reader/${id}`}
+          src={`//core.ac.uk/image/${id}/large`}
+          alt=""
           data={{
-            id,
-            repository,
-            repositoryDocument,
+            title: repository.name,
+            type: 'PDF',
+            size: repositoryDocument.pdfSize,
           }}
         />
         {/* TODO: Connect to real data */}
