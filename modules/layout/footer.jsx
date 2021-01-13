@@ -13,9 +13,6 @@ const Footer = () => (
             <Link href="https://blog.core.ac.uk/">Blog</Link>
           </li>
           <li className={styles.footerLink}>
-            <Link href="https://core.ac.uk/browse/">Browse</Link>
-          </li>
-          <li className={styles.footerLink}>
             <Link href="https://core.ac.uk/about/">About CORE</Link>
           </li>
           <li className={styles.footerLink}>
