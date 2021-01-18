@@ -1,5 +1,4 @@
-import React from 'react'
-import NextApp from 'next/app'
+import React, { Component as ReactComponent } from 'react'
 
 // TODO: Move to map component once
 //       https://github.com/vercel/next.js/issues/12079 is solved
@@ -21,7 +20,7 @@ process.on('uncaughtException', (err) => {
   Sentry.captureException(err)
 })
 
-class App extends NextApp {
+class ErrorBoundary extends ReactComponent {
   // eslint-disable-next-line class-methods-use-this
   componentDidCatch(error, errorInfo) {
     Sentry.withScope((scope) => {
@@ -34,14 +33,19 @@ class App extends NextApp {
   }
 
   render() {
-    const { Component, pageProps, statistics } = this.props
-
-    return (
-      <Main initialState={{ statistics }}>
-        <Component {...pageProps} />
-      </Main>
-    )
+    const { children } = this.props
+    return children
   }
+}
+
+const App = ({ Component: PageComponent, pageProps, statistics }) => {
+  return (
+    <ErrorBoundary>
+      <Main initialState={{ statistics }}>
+        <PageComponent {...pageProps} />
+      </Main>
+    </ErrorBoundary>
+  )
 }
 
 let statistics = {
