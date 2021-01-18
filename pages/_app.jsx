@@ -1,4 +1,10 @@
-import React, { Component as ReactComponent } from 'react'
+import React, {
+  Component as ReactComponent,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
+import { useRouter } from 'next/router'
 
 // TODO: Move to map component once
 //       https://github.com/vercel/next.js/issues/12079 is solved
@@ -38,10 +44,35 @@ class ErrorBoundary extends ReactComponent {
   }
 }
 
+const useLoading = (initialState = false) => {
+  const router = useRouter()
+
+  const [isLoading, setLoading] = useState(initialState)
+
+  const enableLoading = useCallback(() => setLoading(true), [setLoading])
+  const disableLoading = useCallback(() => setLoading(false), [setLoading])
+
+  useEffect(() => {
+    router.events.on('routeChangeStart', enableLoading)
+    router.events.on('routeChangeComplete', disableLoading)
+    router.events.on('routeChangeError', disableLoading)
+
+    return () => {
+      router.events.off('routeChangeStart', enableLoading)
+      router.events.off('routeChangeComplete', disableLoading)
+      router.events.off('routeChangeError', disableLoading)
+    }
+  }, [enableLoading, disableLoading])
+
+  return isLoading
+}
+
 const App = ({ Component: PageComponent, pageProps, statistics }) => {
+  const loading = useLoading()
+
   return (
     <ErrorBoundary>
-      <Main initialState={{ statistics }}>
+      <Main initialState={{ statistics }} loading={loading}>
         <PageComponent {...pageProps} />
       </Main>
     </ErrorBoundary>
