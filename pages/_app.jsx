@@ -101,4 +101,22 @@ App.getInitialProps = async () => {
   }
 }
 
-export default App
+// Dangerously disabling Next.js SSR on development environment to speed-up
+// development with linked packages (to outside the project directory)
+//
+// Related issues on GitHub:
+// - https://github.com/vercel/next.js/issues/5463
+// - https://github.com/vercel/next.js/issues/5638
+// - https://github.com/vercel/next.js/issues/706
+//
+// eslint-disable-next-line import/no-mutable-exports
+let NextApp = App
+if (process.env.NODE_ENV !== 'production') {
+  NextApp = (...args) => {
+    if (typeof window == 'undefined') return null
+    return App.apply(this, args)
+  }
+  NextApp.getInitialProps = App.getInitialProps
+}
+
+export default NextApp
