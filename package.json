@@ -1,5 +1,6 @@
 {
   "name": "search",
+  "version": "1.0.2",
   "description": "CORE's search interface",
   "main": "pages/index.js",
   "private": true,
