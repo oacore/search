@@ -108,6 +108,8 @@ App.getInitialProps = async () => {
 // - https://github.com/vercel/next.js/issues/5463
 // - https://github.com/vercel/next.js/issues/5638
 // - https://github.com/vercel/next.js/issues/706
+//
+// eslint-disable-next-line import/no-mutable-exports
 let NextApp = App
 if (process.env.NODE_ENV !== 'production') {
   NextApp = (...args) => {
