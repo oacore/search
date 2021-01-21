@@ -29,7 +29,7 @@ export async function getServerSideProps({
   query: searchParams,
 }) {
   const { id } = routeParams
-  const { q = 'car', offset = 0, limit = 10 } = searchParams
+  const { q = '', offset = 0, limit = 10 } = searchParams
 
   try {
     const dataProvider = await fetchMetadata(id)
