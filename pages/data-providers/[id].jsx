@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 import { useRouter } from 'next/router'
 
+import apiRequest from 'api'
 import { fetchMetadata, fetchOutputs } from 'api/data-provider'
 import Template from 'templates/data-provider'
 
@@ -24,9 +25,9 @@ const useSearch = () => {
   return handleSearch
 }
 
-export async function getServerSideProps({
+export async function getStaticProps({
   params: routeParams,
-  query: searchParams,
+  query: searchParams = {},
 }) {
   const { id } = routeParams
   const { q = '', offset = 0, limit = 10 } = searchParams
@@ -55,6 +56,18 @@ export async function getServerSideProps({
       props: { error },
       notFound: true,
     }
+  }
+}
+
+export async function getStaticPaths() {
+  const { data: dataProviders } = await apiRequest('/repositories/formap')
+  const paths = dataProviders
+    .slice(0, 10)
+    .map(({ id }) => ({ params: { id: id.toString() } }))
+
+  return {
+    paths,
+    fallback: 'blocking',
   }
 }
 
