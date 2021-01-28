@@ -72,13 +72,10 @@ const structuredMetadata = (metadata) => {
   return JSON.stringify(ld)
 }
 
-export async function getServerSideProps({ query }) {
-  const articleId = query['article-id']
+export async function getServerSideProps({ params: routeParams }) {
+  const { id } = routeParams
 
-  const metadata = await Article.fetchMetadata({
-    id: articleId,
-  })
-
+  const metadata = await Article.fetchMetadata({ id })
   return {
     props: {
       initialState: {
