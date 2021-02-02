@@ -1,3 +1,5 @@
+import sharp from 'sharp'
+
 // This could be retrieved from the API but it's easier and faster to use this
 // as a constant since the value probably never change
 const TILE_SIZE = 256 // pixels
@@ -46,13 +48,14 @@ const parseQuery = (req) => {
   return { latitude, longitude, zoom, width, height }
 }
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   try {
     const { latitude, longitude, zoom, width, height } = parseQuery(req)
 
-    const [shiftX, shiftY] = location2pixel(latitude, longitude, zoom).map(
-      (n) => (n % TILE_SIZE) - TILE_SIZE / 2
-    )
+    const [shiftX, shiftY] = [0, 0]
+    // location2pixel(latitude, longitude, zoom).map(
+    //   (n) => (n % TILE_SIZE) - TILE_SIZE / 2
+    // )
 
     const [shiftCol, shiftRow] = [shiftX >= 0 ? 0 : -1, shiftY >= 0 ? 0 : -1]
 
@@ -78,12 +81,21 @@ export default function handler(req, res) {
       const imageY = rowIndex * TILE_SIZE - shiftY + shiftRow * TILE_SIZE
       const s = 'abc'.charAt(i % 3)
 
-      return `<image
-        href="http://${s}.tile.openstreetmap.org/${zoom}/${tileX}/${tileY}.png"
-        x="${imageX}"
-        y="${imageY}"
-      />`
+      return {
+        input: `http://${s}.tile.openstreetmap.org/${zoom}/${tileX}/${tileY}.png`,
+        top: imageY,
+        left: imageX,
+      }
     })
+
+    const buffer = await sharp({
+      create: { width, height, channels: 3, background: 'white' },
+    })
+      // .composite(tiles)
+      .png()
+      .toBuffer()
+    res.setHeader('Content-Type', 'image/png').end(buffer)
+    return
 
     const svg = `
       <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">

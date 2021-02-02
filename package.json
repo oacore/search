@@ -29,6 +29,7 @@
     "next": "^10.0.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "sharp": "^0.26.2",
     "throttle-debounce": "^3.0.1"
   },
   "devDependencies": {
