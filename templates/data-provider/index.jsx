@@ -33,6 +33,11 @@ const DataProviderTemplate = ({
     >
       <Search.Main>
         <header className={styles.header}>
+          <img
+            className={styles.cover}
+            src={`/api/cover?lat=${data.location.latitude}&lng=${data.location.longitude}`}
+            alt=""
+          />
           {/* <span>{data.institution}</span> */}
           <h1 className={styles.title}>{data.name}</h1>
         </header>
