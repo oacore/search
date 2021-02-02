@@ -1,3 +1,4 @@
+import axios from 'axios'
 import sharp from 'sharp'
 
 // This could be retrieved from the API but it's easier and faster to use this
@@ -52,10 +53,9 @@ export default async function handler(req, res) {
   try {
     const { latitude, longitude, zoom, width, height } = parseQuery(req)
 
-    const [shiftX, shiftY] = [0, 0]
-    // location2pixel(latitude, longitude, zoom).map(
-    //   (n) => (n % TILE_SIZE) - TILE_SIZE / 2
-    // )
+    const [shiftX, shiftY] = location2pixel(latitude, longitude, zoom).map(
+      (n) => (n % TILE_SIZE) - TILE_SIZE / 2
+    )
 
     const [shiftCol, shiftRow] = [shiftX >= 0 ? 0 : -1, shiftY >= 0 ? 0 : -1]
 
@@ -72,36 +72,42 @@ export default async function handler(req, res) {
       y: Math.floor(height / TILE_SIZE / 2),
     }
 
-    const tiles = Array.from(Array(rowCount * colCount), (_, i) => {
+    const tileUrls = Array.from(Array(rowCount * colCount), (_, i) => {
       const rowIndex = Math.floor(i / colCount)
       const colIndex = i % colCount
-      const tileX = targetX + colIndex - center.x + shiftCol
-      const tileY = targetY + rowIndex - center.y + shiftRow
-      const imageX = colIndex * TILE_SIZE - shiftX + shiftCol * TILE_SIZE
-      const imageY = rowIndex * TILE_SIZE - shiftY + shiftRow * TILE_SIZE
+      const x = targetX + colIndex - center.x + shiftCol
+      const y = targetY + rowIndex - center.y + shiftRow
       const s = 'abc'.charAt(i % 3)
 
-      return {
-        input: `http://${s}.tile.openstreetmap.org/${zoom}/${tileX}/${tileY}.png`,
-        top: imageY,
-        left: imageX,
-      }
+      return `http://${s}.tile.openstreetmap.org/${zoom}/${x}/${y}.png`
     })
 
+    const tiles = await Promise.all(
+      tileUrls.map((url) => axios({ url, responseType: 'arraybuffer' }))
+    )
+
     const buffer = await sharp({
-      create: { width, height, channels: 3, background: 'white' },
+      create: {
+        width: colCount * TILE_SIZE,
+        height: rowCount * TILE_SIZE,
+        channels: 3,
+        background: 'white',
+      },
     })
-      // .composite(tiles)
+      .composite(
+        tiles.map((response, i) => {
+          const { data } = response
+          return {
+            input: data,
+            top: Math.floor(i / colCount) * TILE_SIZE,
+            left: (i % colCount) * TILE_SIZE,
+          }
+        })
+      )
+      // .extract({ top: (shiftY + TILE_SIZE) % TILE_SIZE, left: (shiftX + TILE_SIZE) % TILE_SIZE, width, height })
       .png()
       .toBuffer()
     res.setHeader('Content-Type', 'image/png').end(buffer)
-    return
-
-    const svg = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
-        ${tiles.join('')}
-      </svg>`
-    res.setHeader('Content-Type', 'image/svg+xml').end(svg)
   } catch (error) {
     res.status(400).end(error.message)
   }
