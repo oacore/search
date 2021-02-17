@@ -20,7 +20,7 @@ const filterAndMapDataProviders = (dataProviders) =>
     )
     .map(({ id, name, dataProviderLocation }) => ({
       name,
-      href: `https://core.ac.uk/search?q=repositories.id:(${id})`,
+      href: `/data-providers/${id}`,
       latitude: dataProviderLocation?.latitude,
       longitude: dataProviderLocation?.longitude,
     }))
