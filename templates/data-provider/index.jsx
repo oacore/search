@@ -32,12 +32,12 @@ const DataProviderTemplate = ({
       {...restProps}
     >
       <Search.Main>
-        <header className={styles.header}>
-          <img
-            className={styles.cover}
-            src={`/api/cover?lat=${data.location.latitude}&lng=${data.location.longitude}`}
-            alt=""
-          />
+        <header
+          className={styles.header}
+          style={{
+            '--cover-url': `url('/api/cover?scope=data-providers/${data.id}')`,
+          }}
+        >
           {/* <span>{data.institution}</span> */}
           <h1 className={styles.title}>{data.name}</h1>
         </header>

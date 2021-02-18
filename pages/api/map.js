@@ -81,6 +81,7 @@ export default async function handler(req, res) {
       const y = targetY + rowIndex - center.y + shiftRow
       const s = 'abc'.charAt(i % 3)
 
+      // return `https://cartodb-basemaps-${s}.global.ssl.fastly.net/light_all/${zoom}/${x}/${y}.png`
       return `http://${s}.tile.openstreetmap.org/${zoom}/${x}/${y}.png`
     })
 
