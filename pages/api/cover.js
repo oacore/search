@@ -86,6 +86,9 @@ export default async function handler(req, res) {
       tileUrls.map((url) => axios({ url, responseType: 'arraybuffer' }))
     )
 
+    // TODO: Streams could potentially speed up processing
+    //       and reduce memory usage. However, on the first try I had no success
+    //       to pipe this all together.
     const buffer = await sharp({
       create: {
         width: colCount * TILE_SIZE,
@@ -104,9 +107,18 @@ export default async function handler(req, res) {
           }
         })
       )
-      // .extract({ top: (shiftY + TILE_SIZE) % TILE_SIZE, left: (shiftX + TILE_SIZE) % TILE_SIZE, width, height })
       .png()
       .toBuffer()
+      .then((interBuffer) =>
+        sharp(interBuffer)
+          .extract({
+            top: (shiftY + TILE_SIZE) % TILE_SIZE,
+            left: (shiftX + TILE_SIZE) % TILE_SIZE,
+            width,
+            height,
+          })
+          .toBuffer()
+      )
     res.setHeader('Content-Type', 'image/png').end(buffer)
   } catch (error) {
     res.status(400).end(error.message)
