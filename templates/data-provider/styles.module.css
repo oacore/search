@@ -19,6 +19,14 @@
   margin-top: 0;
 }
 
+.logo {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 60%;
+  object-fit: cover;
+}
+
 .card:not(:last-child) {
   margin-bottom: 1rem;
 }
