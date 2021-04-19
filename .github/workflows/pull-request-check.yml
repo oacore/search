@@ -4,6 +4,7 @@ on: [push]
 
 env:
   NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  API_KEY: ${{ secrets.CORE_API_KEY }}
 
 jobs:
   build:
