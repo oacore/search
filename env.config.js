@@ -21,7 +21,7 @@ const env = { local, development, production }
 const config = {
   ...env.production,
   ...env[NODE_ENV],
-  API_KEY: process.env.CORE_API_KEY,
+  API_KEY: process.env.API_KEY,
   SENTRY_DSN: process.env.SENTRY_DSN,
   GA_TRACKING_CODE: process.env.GA_TRACKING_CODE,
   BUILD_TARGET: process.env.BUILD_TARGET,
