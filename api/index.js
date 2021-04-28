@@ -1,6 +1,15 @@
 import NetworkError from './errors'
 
-const { API_URL, API_KEY } = process.env
+// Environment variables are replaced in the bundle using the `DefinePlugin`
+// in WebPack, so destructuring won't work here.
+//
+// See more:
+// https://github.com/vercel/next.js/issues/6888#issuecomment-479862813
+//
+/* eslint-disable prefer-destructuring */
+const API_URL = process.env.API_URL
+const API_KEY = process.env.API_KEY
+/* eslint-enable prefer-destructuring */
 
 const prepareUrl = (pathname, base = API_URL) => {
   const url = /^\w+:\/\//.test(pathname) ? pathname : `${base}${pathname}`
