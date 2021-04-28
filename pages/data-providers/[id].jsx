@@ -31,30 +31,41 @@ export async function getServerSideProps({
   const { id } = routeParams
   const { q = '', offset = 0, limit = 10 } = searchParams
 
+  const data = {}
+
   try {
     const dataProvider = await fetchMetadata(id)
-    const outputs = await fetchOutputs(id, { q, offset, limit })
-
+    Object.assign(data, dataProvider)
+  } catch (errorWithDataProvider) {
     return {
       props: {
-        data: {
-          ...dataProvider,
-          outputs: {
-            offset,
-            limit,
-            query: q,
-            total: outputs.totalHits,
-            data: outputs.results,
-            ...outputs,
-          },
-        },
+        error: errorWithDataProvider,
       },
-    }
-  } catch (error) {
-    return {
-      props: { error },
       notFound: true,
     }
+  }
+
+  data.outputs = {
+    offset,
+    limit,
+    query: q,
+  }
+
+  try {
+    const outputs = await fetchOutputs(id, { q, offset, limit })
+    Object.assign(data.outputs, {
+      total: outputs.totalHits,
+      data: outputs.results,
+      ...outputs,
+    })
+  } catch (errorWithOutputs) {
+    Object.assign(data.outputs, {
+      error: errorWithOutputs,
+    })
+  }
+
+  return {
+    props: { data },
   }
 }
 
