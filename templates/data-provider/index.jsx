@@ -24,7 +24,7 @@ const DataProviderTemplate = ({
   className,
   ...restProps
 }) => {
-  const outputs = data.outputs.results
+  const { outputs } = data
 
   return (
     <Search
@@ -43,7 +43,7 @@ const DataProviderTemplate = ({
           className={styles.search}
           placeholder={`Search research outputs in ${data.name}`}
         />
-        {outputs.map(
+        {(outputs.data ?? []).map(
           ({
             id,
             abstract,
@@ -78,8 +78,13 @@ const DataProviderTemplate = ({
             )
           }
         )}
-        {outputs.length === 0 && (
+        {outputs.length === 0 && outputs.error == null && (
           <div className={styles.noResultsFind}>No results found</div>
+        )}
+        {outputs.error != null && (
+          <div className={styles.noResultsFind}>
+            An error occured. Try to reload the page in a bit or contact us.
+          </div>
         )}
         <Pagination total={data.outputs.totalHits} />
       </Search.Main>
