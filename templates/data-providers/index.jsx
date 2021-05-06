@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useLayoutEffect, useCallback } from 'react'
 import { Button, Header } from '@oacore/design'
-import { countries } from 'i18n-iso-countries/langs/en.json'
 
 import styles from './styles.module.css'
 import ResultCard from './result-card'
@@ -25,10 +24,8 @@ const filterAndMapDataProviders = (dataProviders) =>
       longitude: dataProviderLocation?.longitude,
     }))
 
-const getCountryName = (code) => {
-  const countryName = countries[String(code).toUpperCase()]
-  return Array.isArray(countryName) ? countryName[0] : countryName
-}
+const countryName = new Intl.DisplayNames(['en'], { type: 'region' })
+const getCountryName = (code) => countryName.of(code)
 
 const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect

@@ -34,6 +34,15 @@ const DataProviderTemplate = ({
       <Search.Main>
         <header className={styles.header}>
           {/* <span>{data.institution}</span> */}
+          {data.logo ? (
+            <img
+              className={styles.logo}
+              src={data.logo}
+              alt={`${data.name}'s logo`}
+            />
+          ) : (
+            <span className={styles.logo}>No logo available</span>
+          )}
           <h1 className={styles.title}>{data.name}</h1>
         </header>
 
