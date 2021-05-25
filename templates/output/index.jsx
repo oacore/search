@@ -32,12 +32,14 @@ const ScientificOutputTemplate = ({
         publicationDate={publicationDate}
         publisher={publisher}
       />
-      <CitationManager
-        data={{
-          citations,
-          actionLabel: 'Cite',
-        }}
-      />
+      {citations.length > 0 && (
+        <CitationManager
+          data={{
+            citations,
+            actionLabel: 'Cite',
+          }}
+        />
+      )}
       {abstract && (
         <section id="abstract" className={styles.abstract}>
           <h2>Abstract</h2>
