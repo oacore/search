@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "build": {
-    "env": {
-      "NPM_TOKEN": "@npm_token",
-      "NODE_ENV": "development"
-    }
-  }
-}
