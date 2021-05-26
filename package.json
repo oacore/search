@@ -56,7 +56,8 @@
     "stylelint": "^13.8.0"
   },
   "engines": {
-    "node": ">=12"
+    "node": "^12.0.0 || >=14.0.0",
+    "npm": "^7.0.0"
   },
   "scripts": {
     "dev": "next dev",
