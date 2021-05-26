@@ -1,23 +1,35 @@
-import { observable, action } from 'mobx'
+import { makeObservable, observable, action } from 'mobx'
 
 import invalidatePreviousRequests from '../utils/invalidatePreviousRequests'
 
 import apiRequest from 'api'
 
 class Claim {
-  @observable query = ''
+  query = ''
 
-  @observable request = null
+  request = null
 
-  @observable created = null
+  created = null
 
-  @observable duplicated = null
+  duplicated = null
 
-  @observable error = null
+  error = null
 
-  @observable isLoading = false
+  isLoading = false
 
-  @action
+  constructor() {
+    makeObservable(this, {
+      query: observable,
+      request: observable,
+      created: observable,
+      error: observable,
+      isLoading: observable,
+
+      retrieve: action,
+      reset: action,
+    })
+  }
+
   @invalidatePreviousRequests
   async retrieve(signal) {
     this.reset()
@@ -40,7 +52,7 @@ class Claim {
     }
   }
 
-  @action reset({ query } = { query: false }) {
+  reset({ query } = { query: false }) {
     this.request = null
     this.created = null
     this.duplicated = null

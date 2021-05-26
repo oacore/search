@@ -1,4 +1,4 @@
-import { observable, computed } from 'mobx'
+import { makeObservable, observable, computed } from 'mobx'
 
 import Params from './params'
 
@@ -24,12 +24,16 @@ class DataProviders {
 
   params
 
-  @computed
   get results() {
     return this.search(this.params.q)
   }
 
   constructor({ data, params = {} }) {
+    makeObservable(this, {
+      data: observable,
+      results: computed,
+    })
+
     this.data = data ?? []
     this.params = new Params(params, schema)
   }
