@@ -1,0 +1,19 @@
+version: 2
+
+registries:
+  npm-github:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: '${{secrets.GITHUB_TOKEN}}'
+
+updates:
+- package-ecosystem: npm
+  directory: '/'
+  schedule:
+    interval: monthly
+    day: tuesday
+    time: '09:45'
+    timezone: 'Europe/London'
+  target-branch: packages
+  registries:
+  - npm-github
