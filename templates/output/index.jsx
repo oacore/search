@@ -5,6 +5,7 @@ import FullTextThumbnail from './thumbnail-card'
 import Metadata from './metadata'
 import MapCard from './map-card'
 import Keywords from './keywords'
+import CitationManager from './citations'
 import styles from './styles.module.css'
 
 import Search from 'modules/search-layout'
@@ -18,6 +19,7 @@ const ScientificOutputTemplate = ({
     publisher,
     publicationDate,
     dataProvider,
+    citations,
     similarOutputs,
   },
   ...passProps
@@ -30,6 +32,14 @@ const ScientificOutputTemplate = ({
         publicationDate={publicationDate}
         publisher={publisher}
       />
+      {citations.length > 0 && (
+        <CitationManager
+          data={{
+            citations,
+            actionLabel: 'Cite',
+          }}
+        />
+      )}
       {abstract && (
         <section id="abstract" className={styles.abstract}>
           <h2>Abstract</h2>
