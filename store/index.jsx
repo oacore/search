@@ -1,5 +1,5 @@
 import React, { createContext, useMemo, useContext, useRef } from 'react'
-import { useStaticRendering, observer } from 'mobx-react-lite'
+import { enableStaticRendering, observer } from 'mobx-react-lite'
 
 import RootStore from './root'
 
@@ -7,7 +7,7 @@ const isServer = typeof window === 'undefined'
 
 let store = null
 
-useStaticRendering(isServer)
+enableStaticRendering(isServer)
 
 export const initStore = (initialData) => {
   // on the server-side a new instance is created for each page request

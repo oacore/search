@@ -1,4 +1,4 @@
-import { action, extendObservable } from 'mobx'
+import { action, makeObservable, extendObservable } from 'mobx'
 
 import { convertAndValidate } from 'utils/validation'
 
@@ -7,10 +7,14 @@ class Params {
 
   constructor(params, schema) {
     this.schema = schema
+
+    makeObservable(this, {
+      changeParams: action,
+    })
+
     extendObservable(this, convertAndValidate({ schema, params }))
   }
 
-  @action
   changeParams({ ...params }) {
     const { schema, ...assignedParams } = this
 
