@@ -12,6 +12,7 @@ After cloning this repository you will need to generate Github Token with packag
 
 ```sh
 export NPM_TOKEN=<github_token_with_packages_read_permission>
+export API_KEY=<apikey_from_core>
 npm install      # to install all dependencies
 npm run dev      # to start simple development server
 ```
