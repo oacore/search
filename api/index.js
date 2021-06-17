@@ -80,9 +80,10 @@ const processBody = (response, { method }) => {
   const { status, headers } = response
   const type = headers.get('Content-Type')
 
-  return (/application\/([\w.-]\+)?json/g.test(type) && method !== 'HEAD'
-    ? response.json()
-    : response.blob()
+  return (
+    /application\/([\w.-]\+)?json/g.test(type) && method !== 'HEAD'
+      ? response.json()
+      : response.blob()
   ).then((data) => ({ data, type, status, headers }))
 }
 

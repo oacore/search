@@ -6,15 +6,16 @@ import ClaimModal from './claim-modal'
 import LoginModal from './login-modal'
 import styles from './styles.module.css'
 import ClaimSuccessModal from './claim-success-modal'
-import { fetchClaim } from 'api/claim'
+import fetchClaim from '../../../api/claim'
 
-export async function getClaim({params: routeParams}) {
+export async function getClaim({ params: claimParams }) {
   const data = {}
-  const { id, setIsClaimSuccessModalActive } = routeParams
+  const { id, setIsClaimSuccessModalActive } = claimParams
 
   try {
     const dataProvider = await fetchClaim(id)
-    console.log(JSON.stringify(dataProvider)) //Debug
+    // eslint-disable-next-line no-console
+    console.log(JSON.stringify(dataProvider)) // Debug
     setIsClaimSuccessModalActive(true)
   } catch (errorWithDataProvider) {
     return {
@@ -26,8 +27,8 @@ export async function getClaim({params: routeParams}) {
   }
 
   data.is_claim = {
-    [id]: true
-  };
+    [id]: true,
+  }
 
   return {
     props: { data },
@@ -37,9 +38,8 @@ export async function getClaim({params: routeParams}) {
 const ClaimCard = ({ name, id, className }) => {
   const [isClaimModalActive, setIsClaimModalActive] = useState(false)
   const [isLoginModalActive, setIsLoginModalActive] = useState(false)
-  const [isClaimSuccessModalActive, setIsClaimSuccessModalActive] = useState(
-    false
-  )
+  const [isClaimSuccessModalActive, setIsClaimSuccessModalActive] =
+    useState(false)
 
   return (
     <Card className={classNames.use(styles.claimCard, className)}>
@@ -66,7 +66,9 @@ const ClaimCard = ({ name, id, className }) => {
           <ClaimModal
             setModalActive={setIsClaimModalActive}
             onLoginClick={() => setIsLoginModalActive(true)}
-            onContinueClick={() => getClaim({params:{id:id, setIsClaimSuccessModalActive}})}
+            onContinueClick={() =>
+              getClaim({ params: { id, setIsClaimSuccessModalActive } })
+            }
             className={
               (isLoginModalActive || isClaimSuccessModalActive) && styles.hide
             }

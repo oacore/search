@@ -43,20 +43,17 @@ const SearchPage = observe(({ initialState }) => {
     data,
   } = dataProviders
 
-  const {
-    formRef,
-    claim,
-    handleSubmitForm,
-    getFormMessage,
-  } = useClaimController()
+  const { formRef, claim, handleSubmitForm, getFormMessage } =
+    useClaimController()
 
   const initialAction = useMemo(() => dataProviders.params.action, [])
 
   useSyncUrlParamsWithStore(dataProviders.params)
 
-  const searchDataProviders = useCallback((q) => dataProviders.search(q), [
-    dataProviders,
-  ])
+  const searchDataProviders = useCallback(
+    (q) => dataProviders.search(q),
+    [dataProviders]
+  )
   const setDataProvidersSize = useCallback(
     (s) => {
       dataProviders.params.size = s
