@@ -98,7 +98,7 @@ const DataProviderTemplate = ({
           {data.name} is based in{' '}
           {countryName.of(data.location.countryCode.toUpperCase())}
         </MapCard>
-        <ClaimCard name={data.name} className={styles.card} />
+        <ClaimCard name={data.name} id={data.id} className={styles.card} />
       </Search.Sidebar>
     </Search>
   )

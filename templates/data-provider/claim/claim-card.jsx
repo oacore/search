@@ -6,8 +6,35 @@ import ClaimModal from './claim-modal'
 import LoginModal from './login-modal'
 import styles from './styles.module.css'
 import ClaimSuccessModal from './claim-success-modal'
+import { fetchClaim } from 'api/claim'
 
-const ClaimCard = ({ name, className }) => {
+export async function getClaim({params: routeParams}) {
+  const data = {}
+  const { id, setIsClaimSuccessModalActive } = routeParams
+
+  try {
+    const dataProvider = await fetchClaim(id)
+    console.log(JSON.stringify(dataProvider)) //Debug
+    setIsClaimSuccessModalActive(true)
+  } catch (errorWithDataProvider) {
+    return {
+      props: {
+        error: errorWithDataProvider,
+      },
+      notFound: true,
+    }
+  }
+
+  data.is_claim = {
+    [id]: true
+  };
+
+  return {
+    props: { data },
+  }
+}
+
+const ClaimCard = ({ name, id, className }) => {
   const [isClaimModalActive, setIsClaimModalActive] = useState(false)
   const [isLoginModalActive, setIsLoginModalActive] = useState(false)
   const [isClaimSuccessModalActive, setIsClaimSuccessModalActive] = useState(
@@ -39,7 +66,7 @@ const ClaimCard = ({ name, className }) => {
           <ClaimModal
             setModalActive={setIsClaimModalActive}
             onLoginClick={() => setIsLoginModalActive(true)}
-            onContinueClick={() => setIsClaimSuccessModalActive(true)}
+            onContinueClick={() => getClaim({params:{id:id, setIsClaimSuccessModalActive}})}
             className={
               (isLoginModalActive || isClaimSuccessModalActive) && styles.hide
             }
