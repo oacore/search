@@ -3,6 +3,7 @@ import React from 'react'
 
 const searchUrlFor = (id) => `https://core.ac.uk/search?q=repositories.id:${id}`
 
+const HARVESTED_BY_CORE = 'https://core.ac.uk/faq#harvested-by-CORE-snippet'
 const SUPPORT_EMAIL_URL = 'mailto:t%68%65t%65am%40core%2e%61c%2eu%6b'
 const SUPPORT_EMAIL = decodeURIComponent(
   SUPPORT_EMAIL_URL.slice('mailto:'.length)
@@ -25,7 +26,7 @@ const generateFormMessage = ({ created, duplicated, error }) => {
   if (created) {
     return {
       helper: (
-          <>
+        <>
           We found {created.name} under the entered address and added it to our
           data provider collection. As soon as we approve adding, we will start
           harvesting and sent a confirmation email to{' '}
@@ -34,14 +35,12 @@ const generateFormMessage = ({ created, duplicated, error }) => {
             title="the administrator email address"
           >
             {created.email}
-          </Link>.
-          Please consider adding our “harvested by CORE” logo {' '}
-          <Link 
-            href={harvestedByCore}
-            title="Harvested by CORE Logo"            
-          >
+          </Link>
+          . Please consider adding our “harvested by CORE” logo{' '}
+          <Link href={HARVESTED_BY_CORE} title="Harvested by CORE Logo">
             on your website
-          </Link>.
+          </Link>
+          .
         </>
       ),
       variant: 'success',
