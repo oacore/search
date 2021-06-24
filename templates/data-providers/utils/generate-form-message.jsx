@@ -36,11 +36,11 @@ const generateFormMessage = ({ created, duplicated, error }) => {
           >
             {created.email}
           </Link>
-          . Please consider adding our “harvested by CORE” logo{' '}
+          . Join the community and add a{' '}
           <Link href={HARVESTED_BY_CORE} title="Harvested by CORE Logo">
-            on your website
+            harvested by CORE
           </Link>
-          .
+          badge on your website.
         </>
       ),
       variant: 'success',
