@@ -39,7 +39,7 @@ const generateFormMessage = ({ created, duplicated, error }) => {
           . Join the community and add a{' '}
           <Link href={HARVESTED_BY_CORE} title="Harvested by CORE Logo">
             harvested by CORE
-          </Link>
+          </Link>{' '}
           badge on your website.
         </>
       ),
