@@ -25,7 +25,7 @@ const generateFormMessage = ({ created, duplicated, error }) => {
   if (created) {
     return {
       helper: (
-        <>
+          <>
           We found {created.name} under the entered address and added it to our
           data provider collection. As soon as we approve adding, we will start
           harvesting and sent a confirmation email to{' '}
@@ -34,8 +34,14 @@ const generateFormMessage = ({ created, duplicated, error }) => {
             title="the administrator email address"
           >
             {created.email}
-          </Link>
-          .
+          </Link>.
+          Please consider adding our “harvested by CORE” logo {' '}
+          <Link 
+            href={harvestedByCore}
+            title="Harvested by CORE Logo"            
+          >
+            on your website
+          </Link>.
         </>
       ),
       variant: 'success',
