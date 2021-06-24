@@ -3,6 +3,7 @@ import React from 'react'
 
 const searchUrlFor = (id) => `https://core.ac.uk/search?q=repositories.id:${id}`
 
+const HARVESTED_BY_CORE = 'https://core.ac.uk/faq#harvested-by-CORE-snippet'
 const SUPPORT_EMAIL_URL = 'mailto:t%68%65t%65am%40core%2e%61c%2eu%6b'
 const SUPPORT_EMAIL = decodeURIComponent(
   SUPPORT_EMAIL_URL.slice('mailto:'.length)
@@ -35,7 +36,11 @@ const generateFormMessage = ({ created, duplicated, error }) => {
           >
             {created.email}
           </Link>
-          .
+          . Join the community and add a{' '}
+          <Link href={HARVESTED_BY_CORE} title="Harvested by CORE Logo">
+            harvested by CORE
+          </Link>{' '}
+          badge on your website.
         </>
       ),
       variant: 'success',
