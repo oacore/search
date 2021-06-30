@@ -3,6 +3,7 @@ import { Card, Button } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
 
 import ClaimModal from './claim-modal'
+import ClaimModalEdit from './claim-modal-edit'
 import LoginModal from './login-modal'
 import styles from './styles.module.css'
 import ClaimSuccessModal from './claim-success-modal'
@@ -37,6 +38,7 @@ export async function getClaim({ params: claimParams }) {
 
 const ClaimCard = ({ name, id, className }) => {
   const [isClaimModalActive, setIsClaimModalActive] = useState(false)
+  const [isClaimModalEditActive, setIsClaimModalEditActive] = useState(false)
   const [isLoginModalActive, setIsLoginModalActive] = useState(false)
   const [isClaimSuccessModalActive, setIsClaimSuccessModalActive] =
     useState(false)
@@ -65,6 +67,19 @@ const ClaimCard = ({ name, id, className }) => {
         {isClaimModalActive && (
           <ClaimModal
             setModalActive={setIsClaimModalActive}
+            setModalEditActive={setIsClaimModalEditActive}
+            onLoginClick={() => setIsLoginModalActive(true)}
+            onContinueClick={() =>
+              getClaim({ params: { id, setIsClaimSuccessModalActive } })
+            }
+            className={
+              (isLoginModalActive || isClaimSuccessModalActive) && styles.hide
+            }
+          />
+        )}
+        {isClaimModalEditActive && (
+          <ClaimModalEdit
+            setModalEditActive={setIsClaimModalEditActive}
             onLoginClick={() => setIsLoginModalActive(true)}
             onContinueClick={() =>
               getClaim({ params: { id, setIsClaimSuccessModalActive } })
@@ -83,6 +98,7 @@ const ClaimCard = ({ name, id, className }) => {
             setModalActive={setIsClaimSuccessModalActive}
             onClose={() => {
               if (isClaimModalActive) setIsClaimModalActive(false)
+              if (isClaimModalEditActive) setIsClaimModalEditActive(false)
               if (isLoginModalActive) setIsLoginModalActive(false)
               if (isClaimSuccessModalActive) setIsClaimSuccessModalActive(false)
             }}

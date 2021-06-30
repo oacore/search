@@ -4,14 +4,14 @@ import { classNames } from '@oacore/design/lib/utils'
 
 import styles from './styles.module.css'
 
-const ClaimModal = ({
+const ClaimModalEdit = ({
   className,
   setModalActive,
-  setModalEditActive,
   onLoginClick,
   onContinueClick,
 }) => {
   const [name, setName] = useState('')
+  const [rationable, setRationable] = useState('')
   return (
     <Modal
       aria-labelledby="gain-access-modal-title"
@@ -19,12 +19,12 @@ const ClaimModal = ({
       className={classNames.use(styles.modal, className)}
     >
       <Modal.Title id="gain-access-modal-title">
-        Gain access to CORE Dashboard
+        Claim CORE Dashboard
       </Modal.Title>
       <Modal.Content tag="div">
         <p>
-          Enter the administrator email address and a few details to get
-          invitation to the core Dashboard
+          Enter the administrator email address and a few details to to get
+          invitation to the CORE Dashboard.
         </p>
         <TextField
           id="email"
@@ -32,15 +32,8 @@ const ClaimModal = ({
           name="email"
           label="Email"
           value="library-research-support@open.ac.uk"
-          onClick={() => setModalEditActive(true)}
-          helper={
-            <>
-              This address is listed as Admin Email in the OAI-PMH Identify.
-              <br />
-              You can use another email but the confirmation may take up a few
-              days.
-            </>
-          }
+          disabled
+          helper={<>Your institutional email address.</>}
         />
         <TextField
           id="name"
@@ -51,6 +44,23 @@ const ClaimModal = ({
           placeholder="How would you like to be called?"
           value={name}
           onChange={(event) => setName(event.target.value)}
+          helper={<br />}
+        />
+        <TextField
+          id="rationable"
+          type="text"
+          name="text"
+          label="Rationable"
+          placeholder="Why are you the authorised person to get access?"
+          value={rationable}
+          onChange={(event) => setRationable(event.target.value)}
+          helper={
+            <>
+              Since you changed email, we need to manually check you are the
+              repository manager, additional information would be very
+              apperciated.
+            </>
+          }
         />
       </Modal.Content>
       <Modal.Footer className={styles.footer}>
@@ -62,4 +72,4 @@ const ClaimModal = ({
     </Modal>
   )
 }
-export default ClaimModal
+export default ClaimModalEdit
