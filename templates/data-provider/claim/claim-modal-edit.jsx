@@ -6,16 +6,17 @@ import styles from './styles.module.css'
 
 const ClaimModalEdit = ({
   className,
-  setModalActive,
+  setModalEditActive,
   onLoginClick,
   onContinueClick,
 }) => {
   const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
   const [rationable, setRationable] = useState('')
   return (
     <Modal
       aria-labelledby="gain-access-modal-title"
-      onClose={() => setModalActive(false)}
+      onClose={() => setModalEditActive(false)}
       className={classNames.use(styles.modal, className)}
     >
       <Modal.Title id="gain-access-modal-title">
@@ -31,16 +32,16 @@ const ClaimModalEdit = ({
           type="email"
           name="email"
           label="Email"
-          value="library-research-support@open.ac.uk"
-          disabled
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          className={classNames.use(styles.claimCardGroup)}
           helper={<>Your institutional email address.</>}
         />
         <TextField
           id="name"
-          type="name"
-          name="text"
+          type="text"
+          name="name"
           label="Name"
-          disabled
           placeholder="How would you like to be called?"
           value={name}
           onChange={(event) => setName(event.target.value)}
@@ -49,7 +50,7 @@ const ClaimModalEdit = ({
         <TextField
           id="rationable"
           type="text"
-          name="text"
+          name="rationable"
           label="Rationable"
           placeholder="Why are you the authorised person to get access?"
           value={rationable}

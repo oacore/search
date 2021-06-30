@@ -12,6 +12,10 @@
   grid-row: 6;
 }
 
+.claim-card-group {
+  margin-bottom: 10px;
+}
+
 .claim-card-action:not(:last-child) {
   margin-right: 0.5rem;
 }

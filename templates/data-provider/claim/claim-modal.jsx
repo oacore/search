@@ -33,12 +33,14 @@ const ClaimModal = ({
           label="Email"
           value="library-research-support@open.ac.uk"
           onClick={() => setModalEditActive(true)}
+          className={classNames.use(styles.claimCardGroup)}
           helper={
             <>
               This address is listed as Admin Email in the OAI-PMH Identify.
               <br />
               You can use another email but the confirmation may take up a few
               days.
+              <br />
             </>
           }
         />
@@ -50,7 +52,7 @@ const ClaimModal = ({
           disabled
           placeholder="How would you like to be called?"
           value={name}
-          onChange={(event) => setName(event.target.value)}
+          onClick={() => setModalEditActive(true)}
         />
       </Modal.Content>
       <Modal.Footer className={styles.footer}>
