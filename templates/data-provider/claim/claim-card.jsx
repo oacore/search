@@ -11,10 +11,11 @@ import fetchClaim from '../../../api/claim'
 
 export async function getClaim({ params: claimParams }) {
   const data = {}
-  const { id, setIsClaimSuccessModalActive, name, email, rationable } = claimParams
+  const { id, setIsClaimSuccessModalActive, name, email, rationable } =
+    claimParams
 
   try {
-    const dataProvider = await fetchClaim({id, name, email, rationable})
+    const dataProvider = await fetchClaim({ id, name, email, rationable })
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(dataProvider)) // Debug
     setIsClaimSuccessModalActive(true)
@@ -36,16 +37,9 @@ export async function getClaim({ params: claimParams }) {
   }
 }
 
-const ClaimCard = ({
-  nameDataProvider,
-  id,
-  className,
-  contactData,
-}) => {
+const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
   const [isClaimModalActive, setIsClaimModalActive] = useState(false)
   const [isClaimModalEditActive, setIsClaimModalEditActive] = useState(false)
-  const [isContactName, setContactName] = useState(false)
-  const [isContactEmail, setContactEmail] = useState(false)
   const [isLoginModalActive, setIsLoginModalActive] = useState(false)
   const [isClaimSuccessModalActive, setIsClaimSuccessModalActive] =
     useState(false)
@@ -53,8 +47,8 @@ const ClaimCard = ({
   return (
     <Card className={classNames.use(styles.claimCard, className)}>
       <div>
-        <b>Do you manage {nameDataProvider}?</b> Access insider analytics, issue reports and
-        manage access to outputs from your repository in
+        <b>Do you manage {nameDataProvider}?</b> Access insider analytics, issue
+        reports and manage access to outputs from your repository in
         the&nbsp;CORE&nbsp;Dashboard!&nbsp;
         <span aria-hidden="true" role="img">
           👇
@@ -92,7 +86,9 @@ const ClaimCard = ({
             setModalEditActive={setIsClaimModalEditActive}
             onLoginClick={() => setIsLoginModalActive(true)}
             onContinueClick={(options) =>
-              getClaim({ params: { id, setIsClaimSuccessModalActive, ...options } })
+              getClaim({
+                params: { id, setIsClaimSuccessModalActive, ...options },
+              })
             }
             className={
               (isLoginModalActive || isClaimSuccessModalActive) && styles.hide

@@ -14,30 +14,14 @@ const ClaimModalEdit = (props) => {
     className,
   } = props
 
-  const {
-    value: name,
-    bind: bindName,
-    reset: resetName,
-  } = useInput(contactData.name)
-  const {
-    value: email,
-    bind: bindEmail,
-    reset: resetEmail,
-  } = useInput(contactData.email)
-  const {
-    value: rationable,
-    bind: bindRationable,
-    reset: resetRationable,
-  } = useInput('')
+  const { value: name, bind: bindName } = useInput(contactData.name)
+  const { value: email, bind: bindEmail } = useInput(contactData.email)
+  const { value: rationable, bind: bindRationable } = useInput('')
 
   const handleSubmit = (evt) => {
-    evt.preventDefault();
-    if (name && email && rationable) {
-      onContinueClick({name, email, rationable})
-      // resetName()
-      // resetEmail()
-      // resetRationable()
-    }
+    evt.preventDefault()
+    if (name && email && rationable)
+      onContinueClick({ name, email, rationable })
   }
 
   return (
