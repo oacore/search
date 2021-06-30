@@ -27,11 +27,10 @@ const DataProviderTemplate = ({
 }) => {
   const { outputs } = data
 
- var  contactName= 'Name'
- var  contactEmail='library-research-support@open.ac.uk'
-
-  console.log('DataProviderTemplate => ')
-  console.log(data.name)
+  const contactData = data.contact??{
+    name: 'Name',
+    email: 'library-research-support@open.ac.uk'
+  }
 
   return (
     <Search
@@ -109,8 +108,7 @@ const DataProviderTemplate = ({
           nameDataProvider={data.name}
           id={data.id}
           className={styles.card}
-          contactName={contactName}
-          contactEmail={contactEmail}
+          contactData={contactData}
         />
       </Search.Sidebar>
     </Search>

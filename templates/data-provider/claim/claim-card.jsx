@@ -11,10 +11,10 @@ import fetchClaim from '../../../api/claim'
 
 export async function getClaim({ params: claimParams }) {
   const data = {}
-  const { id, setIsClaimSuccessModalActive } = claimParams
+  const { id, setIsClaimSuccessModalActive, name, email, rationable } = claimParams
 
   try {
-    const dataProvider = await fetchClaim(id)
+    const dataProvider = await fetchClaim({id, name, email, rationable})
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(dataProvider)) // Debug
     setIsClaimSuccessModalActive(true)
@@ -40,8 +40,7 @@ const ClaimCard = ({
   nameDataProvider,
   id,
   className,
-  contactName,
-  contactEmail,
+  contactData,
 }) => {
   const [isClaimModalActive, setIsClaimModalActive] = useState(false)
   const [isClaimModalEditActive, setIsClaimModalEditActive] = useState(false)
@@ -74,8 +73,7 @@ const ClaimCard = ({
         </Button>
         {isClaimModalActive && (
           <ClaimModal
-            contactName={contactName}
-            contactEmail={contactEmail}
+            contactData={contactData}
             setModalActive={setIsClaimModalActive}
             setModalEditActive={setIsClaimModalEditActive}
             onLoginClick={() => setIsLoginModalActive(true)}
@@ -90,12 +88,11 @@ const ClaimCard = ({
 
         {isClaimModalEditActive && (
           <ClaimModalEdit
-            contactName={contactName}
-            contactEmail={contactEmail}
+            contactData={contactData}
             setModalEditActive={setIsClaimModalEditActive}
             onLoginClick={() => setIsLoginModalActive(true)}
-            onContinueClick={() =>
-              getClaim({ params: { id, setIsClaimSuccessModalActive } })
+            onContinueClick={(options) =>
+              getClaim({ params: { id, setIsClaimSuccessModalActive, ...options } })
             }
             className={
               (isLoginModalActive || isClaimSuccessModalActive) && styles.hide

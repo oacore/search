@@ -7,8 +7,7 @@ import styles from './styles.module.css'
 
 const ClaimModalEdit = (props) => {
   const {
-    contactName,
-    contactEmail,
+    contactData,
     setModalEditActive,
     onLoginClick,
     onContinueClick,
@@ -19,12 +18,12 @@ const ClaimModalEdit = (props) => {
     value: name,
     bind: bindName,
     reset: resetName,
-  } = useInput(contactName)
+  } = useInput(contactData.name)
   const {
     value: email,
     bind: bindEmail,
     reset: resetEmail,
-  } = useInput(contactEmail)
+  } = useInput(contactData.email)
   const {
     value: rationable,
     bind: bindRationable,
@@ -33,11 +32,11 @@ const ClaimModalEdit = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if(name && email && rationable) {
-      alert(`Submitting: ${name} - ${email} - ${rationable}`)
-      resetName()
-      resetEmail()
-      resetRationable()
+    if (name && email && rationable) {
+      onContinueClick({name, email, rationable})
+      // resetName()
+      // resetEmail()
+      // resetRationable()
     }
   }
 
@@ -60,6 +59,7 @@ const ClaimModalEdit = (props) => {
           type="email"
           name="email"
           label="Email"
+          required
           {...bindEmail}
           className={classNames.use(styles.claimCardGroup)}
           helper={<>Your institutional email address.</>}
@@ -70,6 +70,7 @@ const ClaimModalEdit = (props) => {
           name="name"
           label="Name"
           placeholder="How would you like to be called?"
+          required
           {...bindName}
           helper={<br />}
         />
@@ -79,6 +80,7 @@ const ClaimModalEdit = (props) => {
           name="rationable"
           label="Rationable"
           placeholder="Why are you the authorised person to get access?"
+          required
           {...bindRationable}
           helper={
             <>

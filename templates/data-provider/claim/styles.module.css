@@ -46,3 +46,16 @@
   width: 24rem;
   height: 15rem;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.btn-edit {
+  width: 2rem;
+  height: 2rem;
+}
+
+.btn-back {
+  width: 2rem;
+}

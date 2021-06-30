@@ -5,8 +5,7 @@ import { classNames } from '@oacore/design/lib/utils'
 import styles from './styles.module.css'
 
 const ClaimModal = ({
-  contactName,
-  contactEmail,
+  contactData,
   className,
   setModalActive,
   setModalEditActive,
@@ -31,7 +30,7 @@ const ClaimModal = ({
         type="email"
         name="email"
         label="Email"
-        value={contactEmail}
+        value={contactData.email}
         onClick={() => setModalEditActive(true)}
         className={classNames.use(styles.claimCardGroup)}
         helper={
@@ -43,13 +42,24 @@ const ClaimModal = ({
             <br />
           </>
         }
+        // statusIcon="success"
+        // statusIcon={<svg
+        //   xmlns="http://www.w3.org/2000/svg"
+        //   role="img"
+        //   className={styles.btnEdit}
+        // >
+        //   <image href="/static/btn-edit.svg" />
+        // </svg>}
+
       />
+
+
       <TextField
         id="name"
         type="name"
         name="text"
         label="Name"
-        value={contactName}
+        value={contactData.name}
         disabled
         placeholder="How would you like to be called?"
         onClick={() => setModalEditActive(true)}
