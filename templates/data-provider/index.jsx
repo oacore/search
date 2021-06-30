@@ -10,6 +10,7 @@ import Pagination from './pagination'
 
 import Search from 'modules/search-layout'
 import formatDate from 'utils/format-date'
+import ClaimModal from "./claim/claim-modal";
 
 // TODO: Look for polyfill
 const countryName =
@@ -25,6 +26,12 @@ const DataProviderTemplate = ({
   ...restProps
 }) => {
   const { outputs } = data
+
+ var  contactName= 'Name'
+ var  contactEmail='library-research-support@open.ac.uk'
+
+  console.log('DataProviderTemplate => ')
+  console.log(data.name)
 
   return (
     <Search
@@ -98,7 +105,13 @@ const DataProviderTemplate = ({
           {data.name} is based in{' '}
           {countryName.of(data.location.countryCode.toUpperCase())}
         </MapCard>
-        <ClaimCard name={data.name} id={data.id} className={styles.card} />
+        <ClaimCard
+          nameDataProvider={data.name}
+          id={data.id}
+          className={styles.card}
+          contactName={contactName}
+          contactEmail={contactEmail}
+        />
       </Search.Sidebar>
     </Search>
   )

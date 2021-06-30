@@ -36,9 +36,17 @@ export async function getClaim({ params: claimParams }) {
   }
 }
 
-const ClaimCard = ({ name, id, className }) => {
+const ClaimCard = ({
+  nameDataProvider,
+  id,
+  className,
+  contactName,
+  contactEmail,
+}) => {
   const [isClaimModalActive, setIsClaimModalActive] = useState(false)
   const [isClaimModalEditActive, setIsClaimModalEditActive] = useState(false)
+  const [isContactName, setContactName] = useState(false)
+  const [isContactEmail, setContactEmail] = useState(false)
   const [isLoginModalActive, setIsLoginModalActive] = useState(false)
   const [isClaimSuccessModalActive, setIsClaimSuccessModalActive] =
     useState(false)
@@ -46,7 +54,7 @@ const ClaimCard = ({ name, id, className }) => {
   return (
     <Card className={classNames.use(styles.claimCard, className)}>
       <div>
-        <b>Do you manage {name}?</b> Access insider analytics, issue reports and
+        <b>Do you manage {nameDataProvider}?</b> Access insider analytics, issue reports and
         manage access to outputs from your repository in
         the&nbsp;CORE&nbsp;Dashboard!&nbsp;
         <span aria-hidden="true" role="img">
@@ -66,6 +74,8 @@ const ClaimCard = ({ name, id, className }) => {
         </Button>
         {isClaimModalActive && (
           <ClaimModal
+            contactName={contactName}
+            contactEmail={contactEmail}
             setModalActive={setIsClaimModalActive}
             setModalEditActive={setIsClaimModalEditActive}
             onLoginClick={() => setIsLoginModalActive(true)}
@@ -77,8 +87,11 @@ const ClaimCard = ({ name, id, className }) => {
             }
           />
         )}
+
         {isClaimModalEditActive && (
           <ClaimModalEdit
+            contactName={contactName}
+            contactEmail={contactEmail}
             setModalEditActive={setIsClaimModalEditActive}
             onLoginClick={() => setIsLoginModalActive(true)}
             onContinueClick={() =>

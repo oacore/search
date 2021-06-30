@@ -1,18 +1,46 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Modal, Button, TextField } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
 
+import useInput from '../hooks/use-input'
 import styles from './styles.module.css'
 
-const ClaimModalEdit = ({
-  className,
-  setModalEditActive,
-  onLoginClick,
-  onContinueClick,
-}) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [rationable, setRationable] = useState('')
+const ClaimModalEdit = (props) => {
+  const {
+    contactName,
+    contactEmail,
+    setModalEditActive,
+    onLoginClick,
+    onContinueClick,
+    className,
+  } = props
+
+  const {
+    value: name,
+    bind: bindName,
+    reset: resetName,
+  } = useInput(contactName)
+  const {
+    value: email,
+    bind: bindEmail,
+    reset: resetEmail,
+  } = useInput(contactEmail)
+  const {
+    value: rationable,
+    bind: bindRationable,
+    reset: resetRationable,
+  } = useInput('')
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    if(name && email && rationable) {
+      alert(`Submitting: ${name} - ${email} - ${rationable}`)
+      resetName()
+      resetEmail()
+      resetRationable()
+    }
+  }
+
   return (
     <Modal
       aria-labelledby="gain-access-modal-title"
@@ -32,8 +60,7 @@ const ClaimModalEdit = ({
           type="email"
           name="email"
           label="Email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          {...bindEmail}
           className={classNames.use(styles.claimCardGroup)}
           helper={<>Your institutional email address.</>}
         />
@@ -43,8 +70,7 @@ const ClaimModalEdit = ({
           name="name"
           label="Name"
           placeholder="How would you like to be called?"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
+          {...bindName}
           helper={<br />}
         />
         <TextField
@@ -53,8 +79,7 @@ const ClaimModalEdit = ({
           name="rationable"
           label="Rationable"
           placeholder="Why are you the authorised person to get access?"
-          value={rationable}
-          onChange={(event) => setRationable(event.target.value)}
+          {...bindRationable}
           helper={
             <>
               Since you changed email, we need to manually check you are the
@@ -65,7 +90,7 @@ const ClaimModalEdit = ({
         />
       </Modal.Content>
       <Modal.Footer className={styles.footer}>
-        <Button onClick={onContinueClick} variant="contained">
+        <Button onClick={handleSubmit} variant="contained">
           Continue
         </Button>
         <Button onClick={onLoginClick}>Login dashboard</Button>
@@ -73,4 +98,5 @@ const ClaimModalEdit = ({
     </Modal>
   )
 }
+
 export default ClaimModalEdit
