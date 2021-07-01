@@ -11,11 +11,11 @@ import fetchClaim from '../../../api/claim'
 
 export async function getClaim({ params: claimParams }) {
   const data = {}
-  const { id, setIsClaimSuccessModalActive, name, email, rationable } =
+  const { id, setIsClaimSuccessModalActive, name, email, rationale } =
     claimParams
 
   try {
-    const dataProvider = await fetchClaim({ id, name, email, rationable })
+    const dataProvider = await fetchClaim({ id, name, email, rationale })
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(dataProvider)) // Debug
     setIsClaimSuccessModalActive(true)

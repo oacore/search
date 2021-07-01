@@ -31,19 +31,20 @@ const ClaimModalEdit = (props) => {
           invitation to the CORE Dashboard.
         </p>
         <TextField
-          id="email"
+          id="contactEmail"
           type="email"
-          name="email"
+          name="contactEmail"
           label="Email"
+          placeholder="You need enter email."
           required
           {...bindEmail}
           className={classNames.use(styles.claimCardGroup)}
           helper={<>Your institutional email address.</>}
         />
         <TextField
-          id="name"
+          id="contactName"
           type="text"
-          name="name"
+          name="contactName"
           label="Name"
           placeholder="How would you like to be called?"
           required
