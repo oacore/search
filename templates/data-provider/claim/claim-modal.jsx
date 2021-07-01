@@ -42,14 +42,6 @@ const ClaimModal = ({
             <br />
           </>
         }
-        // statusIcon="success"
-        // statusIcon={<svg
-        //   xmlns="http://www.w3.org/2000/svg"
-        //   role="img"
-        //   className={styles.iconEdit}
-        // >
-        //   <image href="/static/btn-edit.svg" />
-        // </svg>}
       />
 
       <TextField
@@ -67,7 +59,7 @@ const ClaimModal = ({
       <Button onClick={onContinueClick} variant="contained">
         Continue
       </Button>
-      <Button onClick={onLoginClick}>Login dashboard</Button>
+      <a href="https://dashboard.core.ac.uk/">Login dashboard</a>
     </Modal.Footer>
   </Modal>
 )
