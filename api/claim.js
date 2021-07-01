@@ -6,21 +6,15 @@ const fetchClaim = async (params) => {
   const { id } = params
   let { name, email, rationable } = params
 
-  if (typeof name === 'undefined') {
-    name = '';
-  }
-  if (typeof email === 'undefined') {
-    email = '';
-  }
-  if (typeof rationable === 'undefined') {
-    rationable = '';
-  }
+  if (typeof name === 'undefined') name = ''
+  if (typeof email === 'undefined') email = ''
+  if (typeof rationable === 'undefined') rationable = ''
 
   const { data } = await apiRequest(`/data-providers/${id}/claim`, {
     method: 'POST',
-    name: name,
-    email: email,
-    rationable: rationable,
+    name,
+    email,
+    rationable,
   })
   return data
 }

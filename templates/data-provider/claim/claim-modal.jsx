@@ -46,13 +46,11 @@ const ClaimModal = ({
         // statusIcon={<svg
         //   xmlns="http://www.w3.org/2000/svg"
         //   role="img"
-        //   className={styles.btnEdit}
+        //   className={styles.iconEdit}
         // >
         //   <image href="/static/btn-edit.svg" />
         // </svg>}
-
       />
-
 
       <TextField
         id="name"

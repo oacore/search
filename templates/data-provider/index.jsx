@@ -10,7 +10,6 @@ import Pagination from './pagination'
 
 import Search from 'modules/search-layout'
 import formatDate from 'utils/format-date'
-import ClaimModal from "./claim/claim-modal";
 
 // TODO: Look for polyfill
 const countryName =
@@ -27,9 +26,9 @@ const DataProviderTemplate = ({
 }) => {
   const { outputs } = data
 
-  const contactData = data.contact??{
+  const contactData = data.contact ?? {
     name: 'Name',
-    email: 'library-research-support@open.ac.uk'
+    email: 'library-research-support@open.ac.uk',
   }
 
   return (
