@@ -9,7 +9,6 @@ const ClaimModal = ({
   className,
   setModalActive,
   setModalEditActive,
-  onLoginClick,
   onContinueClick,
 }) => (
   <Modal

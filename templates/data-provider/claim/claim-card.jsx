@@ -70,7 +70,6 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
             contactData={contactData}
             setModalActive={setIsClaimModalActive}
             setModalEditActive={setIsClaimModalEditActive}
-            onLoginClick={() => setIsLoginModalActive(true)}
             onContinueClick={() =>
               getClaim({ params: { id, setIsClaimSuccessModalActive } })
             }
@@ -84,7 +83,6 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
           <ClaimModalEdit
             contactData={contactData}
             setModalEditActive={setIsClaimModalEditActive}
-            onLoginClick={() => setIsLoginModalActive(true)}
             onContinueClick={(options) =>
               getClaim({
                 params: { id, setIsClaimSuccessModalActive, ...options },

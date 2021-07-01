@@ -6,22 +6,14 @@ import useInput from '../hooks/use-input'
 import styles from './styles.module.css'
 
 const ClaimModalEdit = (props) => {
-  const {
-    contactData,
-    setModalEditActive,
-    onLoginClick,
-    onContinueClick,
-    className,
-  } = props
-
+  const { contactData, setModalEditActive, onContinueClick, className } = props
   const { value: name, bind: bindName } = useInput(contactData.name)
   const { value: email, bind: bindEmail } = useInput(contactData.email)
-  const { value: rationable, bind: bindRationable } = useInput('')
+  const { value: rationale, bind: bindRationale } = useInput('')
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    if (name && email && rationable)
-      onContinueClick({ name, email, rationable })
+    if (name && email && rationale) onContinueClick({ name, email, rationale })
   }
 
   return (
@@ -59,13 +51,13 @@ const ClaimModalEdit = (props) => {
           helper={<br />}
         />
         <TextField
-          id="rationable"
+          id="rationale"
           type="text"
-          name="rationable"
-          label="Rationable"
+          name="rationale"
+          label="Rationale"
           placeholder="Why are you the authorised person to get access?"
           required
-          {...bindRationable}
+          {...bindRationale}
           helper={
             <>
               Since you changed email, we need to manually check you are the
