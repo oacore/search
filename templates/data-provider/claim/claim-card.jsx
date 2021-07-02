@@ -38,6 +38,9 @@ export async function getClaim({ params: claimParams }) {
 }
 
 const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
+  const testDataProviderId = 86
+  if (id !== testDataProviderId) return <></>
+
   const [isClaimModalActive, setIsClaimModalActive] = useState(false)
   const [isClaimModalEditActive, setIsClaimModalEditActive] = useState(false)
   const [isLoginModalActive, setIsLoginModalActive] = useState(false)
