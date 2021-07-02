@@ -9,11 +9,18 @@ const ClaimModalEdit = (props) => {
   const { contactData, setModalEditActive, onContinueClick, className } = props
   const { value: name, bind: bindName } = useInput(contactData.name)
   const { value: email, bind: bindEmail } = useInput(contactData.email)
-  const { value: rationale, bind: bindRationale } = useInput('')
+  const { value: rationale, bind: bindRationale, focus} = useInput('')
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    if (name && email && rationale) onContinueClick({ name, email, rationale })
+
+    if (name && email && rationale) {
+      onContinueClick({ name, email, rationale })
+    } else {
+      focus('contactEmail')
+      focus('contactName')
+      focus('rationale')
+    }
   }
 
   return (

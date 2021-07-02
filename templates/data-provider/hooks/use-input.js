@@ -7,6 +7,11 @@ const useInput = (initialValue) => {
     value,
     setValue,
     reset: () => setValue(''),
+    focus: (element) => {
+      var elem = document.getElementById(element);
+      elem.firstChild.focus();
+      elem.firstChild.blur();
+    },
     bind: {
       value,
       onChange: (event) => {
