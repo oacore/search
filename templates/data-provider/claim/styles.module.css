@@ -16,6 +16,10 @@
   margin-bottom: 10px;
 }
 
+.input-pointer input {
+  cursor: pointer;
+}
+
 .claim-card-action:not(:last-child) {
   margin-right: 0.5rem;
 }

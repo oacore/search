@@ -31,8 +31,8 @@ const ClaimModal = ({
         label="Email"
         value={contactData.email}
         onClick={() => setModalEditActive(true)}
-        className={classNames.use(styles.claimCardGroup)}
-        statusIcon={'#pencil-edit'}
+        className={classNames.use(styles.claimCardGroup, styles.inputPointer)}
+        statusIcon={'#pencil'}
         helper={
           <>
             This address is listed as Admin Email in the OAI-PMH Identify.
