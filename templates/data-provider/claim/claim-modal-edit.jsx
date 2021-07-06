@@ -31,9 +31,8 @@ const ClaimModalEdit = (props) => {
   const handleSubmit = (evt) => {
     evt.preventDefault()
 
-    if (name && email && rationale) {
-      onContinueClick({ name, email, rationale })
-    } else {
+    if (name && email && rationale) onContinueClick({ name, email, rationale })
+    else {
       focusName()
       focusEmail()
       focusRationale()
