@@ -1,16 +1,18 @@
 import { useState } from 'react'
 
-const useInput = (initialValue) => {
+const useInput = (initialValue, initialElem) => {
   const [value, setValue] = useState(initialValue)
+  const [element] = useState(initialElem)
 
   return {
     value,
+    element,
     setValue,
     reset: () => setValue(''),
-    focus: (element) => {
-      var elem = document.getElementById(element);
-      elem.firstChild.focus();
-      elem.firstChild.blur();
+    focus: () => {
+      const elem = document.getElementById(element)
+      elem.firstChild.focus()
+      elem.firstChild.blur()
     },
     bind: {
       value,

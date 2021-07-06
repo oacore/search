@@ -7,9 +7,26 @@ import styles from './styles.module.css'
 
 const ClaimModalEdit = (props) => {
   const { contactData, setModalEditActive, onContinueClick, className } = props
-  const { value: name, bind: bindName } = useInput(contactData.name)
-  const { value: email, bind: bindEmail } = useInput(contactData.email)
-  const { value: rationale, bind: bindRationale, focus} = useInput('')
+  const {
+    value: name,
+    element: contactName,
+    bind: bindName,
+    focus: focusName,
+  } = useInput(contactData.name, 'contactName')
+
+  const {
+    value: email,
+    element: contactEmail,
+    bind: bindEmail,
+    focus: focusEmail,
+  } = useInput(contactData.email, 'contactEmail')
+
+  const {
+    value: rationale,
+    element: contactRationale,
+    bind: bindRationale,
+    focus: focusRationale,
+  } = useInput('', 'contactRationale')
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
@@ -17,9 +34,9 @@ const ClaimModalEdit = (props) => {
     if (name && email && rationale) {
       onContinueClick({ name, email, rationale })
     } else {
-      focus('contactEmail')
-      focus('contactName')
-      focus('rationale')
+      focusName()
+      focusEmail()
+      focusRationale()
     }
   }
 
@@ -38,9 +55,9 @@ const ClaimModalEdit = (props) => {
           invitation to the CORE Dashboard.
         </p>
         <TextField
-          id="contactEmail"
+          id={contactEmail}
           type="email"
-          name="contactEmail"
+          name={contactEmail}
           label="Email"
           placeholder="You need enter email."
           required
@@ -49,9 +66,9 @@ const ClaimModalEdit = (props) => {
           helper={<>Your institutional email address.</>}
         />
         <TextField
-          id="contactName"
+          id={contactName}
           type="text"
-          name="contactName"
+          name={contactName}
           label="Name"
           placeholder="How would you like to be called?"
           required
@@ -59,9 +76,9 @@ const ClaimModalEdit = (props) => {
           helper={<br />}
         />
         <TextField
-          id="rationale"
+          id={contactRationale}
           type="text"
-          name="rationale"
+          name={contactRationale}
           label="Rationale"
           placeholder="Why are you the authorised person to get access?"
           required
