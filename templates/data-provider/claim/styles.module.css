@@ -1,0 +1,65 @@
+.claim-card {
+  box-shadow: none;
+}
+
+.claim-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.claim-card-action {
+  margin-top: 1rem;
+  grid-row: 6;
+}
+
+.claim-card-group {
+  margin-bottom: 10px;
+}
+
+.input-pointer input {
+  cursor: pointer;
+}
+
+.claim-card-action:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal {
+  top: calc((100vh / 2) - 20rem);
+  max-width: 50rem;
+}
+
+.hide {
+  display: none;
+}
+
+.success-modal-content {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.success-image {
+  align-self: center;
+
+  /* TODO: Ask Viktor how svg images in html works (width: auto doesn't work as expected) */
+  width: 24rem;
+  height: 15rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.icon-edit {
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon-back {
+  width: 2rem;
+}

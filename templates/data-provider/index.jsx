@@ -3,7 +3,7 @@ import { SearchResult } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
 
 import DataProviderOutputsSearch from './search'
-// import ClaimCard from './claim-card'
+import ClaimCard from './claim/claim-card'
 import MapCard from './map-card'
 import styles from './styles.module.css'
 import Pagination from './pagination'
@@ -25,6 +25,11 @@ const DataProviderTemplate = ({
   ...restProps
 }) => {
   const { outputs } = data
+
+  const contactData = data.contact ?? {
+    name: 'Name',
+    email: 'library-research-support@open.ac.uk',
+  }
 
   return (
     <Search
@@ -98,7 +103,12 @@ const DataProviderTemplate = ({
           {data.name} is based in{' '}
           {countryName.of(data.location.countryCode.toUpperCase())}
         </MapCard>
-        {/* <ClaimCard name={data.name} /> */}
+        <ClaimCard
+          nameDataProvider={data.name}
+          id={data.id}
+          className={styles.card}
+          contactData={contactData}
+        />
       </Search.Sidebar>
     </Search>
   )
