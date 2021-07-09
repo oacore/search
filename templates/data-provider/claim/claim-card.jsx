@@ -65,7 +65,12 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
         >
           Gain access now
         </Button>
-        <Button className={styles.claimCardAction} disabled>
+        <Button
+          className={styles.claimCardAction}
+          onClick={() => {
+            window.location.href = `https://core.ac.uk/services/repository-dashboard`
+          }}
+        >
           More details
         </Button>
         {isClaimModalActive && (
