@@ -12,7 +12,7 @@ const ClaimModalEdit = (props) => {
     element: contactName,
     bind: bindName,
     focus: focusName,
-  } = useInput(contactData.name, 'contactName')
+  } = useInput('', 'contactName')
 
   const {
     value: email,
