@@ -36,8 +36,8 @@ const CustomMap = ({ locations }) => {
     map.current = L.map(mapContainerRef.current, {
       center:
         locations.length > 1
-          ? centerPosition
-          : new L.LatLng(locations[0].latitude, locations[0].longitude),
+          ? new L.LatLng(locations[0].latitude, locations[0].longitude)
+          : centerPosition,
       zoom: 2,
       maxBounds: [
         [-90, -180],
@@ -76,7 +76,8 @@ const CustomMap = ({ locations }) => {
       markers.addLayer(marker)
     })
 
-    map.current.addLayer(markers)
+    if (markers) map.current.addLayer(markers)
+
     return () => map.current.removeLayer(markers)
   }, [locations])
 
