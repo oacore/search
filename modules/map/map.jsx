@@ -76,7 +76,7 @@ const CustomMap = ({ locations }) => {
       markers.addLayer(marker)
     })
 
-    if (markers) map.current.addLayer(markers)
+    map.current.addLayer(markers)
 
     return () => map.current.removeLayer(markers)
   }, [locations])
