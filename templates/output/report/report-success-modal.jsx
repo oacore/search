@@ -33,7 +33,7 @@ const ReportSuccessModal = ({
               />
             </div>
             <div className={styles.modalCardSuccessText}>
-              <Icon src="#check-circle" />
+              <Icon src="#check-circle" alt="checkbox-circle" />
               <Card.Description tag="span">
                 As a repository manager you can manually disable article in CORE
                 Dashboard. To learn more about CORE Services &nbsp;
