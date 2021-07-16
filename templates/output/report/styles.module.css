@@ -64,7 +64,16 @@
 .card-modal-reporter {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.card-modal-reporter-item {
+  display: flex;
+  flex-basis: 33%;
+  align-items: center;
+  min-width: auto;
+  height: 60px;
+  margin: 0 0.2rem;
 }
 
 .modal-reporter-form,
@@ -93,6 +102,11 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
+}
+
+.modal-card-image img {
+  width: 200px;
+  height: 200px;
 }
 
 .modal-card-success-text:not(:last-child) {

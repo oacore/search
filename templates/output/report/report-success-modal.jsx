@@ -97,7 +97,7 @@ const BaseText = ({ operation, sourceFulltextUrls }) => (
     {operation === 'update' ? ' updated ' : ' removed '} from the
     <strong> Open Reseach Online </strong> website that is available at &nbsp;
     <Link href={sourceFulltextUrls[0]}>{sourceFulltextUrls[0]}</Link>
-    &nbsp; now.
+    &nbsp;now.
   </Card.Description>
 )
 

@@ -38,7 +38,7 @@ const ReportFormModal = observe(
     const onHandleSubmit = (evt) => {
       evt.preventDefault()
 
-      if (name && email && comment) {
+      if (id && name && email) {
         handleSubmitForm(id, name, email, comment)
         setModalReportFormActive(false)
         setModalSuccessActive(true)
@@ -66,9 +66,13 @@ const ReportFormModal = observe(
               {reporterTypes.map((item) => (
                 <Card
                   variant="outlined"
-                  className={classNames.use(styles.cardModal, {
-                    [styles.cardModalActive]: reporterType === item.name,
-                  })}
+                  className={classNames.use(
+                    styles.cardModal,
+                    styles.cardModalReporterItem,
+                    {
+                      [styles.cardModalActive]: reporterType === item.name,
+                    }
+                  )}
                   key={item.id}
                   onClick={() => setActiveReporter(item.name)}
                 >
@@ -124,7 +128,6 @@ const ReportFormModal = observe(
                   name={contactComment}
                   {...bindComment}
                   className={styles.modalReporterFormControl}
-                  required
                   helper={<>What you would like to update on the page.</>}
                 />
               </>
