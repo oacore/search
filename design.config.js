@@ -8,6 +8,8 @@ const icons = [
   'chevron-double-right',
   'content-copy',
   'tag',
+  'account',
+  'check-circle',
 ]
 
 const iconsRoot = path.join(

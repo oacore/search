@@ -2,11 +2,14 @@ import { makeObservable, observable, action } from 'mobx'
 
 import Claim from './claim'
 import DataProviders from './data-providers'
+import Report from './report'
 
 class Root {
   claim = new Claim()
 
   dataProviders = null
+
+  report = new Report()
 
   statistics
 
@@ -14,6 +17,7 @@ class Root {
     makeObservable(this, {
       statistics: observable,
       dataProviders: observable,
+      claim: observable,
       extend: action,
     })
 

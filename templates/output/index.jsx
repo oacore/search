@@ -5,6 +5,7 @@ import FullTextThumbnail from './thumbnail-card'
 import Metadata from './metadata'
 import MapCard from './map-card'
 import Keywords from './keywords'
+import ReportCard from './report'
 import styles from './styles.module.css'
 
 import Search from 'modules/search-layout'
@@ -19,6 +20,7 @@ const ScientificOutputTemplate = ({
     publicationDate,
     dataProvider,
     similarOutputs,
+    sourceFulltextUrls,
   },
   ...passProps
 }) => (
@@ -58,6 +60,8 @@ const ScientificOutputTemplate = ({
           location: dataProvider.location,
         }}
       />
+      {/* Place Here */}
+      <ReportCard id={id} sourceFulltextUrls={sourceFulltextUrls} />
     </Search.Sidebar>
   </Search>
 )
