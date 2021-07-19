@@ -11,6 +11,7 @@ const FullTextThumbnail = ({
   src = `//core.ac.uk/image/${documentId}/large`,
   alt = 'Document thumbnail',
   href = `//core.ac.uk/reader/${documentId}`,
+  hrefTakeDown = `/article-update/${documentId}`,
   className,
   ...passProps
 }) => (
@@ -37,7 +38,13 @@ const FullTextThumbnail = ({
         {title}
       </Card.Title>
       <Card.Description className={styles.description} tag="span">
-        Provided a free {fileType} ({filesize(fileSize)})
+        <p>
+          Provided a free {fileType} ({filesize(fileSize)})
+        </p>
+        <p>
+          To submit an update or takedown request for this paper, please submit
+          an <a href={hrefTakeDown}>Update/Correction/Removal Request</a>.
+        </p>
       </Card.Description>
     </p>
   </Card>

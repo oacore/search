@@ -44,6 +44,7 @@ const ScientificOutputTemplate = ({
       <FullTextThumbnail
         id={`full-text-thumbnail-${id}`}
         href={`//core.ac.uk/reader/${id}`}
+        hrefTakeDown ={`/article-update/${id}`}
         src={`//core.ac.uk/image/${id}/large`}
         alt=""
         data={{
