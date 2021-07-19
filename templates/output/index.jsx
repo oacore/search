@@ -64,7 +64,7 @@ const ScientificOutputTemplate = ({
         <p>
           To submit an update or takedown request for this paper, please submit
           an{' '}
-          <a href={`/article-update/${id}`}>
+          <a href={`//core.ac.uk/article-update/${id}`}>
             Update/Correction/Removal Request
           </a>
           .
