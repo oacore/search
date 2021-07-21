@@ -15,7 +15,6 @@
 .image {
   position: relative;
   display: block;
- 
   &:hover {
     text-decoration: none;
   }
