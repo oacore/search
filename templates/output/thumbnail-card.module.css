@@ -12,13 +12,13 @@
   }
 }
 
+.image:hover {
+    text-decoration: none;
+}
+
 .image {
   position: relative;
   display: block;
-  
-  &:hover {
-    text-decoration: none;
-  }
 
   & > img {
     display: block;
