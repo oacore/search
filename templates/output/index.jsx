@@ -1,4 +1,6 @@
 import React from 'react'
+import { Card } from '@oacore/design'
+import { classNames } from '@oacore/design/lib/utils'
 
 import SimilarWorks from './similar-works'
 import FullTextThumbnail from './thumbnail-card'
@@ -58,6 +60,16 @@ const ScientificOutputTemplate = ({
           location: dataProvider.location,
         }}
       />
+      <Card className={classNames.use(styles.card)}>
+        <p>
+          To submit an update or takedown request for this paper, please submit
+          an{' '}
+          <a href={`//core.ac.uk/article-update/${id}`}>
+            Update/Correction/Removal Request
+          </a>
+          .
+        </p>
+      </Card>
     </Search.Sidebar>
   </Search>
 )
