@@ -16,6 +16,10 @@
   position: relative;
   display: block;
 
+  &:hover {
+    text-decoration: none;
+  }
+
   & > img {
     display: block;
     width: 100%;
@@ -65,4 +69,5 @@
   position: relative;
   z-index: 2;
   display: block;
+  color: var(--body-color, #000);
 }

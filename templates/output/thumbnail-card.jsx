@@ -30,16 +30,16 @@ const FullTextThumbnail = ({
       aria-describedby={`${id}-body`}
     >
       <img className={styles.image} src={src} alt={alt} />
-    </a>
 
-    <p className={styles.body} id={`${id}-body`}>
-      <Card.Title className={styles.name} tag="span">
-        {title}
-      </Card.Title>
-      <Card.Description className={styles.description} tag="span">
-        Provided a free {fileType} ({filesize(fileSize)})
-      </Card.Description>
-    </p>
+      <p className={styles.body} id={`${id}-body`}>
+        <Card.Title className={styles.name} tag="span">
+          {title}
+        </Card.Title>
+        <Card.Description className={styles.description} tag="span">
+          Provided a free {fileType} ({filesize(fileSize)})
+        </Card.Description>
+      </p>
+    </a>
   </Card>
 )
 
