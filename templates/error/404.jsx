@@ -12,7 +12,11 @@ const Error404 = () => {
     <article>
       <h1>Uh-oh</h1>
       <section>
-        <p>The article with id:{id} does not exists.</p>
+        {id ? (
+          <p>The article with id:{id} does not exists.</p>
+        ) : (
+          <p>The page you were looking for could not be found.</p>
+        )}
         <div className={styles.buttons}>
           <Button variant="contained" href="/" tag="a">
             Go to homepage
