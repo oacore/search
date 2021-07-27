@@ -38,7 +38,7 @@ const ScientificOutputTemplate = ({
           <p>{abstract}</p>
         </section>
       )}
-      <Keywords keywords={['computer science', 'text mining']} />
+      <Keywords title={title} similarOutputs={similarOutputs} />
       {similarOutputs.length > 0 && <SimilarWorks data={similarOutputs} />}
     </Search.Main>
 
