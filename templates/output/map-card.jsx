@@ -20,7 +20,11 @@ const MapCard = ({ metadata }) => (
       zoom={10}
     />
     <p>
-      This paper was published in <b>{metadata.name}</b>.
+      This paper was published in{' '}
+      <a href={metadata.hrefDataProvider}>
+        <b>{metadata.name}</b>
+      </a>
+      .
     </p>
   </Card>
 )
