@@ -108,10 +108,14 @@ const ScientificOutputPage = ({ data }) => {
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
 
-  let { sourceFulltextUrls } = data;
-  if(sourceFulltextUrls instanceof Array && sourceFulltextUrls[0]){
+  const { sourceFulltextUrls } = data
+  if (
+    sourceFulltextUrls instanceof Array &&
+    data.sourceFulltextUrls &&
+    sourceFulltextUrls[0]
+  )
+    // eslint-disable-next-line prefer-destructuring
     data.sourceFulltextUrls = sourceFulltextUrls[0]
-  }
 
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {
