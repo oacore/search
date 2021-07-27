@@ -6,7 +6,14 @@ import filesize from 'filesize'
 import styles from './thumbnail-card.module.css'
 
 const FullTextThumbnail = ({
-  data: { title, size: fileSize, type: fileType, id: documentId },
+  data: {
+    title,
+    size: fileSize,
+    type: fileType,
+    id: documentId,
+    updatedDate,
+    sourceFulltextUrls,
+  },
   id,
   src = `//core.ac.uk/image/${documentId}/large`,
   alt = 'Document thumbnail',
@@ -40,6 +47,21 @@ const FullTextThumbnail = ({
         </Card.Description>
       </p>
     </a>
+
+    {(updatedDate || sourceFulltextUrls) && (
+      <p className={styles.body}>
+        {updatedDate && (
+          <Card.Description className={styles.description} tag="span">
+            Last time updated on {updatedDate}
+          </Card.Description>
+        )}
+        {sourceFulltextUrls && (
+          <Card.Description className={styles.description} tag="span">
+            Downloaded from {sourceFulltextUrls}
+          </Card.Description>
+        )}
+      </p>
+    )}
   </Card>
 )
 

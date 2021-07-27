@@ -52,6 +52,8 @@ const ScientificOutputTemplate = ({
           title: dataProvider.name,
           type: 'PDF',
           size: 200312, // repositoryDocument.pdfSize,
+          updatedDate: dataProvider.updated_date,
+          sourceFulltextUrls: dataProvider.source_fulltext_urls
         }}
       />
       <MapCard
