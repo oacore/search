@@ -1,12 +1,14 @@
-.error-Container {
+.error-container {
   height: 100vh;
 }
+
 .error {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -60%);
 }
+
 .buttons a {
   margin-right: 1rem;
 }
