@@ -62,7 +62,7 @@ const FullTextThumbnail = ({
               aria-labelledby={`${id}-downloaded-from-title`}
               aria-describedby={`${id}-downloaded-from-body`}
             >
-              View original fulltext link
+              View original full text link
             </a>
           </Card.Description>
         )}
