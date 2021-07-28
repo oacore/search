@@ -9,9 +9,9 @@ const Error404 = () => {
   const { id } = router.query
 
   return (
-    <article>
-      <h1>Uh-oh</h1>
-      <section>
+    <article className={styles.errorContainer}>
+      <section className={styles.error}>
+        <h1>Uh-oh</h1>
         {id ? (
           <p>The article with id:{id} does not exists.</p>
         ) : (
@@ -20,6 +20,9 @@ const Error404 = () => {
         <div className={styles.buttons}>
           <Button variant="contained" href="/" tag="a">
             Go to homepage
+          </Button>
+          <Button variant="outlined" href="/contact" tag="a">
+            Contact us
           </Button>
         </div>
       </section>
