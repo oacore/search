@@ -56,14 +56,14 @@ const FullTextThumbnail = ({
           </Card.Description>
         )}
         {sourceFulltextUrls && (
-          <Card.Description className={styles.description} tag="span">
+          <Card.Description className={styles.descriptionLink} tag="span">
             Downloaded from{' '}
             <a
               href={sourceFulltextUrls}
               aria-labelledby={`${id}-downloaded-from-title`}
               aria-describedby={`${id}-downloaded-from-body`}
             >
-              link
+              {sourceFulltextUrls} {sourceFulltextUrls}
             </a>
           </Card.Description>
         )}

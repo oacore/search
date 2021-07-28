@@ -64,10 +64,19 @@
   font-weight: 600;
   color: hsl(var(--primary-hsl));
 }
-
+.description-link,
 .description {
   position: relative;
   z-index: 2;
   display: block;
   color: var(--body-color, #000);
+}
+
+.description-link {
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
