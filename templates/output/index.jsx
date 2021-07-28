@@ -18,7 +18,7 @@ const ScientificOutputTemplate = ({
     authors,
     abstract,
     publisher,
-    publicationDate,
+    publishedDate,
     dataProvider,
     similarOutputs,
   },
@@ -29,7 +29,7 @@ const ScientificOutputTemplate = ({
       <h1>{title}</h1>
       <Metadata
         authors={authors}
-        publicationDate={publicationDate}
+        publishedDate={publishedDate}
         publisher={publisher}
       />
       {abstract && (

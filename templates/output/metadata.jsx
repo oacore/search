@@ -5,7 +5,7 @@ import styles from './styles.module.css'
 
 import { formatDate } from 'utils/helpers'
 
-const Metadata = ({ authors, publisher, publicationDate }) => (
+const Metadata = ({ authors, publisher, publishedDate }) => (
   <MetadataList>
     <MetadataList.Item id="metadata-authors" label="Authors">
       <ExpandableList>
@@ -29,7 +29,7 @@ const Metadata = ({ authors, publisher, publicationDate }) => (
     </MetadataList.Item>
 
     <MetadataList.Item id="metadata-publication-date" label="Publication date">
-      {formatDate(publicationDate, {
+      {formatDate(publishedDate, {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
