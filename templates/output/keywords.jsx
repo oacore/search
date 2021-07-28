@@ -3,18 +3,11 @@ import { Icon } from '@oacore/design'
 
 import styles from './styles.module.css'
 
-import topics from 'utils/topics'
-
-const Keywords = ({
-  title,
-  similarOutputs,
-  tag: Tag = 'div',
-  ...htmlProps
-}) => (
+const Keywords = ({ tags = [], tag: Tag = 'div', ...htmlProps }) => (
   <Tag {...htmlProps}>
     <Icon src="#tag" alt="" className={styles.keywordsIcon} />
     <ul className={styles.keywordsList}>
-      {topics(title, similarOutputs).map((k) => (
+      {tags.map((k) => (
         <li key={k}>
           <a
             href={`//core.ac.uk/search?q=${k}`}

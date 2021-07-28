@@ -8,7 +8,9 @@ function uniqElementsArray(a = []) {
 
 // Return items from `title` which are match with `similarOutputs`
 const topics = (title, similarOutputs = []) => {
-  const titleArray = title.split(' ')
+  const cleanTitle = title.replace(/['"`“”,.!:]+/g, '')
+  const titleArray = cleanTitle.split(' ')
+
   const topicsTitle = titleArray
     .filter((item) => {
       if (item.length > lenghtWord) return item

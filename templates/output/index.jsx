@@ -21,6 +21,7 @@ const ScientificOutputTemplate = ({
     publicationDate,
     dataProvider,
     similarOutputs,
+    tags,
   },
   ...passProps
 }) => (
@@ -38,7 +39,7 @@ const ScientificOutputTemplate = ({
           <p>{abstract}</p>
         </section>
       )}
-      <Keywords title={title} similarOutputs={similarOutputs} />
+      <Keywords tags={tags} />
       {similarOutputs.length > 0 && <SimilarWorks data={similarOutputs} />}
     </Search.Main>
 

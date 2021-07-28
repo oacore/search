@@ -123,6 +123,8 @@ const ScientificOutputPage = ({ data }) => {
     },
   })
 
+  console.log(data.tags)
+
   return (
     <>
       <Head>
