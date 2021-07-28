@@ -21,7 +21,7 @@ const MapCard = ({ metadata }) => (
     />
     <p>
       This paper was published in{' '}
-      <a href={metadata.hrefDataProvider}>
+      <a href={metadata.hrefDataProvider} target="_blank" rel="noreferrer">
         <b>{metadata.name}</b>
       </a>
       .
