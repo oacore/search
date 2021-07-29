@@ -32,6 +32,11 @@ export async function getStaticProps({ params: routeParams }) {
     const { fullText: _, ...output } = rawOutput
 
     const { data: dataProvider } = await request(output.dataProvider)
+
+    output.publishedDate = output.publishedDate
+      ? output.publishedDate
+      : output.yearPublished
+
     Object.assign(data, {
       ...output,
       dataProvider,
