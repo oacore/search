@@ -22,11 +22,20 @@ const ScientificOutputTemplate = ({
     dataProvider,
     similarOutputs,
     tags,
+    documentType,
+    identifiers: { doi },
   },
   ...passProps
 }) => (
   <Search {...passProps}>
     <Search.Main>
+      <div>
+        {documentType && (
+          <span className={styles.documentType}>{documentType}</span>
+        )}
+        {doi && <span className={styles.doi}>{doi}</span>}
+      </div>
+
       <h1>{title}</h1>
       <Metadata
         authors={authors}
@@ -59,6 +68,7 @@ const ScientificOutputTemplate = ({
         metadata={{
           name: dataProvider.name,
           location: dataProvider.location,
+          hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
         }}
       />
       <Card className={classNames.use(styles.card)}>
