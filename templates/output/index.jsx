@@ -21,11 +21,20 @@ const ScientificOutputTemplate = ({
     publicationDate,
     dataProvider,
     similarOutputs,
+    documentType,
+    identifiers: { doi },
   },
   ...passProps
 }) => (
   <Search {...passProps}>
     <Search.Main>
+      <div>
+        {documentType && (
+          <span className={styles.documentType}>{documentType}</span>
+        )}
+        {doi && <span className={styles.doi}>{doi}</span>}
+      </div>
+
       <h1>{title}</h1>
       <Metadata
         authors={authors}
