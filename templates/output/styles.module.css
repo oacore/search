@@ -82,3 +82,16 @@
 .abstract {
   margin-bottom: var(--spacer);
 }
+
+.error {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.error-text {
+  color: var(--gray-400);
+}
+
+.error-icon {
+  color: var(--primary);
+}

@@ -20,7 +20,6 @@ const ScientificOutputTemplate = ({
     publisher,
     publicationDate,
     dataProvider,
-    similarOutputs,
   },
   ...passProps
 }) => (
@@ -39,7 +38,7 @@ const ScientificOutputTemplate = ({
         </section>
       )}
       <Keywords keywords={['computer science', 'text mining']} />
-      {similarOutputs.length > 0 && <SimilarWorks data={similarOutputs} />}
+      <SimilarWorks articleId={id} />
     </Search.Main>
 
     <Search.Sidebar>
