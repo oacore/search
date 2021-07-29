@@ -23,6 +23,7 @@ const ScientificOutputTemplate = ({
     updatedDate,
     sourceFulltextUrls,
     similarOutputs,
+    tags,
     documentType,
     identifiers: { doi },
   },
@@ -49,7 +50,7 @@ const ScientificOutputTemplate = ({
           <p>{abstract}</p>
         </section>
       )}
-      <Keywords keywords={['computer science', 'text mining']} />
+      <Keywords tags={tags} />
       {similarOutputs.length > 0 && <SimilarWorks data={similarOutputs} />}
     </Search.Main>
 
