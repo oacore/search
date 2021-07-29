@@ -67,6 +67,7 @@ const ScientificOutputTemplate = ({
         metadata={{
           name: dataProvider.name,
           location: dataProvider.location,
+          hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
         }}
       />
       <Card className={classNames.use(styles.card)}>
