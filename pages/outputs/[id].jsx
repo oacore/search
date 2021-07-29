@@ -32,6 +32,11 @@ export async function getStaticProps({ params: routeParams }) {
     const { fullText: _, ...output } = rawOutput
 
     const { data: dataProvider } = await request(output.dataProvider)
+
+    output.publishedDate = output.publishedDate
+      ? output.publishedDate
+      : output.yearPublished
+
     Object.assign(data, {
       ...output,
       dataProvider,
@@ -107,6 +112,15 @@ const ScientificOutputPage = ({ data }) => {
   const { statistics } = useStore()
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
+
+  const { sourceFulltextUrls } = data
+  if (
+    sourceFulltextUrls instanceof Array &&
+    data.sourceFulltextUrls &&
+    sourceFulltextUrls[0]
+  )
+    // eslint-disable-next-line prefer-destructuring
+    data.sourceFulltextUrls = sourceFulltextUrls[0]
 
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {
