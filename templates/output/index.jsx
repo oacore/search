@@ -22,7 +22,6 @@ const ScientificOutputTemplate = ({
     dataProvider,
     updatedDate,
     sourceFulltextUrls,
-    similarOutputs,
     tags,
     documentType,
     identifiers: { doi },
@@ -51,7 +50,7 @@ const ScientificOutputTemplate = ({
         </section>
       )}
       <Keywords tags={tags} />
-      {similarOutputs.length > 0 && <SimilarWorks data={similarOutputs} />}
+      <SimilarWorks articleId={id} />
     </Search.Main>
 
     <Search.Sidebar>
