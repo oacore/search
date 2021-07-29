@@ -108,6 +108,15 @@ const ScientificOutputPage = ({ data }) => {
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
 
+  const { sourceFulltextUrls } = data
+  if (
+    sourceFulltextUrls instanceof Array &&
+    data.sourceFulltextUrls &&
+    sourceFulltextUrls[0]
+  )
+    // eslint-disable-next-line prefer-destructuring
+    data.sourceFulltextUrls = sourceFulltextUrls[0]
+
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {
       window.location.href = `https://core.ac.uk/search?q=${encodeURIComponent(

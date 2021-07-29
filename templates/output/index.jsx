@@ -20,6 +20,8 @@ const ScientificOutputTemplate = ({
     publisher,
     publicationDate,
     dataProvider,
+    updatedDate,
+    sourceFulltextUrls,
     similarOutputs,
     documentType,
     identifiers: { doi },
@@ -61,6 +63,8 @@ const ScientificOutputTemplate = ({
           title: dataProvider.name,
           type: 'PDF',
           size: 200312, // repositoryDocument.pdfSize,
+          updatedDate,
+          sourceFulltextUrls,
         }}
       />
       <MapCard
