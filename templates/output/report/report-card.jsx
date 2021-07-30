@@ -9,7 +9,7 @@ import styles from './styles.module.css'
 
 import { observe } from 'store'
 
-const ReportCard = observe(({ id, sourceFulltextUrls }) => {
+const ReportCard = observe(({ id, sourceFulltextUrls, dataProvider }) => {
   const {
     report: { statusCode },
   } = useReportController()
@@ -56,6 +56,7 @@ const ReportCard = observe(({ id, sourceFulltextUrls }) => {
         <ReportSuccessModal
           sourceFulltextUrls={sourceFulltextUrls}
           setModalReportSuccessActive={setIsModalReportSuccessActive}
+          dataProvider={dataProvider}
         />
       )}
     </Card>

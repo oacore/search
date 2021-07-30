@@ -12,8 +12,13 @@ const TAKE_DOWN_OPTION = 'takeDownFullText'
 const ReportSuccessModal = ({
   setModalReportSuccessActive,
   sourceFulltextUrls,
+  dataProvider,
 }) => {
   const router = useRouter()
+
+  const sourceUrl = Array.isArray(sourceFulltextUrls)
+    ? sourceFulltextUrls[0]
+    : sourceFulltextUrls
 
   const {
     report: { role, updateOption },
@@ -23,9 +28,9 @@ const ReportSuccessModal = ({
   const onCloseModal = () => {
     setModalReportSuccessActive(false)
     resetReport()
+
     if (updateOption === TAKE_DOWN_OPTION) router.push('/')
   }
-
   const setTextByReporterType = () => {
     switch (role) {
       case REPOSITORY_MANAGER:
@@ -35,7 +40,8 @@ const ReportSuccessModal = ({
               <Icon src="#check-circle" alt="checkbox-circle" />
               <BaseText
                 operation={updateOption}
-                sourceFulltextUrls={sourceFulltextUrls}
+                sourceUrl={sourceUrl}
+                dataProvider={dataProvider}
               />
             </div>
             <div className={styles.modalCardSuccessText}>
@@ -58,7 +64,8 @@ const ReportSuccessModal = ({
         return (
           <BaseText
             operation={updateOption}
-            sourceFulltextUrls={sourceFulltextUrls}
+            sourceUrl={sourceUrl}
+            dataProvider={dataProvider}
           />
         )
     }
@@ -96,14 +103,14 @@ const ReportSuccessModal = ({
   )
 }
 
-const BaseText = ({ operation, sourceFulltextUrls }) => (
+const BaseText = ({ operation, sourceUrl, dataProvider }) => (
   <Card.Description tag="span">
     Please, note that we can
     {operation === 'issueWithContent' ? ' update ' : ' remove '}
     the <strong>output</strong> only if the the document was
     {operation === 'issueWithContent' ? ' updated ' : ' removed '} from the
-    <strong> Open Reseach Online </strong> website that is available at &nbsp;
-    <Link href={sourceFulltextUrls[0]}>{sourceFulltextUrls[0]}</Link>
+    <strong> {dataProvider} </strong> website that is available at &nbsp;
+    <Link href={sourceUrl}>{sourceUrl}</Link>
     &nbsp;now.
   </Card.Description>
 )
