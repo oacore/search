@@ -10,6 +10,7 @@ const icons = [
   'tag',
   'account',
   'check-circle',
+  'emoticon-sad-outline',
 ]
 
 const iconsRoot = path.join(

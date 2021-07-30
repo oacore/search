@@ -1,11 +1,14 @@
 import { makeObservable, observable, action } from 'mobx'
 
 import Claim from './claim'
+import SimilarWorks from './similar-works'
 import DataProviders from './data-providers'
 import Report from './report'
 
 class Root {
   claim = new Claim()
+
+  similarWorks = new SimilarWorks()
 
   dataProviders = null
 

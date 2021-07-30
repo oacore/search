@@ -1,4 +1,6 @@
 import React from 'react'
+import { Card } from '@oacore/design'
+import { classNames } from '@oacore/design/lib/utils'
 
 import SimilarWorks from './similar-works'
 import FullTextThumbnail from './thumbnail-card'
@@ -17,19 +19,29 @@ const ScientificOutputTemplate = ({
     authors,
     abstract,
     publisher,
-    publicationDate,
+    publishedDate,
     dataProvider,
-    similarOutputs,
+    updatedDate,
     sourceFulltextUrls,
+    tags,
+    documentType,
+    identifiers: { doi },
   },
   ...passProps
 }) => (
   <Search {...passProps}>
     <Search.Main>
+      <div>
+        {documentType && (
+          <span className={styles.documentType}>{documentType}</span>
+        )}
+        {doi && <span className={styles.doi}>{doi}</span>}
+      </div>
+
       <h1>{title}</h1>
       <Metadata
         authors={authors}
-        publicationDate={publicationDate}
+        publishedDate={publishedDate}
         publisher={publisher}
       />
       {abstract && (
@@ -38,8 +50,8 @@ const ScientificOutputTemplate = ({
           <p>{abstract}</p>
         </section>
       )}
-      <Keywords keywords={['computer science', 'text mining']} />
-      {similarOutputs.length > 0 && <SimilarWorks data={similarOutputs} />}
+      <Keywords tags={tags} />
+      <SimilarWorks articleId={id} />
     </Search.Main>
 
     <Search.Sidebar>
@@ -52,15 +64,17 @@ const ScientificOutputTemplate = ({
           title: dataProvider.name,
           type: 'PDF',
           size: 200312, // repositoryDocument.pdfSize,
+          updatedDate,
+          sourceFulltextUrls,
         }}
       />
       <MapCard
         metadata={{
           name: dataProvider.name,
           location: dataProvider.location,
+          hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
         }}
       />
-      {/* Place Here */}
       <ReportCard id={id} sourceFulltextUrls={sourceFulltextUrls} />
     </Search.Sidebar>
   </Search>

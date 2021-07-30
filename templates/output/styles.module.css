@@ -82,3 +82,35 @@
 .abstract {
   margin-bottom: var(--spacer);
 }
+
+.error {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.error-text {
+  color: var(--gray-400);
+}
+
+.error-icon {
+  color: var(--primary);
+}
+
+.doi,
+.document-type {
+  font-size: 11px;
+}
+
+.doi {
+  color: var(--primary);
+}
+
+.document-type {
+  padding: 0.2rem;
+  margin-right: 1rem;
+  color: var(--white);
+  text-transform: uppercase;
+  background-color: var(--primary);
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
+}

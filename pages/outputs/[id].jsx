@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { Header } from '@oacore/design'
 
 import request from 'api'
-import { fetchMetadata, fetchSimilarTo, fetchCitations } from 'api/outputs'
+import { fetchMetadata, fetchCitations } from 'api/outputs'
 import { useStore } from 'store'
 import Meta from 'modules/meta'
 import Template from 'templates/output'
@@ -23,7 +23,7 @@ export async function getStaticProps({ params: routeParams }) {
   const { id } = routeParams
 
   const data = {}
-  let revalidate = 60 * 60 * 24 * 7 // seconds, i.e. every week
+  const revalidate = 60 * 60 * 24 * 7 // seconds, i.e. every week
 
   try {
     const rawOutput = await fetchMetadata(id)
@@ -32,6 +32,11 @@ export async function getStaticProps({ params: routeParams }) {
     const { fullText: _, ...output } = rawOutput
 
     const { data: dataProvider } = await request(output.dataProvider)
+
+    output.publishedDate = output.publishedDate
+      ? output.publishedDate
+      : output.yearPublished
+
     Object.assign(data, {
       ...output,
       dataProvider,
@@ -67,22 +72,22 @@ export async function getStaticProps({ params: routeParams }) {
     data.citations = []
   }
 
-  try {
-    const similarOutputs = await fetchSimilarTo(id)
+  // try {
+  //   const similarOutputs = await fetchSimilarTo(id)
 
-    // Strip some properties to optimise network traffic
-    data.similarOutputs = similarOutputs.map(
-      ({ fullText, ...output }) => output
-    )
-  } catch (error) {
-    log(error)
+  //   // Strip some properties to optimise network traffic
+  //   data.similarOutputs = similarOutputs.map(
+  //     ({ fullText, ...output }) => output
+  //   )
+  // } catch (error) {
+  //   log(error)
 
-    // If any error happens, we pretend, there were no recommendations
-    // This behaviour could be changed to explicit error reporting but should
-    // be considered deeper.
-    data.similarOutputs = []
-    revalidate = 30
-  }
+  //   // If any error happens, we pretend, there were no recommendations
+  //   // This behaviour could be changed to explicit error reporting but should
+  //   // be considered deeper.
+  //   data.similarOutputs = []
+  //   revalidate = 30
+  // }
 
   return {
     props: { data },
@@ -107,6 +112,15 @@ const ScientificOutputPage = ({ data }) => {
   const { statistics } = useStore()
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
+
+  const { sourceFulltextUrls } = data
+  if (
+    sourceFulltextUrls instanceof Array &&
+    data.sourceFulltextUrls &&
+    sourceFulltextUrls[0]
+  )
+    // eslint-disable-next-line prefer-destructuring
+    data.sourceFulltextUrls = sourceFulltextUrls[0]
 
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {

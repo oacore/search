@@ -6,7 +6,14 @@ import filesize from 'filesize'
 import styles from './thumbnail-card.module.css'
 
 const FullTextThumbnail = ({
-  data: { title, size: fileSize, type: fileType, id: documentId },
+  data: {
+    title,
+    size: fileSize,
+    type: fileType,
+    id: documentId,
+    updatedDate,
+    sourceFulltextUrls,
+  },
   id,
   src = `//core.ac.uk/image/${documentId}/large`,
   alt = 'Document thumbnail',
@@ -30,16 +37,37 @@ const FullTextThumbnail = ({
       aria-describedby={`${id}-body`}
     >
       <img className={styles.image} src={src} alt={alt} />
+
+      <p className={styles.body} id={`${id}-body`}>
+        <Card.Title className={styles.name} tag="span">
+          {title}
+        </Card.Title>
+        <Card.Description className={styles.description} tag="span">
+          Provided a free {fileType} ({filesize(fileSize)})
+        </Card.Description>
+      </p>
     </a>
 
-    <p className={styles.body} id={`${id}-body`}>
-      <Card.Title className={styles.name} tag="span">
-        {title}
-      </Card.Title>
-      <Card.Description className={styles.description} tag="span">
-        Provided a free {fileType} ({filesize(fileSize)})
-      </Card.Description>
-    </p>
+    {(updatedDate || sourceFulltextUrls) && (
+      <p className={styles.body}>
+        {updatedDate && (
+          <Card.Description className={styles.description} tag="span">
+            Last time updated on {updatedDate}
+          </Card.Description>
+        )}
+        {sourceFulltextUrls && (
+          <Card.Description className={styles.descriptionLink} tag="span">
+            <a
+              href={sourceFulltextUrls}
+              aria-labelledby={`${id}-downloaded-from-title`}
+              aria-describedby={`${id}-downloaded-from-body`}
+            >
+              View original full text link
+            </a>
+          </Card.Description>
+        )}
+      </p>
+    )}
   </Card>
 )
 
