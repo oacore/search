@@ -1,34 +1,40 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import { Modal, Button, Link, Card, Icon } from '@oacore/design'
 
 import { useReportController } from '../hooks'
 import styles from './styles.module.css'
 
-const REPOSITORY_MANAGER = 'Repository manager'
+const REPOSITORY_MANAGER = 'repositoryManager'
+
+const TAKE_DOWN_OPTION = 'takeDownFullText'
 
 const ReportSuccessModal = ({
   setModalReportSuccessActive,
   sourceFulltextUrls,
 }) => {
+  const router = useRouter()
+
   const {
-    report: { reporterType, operation },
+    report: { role, updateOption },
     resetReport,
   } = useReportController()
 
   const onCloseModal = () => {
     setModalReportSuccessActive(false)
     resetReport()
+    if (updateOption === TAKE_DOWN_OPTION) router.push('/')
   }
 
   const setTextByReporterType = () => {
-    switch (reporterType) {
+    switch (role) {
       case REPOSITORY_MANAGER:
         return (
           <>
             <div className={styles.modalCardSuccessText}>
               <Icon src="#check-circle" alt="checkbox-circle" />
               <BaseText
-                operation={operation}
+                operation={updateOption}
                 sourceFulltextUrls={sourceFulltextUrls}
               />
             </div>
@@ -51,7 +57,7 @@ const ReportSuccessModal = ({
       default:
         return (
           <BaseText
-            operation={operation}
+            operation={updateOption}
             sourceFulltextUrls={sourceFulltextUrls}
           />
         )
@@ -69,7 +75,7 @@ const ReportSuccessModal = ({
       </Modal.Title>
       <Modal.Content>
         <div className={styles.modalCardImage}>
-          {reporterType === REPOSITORY_MANAGER ? (
+          {role === REPOSITORY_MANAGER ? (
             <img src="/static/images/modal/upvote.svg" alt="upvote" />
           ) : (
             <img src="/static/images/modal/confirmed.svg" alt="upvote" />
@@ -92,9 +98,10 @@ const ReportSuccessModal = ({
 
 const BaseText = ({ operation, sourceFulltextUrls }) => (
   <Card.Description tag="span">
-    Please, note that we can {operation === 'update' ? ' update ' : ' remove '}
+    Please, note that we can
+    {operation === 'issueWithContent' ? ' update ' : ' remove '}
     the <strong>output</strong> only if the the document was
-    {operation === 'update' ? ' updated ' : ' removed '} from the
+    {operation === 'issueWithContent' ? ' updated ' : ' removed '} from the
     <strong> Open Reseach Online </strong> website that is available at &nbsp;
     <Link href={sourceFulltextUrls[0]}>{sourceFulltextUrls[0]}</Link>
     &nbsp;now.

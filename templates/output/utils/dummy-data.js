@@ -1,27 +1,30 @@
-export const reportTypes = [
+export const UPDATE_OPTIONS = [
   {
     id: 1,
     label: 'The document should not be published',
-    operation: 'remove',
+    operation: 'takeDownFullText',
   },
   {
     id: 2,
     label: 'The document is outdated',
-    operation: 'update',
+    operation: 'issueWithContent',
   },
 ]
 
-export const reporterTypes = [
+export const ROLES = [
   {
     id: 1,
-    name: 'Repository manager',
+    label: 'Repository manager',
+    role: 'repositoryManager',
   },
   {
     id: 2,
-    name: 'Author',
+    label: 'Author',
+    role: 'author',
   },
   {
     id: 3,
-    name: 'Other',
+    label: 'Other',
+    role: 'other',
   },
 ]

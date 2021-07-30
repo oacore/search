@@ -5,22 +5,16 @@ import { useStore } from 'store'
 const useReportController = () => {
   const { report } = useStore()
 
-  const setActiveOperation = (operation) => {
-    report.operation = operation
+  const setActiveOperation = (updateOption) => {
+    report.updateOption = updateOption
   }
 
-  const setActiveReporter = (reporterType) => {
-    report.reporterType = reporterType
+  const setActiveReporter = (role) => {
+    report.role = role
   }
 
-  const handleSubmitForm = (id, name, email, comment) => {
-    const requestBody = {
-      id,
-      name,
-      email,
-      comment,
-    }
-    report.fakeRequest(requestBody)
+  const handleSubmitForm = (data) => {
+    report.submit(data)
   }
 
   const resetReport = React.useCallback(() => report.reset(), [])

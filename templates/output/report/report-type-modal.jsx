@@ -3,7 +3,7 @@ import { Modal, Button, Icon, Card } from '@oacore/design'
 import classNames from '@oacore/design/lib/utils/class-names'
 
 import { useReportController } from '../hooks'
-import { reportTypes } from '../utils/dummy-data'
+import { UPDATE_OPTIONS } from '../utils/dummy-data'
 import styles from './styles.module.css'
 
 import { observe } from 'store'
@@ -11,7 +11,7 @@ import { observe } from 'store'
 const ReportTypeModal = observe(
   ({ setModalReportTypeActive, setModalFormActive }) => {
     const {
-      report: { operation },
+      report: { updateOption },
       setActiveOperation,
       resetReport,
     } = useReportController()
@@ -36,24 +36,22 @@ const ReportTypeModal = observe(
           Which issue are you reporting?
         </Modal.Title>
         <Modal.Content>
-          {reportTypes.map((reportType) => (
+          {UPDATE_OPTIONS.map(({ operation, id, label }) => (
             <Card
               variant="outlined"
               className={classNames.use(
                 styles.cardModal,
                 styles.cardModalReportType,
                 {
-                  [styles.cardModalActive]: operation === reportType.operation,
+                  [styles.cardModalActive]: updateOption === operation,
                 }
               )}
-              key={reportType.id}
-              onClick={() => setActiveOperation(reportType.operation)}
+              key={id}
+              onClick={() => setActiveOperation(operation)}
             >
               <Card.Description className={styles.cardModalDescription}>
                 <Icon src="#account" />
-                <span className={styles.cardModalDescriptionText}>
-                  {reportType.label}
-                </span>
+                <span className={styles.cardModalDescriptionText}>{label}</span>
               </Card.Description>
             </Card>
           ))}
@@ -63,7 +61,7 @@ const ReportTypeModal = observe(
             Close
           </Button>
           <Button
-            disabled={operation === null}
+            disabled={updateOption === null}
             variant="contained"
             onClick={onShowFormModal}
           >

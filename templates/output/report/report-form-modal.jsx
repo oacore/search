@@ -2,14 +2,14 @@ import React from 'react'
 import { Modal, Button, Icon, Card, Form, TextField } from '@oacore/design'
 import classNames from '@oacore/design/lib/utils/class-names'
 
-import { reporterTypes } from '../utils/dummy-data'
+import { ROLES } from '../utils/dummy-data'
 import styles from './styles.module.css'
 import { useReportController, useInput } from '../hooks'
 
 import { observe } from 'store'
 
 const ReportFormModal = observe(
-  ({ id, setModalReportFormActive, setModalSuccessActive }) => {
+  ({ id: outputId, setModalReportFormActive }) => {
     const {
       value: name,
       element: contactName,
@@ -23,13 +23,13 @@ const ReportFormModal = observe(
     } = useInput('contactEmail')
 
     const {
-      value: comment,
-      element: contactComment,
-      bind: bindComment,
-    } = useInput('contactComment')
+      value: message,
+      element: contactMessage,
+      bind: bindMessage,
+    } = useInput('contactMessage')
 
     const {
-      report: { reporterType },
+      report: { role: reporterRole },
       setActiveReporter,
       handleSubmitForm,
       resetReport,
@@ -38,10 +38,9 @@ const ReportFormModal = observe(
     const onHandleSubmit = (evt) => {
       evt.preventDefault()
 
-      if (id && name && email) {
-        handleSubmitForm(id, name, email, comment)
+      if (outputId && name && email) {
+        handleSubmitForm({ outputId, name, email, message })
         setModalReportFormActive(false)
-        setModalSuccessActive(true)
       }
     }
 
@@ -63,18 +62,18 @@ const ReportFormModal = observe(
           <fieldset className={styles.modalReporterContainer}>
             <legend className={styles.modalReporterTitle}>Who you are</legend>
             <div className={styles.cardModalReporter}>
-              {reporterTypes.map((item) => (
+              {ROLES.map(({ label, id, role }) => (
                 <Card
                   variant="outlined"
                   className={classNames.use(
                     styles.cardModal,
                     styles.cardModalReporterItem,
                     {
-                      [styles.cardModalActive]: reporterType === item.name,
+                      [styles.cardModalActive]: reporterRole === role,
                     }
                   )}
-                  key={item.id}
-                  onClick={() => setActiveReporter(item.name)}
+                  key={id}
+                  onClick={() => setActiveReporter(role)}
                 >
                   <Card.Description className={styles.cardModalDescription}>
                     <Icon src="#account" />
@@ -83,7 +82,7 @@ const ReportFormModal = observe(
                         styles.cardModalDescriptionText
                       )}
                     >
-                      {item.name}
+                      {label}
                     </span>
                   </Card.Description>
                 </Card>
@@ -92,7 +91,7 @@ const ReportFormModal = observe(
           </fieldset>
 
           <Form className={styles.modalReporterForm} onSubmit={onHandleSubmit}>
-            {reporterType && (
+            {reporterRole && (
               <>
                 <TextField
                   id={contactName}
@@ -122,11 +121,11 @@ const ReportFormModal = observe(
                   }
                 />
                 <TextField
-                  id={contactComment}
+                  id={contactMessage}
                   label="Comment"
                   placeholder="e.g. john.doe@ac.ck.uk"
-                  name={contactComment}
-                  {...bindComment}
+                  name={contactMessage}
+                  {...bindMessage}
                   className={styles.modalReporterFormControl}
                   helper={<>What you would like to update on the page.</>}
                 />
@@ -138,7 +137,7 @@ const ReportFormModal = observe(
               </Button>
               <Button
                 type="submit"
-                disabled={reporterType === null}
+                disabled={reporterRole === null}
                 variant="contained"
               >
                 Submit

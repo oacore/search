@@ -106,7 +106,7 @@ const executeRequest = ({ url, ...options }) =>
       (response) => processBody(response, { ...options }),
       (error) => processError(error, { ...options })
     )
-
+// For POST requests use variable - "body" and method:"POST"
 const performRequest = (url, options) => {
   const request = prepareRequest({ url, ...options })
   return executeRequest(request)

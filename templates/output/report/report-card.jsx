@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Card, Button } from '@oacore/design'
 
 import ReportTypeModal from './report-type-modal'
@@ -21,7 +21,11 @@ const ReportCard = observe(({ id, sourceFulltextUrls }) => {
     React.useState(false)
 
   const [isModalReportSuccessActive, setIsModalReportSuccessActive] =
-    React.useState(statusCode === 200)
+    React.useState(false)
+
+  useEffect(() => {
+    if (statusCode === 200) setIsModalReportSuccessActive(true)
+  }, [statusCode])
 
   return (
     <Card variant="outlined" className={styles.reportCard}>
@@ -31,7 +35,7 @@ const ReportCard = observe(({ id, sourceFulltextUrls }) => {
       <Card.Description className={styles.reportCardText}>
         Is data on this page outdated, violates copyrights or anything else?
         Report the problem now and we will take corresponding actions after
-        reviowing your request.
+        reviewing your request.
       </Card.Description>
       <Card.Footer className={styles.reportCardFooter}>
         <Button onClick={() => setIsModalReportTypeActive(true)}>Report</Button>
@@ -46,7 +50,6 @@ const ReportCard = observe(({ id, sourceFulltextUrls }) => {
         <ReportFormModal
           id={id}
           setModalReportFormActive={setIsModalReportFormActive}
-          setModalSuccessActive={setIsModalReportSuccessActive}
         />
       )}
       {isModalReportSuccessActive && (

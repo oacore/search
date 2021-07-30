@@ -57,4 +57,15 @@ const fetchCitations = async (
   return citations
 }
 
-export { fetchMetadata, fetchSimilarTo, fetchCitations }
+const createReport = async (body) => {
+  const url = new URL('/internal/outputs/update', process.env.API_URL).href
+
+  const response = await apiRequest(url, {
+    body,
+    method: 'POST',
+  })
+
+  return response
+}
+
+export { fetchMetadata, fetchSimilarTo, fetchCitations, createReport }

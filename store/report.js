@@ -2,10 +2,12 @@ import { action, makeObservable, observable } from 'mobx'
 
 import invalidatePreviousRequests from '../utils/invalidatePreviousRequests'
 
-class Report {
-  operation = null
+import { createReport } from 'api/outputs'
 
-  reporterType = null
+class Report {
+  updateOption = null
+
+  role = null
 
   statusCode = null
 
@@ -15,8 +17,8 @@ class Report {
 
   constructor() {
     makeObservable(this, {
-      operation: observable,
-      reporterType: observable,
+      updateOption: observable,
+      role: observable,
       statusCode: observable,
       isLoading: observable,
       error: observable,
@@ -25,23 +27,25 @@ class Report {
   }
 
   reset() {
-    this.operation = null
-    this.reporterType = null
+    this.updateOption = null
+    this.role = null
     this.statusCode = null
     this.isLoading = false
     this.error = null
   }
 
   @invalidatePreviousRequests
-  async fakeRequest(requestBody) {
-    this.isLoading = true
+  async submit(data) {
+    data.updateOption = this.updateOption
+    data.role = this.role
+
     try {
-      if (requestBody) this.statusCode = 200
+      const { status } = await createReport(data)
+      this.statusCode = status
     } catch (error) {
-      if (!requestBody) {
-        this.error = error
-        this.statusCode = 400
-      }
+      const { status, data: errorData } = error
+      this.error = errorData
+      this.statusCode = status
     } finally {
       this.isLoading = false
     }
