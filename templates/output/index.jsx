@@ -1,6 +1,4 @@
 import React from 'react'
-import { Card } from '@oacore/design'
-import { classNames } from '@oacore/design/lib/utils'
 
 import SimilarWorks from './similar-works'
 import FullTextThumbnail from './thumbnail-card'
