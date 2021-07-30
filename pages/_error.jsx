@@ -1,24 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 import Error404 from 'templates/error'
 import { fetchMetadata } from 'api/outputs'
 
-export async function getServerSideProps(context) {
-  const { id } = context.query
+// pages/_error is only rendered in case there is an error
+// so it can't use getServerSideProps as it has to be rendered
+// immediately when an error happens.
 
-  try {
-    const res = await fetchMetadata(id)
-    return {
-      props: { res },
+const Error = () => {
+  const [errorStatus, setErrorStatus] = useState()
+  const router = useRouter()
+  const { id } = router.query
+
+  useEffect(async () => {
+    try {
+      await fetchMetadata(id)
+    } catch (error) {
+      setErrorStatus(error.status)
     }
-  } catch (error) {
-    const { status } = error
-    return {
-      props: { status },
-    }
-  }
+  }, [])
+
+  return <Error404 articleId={id} status={errorStatus} />
 }
-
-const Error = ({ status }) => <Error404 status={status} />
 
 export default Error

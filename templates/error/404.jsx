@@ -1,13 +1,12 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import { Button } from '@oacore/design'
 
 import styles from './404.module.css'
 
-const Error404 = ({ status }) => {
-  const router = useRouter()
+import Loader from 'modules/loader/loader'
 
-  const { id: articleId } = router.query
+const Error404 = ({ articleId, status }) => {
+  if (!status) return <Loader />
 
   return (
     <article className={styles.errorContainer}>
@@ -30,4 +29,5 @@ const Error404 = ({ status }) => {
     </article>
   )
 }
+
 export default Error404

@@ -7,7 +7,6 @@ import { fetchMetadata, fetchCitations } from 'api/outputs'
 import { useStore } from 'store'
 import Meta from 'modules/meta'
 import Template from 'templates/output'
-import Error404 from 'templates/error/404'
 
 const LOCALE = 'en-GB'
 const CITATION_STYLES = ['apa', 'bibtex']
@@ -43,6 +42,8 @@ export async function getStaticProps({ params: routeParams }) {
       dataProvider,
     })
   } catch (error) {
+    log(error)
+
     return {
       props: { error },
       notFound: true,
@@ -136,7 +137,7 @@ const ScientificOutputPage = ({ data }) => {
     },
   })
 
-  return data ? (
+  return (
     <>
       <Head>
         <title>{data.title} - CORE</title>
@@ -144,8 +145,6 @@ const ScientificOutputPage = ({ data }) => {
       </Head>
       <Template data={data} />
     </>
-  ) : (
-    <Error404 />
   )
 }
 
