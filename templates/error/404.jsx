@@ -1,19 +1,19 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import { Button } from '@oacore/design'
 
 import styles from './404.module.css'
 
-const Error404 = () => {
-  const router = useRouter()
-  const { id } = router.query
+import Loader from 'modules/loader/loader'
+
+const Error404 = ({ articleId, status }) => {
+  if (!status) return <Loader />
 
   return (
     <article className={styles.errorContainer}>
       <section className={styles.error}>
         <h1>Uh-oh</h1>
-        {id ? (
-          <p>The article with id:{id} does not exists.</p>
+        {articleId && status === 410 ? (
+          <p>The article with ID {articleId} has been disabled.</p>
         ) : (
           <p>The page you were looking for could not be found.</p>
         )}
