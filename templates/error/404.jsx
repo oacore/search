@@ -13,7 +13,7 @@ const Error404 = ({ articleId, status }) => {
       <section className={styles.error}>
         <h1>Uh-oh</h1>
         {articleId && status === 410 ? (
-          <p>The article with id:{articleId} has been disabled.</p>
+          <p>The article with ID {articleId} has been disabled.</p>
         ) : (
           <p>The page you were looking for could not be found.</p>
         )}
