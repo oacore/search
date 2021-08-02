@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 import Error404 from 'templates/error'
@@ -9,7 +9,6 @@ import { fetchMetadata } from 'api/outputs'
 // immediately when an error happens.
 
 const Error = () => {
-  const [errorStatus, setErrorStatus] = useState()
   const router = useRouter()
   const { id } = router.query
 
@@ -17,11 +16,13 @@ const Error = () => {
     try {
       await fetchMetadata(id)
     } catch (error) {
-      setErrorStatus(error.status)
+      /* eslint-disable no-console */
+      console.log(error)
+      throw error
     }
   }, [])
 
-  return <Error404 articleId={id} status={errorStatus} />
+  return <Error404 articleId={id} />
 }
 
 export default Error
