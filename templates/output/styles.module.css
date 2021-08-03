@@ -1,3 +1,4 @@
+/* stylelint-disable declaration-no-important */
 .search-result:not(:last-child) {
   margin-bottom: 1rem;
 }
@@ -113,4 +114,33 @@
   background-color: var(--primary);
   border: 1px solid transparent;
   border-radius: 0.3rem;
+}
+
+/* In this case we need to use !important to disable original container */
+.output-container {
+  padding-right: var(--page-padding-x);
+  grid-template-columns:
+    calc((100vw - 2 * 2rem) * var(--main-content-ratio))
+    1fr !important;
+}
+
+.container-sidebar {
+  padding-top: var(--page-padding-y);
+}
+
+.container-main {
+  padding-top: var(--page-padding-y);
+  padding-left: var(--page-padding-x);
+}
+
+.background {
+  width: 100vw;
+  padding: var(--page-padding-y) var(--page-padding-x) 0 var(--page-padding-x);
+  background-color: var(--gray-100);
+}
+
+@media (--screen-until-desktop) {
+  .output-container {
+    grid-template-columns: 1fr !important;
+  }
 }
