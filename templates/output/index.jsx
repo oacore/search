@@ -18,11 +18,10 @@ const ScientificOutputTemplate = ({
     authors,
     abstract,
     publisher,
-    publicationDate,
+    publishedDate,
     dataProvider,
     updatedDate,
     sourceFulltextUrls,
-    similarOutputs,
     tags,
     documentType,
     identifiers: { doi },
@@ -41,7 +40,7 @@ const ScientificOutputTemplate = ({
       <h1>{title}</h1>
       <Metadata
         authors={authors}
-        publicationDate={publicationDate}
+        publishedDate={publishedDate}
         publisher={publisher}
       />
       {abstract && (
@@ -51,7 +50,7 @@ const ScientificOutputTemplate = ({
         </section>
       )}
       <Keywords tags={tags} />
-      {similarOutputs.length > 0 && <SimilarWorks data={similarOutputs} />}
+      <SimilarWorks articleId={id} />
     </Search.Main>
 
     <Search.Sidebar>
