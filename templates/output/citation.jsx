@@ -31,11 +31,17 @@ const CitationManager = ({ data }) => {
     )
       return
 
-    const copyText = textRef.current
+    const copyText = textRef.current.textContent
 
-    copyText.select()
-    // copyText.setSelectionRange(0, value.length)
-    // document.execCommand('copy')
+    navigator.clipboard.writeText(copyText).then(
+      () => {
+        // eslint-disable-next-line no-console
+        console.log(`Copying to clipboard: ${copyText}`)
+      },
+      (err) => {
+        console.error('Async: Could not copy text: ', err)
+      }
+    )
   }
 
   const [isModalOpen, toggleModal] = useModal()
@@ -49,25 +55,25 @@ const CitationManager = ({ data }) => {
           <h2>Citation</h2>
           {data.citations.map((cite) => {
             if (cite.id !== CITATION_STYLE_BIBTEX) return null
-            const citeId = `${id}-cite-${cite.id}`
             const bibtex = bibtexParse.toJSON(cite.value)
             if (!bibtex || !bibtex[0]) return null
             return (
-              <div key={id} id={citeId} className={styles.block}>
-                <div className={styles.columnText}>
+              <div key={id} id={`cite-${cite.id}`} className={styles.block}>
+                <div className={styles.columnText} ref={textRef}>
                   <div className={styles.item}>
                     {bibtex[0].entryTags.title}
-                    {', Journal: '}
-                    {bibtex[0].entryTags.journal}
-                    {', '}
-                    {bibtex[0].entryTags.year}
-                    {', ISBN: '}
-                    {bibtex[0].entryTags.ISBN}
-                    {', ISSN: '}
-                    {bibtex[0].entryTags.ISSN}
+                    {bibtex[0].entryTags.journal &&
+                      `, Journal: ${bibtex[0].entryTags.journal}`}
+                    {bibtex[0].entryTags.year &&
+                      `, : ${bibtex[0].entryTags.year}`}
+                    {bibtex[0].entryTags.ISBN &&
+                      `, ISBN: ${bibtex[0].entryTags.ISBN}`}
+                    {bibtex[0].entryTags.ISSN &&
+                      `, ISSN: ${bibtex[0].entryTags.ISSN}`}
                   </div>
                   {bibtex[0].entryTags.DOI && (
                     <div className={styles.item}>
+                      {' '}
                       Doi:{' '}
                       <a href={bibtex[0].entryTags.DOI}>
                         {bibtex[0].entryTags.DOI}
@@ -98,7 +104,7 @@ const CitationManager = ({ data }) => {
         aria-pressed={isModalOpen}
         className={styles.citeButton}
       >
-        <Icon src="#format-quote-open" />
+        <Icon src="#format-quote-open" className={styles.citeIcon} />
         {data.actionLabel}
       </Button>
       {modal}

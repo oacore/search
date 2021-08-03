@@ -38,3 +38,8 @@
 .cite-button {
   font-weight: 800;
 }
+
+.cite-icon {
+  position: relative;
+  bottom: 2px;
+}
