@@ -43,7 +43,6 @@ export async function getStaticProps({ params: routeParams }) {
     })
   } catch (error) {
     log(error)
-
     return {
       props: { error },
       notFound: true,
