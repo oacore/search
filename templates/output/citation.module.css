@@ -48,3 +48,15 @@
 .cite-title {
   margin: -0.3rem 0 1.3rem 0.5rem;
 }
+
+.copied-success {
+  color: var(--primary);
+}
+
+.text-copied {
+  position: absolute;
+  top: 20px;
+  right: 4px;
+  font-size: 0.6rem;
+  color: var(--primary);
+}

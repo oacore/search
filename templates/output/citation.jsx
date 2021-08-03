@@ -23,6 +23,7 @@ const useModal = (initialState = false) => {
 const CitationManager = ({ data }) => {
   const CITATION_STYLE_BIBTEX = 'bibtex'
   const textRef = useRef(null)
+  const [copySuccess, setCopySuccess] = useState('')
 
   const copyToClipboard = () => {
     if (
@@ -37,6 +38,7 @@ const CitationManager = ({ data }) => {
       () => {
         // eslint-disable-next-line no-console
         console.log(`Copying to clipboard: ${copyText}`)
+        setCopySuccess(true)
       },
       (err) => {
         console.error('Async: Could not copy text: ', err)
@@ -46,10 +48,13 @@ const CitationManager = ({ data }) => {
 
   const [isModalOpen, toggleModal] = useModal()
   const openModal = useCallback(() => toggleModal(true), [toggleModal])
-  const closeModal = useCallback(() => toggleModal(false), [toggleModal])
+  const closeModal = useCallback(() => {
+    toggleModal(false)
+    setCopySuccess(false)
+  }, [toggleModal, setCopySuccess])
 
   const modal = useMemo(
-    (id) =>
+    () =>
       isModalOpen ? (
         <Modal onClose={closeModal}>
           <h2 className={styles.citeTitle}>Citation</h2>
@@ -58,7 +63,7 @@ const CitationManager = ({ data }) => {
             const bibtex = bibtexParse.toJSON(cite.value)
             if (!bibtex || !bibtex[0]) return null
             return (
-              <div key={id} id={`cite-${cite.id}`} className={styles.block}>
+              <div id={`cite-${cite.id}`} className={styles.block}>
                 <div className={styles.columnText} ref={textRef}>
                   <div className={styles.item}>
                     {bibtex[0].entryTags.title}
@@ -82,18 +87,29 @@ const CitationManager = ({ data }) => {
                   )}
                 </div>
                 <div className={styles.columnIcon}>
-                  <Icon
-                    src="#content-copy"
-                    className={styles.item}
-                    onClick={copyToClipboard}
-                  />
+                  {copySuccess ? (
+                    <>
+                      <Icon
+                        src="#content-copy"
+                        className={`${styles.item} ${styles.copiedSuccess}`}
+                        onClick={copyToClipboard}
+                      />
+                      <div className={styles.textCopied}>copied</div>
+                    </>
+                  ) : (
+                    <Icon
+                      src="#content-copy"
+                      className={styles.item}
+                      onClick={copyToClipboard}
+                    />
+                  )}
                 </div>
               </div>
             )
           })}
         </Modal>
       ) : null,
-    [isModalOpen]
+    [isModalOpen, copySuccess]
   )
 
   return (
