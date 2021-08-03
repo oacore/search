@@ -24,6 +24,7 @@
 
 .column-text {
   padding-right: 1rem;
+  flex: 1 1 auto;
 }
 
 .column-icon {
@@ -42,4 +43,8 @@
 .cite-icon {
   position: relative;
   bottom: 2px;
+}
+
+.cite-title {
+  margin: -0.3rem 0 1.3rem 0.5rem;
 }

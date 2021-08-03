@@ -52,7 +52,7 @@ const CitationManager = ({ data }) => {
     (id) =>
       isModalOpen ? (
         <Modal onClose={closeModal}>
-          <h2>Citation</h2>
+          <h2 className={styles.citeTitle}>Citation</h2>
           {data.citations.map((cite) => {
             if (cite.id !== CITATION_STYLE_BIBTEX) return null
             const bibtex = bibtexParse.toJSON(cite.value)
