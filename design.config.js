@@ -9,6 +9,7 @@ const icons = [
   'content-copy',
   'tag',
   'emoticon-sad-outline',
+  'format-quote-open',
 ]
 
 const iconsRoot = path.join(
