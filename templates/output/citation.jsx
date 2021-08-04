@@ -120,8 +120,8 @@ const CitationManager = ({ data }) => {
         aria-pressed={isModalOpen}
         className={styles.citeButton}
       >
-        <Icon src="#format-quote-open" className={styles.citeIcon} />
-        {data.actionLabel}
+        <Icon src="#format-quote-open" />
+        <span className={styles.citeBtn}>{data.actionLabel}</span>
       </Button>
       {modal}
     </p>

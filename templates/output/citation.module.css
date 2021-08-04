@@ -11,7 +11,7 @@
 .column-text {
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  min-width: 25px;
 }
 
 .item {
@@ -40,13 +40,15 @@
   font-weight: 800;
 }
 
-.cite-icon {
+.cite-btn {
   position: relative;
-  bottom: 2px;
+  top: 2px;
 }
 
 .cite-title {
-  margin: -0.3rem 0 1.3rem 0.5rem;
+  position: relative;
+  top: -9px;
+  margin: 0 0 var(--spacer, 1rem) 0.5rem;
 }
 
 .copied-success {
@@ -56,7 +58,7 @@
 .text-copied {
   position: absolute;
   top: 20px;
-  right: 4px;
+  right: 7px;
   font-size: 0.6rem;
   color: var(--primary);
 }
