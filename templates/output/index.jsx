@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
-import Search from 'modules/search-layout'
 
 import SimilarWorks from './similar-works'
 import RelatedSearch from './related-search'
@@ -11,6 +10,8 @@ import MapCard from './map-card'
 import Keywords from './keywords'
 import CitationManager from './citation'
 import styles from './styles.module.css'
+
+import Search from 'modules/search-layout'
 
 const ScientificOutputTemplate = ({
   data: {
