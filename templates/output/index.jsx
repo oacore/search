@@ -26,7 +26,6 @@ const ScientificOutputTemplate = ({
     tags,
     documentType,
     citations,
-    similarOutputs,
     identifiers: { doi },
   },
   ...passProps
@@ -62,7 +61,7 @@ const ScientificOutputTemplate = ({
       )}
       <Keywords tags={tags} />
       <SimilarWorks articleId={id} />
-      <RelatedSearch articleId={id} articleTitle={title} simOutputs={similarOutputs} />
+      <RelatedSearch articleId={id} articleTitle={title} />
     </Search.Main>
 
     <Search.Sidebar>

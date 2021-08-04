@@ -20,15 +20,13 @@ const LoadingError = () => (
   </div>
 )
 
-const RelatedSearches = observe(({ articleId, articleTitle, simOutputs }) => {
+const RelatedSearches = observe(({ articleId, articleTitle }) => {
   const { similarWorks } = useStore()
   const { similarOutputs, isLoading, error } = similarWorks
 
   useEffect(() => {
     similarWorks.fetchSimilar(articleId)
   }, [])
-
-  console.log(simOutputs)
 
   return (
     <>
@@ -37,7 +35,7 @@ const RelatedSearches = observe(({ articleId, articleTitle, simOutputs }) => {
       {error && <LoadingError />}
       {similarOutputs && (
         <div className={styles.relatedSearchesResult}>
-          <Icon src="#magnify" className={styles.relatedSearchesIcon}/>
+          <Icon src="#magnify" className={styles.relatedSearchesIcon} />
           {relatedWords(articleTitle, similarOutputs).map((item) => (
             <a
               href={`//core.ac.uk/search?q=${item}`}
