@@ -114,3 +114,16 @@
   border: 1px solid transparent;
   border-radius: 0.3rem;
 }
+
+.related-searches-result {
+  padding: 1rem;
+  border: 1px solid hsl(var(--card-color, var(--on-surface)) / 0.12);
+  border-radius: 2px;
+}
+
+.related-searches-icon {
+  position: relative;
+  bottom: 1px;
+  margin-right: 0.5rem;
+  color: rgba(0, 0, 0, 0.6);
+}

@@ -137,6 +137,8 @@ const ScientificOutputPage = ({ data }) => {
     },
   })
 
+  console.log(data)
+
   return (
     <>
       <Head>

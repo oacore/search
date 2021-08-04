@@ -1,16 +1,16 @@
 import React from 'react'
 import { Card } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
+import Search from 'modules/search-layout'
 
 import SimilarWorks from './similar-works'
+import RelatedSearch from './related-search'
 import FullTextThumbnail from './thumbnail-card'
 import Metadata from './metadata'
 import MapCard from './map-card'
 import Keywords from './keywords'
 import CitationManager from './citation'
 import styles from './styles.module.css'
-
-import Search from 'modules/search-layout'
 
 const ScientificOutputTemplate = ({
   data: {
@@ -26,6 +26,7 @@ const ScientificOutputTemplate = ({
     tags,
     documentType,
     citations,
+    similarOutputs,
     identifiers: { doi },
   },
   ...passProps
@@ -61,6 +62,7 @@ const ScientificOutputTemplate = ({
       )}
       <Keywords tags={tags} />
       <SimilarWorks articleId={id} />
+      <RelatedSearch articleId={id} articleTitle={title} simOutputs={similarOutputs} />
     </Search.Main>
 
     <Search.Sidebar>

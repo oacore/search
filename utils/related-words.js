@@ -1,4 +1,4 @@
-const lenghtWord = 3
+const lenghtWordLimit = 3
 const additionalTopics = ['OU', 'EU']
 
 // Set unique items in array
@@ -7,13 +7,13 @@ function uniqElementsArray(a = []) {
 }
 
 // Return items from `title` which are match with `similarOutputs`
-const topics = (title, similarOutputs = []) => {
+const relatedWords = (title, similarOutputs = []) => {
   const cleanTitle = title.replace(/['"`“”,.!:]+/g, '')
   const titleArray = cleanTitle.split(' ')
 
   const topicsTitle = titleArray
     .filter((item) => {
-      if (item.length > lenghtWord) return item
+      if (item.length > lenghtWordLimit) return item
       return false
     })
     .concat(additionalTopics)
@@ -22,7 +22,8 @@ const topics = (title, similarOutputs = []) => {
     const titleOutputsArray = item.title.split(' ')
     // eslint-disable-next-line no-shadow
     const topicsSimilarOutputs = titleOutputsArray.filter((item) => {
-      if (item.length > lenghtWord && topicsTitle.includes(item)) return item
+      if (item.length > lenghtWordLimit && topicsTitle.includes(item))
+        return item
       return false
     })
 
@@ -35,4 +36,4 @@ const topics = (title, similarOutputs = []) => {
   return uniqElementsArray(topicsResultMerged)
 }
 
-export default topics
+export default relatedWords
