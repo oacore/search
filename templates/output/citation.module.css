@@ -1,0 +1,67 @@
+.block {
+  position: relative;
+  display: flex;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.column-icon,
+.column-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 25px;
+}
+
+.item {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: left;
+  margin: 0.2rem 0;
+}
+
+.column-text {
+  flex: 1 1 auto;
+  padding-right: 1rem;
+}
+
+.column-icon {
+  align-items: center;
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.column-icon svg {
+  cursor: pointer;
+}
+
+.cite-button {
+  font-weight: 800;
+}
+
+.cite-btn {
+  position: relative;
+  top: 2px;
+}
+
+.cite-title {
+  margin: 0.2rem 0 0.4rem 0.5rem;
+}
+
+.close-button button {
+  position: absolute;
+  top: 20px;
+}
+
+.copied-success {
+  color: var(--primary);
+}
+
+.text-copied {
+  position: absolute;
+  top: 20px;
+  right: 7px;
+  font-size: 0.6rem;
+  color: var(--primary);
+}
