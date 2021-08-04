@@ -46,9 +46,12 @@
 }
 
 .cite-title {
-  position: relative;
-  top: -9px;
-  margin: 0 0 var(--spacer, 1rem) 0.5rem;
+  margin: 0.2rem 0 0.4rem 0.5rem;
+}
+
+.close-button button {
+  position: absolute;
+  top: 24px;
 }
 
 .copied-success {

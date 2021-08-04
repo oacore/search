@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useMemo, useRef } from 'react'
 import { Button, Modal, Icon } from '@oacore/design'
 import bibtexParse from 'bibtex-parse-js'
+import { classNames } from '@oacore/design/lib/utils'
 
 import styles from './citation.module.css'
 
@@ -56,7 +57,10 @@ const CitationManager = ({ data }) => {
   const modal = useMemo(
     () =>
       isModalOpen ? (
-        <Modal onClose={closeModal}>
+        <Modal
+          onClose={closeModal}
+          className={classNames.use(styles.closeButton)}
+        >
           <h2 className={styles.citeTitle}>Citation</h2>
           {data.citations.map((cite) => {
             if (cite.id !== CITATION_STYLE_BIBTEX) return null
