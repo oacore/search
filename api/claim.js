@@ -10,11 +10,11 @@ const fetchClaim = async (params) => {
   if (typeof email === 'undefined') email = ''
   if (typeof rationale === 'undefined') rationale = ''
 
+  const body = { name, email, rationale }
+
   const { data } = await apiRequest(`/data-providers/${id}/claim`, {
     method: 'POST',
-    name,
-    email,
-    rationale,
+    body,
   })
   return data
 }
