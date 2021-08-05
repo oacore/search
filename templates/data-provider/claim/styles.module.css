@@ -13,7 +13,7 @@
 }
 
 .claim-card-group {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .input-pointer input {
@@ -28,11 +28,6 @@
   display: flex;
   justify-content: space-between;
 }
-
-/* .modal {
-  top: calc((100vh / 2) - 20rem);
-  max-width: 50rem;
-} */
 
 .hide {
   display: none;

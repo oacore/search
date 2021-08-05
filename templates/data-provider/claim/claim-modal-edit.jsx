@@ -72,7 +72,8 @@ const ClaimModalEdit = (props) => {
           placeholder="How would you like to be called?"
           required
           {...bindName}
-          helper={<br />}
+          className={classNames.use(styles.claimCardGroup)}
+          helper={<>How would you like to be called?</>}
         />
         <TextField
           id={contactRationale}
@@ -84,6 +85,8 @@ const ClaimModalEdit = (props) => {
           {...bindRationale}
           helper={
             <>
+              <span className="">Why are you the authorised person to get access?</span>
+              <br /><br />
               Since you changed email, we need to manually check you are the
               repository manager, additional information would be very
               apperciated.
