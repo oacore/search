@@ -11,7 +11,9 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: var(--page-padding-y) var(--page-padding-x);
+  padding-bottom: var(--page-padding-y);
+
+  /* padding: var(--page-padding-y) var(--page-padding-x); */
 }
 
 .footer {
