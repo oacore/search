@@ -84,9 +84,8 @@ const ClaimModalEdit = (props) => {
           required
           {...bindRationale}
           helper={
-            <>
-              <span className="">Why are you the authorised person to get access?</span>
-              <br /><br />
+            <>Why are you the authorised person to get access?
+              <br /> <br />
               Since you changed email, we need to manually check you are the
               repository manager, additional information would be very
               apperciated.
