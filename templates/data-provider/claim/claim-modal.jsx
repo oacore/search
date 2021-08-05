@@ -14,7 +14,7 @@ const ClaimModal = ({
   <Modal
     aria-labelledby="gain-access-modal-title"
     onClose={() => setModalActive(false)}
-    className={classNames.use(styles.modal, className)}
+    className={classNames.use(className)}
   >
     <Modal.Title id="gain-access-modal-title">
       Gain access to CORE Dashboard
