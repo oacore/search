@@ -127,3 +127,13 @@
   margin-right: 0.5rem;
   color: rgba(0, 0, 0, 0.6);
 }
+
+.detach-dot::after {
+  color: var(--body-color, #000);
+  content: '\2000•\2000';
+  opacity: 0.38;
+}
+
+.detach-dot:last-child::after {
+  display: none;
+}

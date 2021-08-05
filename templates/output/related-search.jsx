@@ -37,13 +37,16 @@ const RelatedSearches = observe(({ articleId, articleTitle }) => {
         <div className={styles.relatedSearchesResult}>
           <Icon src="#magnify" className={styles.relatedSearchesIcon} />
           {relatedWords(articleTitle, similarOutputs).map((item) => (
-            <a
-              href={`//core.ac.uk/search?q=${item}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {item}{' '}
-            </a>
+            <>
+              <a
+                href={`//core.ac.uk/search?q=${item}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {item}
+              </a>
+              <span className={styles.detachDot} />
+            </>
           ))}
         </div>
       )}
