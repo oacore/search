@@ -46,7 +46,7 @@ const SimilarWorks = observe(({ articleId }) => {
             links,
           }) => {
             const fullTextLink = links.find((l) => l.type === 'download')?.url
-            const metadataLink = links.find((l) => l.type === 'display')?.url
+            const metadataLink = links.find((l) => l.type === 'similar')?.url
 
             return (
               <SearchResult
