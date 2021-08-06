@@ -58,3 +58,9 @@
 .icon-back {
   width: 2rem;
 }
+
+.label {
+  position: absolute;
+  top: -21px;
+  z-index: 110;
+}
