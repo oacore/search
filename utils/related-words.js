@@ -1,6 +1,5 @@
 const lenghtWordLimit = 3
-const topicsInclude = ['OU', 'EU']
-const topicsExclude = ['with']
+const topicsInclude = ['OU', 'EU', 'SNP']
 
 // Set unique items in array
 function uniqElementsArray(a = []) {
@@ -14,15 +13,18 @@ const relatedWords = (title, similarOutputs = []) => {
 
   const topicsTitle = []
   let i = 0
+  // eslint-disable-next-line consistent-return
   titleArray.forEach((item, index, array) => {
-    if (item.length > lenghtWordLimit) {
+    if (
+      item.length > lenghtWordLimit ||
+      (item.length <= lenghtWordLimit && topicsInclude.includes(item))
+    ) {
       topicsTitle[i] = item
-      i++
+      i += 1
       if (array[index + 1]) {
         topicsTitle[i] = `${item} ${array[index + 1]}`
-        i++
+        i += 1
       }
-      return item
     }
   })
 
@@ -41,7 +43,8 @@ const relatedWords = (title, similarOutputs = []) => {
   // eslint-disable-next-line prefer-spread
   const topicsResultMerged = [].concat.apply([], topicsResult)
 
-  return uniqElementsArray(topicsResultMerged)
+  const uniqResilt = uniqElementsArray(topicsResultMerged)
+  return uniqResilt.length > 0 ? uniqResilt : [0]
 }
 
 export default relatedWords
