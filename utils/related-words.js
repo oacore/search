@@ -1,5 +1,6 @@
 const lenghtWordLimit = 3
-const additionalTopics = ['OU', 'EU']
+const topicsInclude = ['OU', 'EU']
+const topicsExclude = ['with']
 
 // Set unique items in array
 function uniqElementsArray(a = []) {
@@ -11,12 +12,19 @@ const relatedWords = (title, similarOutputs = []) => {
   const cleanTitle = title.replace(/['"`“”,.!:]+/g, '')
   const titleArray = cleanTitle.split(' ')
 
-  const topicsTitle = titleArray
-    .filter((item) => {
-      if (item.length > lenghtWordLimit) return item
-      return false
-    })
-    .concat(additionalTopics)
+  const topicsTitle = []
+  let i = 0
+  titleArray.forEach((item, index, array) => {
+    if (item.length > lenghtWordLimit) {
+      topicsTitle[i] = item
+      i++
+      if (array[index + 1]) {
+        topicsTitle[i] = `${item} ${array[index + 1]}`
+        i++
+      }
+      return item
+    }
+  })
 
   const topicsResult = similarOutputs.map((item) => {
     const titleOutputsArray = item.title.split(' ')
