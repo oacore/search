@@ -28,16 +28,15 @@ const relatedWords = (title, similarOutputs = []) => {
     }
   })
 
-  const topicsResult = similarOutputs.map((item) => {
-    const titleOutputsArray = item.title.split(' ')
-    // eslint-disable-next-line no-shadow
-    const topicsSimilarOutputs = titleOutputsArray.filter((item) => {
-      if (item.length > lenghtWordLimit && topicsTitle.includes(item))
-        return item
-      return false
+  const topicsResult = []
+  i = 0
+  similarOutputs.forEach((item) => {
+    topicsTitle.forEach((topicsTitleItem) => {
+      if (item.title.search(topicsTitleItem) !== -1) {
+        topicsResult[i] = topicsTitleItem
+        i += 1
+      }
     })
-
-    return topicsSimilarOutputs
   })
 
   // eslint-disable-next-line prefer-spread
