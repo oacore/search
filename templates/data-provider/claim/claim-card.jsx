@@ -73,7 +73,10 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
         <Button
           className={styles.claimCardAction}
           onClick={() => {
-            window.location.href = `https://core.ac.uk/services/repository-dashboard`
+            window.open(
+              'https://core.ac.uk/services/repository-dashboard',
+              '_blank'
+            )
           }}
         >
           More details
