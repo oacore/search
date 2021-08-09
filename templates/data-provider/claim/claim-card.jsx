@@ -11,14 +11,21 @@ import fetchClaim from '../../../api/claim'
 
 export async function getClaim({ params: claimParams }) {
   const data = {}
-  const { id, setIsClaimSuccessModalActive, name, email, rationale } =
-    claimParams
+  const {
+    id,
+    setIsClaimSuccessModalActive,
+    setNewEmail,
+    name,
+    email,
+    rationale,
+  } = claimParams
 
   try {
     const dataProvider = await fetchClaim({ id, name, email, rationale })
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(dataProvider)) // Debug
     setIsClaimSuccessModalActive(true)
+    setNewEmail(email)
   } catch (errorWithDataProvider) {
     return {
       props: {
@@ -46,6 +53,7 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
   const [isLoginModalActive, setIsLoginModalActive] = useState(false)
   const [isClaimSuccessModalActive, setIsClaimSuccessModalActive] =
     useState(false)
+  const [newEmail, setNewEmail] = useState(false)
 
   return (
     <Card className={classNames.use(styles.claimCard, className)}>
@@ -79,7 +87,9 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
             setModalActive={setIsClaimModalActive}
             setModalEditActive={setIsClaimModalEditActive}
             onContinueClick={() =>
-              getClaim({ params: { id, setIsClaimSuccessModalActive } })
+              getClaim({
+                params: { id, setIsClaimSuccessModalActive, setNewEmail },
+              })
             }
             className={
               (isLoginModalActive || isClaimSuccessModalActive) && styles.hide
@@ -93,7 +103,12 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
             setModalEditActive={setIsClaimModalEditActive}
             onContinueClick={(options) =>
               getClaim({
-                params: { id, setIsClaimSuccessModalActive, ...options },
+                params: {
+                  id,
+                  setIsClaimSuccessModalActive,
+                  setNewEmail,
+                  ...options,
+                },
               })
             }
             className={
@@ -107,6 +122,9 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
         {isClaimSuccessModalActive && (
           <ClaimSuccessModal
             isModalActive={isClaimSuccessModalActive}
+            setClaimModalActive={setIsClaimModalActive}
+            setClaimModalEditActive={setIsClaimModalEditActive}
+            setLoginModalActive={setIsLoginModalActive}
             setModalActive={setIsClaimSuccessModalActive}
             onClose={() => {
               if (isClaimModalActive) setIsClaimModalActive(false)
@@ -114,6 +132,8 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
               if (isLoginModalActive) setIsLoginModalActive(false)
               if (isClaimSuccessModalActive) setIsClaimSuccessModalActive(false)
             }}
+            newEmail={newEmail}
+            contactData={contactData}
           />
         )}
       </div>

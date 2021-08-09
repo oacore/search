@@ -38,11 +38,17 @@
   flex-direction: column;
 }
 
-.success-image {
+.success-image-invitation {
   align-self: center;
 
   /* TODO: Ask Viktor how svg images in html works (width: auto doesn't work as expected) */
   width: 24rem;
+  height: 15rem;
+}
+
+.success-image-check {
+  align-self: center;
+  width: 15rem;
   height: 15rem;
 }
 
