@@ -49,3 +49,7 @@
   height: 15rem;
   grid-row: 3;
 }
+
+.layout {
+  padding: var(--page-padding-y) var(--page-padding-x);
+}

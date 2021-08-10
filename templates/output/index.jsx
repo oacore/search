@@ -31,7 +31,7 @@ const ScientificOutputTemplate = ({
   },
   ...passProps
 }) => (
-  <Search {...passProps}>
+  <Search {...passProps} className={styles.outputContainer}>
     <Search.Main>
       <div>
         {documentType && (
@@ -65,7 +65,7 @@ const ScientificOutputTemplate = ({
       <RelatedSearch articleId={id} articleTitle={title} />
     </Search.Main>
 
-    <Search.Sidebar>
+    <Search.Sidebar className={styles.containerSidebar}>
       <FullTextThumbnail
         id={`full-text-thumbnail-${id}`}
         href={`//core.ac.uk/reader/${id}`}
