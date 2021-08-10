@@ -33,36 +33,40 @@ const ScientificOutputTemplate = ({
 }) => (
   <Search {...passProps} className={styles.outputContainer}>
     <Search.Main>
-      <div>
-        {documentType && (
-          <span className={styles.documentType}>{documentType}</span>
-        )}
-        {doi && <span className={styles.doi}>{doi}</span>}
-      </div>
-
-      <h1>{title}</h1>
-      <Metadata
-        authors={authors}
-        publishedDate={publishedDate}
-        publisher={publisher}
-      />
-      {citations && citations.length > 0 && (
-        <CitationManager
-          data={{
-            citations,
-            actionLabel: 'Cite',
-          }}
+      <div className={styles.background}>
+        <div>
+          {documentType && (
+            <span className={styles.documentType}>{documentType}</span>
+          )}
+          {doi && <span className={styles.doi}>{doi}</span>}
+        </div>
+        <h1>{title}</h1>
+        <Metadata
+          authors={authors}
+          publishedDate={publishedDate}
+          publisher={publisher}
         />
-      )}
-      {abstract && (
-        <section id="abstract" className={styles.abstract}>
-          <h2>Abstract</h2>
-          <p>{abstract}</p>
-        </section>
-      )}
-      <Keywords tags={tags} />
-      <SimilarWorks articleId={id} />
-      <RelatedSearch articleId={id} articleTitle={title} />
+        {citations && citations.length > 0 && (
+          <CitationManager
+            data={{
+              citations,
+              actionLabel: 'Cite',
+            }}
+          />
+        )}
+      </div>
+      <div className={styles.containerMain}>
+        {abstract && (
+          <section id="abstract" className={styles.abstract}>
+            <h2>Abstract</h2>
+            <p>{abstract}</p>
+          </section>
+        )}
+
+        <Keywords tags={tags} />
+        <SimilarWorks articleId={id} />
+        <RelatedSearch articleId={id} articleTitle={title} />
+      </div>
     </Search.Main>
 
     <Search.Sidebar className={styles.containerSidebar}>
