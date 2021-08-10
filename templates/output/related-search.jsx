@@ -4,25 +4,11 @@ import { Icon } from '@oacore/design'
 import styles from './styles.module.css'
 
 import { observe, useStore } from 'store'
-import Loader from 'modules/loader'
 import relatedWords from 'utils/related-words'
-
-const LoadingError = () => (
-  <div className={styles.error}>
-    <p className={styles.errorText}>
-      Sorry, we are unable to process this request at the moment
-    </p>
-    <Icon
-      src="#emoticon-sad-outline"
-      alt="emotion"
-      className={styles.errorIcon}
-    />
-  </div>
-)
 
 const RelatedSearches = observe(({ articleId, articleTitle }) => {
   const { similarWorks } = useStore()
-  const { similarOutputs, isLoading, error } = similarWorks
+  const { similarOutputs } = similarWorks
 
   useEffect(() => {
     similarWorks.fetchSimilar(articleId)
