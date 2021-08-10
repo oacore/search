@@ -30,31 +30,31 @@ const RelatedSearches = observe(({ articleId, articleTitle }) => {
 
   return (
     <>
-      <h2>Related searches</h2>
-      {isLoading && <Loader text="Loading related searches..." />}
-      {error && <LoadingError />}
       {similarOutputs && (
-        <div className={styles.relatedSearchesResult}>
-          <Icon src="#magnify" className={styles.relatedSearchesIcon} />
-          {relatedWords(articleTitle, similarOutputs).map((item) => (
-            <>
-              {item === 0 ? (
-                <span>No results</span>
-              ) : (
-                <>
-                  <a
-                    href={`//core.ac.uk/search?q=${item}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {item}
-                  </a>
-                  <span className={styles.detachDot} />
-                </>
-              )}
-            </>
-          ))}
-        </div>
+        <>
+          <h2>Related searches</h2>
+          <div className={styles.relatedSearchesResult}>
+            <Icon src="#magnify" className={styles.relatedSearchesIcon} />
+            {relatedWords(articleTitle, similarOutputs).map((item) => (
+              <>
+                {item === 0 ? (
+                  <span>No results</span>
+                ) : (
+                  <>
+                    <a
+                      href={`//core.ac.uk/search?q=${item}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {item}
+                    </a>
+                    <span className={styles.detachDot} />
+                  </>
+                )}
+              </>
+            ))}
+          </div>
+        </>
       )}
     </>
   )
