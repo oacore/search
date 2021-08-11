@@ -141,7 +141,7 @@
 }
 
 .background h1 {
-  max-width: 50vw;
+  max-width: 50rem;
 }
 
 @media (--screen-until-desktop) {
