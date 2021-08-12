@@ -57,6 +57,7 @@ const ReportCard = observe(({ id, sourceFulltextUrls, dataProvider }) => {
           sourceFulltextUrls={sourceFulltextUrls}
           setModalReportSuccessActive={setIsModalReportSuccessActive}
           dataProvider={dataProvider}
+          id={id}
         />
       )}
     </Card>

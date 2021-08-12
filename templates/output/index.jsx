@@ -22,6 +22,7 @@ const ScientificOutputTemplate = ({
     dataProvider,
     updatedDate,
     sourceFulltextUrls,
+    fulltextStatus,
     tags,
     documentType,
     citations,
@@ -78,6 +79,7 @@ const ScientificOutputTemplate = ({
           size: 200312, // repositoryDocument.pdfSize,
           updatedDate,
           sourceFulltextUrls,
+          fulltextStatus,
         }}
       />
       <MapCard

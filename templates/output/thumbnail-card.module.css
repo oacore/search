@@ -71,3 +71,8 @@
   display: block;
   color: var(--body-color, #000);
 }
+
+.disabled {
+  font-style: italic;
+  color: var(--gray-500);
+}

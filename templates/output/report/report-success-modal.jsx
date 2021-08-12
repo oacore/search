@@ -13,6 +13,7 @@ const ReportSuccessModal = ({
   setModalReportSuccessActive,
   sourceFulltextUrls,
   dataProvider,
+  id,
 }) => {
   const router = useRouter()
 
@@ -29,25 +30,24 @@ const ReportSuccessModal = ({
     setModalReportSuccessActive(false)
     resetReport()
 
-    if (updateOption === TAKE_DOWN_OPTION) router.push('/')
+    if (updateOption === TAKE_DOWN_OPTION) router.push(`/outputs/${id}`)
   }
   const setTextByReporterType = () => {
     switch (role) {
       case REPOSITORY_MANAGER:
         return (
           <>
-            <div className={styles.modalCardSuccessText}>
-              <Icon src="#check-circle" alt="checkbox-circle" />
-              <BaseText
-                operation={updateOption}
-                sourceUrl={sourceUrl}
-                dataProvider={dataProvider}
-              />
-            </div>
+            <BaseText
+              operation={updateOption}
+              sourceUrl={sourceUrl}
+              dataProvider={dataProvider}
+            />
             <div className={styles.modalCardSuccessText}>
               <Icon src="#check-circle" alt="checkbox-circle" />
               <Card.Description tag="span">
-                As someone who manages <strong> {dataProvider} </strong> you can manually disable outputs anytime via the 
+                As someone who manages <strong> {dataProvider} </strong>
+                collection you can manually disable outputs anytime via the
+                &nbsp;
                 <Link
                   className={styles.customLink}
                   href="https://core.ac.uk/services/repository-dashboard"
@@ -87,9 +87,7 @@ const ReportSuccessModal = ({
             <img src="/static/images/modal/confirmed.svg" alt="upvote" />
           )}
         </div>
-        <Card.Description>
-          We have received your request.
-        </Card.Description>
+        <Card.Description>We have received your request.</Card.Description>
         {setTextByReporterType()}
       </Modal.Content>
       <Modal.Footer className={styles.modalFooter}>
@@ -102,13 +100,18 @@ const ReportSuccessModal = ({
 }
 
 const BaseText = ({ operation, sourceUrl, dataProvider }) => (
-  <Card.Description tag="span">
-    We can 
-    {operation === 'issueWithContent' ? ' update ' : ' remove '}
-    the <strong>output</strong>\u0027s record available at <Link href={sourceUrl}>{sourceUrl}</Link> only if the the document was
-    {operation === 'issueWithContent' ? ' updated ' : ' removed '} at 
-    <strong> {dataProvider} </strong>.
-  </Card.Description>
+  <div className={styles.modalCardSuccessText}>
+    <Icon src="#check-circle" alt="checkbox-circle" />
+    <Card.Description tag="span">
+      We can
+      {operation === 'issueWithContent' ? ' update ' : ' remove '}
+      the <strong>output</strong>&apos;s record available at{' '}
+      <Link href={sourceUrl}>{sourceUrl}</Link> <strong>only if </strong> the
+      the document was
+      {operation === 'issueWithContent' ? ' updated ' : ' removed '} at
+      <strong> {dataProvider} </strong>.
+    </Card.Description>
+  </div>
 )
 
 export default ReportSuccessModal
