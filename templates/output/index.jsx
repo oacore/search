@@ -1,12 +1,11 @@
 import React from 'react'
-import { Card } from '@oacore/design'
-import { classNames } from '@oacore/design/lib/utils'
 
 import SimilarWorks from './similar-works'
 import FullTextThumbnail from './thumbnail-card'
 import Metadata from './metadata'
 import MapCard from './map-card'
 import Keywords from './keywords'
+import ReportCard from './report'
 import CitationManager from './citation'
 import styles from './styles.module.css'
 
@@ -23,6 +22,7 @@ const ScientificOutputTemplate = ({
     dataProvider,
     updatedDate,
     sourceFulltextUrls,
+    fulltextStatus,
     tags,
     documentType,
     citations,
@@ -79,6 +79,7 @@ const ScientificOutputTemplate = ({
           size: 200312, // repositoryDocument.pdfSize,
           updatedDate,
           sourceFulltextUrls,
+          fulltextStatus,
         }}
       />
       <MapCard
@@ -88,16 +89,11 @@ const ScientificOutputTemplate = ({
           hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
         }}
       />
-      <Card className={classNames.use(styles.card)}>
-        <p>
-          To submit an update or takedown request for this paper, please submit
-          an{' '}
-          <a href={`//core.ac.uk/article-update/${id}`}>
-            Update/Correction/Removal Request
-          </a>
-          .
-        </p>
-      </Card>
+      <ReportCard
+        id={id}
+        sourceFulltextUrls={sourceFulltextUrls}
+        dataProvider={dataProvider.name}
+      />
     </Search.Sidebar>
   </Search>
 )

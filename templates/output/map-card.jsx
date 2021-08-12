@@ -7,7 +7,7 @@ import styles from './styles.module.css'
 import Map from 'modules/map'
 
 const MapCard = ({ metadata }) => (
-  <Card className={classNames.use(styles.card)}>
+  <Card variant="outlined" className={classNames.use(styles.card)}>
     <Map
       className={styles.map}
       locations={[
