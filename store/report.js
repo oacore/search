@@ -38,7 +38,7 @@ class Report {
   async submit(data) {
     data.updateOption = this.updateOption
     data.role = this.role
-
+    this.isLoading = true
     try {
       const { status } = await createReport(data)
       this.statusCode = status

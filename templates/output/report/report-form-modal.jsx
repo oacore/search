@@ -9,7 +9,7 @@ import { useReportController, useInput } from '../hooks'
 import { observe } from 'store'
 
 const ReportFormModal = observe(
-  ({ id: outputId, setModalReportFormActive }) => {
+  ({ id: outputId, setModalReportFormActive, setModalReportSuccessActive }) => {
     const {
       value: name,
       element: contactName,
@@ -41,6 +41,7 @@ const ReportFormModal = observe(
       if (outputId && name && email) {
         handleSubmitForm({ outputId, name, email, message })
         setModalReportFormActive(false)
+        setModalReportSuccessActive(true)
       }
     }
 
