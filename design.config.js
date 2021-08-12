@@ -11,6 +11,7 @@ const icons = [
   'account',
   'check-circle',
   'emoticon-sad-outline',
+  'format-quote-open',
 ]
 
 const iconsRoot = path.join(

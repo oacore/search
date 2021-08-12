@@ -1,5 +1,6 @@
 .layout {
   z-index: 5;
+  padding: var(--page-padding-y) var(--page-padding-x);
 }
 
 .title-box {
