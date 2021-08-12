@@ -47,13 +47,12 @@ const ReportSuccessModal = ({
             <div className={styles.modalCardSuccessText}>
               <Icon src="#check-circle" alt="checkbox-circle" />
               <Card.Description tag="span">
-                As a repository manager you can manually disable article in CORE
-                Dashboard. To learn more about CORE Services &nbsp;
+                As someone who manages <strong> {dataProvider} </strong> you can manually disable outputs anytime via the 
                 <Link
                   className={styles.customLink}
                   href="https://core.ac.uk/services/repository-dashboard"
                 >
-                  https://core.ac.uk/services/repository-dashboard
+                  CORE Repository Dashboard
                 </Link>
               </Card.Description>
             </div>
@@ -89,8 +88,7 @@ const ReportSuccessModal = ({
           )}
         </div>
         <Card.Description>
-          We have received your requests and will process it as soon as
-          possible.
+          We have received your request.
         </Card.Description>
         {setTextByReporterType()}
       </Modal.Content>
@@ -105,13 +103,11 @@ const ReportSuccessModal = ({
 
 const BaseText = ({ operation, sourceUrl, dataProvider }) => (
   <Card.Description tag="span">
-    Please, note that we can
+    We can 
     {operation === 'issueWithContent' ? ' update ' : ' remove '}
-    the <strong>output</strong> only if the the document was
-    {operation === 'issueWithContent' ? ' updated ' : ' removed '} from the
-    <strong> {dataProvider} </strong> website that is available at &nbsp;
-    <Link href={sourceUrl}>{sourceUrl}</Link>
-    &nbsp;now.
+    the <strong>output</strong>\u0027s record available at <Link href={sourceUrl}>{sourceUrl}</Link> only if the the document was
+    {operation === 'issueWithContent' ? ' updated ' : ' removed '} at 
+    <strong> {dataProvider} </strong>.
   </Card.Description>
 )
 
