@@ -4,13 +4,11 @@ import { Modal, Button, Link, Card, Icon } from '@oacore/design'
 
 import { useReportController } from '../hooks'
 import styles from './styles.module.css'
-
-import { getAssetsPath } from 'utils/helpers'
-import Loader from 'modules/loader'
-import { observe } from 'store'
-
 import upvoteSVG from './images/modal/upvote.svg'
 import confirmedSVG from './images/modal/confirmed.svg'
+
+import Loader from 'modules/loader'
+import { observe } from 'store'
 
 const REPOSITORY_MANAGER = 'repositoryManager'
 
