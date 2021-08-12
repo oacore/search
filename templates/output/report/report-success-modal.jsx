@@ -6,11 +6,7 @@ import { useReportController } from '../hooks'
 import styles from './styles.module.css'
 
 import { getAssetsPath } from 'utils/helpers'
-
 import Loader from 'modules/loader'
-
-import { toJS } from 'mobx'
-
 import { observe } from 'store'
 
 const REPOSITORY_MANAGER = 'repositoryManager'
