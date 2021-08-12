@@ -1,5 +1,6 @@
 const path = require('path')
 
+const withImages = require('next-images')
 const withSourceMaps = require('@zeit/next-source-maps')
 
 const envConfig = require('./env.config')
@@ -82,4 +83,4 @@ const nextConfig = {
   },
 }
 
-module.exports = withSourceMaps(nextConfig)
+module.exports = withImages(withSourceMaps(nextConfig))

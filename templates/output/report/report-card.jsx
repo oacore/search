@@ -1,19 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Card, Button } from '@oacore/design'
 
 import ReportTypeModal from './report-type-modal'
 import ReportFormModal from './report-form-modal'
 import ReportSuccessModal from './report-success-modal'
-import { useReportController } from '../hooks'
 import styles from './styles.module.css'
 
-import { observe } from 'store'
-
-const ReportCard = observe(({ id, sourceFulltextUrls, dataProvider }) => {
-  const {
-    report: { statusCode },
-  } = useReportController()
-
+const ReportCard = ({ id, sourceFulltextUrls, dataProvider }) => {
   const [isModalReportTypeActive, setIsModalReportTypeActive] =
     React.useState(false)
 
@@ -22,10 +15,6 @@ const ReportCard = observe(({ id, sourceFulltextUrls, dataProvider }) => {
 
   const [isModalReportSuccessActive, setIsModalReportSuccessActive] =
     React.useState(false)
-
-  useEffect(() => {
-    if (statusCode === 200) setIsModalReportSuccessActive(true)
-  }, [statusCode])
 
   return (
     <Card variant="outlined" className={styles.reportCard}>
@@ -50,6 +39,7 @@ const ReportCard = observe(({ id, sourceFulltextUrls, dataProvider }) => {
         <ReportFormModal
           id={id}
           setModalReportFormActive={setIsModalReportFormActive}
+          setModalReportSuccessActive={setIsModalReportSuccessActive}
         />
       )}
       {isModalReportSuccessActive && (
@@ -62,6 +52,6 @@ const ReportCard = observe(({ id, sourceFulltextUrls, dataProvider }) => {
       )}
     </Card>
   )
-})
+}
 
 export default ReportCard

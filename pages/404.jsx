@@ -14,11 +14,9 @@ const Error = () => {
 
   useEffect(async () => {
     try {
-      await fetchMetadata(id)
+      if (id) await fetchMetadata(id)
     } catch (error) {
-      /* eslint-disable no-console */
-      console.log(error)
-      throw error
+      throw Error(error)
     }
   }, [])
 
