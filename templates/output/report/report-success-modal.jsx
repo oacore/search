@@ -9,6 +9,9 @@ import { getAssetsPath } from 'utils/helpers'
 import Loader from 'modules/loader'
 import { observe } from 'store'
 
+import upvoteSVG from './images/modal/upvote.svg'
+import confirmedSVG from './images/modal/confirmed.svg'
+
 const REPOSITORY_MANAGER = 'repositoryManager'
 
 const TAKE_DOWN_OPTION = 'takeDownFullText'
@@ -86,15 +89,9 @@ const ReportSuccessModal = observe(
             <Modal.Content>
               <div className={styles.modalCardImage}>
                 {role === REPOSITORY_MANAGER ? (
-                  <img
-                    src={getAssetsPath('/static/images/modal/upvote.svg')}
-                    alt="upvote"
-                  />
+                  <img src={upvoteSVG} alt="upvote" />
                 ) : (
-                  <img
-                    src={getAssetsPath('/static/images/modal/confirmed.svg')}
-                    alt="confirmed"
-                  />
+                  <img src={confirmedSVG} alt="confirmed" />
                 )}
               </div>
               <Card.Description>
