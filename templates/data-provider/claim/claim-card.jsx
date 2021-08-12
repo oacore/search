@@ -86,9 +86,14 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
             contactData={contactData}
             setModalActive={setIsClaimModalActive}
             setModalEditActive={setIsClaimModalEditActive}
-            onContinueClick={() =>
+            onContinueClick={(options) =>
               getClaim({
-                params: { id, setIsClaimSuccessModalActive, setNewEmail },
+                params: {
+                  id,
+                  setIsClaimSuccessModalActive,
+                  setNewEmail,
+                  ...options,
+                },
               })
             }
             className={
