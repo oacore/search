@@ -3,12 +3,14 @@ import { Link, Button, TextField } from '@oacore/design/lib'
 
 import Links from './links'
 import styles from './styles.module.css'
+import faqSVG from './images/faq.svg'
+import takedownSVG from './images/takedown.svg'
 
 const UpdateTemplate = () => (
   <div className={styles.container}>
     <section className={styles.header}>
       <h2 className="display">Article Update/Takedown Request </h2>
-      <img src="/static/images/outputs/takedown.svg" alt="takedown" />
+      <img src={takedownSVG} alt="takedown" />
     </section>
     <section className={styles.update}>
       <div className={styles.updateDescription}>
@@ -28,7 +30,7 @@ const UpdateTemplate = () => (
           id="url"
           name="url"
           label="CORE URL"
-          placeholder="e.g. https://core.ac.uk/outputs/1"
+          placeholder="e.g. https://core.ac.uk/display/1"
         />
         <Button variant="contained">SUBMIT UPDATE</Button>
       </div>
@@ -51,7 +53,7 @@ const UpdateTemplate = () => (
       &quot;https://core.ac.uk/<strong>search</strong> &quot;.
     </p>
     <section className={styles.faq}>
-      <img src="/static/images/outputs/faq.svg" alt="faq" />
+      <img src={faqSVG} alt="faq" />
       <p>
         You can find out more informations about updating/deleting articles in
         the &nbsp;
