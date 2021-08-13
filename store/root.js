@@ -3,6 +3,7 @@ import { makeObservable, observable, action } from 'mobx'
 import Claim from './claim'
 import SimilarWorks from './similar-works'
 import DataProviders from './data-providers'
+import Report from './report'
 
 class Root {
   claim = new Claim()
@@ -11,12 +12,15 @@ class Root {
 
   dataProviders = null
 
+  report = new Report()
+
   statistics
 
   constructor({ statistics }) {
     makeObservable(this, {
       statistics: observable,
       dataProviders: observable,
+      claim: observable,
       extend: action,
     })
 
