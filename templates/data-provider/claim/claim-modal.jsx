@@ -12,28 +12,27 @@ const ClaimModal = ({
   setModalEditActive,
   onContinueClick,
 }) => {
+  const {
+    value: emailFirst,
+    element: contactEmailFirst,
+    bind: bindEmailFirst,
+    focus: focusEmailFirst,
+  } = useInput(contactData.email, 'contactEmailFirst')
 
   const {
-    value: email,
-    element: contactEmail,
-    bind: bindEmail,
-    focus: focusEmail,
-  } = useInput(contactData.name, 'contactEmail')
-
-  const {
-    value: name,
-    element: contactName,
-    bind: bindName,
-    focus: focusName,
-  } = useInput(contactData.name, 'contactName')
+    value: nameFirst,
+    element: contactNameFirst,
+    bind: bindNameFirst,
+    focus: focusNameFirst,
+  } = useInput(contactData.name, 'contactNameFirst')
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
 
-    if (name && email) onContinueClick({ name, email })
+    if (nameFirst && emailFirst) onContinueClick({ nameFirst, emailFirst })
     else {
-      focusEmail()
-      focusName()
+      focusEmailFirst()
+      focusNameFirst()
     }
   }
 
@@ -52,15 +51,15 @@ const ClaimModal = ({
           invitation to the core Dashboard
         </p>
         <TextField
-          id={contactEmail}
+          id={contactEmailFirst}
           type="email"
-          name={contactEmail}
+          name={contactEmailFirst}
           label="Email"
           value={contactData.email}
           onClick={() => setModalEditActive(true)}
           className={classNames.use(styles.claimCardGroup, styles.inputPointer)}
           statusIcon="#pencil"
-          {...bindEmail}
+          {...bindEmailFirst}
           helper={
             <>
               This address is listed as Admin Email in the OAI-PMH Identify.
@@ -73,13 +72,14 @@ const ClaimModal = ({
         />
 
         <TextField
-          id={contactName}
+          id={contactNameFirst}
           type="text"
-          name={contactName}
+          name={contactNameFirst}
           label="Name"
           value={contactData.name}
           placeholder="How would you like to be called?"
-          {...bindName}
+          {...bindNameFirst}
+          required
         />
       </Modal.Content>
       <Modal.Footer className={styles.footer}>
