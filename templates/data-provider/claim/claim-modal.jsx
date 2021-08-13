@@ -12,6 +12,14 @@ const ClaimModal = ({
   setModalEditActive,
   onContinueClick,
 }) => {
+
+  const {
+    value: email,
+    element: contactEmail,
+    bind: bindEmail,
+    focus: focusEmail,
+  } = useInput(contactData.name, 'contactEmail')
+
   const {
     value: name,
     element: contactName,
@@ -22,8 +30,11 @@ const ClaimModal = ({
   const handleSubmit = (evt) => {
     evt.preventDefault()
 
-    if (name) onContinueClick({ name })
-    else focusName()
+    if (name && email) onContinueClick({ name, email })
+    else {
+      focusEmail()
+      focusName()
+    }
   }
 
   return (
@@ -41,14 +52,15 @@ const ClaimModal = ({
           invitation to the core Dashboard
         </p>
         <TextField
-          id="email"
+          id={contactEmail}
           type="email"
-          name="email"
+          name={contactEmail}
           label="Email"
           value={contactData.email}
           onClick={() => setModalEditActive(true)}
           className={classNames.use(styles.claimCardGroup, styles.inputPointer)}
           statusIcon="#pencil"
+          {...bindEmail}
           helper={
             <>
               This address is listed as Admin Email in the OAI-PMH Identify.
