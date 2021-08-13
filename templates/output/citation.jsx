@@ -80,15 +80,6 @@ const CitationManager = ({ data }) => {
                     {bibtex[0].entryTags.ISSN &&
                       `, ISSN: ${bibtex[0].entryTags.ISSN}`}
                   </div>
-                  {bibtex[0].entryTags.DOI && (
-                    <div className={styles.item}>
-                      {' '}
-                      Doi:{' '}
-                      <a href={bibtex[0].entryTags.DOI}>
-                        {bibtex[0].entryTags.DOI}
-                      </a>
-                    </div>
-                  )}
                 </div>
                 <div className={styles.columnIcon}>
                   {copySuccess ? (
