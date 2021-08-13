@@ -19,11 +19,10 @@ const log = (...args) => {
     console.log(...args)
 }
 
-export async function getStaticProps({ params: routeParams }) {
+export async function getServerSideProps({ params: routeParams }) {
   const { id } = routeParams
 
   const data = {}
-  const revalidate = 60 * 60 * 24 * 7 // seconds, i.e. every week
 
   try {
     const rawOutput = await fetchMetadata(id)
@@ -72,6 +71,82 @@ export async function getStaticProps({ params: routeParams }) {
     data.citations = []
   }
 
+  // export async function getStaticProps({ params: routeParams }) {
+  //   const { id } = routeParams
+
+  //   const data = {}
+  //   const revalidate = 60 * 60 * 24 * 7 // seconds, i.e. every week
+
+  //   try {
+  //     const rawOutput = await fetchMetadata(id)
+
+  //     // Strip some properties to optimise network traffic
+  //     const { fullText: _, ...output } = rawOutput
+
+  //     const { data: dataProvider } = await request(output.dataProvider)
+
+  //     output.publishedDate = output.publishedDate
+  //       ? output.publishedDate
+  //       : output.yearPublished
+
+  //     Object.assign(data, {
+  //       ...output,
+  //       dataProvider,
+  //     })
+  //   } catch (error) {
+  //     log(error)
+
+  //     return {
+  //       props: { error },
+  //       notFound: true,
+  //     }
+  //   }
+
+  //   try {
+  //     const doi = data.identifiers?.doi
+  //     if (!doi) throw new Error('No DOI — no citation')
+
+  //     const citations = await fetchCitations(doi, {
+  //       styles: CITATION_STYLES,
+  //       locale: LOCALE,
+  //     })
+  //     data.citations = citations
+  //   } catch (citationRetrievalError) {
+  //     log(citationRetrievalError)
+
+  //     // If any error happens, we pretend, citation could not be generated
+  //     // or retrieved. This behaviour should be improved because we could generate
+  //     // citations ourselves using some library.
+  //     //
+  //     // Take your time to explore:
+  //     // - https://citeproc-js.readthedocs.io/en/latest/index.html
+  //     // - https://citationstyles.org
+  //     data.citations = []
+  //   }
+
+  //   // try {
+  //   //   const similarOutputs = await fetchSimilarTo(id)
+
+  //   //   // Strip some properties to optimise network traffic
+  //   //   data.similarOutputs = similarOutputs.map(
+  //   //     ({ fullText, ...output }) => output
+  //   //   )
+  //   // } catch (error) {
+  //   //   log(error)
+
+  //   //   // If any error happens, we pretend, there were no recommendations
+  //   //   // This behaviour could be changed to explicit error reporting but should
+  //   //   // be considered deeper.
+  //   //   data.similarOutputs = []
+  //   //   revalidate = 30
+  //   // }
+
+  //   return {
+  //     props: { data },
+  //     revalidate,
+  //   }
+  // }
+
   // try {
   //   const similarOutputs = await fetchSimilarTo(id)
 
@@ -91,22 +166,21 @@ export async function getStaticProps({ params: routeParams }) {
 
   return {
     props: { data },
-    revalidate,
   }
 }
 
-export async function getStaticPaths() {
-  // Generating only 1st page as static for the first time
-  // In the future we could retrieve a number of most popular pages
-  // and pre-render them to static
-  const paths = [
-    {
-      params: { id: '1' },
-    },
-  ]
+// export async function getStaticPaths() {
+//   // Generating only 1st page as static for the first time
+//   // In the future we could retrieve a number of most popular pages
+//   // and pre-render them to static
+//   const paths = [
+//     {
+//       params: { id: '1' },
+//     },
+//   ]
 
-  return { paths, fallback: 'blocking' }
-}
+//   return { paths, fallback: 'blocking' }
+// }
 
 const ScientificOutputPage = ({ data }) => {
   const { statistics } = useStore()
