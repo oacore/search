@@ -115,7 +115,7 @@ export async function getServerSideProps({ params: routeParams }) {
   //     log(citationRetrievalError)
 
   //     // If any error happens, we pretend, citation could not be generated
-  //     // or retrieved. This behaviour should be improved because we could generate
+  // or retrieved. This behaviour should be improved because we could generate
   //     // citations ourselves using some library.
   //     //
   //     // Take your time to explore:
@@ -135,7 +135,7 @@ export async function getServerSideProps({ params: routeParams }) {
   //   //   log(error)
 
   //   //   // If any error happens, we pretend, there were no recommendations
-  //   //   // This behaviour could be changed to explicit error reporting but should
+  // This behaviour could be changed to explicit error reporting but should
   //   //   // be considered deeper.
   //   //   data.similarOutputs = []
   //   //   revalidate = 30
