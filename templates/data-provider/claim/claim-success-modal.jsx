@@ -50,7 +50,7 @@ const ClaimSuccessModal = ({
         <p>
           We sent you the invitation to join CORE Dashboard to{' '}
           <b>{contactData.email}</b>. Please, check your inbox and follow the
-          lint to continue.
+          link to continue.
         </p>
       )}
     </Modal.Content>
