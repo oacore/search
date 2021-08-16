@@ -29,8 +29,9 @@ const ClaimModal = ({
   const handleSubmit = (evt) => {
     evt.preventDefault()
 
-    let modalEdit = false
-    if (nameFirst && emailFirst) onContinueClick({ nameFirst, emailFirst, modalEdit })
+    const modalEdit = false
+    if (nameFirst && emailFirst)
+      onContinueClick({ nameFirst, emailFirst, modalEdit })
     else {
       focusEmailFirst()
       focusNameFirst()
