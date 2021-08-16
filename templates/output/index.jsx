@@ -1,6 +1,7 @@
 import React from 'react'
 
 import SimilarWorks from './similar-works'
+import RelatedSearch from './related-search'
 import FullTextThumbnail from './thumbnail-card'
 import Metadata from './metadata'
 import MapCard from './map-card'
@@ -64,6 +65,7 @@ const ScientificOutputTemplate = ({
 
         <Keywords tags={tags} />
         <SimilarWorks articleId={id} />
+        <RelatedSearch articleId={id} articleTitle={title} />
       </div>
     </Search.Main>
 
