@@ -29,7 +29,8 @@ const ClaimModal = ({
   const handleSubmit = (evt) => {
     evt.preventDefault()
 
-    if (nameFirst && emailFirst) onContinueClick({ nameFirst, emailFirst })
+    let modalEdit = false
+    if (nameFirst && emailFirst) onContinueClick({ nameFirst, emailFirst, modalEdit })
     else {
       focusEmailFirst()
       focusNameFirst()
@@ -55,7 +56,6 @@ const ClaimModal = ({
           type="email"
           name={contactEmailFirst}
           label="Email"
-          value={contactData.email}
           onClick={() => setModalEditActive(true)}
           className={classNames.use(styles.claimCardGroup, styles.inputPointer)}
           statusIcon="#pencil"
@@ -76,7 +76,6 @@ const ClaimModal = ({
           type="text"
           name={contactNameFirst}
           label="Name"
-          value={contactData.name}
           placeholder="How would you like to be called?"
           {...bindNameFirst}
           required

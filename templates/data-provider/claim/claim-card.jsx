@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import React, { useState } from 'react'
 import { Card, Button } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
@@ -11,16 +12,24 @@ import fetchClaim from '../../../api/claim'
 
 export async function getClaim({ params: claimParams }) {
   const data = {}
-  const {
+  let {
     id,
     setIsClaimSuccessModalActive,
     setNewEmail,
     name,
     email,
     rationale,
+    nameFirst,
+    emailFirst,
+    modalEdit,
   } = claimParams
 
   try {
+    if (!modalEdit) {
+      email = emailFirst
+      name = nameFirst
+    }
+
     const dataProvider = await fetchClaim({ id, name, email, rationale })
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(dataProvider)) // Debug
@@ -105,6 +114,7 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
         {isClaimModalEditActive && (
           <ClaimModalEdit
             contactData={contactData}
+            setModalActive={setIsClaimModalActive}
             setModalEditActive={setIsClaimModalEditActive}
             onContinueClick={(options) =>
               getClaim({

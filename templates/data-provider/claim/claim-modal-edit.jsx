@@ -6,7 +6,13 @@ import useInput from '../hooks/use-input'
 import styles from './styles.module.css'
 
 const ClaimModalEdit = (props) => {
-  const { contactData, setModalEditActive, onContinueClick, className } = props
+  const {
+    contactData,
+    setModalActive,
+    setModalEditActive,
+    onContinueClick,
+    className,
+  } = props
   const {
     value: name,
     element: contactName,
@@ -31,7 +37,10 @@ const ClaimModalEdit = (props) => {
   const handleSubmit = (evt) => {
     evt.preventDefault()
 
-    if (name && email && rationale) onContinueClick({ name, email, rationale })
+    // eslint-disable-next-line prefer-const
+    let modalEdit = true
+    if (name && email && rationale)
+      onContinueClick({ name, email, rationale, modalEdit })
     else {
       focusName()
       focusEmail()
@@ -42,7 +51,10 @@ const ClaimModalEdit = (props) => {
   return (
     <Modal
       aria-labelledby="gain-access-modal-title"
-      onClose={() => setModalEditActive(false)}
+      onClose={() => {
+        setModalActive(false)
+        setModalEditActive(false)
+      }}
       className={classNames.use(styles.modal, className)}
     >
       <Modal.Title id="gain-access-modal-title">
