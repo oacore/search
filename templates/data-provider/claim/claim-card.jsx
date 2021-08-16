@@ -25,16 +25,17 @@ export async function getClaim({ params: claimParams }) {
   } = claimParams
 
   try {
-    if (!modalEdit) {
+    if (modalEdit) setNewEmail(email)
+    else {
       email = emailFirst
       name = nameFirst
+      setNewEmail('')
     }
 
     const dataProvider = await fetchClaim({ id, name, email, rationale })
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(dataProvider)) // Debug
     setIsClaimSuccessModalActive(true)
-    setNewEmail(email)
   } catch (errorWithDataProvider) {
     return {
       props: {
