@@ -1,8 +1,4 @@
-.header,
-.update,
-.links,
-.note,
-.faq {
+.container {
   padding: var(--page-padding-y) var(--page-padding-x);
 }
 
@@ -65,9 +61,29 @@
 .faq {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .faq img {
   margin-right: 3rem;
+}
+
+@media (--screen-until-desktop) {
+  .update-description {
+    min-width: 90vw;
+  }
+
+  .update-link {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+
+  .update-link button {
+    float: none;
+  }
+
+  .header,
+  .faq {
+    flex-wrap: wrap;
+  }
 }

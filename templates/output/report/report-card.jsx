@@ -5,16 +5,19 @@ import ReportTypeModal from './report-type-modal'
 import ReportFormModal from './report-form-modal'
 import ReportSuccessModal from './report-success-modal'
 import styles from './styles.module.css'
+import { useReportController } from '../hooks'
 
-const ReportCard = ({ id, sourceFulltextUrls, dataProvider }) => {
-  const [isModalReportTypeActive, setIsModalReportTypeActive] =
-    React.useState(false)
+import { observe } from 'store'
 
-  const [isModalReportFormActive, setIsModalReportFormActive] =
-    React.useState(false)
-
-  const [isModalReportSuccessActive, setIsModalReportSuccessActive] =
-    React.useState(false)
+const ReportCard = observe(({ id, sourceFulltextUrls, dataProvider }) => {
+  const {
+    report: {
+      isModalReportTypeActive,
+      isModalReportFormActive,
+      isModalReportSuccessActive,
+    },
+    setIsModalReportTypeActive,
+  } = useReportController()
 
   return (
     <Card variant="outlined" className={styles.reportCard}>
@@ -29,29 +32,17 @@ const ReportCard = ({ id, sourceFulltextUrls, dataProvider }) => {
       <Card.Footer className={styles.reportCardFooter}>
         <Button onClick={() => setIsModalReportTypeActive(true)}>Report</Button>
       </Card.Footer>
-      {isModalReportTypeActive && (
-        <ReportTypeModal
-          setModalFormActive={setIsModalReportFormActive}
-          setModalReportTypeActive={setIsModalReportTypeActive}
-        />
-      )}
-      {isModalReportFormActive && (
-        <ReportFormModal
-          id={id}
-          setModalReportFormActive={setIsModalReportFormActive}
-          setModalReportSuccessActive={setIsModalReportSuccessActive}
-        />
-      )}
+      {isModalReportTypeActive && <ReportTypeModal />}
+      {isModalReportFormActive && <ReportFormModal id={id} />}
       {isModalReportSuccessActive && (
         <ReportSuccessModal
           sourceFulltextUrls={sourceFulltextUrls}
-          setModalReportSuccessActive={setIsModalReportSuccessActive}
           dataProvider={dataProvider}
           id={id}
         />
       )}
     </Card>
   )
-}
+})
 
 export default ReportCard

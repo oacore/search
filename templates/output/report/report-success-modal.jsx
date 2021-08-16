@@ -15,7 +15,7 @@ const REPOSITORY_MANAGER = 'repositoryManager'
 const TAKE_DOWN_OPTION = 'takeDownFullText'
 
 const ReportSuccessModal = observe(
-  ({ setModalReportSuccessActive, sourceFulltextUrls, dataProvider, id }) => {
+  ({ sourceFulltextUrls, dataProvider, id }) => {
     const router = useRouter()
 
     const sourceUrl = Array.isArray(sourceFulltextUrls)
@@ -25,14 +25,20 @@ const ReportSuccessModal = observe(
     const {
       report: { role, updateOption, isLoading },
       resetReport,
+      setIsModalReportSuccessActive,
     } = useReportController()
 
     const onCloseModal = () => {
-      setModalReportSuccessActive(false)
+      setIsModalReportSuccessActive(false)
       resetReport()
 
-      if (updateOption === TAKE_DOWN_OPTION) router.push(`/outputs/${id}`)
+      const outputURL = `/outputs/${id}`
+
+      // Update only if user on output page
+      if (updateOption === TAKE_DOWN_OPTION && router.asPath === outputURL)
+        router.push(outputURL)
     }
+
     const setTextByReporterType = () => {
       switch (role) {
         case REPOSITORY_MANAGER:
