@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link, Button, TextField, Form } from '@oacore/design/lib'
+import React, { useState } from 'react'
+import { Link, Button, TextField, Form, Message } from '@oacore/design/lib'
 import classNames from '@oacore/design/lib/utils/class-names'
 
 import { useInput, useReportController } from '../hooks'
@@ -25,6 +25,8 @@ const UpdateTemplate = observe(() => {
     getMetadata,
   } = useReportController()
 
+  const [errorMessage, setErrorMessage] = useState('')
+
   const {
     value: url,
     element: outputUrl,
@@ -34,10 +36,23 @@ const UpdateTemplate = observe(() => {
   const onSubmitUpdate = (evt) => {
     evt.preventDefault()
 
-    const outputId = url.match(/\d+/g).join('')
+    const regexStringPatterns =
+      /https:\/\/core.ac.uk\/display\/\d+|https:\/\/core.ac.uk\/download\/pdf\/\d+|^\d+$/s
 
-    getMetadata(outputId)
-    setIsModalReportTypeActive(true)
+    const regexNumberPattern = /\d+/s
+
+    const outputId = url
+      .match(regexStringPatterns)
+      ?.join('')
+      ?.match(regexNumberPattern)
+      ?.join('')
+
+    if (!outputId) setErrorMessage('Please provide correct URL')
+    else {
+      setErrorMessage('')
+      getMetadata(outputId)
+      setIsModalReportTypeActive(true)
+    }
   }
 
   return (
@@ -60,6 +75,7 @@ const UpdateTemplate = observe(() => {
         </div>
         <Form className={styles.updateLink} onSubmit={onSubmitUpdate}>
           <p>Put link to the article here:</p>
+          {errorMessage && <Message variant="danger">{errorMessage}</Message>}
           <TextField
             id={url}
             name={outputUrl}
@@ -68,6 +84,7 @@ const UpdateTemplate = observe(() => {
             placeholder="e.g. https://core.ac.uk/display/1"
             required
           />
+
           <Button variant="contained">SUBMIT UPDATE</Button>
         </Form>
       </section>
