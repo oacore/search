@@ -1,12 +1,13 @@
 import React from 'react'
-import { Card } from '@oacore/design'
-import { classNames } from '@oacore/design/lib/utils'
 
 import SimilarWorks from './similar-works'
+import RelatedSearch from './related-search'
 import FullTextThumbnail from './thumbnail-card'
 import Metadata from './metadata'
 import MapCard from './map-card'
 import Keywords from './keywords'
+import ReportCard from './report'
+import CitationManager from './citation'
 import styles from './styles.module.css'
 
 import Search from 'modules/search-layout'
@@ -22,38 +23,53 @@ const ScientificOutputTemplate = ({
     dataProvider,
     updatedDate,
     sourceFulltextUrls,
+    fulltextStatus,
     tags,
     documentType,
+    citations,
     identifiers: { doi },
   },
   ...passProps
 }) => (
-  <Search {...passProps}>
+  <Search {...passProps} className={styles.outputContainer}>
     <Search.Main>
-      <div>
-        {documentType && (
-          <span className={styles.documentType}>{documentType}</span>
+      <div className={styles.background}>
+        <div>
+          {documentType && (
+            <span className={styles.documentType}>{documentType}</span>
+          )}
+          {doi && <span className={styles.doi}>{doi}</span>}
+        </div>
+        <h1>{title}</h1>
+        <Metadata
+          authors={authors}
+          publishedDate={publishedDate}
+          publisher={publisher}
+        />
+        {citations && citations.length > 0 && (
+          <CitationManager
+            data={{
+              citations,
+              actionLabel: 'Cite',
+            }}
+          />
         )}
-        {doi && <span className={styles.doi}>{doi}</span>}
       </div>
+      <div className={styles.containerMain}>
+        {abstract && (
+          <section id="abstract" className={styles.abstract}>
+            <h2>Abstract</h2>
+            <p>{abstract}</p>
+          </section>
+        )}
 
-      <h1>{title}</h1>
-      <Metadata
-        authors={authors}
-        publishedDate={publishedDate}
-        publisher={publisher}
-      />
-      {abstract && (
-        <section id="abstract" className={styles.abstract}>
-          <h2>Abstract</h2>
-          <p>{abstract}</p>
-        </section>
-      )}
-      <Keywords tags={tags} />
-      <SimilarWorks articleId={id} />
+        <Keywords tags={tags} />
+        <SimilarWorks articleId={id} />
+        <RelatedSearch articleId={id} articleTitle={title} />
+      </div>
     </Search.Main>
 
-    <Search.Sidebar>
+    <Search.Sidebar className={styles.containerSidebar}>
       <FullTextThumbnail
         id={`full-text-thumbnail-${id}`}
         href={`//core.ac.uk/reader/${id}`}
@@ -65,6 +81,7 @@ const ScientificOutputTemplate = ({
           size: 200312, // repositoryDocument.pdfSize,
           updatedDate,
           sourceFulltextUrls,
+          fulltextStatus,
         }}
       />
       <MapCard
@@ -74,16 +91,11 @@ const ScientificOutputTemplate = ({
           hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
         }}
       />
-      <Card className={classNames.use(styles.card)}>
-        <p>
-          To submit an update or takedown request for this paper, please submit
-          an{' '}
-          <a href={`//core.ac.uk/article-update/${id}`}>
-            Update/Correction/Removal Request
-          </a>
-          .
-        </p>
-      </Card>
+      <ReportCard
+        id={id}
+        sourceFulltextUrls={sourceFulltextUrls}
+        dataProvider={dataProvider.name}
+      />
     </Search.Sidebar>
   </Search>
 )

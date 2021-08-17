@@ -17,6 +17,7 @@ const Error = () => {
   useEffect(async () => {
     try {
       const { dataProvider } = await fetchOutputMetadata(id)
+
       if (dataProvider) await request(dataProvider)
     } catch (error) {
       setErrorStatus(error.status)

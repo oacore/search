@@ -5,19 +5,21 @@ import filesize from 'filesize'
 
 import styles from './thumbnail-card.module.css'
 
+const DISABLED_STATUS = 'disabled'
+
 const FullTextThumbnail = ({
   data: {
     title,
     size: fileSize,
     type: fileType,
-    id: documentId,
     updatedDate,
     sourceFulltextUrls,
+    fulltextStatus,
   },
   id,
-  src = `//core.ac.uk/image/${documentId}/large`,
-  alt = 'Document thumbnail',
-  href = `//core.ac.uk/reader/${documentId}`,
+  src,
+  alt,
+  href,
   className,
   ...passProps
 }) => (
@@ -30,23 +32,17 @@ const FullTextThumbnail = ({
       Full text
     </h2>
 
-    <a
-      className={styles.image}
+    <OutputCard
+      tag={fulltextStatus === DISABLED_STATUS ? 'div' : 'a'}
       href={href}
-      aria-labelledby={`${id}-title`}
-      aria-describedby={`${id}-body`}
-    >
-      <img className={styles.image} src={src} alt={alt} />
-
-      <p className={styles.body} id={`${id}-body`}>
-        <Card.Title className={styles.name} tag="span">
-          {title}
-        </Card.Title>
-        <Card.Description className={styles.description} tag="span">
-          Provided a free {fileType} ({filesize(fileSize)})
-        </Card.Description>
-      </p>
-    </a>
+      id={id}
+      src={src}
+      alt={alt}
+      title={title}
+      fileType={fileType}
+      fileSize={fileSize}
+      fulltextStatus={fulltextStatus}
+    />
 
     {(updatedDate || sourceFulltextUrls) && (
       <p className={styles.body}>
@@ -69,6 +65,44 @@ const FullTextThumbnail = ({
       </p>
     )}
   </Card>
+)
+
+const OutputCard = ({
+  tag: Tag = 'a',
+  href,
+  id,
+  src,
+  alt,
+  title,
+  fileType,
+  fileSize,
+  fulltextStatus,
+}) => (
+  <Tag
+    className={styles.image}
+    href={href}
+    aria-labelledby={`${id}-title`}
+    aria-describedby={`${id}-body`}
+  >
+    <img className={styles.image} src={src} alt={alt} />
+
+    <p className={styles.body} id={`${id}-body`}>
+      {fulltextStatus === DISABLED_STATUS ? (
+        <Card.Title className={styles.disabled} tag="span">
+          Full text removed upon author&apos;s request
+        </Card.Title>
+      ) : (
+        <>
+          <Card.Title className={styles.name} tag="span">
+            {title}
+          </Card.Title>
+          <Card.Description className={styles.description} tag="span">
+            Provided a free {fileType} ({filesize(fileSize)})
+          </Card.Description>
+        </>
+      )}
+    </p>
+  </Tag>
 )
 
 FullTextThumbnail.displayName = 'Work.Thumbnail'

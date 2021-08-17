@@ -19,6 +19,7 @@
     "@oacore/stylelint-config-base": "^1.0.6",
     "@sentry/browser": "^5.28.0",
     "@sentry/node": "^5.28.0",
+    "bibtex-parse-js": "0.0.24",
     "core-js": "^3.8.1",
     "cssnano": "^4.1.10",
     "filesize": "^6.1.0",
@@ -28,6 +29,7 @@
     "mobx": "^6.0.0",
     "mobx-react-lite": "^3.0.0",
     "next": "^10.0.3",
+    "next-images": "^1.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "throttle-debounce": "^3.0.1"
