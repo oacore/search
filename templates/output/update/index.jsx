@@ -37,8 +37,7 @@ const UpdateTemplate = observe(() => {
     evt.preventDefault()
 
     const regexStringPatterns =
-      /https:\/\/core.ac.uk\/display\/\d+|https:\/\/core.ac.uk\/download\/pdf\/\d+|^\d+$/s
-
+      /(http(s)?:\/\/)?core.ac.uk\/(display|download\/pdf)\/\d+|^\d+$/s
     const regexNumberPattern = /\d+/s
 
     const outputId = url
