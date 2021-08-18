@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, Button, TextField, Form, Message } from '@oacore/design/lib'
+import { Link, Button, TextField, Form } from '@oacore/design/lib'
 import classNames from '@oacore/design/lib/utils/class-names'
 
 import { useInput, useReportController } from '../hooks'
@@ -19,13 +19,13 @@ const UpdateTemplate = observe(() => {
       isModalReportTypeActive,
       isModalReportFormActive,
       isModalReportSuccessActive,
-      output: { sourceFulltextUrls, dataProvider, id },
+      output: { id, dataProvider, sourceFulltextUrls },
+      error: errorMessage,
+      isLoading,
     },
-    setIsModalReportTypeActive,
     getMetadata,
+    setErrorMessage,
   } = useReportController()
-
-  const [errorMessage, setErrorMessage] = useState('')
 
   const {
     value: url,
@@ -48,10 +48,10 @@ const UpdateTemplate = observe(() => {
       ?.join('')
 
     if (!outputId) setErrorMessage('Please provide correct URL')
-    else {
+
+    if (outputId) {
       setErrorMessage('')
       getMetadata(outputId)
-      setIsModalReportTypeActive(true)
     }
   }
 
@@ -75,7 +75,6 @@ const UpdateTemplate = observe(() => {
         </div>
         <Form className={styles.updateLink} onSubmit={onSubmitUpdate}>
           <p>Put link to the article here:</p>
-          {errorMessage && <Message variant="danger">{errorMessage}</Message>}
           <TextField
             id={url}
             name={outputUrl}
@@ -84,8 +83,13 @@ const UpdateTemplate = observe(() => {
             placeholder="e.g. https://core.ac.uk/display/1"
             required
           />
+          {errorMessage && (
+            <p className={styles.errorMessage}>{errorMessage}</p>
+          )}
 
-          <Button variant="contained">SUBMIT UPDATE</Button>
+          <Button variant="contained" disabled={isLoading}>
+            SUBMIT UPDATE
+          </Button>
         </Form>
       </section>
       <section className={classNames.use(styles.links, styles.container)}>

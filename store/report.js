@@ -12,8 +12,6 @@ class Report {
 
   role = null
 
-  statusCode = null
-
   isLoading = false
 
   error = null
@@ -29,7 +27,6 @@ class Report {
       output: observable,
       updateOption: observable,
       role: observable,
-      statusCode: observable,
       isLoading: observable,
       error: observable,
       isModalReportTypeActive: observable,
@@ -43,7 +40,6 @@ class Report {
     this.output = {}
     this.updateOption = null
     this.role = null
-    this.statusCode = null
     this.isLoading = false
     this.error = null
     this.isModalReportTypeActive = false
@@ -57,12 +53,10 @@ class Report {
     data.role = this.role
     this.isLoading = true
     try {
-      const { status } = await createReport(data)
-      this.statusCode = status
+      await createReport(data)
     } catch (error) {
-      const { status, data: errorData } = error
+      const { data: errorData } = error
       this.error = errorData
-      this.statusCode = status
     } finally {
       this.isLoading = false
     }
@@ -70,14 +64,18 @@ class Report {
 
   @invalidatePreviousRequests
   async fetchOutput(id) {
+    this.isLoading = true
     try {
       const rawOutput = await fetchMetadata(id)
       const { fullText: _, ...output } = rawOutput
-
       const { data: dataProvider } = await request(output.dataProvider)
       this.output = { ...output, dataProvider }
+      this.isModalReportFormActive = true
     } catch (error) {
-      throw Error(error)
+      this.error =
+        'We couldn’t perform the action. For any issue contact theteam@core.ac.uk'
+    } finally {
+      this.isLoading = false
     }
   }
 }

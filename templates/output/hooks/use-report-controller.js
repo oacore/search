@@ -33,6 +33,10 @@ const useReportController = () => {
     report.fetchOutput(id)
   }
 
+  const setErrorMessage = (message) => {
+    report.error = message
+  }
+
   const resetReport = React.useCallback(() => report.reset(), [])
 
   return {
@@ -44,6 +48,7 @@ const useReportController = () => {
     setIsModalReportTypeActive,
     setIsModalReportFormActive,
     setIsModalReportSuccessActive,
+    setErrorMessage,
     getMetadata,
   }
 }

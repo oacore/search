@@ -28,6 +28,14 @@
   margin-top: 2.5rem;
 }
 
+.error-message {
+  color: var(--danger);
+}
+
+.error-message + button {
+  margin-top: 0;
+}
+
 .links {
   list-style: none;
 }
