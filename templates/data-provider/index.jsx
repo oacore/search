@@ -103,12 +103,12 @@ const DataProviderTemplate = ({
           {data.name} is based in{' '}
           {countryName.of(data.location.countryCode.toUpperCase())}
         </MapCard>
-        <ClaimCard
+        {/* <ClaimCard
           nameDataProvider={data.name}
           id={data.id}
           className={styles.card}
           contactData={contactData}
-        />
+        /> */}
       </Search.Sidebar>
     </Search>
   )
