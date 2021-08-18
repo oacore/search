@@ -42,7 +42,6 @@ export async function getServerSideProps({ params: routeParams }) {
     })
   } catch (error) {
     log(error)
-
     return {
       props: { error },
       notFound: true,
