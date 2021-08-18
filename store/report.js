@@ -2,50 +2,80 @@ import { action, makeObservable, observable } from 'mobx'
 
 import invalidatePreviousRequests from '../utils/invalidatePreviousRequests'
 
-import { createReport } from 'api/outputs'
+import request from 'api'
+import { createReport, fetchMetadata } from 'api/outputs'
+
+const ERROR_MESSAGE =
+  'We couldn’t perform the action. For any issue contact theteam@core.ac.uk'
 
 class Report {
+  output = {}
+
   updateOption = null
 
   role = null
-
-  statusCode = null
 
   isLoading = false
 
   error = null
 
+  isModalReportTypeActive = false
+
+  isModalReportFormActive = false
+
+  isModalReportSuccessActive = false
+
   constructor() {
     makeObservable(this, {
+      output: observable,
       updateOption: observable,
       role: observable,
-      statusCode: observable,
       isLoading: observable,
       error: observable,
+      isModalReportTypeActive: observable,
+      isModalReportFormActive: observable,
+      isModalReportSuccessActive: observable,
       reset: action,
     })
   }
 
   reset() {
+    this.output = {}
     this.updateOption = null
     this.role = null
-    this.statusCode = null
     this.isLoading = false
     this.error = null
+    this.isModalReportTypeActive = false
+    this.isModalReportFormActive = false
+    this.isModalReportSuccessActive = false
   }
 
   @invalidatePreviousRequests
   async submit(data) {
     data.updateOption = this.updateOption
+
     data.role = this.role
     this.isLoading = true
     try {
-      const { status } = await createReport(data)
-      this.statusCode = status
+      await createReport(data)
     } catch (error) {
-      const { status, data: errorData } = error
-      this.error = errorData
-      this.statusCode = status
+      this.error = ERROR_MESSAGE
+    } finally {
+      this.isLoading = false
+    }
+  }
+
+  @invalidatePreviousRequests
+  async fetchOutput(id) {
+    this.isLoading = true
+    try {
+      const rawOutput = await fetchMetadata(id)
+      const { fullText: _, ...output } = rawOutput
+      const { data: dataProvider } = await request(output.dataProvider)
+      this.output = { ...output, dataProvider }
+      this.isModalReportTypeActive = true
+    } catch (error) {
+      this.error = ERROR_MESSAGE
     } finally {
       this.isLoading = false
     }

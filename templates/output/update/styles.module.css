@@ -1,0 +1,97 @@
+.container {
+  padding: var(--page-padding-y) var(--page-padding-x);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.update {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: var(--gray-100);
+}
+
+.update-description {
+  flex: 1;
+}
+
+.update-link {
+  flex: 1;
+  padding-left: 10rem;
+}
+
+.update-link button {
+  float: right;
+  margin-top: 2.5rem;
+}
+
+.error-message {
+  color: var(--danger);
+}
+
+.error-message + button {
+  margin-top: 0;
+}
+
+.links {
+  list-style: none;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-left: 0.4rem solid var(--primary);
+}
+
+.link:not(:last-child) {
+  margin-bottom: 1.2rem;
+}
+
+.label {
+  flex: 0.2;
+}
+
+.link-href {
+  flex: 0.4;
+  padding-bottom: 0.5rem;
+  color: var(--primary);
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.note {
+  background-color: var(--gray-100);
+}
+
+.faq {
+  display: flex;
+  align-items: center;
+}
+
+.faq img {
+  margin-right: 3rem;
+}
+
+@media (--screen-until-desktop) {
+  .update-description {
+    min-width: 90vw;
+  }
+
+  .update-link {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+
+  .update-link button {
+    float: none;
+  }
+
+  .header,
+  .faq {
+    flex-wrap: wrap;
+  }
+}
