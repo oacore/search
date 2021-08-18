@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import React, { useState } from 'react'
 import { Card, Button } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
@@ -11,10 +12,26 @@ import fetchClaim from '../../../api/claim'
 
 export async function getClaim({ params: claimParams }) {
   const data = {}
-  const { id, setIsClaimSuccessModalActive, name, email, rationale } =
-    claimParams
+  let {
+    id,
+    setIsClaimSuccessModalActive,
+    setNewEmail,
+    name,
+    email,
+    rationale,
+    nameFirst,
+    emailFirst,
+    modalEdit,
+  } = claimParams
 
   try {
+    if (modalEdit) setNewEmail(email)
+    else {
+      email = emailFirst
+      name = nameFirst
+      setNewEmail('')
+    }
+
     const dataProvider = await fetchClaim({ id, name, email, rationale })
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(dataProvider)) // Debug
@@ -38,14 +55,12 @@ export async function getClaim({ params: claimParams }) {
 }
 
 const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
-  const testDataProviderId = 86
-  if (id !== testDataProviderId) return <></>
-
   const [isClaimModalActive, setIsClaimModalActive] = useState(false)
   const [isClaimModalEditActive, setIsClaimModalEditActive] = useState(false)
   const [isLoginModalActive, setIsLoginModalActive] = useState(false)
   const [isClaimSuccessModalActive, setIsClaimSuccessModalActive] =
     useState(false)
+  const [newEmail, setNewEmail] = useState(false)
 
   return (
     <Card className={classNames.use(styles.claimCard, className)}>
@@ -65,7 +80,15 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
         >
           Gain access now
         </Button>
-        <Button className={styles.claimCardAction} disabled>
+        <Button
+          className={styles.claimCardAction}
+          onClick={() => {
+            window.open(
+              'https://core.ac.uk/services/repository-dashboard',
+              '_blank'
+            )
+          }}
+        >
           More details
         </Button>
         {isClaimModalActive && (
@@ -73,8 +96,15 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
             contactData={contactData}
             setModalActive={setIsClaimModalActive}
             setModalEditActive={setIsClaimModalEditActive}
-            onContinueClick={() =>
-              getClaim({ params: { id, setIsClaimSuccessModalActive } })
+            onContinueClick={(options) =>
+              getClaim({
+                params: {
+                  id,
+                  setIsClaimSuccessModalActive,
+                  setNewEmail,
+                  ...options,
+                },
+              })
             }
             className={
               (isLoginModalActive || isClaimSuccessModalActive) && styles.hide
@@ -85,10 +115,16 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
         {isClaimModalEditActive && (
           <ClaimModalEdit
             contactData={contactData}
+            setModalActive={setIsClaimModalActive}
             setModalEditActive={setIsClaimModalEditActive}
             onContinueClick={(options) =>
               getClaim({
-                params: { id, setIsClaimSuccessModalActive, ...options },
+                params: {
+                  id,
+                  setIsClaimSuccessModalActive,
+                  setNewEmail,
+                  ...options,
+                },
               })
             }
             className={
@@ -102,6 +138,9 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
         {isClaimSuccessModalActive && (
           <ClaimSuccessModal
             isModalActive={isClaimSuccessModalActive}
+            setClaimModalActive={setIsClaimModalActive}
+            setClaimModalEditActive={setIsClaimModalEditActive}
+            setLoginModalActive={setIsLoginModalActive}
             setModalActive={setIsClaimSuccessModalActive}
             onClose={() => {
               if (isClaimModalActive) setIsClaimModalActive(false)
@@ -109,6 +148,8 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
               if (isLoginModalActive) setIsLoginModalActive(false)
               if (isClaimSuccessModalActive) setIsClaimSuccessModalActive(false)
             }}
+            newEmail={newEmail}
+            contactData={contactData}
           />
         )}
       </div>
