@@ -5,6 +5,9 @@ import invalidatePreviousRequests from '../utils/invalidatePreviousRequests'
 import request from 'api'
 import { createReport, fetchMetadata } from 'api/outputs'
 
+const ERROR_MESSAGE =
+  'We couldn’t perform the action. For any issue contact theteam@core.ac.uk'
+
 class Report {
   output = {}
 
@@ -50,13 +53,13 @@ class Report {
   @invalidatePreviousRequests
   async submit(data) {
     data.updateOption = this.updateOption
+
     data.role = this.role
     this.isLoading = true
     try {
       await createReport(data)
     } catch (error) {
-      const { data: errorData } = error
-      this.error = errorData
+      this.error = ERROR_MESSAGE
     } finally {
       this.isLoading = false
     }
@@ -70,10 +73,9 @@ class Report {
       const { fullText: _, ...output } = rawOutput
       const { data: dataProvider } = await request(output.dataProvider)
       this.output = { ...output, dataProvider }
-      this.isModalReportFormActive = true
+      this.isModalReportTypeActive = true
     } catch (error) {
-      this.error =
-        'We couldn’t perform the action. For any issue contact theteam@core.ac.uk'
+      this.error = ERROR_MESSAGE
     } finally {
       this.isLoading = false
     }
