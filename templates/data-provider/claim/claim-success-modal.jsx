@@ -2,6 +2,14 @@ import React from 'react'
 import { Modal, Button } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
 
+import successCheckSVG from './images/modal/check.svg'
+// import successCheckSVG from './images/modal/claim-dashboard-success-check.svg'
+// import successCheckInvitationSVG from './images/modal/claim-dashboard-success-check-invitation.svg'
+import successCheckInvitationSVG from './images/modal/invitation.svg'
+// import successCheck from 'static/claim-dashboard-success-check.svg'
+// eslint-disable-next-line max-len
+// import successCheckInvitation from '/static/claim-dashboard-success-invitation.svg'
+
 import styles from './styles.module.css'
 
 const ClaimSuccessModal = ({
@@ -33,13 +41,7 @@ const ClaimSuccessModal = ({
           newEmail ? styles.successImageCheck : styles.successImageInvitation
         }
       >
-        <image
-          href={
-            newEmail
-              ? '/static/claim-dashboard-success-check.svg'
-              : '/static/claim-dashboard-success-invitation.svg'
-          }
-        />
+        <image href={newEmail ? successCheckSVG : successCheckInvitationSVG} />
       </svg>
       {newEmail ? (
         <p>
