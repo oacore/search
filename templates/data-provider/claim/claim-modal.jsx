@@ -60,6 +60,8 @@ const ClaimModal = ({
           onClick={() => setModalEditActive(true)}
           className={classNames.use(styles.claimCardGroup, styles.inputPointer)}
           statusIcon="#pencil"
+          required
+          placeholder="You need enter email."
           {...bindEmailFirst}
           helper={
             <>
