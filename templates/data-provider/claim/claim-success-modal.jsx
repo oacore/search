@@ -2,6 +2,8 @@ import React from 'react'
 import { Modal, Button } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
 
+import successCheckSVG from './images/modal/check.svg'
+import successCheckInvitationSVG from './images/modal/invitation.svg'
 import styles from './styles.module.css'
 
 const ClaimSuccessModal = ({
@@ -33,13 +35,7 @@ const ClaimSuccessModal = ({
           newEmail ? styles.successImageCheck : styles.successImageInvitation
         }
       >
-        <image
-          href={
-            newEmail
-              ? '/static/claim-dashboard-success-check.svg'
-              : '/static/claim-dashboard-success-invitation.svg'
-          }
-        />
+        <image href={newEmail ? successCheckSVG : successCheckInvitationSVG} />
       </svg>
       {newEmail ? (
         <p>
