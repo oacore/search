@@ -1,4 +1,4 @@
-import { action, makeObservable, observable, toJS } from 'mobx'
+import { action, makeObservable, observable } from 'mobx'
 
 import { findDataProviders } from 'utils/helpers'
 import invalidatePreviousRequests from 'utils/invalidatePreviousRequests'
