@@ -26,9 +26,9 @@ const DataProviderTemplate = ({
 }) => {
   const { outputs } = data
 
-  const contactData = data.contact ?? {
-    name: 'Name',
-    email: 'library-research-support@open.ac.uk',
+  const contactData = {
+    name: data.name,
+    email: data.email,
   }
 
   return (

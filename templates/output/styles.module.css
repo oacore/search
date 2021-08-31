@@ -153,3 +153,26 @@
     max-width: 100vw;
   }
 }
+
+.related-searches-result {
+  padding: 1rem;
+  border: 1px solid hsl(var(--card-color, var(--on-surface)) / 0.12);
+  border-radius: 2px;
+}
+
+.related-searches-icon {
+  position: relative;
+  bottom: 1px;
+  margin-right: 0.5rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.detach-dot::after {
+  color: var(--body-color, #000);
+  content: '\2000•\2000';
+  opacity: 0.38;
+}
+
+.detach-dot:last-child::after {
+  display: none;
+}

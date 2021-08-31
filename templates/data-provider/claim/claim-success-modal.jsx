@@ -2,12 +2,28 @@ import React from 'react'
 import { Modal, Button } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
 
+import successCheckSVG from './images/modal/check.svg'
+import successCheckInvitationSVG from './images/modal/invitation.svg'
 import styles from './styles.module.css'
 
-const ClaimSuccessModal = ({ className, setModalActive, onClose }) => (
+const ClaimSuccessModal = ({
+  className,
+  setClaimModalActive,
+  setClaimModalEditActive,
+  setLoginModalActive,
+  setModalActive,
+  onClose,
+  newEmail,
+  contactData,
+}) => (
   <Modal
     aria-label="Claim success modal"
-    onClose={() => setModalActive(false)}
+    onClose={() => {
+      setClaimModalActive(false)
+      setClaimModalEditActive(false)
+      setLoginModalActive(false)
+      setModalActive(false)
+    }}
     className={classNames.use(styles.modal, className)}
   >
     <Modal.Title>Claim CORE Dashboard</Modal.Title>
@@ -15,14 +31,24 @@ const ClaimSuccessModal = ({ className, setModalActive, onClose }) => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         role="img"
-        className={styles.successImage}
+        className={
+          newEmail ? styles.successImageCheck : styles.successImageInvitation
+        }
       >
-        <image href="/static/claim-dashboard-success.svg" />
+        <image href={newEmail ? successCheckSVG : successCheckInvitationSVG} />
       </svg>
-      <p>
-        We sent you the invitation to join CORE Dashboard to <b>email</b>.
-        Please, check your inbox and follow the lint to continue.
-      </p>
+      {newEmail ? (
+        <p>
+          We will check your eligibility to claim the repository and contact you
+          at <b>{newEmail}</b>. It may take a few business days.
+        </p>
+      ) : (
+        <p>
+          We sent you the invitation to join CORE Dashboard to{' '}
+          <b>{contactData.email}</b>. Please, check your inbox and follow the
+          link to continue.
+        </p>
+      )}
     </Modal.Content>
     <Modal.Footer className={styles.footer}>
       <Button onClick={onClose} variant="contained">

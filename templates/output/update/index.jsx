@@ -97,7 +97,10 @@ const UpdateTemplate = observe(() => {
         </h4>
         <p>
           For example, suppose you wanted to remove the paper: &nbsp;
-          <Link href="https://core.ac.uk/display/82976757?recSetID=">
+          <Link
+            href="https://core.ac.uk/display/82976757?recSetID="
+            target="blank"
+          >
             CORE: aggregation use cases for open access
           </Link>
         </p>

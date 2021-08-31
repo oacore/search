@@ -6,13 +6,19 @@ import useInput from '../hooks/use-input'
 import styles from './styles.module.css'
 
 const ClaimModalEdit = (props) => {
-  const { contactData, setModalEditActive, onContinueClick, className } = props
+  const {
+    contactData,
+    setModalActive,
+    setModalEditActive,
+    onContinueClick,
+    className,
+  } = props
   const {
     value: name,
     element: contactName,
     bind: bindName,
     focus: focusName,
-  } = useInput(contactData.name, 'contactName')
+  } = useInput('', 'contactName')
 
   const {
     value: email,
@@ -31,7 +37,10 @@ const ClaimModalEdit = (props) => {
   const handleSubmit = (evt) => {
     evt.preventDefault()
 
-    if (name && email && rationale) onContinueClick({ name, email, rationale })
+    // eslint-disable-next-line prefer-const
+    let modalEdit = true
+    if (name && email && rationale)
+      onContinueClick({ name, email, rationale, modalEdit })
     else {
       focusName()
       focusEmail()
@@ -42,7 +51,10 @@ const ClaimModalEdit = (props) => {
   return (
     <Modal
       aria-labelledby="gain-access-modal-title"
-      onClose={() => setModalEditActive(false)}
+      onClose={() => {
+        setModalActive(false)
+        setModalEditActive(false)
+      }}
       className={classNames.use(styles.modal, className)}
     >
       <Modal.Title id="gain-access-modal-title">
@@ -62,28 +74,38 @@ const ClaimModalEdit = (props) => {
           required
           {...bindEmail}
           className={classNames.use(styles.claimCardGroup)}
-          helper={<>Your institutional email address.</>}
+          helper={
+            <>
+              Your institutional email address. <br />
+              <br />
+            </>
+          }
         />
         <TextField
           id={contactName}
           type="text"
           name={contactName}
-          label="Name"
           placeholder="How would you like to be called?"
           required
           {...bindName}
-          helper={<br />}
+          className={classNames.use(styles.claimCardGroup)}
+          helper={
+            <>
+              <span className={styles.label}>Name</span>
+              <br />
+            </>
+          }
         />
         <TextField
           id={contactRationale}
           type="text"
           name={contactRationale}
-          label="Rationale"
           placeholder="Why are you the authorised person to get access?"
           required
           {...bindRationale}
           helper={
             <>
+              <span className={styles.label}>Rationale</span>
               Since you changed email, we need to manually check you are the
               repository manager, additional information would be very
               apperciated.
