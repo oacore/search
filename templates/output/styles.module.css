@@ -155,6 +155,8 @@
 }
 
 .related-searches-result {
+  display: flex;
+  flex-wrap: wrap;
   padding: 1rem;
   border: 1px solid hsl(var(--card-color, var(--on-surface)) / 0.12);
   border-radius: 2px;
@@ -175,4 +177,8 @@
 
 .detach-dot:last-child::after {
   display: none;
+}
+
+.metadata {
+  max-width: 50rem;
 }

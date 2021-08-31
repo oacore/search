@@ -16,4 +16,30 @@ const formatDate = (date, options = {}) => {
   }
 }
 
-module.exports = { getAssetsPath, formatDate }
+const findDataProviders = (allDataProviders, articles) => {
+  articles.map((article) => {
+    const dataProvidersWithNames = article.dataProviders.map(
+      (dataProviderUrl) => {
+        const id = dataProviderUrl
+          .match(/(?<=data-providers\/).[0-9]+/)
+          .join('')
+
+        const dataProvider = allDataProviders.find(
+          (dp) => dp.id === parseInt(id, 10)
+        )
+
+        return {
+          dataProviderUrl,
+          name: dataProvider ? dataProvider.name : null,
+          id,
+        }
+      }
+    )
+    article.dataProviders = dataProvidersWithNames
+
+    return article
+  })
+  return articles
+}
+
+module.exports = { getAssetsPath, formatDate, findDataProviders }

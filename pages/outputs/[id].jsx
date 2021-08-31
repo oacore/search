@@ -60,13 +60,6 @@ export async function getServerSideProps({ params: routeParams }) {
   } catch (citationRetrievalError) {
     log(citationRetrievalError)
 
-    // If any error happens, we pretend, citation could not be generated
-    // or retrieved. This behaviour should be improved because we could generate
-    // citations ourselves using some library.
-    //
-    // Take your time to explore:
-    // - https://citeproc-js.readthedocs.io/en/latest/index.html
-    // - https://citationstyles.org
     data.citations = []
   }
 
