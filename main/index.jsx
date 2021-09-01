@@ -14,7 +14,7 @@ const Main = ({ children, initialState, loading }) => {
       <DesignProvider>
         <Head />
         <Layout loading={loading}>{children}</Layout>
-    </DesignProvider>
+      </DesignProvider>
     </StoreProvider>
   )
 }
