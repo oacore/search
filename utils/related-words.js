@@ -13,7 +13,6 @@ const relatedWords = (title, similarOutputs = []) => {
 
   const topicsTitle = []
   let i = 0
-  // eslint-disable-next-line consistent-return
   titleArray.forEach((item, index, array) => {
     if (
       item.length > lenghtWordLimit ||
