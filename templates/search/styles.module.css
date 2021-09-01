@@ -25,9 +25,9 @@
 }
 
 .pagination-item {
-  width: 45px;
-  height: 45px;
-  padding: 0 0.2rem;
+  width: 47px;
+  height: 47px;
+  padding: 0;
   color: var(--gray-800);
   cursor: pointer;
   border-radius: 50%;
@@ -51,5 +51,6 @@
 }
 
 .not-found {
+  margin-top: 1rem;
   text-align: center;
 }

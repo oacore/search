@@ -21,25 +21,27 @@ export const getServerSideProps = async ({ query: searchParams }) => {
     query: q,
   }
 
-  const offset = page - 1 > 0 ? (page - 1) * 10 : page - 1
+  if (page <= 1000) {
+    const offset = page - 1 > 0 ? (page - 1) * 10 : page - 1
 
-  const body = {
-    q,
-    offset,
-    limit,
-  }
-
-  try {
-    const response = await fetchWorks(body)
-
-    Object.assign(data, response)
-  } catch (error) {
-    log(error)
-    return {
-      props: { error },
-      notFound: true,
+    const body = {
+      q,
+      offset,
+      limit,
     }
-  }
+
+    try {
+      const response = await fetchWorks(body)
+
+      Object.assign(data, response)
+    } catch (error) {
+      log(error)
+      return {
+        props: { error },
+        notFound: true,
+      }
+    }
+  } else data.results = []
 
   return {
     props: { data },

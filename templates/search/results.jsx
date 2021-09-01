@@ -12,13 +12,17 @@ const Results = ({ works }) =>
       title,
       authors,
       abstract,
-      publishedDate: publicationDate,
+      publishedDate,
       yearPublished,
       publisher: publicationVenue,
       dataProviders,
       outputs,
     }) => {
       const outputId = outputs[0].match(/(?<=outputs\/).[0-9]+/).join('')
+
+      const publicationDate = publishedDate
+        ? formatDate(new Date(publishedDate))
+        : yearPublished !== null && toString(yearPublished)
 
       return (
         <SearchResult
@@ -30,10 +34,8 @@ const Results = ({ works }) =>
             id,
             title,
             author: authors,
-            publicationVenue,
-            publicationDate: publicationDate
-              ? formatDate(new Date(publicationDate))
-              : toString(yearPublished),
+            publicationVenue: publicationVenue || null,
+            publicationDate: publicationDate || null,
             thumbnailUrl: `//core.ac.uk/image/${outputId}/medium`,
             metadataLink: `//core.ac.uk/display/${outputId}`,
             fullTextLink: `//core.ac.uk/reader/${outputId}`,

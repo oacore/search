@@ -5,13 +5,15 @@ import classNames from '@oacore/design/lib/utils/class-names'
 import Pagination from './pagination'
 import Results from './results'
 import styles from './styles.module.css'
-import notFoundSvg from './images/notFound.svg'
+import QueryError from './errors/query'
 
 import { useStore, observe } from 'store'
 import Search from 'modules/search-layout'
+import useWindowDimensions from 'hooks/use-window-dimensions'
 
 const SearchTemplate = observe(({ data }) => {
   const { search } = useStore()
+  const { width } = useWindowDimensions()
 
   React.useEffect(() => {
     search.setWorks(data.results)
@@ -22,19 +24,12 @@ const SearchTemplate = observe(({ data }) => {
     <Search className={classNames.use(styles.layout, styles.search)}>
       {search.isLoading && <LoadingBar fixed />}
       <Search.Main>
-        {data.results.length === 0 && (
-          <div className={styles.notFound}>
-            <img src={notFoundSvg} alt="No results found" />
-            <h2>Sorry, we couldn’t find any results for “{data.query}”.</h2>
-            <p>
-              Double check your search request for any spelling errors or try a
-              different search term.
-            </p>
-          </div>
-        )}
+        {data.results.length === 0 && <QueryError query={data.query} />}
         {data.results.length > 0 && (
           <>
-            <p>{data.totalHits} research outputs found</p>
+            <p>
+              {data.totalHits.toLocaleString('en-GB')} research outputs found
+            </p>
             <Results works={search.works} />
             {data.currentPage === 1000 && (
               <div className={styles.more}>
@@ -47,7 +42,7 @@ const SearchTemplate = observe(({ data }) => {
               totalCount={data.totalHits}
               pageSize={data.limit}
               urlPage={data.currentPage}
-              siblingCount={2}
+              siblingCount={width > 500 ? 2 : 0}
             />
           </>
         )}
