@@ -93,7 +93,7 @@ const ScientificOutputTemplate = ({
       />
       <ReportCard
         id={id}
-        sourceFulltextUrls={sourceFulltextUrls}
+        sourceFulltextUrls={sourceFulltextUrls ? sourceFulltextUrls[0] : ''}
         dataProvider={dataProvider.name}
       />
     </Search.Sidebar>

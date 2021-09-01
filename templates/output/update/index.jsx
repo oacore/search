@@ -126,7 +126,7 @@ const UpdateTemplate = observe(() => {
       {isModalReportFormActive && <ReportFormModal id={id} />}
       {isModalReportSuccessActive && (
         <ReportSuccessModal
-          sourceFulltextUrls={sourceFulltextUrls[0]}
+          sourceFulltextUrls={sourceFulltextUrls ? sourceFulltextUrls[0] : ''}
           dataProvider={dataProvider.name}
           id={id}
         />
