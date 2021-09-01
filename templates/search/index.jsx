@@ -9,11 +9,11 @@ import QueryError from './errors/query'
 
 import { useStore, observe } from 'store'
 import Search from 'modules/search-layout'
-import useWindowDimensions from 'hooks/use-window-dimensions'
+import useWindowSize from 'hooks/use-window-size'
 
 const SearchTemplate = observe(({ data }) => {
   const { search } = useStore()
-  const { width } = useWindowDimensions()
+  const { width } = useWindowSize()
 
   React.useEffect(() => {
     search.setWorks(data.results)
