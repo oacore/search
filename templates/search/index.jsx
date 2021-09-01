@@ -9,11 +9,9 @@ import notFoundSvg from './images/notFound.svg'
 
 import { useStore, observe } from 'store'
 import Search from 'modules/search-layout'
-import useWindowDimensions from 'hooks/use-window-dimensions'
 
 const SearchTemplate = observe(({ data }) => {
   const { search } = useStore()
-  const { width } = useWindowDimensions()
 
   React.useEffect(() => {
     search.setWorks(data.results)
@@ -49,7 +47,7 @@ const SearchTemplate = observe(({ data }) => {
               totalCount={data.totalHits}
               pageSize={data.limit}
               urlPage={data.currentPage}
-              siblingCount={width > 500 ? 2 : 0}
+              siblingCount={2}
             />
           </>
         )}
