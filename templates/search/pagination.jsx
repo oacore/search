@@ -49,8 +49,8 @@ const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }) => {
   const setPageValue = (pageNumber) => {
     let pageValue = ''
 
-    if (pageNumber === 1 && currentPage >= 5) pageValue = 'FIRST'
-    else if (lastPage === pageNumber) pageValue = 'LAST'
+    if (pageNumber === 1 && currentPage >= 5) pageValue = 'first'
+    else if (lastPage === pageNumber && lastPage >= 5) pageValue = 'last'
     else pageValue = pageNumber
 
     return pageValue

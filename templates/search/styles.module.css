@@ -19,6 +19,10 @@
   list-style: none;
 }
 
+.pagination button {
+  text-transform: lowercase;
+}
+
 .pagination-dots {
   padding: 0 1rem;
   color: var(--gray-700);
