@@ -72,6 +72,7 @@ const SearchOutputsPage = ({ data }) => {
       <Head>
         <title>Search CORE</title>
       </Head>
+
       <Template data={data} />
     </>
   )
