@@ -1,4 +1,139 @@
+/* stylelint-disable declaration-no-important */
 .bar {
-  width: 100%;
-  padding: 1rem var(--page-padding-x);
+  position: sticky;
+  top: 3.2rem;
+  z-index: 10;
+  display: flex;
+  padding: 0.5rem var(--page-padding-x);
+  list-style-type: none;
+  background-color: var(--white);
+  box-shadow: var(--elevation-03);
+}
+
+.bar-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 7.57rem;
+  padding: 0.3rem 1rem;
+  color: var(--gray-700);
+  cursor: pointer;
+  border: 1px solid var(--gray-300);
+}
+
+.bar-item-active {
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.bar-item p {
+  margin: 0;
+  overflow: hidden;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.bar-item-wrapper:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.filter-box {
+  position: absolute;
+  top: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  max-height: 27rem;
+  padding: 0;
+  overflow-y: auto;
+  list-style-type: none;
+  background-color: var(--white);
+  box-shadow: var(--elevation-04);
+}
+
+.wide-box {
+  flex-wrap: wrap;
+  width: 30rem;
+}
+
+.year-box {
+  width: 30rem;
+  max-height: 27.5rem;
+  overflow: hidden;
+}
+
+.filter-box-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  padding: 1rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.filter-box-item:hover {
+  background-color: var(--gray-100);
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox + svg {
+  position: absolute;
+  color: var(--gray-700);
+}
+
+.checkbox:checked + svg {
+  color: var(--primary);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.label-text {
+  padding: 0;
+  margin-bottom: 0;
+  margin-left: 2rem;
+  color: var(--gray-800);
+  text-transform: capitalize;
+}
+
+.label-text-active {
+  color: var(--primary);
+}
+
+.label span {
+  color: var(--gray-700);
+}
+
+.text-field span {
+  order: 1 !important;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  margin: 0;
+  border: none;
+}
+
+.text-field span svg {
+  fill: var(--gray-700) !important;
+}
+
+.text-field input {
+  padding-left: 0;
+  font-size: 0.8rem;
+  color: var(--primary);
+  border: none;
+}
+
+.text-field input::placeholder {
+  color: var(--gray-800);
+}
+
+.slider {
+  margin-left: 5.5rem;
 }

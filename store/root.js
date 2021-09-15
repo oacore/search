@@ -5,6 +5,7 @@ import SimilarWorks from './similar-works'
 import DataProviders from './data-providers'
 import Report from './report'
 import Search from './search'
+import Filters from './filters'
 
 class Root {
   claim = new Claim()
@@ -17,6 +18,8 @@ class Root {
 
   report = new Report()
 
+  filters = new Filters()
+
   statistics
 
   constructor({ statistics }) {
@@ -24,6 +27,7 @@ class Root {
       statistics: observable,
       dataProviders: observable,
       claim: observable,
+      filters: observable,
       extend: action,
     })
 

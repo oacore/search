@@ -58,3 +58,15 @@
   margin-top: 1rem;
   text-align: center;
 }
+
+.slider {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.search svg g rect:hover + .hidden {
+  fill: blue;
+}

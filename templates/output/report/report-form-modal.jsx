@@ -4,9 +4,10 @@ import classNames from '@oacore/design/lib/utils/class-names'
 
 import { ROLES } from '../utils/dummy-data'
 import styles from './styles.module.css'
-import { useReportController, useInput } from '../hooks'
+import { useReportController } from '../hooks'
 
 import { observe } from 'store'
+import useInput from 'hooks/use-input'
 
 const ReportFormModal = observe(({ id: outputId }) => {
   const {

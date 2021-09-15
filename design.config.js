@@ -13,6 +13,8 @@ const icons = [
   'emoticon-sad-outline',
   'format-quote-open',
   'menu-down',
+  'checkbox-blank-outline',
+  'checkbox-marked',
 ]
 
 const iconsRoot = path.join(

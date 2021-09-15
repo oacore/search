@@ -32,7 +32,15 @@
     "next-images": "^1.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-motion": "^0.5.2",
     "throttle-debounce": "^3.0.1"
+  },
+  "peerDependencies": {
+    "d3-array": "^1.2.0",
+    "d3-format": "^1.2.0",
+    "d3-scale": "^1.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -45,6 +53,13 @@
     "@oacore/eslint-config-react": "^1.0.6",
     "@oacore/prettier-config": "^1.0.6",
     "@zeit/next-source-maps": "0.0.3",
+    "@storybook/addon-actions": "^3.1.2",
+    "@storybook/addon-centered": "^3.1.2",
+    "@storybook/addon-options": "^3.1.2",
+    "@storybook/addon-storyshots": "^3.1.2",
+    "d3-array": "^1.2.0",
+    "d3-format": "^1.2.0",
+    "d3-scale": "^1.0.6",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.15.0",
     "eslint-plugin-import": "^2.22.1",
@@ -53,6 +68,7 @@
     "eslint-plugin-react": "^7.21.5",
     "husky": "^4.3.0",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.1.7",
     "postcss-custom-media": "^8.0.0",
     "postcss-extend": "^1.0.5",
     "postcss-preset-env": "^6.7.0",

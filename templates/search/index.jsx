@@ -8,9 +8,9 @@ import styles from './styles.module.css'
 import QueryError from './errors/query'
 
 import { useStore, observe } from 'store'
-import Search from 'modules/search-layout'
 import useWindowSize from 'hooks/use-window-size'
-import Filters from '../../modules/filters'
+import Search from 'modules/search-layout'
+import Filters from 'modules/filters'
 
 const SearchTemplate = observe(({ data }) => {
   const { search } = useStore()
@@ -23,7 +23,7 @@ const SearchTemplate = observe(({ data }) => {
 
   return (
     <>
-      {/* <Filters /> */}
+      <Filters />
       <Search className={classNames.use(styles.layout, styles.search)}>
         {search.isLoading && <LoadingBar fixed />}
         <Search.Main>
@@ -51,7 +51,6 @@ const SearchTemplate = observe(({ data }) => {
             </>
           )}
         </Search.Main>
-
         <Search.Sidebar tag="aside">
           <div>Content</div>
         </Search.Sidebar>

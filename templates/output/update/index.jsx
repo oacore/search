@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Button, TextField, Form } from '@oacore/design/lib'
 import classNames from '@oacore/design/lib/utils/class-names'
 
-import { useInput, useReportController } from '../hooks'
+import { useReportController } from '../hooks'
 import ReportTypeModal from '../report/report-type-modal'
 import ReportFormModal from '../report/report-form-modal'
 import ReportSuccessModal from '../report/report-success-modal'
@@ -12,6 +12,7 @@ import faqSVG from './images/faq.svg'
 import takedownSVG from './images/takedown.svg'
 
 import { observe } from 'store'
+import useInput from 'hooks/use-input'
 
 const UpdateTemplate = observe(() => {
   const {
