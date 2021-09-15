@@ -6,6 +6,22 @@
   margin-bottom: 1rem;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-share {
+  color: var(--gray-800);
+  cursor: pointer;
+}
+
+.button-share:hover,
+.button-share:focus {
+  --button-overlay: none;
+  --button-focus-ring: none;
+}
+
 .search-results {
   margin-bottom: 3rem;
 }
@@ -67,6 +83,19 @@
   display: none;
 }
 
-.search svg g rect:hover + .hidden {
-  fill: blue;
+.notification {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  display: block;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--white);
+  background-color: var(--gray-600);
+  border-radius: 0.5rem;
+  transform: translate(-50%, -50%);
 }

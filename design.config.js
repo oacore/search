@@ -15,6 +15,7 @@ const icons = [
   'menu-down',
   'checkbox-blank-outline',
   'checkbox-marked',
+  'share-variant',
 ]
 
 const iconsRoot = path.join(
