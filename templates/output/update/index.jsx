@@ -87,13 +87,13 @@ const UpdateTemplate = observe(() => {
           )}
 
           <Button variant="contained" disabled={isLoading}>
-            SUBMIT UPDATE
+            SUBMIT
           </Button>
         </Form>
       </section>
       <section className={classNames.use(styles.links, styles.container)}>
         <h4 className="display">
-          Types of links you can use to fill up the Core URL field
+          Types of links you can use to fill up the CORE URL field
         </h4>
         <p>
           For example, suppose you wanted to remove the paper: &nbsp;
