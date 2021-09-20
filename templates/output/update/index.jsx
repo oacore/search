@@ -114,12 +114,12 @@ const UpdateTemplate = observe(() => {
       <section className={classNames.use(styles.faq, styles.container)}>
         <img src={faqSVG} alt="faq" />
         <p>
-          You can find out more informations about updating/deleting articles in
+          You can find out more information about updating/deleting articles in
           the &nbsp;
           <Link href="https://core.ac.uk/faq">
             &quot;Removing full text or metadata&quot;
           </Link>
-          &nbsp;section of the FAQ.
+          &nbsp;section of the FAQs.
         </p>
       </section>
       {isModalReportTypeActive && <ReportTypeModal />}

@@ -59,7 +59,7 @@ const ReportSuccessModal = observe(
                     className={styles.customLink}
                     href="https://core.ac.uk/services/repository-dashboard"
                   >
-                    CORE Repository Dashboard
+                    {dataProvider}
                   </Link>
                 </Card.Description>
               </div>
@@ -88,7 +88,7 @@ const ReportSuccessModal = observe(
         ) : (
           <>
             <Modal.Title tag="h3" className={styles.modalTitle}>
-              Thank you
+              Thank you!
             </Modal.Title>
             <Modal.Content>
               <div className={styles.modalCardImage}>
@@ -121,11 +121,11 @@ const BaseText = ({ operation, sourceUrl, dataProvider }) => (
     <Card.Description tag="span">
       We can
       {operation === 'issueWithContent' ? ' update ' : ' remove '}
-      the <strong>output</strong>&apos;s record available at{' '}
-      <Link href={sourceUrl}>{sourceUrl}</Link> <strong>only if </strong> the
-      the document was
+      the <strong>output</strong>&apos;s record available{' '}
+      {sourceUrl ? `at${(<Link href={sourceUrl}>{sourceUrl}</Link>)}` : ''}{' '}
+      <strong>only if </strong> the the document was
       {operation === 'issueWithContent' ? ' updated ' : ' removed '} at
-      <strong> {dataProvider} </strong>.
+      <strong> {dataProvider}</strong>.
     </Card.Description>
   </div>
 )

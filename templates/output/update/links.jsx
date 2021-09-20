@@ -14,7 +14,7 @@ const links = [
     label: 'A fulltext URL',
     link: 'https://core.ac.uk/download/pdf/82976757.pdf ',
   },
-  { id: 3, label: 'The CORE ID Directly', link: '82976757' },
+  { id: 3, label: 'Directly to core ID', link: '82976757' },
 ]
 
 const Links = () => (

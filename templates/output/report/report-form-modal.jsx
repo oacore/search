@@ -131,8 +131,8 @@ const ReportFormModal = observe(({ id: outputId }) => {
                 helper={
                   <>
                     {updateOption === 'takeDownFullText'
-                      ? 'Why this document should not be published'
-                      : 'What will you update on this page'}
+                      ? 'Why this document should not be published?'
+                      : 'What will you update on this page '}
                   </>
                 }
               />
