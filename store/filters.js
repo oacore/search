@@ -102,6 +102,24 @@ class Filters {
     this.groupedYearDates = groupedData.sort((a, b) => b.yearFrom - a.yearFrom)
   }
 
+  setActiveSortType(sortType) {
+    const activeFilterSuggestions = this.activeFilterSuggestions.map(
+      (item) => ({
+        ...item,
+        checked: false,
+      })
+    )
+    const foundedIndex = activeFilterSuggestions.findIndex(
+      (i) => i.id === sortType.id
+    )
+
+    const foundedElement = activeFilterSuggestions[foundedIndex]
+
+    foundedElement.checked = true
+
+    this.setActiveFilterSuggestions(activeFilterSuggestions)
+  }
+
   setActiveFilterSuggestions(items) {
     let sortedArray = []
 

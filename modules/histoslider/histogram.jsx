@@ -62,7 +62,7 @@ const Histogram = ({
           <svg width={width} height={height} className={styles.histograms}>
             <g transform={`translate(0, ${height})`}>
               <g transform="scale(1,-1)">
-                {data.map((bucket, i) => {
+                {data.map((bucket) => {
                   let color = unselectedColor
                   if (
                     selectionSorted[0] > bucket.x ||
@@ -76,11 +76,8 @@ const Histogram = ({
                     // Entire block is covered
                     color = selectedBarColor
                   }
-
                   return (
                     <g
-                      // eslint-disable-next-line react/no-array-index-key
-                      key={i}
                       transform={`translate(${
                         scale(bucket.x0) + barPadding / 2
                       } 0)`}

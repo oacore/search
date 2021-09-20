@@ -1,25 +1,24 @@
 import React from 'react'
-import { Icon } from '@oacore/design'
+import { Icon } from '@oacore/design/lib'
+import classNames from '@oacore/design/lib/utils/class-names'
 
 import styles from './styles.module.css'
 
-import { useStore, observe } from 'store'
-
-const FilterItem = observe(({ item }) => {
-  const { filters } = useStore()
-
+const FilterItem = ({
+  name,
+  checkedIcon,
+  unCheckedIcon,
+  item,
+  activeLabelClassName = '',
+  onChangeFunction,
+}) => {
   const onToggleChecked = (e) => {
     e.preventDefault()
-
-    filters.toggleCheckboxFilter(item)
+    onChangeFunction(item)
   }
 
   const setIcon = () =>
-    item.checked ? (
-      <Icon src="#checkbox-marked" />
-    ) : (
-      <Icon src="#checkbox-blank-outline" />
-    )
+    item.checked ? <Icon src={checkedIcon} /> : <Icon src={unCheckedIcon} />
 
   return (
     <li
@@ -28,20 +27,26 @@ const FilterItem = observe(({ item }) => {
       role="presentation"
     >
       <input
-        type="checkbox"
-        name={item.label}
-        id={item.label}
+        type="radio"
+        name={name}
+        id={name}
         checked={item.checked}
         onChange={onToggleChecked}
         className={styles.checkbox}
       />
       {setIcon()}
-      <label htmlFor={item.label} className={styles.label}>
-        <p className={styles.labelText}>{item.label}</p>
+      <label htmlFor={name} className={styles.label}>
+        <p
+          className={classNames
+            .use(styles.labelText)
+            .join(activeLabelClassName)}
+        >
+          {item.label ? item.label : `Since ${name}`}
+        </p>
         <span>{item.count.toLocaleString('en-GB')}</span>
       </label>
     </li>
   )
-})
+}
 
 export default FilterItem

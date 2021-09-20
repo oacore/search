@@ -20,5 +20,6 @@ export const sortItemsByBoolean = (array, boolean) =>
 /* For filters */
 export const setItemFirst = (array) => {
   const unclassifiedIndex = array.findIndex((i) => i.label === 'unclassified')
-  changeIndex(array, unclassifiedIndex, 0)
+
+  if (unclassifiedIndex >= 0) changeIndex(array, unclassifiedIndex, 0)
 }

@@ -1,26 +1,20 @@
 import React, { useEffect } from 'react'
 
-import Histoslider from '../histoslider'
-import YearFilterItem from './year-filter-item'
-import styles from './styles.module.css'
+import styles from '../styles.module.css'
+import FilterItem from '../filter-item'
 
 import { useStore, observe } from 'store'
+import Histoslider from 'modules/histoslider'
+import useHistogram from 'modules/histoslider/use-histogram'
 
 const YearFilter = observe(() => {
-  const [selection, setSelection] = React.useState(null)
   const { filters } = useStore()
+
+  const { selection, setSelection, onHistogramChange } = useHistogram
 
   useEffect(() => {
     filters.setGroupedYearDates([2010, 2015, 2018])
   }, [])
-
-  const onHistogramChange = (values) => {
-    if (values !== null) {
-      const selections = values.map((value) => Math.ceil(value))
-      if (selections[0] === selections[1]) selections[0] = selections[1] - 1
-      setSelection(selections)
-    } else setSelection(values)
-  }
 
   const yearsAxis = filters.activeFilterSuggestions
     .filter((item) => item.label !== 'unclassified')
@@ -39,10 +33,14 @@ const YearFilter = observe(() => {
   return (
     <>
       {filters.groupedYearDates.map((item) => (
-        <YearFilterItem
+        <FilterItem
           key={item.count}
+          name={item.yearFrom}
+          checkedIcon="#check"
+          unCheckedIcon={null}
           item={item}
-          onSelectActiveFilterItem={onSelectActiveFilterItem}
+          onChangeFunction={onSelectActiveFilterItem}
+          activeLabelClassName={item.checked && [styles.labelTextActive]}
         />
       ))}
 

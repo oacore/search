@@ -348,6 +348,27 @@ const FILTERS = [
       },
     ],
   },
+  {
+    id: 7,
+    label: 'sort by',
+    items: [
+      {
+        id: 1,
+        label: 'Relevant',
+        count: 14785,
+      },
+      {
+        id: 2,
+        label: 'Relevant with full text',
+        count: 2329,
+      },
+      {
+        id: 3,
+        label: 'Recent',
+        count: 583,
+      },
+    ],
+  },
 ]
 
 export default FILTERS
