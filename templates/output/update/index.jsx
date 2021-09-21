@@ -106,11 +106,12 @@ const UpdateTemplate = observe(() => {
         </p>
         <p> In the CORE URL box, you may enter one of the following:</p>
         <Links />
+        <p>
+          Please note that the form does not accept links which start with
+          &quot;https://core.ac.uk/<strong>search</strong> &quot;.
+        </p>
       </section>
-      <p className={classNames.use(styles.note, styles.container)}>
-        Please note that the form does not accept links which start with
-        &quot;https://core.ac.uk/<strong>search</strong> &quot;.
-      </p>
+      <div className={classNames.use(styles.note, styles.container)} />
       <section className={classNames.use(styles.faq, styles.container)}>
         <img src={faqSVG} alt="faq" />
         <p>
