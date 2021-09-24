@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Header } from '@oacore/design/lib/modules'
 
-import fetchWorks from 'api/search'
+import { fetchWorks } from 'api/search'
 import Template from 'templates/search'
 import { useStore } from 'store'
 

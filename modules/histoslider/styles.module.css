@@ -4,8 +4,7 @@
 }
 
 .range {
-  z-index: 6;
-  display: block;
+  position: relative;
 }
 
 .range-dots {
@@ -25,7 +24,7 @@
 .label-left,
 .label-right {
   position: absolute;
-  bottom: 4.3rem;
+  top: -1.5rem;
   padding: 0.5rem 1rem;
   color: var(--primary);
   background-color: var(--gray-100);
@@ -33,11 +32,11 @@
 }
 
 .label-left {
-  left: -4rem;
+  left: -5.5rem;
 }
 
 .label-right {
-  right: -4rem;
+  right: -5.5rem;
 }
 
 .info {

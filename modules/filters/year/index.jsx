@@ -2,64 +2,72 @@ import React, { useEffect } from 'react'
 
 import styles from '../styles.module.css'
 import FilterItem from '../filter-item'
+import CustomRange from './custom-range'
+import YearSelects from './selects'
+import useHistogram from './use-histogram'
 
 import { useStore, observe } from 'store'
 import Histoslider from 'modules/histoslider'
-import useHistogram from 'modules/histoslider/use-histogram'
 
 const YearFilter = observe(() => {
   const { filters } = useStore()
 
-  const { selection, setSelection, onHistogramChange } = useHistogram
+  const { selection, onHistogramChange } = useHistogram()
 
   useEffect(() => {
-    filters.setGroupedYearDates([2010, 2015, 2018])
+    filters.setGroupedYearDates([2014, 2016, 2018])
   }, [])
 
   const yearsAxis = filters.activeFilterSuggestions
-    .filter((item) => item.label !== 'unclassified')
-    .map((item) => ({
-      x0: item.label,
-      x: item.label + 1,
-      y: item.count,
+    .filter((suggestion) => suggestion.value !== 'unclassified')
+    .map((suggestion) => ({
+      x0: suggestion.value,
+      x: suggestion.value + 1,
+      y: suggestion.count,
     }))
 
   const onSelectActiveFilterItem = (selectedItem) => {
-    if (selectedItem.label === 'unclassified') setSelection(null)
-    else setSelection([selectedItem.yearFrom, 2019])
-    filters.setActiveYearDate(selectedItem)
+    let yearsRange
+    if (selectedItem.yearFrom)
+      yearsRange = [selectedItem.yearFrom, filters.maxYear + 1]
+    else yearsRange = selectedItem
+    // if (selectedItem.value === 'unclassified') onHistogramChange(null)
+    onHistogramChange(yearsRange)
+    if (yearsRange[0] === yearsRange[1]) yearsRange[0] = yearsRange[1] - 1
+
+    filters.setActiveYearDate(yearsRange)
+    return selectedItem
   }
 
   return (
     <>
-      {filters.groupedYearDates.map((item) => (
+      {filters.groupedYearDates.map((groupedYearDate) => (
         <FilterItem
-          key={item.count}
-          name={item.yearFrom}
+          key={groupedYearDate.count}
+          value={groupedYearDate.value}
           checkedIcon="#check"
           unCheckedIcon={null}
-          item={item}
+          item={groupedYearDate}
           onChangeFunction={onSelectActiveFilterItem}
-          activeLabelClassName={item.checked && [styles.labelTextActive]}
+          useActiveStyles
         />
       ))}
-
-      <div className={styles.yearFilter}>
-        <Histoslider
-          data={yearsAxis}
-          selection={selection}
-          className={styles.slider}
-          padding={20}
-          selectedBarColor="#EF8237"
-          rangeColor="#b75400"
-          unselectedColor="#E0E0E0"
-          handleLabelFormat="0.7P"
-          width={298}
-          showLabels
-          barPadding={2}
-          selectFunc={onHistogramChange}
-        />
-      </div>
+      <CustomRange count={filters.worksCount} />
+      <Histoslider
+        data={yearsAxis}
+        selection={selection}
+        className={styles.slider}
+        padding={20}
+        selectedBarColor="#EF8237"
+        rangeColor="#b75400"
+        unselectedColor="#E0E0E0"
+        handleLabelFormat="0.7P"
+        width={298}
+        showLabels
+        barPadding={2}
+        selectFunc={onSelectActiveFilterItem}
+      />
+      <YearSelects years={filters.activeFilterSuggestions} />
     </>
   )
 })

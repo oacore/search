@@ -1,0 +1,28 @@
+.year-selects {
+  display: none;
+  padding: 1rem 0;
+  margin-right: 2rem;
+}
+
+.select {
+  max-width: 4.5rem;
+  color: var(--primary);
+  background-color: var(--gray-100);
+  border: none;
+}
+
+.label {
+  display: block;
+  margin-right: 0.5rem;
+  margin-left: 1rem;
+  font-size: 0.8rem;
+  color: var(--gray-800);
+}
+
+@media (--screen-until-desktop) {
+  .year-selects {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

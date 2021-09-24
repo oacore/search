@@ -14,10 +14,10 @@ const Search = observe(() => {
 
   const handleOnInput = (e) => {
     const inputValue = e.target.value
-
     setValue(inputValue)
+
     const results = filterItems.filter((obj) =>
-      obj.label.toLowerCase().includes(inputValue.toLowerCase())
+      obj.value.toLowerCase().includes(inputValue.toLowerCase())
     )
 
     filters.setActiveFilterSuggestions(results)

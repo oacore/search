@@ -7,7 +7,7 @@ const FILTERS = [
     items: [
       {
         id: 2,
-        label: 'english',
+        label: 'MOSCOW',
         count: 1,
       },
       {

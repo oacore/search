@@ -10,11 +10,11 @@ import styles from './styles.module.css'
 import QueryError from './errors/query'
 import Notification from './notification'
 
+import Search from 'modules/search-layout'
+import Filters from 'modules/filters'
 import { useStore, observe } from 'store'
 import useWindowSize from 'hooks/use-window-size'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
-import Search from 'modules/search-layout'
-import Filters from 'modules/filters'
 
 const SearchTemplate = observe(({ data }) => {
   const router = useRouter()
@@ -35,7 +35,7 @@ const SearchTemplate = observe(({ data }) => {
 
   return (
     <>
-      <Filters />
+      {data.results.length > 0 && <Filters query={data.query} />}
       <Search className={classNames.use(styles.layout, styles.search)}>
         {search.isLoading && <LoadingBar fixed />}
         <Search.Main>

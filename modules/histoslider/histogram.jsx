@@ -12,8 +12,8 @@ const Histogram = ({
   showOnDrag,
   selection,
   reset,
-  selectedBarColor,
-  unselectedColor,
+  selectedBarColor = '#EF8237',
+  unselectedColor = '#E0E0E0',
   scale,
   barBorderRadius = 1,
   barPadding = 1,
@@ -21,7 +21,7 @@ const Histogram = ({
   max,
   dragging,
   onChange,
-  showLabels,
+  showLabels = false,
 }) => {
   const [style, setStyle] = React.useState({
     displayBox: 'block',
@@ -78,6 +78,7 @@ const Histogram = ({
                   }
                   return (
                     <g
+                      key={bucket.x0}
                       transform={`translate(${
                         scale(bucket.x0) + barPadding / 2
                       } 0)`}

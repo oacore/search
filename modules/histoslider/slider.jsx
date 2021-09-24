@@ -8,9 +8,9 @@ const Slider = ({
   width,
   height,
   reset,
-  rangeColor,
+  rangeColor = '#b75400',
   unselectedColor,
-  showLabels = true,
+  showLabels = false,
   sliderStyle = {
     overflow: 'visible',
     marginBottom: showLabels ? '4rem' : '0',
@@ -85,17 +85,16 @@ const Slider = ({
   const selectionSorted = Array.from(propsSelection).sort((a, b) => +a - +b)
 
   return (
-    <div>
+    <div className={styles.range}>
       {showLabels ? (
         <>
           <div className={styles.labelLeft}>{propsSelection[0]}</div>
-          <div className={styles.labelRight}>{propsSelection[1]}</div>
+          <div className={styles.labelRight}>{propsSelection[1] - 1}</div>
         </>
       ) : null}
 
       <svg
         style={sliderStyle}
-        className={styles.range}
         height={height}
         width={width}
         onMouseDown={dragFromSVG}

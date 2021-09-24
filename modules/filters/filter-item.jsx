@@ -5,11 +5,11 @@ import classNames from '@oacore/design/lib/utils/class-names'
 import styles from './styles.module.css'
 
 const FilterItem = ({
-  name,
+  value,
   checkedIcon,
   unCheckedIcon,
   item,
-  activeLabelClassName = '',
+  useActiveStyles,
   onChangeFunction,
 }) => {
   const onToggleChecked = (e) => {
@@ -17,8 +17,12 @@ const FilterItem = ({
     onChangeFunction(item)
   }
 
-  const setIcon = () =>
-    item.checked ? <Icon src={checkedIcon} /> : <Icon src={unCheckedIcon} />
+  // eslint-disable-next-line consistent-return
+  const setIcon = () => {
+    if (item.checked) return <Icon src={checkedIcon} />
+
+    if (unCheckedIcon) return <Icon src={unCheckedIcon} />
+  }
 
   return (
     <li
@@ -28,22 +32,22 @@ const FilterItem = ({
     >
       <input
         type="radio"
-        name={name}
-        id={name}
+        name={value}
+        id={value}
         checked={item.checked}
         onChange={onToggleChecked}
         className={styles.checkbox}
       />
       {setIcon()}
-      <label htmlFor={name} className={styles.label}>
+      <label htmlFor={value} className={styles.label}>
         <p
-          className={classNames
-            .use(styles.labelText)
-            .join(activeLabelClassName)}
+          className={classNames.use(styles.labelText, {
+            [styles.labelTextActive]: useActiveStyles && item.checked,
+          })}
         >
-          {item.label ? item.label : `Since ${name}`}
+          {item.yearFrom ? `Science ${item.yearFrom}` : value}
         </p>
-        <span>{item.count.toLocaleString('en-GB')}</span>
+        <span>{item.count && item.count.toLocaleString('en-GB')}</span>
       </label>
     </li>
   )

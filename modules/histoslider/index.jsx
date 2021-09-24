@@ -23,7 +23,6 @@ const Histoslider = ({
   const dragChange = (drag) => {
     setDragging(drag)
   }
-
   const onChange = (selection) => {
     const sortedData = data.sort((a, b) => +a.x0 - +b.x0)
 
@@ -31,14 +30,13 @@ const Histoslider = ({
       min(sortedData, ({ x0 }) => +x0),
       max(sortedData, ({ x }) => +x),
     ]
-
     selectFunc(
       selection.map((d) => Math.max(extent[0], Math.min(extent[1], +d)))
     )
   }
 
   const reset = () => {
-    selectFunc(null)
+    selectFunc([data[0].x0, data[data.length - 1].x0 + 1])
   }
 
   const innerHeight = height - padding * 2

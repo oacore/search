@@ -70,9 +70,16 @@ const useLoading = (initialState = false) => {
 const App = ({ Component: PageComponent, pageProps, statistics }) => {
   const loading = useLoading()
 
+  const router = useRouter()
+  const isSearchPage = router.asPath.match(/search/gm)
+
   return (
     <ErrorBoundary>
-      <Main initialState={{ statistics }} loading={loading}>
+      <Main
+        isSearchPage={isSearchPage}
+        initialState={{ statistics }}
+        loading={loading}
+      >
         <PageComponent {...pageProps} />
       </Main>
     </ErrorBoundary>
