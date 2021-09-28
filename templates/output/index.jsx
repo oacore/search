@@ -91,11 +91,7 @@ const ScientificOutputTemplate = ({
           hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
         }}
       />
-      <ReportCard
-        id={id}
-        sourceFulltextUrls={sourceFulltextUrls ? sourceFulltextUrls[0] : ''}
-        dataProvider={dataProvider.name}
-      />
+      <ReportCard id={id} dataProvider={dataProvider.name} />
     </Search.Sidebar>
   </Search>
 )

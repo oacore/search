@@ -19,7 +19,7 @@ const UpdateTemplate = observe(() => {
       isModalReportTypeActive,
       isModalReportFormActive,
       isModalReportSuccessActive,
-      output: { id, dataProvider, sourceFulltextUrls },
+      output: { id, dataProvider },
       error: errorMessage,
       isLoading,
     },
@@ -103,12 +103,13 @@ const UpdateTemplate = observe(() => {
           >
             CORE: aggregation use cases for open access
           </Link>
+          .
         </p>
         <p> In the CORE URL box, you may enter one of the following:</p>
         <Links />
         <p>
           Please note that the form does not accept links which start with
-          &quot;https://core.ac.uk/<strong>search</strong> &quot;.
+          &quot;https://core.ac.uk/<strong>search</strong>&quot;.
         </p>
       </section>
       <div className={classNames.use(styles.note, styles.container)} />
@@ -126,11 +127,7 @@ const UpdateTemplate = observe(() => {
       {isModalReportTypeActive && <ReportTypeModal />}
       {isModalReportFormActive && <ReportFormModal id={id} />}
       {isModalReportSuccessActive && (
-        <ReportSuccessModal
-          sourceFulltextUrls={sourceFulltextUrls ? sourceFulltextUrls[0] : ''}
-          dataProvider={dataProvider.name}
-          id={id}
-        />
+        <ReportSuccessModal dataProvider={dataProvider.name} id={id} />
       )}
     </>
   )
