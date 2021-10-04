@@ -117,7 +117,7 @@ const ClaimModalEdit = (props) => {
         <Button onClick={handleSubmit} variant="contained">
           Continue
         </Button>
-        <a href="https://dashboard.core.ac.uk/">Login dashboard</a>
+        <a href="https://dashboard.core.ac.uk/">Sign in to Dashboard</a>
       </Modal.Footer>
     </Modal>
   )
