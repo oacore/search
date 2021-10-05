@@ -109,29 +109,29 @@ class Filters {
     this.setActiveFilterSuggestions(activeFilterSuggestions)
     this.setIsVisibleClearButton(foundedElement.checked)
 
-    // const filterKey = this.activeFilter.value
-    // const filterValue =
-    //   filterKey === 'language'
-    //     ? element.code
-    //     : element.value.split(' ').join('%20')
+    const filterKey = this.activeFilter.value
+    const filterValue =
+      filterKey === 'language'
+        ? element.code
+        : element.value.split(' ').join('%20')
 
-    // const baseUrl = Router.asPath
-    // if (baseUrl.includes(filterValue)) {
-    //   Router.push(
-    //     baseUrl.replace(
-    //       `%20AND%20${filterKey}${
-    //         filterKey === 'authors' ? '.raw' : ''
-    //       }:%22${filterValue}%22`,
-    //       ''
-    //     )
-    //   )
-    // } else {
-    //   Router.push(
-    //     `${baseUrl} AND ${filterKey}${
-    //       filterKey === 'authors' ? '.raw' : ''
-    //     }:"${filterValue}"`
-    //   )
-    // }
+    const baseUrl = Router.asPath
+    if (baseUrl.includes(filterValue)) {
+      Router.push(
+        baseUrl.replace(
+          `%20AND%20${filterKey}${
+            filterKey === 'authors' ? '.raw' : ''
+          }:%22${filterValue}%22`,
+          ''
+        )
+      )
+    } else {
+      Router.push(
+        `${baseUrl} AND ${filterKey}${
+          filterKey === 'authors' ? '.raw' : ''
+        }:"${filterValue}"`
+      )
+    }
   }
 
   setActiveYearDate(yearsRange) {
