@@ -8,24 +8,24 @@ import sortFilterValues from './utils/sort-filter-values'
 
 import { observe, useStore } from 'store'
 
-const FiltersBar = observe(({ className, query }) => {
-  const [visibleClearButton, setVisibleClearButton] = React.useState(false)
+const FiltersBar = observe(({ className, query: initialQuery }) => {
   const [visibleFiltersBar, setVisibleFiltersBar] = React.useState(false)
-
+  const [query, setQuery] = React.useState(initialQuery)
   const { filters } = useStore()
 
   useEffect(() => {
-    filters.fetchFilters(query)
+    if (!initialQuery.includes(query)) {
+      setQuery(initialQuery)
+      filters.fetchFilters(initialQuery)
+    }
+  }, [initialQuery])
 
-    filters.data.map((filter) => {
-      const checkedItems = filter.items.find((item) => item.checked === true)
-      if (checkedItems) setVisibleClearButton(true)
-      return filter
-    })
-  }, [query])
+  useEffect(() => {
+    filters.fetchFilters(query)
+  }, [])
 
   const onHandleClickClear = () => {
-    // Set all checkbox  - false
+    filters.reset(query)
   }
 
   const onToggleFiltersBar = () => {
@@ -33,6 +33,7 @@ const FiltersBar = observe(({ className, query }) => {
   }
 
   if (filters.isLoading) return <LoadingBar fixed />
+
   return (
     <>
       <Button
@@ -53,7 +54,7 @@ const FiltersBar = observe(({ className, query }) => {
           <FilterBarItem key={filter.value} filter={filter} />
         ))}
         <FilterBarItem filter={sortFilterValues} />
-        {visibleClearButton && (
+        {filters.isVisibleClearButton && (
           <Button
             type="button"
             variant="text"

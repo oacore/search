@@ -42,4 +42,22 @@ const findDataProviders = (allDataProviders, articles) => {
   return articles
 }
 
-module.exports = { getAssetsPath, formatDate, findDataProviders }
+const findMinValueInArray = (array, key) =>
+  Math.min.apply(
+    null,
+    array.map((item) => item[key])
+  )
+
+const findMaxValueInArray = (array, key) =>
+  Math.max.apply(
+    null,
+    array.map((item) => item[key])
+  )
+
+module.exports = {
+  getAssetsPath,
+  formatDate,
+  findDataProviders,
+  findMaxValueInArray,
+  findMinValueInArray,
+}

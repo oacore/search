@@ -48,11 +48,11 @@
 
 .filter-box {
   position: absolute;
-  top: 3rem;
+  top: 3.03rem;
   display: flex;
   flex-direction: column;
   width: 17rem;
-  max-height: 25rem;
+  max-height: 26rem;
   padding: 0;
   overflow-y: auto;
   background-color: var(--white);

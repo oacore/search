@@ -16,24 +16,29 @@ const YearFilter = observe(() => {
 
   useEffect(() => {
     filters.setGroupedYearDates([2014, 2016, 2018])
+    const activeYears = filters.activeFilterSuggestions.filter(
+      (item) => item.checked === true
+    )
+    if (activeYears.length === 1)
+      onHistogramChange([activeYears[0].value, activeYears[0].value + 1])
+    else if (activeYears.length > 1)
+      onHistogramChange([activeYears[0].value, activeYears[1].value + 1])
   }, [])
 
-  const yearsAxis = filters.activeFilterSuggestions
-    .filter((suggestion) => suggestion.value !== 'unclassified')
-    .map((suggestion) => ({
-      x0: suggestion.value,
-      x: suggestion.value + 1,
-      y: suggestion.count,
-    }))
+  const yearsAxis = filters.activeFilterSuggestions.map((suggestion) => ({
+    x0: suggestion.value,
+    x: suggestion.value + 1,
+    y: suggestion.count,
+  }))
 
   const onSelectActiveFilterItem = (selectedItem) => {
     let yearsRange
     if (selectedItem.yearFrom)
       yearsRange = [selectedItem.yearFrom, filters.maxYear + 1]
     else yearsRange = selectedItem
-    // if (selectedItem.value === 'unclassified') onHistogramChange(null)
+
     onHistogramChange(yearsRange)
-    if (yearsRange[0] === yearsRange[1]) yearsRange[0] = yearsRange[1] - 1
+    // if (yearsRange[0] === yearsRange[1]) yearsRange[0] = yearsRange[1] - 1
 
     filters.setActiveYearDate(yearsRange)
     return selectedItem
@@ -58,13 +63,8 @@ const YearFilter = observe(() => {
         selection={selection}
         className={styles.slider}
         padding={20}
-        selectedBarColor="#EF8237"
-        rangeColor="#b75400"
-        unselectedColor="#E0E0E0"
-        handleLabelFormat="0.7P"
         width={298}
         showLabels
-        barPadding={2}
         selectFunc={onSelectActiveFilterItem}
       />
       <YearSelects years={filters.activeFilterSuggestions} />

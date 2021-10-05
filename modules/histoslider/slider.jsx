@@ -9,7 +9,7 @@ const Slider = ({
   height,
   reset,
   rangeColor = '#b75400',
-  unselectedColor,
+  unselectedColor = '#E0E0E0',
   showLabels = false,
   sliderStyle = {
     overflow: 'visible',

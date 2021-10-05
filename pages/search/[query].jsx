@@ -56,9 +56,9 @@ const SearchOutputsPage = ({ data }) => {
 
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {
-      router.push(`${searchTerm}`)
+      router.push(searchTerm)
     },
-    initQuery: '',
+    initQuery: data.query.replace(/ .*/, ''),
     searchBarProps: {
       label: `Search ${totalArticlesCount} papers around the world`,
       placeholder: `Search ${totalArticlesCount} papers around the world`,
@@ -72,7 +72,6 @@ const SearchOutputsPage = ({ data }) => {
       <Head>
         <title>Search CORE</title>
       </Head>
-
       <Template data={data} />
     </>
   )

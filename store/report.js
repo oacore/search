@@ -53,7 +53,6 @@ class Report {
   @invalidatePreviousRequests
   async submit(data) {
     data.updateOption = this.updateOption
-
     data.role = this.role
     this.isLoading = true
     try {

@@ -1,4 +1,5 @@
 import { action, computed, makeObservable, observable } from 'mobx'
+import Router from 'next/router'
 
 import {
   setItemFirst,
@@ -6,8 +7,9 @@ import {
   sortItemsByBoolean,
 } from '../utils/sort'
 import { fetchAggregations } from '../api/search'
+import { findMaxValueInArray, findMinValueInArray } from '../utils/helpers'
 
-import transformFiltersData from 'utils/filters-transform'
+import transformFiltersData, { checkActiveItems } from 'utils/filters-transform'
 import invalidatePreviousRequests from 'utils/invalidatePreviousRequests'
 
 class Filters {
@@ -32,6 +34,8 @@ class Filters {
 
   worksCount = null
 
+  isVisibleClearButton = false
+
   constructor() {
     makeObservable(this, {
       data: observable,
@@ -40,6 +44,7 @@ class Filters {
       groupedYearDates: observable,
       isLoading: observable,
       worksCount: observable,
+      isVisibleClearButton: observable,
       setData: action,
       setActiveFilter: action,
       setActiveFilterSuggestions: action,
@@ -47,6 +52,7 @@ class Filters {
       setGroupedYearDates: action,
       setWorksCount: action,
       setIsLoading: action,
+      setIsVisibleClearButton: action,
       reset: action,
       maxYear: computed,
     })
@@ -60,18 +66,22 @@ class Filters {
     this.isLoading = isLoading
   }
 
+  setIsVisibleClearButton(boolean) {
+    this.isVisibleClearButton = boolean || checkActiveItems(this.data)
+  }
+
   @invalidatePreviousRequests
   async fetchFilters(query) {
-    this.reset()
     this.setIsLoading(true)
     try {
       const { aggregations } = await fetchAggregations({
         aggregations: this.aggregations,
-        q: query,
+        q: query.replace(/ .*/, ''),
       })
 
-      const filters = transformFiltersData(aggregations)
+      const filters = transformFiltersData(aggregations, query)
       this.setData(filters)
+      this.setIsVisibleClearButton()
     } catch (error) {
       console.error(error)
     } finally {
@@ -81,11 +91,6 @@ class Filters {
 
   setData(arr) {
     this.data = arr.map((filter) => {
-      filter.items = filter.items.map((item) => {
-        item.checked = false
-        if (item.label === 'english') item.checked = true
-        return item
-      })
       sortItemsByNumberDesc(filter.items, 'count')
       setItemFirst(filter.items)
       return filter
@@ -93,42 +98,81 @@ class Filters {
   }
 
   toggleCheckboxFilter(element) {
-    const foundedIndex = this.activeFilterSuggestions.findIndex(
+    const { activeFilterSuggestions } = this
+    const foundedIndex = activeFilterSuggestions.findIndex(
       (i) => i.value === element.value
     )
 
-    const foundedElement = this.activeFilterSuggestions[foundedIndex]
-
+    const foundedElement = activeFilterSuggestions[foundedIndex]
     foundedElement.checked = !foundedElement.checked
 
-    this.setActiveFilterSuggestions(this.activeFilterSuggestions)
+    this.setActiveFilterSuggestions(activeFilterSuggestions)
+    this.setIsVisibleClearButton(foundedElement.checked)
 
-    // Here will be api call
+    // const filterKey = this.activeFilter.value
+    // const filterValue =
+    //   filterKey === 'language'
+    //     ? element.code
+    //     : element.value.split(' ').join('%20')
 
-    // if (element.checked) {
+    // const baseUrl = Router.asPath
+    // if (baseUrl.includes(filterValue)) {
+    //   Router.push(
+    //     baseUrl.replace(
+    //       `%20AND%20${filterKey}${
+    //         filterKey === 'authors' ? '.raw' : ''
+    //       }:%22${filterValue}%22`,
+    //       ''
+    //     )
+    //   )
     // } else {
+    //   Router.push(
+    //     `${baseUrl} AND ${filterKey}${
+    //       filterKey === 'authors' ? '.raw' : ''
+    //     }:"${filterValue}"`
+    //   )
     // }
   }
 
   setActiveYearDate(yearsRange) {
-    this.groupedYearDates = this.groupedYearDates.map((item) => ({
-      ...item,
-      checked: false,
-    }))
-    const foundedIndex = this.groupedYearDates.findIndex(
-      (i) => i.yearFrom === yearsRange[0] && yearsRange[1] === this.maxYear + 1
+    const activeYears = this.activeFilterSuggestions.filter(
+      (i) => i.value === yearsRange[0] || i.value === yearsRange[1] - 1
     )
-    const foundedElement = this.groupedYearDates[foundedIndex]
 
-    if (foundedIndex >= 0) {
-      foundedElement.checked = true
+    const activeYearsMinValue = findMinValueInArray(activeYears, 'value')
+    const activeYearsMaxValue = findMaxValueInArray(activeYears, 'value')
+
+    const groupedData = this.groupedYearDates.map((year) => ({
+      ...year,
+      checked:
+        activeYears.length > 1 &&
+        activeYearsMinValue === year.yearFrom &&
+        activeYearsMaxValue === this.maxYear,
+    }))
+
+    if (groupedData.filter((year) => year.checked).length > 0)
       this.worksCount = null
-    } else this.setWorksCount(yearsRange)
+    else this.setWorksCount([activeYearsMinValue, activeYearsMaxValue + 1])
 
-    return this.groupedYearDates
+    this.groupedYearDates = groupedData
+
+    const baseUrl = Router.asPath.replace(/%20AND%20\(year(.*)\)/, '')
+    const filterKey = this.activeFilter.value
+
+    Router.push(
+      `${baseUrl} AND (${filterKey}>=${yearsRange[0]} AND ${filterKey}<=${
+        yearsRange[1] - 1
+      })`
+    )
   }
 
-  setGroupedYearDates(yearFrom, yearTo = 2021) {
+  setGroupedYearDates(yearFrom, yearTo = this.maxYear) {
+    const activeYears = this.activeFilterSuggestions.filter(
+      (item) => item.checked === true
+    )
+
+    const activeYearsMinValue = findMinValueInArray(activeYears, 'value')
+    const activeYearsMaxValue = findMaxValueInArray(activeYears, 'value')
     const groupedData = yearFrom.map((year) => {
       const worksCount = this.activeFilterSuggestions
         .filter((item) => item.value >= year && item.value <= yearTo)
@@ -137,14 +181,16 @@ class Filters {
       return {
         yearFrom: year,
         count: worksCount,
-        checked: false,
+        checked:
+          activeYears.length > 1 &&
+          activeYears[0].value === year &&
+          activeYears[1].value === yearTo,
       }
     })
 
-    const unknown = this.activeFilterSuggestions.find(
-      (item) => item.value === 'unknown'
-    )
-    if (unknown) groupedData.unshift(unknown)
+    if (groupedData.filter((year) => year.checked).length === 0)
+      this.setWorksCount([activeYearsMinValue, activeYearsMaxValue + 1])
+
     this.groupedYearDates = groupedData.sort((a, b) => b.yearFrom - a.yearFrom)
   }
 
@@ -169,24 +215,29 @@ class Filters {
     const foundedElement = activeFilterSuggestions[foundedIndex]
     foundedElement.checked = true
     this.setActiveFilterSuggestions(activeFilterSuggestions)
+    const baseUrl = Router.asPath.replace(/&sort=(\w+)/g, '')
+    Router.push(`${baseUrl}&sort=${sortType.value}`)
   }
 
   setActiveFilterSuggestions(items) {
     let sortedArray = []
     sortItemsByNumberDesc(items, 'count')
-    setItemFirst(items)
     sortedArray = sortItemsByBoolean(items, 'checked')
     this.activeFilterSuggestions = sortedArray
   }
 
   get maxYear() {
-    return this.activeFilterSuggestions.reduce((prev, current) =>
-      prev.value > current.value ? prev : current
-    ).value
+    return Math.max.apply(
+      null,
+      this.activeFilterSuggestions.map((item) => item.value)
+    )
   }
 
-  reset() {
-    this.data = []
+  reset(query) {
+    this.data = this.data.map((filter) => {
+      filter.items = filter.items.map((item) => ({ ...item, checked: false }))
+      return filter
+    })
     this.activeFilter = {}
     this.activeFilterSuggestions = []
     this.aggregations = [
@@ -197,8 +248,9 @@ class Filters {
       'publisher',
       'fieldsOfStudy',
     ]
-    this.groupedYearDates = []
     this.isLoading = false
+    this.isVisibleClearButton = false
+    Router.push(query.replace(/ .*/, ''))
   }
 }
 

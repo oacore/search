@@ -45,7 +45,7 @@ const FilterItem = ({
             [styles.labelTextActive]: useActiveStyles && item.checked,
           })}
         >
-          {item.yearFrom ? `Science ${item.yearFrom}` : value}
+          {item.yearFrom ? `Since ${item.yearFrom}` : value}
         </p>
         <span>{item.count && item.count.toLocaleString('en-GB')}</span>
       </label>

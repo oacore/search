@@ -12,7 +12,6 @@ const FilterBarItem = observe(({ filter }) => {
   const [isComponentVisible, setIsComponentVisible] = useState(false)
 
   const node = useRef()
-
   const { filters } = useStore()
 
   const onToggleFilterBox = () => {
@@ -35,6 +34,7 @@ const FilterBarItem = observe(({ filter }) => {
 
   const onChangeSortFilter = (element) => {
     filters.setActiveSortType(element)
+    hideFilterBox()
   }
 
   const component = setFilterBox(

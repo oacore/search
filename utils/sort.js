@@ -8,10 +8,10 @@ export const changeIndex = (input, from, to) => {
 }
 
 export const sortItemsByNumberDesc = (array, number) =>
-  array.slice().sort((a, b) => b[number] - a[number])
+  array.sort((a, b) => b[number] - a[number])
 
 export const sortItemsByNumberAsc = (array, number) =>
-  array.slice().sort((a, b) => b[number] + a[number])
+  array.sort((a, b) => b[number] + a[number])
 
 export const sortItemsByBoolean = (array, boolean) =>
   array.sort((a, b) => (a[boolean] === b[boolean] ? 0 : a[boolean] ? -1 : 1))

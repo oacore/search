@@ -1,5 +1,14 @@
 import data from '../data/languages.json'
 
+export const checkActiveItems = (filters) => {
+  const activeItems = filters.filter((filter) => {
+    const checkedItems = filter.items.find((item) => item.checked === true)
+    return checkedItems
+  })
+  const isActiveItems = activeItems.length > 0
+  return isActiveItems
+}
+
 const setFilterLabels = (value) => {
   let label = ''
 
@@ -30,7 +39,7 @@ const setFilterLabels = (value) => {
   return label
 }
 
-const transformFiltersData = (initialObject) => {
+const transformFiltersData = (initialObject, query) => {
   const arrayOfObj = Object.entries(initialObject)
     .map((e) => ({
       value: e[0],
@@ -40,7 +49,7 @@ const transformFiltersData = (initialObject) => {
 
   const filters = arrayOfObj.map((obj) => {
     const items = Object.entries(obj.items).map((e) => ({
-      value: e[0],
+      value: e[0].replace(/['"]+/g, ''),
       count: e[1],
     }))
 
@@ -66,6 +75,18 @@ const transformFiltersData = (initialObject) => {
       filter.value = parseInt(filter.value, 10)
       return filter
     })
+
+  filters.map((filter) => {
+    filter.items = filter.items.map((item) => ({
+      ...item,
+      checked:
+        query.includes('AND') &&
+        (query.includes(item.value.toString()) ||
+          query.includes(`"${item.code}"`)),
+    }))
+
+    return filter
+  })
 
   return filters
 }
