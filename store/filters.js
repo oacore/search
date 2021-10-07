@@ -110,27 +110,34 @@ class Filters {
     this.setIsVisibleClearButton(foundedElement.checked)
 
     const filterKey = this.activeFilter.value
-    const filterValue =
-      filterKey === 'language'
-        ? element.code
-        : element.value.split(' ').join('%20')
+    const filterValue = filterKey === 'language' ? element.code : element.value
+    const { query } = Router.query
 
-    const baseUrl = Router.asPath
-    if (baseUrl.includes(filterValue)) {
-      Router.push(
-        baseUrl.replace(
-          `%20AND%20${filterKey}${
-            filterKey === 'authors' ? '.raw' : ''
-          }:%22${filterValue}%22`,
-          ''
-        )
-      )
+    if (query.includes(filterValue)) {
+      Router.push({
+        pathname: '/search/[query]',
+        query: {
+          ...Router.query,
+          query: query.replace(
+            ` AND ${filterKey}${
+              filterKey === 'authors' ? '.raw' : ''
+            }:"${filterValue}"`,
+            ''
+          ),
+          page: 1,
+        },
+      })
     } else {
-      Router.push(
-        `${baseUrl} AND ${filterKey}${
-          filterKey === 'authors' ? '.raw' : ''
-        }:"${filterValue}"`
-      )
+      Router.push({
+        pathname: '/search/[query]',
+        query: {
+          ...Router.query,
+          query: `${query} AND ${filterKey}${
+            filterKey === 'authors' ? '.raw' : ''
+          }:"${filterValue}"`,
+          page: 1,
+        },
+      })
     }
   }
 
@@ -156,14 +163,19 @@ class Filters {
 
     this.groupedYearDates = groupedData
 
-    const baseUrl = Router.asPath.replace(/%20AND%20\(year(.*)\)/, '')
     const filterKey = this.activeFilter.value
+    const { query } = Router.query
 
-    Router.push(
-      `${baseUrl} AND (${filterKey}>=${yearsRange[0]} AND ${filterKey}<=${
-        yearsRange[1] - 1
-      })`
-    )
+    Router.push({
+      pathname: '/search/[query]',
+      query: {
+        ...Router.query,
+        query: `${query.replace(/ AND \(year(.*)\)/g, '')} AND (${filterKey}>=${
+          yearsRange[0]
+        } AND ${filterKey}<=${yearsRange[1] - 1})`,
+        page: 1,
+      },
+    })
   }
 
   setGroupedYearDates(yearFrom, yearTo = this.maxYear) {
@@ -215,8 +227,15 @@ class Filters {
     const foundedElement = activeFilterSuggestions[foundedIndex]
     foundedElement.checked = true
     this.setActiveFilterSuggestions(activeFilterSuggestions)
-    const baseUrl = Router.asPath.replace(/&sort=(\w+)/g, '')
-    Router.push(`${baseUrl}&sort=${sortType.value}`)
+
+    Router.push({
+      pathname: '/search/[query]',
+      query: {
+        ...Router.query,
+        sort: sortType.value,
+        page: 1,
+      },
+    })
   }
 
   setActiveFilterSuggestions(items) {

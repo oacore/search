@@ -14,10 +14,10 @@ const log = (...args) => {
 }
 
 export const getServerSideProps = async ({ query: searchParams }) => {
-  const { query: q, page = 1, limit = 10 } = searchParams
+  const { query: q, page = 1, limit = 10, sort } = searchParams
 
   const data = {
-    currentPage: parseInt(page, 10),
+    currentPage: page,
     query: q,
   }
 
@@ -28,11 +28,11 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       q,
       offset,
       limit,
+      sort: sort ? [sort] : null,
     }
 
     try {
       const response = await fetchWorks(body)
-
       Object.assign(data, response)
     } catch (error) {
       log(error)

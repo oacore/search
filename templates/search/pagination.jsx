@@ -18,7 +18,9 @@ const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }) => {
 
   const routerParams = router.query
 
-  const baseURL = `/search/${routerParams.query}?page=`
+  const baseURL = `/search/${routerParams.query}${
+    routerParams.sort ? `?sort=${routerParams.sort}&page=` : '?page='
+  }`
 
   const onPageChange = (number) => {
     router.push(`${baseURL}${number}`)
