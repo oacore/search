@@ -1,11 +1,11 @@
 import data from '../data/languages.json'
+import sortFilterValues from '../modules/filters/utils/sort-filter-values'
 
 export const checkActiveItems = (filters) => {
-  const activeItems = filters.filter((filter) => {
-    const checkedItems = filter.items.find((item) => item.checked === true)
-    return checkedItems
-  })
-  const isActiveItems = activeItems.length > 0
+  const isActiveItems = filters
+    .filter((filter) => filter.label !== 'sort by')
+    .find((filter) => filter.items.find((item) => item.checked === true))
+
   return isActiveItems
 }
 
@@ -58,6 +58,7 @@ const transformFiltersData = (initialObject, query) => {
       items,
     }
   })
+  filters.push(sortFilterValues)
 
   filters
     .find((item) => item.value === 'language')
@@ -80,9 +81,8 @@ const transformFiltersData = (initialObject, query) => {
     filter.items = filter.items.map((item) => ({
       ...item,
       checked:
-        query.includes('AND') &&
-        (query.includes(item.value.toString()) ||
-          query.includes(`"${item.code}"`)),
+        query.includes(item.value.toString()) ||
+        query.includes(`"${item.code}"`),
     }))
 
     return filter

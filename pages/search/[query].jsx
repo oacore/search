@@ -14,11 +14,12 @@ const log = (...args) => {
 }
 
 export const getServerSideProps = async ({ query: searchParams }) => {
-  const { query: q, page = 1, limit = 10, sort } = searchParams
+  const { query: q, page = 1, limit = 10, sort = 'relevance' } = searchParams
 
   const data = {
-    currentPage: page,
+    currentPage: parseInt(page, 10),
     query: q,
+    sort,
   }
 
   if (page <= 1000) {
@@ -28,7 +29,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       q,
       offset,
       limit,
-      sort: sort ? [sort] : null,
+      sort,
     }
 
     try {

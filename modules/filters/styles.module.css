@@ -87,6 +87,16 @@
   background-color: var(--gray-100);
 }
 
+.filter-box-item-active {
+  pointer-events: none;
+  cursor: unset;
+}
+
+.filter-box-item-active .label-text,
+.label-text-active {
+  color: var(--primary);
+}
+
 .checkbox {
   display: none;
 }
@@ -116,10 +126,6 @@
   line-height: 1.4;
   color: var(--gray-800);
   text-transform: capitalize;
-}
-
-.label-text-active {
-  color: var(--primary);
 }
 
 .label span {

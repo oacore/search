@@ -4,11 +4,10 @@ import { classNames } from '@oacore/design/lib/utils'
 
 import styles from './styles.module.css'
 import FilterBarItem from './bar-item'
-import sortFilterValues from './utils/sort-filter-values'
 
 import { observe, useStore } from 'store'
 
-const FiltersBar = observe(({ className, query: initialQuery }) => {
+const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
   const [visibleFiltersBar, setVisibleFiltersBar] = React.useState(false)
   const [query, setQuery] = React.useState(initialQuery)
   const { filters } = useStore()
@@ -16,12 +15,12 @@ const FiltersBar = observe(({ className, query: initialQuery }) => {
   useEffect(() => {
     if (!initialQuery.includes(query)) {
       setQuery(initialQuery)
-      filters.fetchFilters(initialQuery)
+      filters.fetchFilters(initialQuery, sortType)
     }
   }, [initialQuery])
 
   useEffect(() => {
-    filters.fetchFilters(query)
+    filters.fetchFilters(query, sortType)
   }, [])
 
   const onHandleClickClear = () => {
@@ -53,7 +52,6 @@ const FiltersBar = observe(({ className, query: initialQuery }) => {
         {filters.data.map((filter) => (
           <FilterBarItem key={filter.value} filter={filter} />
         ))}
-        <FilterBarItem filter={sortFilterValues} />
         {filters.isVisibleClearButton && (
           <Button
             type="button"

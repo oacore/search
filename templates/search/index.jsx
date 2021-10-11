@@ -35,7 +35,9 @@ const SearchTemplate = observe(({ data }) => {
 
   return (
     <>
-      {data.results.length > 0 && <Filters query={data.query} />}
+      {data.results.length > 0 && (
+        <Filters query={data.query} sortType={data.sort} />
+      )}
       <Search className={classNames.use(styles.layout, styles.search)}>
         {search.isLoading && <LoadingBar fixed />}
         <Search.Main>

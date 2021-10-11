@@ -71,7 +71,7 @@ class Filters {
   }
 
   @invalidatePreviousRequests
-  async fetchFilters(query) {
+  async fetchFilters(query, sortType) {
     this.setIsLoading(true)
     try {
       const { aggregations } = await fetchAggregations({
@@ -79,7 +79,8 @@ class Filters {
         q: query.replace(/ .*/, ''),
       })
 
-      const filters = transformFiltersData(aggregations, query)
+      const fullQuery = `${query}?sort=${sortType}`
+      const filters = transformFiltersData(aggregations, fullQuery)
       this.setData(filters)
       this.setIsVisibleClearButton()
     } catch (error) {
@@ -95,6 +96,7 @@ class Filters {
       setItemFirst(filter.items)
       return filter
     })
+    this.setGroupedYearDates([2014, 2016, 2018])
   }
 
   toggleCheckboxFilter(element) {
@@ -142,12 +144,25 @@ class Filters {
   }
 
   setActiveYearDate(yearsRange) {
-    const activeYears = this.activeFilterSuggestions.filter(
-      (i) => i.value === yearsRange[0] || i.value === yearsRange[1] - 1
+    const activeFilterSuggestions = this.activeFilterSuggestions.map((item) => {
+      item.checked = false
+      return item
+    })
+
+    const activeYears = activeFilterSuggestions.filter(
+      (i) => i.value === yearsRange[0] || i.value === yearsRange[1]
     )
 
     const activeYearsMinValue = findMinValueInArray(activeYears, 'value')
     const activeYearsMaxValue = findMaxValueInArray(activeYears, 'value')
+
+    yearsRange.map((rangeItem) => {
+      activeFilterSuggestions.map((suggestion) => {
+        if (rangeItem === suggestion.value) suggestion.checked = true
+        return suggestion
+      })
+      return yearsRange
+    })
 
     const groupedData = this.groupedYearDates.map((year) => ({
       ...year,
@@ -161,6 +176,7 @@ class Filters {
       this.worksCount = null
     else this.setWorksCount([activeYearsMinValue, activeYearsMaxValue + 1])
 
+    this.activeFilterSuggestions = activeFilterSuggestions
     this.groupedYearDates = groupedData
 
     const filterKey = this.activeFilter.value
@@ -172,21 +188,24 @@ class Filters {
         ...Router.query,
         query: `${query.replace(/ AND \(year(.*)\)/g, '')} AND (${filterKey}>=${
           yearsRange[0]
-        } AND ${filterKey}<=${yearsRange[1] - 1})`,
+        } AND ${filterKey}<=${yearsRange[1]})`,
         page: 1,
       },
     })
+    this.setIsVisibleClearButton(true)
   }
 
   setGroupedYearDates(yearFrom, yearTo = this.maxYear) {
-    const activeYears = this.activeFilterSuggestions.filter(
-      (item) => item.checked === true
-    )
+    const datesFilter = this.data.find(
+      (filter) => filter.label === 'year'
+    ).items
+    const activeYears = datesFilter.filter((item) => item.checked === true)
 
     const activeYearsMinValue = findMinValueInArray(activeYears, 'value')
     const activeYearsMaxValue = findMaxValueInArray(activeYears, 'value')
+
     const groupedData = yearFrom.map((year) => {
-      const worksCount = this.activeFilterSuggestions
+      const worksCount = datesFilter
         .filter((item) => item.value >= year && item.value <= yearTo)
         .reduce((prev, curr) => prev + curr.count, 0)
 
@@ -199,8 +218,10 @@ class Filters {
           activeYears[1].value === yearTo,
       }
     })
-
-    if (groupedData.filter((year) => year.checked).length === 0)
+    if (
+      !groupedData.find((year) => year.checked) &&
+      datesFilter.map((item) => item.checked === true).length === 0
+    )
       this.setWorksCount([activeYearsMinValue, activeYearsMaxValue + 1])
 
     this.groupedYearDates = groupedData.sort((a, b) => b.yearFrom - a.yearFrom)
@@ -215,12 +236,10 @@ class Filters {
   }
 
   setActiveSortType(sortType) {
-    const activeFilterSuggestions = this.activeFilterSuggestions.map(
-      (item) => ({
-        ...item,
-        checked: false,
-      })
-    )
+    const activeFilterSuggestions = this.activeFilterSuggestions.map((item) => {
+      item.checked = false
+      return item
+    })
     const foundedIndex = activeFilterSuggestions.findIndex(
       (i) => i.value === sortType.value
     )
@@ -248,17 +267,19 @@ class Filters {
   get maxYear() {
     return Math.max.apply(
       null,
-      this.activeFilterSuggestions.map((item) => item.value)
+      this.data
+        .find((item) => item.label === 'year')
+        .items.map((item) => item.value)
     )
   }
 
   reset(query) {
     this.data = this.data.map((filter) => {
-      filter.items = filter.items.map((item) => ({ ...item, checked: false }))
+      if (filter.label !== 'sort by')
+        filter.items = filter.items.map((item) => ({ ...item, checked: false }))
       return filter
     })
     this.activeFilter = {}
-    this.activeFilterSuggestions = []
     this.aggregations = [
       'authors',
       'language',
@@ -269,7 +290,14 @@ class Filters {
     ]
     this.isLoading = false
     this.isVisibleClearButton = false
-    Router.push(query.replace(/ .*/, ''))
+    Router.push({
+      pathname: '/search/[query]',
+      query: {
+        ...Router.query,
+        query: query.replace(/ .*/, ''),
+        page: 1,
+      },
+    })
   }
 }
 

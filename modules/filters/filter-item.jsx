@@ -20,13 +20,14 @@ const FilterItem = ({
   // eslint-disable-next-line consistent-return
   const setIcon = () => {
     if (item.checked) return <Icon src={checkedIcon} />
-
     if (unCheckedIcon) return <Icon src={unCheckedIcon} />
   }
 
   return (
     <li
-      className={styles.filterBoxItem}
+      className={classNames.use(styles.filterBoxItem, {
+        [styles.filterBoxItemActive]: useActiveStyles && item.checked,
+      })}
       onClick={onToggleChecked}
       role="presentation"
     >
@@ -40,11 +41,7 @@ const FilterItem = ({
       />
       {setIcon()}
       <label htmlFor={value} className={styles.label}>
-        <p
-          className={classNames.use(styles.labelText, {
-            [styles.labelTextActive]: useActiveStyles && item.checked,
-          })}
-        >
+        <p className={styles.labelText}>
           {item.yearFrom ? `Since ${item.yearFrom}` : value}
         </p>
         <span>{item.count && item.count.toLocaleString('en-GB')}</span>

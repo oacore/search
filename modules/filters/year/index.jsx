@@ -4,45 +4,23 @@ import styles from '../styles.module.css'
 import FilterItem from '../filter-item'
 import CustomRange from './custom-range'
 import YearSelects from './selects'
-import useHistogram from './use-histogram'
+import useYearFilterController from './hooks/use-year-filter-controller'
 
-import { useStore, observe } from 'store'
+import { observe } from 'store'
 import Histoslider from 'modules/histoslider'
 
 const YearFilter = observe(() => {
-  const { filters } = useStore()
-
-  const { selection, onHistogramChange } = useHistogram()
+  const {
+    filters,
+    yearsAxis,
+    onSelectActiveFilterItem,
+    loadFilter,
+    selection,
+  } = useYearFilterController()
 
   useEffect(() => {
-    filters.setGroupedYearDates([2014, 2016, 2018])
-    const activeYears = filters.activeFilterSuggestions.filter(
-      (item) => item.checked === true
-    )
-    if (activeYears.length === 1)
-      onHistogramChange([activeYears[0].value, activeYears[0].value + 1])
-    else if (activeYears.length > 1)
-      onHistogramChange([activeYears[0].value, activeYears[1].value + 1])
+    loadFilter()
   }, [])
-
-  const yearsAxis = filters.activeFilterSuggestions.map((suggestion) => ({
-    x0: suggestion.value,
-    x: suggestion.value + 1,
-    y: suggestion.count,
-  }))
-
-  const onSelectActiveFilterItem = (selectedItem) => {
-    let yearsRange
-    if (selectedItem.yearFrom)
-      yearsRange = [selectedItem.yearFrom, filters.maxYear + 1]
-    else yearsRange = selectedItem
-
-    onHistogramChange(yearsRange)
-    // if (yearsRange[0] === yearsRange[1]) yearsRange[0] = yearsRange[1] - 1
-
-    filters.setActiveYearDate(yearsRange)
-    return selectedItem
-  }
 
   return (
     <>
