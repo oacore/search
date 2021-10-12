@@ -9,7 +9,7 @@ import { useReportController } from '../hooks'
 
 import { observe } from 'store'
 
-const ReportCard = observe(({ id, sourceFulltextUrls, dataProvider }) => {
+const ReportCard = observe(({ id, dataProvider }) => {
   const {
     report: {
       isModalReportTypeActive,
@@ -35,11 +35,7 @@ const ReportCard = observe(({ id, sourceFulltextUrls, dataProvider }) => {
       {isModalReportTypeActive && <ReportTypeModal />}
       {isModalReportFormActive && <ReportFormModal id={id} />}
       {isModalReportSuccessActive && (
-        <ReportSuccessModal
-          sourceFulltextUrls={sourceFulltextUrls}
-          dataProvider={dataProvider}
-          id={id}
-        />
+        <ReportSuccessModal dataProvider={dataProvider} id={id} />
       )}
     </Card>
   )
