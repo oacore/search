@@ -65,14 +65,28 @@
   color: hsl(var(--primary-hsl));
 }
 
-.description {
+.description,
+.description-link {
   position: relative;
   z-index: 2;
   display: block;
+  margin-bottom: 5px;
   color: var(--body-color, #000);
+}
+
+.description-link {
+  color: var(--primary);
 }
 
 .disabled {
   font-style: italic;
   color: var(--gray-500);
+}
+
+.copy-button {
+  --button-padding-y: 0;
+  --button-padding-x: 0;
+  padding: 0;
+  margin-left: 5px;
+  border: none;
 }
