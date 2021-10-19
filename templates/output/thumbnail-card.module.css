@@ -74,6 +74,10 @@
   color: var(--body-color, #000);
 }
 
+.description-link div {
+  display: inline-block;
+}
+
 .description-link {
   color: var(--primary);
 }
@@ -83,10 +87,15 @@
   color: var(--gray-500);
 }
 
-.copy-button {
+.copy-button,
+.copy-button-success {
   --button-padding-y: 0;
   --button-padding-x: 0;
   padding: 0;
   margin-left: 5px;
   border: none;
+}
+
+.copy-button-success {
+  color: var(--gray-500);
 }

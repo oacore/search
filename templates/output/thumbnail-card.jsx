@@ -76,6 +76,10 @@ const FullTextThumbnail = ({
     )
   }
 
+  let lastTimeUpdated = null
+  if (createdDate) lastTimeUpdated = createdDate
+  if (updatedDate) lastTimeUpdated = updatedDate
+
   return (
     <Card
       id={id}
@@ -113,7 +117,9 @@ const FullTextThumbnail = ({
               >
                 <Button
                   type="button"
-                  className={styles.copyButton}
+                  className={
+                    copySuccess ? styles.copyButtonSuccess : styles.copyButton
+                  }
                   onClick={copyToClipboard}
                   onMouseEnter={() => dispatchTooltip('show')}
                   onMouseLeave={() => dispatchTooltip('hide')}
@@ -124,9 +130,9 @@ const FullTextThumbnail = ({
             </Card.Description>
           )}
 
-          {(createdDate || updatedDate) && (
+          {lastTimeUpdated && (
             <Card.Description className={styles.description} tag="span">
-              Last time updated on {formatDate(new Date(createdDate))}
+              Last time updated on {formatDate(new Date(lastTimeUpdated))}
             </Card.Description>
           )}
 
