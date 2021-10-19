@@ -121,6 +121,7 @@ const FullTextThumbnail = ({
                 placement="top"
                 content={tooltipText}
                 visible={isTooltipShown}
+                className={styles.popover}
               >
                 <Button
                   type="button"

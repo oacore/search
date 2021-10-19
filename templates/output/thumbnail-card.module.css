@@ -113,3 +113,13 @@
 .hidden {
   display: none;
 }
+
+.popover {
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 13px;
+  color: #fff;
+  background: #000;
+  border-radius: 4px;
+  opacity: 0.8;
+}
