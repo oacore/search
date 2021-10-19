@@ -66,12 +66,17 @@
 }
 
 .description,
-.description-link {
+.description-link,
+.description-date {
   position: relative;
   z-index: 2;
   display: block;
   margin-bottom: 5px;
   color: var(--body-color, #000);
+}
+
+.description-date {
+  color: #424242;
 }
 
 .description-link div {
@@ -98,4 +103,13 @@
 
 .copy-button-success {
   color: var(--gray-500);
+}
+
+.detach {
+  margin: 0 2px;
+  color: #757575;
+}
+
+.hidden {
+  display: none;
 }

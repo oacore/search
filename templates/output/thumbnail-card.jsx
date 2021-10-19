@@ -80,6 +80,9 @@ const FullTextThumbnail = ({
   if (createdDate) lastTimeUpdated = createdDate
   if (updatedDate) lastTimeUpdated = updatedDate
 
+  let oaiArray = []
+  if (identifiers && identifiers.oai) oaiArray = identifiers.oai.split(':')
+
   return (
     <Card
       id={id}
@@ -102,14 +105,18 @@ const FullTextThumbnail = ({
         fulltextStatus={fulltextStatus}
       />
 
-      {((identifiers && identifiers.oai) ||
-        createdDate ||
-        updatedDate ||
-        sourceFulltextUrls) && (
+      {(identifiers || lastTimeUpdated || sourceFulltextUrls) && (
         <p className={styles.body}>
-          {identifiers && identifiers.oai && (
+          {identifiers && identifiers.oai && oaiArray.length === 3 && (
             <Card.Description className={styles.descriptionLink} tag="span">
-              <span ref={textRef}>{identifiers.oai}</span>
+              <span ref={textRef} className={styles.hidden}>
+                {identifiers.oai}
+              </span>
+              {oaiArray[0]}
+              <span className={styles.detach}>:</span>
+              {oaiArray[1]}
+              <span className={styles.detach}>:</span>
+              {oaiArray[2]}
               <Popover
                 placement="top"
                 content={tooltipText}
@@ -131,8 +138,13 @@ const FullTextThumbnail = ({
           )}
 
           {lastTimeUpdated && (
-            <Card.Description className={styles.description} tag="span">
-              Last time updated on {formatDate(new Date(lastTimeUpdated))}
+            <Card.Description className={styles.descriptionDate} tag="span">
+              Last time updated on{' '}
+              {formatDate(new Date(lastTimeUpdated), {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
             </Card.Description>
           )}
 
