@@ -19,7 +19,7 @@ const UpdateTemplate = observe(() => {
       isModalReportTypeActive,
       isModalReportFormActive,
       isModalReportSuccessActive,
-      output: { id, dataProvider, sourceFulltextUrls },
+      output: { id, dataProvider },
       error: errorMessage,
       isLoading,
     },
@@ -87,13 +87,13 @@ const UpdateTemplate = observe(() => {
           )}
 
           <Button variant="contained" disabled={isLoading}>
-            SUBMIT UPDATE
+            SUBMIT
           </Button>
         </Form>
       </section>
       <section className={classNames.use(styles.links, styles.container)}>
         <h4 className="display">
-          Types of links you can use to fill up the Core URL field
+          Types of links you can use to fill up the CORE URL field
         </h4>
         <p>
           For example, suppose you wanted to remove the paper: &nbsp;
@@ -103,33 +103,31 @@ const UpdateTemplate = observe(() => {
           >
             CORE: aggregation use cases for open access
           </Link>
+          .
         </p>
         <p> In the CORE URL box, you may enter one of the following:</p>
         <Links />
+        <p>
+          Please note that the form does not accept links which start with
+          &quot;https://core.ac.uk/<strong>search</strong>&quot;.
+        </p>
       </section>
-      <p className={classNames.use(styles.note, styles.container)}>
-        Please note that the form does not accept links which start with
-        &quot;https://core.ac.uk/<strong>search</strong> &quot;.
-      </p>
+      <div className={classNames.use(styles.note, styles.container)} />
       <section className={classNames.use(styles.faq, styles.container)}>
         <img src={faqSVG} alt="faq" />
         <p>
-          You can find out more informations about updating/deleting articles in
+          You can find out more information about updating/deleting articles in
           the &nbsp;
           <Link href="https://core.ac.uk/faq">
             &quot;Removing full text or metadata&quot;
           </Link>
-          &nbsp;section of the FAQ.
+          &nbsp;section of the FAQs.
         </p>
       </section>
       {isModalReportTypeActive && <ReportTypeModal />}
       {isModalReportFormActive && <ReportFormModal id={id} />}
       {isModalReportSuccessActive && (
-        <ReportSuccessModal
-          sourceFulltextUrls={sourceFulltextUrls ? sourceFulltextUrls[0] : ''}
-          dataProvider={dataProvider.name}
-          id={id}
-        />
+        <ReportSuccessModal dataProvider={dataProvider.name} id={id} />
       )}
     </>
   )
