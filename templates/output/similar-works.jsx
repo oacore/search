@@ -60,8 +60,8 @@ const SimilarWorks = observe(({ articleId }) => {
                   author: authors,
                   publicationDate: publicationDate
                     ? formatDate(new Date(publicationDate))
-                    : yearPublished,
-                  dataProvider: {},
+                    : `${yearPublished}`,
+                  dataProvider: [],
                   thumbnailUrl: `//core.ac.uk/image/${id}/medium`,
                   metadataLink,
                   fullTextLink,

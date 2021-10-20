@@ -30,7 +30,7 @@ export async function getServerSideProps({ params: routeParams }) {
     // Strip some properties to optimise network traffic
     const { fullText: _, ...output } = rawOutput
 
-    const { data: dataProvider } = await request(output.dataProvider)
+    const { data: dataProvider } = await request(output.dataProvider.url)
 
     output.publishedDate = output.publishedDate
       ? output.publishedDate
