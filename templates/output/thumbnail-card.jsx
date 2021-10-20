@@ -107,10 +107,10 @@ const FullTextThumbnail = ({
 
       {(identifiers || lastTimeUpdated || sourceFulltextUrls) && (
         <p className={styles.body}>
-          {identifiers && identifiers.oai && oaiArray.length === 3 && (
+          {oaiArray.length === 3 && (
             <Card.Description className={styles.descriptionLink} tag="span">
               <span ref={textRef} className={styles.hidden}>
-                {identifiers.oai}
+                {oaiArray[2]}
               </span>
               {oaiArray[0]}
               <span className={styles.detach}>:</span>
