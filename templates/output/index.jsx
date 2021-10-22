@@ -9,6 +9,7 @@ import Keywords from './keywords'
 import ReportCard from './report'
 import CitationManager from './citation'
 import styles from './styles.module.css'
+import OtherVersions from './other-versions'
 
 import Search from 'modules/search-layout'
 
@@ -24,11 +25,17 @@ const ScientificOutputTemplate = ({
     updatedDate,
     sourceFulltextUrls,
     fulltextStatus,
+    createdDate,
     tags,
     documentType,
     citations,
-    identifiers: { doi },
+    outputs,
+    reader: readerUrl,
+    download,
+    thumbnail_l: thumbnailLargeUrl,
+    identifiers: { doi, oai },
   },
+  useOtherVersions = false,
   ...passProps
 }) => (
   <Search {...passProps} className={styles.outputContainer}>
@@ -68,22 +75,26 @@ const ScientificOutputTemplate = ({
         <RelatedSearch articleId={id} articleTitle={title} />
       </div>
     </Search.Main>
-
     <Search.Sidebar className={styles.containerSidebar}>
       <FullTextThumbnail
         id={`full-text-thumbnail-${id}`}
-        href={`//core.ac.uk/reader/${id}`}
-        src={`//core.ac.uk/image/${id}/large`}
-        alt=""
+        href={readerUrl || `//core.ac.uk/reader/${id}`}
+        src={thumbnailLargeUrl || `//core.ac.uk/image/${id}/large`}
+        alt="thumbnail-image "
         data={{
           title: dataProvider.name,
-          type: 'PDF',
-          size: 200312, // repositoryDocument.pdfSize,
           updatedDate,
           sourceFulltextUrls,
           fulltextStatus,
+          createdDate,
+          oai,
+          download,
         }}
+        tag={fulltextStatus === 'disabled' ? 'div' : 'a'}
       />
+      {useOtherVersions && outputs.length > 0 && (
+        <OtherVersions outputs={outputs} />
+      )}
       <MapCard
         metadata={{
           name: dataProvider.name,
@@ -91,6 +102,7 @@ const ScientificOutputTemplate = ({
           hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
         }}
       />
+
       <ReportCard
         id={id}
         sourceFulltextUrls={sourceFulltextUrls}

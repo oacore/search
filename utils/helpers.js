@@ -42,4 +42,18 @@ const findDataProviders = (allDataProviders, articles) => {
   return articles
 }
 
-module.exports = { getAssetsPath, formatDate, findDataProviders }
+const findUrlsByType = (article) => {
+  article.links.map(({ type }) => {
+    article[type] = article.links.find((link) => link.type === type).url
+    return type
+  })
+
+  return article
+}
+
+module.exports = {
+  getAssetsPath,
+  formatDate,
+  findDataProviders,
+  findUrlsByType,
+}

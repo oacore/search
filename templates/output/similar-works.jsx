@@ -30,7 +30,7 @@ const SimilarWorks = observe(({ articleId }) => {
   }, [])
 
   return (
-    <>
+    <section>
       <h2>Similar works</h2>
       {isLoading && <Loader text="Loading suggested articles..." />}
       {error && <LoadingError />}
@@ -72,7 +72,7 @@ const SimilarWorks = observe(({ articleId }) => {
             )
           }
         )}
-    </>
+    </section>
   )
 })
 export default SimilarWorks

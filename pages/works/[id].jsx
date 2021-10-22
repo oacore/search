@@ -3,7 +3,8 @@ import Head from 'next/head'
 import { Header } from '@oacore/design'
 
 import request from 'api'
-import { fetchMetadata, fetchCitations } from 'api/outputs'
+import { fetchWork, fetchWorkOutputs } from 'api/works'
+import { fetchCitations } from 'api/outputs'
 import { useStore } from 'store'
 import Meta from 'modules/meta'
 import Template from 'templates/output'
@@ -26,20 +27,43 @@ export async function getServerSideProps({ params: routeParams }) {
   const data = {}
 
   try {
-    const rawOutput = await fetchMetadata(id)
+    const rawWork = await fetchWork(id)
 
-    // Strip some properties to optimise network traffic
-    const { fullText: _, ...output } = rawOutput
-    const { data: dataProvider } = await request(output.dataProvider.url)
+    const { fullText: _, ...work } = rawWork
+    const outputs = await fetchWorkOutputs(id)
 
-    const outputWithUrls = findUrlsByType(output)
+    outputs.map((output) => {
+      const articleWithUrls = findUrlsByType(output)
+      return articleWithUrls
+    })
+    const workWithUrls = findUrlsByType(work)
 
+    const matchedOutput = outputs.find(
+      (output) => output.reader === workWithUrls.reader
+    )
+
+    const { data: dataProvider } = await request(matchedOutput.dataProvider.url)
+
+    // outputs.map((item) => console.log(item.id))
+    // console.log(matchedOutput.id)
     Object.assign(data, {
-      ...outputWithUrls,
-      publishedDate: output.publishedDate
-        ? output.publishedDate
-        : output.yearPublished,
+      ...workWithUrls,
+      identifiers: {
+        ...work.identifiers,
+        oai: matchedOutput.identifiers.oai || null,
+        doi: work.doi,
+        publishedDate: work.publishedDate
+          ? work.publishedDate
+          : work.yearPublished,
+      },
+      sourceFulltextUrls:
+        matchedOutput.sourceFulltextUrls &&
+        matchedOutput.sourceFulltextUrls instanceof Array &&
+        matchedOutput.sourceFulltextUrls[0],
+      outputs: outputs.filter((output) => output.id !== matchedOutput.id),
       dataProvider,
+      id: matchedOutput.id,
+      workId: workWithUrls.id,
     })
   } catch (error) {
     log(error)
@@ -50,7 +74,7 @@ export async function getServerSideProps({ params: routeParams }) {
   }
 
   try {
-    const doi = data.identifiers?.doi
+    const { doi } = data
     if (!doi) throw new Error('No DOI — no citation')
 
     const citations = await fetchCitations(doi, {
@@ -69,19 +93,10 @@ export async function getServerSideProps({ params: routeParams }) {
   }
 }
 
-const ScientificOutputPage = ({ data }) => {
+const ScientificWorkPage = ({ data }) => {
   const { statistics } = useStore()
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
-
-  const { sourceFulltextUrls } = data
-  if (
-    sourceFulltextUrls instanceof Array &&
-    data.sourceFulltextUrls &&
-    sourceFulltextUrls[0]
-  )
-    // eslint-disable-next-line prefer-destructuring
-    data.sourceFulltextUrls = sourceFulltextUrls[0]
 
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {
@@ -104,9 +119,9 @@ const ScientificOutputPage = ({ data }) => {
         <title>{data.title} - CORE</title>
         <Meta data={data} />
       </Head>
-      <Template data={data} />
+      <Template data={data} useOtherVersions />
     </>
   )
 }
 
-export default ScientificOutputPage
+export default ScientificWorkPage

@@ -16,10 +16,11 @@ const Results = ({ works }) =>
       yearPublished,
       publisher: publicationVenue,
       dataProviders,
-      outputs,
+      reader,
+      // eslint-disable-next-line camelcase
+      thumbnail_m,
+      display,
     }) => {
-      const outputId = outputs[0].match(/(?<=outputs\/).[0-9]+/).join('')
-
       const publicationDate = publishedDate
         ? formatDate(new Date(publishedDate))
         : yearPublished !== null && toString(yearPublished)
@@ -36,9 +37,9 @@ const Results = ({ works }) =>
             author: authors,
             publicationVenue: publicationVenue || null,
             publicationDate: publicationDate || null,
-            thumbnailUrl: `//core.ac.uk/image/${outputId}/medium`,
-            metadataLink: `//core.ac.uk/display/${outputId}`,
-            fullTextLink: `//core.ac.uk/reader/${outputId}`,
+            thumbnailUrl: thumbnail_m,
+            metadataLink: display,
+            fullTextLink: reader,
             dataProviders,
           }}
         >

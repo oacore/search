@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Icon } from '@oacore/design'
 
 import styles from './styles.module.css'
@@ -6,13 +6,9 @@ import styles from './styles.module.css'
 import { observe, useStore } from 'store'
 import relatedWords from 'utils/related-words'
 
-const RelatedSearches = observe(({ articleId, articleTitle }) => {
+const RelatedSearches = observe(({ articleTitle }) => {
   const { similarWorks } = useStore()
   const { similarOutputs } = similarWorks
-
-  useEffect(() => {
-    similarWorks.fetchSimilar(articleId)
-  }, [])
 
   return (
     <>

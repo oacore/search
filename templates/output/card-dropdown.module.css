@@ -1,0 +1,33 @@
+.dropdown {
+  margin-top: 1rem;
+}
+
+.dropdown:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.dropdown-content {
+  padding-top: 0.5rem;
+  margin-bottom: 1rem;
+  border-top: 1px solid var(--gray-100);
+}
+
+.identifier {
+  display: block;
+  color: var(--primary);
+}
+
+.icon-copy {
+  margin-left: 0.6rem;
+  cursor: pointer;
+}
+
+.date,
+.link {
+  display: block;
+  color: var(--gray-800);
+}
+
+.link-disabled {
+  color: var(--gray-500);
+}

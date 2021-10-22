@@ -6,6 +6,7 @@ import { Header } from '@oacore/design/lib/modules'
 import fetchWorks from 'api/search'
 import Template from 'templates/search'
 import { useStore } from 'store'
+import { findUrlsByType } from 'utils/helpers'
 
 const log = (...args) => {
   if (process.env.NODE_ENV !== 'production')
@@ -13,11 +14,16 @@ const log = (...args) => {
     console.log(...args)
 }
 
+// const findUrlByType = (arr, type) => {
+//   const foundedElem = arr.find((item) => item.type === type)
+//   return foundedElem ? foundedElem.url : null
+// }
+
 export const getServerSideProps = async ({ query: searchParams }) => {
   const { query: q, page = 1, limit = 10 } = searchParams
 
   const data = {
-    currentPage: parseInt(page, 10),
+    currentPage: +page,
     query: q,
   }
 
@@ -28,11 +34,16 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       q,
       offset,
       limit,
+      exclude: ['fullText'],
     }
 
     try {
       const response = await fetchWorks(body)
 
+      response.results.map((item) => {
+        const articleWithUrls = findUrlsByType(item)
+        return articleWithUrls
+      })
       Object.assign(data, response)
     } catch (error) {
       log(error)
