@@ -71,7 +71,7 @@ class Report {
     try {
       const rawOutput = await fetchMetadata(id)
       const { fullText: _, ...output } = rawOutput
-      const { data: dataProvider } = await request(output.dataProvider)
+      const { data: dataProvider } = await request(output.dataProvider.url)
       this.output = { ...output, dataProvider }
       this.isModalReportTypeActive = true
     } catch (error) {
