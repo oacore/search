@@ -17,10 +17,24 @@ const Error = () => {
   useEffect(async () => {
     try {
       const { dataProvider } = await fetchOutputMetadata(id)
-
-      if (dataProvider) await request(dataProvider)
+      if (dataProvider) await request(dataProvider.url)
     } catch (error) {
-      setErrorStatus(error.status)
+      if (error.message.includes('data-providers')) {
+        setErrorStatus({
+          status: 403,
+          message: 'Data provider has been disabled',
+        })
+      } else if (error.message.includes('outputs') && error.status === 410) {
+        setErrorStatus({
+          status: 410,
+          message: `The article with ID ${id} has been disabled`,
+        })
+      } else {
+        setErrorStatus({
+          status: 404,
+          message: `The page you were looking for could not be found`,
+        })
+      }
     }
   }, [])
 

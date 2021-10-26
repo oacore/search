@@ -5,18 +5,14 @@ import styles from './404.module.css'
 
 import Loader from 'modules/loader'
 
-const Error404 = ({ articleId, errorStatus }) => {
+const Error404 = ({ errorStatus }) => {
   if (!errorStatus) return <Loader />
 
   return (
     <article className={styles.errorContainer}>
       <section className={styles.error}>
         <h1>Uh-oh</h1>
-        {articleId && errorStatus === 410 ? (
-          <p>The article with ID {articleId} has been disabled.</p>
-        ) : (
-          <p>The page you were looking for could not be found.</p>
-        )}
+        <p>{errorStatus.message}</p>
         <div className={styles.buttons}>
           <Button variant="contained" href="/" tag="a">
             Go to homepage
