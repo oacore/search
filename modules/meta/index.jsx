@@ -101,7 +101,7 @@ const structuredMetadata = ({
       'item': {
         '@id': `${
           dataProvider.id
-            ? `https://core.ac.uk/search?q=repositories.id:(${data.dataProvider.id})`
+            ? `https://core.ac.uk/search?q=repositories.id:(${dataProvider.id})`
             : null
         }`,
         'name': dataProvider.name || 'Unknown',
