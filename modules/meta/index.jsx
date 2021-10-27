@@ -38,7 +38,7 @@ const structuredMetadata = ({
   authors,
   abstract,
   publisher,
-  publicationDate,
+  publishedDate,
   dataProvider,
 }) => {
   const ld = {
@@ -59,7 +59,9 @@ const structuredMetadata = ({
             '@type': 'ListItem',
             'position': 2,
             'item': {
-              '@id': `https://core.ac.uk/search?q=repositories.id:(${dataProvider.id})`,
+              '@id':
+                `https://core.ac.uk/search?q=repositories.id:(${dataProvider.id})` ||
+                'Unknown',
               'name': dataProvider.name || 'Unknown',
             },
           },
@@ -78,13 +80,13 @@ const structuredMetadata = ({
         '@type': 'ScholarlyArticle',
         '@id': `https://core.ac.uk/reader/${id}`,
         'headline': addEllipsis(title || '', 110),
-        'description': abstract || undefined,
+        'abstract': abstract || undefined,
         'name': title,
         'author': (authors || []).map((author) => ({
           '@type': 'Person',
           'name': author,
         })),
-        'datePublished': publicationDate || '',
+        'datePublished': publishedDate || '',
         'isAccessibleForFree': true,
         'provider': {
           '@type': 'Organization',

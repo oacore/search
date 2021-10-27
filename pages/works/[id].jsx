@@ -39,10 +39,10 @@ export async function getServerSideProps({ params: routeParams }) {
       identifiers: {
         ...work.identifiers,
         doi: work.doi,
-        publishedDate: work.publishedDate
-          ? work.publishedDate
-          : work.yearPublished,
       },
+      publishedDate: work.publishedDate
+        ? work.publishedDate
+        : work.yearPublished,
       sourceFulltextUrls:
         workWithUrls.sourceFulltextUrls &&
         workWithUrls.sourceFulltextUrls instanceof Array &&
