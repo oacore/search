@@ -59,16 +59,6 @@ const structuredMetadata = ({
             '@type': 'ListItem',
             'position': 2,
             'item': {
-              '@id':
-                `https://core.ac.uk/search?q=repositories.id:(${dataProvider.id})` ||
-                'Unknown',
-              'name': dataProvider.name || 'Unknown',
-            },
-          },
-          {
-            '@type': 'ListItem',
-            'position': 3,
-            'item': {
               '@id': `https://core.ac.uk/reader/${id}`,
               'name': title,
               'image': `https://core.ac.uk/image/${id}/large`,
@@ -99,6 +89,24 @@ const structuredMetadata = ({
         },
       },
     ],
+  }
+
+  if (dataProvider.id) {
+    const foundedElem = ld['@graph'].find(
+      (item) => item['@type'] === 'BreadcrumbList'
+    )
+    foundedElem.itemListElement.push({
+      '@type': 'ListItem',
+      'position': 3,
+      'item': {
+        '@id': `${
+          dataProvider.id
+            ? `https://core.ac.uk/search?q=repositories.id:(${data.dataProvider.id})`
+            : null
+        }`,
+        'name': dataProvider.name || 'Unknown',
+      },
+    })
   }
 
   return JSON.stringify(ld)
