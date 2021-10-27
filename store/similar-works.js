@@ -27,8 +27,6 @@ class SimilarWorks {
     try {
       const similarOutputs = await fetchSimilarTo(id, { ...params })
 
-      console.log(similarOutputs)
-
       this.similarOutputs = similarOutputs
     } catch (error) {
       this.error = true
