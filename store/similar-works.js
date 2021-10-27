@@ -21,11 +21,11 @@ class SimilarWorks {
   }
 
   @invalidatePreviousRequests
-  async fetchSimilar(id) {
+  async fetchSimilar(id, params) {
     this.reset()
     this.isLoading = true
     try {
-      const similarOutputs = await fetchSimilarTo(id)
+      const similarOutputs = await fetchSimilarTo(id, { ...params })
       this.similarOutputs = similarOutputs
     } catch (error) {
       this.error = true

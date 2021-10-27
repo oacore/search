@@ -27,7 +27,6 @@ const Metadata = ({ authors, publisher, publishedDate }) => (
         ))}
       </ExpandableList>
     </MetadataList.Item>
-
     <MetadataList.Item id="metadata-publication-date" label="Publication date">
       {formatDate(publishedDate, {
         year: 'numeric',

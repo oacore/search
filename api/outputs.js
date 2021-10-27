@@ -7,22 +7,10 @@ const fetchMetadata = async (id) => {
   return data
 }
 
-const fetchSimilarTo = async (
-  id,
-  {
-    /**
-     * The number of recommendations to return from the API.
-     *
-     * The number is preset to 5 because of possible poor accuracy
-     * after the 5th result.
-     *
-     * @type {Number}
-     */
-    limit = 5,
-  } = {}
-) => {
+const fetchSimilarTo = async (id, params) => {
+  const limit = 5
   const url = new URL('/v3/recommend', process.env.API_URL)
-  const body = { identifier: `core:${id}`, limit }
+  const body = { identifier: `core:${id}`, limit, ...params }
 
   const { data } = await apiRequest(url, {
     body,

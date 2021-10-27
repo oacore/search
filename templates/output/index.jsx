@@ -53,6 +53,7 @@ const ScientificOutputTemplate = ({
           publishedDate={publishedDate}
           publisher={publisher}
         />
+
         {citations && citations.length > 0 && (
           <CitationManager
             data={{
@@ -61,6 +62,8 @@ const ScientificOutputTemplate = ({
             }}
           />
         )}
+        {/* View buttons - use later */}
+        {/* {useOtherVersions && <ActionBar outputs={outputs} />} */}
       </div>
       <div className={styles.containerMain}>
         {abstract && (
@@ -71,7 +74,7 @@ const ScientificOutputTemplate = ({
         )}
 
         <Keywords tags={tags} />
-        <SimilarWorks articleId={id} />
+        <SimilarWorks articleId={id} useOtherVersions={useOtherVersions} />
         <RelatedSearch articleId={id} articleTitle={title} />
       </div>
     </Search.Main>
@@ -82,7 +85,7 @@ const ScientificOutputTemplate = ({
         src={thumbnailLargeUrl || `//core.ac.uk/image/${id}/large`}
         alt="thumbnail-image "
         data={{
-          title: dataProvider.name,
+          title: !useOtherVersions ? dataProvider.name : null,
           updatedDate,
           sourceFulltextUrls,
           fulltextStatus,
@@ -91,23 +94,28 @@ const ScientificOutputTemplate = ({
           download,
         }}
         tag={fulltextStatus === 'disabled' ? 'div' : 'a'}
+        useOtherVersions={useOtherVersions}
       />
       {useOtherVersions && outputs.length > 0 && (
         <OtherVersions outputs={outputs} />
       )}
-      <MapCard
-        metadata={{
-          name: dataProvider.name,
-          location: dataProvider.location,
-          hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
-        }}
-      />
+      {!useOtherVersions && (
+        <MapCard
+          metadata={{
+            name: dataProvider.name,
+            location: dataProvider.location,
+            hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
+          }}
+        />
+      )}
 
-      <ReportCard
-        id={id}
-        sourceFulltextUrls={sourceFulltextUrls}
-        dataProvider={dataProvider.name}
-      />
+      {!useOtherVersions && (
+        <ReportCard
+          id={id}
+          sourceFulltextUrls={sourceFulltextUrls}
+          dataProvider={dataProvider.name}
+        />
+      )}
     </Search.Sidebar>
   </Search>
 )

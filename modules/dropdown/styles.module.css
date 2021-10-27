@@ -17,13 +17,12 @@
 .circle {
   padding: 0.5rem;
   color: var(--gray-500);
-  border: 1px solid var(--gray-300);
+  border: 1px solid var(--primary);
   border-radius: 40px;
 }
 
 .circle-active {
   color: var(--primary);
-  border: 1px solid var(--primary);
 }
 
 .icon-menu-active {

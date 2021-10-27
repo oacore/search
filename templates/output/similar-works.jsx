@@ -20,13 +20,13 @@ const LoadingError = () => (
   </div>
 )
 
-const SimilarWorks = observe(({ articleId }) => {
+const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
   const { similarWorks } = useStore()
-
   const { similarOutputs, isLoading, error } = similarWorks
+  const params = useOtherVersions && { resultType: 'work' }
 
   useEffect(() => {
-    similarWorks.fetchSimilar(articleId)
+    similarWorks.fetchSimilar(articleId, params)
   }, [])
 
   return (

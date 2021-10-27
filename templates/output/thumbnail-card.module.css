@@ -59,6 +59,11 @@
 }
 
 .disabled {
+  padding: 0.5rem 1rem;
   font-style: italic;
   color: var(--gray-500);
+}
+
+.button {
+  width: 100%;
 }

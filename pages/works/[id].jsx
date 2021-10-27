@@ -2,7 +2,6 @@ import React from 'react'
 import Head from 'next/head'
 import { Header } from '@oacore/design'
 
-import request from 'api'
 import { fetchWork, fetchWorkOutputs } from 'api/works'
 import { fetchCitations } from 'api/outputs'
 import { useStore } from 'store'
@@ -13,8 +12,6 @@ import { findUrlsByType } from 'utils/helpers'
 const LOCALE = 'en-GB'
 const CITATION_STYLES = ['apa', 'bibtex']
 
-// Needed for clear development of the data retrieval
-// At the time of development the API was unstable
 const log = (...args) => {
   if (process.env.NODE_ENV !== 'production')
     // eslint-disable-next-line no-console
@@ -28,7 +25,6 @@ export async function getServerSideProps({ params: routeParams }) {
 
   try {
     const rawWork = await fetchWork(id)
-
     const { fullText: _, ...work } = rawWork
     const outputs = await fetchWorkOutputs(id)
 
@@ -38,32 +34,20 @@ export async function getServerSideProps({ params: routeParams }) {
     })
     const workWithUrls = findUrlsByType(work)
 
-    const matchedOutput = outputs.find(
-      (output) => output.reader === workWithUrls.reader
-    )
-
-    const { data: dataProvider } = await request(matchedOutput.dataProvider.url)
-
-    // outputs.map((item) => console.log(item.id))
-    // console.log(matchedOutput.id)
     Object.assign(data, {
       ...workWithUrls,
       identifiers: {
         ...work.identifiers,
-        oai: matchedOutput.identifiers.oai || null,
         doi: work.doi,
         publishedDate: work.publishedDate
           ? work.publishedDate
           : work.yearPublished,
       },
       sourceFulltextUrls:
-        matchedOutput.sourceFulltextUrls &&
-        matchedOutput.sourceFulltextUrls instanceof Array &&
-        matchedOutput.sourceFulltextUrls[0],
-      outputs: outputs.filter((output) => output.id !== matchedOutput.id),
-      dataProvider,
-      id: matchedOutput.id,
-      workId: workWithUrls.id,
+        workWithUrls.sourceFulltextUrls &&
+        workWithUrls.sourceFulltextUrls instanceof Array &&
+        workWithUrls.sourceFulltextUrls[0],
+      outputs,
     })
   } catch (error) {
     log(error)

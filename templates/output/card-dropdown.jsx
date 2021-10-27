@@ -19,19 +19,20 @@ const CardDropdown = ({
   download: coreDownloadUrl,
   href,
   activeArticle = false,
+  defaultDropdownState,
 }) => {
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(oai)
 
   const setSubtitleLinkText = () => {
     let text = ''
-    if (coreDownloadUrl) text = 'Provided a free PDF'
+    if (coreDownloadUrl && coreDownloadUrl.match(/core.ac.uk/gm))
+      text = 'Provided a free PDF'
     else if (sourceFulltextUrls) text = 'Provided original full text link'
     else text = 'Full text is not available'
-
     return text
   }
-  const Tag = activeArticle ? Link : 'div'
 
+  const Tag = activeArticle ? Link : 'div'
   const subtitleLinkText = setSubtitleLinkText()
 
   const subtitleText = (
@@ -52,6 +53,7 @@ const CardDropdown = ({
       activeArticle={activeArticle}
       className={!activeArticle && styles.dropdown}
       href={href}
+      defaultDropdownState={defaultDropdownState}
     >
       <div className={styles.dropdownContent}>
         {oai && (
@@ -73,17 +75,19 @@ const CardDropdown = ({
             Last time updated on {formatDate(updatedDate || createdDate)}
           </Card.Description>
         )}
-        {coreDownloadUrl && sourceFulltextUrls && (
-          <Card.Description className={styles.descriptionLink} tag="span">
-            <a
-              href={sourceFulltextUrls}
-              aria-labelledby={`${id}-downloaded-from-title`}
-              aria-describedby={`${id}-downloaded-from-body`}
-            >
-              View original full text link
-            </a>
-          </Card.Description>
-        )}
+        {coreDownloadUrl &&
+          coreDownloadUrl.match(/core.ac.uk/gm) &&
+          sourceFulltextUrls && (
+            <Card.Description className={styles.descriptionLink} tag="span">
+              <a
+                href={sourceFulltextUrls}
+                aria-labelledby={`${id}-downloaded-from-title`}
+                aria-describedby={`${id}-downloaded-from-body`}
+              >
+                View original full text link
+              </a>
+            </Card.Description>
+          )}
       </div>
     </DropDown>
   )

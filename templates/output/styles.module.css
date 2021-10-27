@@ -186,3 +186,20 @@
 .boxes {
   margin-top: 1rem;
 }
+
+.action-bar {
+  display: flex;
+  max-width: 50rem;
+}
+
+.action-button {
+  text-transform: capitalize !important;
+}
+
+.action-button span {
+  text-transform: lowercase;
+}
+
+.action-button:not(:last-child) {
+  margin-right: 1rem;
+}

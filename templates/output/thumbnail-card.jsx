@@ -15,6 +15,7 @@ const FullTextThumbnail = ({
   href,
   className,
   tag: Tag = 'a',
+  useOtherVersions,
   ...passProps
 }) => (
   <Card
@@ -33,15 +34,17 @@ const FullTextThumbnail = ({
     >
       <img className={styles.image} src={src} alt={alt} />
     </Tag>
-    <div className={styles.body} id={`${id}-body`}>
-      {data.fulltextStatus === DISABLED_STATUS ? (
-        <Card.Title className={styles.disabled} tag="span">
-          Full text removed upon author&apos;s request
-        </Card.Title>
-      ) : (
-        <CardDropdown activeArticle {...data} />
-      )}
-    </div>
+
+    {data.fulltextStatus === DISABLED_STATUS && (
+      <Card.Title className={styles.disabled} tag="span">
+        Full text removed upon author&apos;s request
+      </Card.Title>
+    )}
+    {!useOtherVersions && (
+      <div className={styles.body} id={`${id}-body`}>
+        <CardDropdown activeArticle {...data} defaultDropdownState />
+      </div>
+    )}
   </Card>
 )
 

@@ -13,6 +13,7 @@ const icons = [
   'emoticon-sad-outline',
   'format-quote-open',
   'menu-down',
+  'open-in-new',
 ]
 
 const iconsRoot = path.join(

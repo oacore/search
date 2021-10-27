@@ -10,9 +10,10 @@ const DropDown = ({
   children,
   className,
   activeArticle = false,
+  defaultDropdownState = false,
   href,
 }) => {
-  const [activeDropdown, setActiveDropdown] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState(defaultDropdownState)
 
   const onToggleDropdown = () => {
     setActiveDropdown(!activeDropdown)
@@ -45,14 +46,16 @@ const DropDown = ({
           </Card.Description>
         </Tag>
 
-        <Button type="button" onClick={onToggleDropdown}>
-          <Icon
-            src="#menu-down"
-            className={classNames.use(styles.iconMenu, {
-              [styles.iconMenuActive]: activeDropdown,
-            })}
-          />
-        </Button>
+        {!defaultDropdownState && (
+          <Button type="button" onClick={onToggleDropdown}>
+            <Icon
+              src="#menu-down"
+              className={classNames.use(styles.iconMenu, {
+                [styles.iconMenuActive]: activeDropdown,
+              })}
+            />
+          </Button>
+        )}
       </div>
       {activeDropdown && children}
     </div>
