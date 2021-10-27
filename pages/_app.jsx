@@ -15,6 +15,7 @@ import '@oacore/design/lib/index.css'
 import 'main/global.css'
 import apiRequest from '../api'
 
+import useAnalytics from 'hooks/use-analytics'
 import Main from 'main'
 import { Sentry } from 'utils/sentry'
 
@@ -69,7 +70,7 @@ const useLoading = (initialState = false) => {
 
 const App = ({ Component: PageComponent, pageProps, statistics }) => {
   const loading = useLoading()
-
+  useAnalytics()
   return (
     <ErrorBoundary>
       <Main initialState={{ statistics }} loading={loading}>

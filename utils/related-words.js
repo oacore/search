@@ -31,7 +31,7 @@ const relatedWords = (title, similarOutputs = []) => {
   i = 0
   similarOutputs.forEach((item) => {
     topicsTitle.forEach((topicsTitleItem) => {
-      if (item.title.search(topicsTitleItem) !== -1) {
+      if (item.title.indexOf(topicsTitleItem) !== -1) {
         topicsResult[i] = topicsTitleItem
         i += 1
       }

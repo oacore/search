@@ -61,7 +61,8 @@
   margin-top: 1.5rem;
 }
 
-.modal-reporter-form-control input {
+.modal-reporter-form-control input,
+.modal-reporter-form-control textarea {
   border: 1px solid var(--gray-300);
 }
 

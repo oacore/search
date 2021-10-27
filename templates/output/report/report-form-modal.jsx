@@ -4,8 +4,8 @@ import { Modal, Button, Form, TextField } from '@oacore/design'
 import { ROLES } from '../utils/dummy-data'
 import styles from './styles.module.css'
 import { useReportController, useInput } from '../hooks'
-import Fieldset from '../../../modules/fieldset'
 
+import Fieldset from 'modules/fieldset'
 import { observe } from 'store'
 
 const ReportFormModal = observe(({ id: outputId }) => {
@@ -28,7 +28,7 @@ const ReportFormModal = observe(({ id: outputId }) => {
   } = useInput('contactMessage')
 
   const {
-    report: { role: reporterRole },
+    report: { role: reporterRole, updateOption },
     setActiveReporter,
     setIsModalReportSuccessActive,
     setIsModalReportFormActive,
@@ -98,13 +98,20 @@ const ReportFormModal = observe(({ id: outputId }) => {
                 }
               />
               <TextField
+                type="textarea"
                 id={contactMessage}
                 label="Comment"
-                placeholder="e.g. john.doe@ac.ck.uk"
+                placeholder=" "
                 name={contactMessage}
                 {...bindMessage}
                 className={styles.modalReporterFormControl}
-                helper={<>What you would like to update on the page.</>}
+                helper={
+                  <>
+                    {updateOption === 'takeDownFullText'
+                      ? 'Why this document should not be published?'
+                      : 'What will you update on this page '}
+                  </>
+                }
               />
             </>
           )}

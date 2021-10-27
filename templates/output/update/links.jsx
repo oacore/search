@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from '@oacore/design/lib'
 
 import styles from './styles.module.css'
 
@@ -6,14 +7,14 @@ const links = [
   {
     id: 1,
     label: 'A display page URL',
-    link: 'https://core.ac.uk/display?/82976757',
+    link: 'https://core.ac.uk/display/82976757',
   },
   {
     id: 2,
     label: 'A fulltext URL',
     link: 'https://core.ac.uk/download/pdf/82976757.pdf ',
   },
-  { id: 3, label: 'The CORE ID Directly', link: '82976757' },
+  { id: 3, label: 'Directly to CORE ID', link: '82976757' },
 ]
 
 const Links = () => (
@@ -21,7 +22,9 @@ const Links = () => (
     {links.map(({ id, label, link }) => (
       <li className={styles.link} key={id}>
         <span className={styles.label}> {label}</span>
-        <span className={styles.linkHref}>{link}</span>
+        <Link href={link} target="blank" className={styles.linkHref}>
+          {link}
+        </Link>
       </li>
     ))}
   </ul>

@@ -2,7 +2,6 @@ import { action, makeObservable, observable } from 'mobx'
 
 import invalidatePreviousRequests from '../utils/invalidatePreviousRequests'
 
-import request from 'api'
 import { createReport, fetchMetadata } from 'api/outputs'
 
 const ERROR_MESSAGE =
@@ -71,8 +70,7 @@ class Report {
     try {
       const rawOutput = await fetchMetadata(id)
       const { fullText: _, ...output } = rawOutput
-      const { data: dataProvider } = await request(output.dataProvider)
-      this.output = { ...output, dataProvider }
+      this.output = output
       this.isModalReportTypeActive = true
     } catch (error) {
       this.error = ERROR_MESSAGE
