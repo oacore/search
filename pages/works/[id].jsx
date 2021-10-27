@@ -5,7 +5,7 @@ import { Header } from '@oacore/design'
 import { fetchWork, fetchWorkOutputs } from 'api/works'
 import { fetchCitations } from 'api/outputs'
 import { useStore } from 'store'
-import Meta from 'modules/meta'
+// import Meta from 'modules/meta'
 import Template from 'templates/output'
 import { findUrlsByType } from 'utils/helpers'
 
