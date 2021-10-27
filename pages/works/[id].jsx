@@ -5,7 +5,7 @@ import { Header } from '@oacore/design'
 import { fetchWork, fetchWorkOutputs } from 'api/works'
 import { fetchCitations } from 'api/outputs'
 import { useStore } from 'store'
-// import Meta from 'modules/meta'
+import Meta from 'modules/meta'
 import Template from 'templates/output'
 import { findUrlsByType } from 'utils/helpers'
 
@@ -48,6 +48,7 @@ export async function getServerSideProps({ params: routeParams }) {
         workWithUrls.sourceFulltextUrls instanceof Array &&
         workWithUrls.sourceFulltextUrls[0],
       outputs,
+      dataProvider: workWithUrls.dataProviders[0],
     })
   } catch (error) {
     log(error)
@@ -101,7 +102,7 @@ const ScientificWorkPage = ({ data }) => {
     <>
       <Head>
         <title>{data.title} - CORE</title>
-        {/* <Meta data={data} /> */}
+        <Meta data={data} />
       </Head>
       <Template data={data} useOtherVersions />
     </>
