@@ -101,7 +101,7 @@ const ScientificWorkPage = ({ data }) => {
     <>
       <Head>
         <title>{data.title} - CORE</title>
-        <Meta data={data} />
+        {/* <Meta data={data} /> */}
       </Head>
       <Template data={data} useOtherVersions />
     </>
