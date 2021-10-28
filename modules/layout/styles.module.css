@@ -1,3 +1,7 @@
+.header {
+  box-shadow: none;
+}
+
 .container {
   display: flex;
   flex-direction: column;

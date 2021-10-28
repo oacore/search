@@ -16,4 +16,48 @@ const formatDate = (date, options = {}) => {
   }
 }
 
-module.exports = { getAssetsPath, formatDate }
+const findDataProviders = (allDataProviders, articles) => {
+  articles.map((article) => {
+    const dataProvidersWithNames = article.dataProviders.map(
+      (dataProviderUrl) => {
+        const id = dataProviderUrl
+          .match(/(?<=data-providers\/).[0-9]+/)
+          .join('')
+
+        const dataProvider = allDataProviders.find(
+          (dp) => dp.id === parseInt(id, 10)
+        )
+
+        return {
+          dataProviderUrl,
+          name: dataProvider ? dataProvider.name : null,
+          id,
+        }
+      }
+    )
+    article.dataProviders = dataProvidersWithNames
+
+    return article
+  })
+  return articles
+}
+
+const findMinValueInArray = (array, key) =>
+  Math.min.apply(
+    null,
+    array.map((item) => item[key])
+  )
+
+const findMaxValueInArray = (array, key) =>
+  Math.max.apply(
+    null,
+    array.map((item) => item[key])
+  )
+
+module.exports = {
+  getAssetsPath,
+  formatDate,
+  findDataProviders,
+  findMaxValueInArray,
+  findMinValueInArray,
+}

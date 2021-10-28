@@ -22,7 +22,7 @@ const RelatedSearches = observe(({ articleId, articleTitle }) => {
           <div className={styles.relatedSearchesResult}>
             <Icon src="#magnify" className={styles.relatedSearchesIcon} />
             {relatedWords(articleTitle, similarOutputs).map((item) => (
-              <>
+              <div key={item} className={styles.detachDot}>
                 {item === 0 ? (
                   <span>No results</span>
                 ) : (
@@ -34,10 +34,10 @@ const RelatedSearches = observe(({ articleId, articleTitle }) => {
                     >
                       {item}
                     </a>
-                    <span className={styles.detachDot} />
+                    <span />
                   </>
                 )}
-              </>
+              </div>
             ))}
           </div>
         </>
