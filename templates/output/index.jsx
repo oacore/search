@@ -9,6 +9,7 @@ import Keywords from './keywords'
 import ReportCard from './report'
 import CitationManager from './citation'
 import styles from './styles.module.css'
+import OtherVersions from './other-versions'
 
 import Search from 'modules/search-layout'
 
@@ -21,16 +22,20 @@ const ScientificOutputTemplate = ({
     publisher,
     publishedDate,
     dataProvider,
-    identifiers,
-    createdDate,
     updatedDate,
     sourceFulltextUrls,
     fulltextStatus,
+    createdDate,
     tags,
     documentType,
     citations,
-    identifiers: { doi },
+    outputs,
+    reader: readerUrl,
+    download,
+    thumbnail_l: thumbnailLargeUrl,
+    identifiers: { doi, oai },
   },
+  useOtherVersions = false,
   ...passProps
 }) => (
   <Search {...passProps} className={styles.outputContainer}>
@@ -48,6 +53,7 @@ const ScientificOutputTemplate = ({
           publishedDate={publishedDate}
           publisher={publisher}
         />
+
         {citations && citations.length > 0 && (
           <CitationManager
             data={{
@@ -56,46 +62,63 @@ const ScientificOutputTemplate = ({
             }}
           />
         )}
+        {/* View buttons - use later */}
+        {/* {useOtherVersions && <ActionBar outputs={outputs} />} */}
       </div>
       <div className={styles.containerMain}>
-        {abstract && (
-          <section id="abstract" className={styles.abstract}>
-            <h2>Abstract</h2>
+        <section id="abstract" className={styles.abstract}>
+          <h2>Abstract</h2>
+          {abstract ? (
             <p>{abstract}</p>
-          </section>
-        )}
-
+          ) : (
+            <span className={styles.abstractEmpty}>
+              Abstract is not available at the moment.
+            </span>
+          )}
+        </section>
         <Keywords tags={tags} />
-        <SimilarWorks articleId={id} />
+        <SimilarWorks articleId={id} useOtherVersions={useOtherVersions} />
         <RelatedSearch articleId={id} articleTitle={title} />
       </div>
     </Search.Main>
-
     <Search.Sidebar className={styles.containerSidebar}>
       <FullTextThumbnail
         id={`full-text-thumbnail-${id}`}
-        href={`//core.ac.uk/reader/${id}`}
-        src={`//core.ac.uk/image/${id}/large`}
-        alt=""
+        href={readerUrl || `//core.ac.uk/reader/${id}`}
+        src={thumbnailLargeUrl || `//core.ac.uk/image/${id}/large`}
+        alt="thumbnail-image "
         data={{
-          title: dataProvider.name,
-          type: 'PDF',
-          size: 200312, // repositoryDocument.pdfSize,
-          identifiers,
-          createdDate,
+          title: !useOtherVersions ? dataProvider.name : null,
           updatedDate,
           sourceFulltextUrls,
           fulltextStatus,
+          createdDate,
+          oai,
+          download,
         }}
+        tag={fulltextStatus === 'disabled' ? 'div' : 'a'}
+        useOtherVersions={useOtherVersions}
       />
-      <MapCard
-        metadata={{
-          name: dataProvider.name,
-          location: dataProvider.location,
-          hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
-        }}
-      />
-      <ReportCard id={id} dataProvider={dataProvider.name} />
+      {useOtherVersions && outputs.length > 0 && (
+        <OtherVersions outputs={outputs} />
+      )}
+      {!useOtherVersions && (
+        <MapCard
+          metadata={{
+            name: dataProvider.name,
+            location: dataProvider.location,
+            hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
+          }}
+        />
+      )}
+
+      {!useOtherVersions && (
+        <ReportCard
+          id={id}
+          sourceFulltextUrls={sourceFulltextUrls}
+          dataProvider={dataProvider.name}
+        />
+      )}
     </Search.Sidebar>
   </Search>
 )

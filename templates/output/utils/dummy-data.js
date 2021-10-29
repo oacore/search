@@ -15,16 +15,16 @@ export const ROLES = [
   {
     id: 1,
     label: 'Repository manager',
-    role: 'repositoryManager',
+    value: 'repositoryManager',
   },
   {
     id: 2,
     label: 'Author',
-    role: 'author',
+    value: 'author',
   },
   {
     id: 3,
     label: 'Other',
-    role: 'other',
+    value: 'other',
   },
 ]

@@ -4,8 +4,10 @@ import { useRouter } from 'next/router'
 import { Header } from '@oacore/design/lib/modules'
 
 import { fetchWorks } from 'api/search'
-import Template from 'templates/search'
 import { useStore } from 'store'
+import { findUrlsByType } from 'utils/helpers'
+import Template from 'templates/search'
+import QueryError from 'templates/error/query'
 
 const log = (...args) => {
   if (process.env.NODE_ENV !== 'production')
@@ -17,7 +19,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
   const { query: q, page = 1, limit = 10, sort = 'relevance' } = searchParams
 
   const data = {
-    currentPage: parseInt(page, 10),
+    currentPage: +page,
     query: q,
     sort,
   }
@@ -29,17 +31,24 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       q,
       offset,
       limit,
-      sort,
+      exclude: ['fullText'],
     }
 
     try {
       const response = await fetchWorks(body)
+
+      response.results.map((item) => {
+        const articleWithUrls = findUrlsByType(item)
+        return articleWithUrls
+      })
       Object.assign(data, response)
     } catch (error) {
       log(error)
+      const queryError = {
+        query: q,
+      }
       return {
-        props: { error },
-        notFound: true,
+        props: { queryError },
       }
     }
   } else data.results = []
@@ -49,7 +58,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
   }
 }
 
-const SearchOutputsPage = ({ data }) => {
+const SearchOutputsPage = ({ data, queryError }) => {
   const { statistics } = useStore()
   const router = useRouter()
   const totalArticlesCount =
@@ -67,6 +76,8 @@ const SearchOutputsPage = ({ data }) => {
       changeOnBlur: false,
     },
   })
+
+  if (queryError) return <QueryError query={queryError.query} />
 
   return (
     <>

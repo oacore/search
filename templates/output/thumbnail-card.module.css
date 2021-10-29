@@ -53,73 +53,26 @@
   --outline: 0.12;
 
   display: block;
-  padding: var(--card-padding-y, var(--component-padding-y))
-    var(--card-padding-x, var(--component-padding-x));
+  padding: 0.5rem 1rem;
   margin: 0;
-  border-top: 1px solid hsl(var(--on-surface) / var(--outline));
-}
-
-.name {
-  display: block;
-  font-weight: 600;
-  color: hsl(var(--primary-hsl));
-}
-
-.description,
-.description-link,
-.description-date {
-  position: relative;
-  z-index: 2;
-  display: block;
-  margin-bottom: 5px;
-  color: var(--body-color, #000);
-}
-
-.description-date {
-  color: #424242;
-}
-
-.description-link div {
-  display: inline-block;
-}
-
-.description-link {
-  color: var(--primary);
+  border-top: 1px solid var(--gray-100);
 }
 
 .disabled {
+  padding: 0.5rem 1rem;
   font-style: italic;
   color: var(--gray-500);
 }
 
-.copy-button,
-.copy-button-success {
-  --button-padding-y: 0;
-  --button-padding-x: 0;
-  padding: 0;
-  margin-left: 5px;
-  border: none;
+.button-container {
+  display: flex;
+  padding: 1rem;
 }
 
-.copy-button-success {
-  color: var(--gray-500);
+.icon {
+  padding-bottom: 0.2rem;
 }
 
-.detach {
-  margin: 0 2px;
-  color: #757575;
-}
-
-.hidden {
-  display: none;
-}
-
-.popover {
-  padding: 6px 12px;
-  font-size: 12px;
-  line-height: 13px;
-  color: #fff;
-  background: #000;
-  border-radius: 4px;
-  opacity: 0.8;
+.button-container a {
+  width: 100%;
 }

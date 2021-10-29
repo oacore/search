@@ -54,10 +54,20 @@ const findMaxValueInArray = (array, key) =>
     array.map((item) => item[key])
   )
 
+const findUrlsByType = (article) => {
+  article.links.map(({ type }) => {
+    article[type] = article.links.find((link) => link.type === type).url
+    return type
+  })
+
+  return article
+}
+
 module.exports = {
   getAssetsPath,
   formatDate,
   findDataProviders,
   findMaxValueInArray,
   findMinValueInArray,
+  findUrlsByType,
 }

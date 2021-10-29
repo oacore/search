@@ -71,11 +71,6 @@
   background-color: var(--gray-200);
 }
 
-.not-found {
-  margin-top: 1rem;
-  text-align: center;
-}
-
 .slider {
   width: 100%;
 }

@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import Pagination from './pagination'
 import Results from './results'
 import styles from './styles.module.css'
-import QueryError from './errors/query'
+import QueryError from '../error/query'
 import Notification from './notification'
 
 import Search from 'modules/search-layout'
@@ -29,8 +29,11 @@ const SearchTemplate = observe(({ data }) => {
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(url + router.asPath)
 
   React.useEffect(() => {
-    search.setWorks(data.results)
     search.fetchDataProviders()
+  }, [])
+
+  React.useEffect(() => {
+    search.setWorks(data.results)
   }, [data])
 
   return (

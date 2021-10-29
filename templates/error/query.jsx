@@ -1,7 +1,7 @@
 import React from 'react'
 
-import styles from '../styles.module.css'
-import notFoundSvg from '../images/notFound.svg'
+import styles from './styles.module.css'
+import notFoundSvg from './images/notFound.svg'
 
 const QueryError = ({ query }) => (
   <div className={styles.notFound}>

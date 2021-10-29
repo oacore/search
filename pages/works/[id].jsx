@@ -2,45 +2,22 @@ import React from 'react'
 import Head from 'next/head'
 import { Header } from '@oacore/design'
 
-import request from 'api'
-import { fetchMetadata, fetchCitations } from 'api/outputs'
+import Error404 from '../../templates/error/404'
+
+import { fetchWork, fetchWorkOutputs } from 'api/works'
+import { fetchCitations } from 'api/outputs'
 import { useStore } from 'store'
 import Meta from 'modules/meta'
 import Template from 'templates/output'
 import { findUrlsByType } from 'utils/helpers'
-import Error404 from 'templates/error/404'
 
 const LOCALE = 'en-GB'
 const CITATION_STYLES = ['apa', 'bibtex']
 
-// Needed for clear development of the data retrieval
-// At the time of development the API was unstable
 const log = (...args) => {
   if (process.env.NODE_ENV !== 'production')
     // eslint-disable-next-line no-console
     console.log(...args)
-}
-
-const setOutputError = (error, id) => {
-  let serverError = { code: error.status }
-  if (error.status === 410) {
-    serverError = {
-      ...serverError,
-      message:
-        error.status === 410 && `The article with ID ${id} has been disabled`,
-    }
-  } else if (error.message.includes('data-providers')) {
-    serverError = {
-      ...serverError,
-      message: 'Data provider has been disabled',
-    }
-  } else {
-    serverError = {
-      ...serverError,
-      message: 'The page you were looking for could not be found',
-    }
-  }
-  return serverError
 }
 
 export async function getServerSideProps({ params: routeParams }) {
@@ -49,35 +26,48 @@ export async function getServerSideProps({ params: routeParams }) {
   const data = {}
 
   try {
-    const rawOutput = await fetchMetadata(id)
+    const rawWork = await fetchWork(id)
+    const { fullText: _, ...work } = rawWork
+    const outputs = await fetchWorkOutputs(id)
 
-    // Strip some properties to optimise network traffic
-    const { fullText: _, ...output } = rawOutput
-    const { data: dataProvider } = await request(output.dataProvider.url)
-
-    const outputWithUrls = findUrlsByType(output)
+    outputs.map((output) => {
+      const articleWithUrls = findUrlsByType(output)
+      return articleWithUrls
+    })
+    const workWithUrls = findUrlsByType(work)
 
     Object.assign(data, {
-      ...outputWithUrls,
-      publishedDate: output.publishedDate
-        ? output.publishedDate
-        : output.yearPublished,
-      dataProvider,
+      ...workWithUrls,
+      identifiers: {
+        ...work.identifiers,
+        doi: work.doi,
+      },
+      publishedDate: work.publishedDate
+        ? work.publishedDate
+        : work.yearPublished,
       sourceFulltextUrls:
-        data.sourceFulltextUrls &&
-        data.sourceFulltextUrls instanceof Array &&
-        data.sourceFulltextUrls[0],
+        workWithUrls.sourceFulltextUrls &&
+        workWithUrls.sourceFulltextUrls instanceof Array &&
+        workWithUrls.sourceFulltextUrls[0],
+      outputs,
+      dataProvider: workWithUrls.dataProviders[0],
     })
   } catch (error) {
     log(error)
-    const serverError = setOutputError(error, id)
+    const serverError = {
+      code: error.status,
+      message:
+        error.status === 410
+          ? error.data
+          : `The page you were looking for could not be found`,
+    }
     return {
       props: { serverError },
     }
   }
 
   try {
-    const doi = data.identifiers?.doi
+    const { doi } = data
     if (!doi) throw new Error('No DOI — no citation')
 
     const citations = await fetchCitations(doi, {
@@ -96,7 +86,7 @@ export async function getServerSideProps({ params: routeParams }) {
   }
 }
 
-const ScientificOutputPage = ({ serverError, data }) => {
+const ScientificWorkPage = ({ serverError, data }) => {
   const { statistics } = useStore()
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
@@ -123,9 +113,9 @@ const ScientificOutputPage = ({ serverError, data }) => {
         <title>{data.title} - CORE</title>
         <Meta data={data} />
       </Head>
-      <Template data={data} />
+      <Template data={data} useOtherVersions />
     </>
   )
 }
 
-export default ScientificOutputPage
+export default ScientificWorkPage

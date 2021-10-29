@@ -1,18 +1,18 @@
 import React from 'react'
 import { Button } from '@oacore/design'
 
-import styles from './404.module.css'
+import styles from './styles.module.css'
 
 import Loader from 'modules/loader'
 
-const Error404 = ({ errorStatus }) => {
-  if (!errorStatus) return <Loader />
+const Error404 = ({ error }) => {
+  if (!error) return <Loader />
 
   return (
     <article className={styles.errorContainer}>
       <section className={styles.error}>
         <h1>Uh-oh</h1>
-        <p>{errorStatus.message}</p>
+        <p>{error.message}</p>
         <div className={styles.buttons}>
           <Button variant="contained" href="/" tag="a">
             Go to homepage

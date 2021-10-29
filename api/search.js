@@ -3,12 +3,12 @@ import apiRequest from './index'
 export const fetchWorks = async (body) => {
   const url = new URL(`/v3/search/works`, process.env.API_URL).href
 
-  const { data: dataOutputs } = await apiRequest(url, {
+  const { data: dataWorks } = await apiRequest(url, {
     body,
     method: 'POST',
   })
 
-  return dataOutputs
+  return dataWorks
 }
 
 export const fetchAggregations = async (body) => {

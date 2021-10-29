@@ -4,7 +4,7 @@ import { SearchResult, Icon } from '@oacore/design'
 import styles from './styles.module.css'
 
 import { observe, useStore } from 'store'
-import formatDate from 'utils/format-date'
+import { formatDate } from 'utils/helpers'
 import Loader from 'modules/loader'
 
 const LoadingError = () => (
@@ -20,17 +20,17 @@ const LoadingError = () => (
   </div>
 )
 
-const SimilarWorks = observe(({ articleId }) => {
+const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
   const { similarWorks } = useStore()
-
   const { similarOutputs, isLoading, error } = similarWorks
+  const params = useOtherVersions && { resultType: 'work' }
 
   useEffect(() => {
-    similarWorks.fetchSimilar(articleId)
+    similarWorks.fetchSimilar(articleId, params)
   }, [])
 
   return (
-    <>
+    <section>
       <h2>Similar works</h2>
       {isLoading && <Loader text="Loading suggested articles..." />}
       {error && <LoadingError />}
@@ -41,12 +41,19 @@ const SimilarWorks = observe(({ articleId }) => {
             title,
             authors,
             abstract,
-            publishedDate: publicationDate,
+            publishedDate,
             yearPublished,
             links,
           }) => {
-            const fullTextLink = links.find((l) => l.type === 'download')?.url
+            const downloadLink = links.find((l) => l.type === 'download')?.url
+            const readerLink = links.find((l) => l.type === 'reader')?.url
             const metadataLink = links.find((l) => l.type === 'similar')?.url
+
+            let publicationDate
+            if (publishedDate)
+              publicationDate = formatDate(new Date(publishedDate))
+            else if (yearPublished) publicationDate = toString(yearPublished)
+            else publicationDate = null
 
             return (
               <SearchResult
@@ -58,12 +65,10 @@ const SimilarWorks = observe(({ articleId }) => {
                   id,
                   title,
                   author: authors,
-                  publicationDate: publicationDate
-                    ? formatDate(new Date(publicationDate))
-                    : toString(yearPublished),
+                  publicationDate,
                   thumbnailUrl: `//core.ac.uk/image/${id}/medium`,
                   metadataLink,
-                  fullTextLink,
+                  fullTextLink: readerLink || downloadLink,
                   dataProviders: [],
                 }}
               >
@@ -72,7 +77,7 @@ const SimilarWorks = observe(({ articleId }) => {
             )
           }
         )}
-    </>
+    </section>
   )
 })
 export default SimilarWorks

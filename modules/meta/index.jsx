@@ -38,7 +38,7 @@ const structuredMetadata = ({
   authors,
   abstract,
   publisher,
-  publicationDate,
+  publishedDate,
   dataProvider,
 }) => {
   const ld = {
@@ -59,14 +59,6 @@ const structuredMetadata = ({
             '@type': 'ListItem',
             'position': 2,
             'item': {
-              '@id': `https://core.ac.uk/search?q=repositories.id:(${dataProvider.id})`,
-              'name': dataProvider.name || 'Unknown',
-            },
-          },
-          {
-            '@type': 'ListItem',
-            'position': 3,
-            'item': {
               '@id': `https://core.ac.uk/reader/${id}`,
               'name': title,
               'image': `https://core.ac.uk/image/${id}/large`,
@@ -78,13 +70,13 @@ const structuredMetadata = ({
         '@type': 'ScholarlyArticle',
         '@id': `https://core.ac.uk/reader/${id}`,
         'headline': addEllipsis(title || '', 110),
-        'description': abstract || undefined,
+        'abstract': abstract || undefined,
         'name': title,
         'author': (authors || []).map((author) => ({
           '@type': 'Person',
           'name': author,
         })),
-        'datePublished': publicationDate || '',
+        'datePublished': publishedDate || '',
         'isAccessibleForFree': true,
         'provider': {
           '@type': 'Organization',
@@ -97,6 +89,24 @@ const structuredMetadata = ({
         },
       },
     ],
+  }
+
+  if (dataProvider.id) {
+    const foundedElem = ld['@graph'].find(
+      (item) => item['@type'] === 'BreadcrumbList'
+    )
+    foundedElem.itemListElement.push({
+      '@type': 'ListItem',
+      'position': 3,
+      'item': {
+        '@id': `${
+          dataProvider.id
+            ? `https://core.ac.uk/search?q=repositories.id:(${dataProvider.id})`
+            : null
+        }`,
+        'name': dataProvider.name || 'Unknown',
+      },
+    })
   }
 
   return JSON.stringify(ld)

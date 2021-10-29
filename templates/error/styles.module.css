@@ -12,3 +12,8 @@
 .buttons a {
   margin-right: 1rem;
 }
+
+.not-found {
+  margin-top: 1rem;
+  text-align: center;
+}
