@@ -203,3 +203,10 @@
 .action-button:not(:last-child) {
   margin-right: 1rem;
 }
+
+.abstract-empty {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: var(--gray-300);
+}

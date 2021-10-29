@@ -64,6 +64,15 @@
   color: var(--gray-500);
 }
 
-.button {
+.button-container {
+  display: flex;
+  padding: 1rem;
+}
+
+.icon {
+  padding-bottom: 0.2rem;
+}
+
+.button-container a {
   width: 100%;
 }

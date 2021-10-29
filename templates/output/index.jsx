@@ -66,13 +66,16 @@ const ScientificOutputTemplate = ({
         {/* {useOtherVersions && <ActionBar outputs={outputs} />} */}
       </div>
       <div className={styles.containerMain}>
-        {abstract && (
-          <section id="abstract" className={styles.abstract}>
-            <h2>Abstract</h2>
+        <section id="abstract" className={styles.abstract}>
+          <h2>Abstract</h2>
+          {abstract ? (
             <p>{abstract}</p>
-          </section>
-        )}
-
+          ) : (
+            <span className={styles.abstractEmpty}>
+              Abstract is not available at the moment.
+            </span>
+          )}
+        </section>
         <Keywords tags={tags} />
         <SimilarWorks articleId={id} useOtherVersions={useOtherVersions} />
         <RelatedSearch articleId={id} articleTitle={title} />

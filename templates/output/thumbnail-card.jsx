@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
+import { Button, Icon } from '@oacore/design/lib/elements'
 
 import styles from './thumbnail-card.module.css'
 import CardDropdown from './card-dropdown'
@@ -39,6 +40,14 @@ const FullTextThumbnail = ({
       <Card.Title className={styles.disabled} tag="span">
         Full text removed upon author&apos;s request
       </Card.Title>
+    )}
+    {useOtherVersions && (
+      <div className={styles.buttonContainer}>
+        <Button variant="contained" href={href} tag="a">
+          Open in the Core reader{' '}
+          <Icon src="#open-in-new" className={styles.icon} />
+        </Button>
+      </div>
     )}
     {!useOtherVersions && (
       <div className={styles.body} id={`${id}-body`}>
