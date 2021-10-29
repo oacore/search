@@ -13,6 +13,7 @@ const formatDate = (date, options = {}) => {
   } catch (error) {
     if (process.env.NODE_ENV === 'development')
       console.error('Date in invalid format', date, error)
+
     return date
   }
 }

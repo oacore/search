@@ -6,7 +6,7 @@ import styles from './styles.module.css'
 import { formatDate } from 'utils/helpers'
 
 const Metadata = ({ authors, publisher, publishedDate }) => (
-  <MetadataList>
+  <MetadataList className={styles.metadata}>
     <MetadataList.Item id="metadata-authors" label="Authors">
       <ExpandableList>
         {authors.map(({ name }) => (
