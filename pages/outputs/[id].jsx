@@ -54,7 +54,14 @@ export async function getServerSideProps({ params: routeParams }) {
     // Strip some properties to optimise network traffic
     const { fullText: _, ...output } = rawOutput
     const { data: dataProvider } = await request(output.dataProvider.url)
+    const { sourceFulltextUrls } = output
 
+    if (
+      sourceFulltextUrls instanceof Array &&
+      sourceFulltextUrls &&
+      sourceFulltextUrls[0]
+    )
+      output.sourceFulltextUrls = [sourceFulltextUrls]
     const outputWithUrls = findUrlsByType(output)
 
     Object.assign(data, {
@@ -63,10 +70,6 @@ export async function getServerSideProps({ params: routeParams }) {
         ? output.publishedDate
         : output.yearPublished,
       dataProvider,
-      sourceFulltextUrls:
-        data.sourceFulltextUrls &&
-        data.sourceFulltextUrls instanceof Array &&
-        data.sourceFulltextUrls[0],
     })
   } catch (error) {
     log(error)

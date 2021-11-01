@@ -12,5 +12,4 @@ const sortFilterValues = {
     },
   ],
 }
-
 export default sortFilterValues

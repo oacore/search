@@ -7,7 +7,7 @@ import apiRequest from 'api'
 class Search {
   works = []
 
-  isLoading = true
+  isLoading = false
 
   dataProviders = []
 
@@ -49,7 +49,6 @@ class Search {
   async fetchDataProviders() {
     try {
       this.setIsLoading(true)
-
       const { data: allDataProviders } = await apiRequest(
         '/repositories/formap'
       )

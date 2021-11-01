@@ -72,7 +72,7 @@ const ScientificOutputTemplate = ({
             <p>{abstract}</p>
           ) : (
             <span className={styles.abstractEmpty}>
-              Abstract is not available at the moment.
+              Abstract is not available.
             </span>
           )}
         </section>

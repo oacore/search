@@ -49,11 +49,9 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
             const readerLink = links.find((l) => l.type === 'reader')?.url
             const metadataLink = links.find((l) => l.type === 'similar')?.url
 
-            let publicationDate
-            if (publishedDate)
-              publicationDate = formatDate(new Date(publishedDate))
-            else if (yearPublished) publicationDate = toString(yearPublished)
-            else publicationDate = null
+            const publicationDate = publishedDate
+              ? formatDate(new Date(publishedDate))
+              : yearPublished !== null && toString(yearPublished)
 
             return (
               <SearchResult
@@ -65,7 +63,7 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
                   id,
                   title,
                   author: authors,
-                  publicationDate,
+                  publicationDate: publicationDate || null,
                   thumbnailUrl: `//core.ac.uk/image/${id}/medium`,
                   metadataLink,
                   fullTextLink: readerLink || downloadLink,

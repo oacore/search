@@ -1,9 +1,10 @@
 import React from 'react'
 import { SearchResult } from '@oacore/design'
+import { toJS } from 'mobx'
 
 import styles from './styles.module.css'
 
-import formatDate from 'utils/format-date'
+import { formatDate } from 'utils/helpers'
 
 const Results = ({ works }) =>
   works.map(
@@ -16,10 +17,10 @@ const Results = ({ works }) =>
       yearPublished,
       publisher: publicationVenue,
       dataProviders,
-      reader,
-      // eslint-disable-next-line camelcase
-      thumbnail_m,
-      display,
+      reader: readerLink,
+      download: downloadLink,
+      thumbnail_m: thumbnailLink,
+      display: displayLink,
     }) => {
       const publicationDate = publishedDate
         ? formatDate(new Date(publishedDate))
@@ -37,10 +38,10 @@ const Results = ({ works }) =>
             author: authors,
             publicationVenue: publicationVenue || null,
             publicationDate: publicationDate || null,
-            thumbnailUrl: thumbnail_m,
-            metadataLink: display,
-            fullTextLink: reader,
-            dataProviders,
+            thumbnailUrl: thumbnailLink || `//core.ac.uk/image/${id}/medium`,
+            metadataLink: displayLink,
+            fullTextLink: readerLink || downloadLink,
+            dataProviders: dataProviders || [],
           }}
         >
           {abstract}

@@ -1,3 +1,5 @@
+const { toJS } = require('mobx')
+
 const getAssetsPath = (path = '/', target = process.env.BUILD_TARGET || '') =>
   target === 'aws' ? `/data-providers${path}` : path
 
@@ -18,23 +20,19 @@ const formatDate = (date, options = {}) => {
 
 const findDataProviders = (allDataProviders, articles) => {
   articles.map((article) => {
-    const dataProvidersWithNames = article.dataProviders.map(
-      (dataProviderUrl) => {
-        const id = dataProviderUrl
-          .match(/(?<=data-providers\/).[0-9]+/)
-          .join('')
+    const dataProvidersWithNames = article.dataProviders.map(({ url }) => {
+      const id = url.match(/(?<=data-providers\/).[0-9]+/).join('')
 
-        const dataProvider = allDataProviders.find(
-          (dp) => dp.id === parseInt(id, 10)
-        )
+      const dataProvider = allDataProviders.find(
+        (dp) => dp.id === parseInt(id, 10)
+      )
 
-        return {
-          dataProviderUrl,
-          name: dataProvider ? dataProvider.name : null,
-          id,
-        }
+      return {
+        url,
+        name: dataProvider ? dataProvider.name : null,
+        id,
       }
-    )
+    })
     article.dataProviders = dataProvidersWithNames
 
     return article

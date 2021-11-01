@@ -6,7 +6,7 @@ import CardDropdown from './card-dropdown'
 
 const OtherVersions = ({ outputs }) => (
   <Card className={styles.boxes} variant="outlined">
-    <Card.Title tag="h3">Other Versions</Card.Title>
+    <Card.Title tag="h3">Available Versions</Card.Title>
     {outputs.map((output) => (
       <CardDropdown
         {...output}
