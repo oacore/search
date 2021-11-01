@@ -1,6 +1,5 @@
 import React from 'react'
 import { SearchResult } from '@oacore/design'
-import { toJS } from 'mobx'
 
 import styles from './styles.module.css'
 

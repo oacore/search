@@ -1,5 +1,3 @@
-const { toJS } = require('mobx')
-
 const getAssetsPath = (path = '/', target = process.env.BUILD_TARGET || '') =>
   target === 'aws' ? `/data-providers${path}` : path
 
