@@ -101,16 +101,8 @@ App.getInitialProps = async () => {
     // fetch new stats if they are 1 day old
     (Date.now() - statistics.timestamp) / (1000 * 3600 * 24) > 1
   ) {
-    // const { data } = await apiRequest('/statistics')
-    statistics = {
-      totalArticlesCount: 214800059,
-      fullTextCount: 26587504,
-      repositoriesCount: 10264,
-      countriesCount: 149,
-      lastMonthDataprovidersCount: 6,
-      lastYearDataprovidersCount: 735,
-      openAccessLinksCount: 93628799,
-    }
+    const { data } = await apiRequest('/statistics')
+    statistics = data
   }
 
   return {
