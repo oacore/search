@@ -32,6 +32,7 @@ const SearchTemplate = observe(({ data }) => {
 
   React.useEffect(() => {
     search.setWorks(data.results)
+    search.setQuery(data.query)
     search.fetchDataProviders()
   }, [data])
 

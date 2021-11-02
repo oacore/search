@@ -20,3 +20,13 @@ export const fetchAggregations = async (body) => {
   })
   return aggregations
 }
+
+export const downloadResultsInCSV = async (body) => {
+  const url = new URL(`/v3/search/works`, process.env.API_URL).href
+
+  const { data: result } = await apiRequest(url, {
+    body,
+    method: 'POST',
+  })
+  return result
+}
