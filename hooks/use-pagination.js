@@ -11,7 +11,7 @@ const range = (start, end) => {
 export const usePagination = ({
   totalCount,
   pageSize,
-  siblingCount = 1,
+  siblingCount = 2,
   currentPage,
 }) => {
   // Max pages count = 1000
@@ -37,7 +37,7 @@ export const usePagination = ({
 
     if (totalPageNumbers >= totalPageCount) return range(1, totalPageCount)
 
-    const leftSiblingIndex = Math.max(+currentPage - siblingCount, 1)
+    const leftSiblingIndex = Math.max(currentPage - siblingCount, 1)
     const rightSiblingIndex = Math.min(
       +currentPage + siblingCount,
       totalPageCount
@@ -50,7 +50,7 @@ export const usePagination = ({
       component size which we do not want
     */
     const shouldShowLeftDots = leftSiblingIndex > 2
-    const shouldShowRightDots = rightSiblingIndex < totalPageCount - 2
+    const shouldShowRightDots = rightSiblingIndex <= totalPageCount - 2
 
     const firstPageIndex = 1
     const lastPageIndex = totalPageCount
@@ -58,7 +58,6 @@ export const usePagination = ({
     if (!shouldShowLeftDots && shouldShowRightDots) {
       const leftItemCount = 3 + 2 * siblingCount
       const leftRange = range(1, leftItemCount)
-
       return [...leftRange, DOTS, totalPageCount]
     }
 
@@ -68,14 +67,18 @@ export const usePagination = ({
         totalPageCount - rightItemCount + 1,
         totalPageCount
       )
+
       return [firstPageIndex, DOTS, ...rightRange]
     }
 
     if (shouldShowLeftDots && shouldShowRightDots) {
       const middleRange = range(leftSiblingIndex, rightSiblingIndex)
+
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex]
     }
   }, [totalCount, pageSize, siblingCount, currentPage])
+
+  // console.log(paginationRange)
 
   return paginationRange
 }
