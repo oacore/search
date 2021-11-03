@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import { Header } from '@oacore/design'
+import { useRouter } from 'next/router'
 
 import Error404 from '../../templates/error/404'
 
@@ -88,14 +89,14 @@ export async function getServerSideProps({ params: routeParams }) {
 
 const ScientificWorkPage = ({ serverError, data }) => {
   const { statistics } = useStore()
+  const router = useRouter()
+
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
 
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {
-      window.location.href = `https://core.ac.uk/search?q=${encodeURIComponent(
-        searchTerm
-      )}`
+      router.push(encodeURIComponent(searchTerm))
     },
     initQuery: '',
     searchBarProps: {

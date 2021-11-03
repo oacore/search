@@ -12,13 +12,21 @@
   justify-content: space-between;
 }
 
-.icon-share {
+.action-buttons {
+  display: flex;
+}
+
+.popover {
+  padding: 0.3rem;
+}
+
+.action-icon {
   color: var(--gray-800);
   cursor: pointer;
 }
 
-.button-share:hover,
-.button-share:focus {
+.action-button:hover,
+.action-button:focus {
   --button-overlay: none;
   --button-focus-ring: none;
 }

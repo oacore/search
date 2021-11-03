@@ -2,7 +2,7 @@
 .bar {
   position: sticky;
   top: 3rem;
-  z-index: 9;
+  z-index: 1000;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -194,6 +194,10 @@
 
 .toggle-button {
   display: none;
+}
+
+.bar-item-loading {
+  min-width: 7.57rem;
 }
 
 @media (--screen-until-desktop) {

@@ -70,7 +70,7 @@ const SearchOutputsPage = ({ data, queryError }) => {
 
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {
-      router.push(searchTerm)
+      router.push(encodeURIComponent(searchTerm))
     },
     initQuery: data.query,
     searchBarProps: {

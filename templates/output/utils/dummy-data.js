@@ -14,17 +14,17 @@ export const UPDATE_OPTIONS = [
 export const ROLES = [
   {
     id: 1,
-    label: 'Repository manager',
-    value: 'repositoryManager',
+    value: 'Repository manager',
+    role: 'repositoryManager',
   },
   {
     id: 2,
-    label: 'Author',
-    value: 'author',
+    value: 'Author',
+    role: 'author',
   },
   {
     id: 3,
-    label: 'Other',
-    value: 'other',
+    value: 'Other',
+    role: 'other',
   },
 ]

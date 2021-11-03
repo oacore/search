@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import { Header } from '@oacore/design'
+import { useRouter } from 'next/router'
 
 import request from 'api'
 import { fetchMetadata, fetchCitations } from 'api/outputs'
@@ -101,14 +102,14 @@ export async function getServerSideProps({ params: routeParams }) {
 
 const ScientificOutputPage = ({ serverError, data }) => {
   const { statistics } = useStore()
+  const router = useRouter()
+
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
 
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {
-      window.location.href = `https://core.ac.uk/search?q=${encodeURIComponent(
-        searchTerm
-      )}`
+      router.push(encodeURIComponent(searchTerm))
     },
     initQuery: '',
     searchBarProps: {

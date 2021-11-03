@@ -5,7 +5,7 @@ import classNames from '@oacore/design/lib/utils/class-names'
 import styles from './styles.module.css'
 
 const Fieldset = ({ className, items, icon, onClick, title }) => {
-  const [activeBox, setActiveBox] = React.useState(items[0].value)
+  const [activeBox, setActiveBox] = React.useState()
 
   const onHandleClick = (value) => {
     onClick(value)

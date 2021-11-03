@@ -16,6 +16,7 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
   useEffect(() => {
     if (!initialQuery.includes(query)) {
       setQuery(initialQuery)
+
       filters.fetchFilters(initialQuery, sortType)
     }
   }, [initialQuery])
@@ -49,21 +50,23 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
           .join(className)}
       >
         {!filters.isLoading ? (
-          filters.data.map((filter) => (
-            <FilterBarItem key={filter.value} filter={filter} />
-          ))
+          <>
+            {filters.data.map((filter) => (
+              <FilterBarItem key={filter.value} filter={filter} />
+            ))}
+            {filters.isVisibleClearButton && (
+              <Button
+                type="button"
+                variant="text"
+                onClick={onHandleClickClear}
+                className={styles.button}
+              >
+                Clear all filters
+              </Button>
+            )}
+          </>
         ) : (
           <LoadingBlock items={filters.aggregations} />
-        )}
-        {filters.isVisibleClearButton && (
-          <Button
-            type="button"
-            variant="text"
-            onClick={onHandleClickClear}
-            className={styles.button}
-          >
-            Clear all filters
-          </Button>
         )}
       </ul>
     </>

@@ -18,7 +18,7 @@ const Metadata = ({ authors, publisher, publishedDate }) => (
             itemType="https://schema.org/Person"
           >
             <a
-              href={`https://core.ac.uk/search?q=author:(${name})`}
+              href={`https://core.ac.uk/search/authors:(${name})`}
               className={styles.authorLink}
             >
               {(name || '').replace(/([^,]*),\s(.*)/, '$2 $1')}

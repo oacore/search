@@ -17,6 +17,7 @@ const icons = [
   'checkbox-marked',
   'share-variant',
   'open-in-new',
+  'download',
 ]
 
 const iconsRoot = path.join(

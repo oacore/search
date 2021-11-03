@@ -10,6 +10,7 @@ import styles from './styles.module.css'
 import QueryError from '../error/query'
 import Notification from './notification'
 import coreImage from './images/core.png'
+import DownloadResultModal from './modals/download-results'
 
 import Search from 'modules/search-layout'
 import Filters from 'modules/filters'
@@ -18,6 +19,7 @@ import useWindowSize from 'hooks/use-window-size'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
 
 const SearchTemplate = observe(({ data }) => {
+  const [isModalDownloadActive, setModalDownloadActive] = React.useState(false)
   const router = useRouter()
   const { search } = useStore()
   const { width } = useWindowSize()
@@ -30,6 +32,7 @@ const SearchTemplate = observe(({ data }) => {
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(url + router.asPath)
 
   React.useEffect(() => {
+    search.setQuery(data.query)
     search.fetchDataProviders()
   }, [])
 
@@ -53,17 +56,34 @@ const SearchTemplate = observe(({ data }) => {
                   {data.totalHits.toLocaleString('en-GB')} research outputs
                   found
                 </p>
-
-                <Popover placement="top" content="Copy url">
+                <div className={styles.actionButtons}>
                   <Button
                     type="button"
-                    onClick={copyUrl}
                     variant="text"
-                    className={styles.buttonShare}
+                    onClick={() => setModalDownloadActive(true)}
+                    className={styles.actionButton}
                   >
-                    <Icon src="#share-variant" className={styles.iconShare} />
+                    <Icon src="#download" className={styles.actionIcon} />
                   </Button>
-                </Popover>
+
+                  <Popover
+                    placement="top"
+                    content="Copy url"
+                    className={styles.popover}
+                  >
+                    <Button
+                      type="button"
+                      onClick={copyUrl}
+                      variant="text"
+                      className={styles.actionButton}
+                    >
+                      <Icon
+                        src="#share-variant"
+                        className={styles.actionIcon}
+                      />
+                    </Button>
+                  </Popover>
+                </div>
               </div>
               <Results works={search.works} />
               {data.currentPage === 1000 && (
@@ -88,6 +108,9 @@ const SearchTemplate = observe(({ data }) => {
           <img src={coreImage} alt="core" className={styles.sidebarImage} />
         </Search.Sidebar>
         {copyUrlStatus === 'copied' && <Notification />}
+        {isModalDownloadActive && (
+          <DownloadResultModal setModalActive={setModalDownloadActive} />
+        )}
       </Search>
     </>
   )
