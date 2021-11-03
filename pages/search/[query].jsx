@@ -32,7 +32,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       offset,
       limit,
       exclude: ['fullText'],
-      sort: sort === 'recent' ? 'yearPublished:desc' : sort,
+      sort: sort === 'recent' ? 'recency' : sort,
     }
 
     try {
@@ -72,7 +72,7 @@ const SearchOutputsPage = ({ data, queryError }) => {
     onQueryChanged: (searchTerm) => {
       router.push(searchTerm)
     },
-    initQuery: data.query.replace(/ .*/, ''),
+    initQuery: data.query,
     searchBarProps: {
       label: `Search ${totalArticlesCount} papers around the world`,
       placeholder: `Search ${totalArticlesCount} papers around the world`,

@@ -1,5 +1,6 @@
 import data from '../data/languages.json'
 import sortFilterValues from '../modules/filters/utils/sort-filter-values'
+import { sortItemsByValueIndex } from './sort'
 
 export const checkActiveItems = (filters) => {
   const isActiveItems = filters
@@ -39,7 +40,7 @@ const setFilterLabels = (value) => {
   return label
 }
 
-const transformFiltersData = (initialObject, query) => {
+const transformFiltersData = (initialObject, labelValues, query) => {
   const arrayOfObj = Object.entries(initialObject)
     .map((e) => ({
       value: e[0],
@@ -58,6 +59,9 @@ const transformFiltersData = (initialObject, query) => {
       items,
     }
   })
+
+  sortItemsByValueIndex(filters, labelValues, 'value')
+
   filters.push(sortFilterValues)
 
   filters

@@ -17,8 +17,8 @@
 .bar-item {
   display: flex;
   justify-content: space-between;
-  width: 7.57rem;
-  padding: 0.2rem 1rem;
+  min-width: 7.25rem;
+  padding: 0.2rem 0.3rem 0.2rem 1rem;
   color: var(--gray-700);
   cursor: pointer;
   border: 1px solid var(--gray-300);
@@ -37,9 +37,8 @@
 
 .bar-item p {
   margin: 0;
-  overflow: hidden;
+  margin-right: 1rem;
   text-transform: capitalize;
-  white-space: nowrap;
 }
 
 .bar-item-wrapper:not(:first-child) {

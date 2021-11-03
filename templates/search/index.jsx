@@ -9,6 +9,7 @@ import Results from './results'
 import styles from './styles.module.css'
 import QueryError from '../error/query'
 import Notification from './notification'
+import coreImage from './images/core.png'
 
 import Search from 'modules/search-layout'
 import Filters from 'modules/filters'
@@ -84,7 +85,7 @@ const SearchTemplate = observe(({ data }) => {
         </Search.Main>
 
         <Search.Sidebar tag="aside">
-          <div>Content</div>
+          <img src={coreImage} alt="core" className={styles.sidebarImage} />
         </Search.Sidebar>
         {copyUrlStatus === 'copied' && <Notification />}
       </Search>

@@ -16,6 +16,14 @@ export const sortItemsByNumberAsc = (array, number) =>
 export const sortItemsByBoolean = (array, boolean) =>
   array.sort((a, b) => (a[boolean] === b[boolean] ? 0 : a[boolean] ? -1 : 1))
 
+export const sortItemsByAlphabet = (array, key) =>
+  array.sort((a, b) => a[key].localeCompare(b[key]))
+
+export const sortItemsByValueIndex = (initArray, valueArray, key) =>
+  initArray.sort(
+    (a, b) => valueArray.indexOf(a[key]) - valueArray.indexOf(b[key])
+  )
+
 /* For filters */
 export const setItemFirst = (array) => {
   const foundedIndex = array.findIndex((i) => i.value === 'unknown')

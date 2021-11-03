@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
-import { Button, LoadingBar } from '@oacore/design/lib/elements'
+import { Button } from '@oacore/design/lib/elements'
 import { classNames } from '@oacore/design/lib/utils'
 
 import styles from './styles.module.css'
 import FilterBarItem from './bar-item'
+import LoadingBlock from './loading-block'
 
 import { observe, useStore } from 'store'
 
@@ -31,8 +32,6 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
     setVisibleFiltersBar(!visibleFiltersBar)
   }
 
-  if (filters.isLoading) return <LoadingBar fixed />
-
   return (
     <>
       <Button
@@ -49,9 +48,13 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
           })
           .join(className)}
       >
-        {filters.data.map((filter) => (
-          <FilterBarItem key={filter.value} filter={filter} />
-        ))}
+        {!filters.isLoading ? (
+          filters.data.map((filter) => (
+            <FilterBarItem key={filter.value} filter={filter} />
+          ))
+        ) : (
+          <LoadingBlock items={filters.aggregations} />
+        )}
         {filters.isVisibleClearButton && (
           <Button
             type="button"

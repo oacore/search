@@ -21,11 +21,11 @@ class Filters {
 
   aggregations = [
     'authors',
-    'language',
-    'yearPublished',
-    'documentType',
-    'publisher',
     'fieldsOfStudy',
+    'language',
+    'publisher',
+    'documentType',
+    'yearPublished',
   ]
 
   groupedYearDates = []
@@ -76,11 +76,12 @@ class Filters {
     try {
       const { aggregations } = await fetchAggregations({
         aggregations: this.aggregations,
-        q: query.replace(/ .*/, ''),
+        q: query,
       })
 
       const fullQuery = `${query}?sort=${sortType}`
-      const filters = transformFiltersData(aggregations, fullQuery)
+      const labelValues = this.aggregations
+      const filters = transformFiltersData(aggregations, labelValues, fullQuery)
       this.setData(filters)
       this.setIsVisibleClearButton()
     } catch (error) {
@@ -120,12 +121,7 @@ class Filters {
         pathname: '/search/[query]',
         query: {
           ...Router.query,
-          query: query.replace(
-            ` AND ${filterKey}${
-              filterKey === 'authors' ? '.raw' : ''
-            }:"${filterValue}"`,
-            ''
-          ),
+          query: query.replace(` AND ${filterKey}:"${filterValue}"`, ''),
           page: 1,
         },
       })
@@ -134,9 +130,7 @@ class Filters {
         pathname: '/search/[query]',
         query: {
           ...Router.query,
-          query: `${query} AND ${filterKey}${
-            filterKey === 'authors' ? '.raw' : ''
-          }:"${filterValue}"`,
+          query: `${query} AND ${filterKey}:"${filterValue}"`,
           page: 1,
         },
       })
