@@ -17,6 +17,8 @@ class Search {
 
   activeLimit = 1000
 
+  activeDownloadModal = false
+
   constructor() {
     makeObservable(this, {
       works: observable,
@@ -24,6 +26,7 @@ class Search {
       dataProviders: observable,
       activeLimit: observable,
       query: observable,
+      activeDownloadModal: observable,
       setWorks: action,
       setIsLoading: action,
       setQuery: action,
@@ -63,6 +66,10 @@ class Search {
     this.query = query
   }
 
+  setActiveDownloadModal(boolean) {
+    this.activeDownloadModal = boolean
+  }
+
   @invalidatePreviousRequests
   async fetchDataProviders() {
     try {
@@ -84,9 +91,10 @@ class Search {
       const body = {
         q: this.query,
         accept: 'text/csv',
-        limit: 10,
+        limit: this.activeLimit,
       }
-      const result = downloadResultsInCSV(body)
+      await downloadResultsInCSV(body)
+      this.setActiveDownloadModal(false)
     } catch (error) {
       console.error(error)
     } finally {

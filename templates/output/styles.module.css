@@ -134,7 +134,7 @@
 }
 
 .background {
-  width: 100vw;
+  width: calc(100vw - 1rem);
   padding: var(--page-padding-y) var(--page-padding-x) 1.5rem
     var(--page-padding-x);
   background-color: var(--gray-100);
@@ -147,6 +147,10 @@
 @media (--screen-until-desktop) {
   .output-container {
     grid-template-columns: 1fr !important;
+  }
+
+  .background {
+    width: 100vw;
   }
 
   .background h1 {

@@ -31,7 +31,6 @@ const ReportFormModal = observe(({ id: outputId }) => {
   const {
     report: { role: reporterRole, updateOption },
     setActiveReporter,
-    setIsModalReportSuccessActive,
     setIsModalReportFormActive,
     handleSubmitForm,
     resetReport,
@@ -43,7 +42,6 @@ const ReportFormModal = observe(({ id: outputId }) => {
     if (outputId && name && email) {
       handleSubmitForm({ outputId, name, email, message })
       setIsModalReportFormActive(false)
-      setIsModalReportSuccessActive(true)
     }
   }
 

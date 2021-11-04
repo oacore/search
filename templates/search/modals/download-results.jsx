@@ -25,7 +25,7 @@ const downloadVariants = [
   },
 ]
 
-const DownloadResultModal = observe(({ setModalActive }) => {
+const DownloadResultModal = observe(() => {
   const { search } = useStore()
 
   const onChange = (value) => {
@@ -34,6 +34,7 @@ const DownloadResultModal = observe(({ setModalActive }) => {
 
   const onSubmit = () => {
     search.downloadResults()
+    search.setActiveDownloadModal()
   }
 
   return (
@@ -53,10 +54,17 @@ const DownloadResultModal = observe(({ setModalActive }) => {
       </Modal.Content>
       <Fieldset title="Size" items={downloadVariants} onClick={onChange} />
       <Modal.Footer className={styles.buttons}>
-        <Button onClick={() => setModalActive(false)} variant="text">
+        <Button
+          onClick={() => search.setActiveDownloadModal(false)}
+          variant="text"
+        >
           Cancel
         </Button>
-        <Button onClick={onSubmit} variant="contained">
+        <Button
+          onClick={onSubmit}
+          variant="contained"
+          disabled={search.isLoading}
+        >
           Download
         </Button>
       </Modal.Footer>

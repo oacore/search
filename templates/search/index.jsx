@@ -19,7 +19,6 @@ import useWindowSize from 'hooks/use-window-size'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
 
 const SearchTemplate = observe(({ data }) => {
-  const [isModalDownloadActive, setModalDownloadActive] = React.useState(false)
   const router = useRouter()
   const { search } = useStore()
   const { width } = useWindowSize()
@@ -32,12 +31,12 @@ const SearchTemplate = observe(({ data }) => {
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(url + router.asPath)
 
   React.useEffect(() => {
-    search.setQuery(data.query)
     search.fetchDataProviders()
   }, [])
 
   React.useEffect(() => {
     search.setWorks(data.results)
+    search.setQuery(data.query)
   }, [data])
 
   return (
@@ -60,7 +59,7 @@ const SearchTemplate = observe(({ data }) => {
                   <Button
                     type="button"
                     variant="text"
-                    onClick={() => setModalDownloadActive(true)}
+                    onClick={() => search.setActiveDownloadModal(true)}
                     className={styles.actionButton}
                   >
                     <Icon src="#download" className={styles.actionIcon} />
@@ -108,9 +107,7 @@ const SearchTemplate = observe(({ data }) => {
           <img src={coreImage} alt="core" className={styles.sidebarImage} />
         </Search.Sidebar>
         {copyUrlStatus === 'copied' && <Notification />}
-        {isModalDownloadActive && (
-          <DownloadResultModal setModalActive={setModalDownloadActive} />
-        )}
+        {search.activeDownloadModal && <DownloadResultModal />}
       </Search>
     </>
   )

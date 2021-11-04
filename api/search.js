@@ -1,5 +1,7 @@
 import apiRequest from './index'
 
+const FileDownload = require('js-file-download')
+
 export const fetchWorks = async (body) => {
   const url = new URL(`/v3/search/works`, process.env.API_URL).href
 
@@ -24,9 +26,8 @@ export const fetchAggregations = async (body) => {
 export const downloadResultsInCSV = async (body) => {
   const url = new URL(`/v3/search/works`, process.env.API_URL).href
 
-  const { data: result } = await apiRequest(url, {
+  await apiRequest(url, {
     body,
     method: 'POST',
-  })
-  return result
+  }).then(({ data }) => FileDownload(data, 'results.csv'))
 }

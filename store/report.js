@@ -56,6 +56,7 @@ class Report {
     this.isLoading = true
     try {
       await createReport(data)
+      this.isModalReportSuccessActive = true
     } catch (error) {
       this.error = ERROR_MESSAGE
     } finally {
