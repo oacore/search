@@ -104,7 +104,14 @@ const SearchTemplate = observe(({ data }) => {
         </Search.Main>
 
         <Search.Sidebar tag="aside">
-          <img src={coreImage} alt="core" className={styles.sidebarImage} />
+          <Link
+            href="https://www.core.ac.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.logo}
+          >
+            <img src={coreImage} alt="core" className={styles.sidebarImage} />
+          </Link>
         </Search.Sidebar>
         {copyUrlStatus === 'copied' && <Notification />}
         {search.activeDownloadModal && <DownloadResultModal />}

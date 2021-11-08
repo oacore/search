@@ -2,7 +2,7 @@
 .bar {
   position: sticky;
   top: 3rem;
-  z-index: 1000;
+  z-index: 9;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -17,7 +17,7 @@
 .bar-item {
   display: flex;
   justify-content: space-between;
-  min-width: 7.25rem;
+  min-width: 7.15rem;
   padding: 0.2rem 0.3rem 0.2rem 1rem;
   color: var(--gray-700);
   cursor: pointer;

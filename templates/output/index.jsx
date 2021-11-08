@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button, Icon } from '@oacore/design/lib/elements'
 
 import SimilarWorks from './similar-works'
 import RelatedSearch from './related-search'
@@ -34,6 +35,7 @@ const ScientificOutputTemplate = ({
     download,
     thumbnail_l: thumbnailLargeUrl,
     identifiers: { doi, oai },
+    mainDataProviderLink,
   },
   useOtherVersions = false,
   ...passProps
@@ -53,17 +55,29 @@ const ScientificOutputTemplate = ({
           publishedDate={publishedDate}
           publisher={publisher}
         />
-
-        {citations && citations.length > 0 && (
-          <CitationManager
-            data={{
-              citations,
-              actionLabel: 'Cite',
-            }}
-          />
-        )}
-        {/* View buttons - use later */}
-        {/* {useOtherVersions && <ActionBar outputs={outputs} />} */}
+        <div className={styles.buttons}>
+          {citations && citations.length > 0 && (
+            <CitationManager
+              data={{
+                citations,
+                actionLabel: 'Cite',
+              }}
+            />
+          )}
+          {useOtherVersions && mainDataProviderLink && (
+            <Button
+              variant="outlined"
+              className={styles.actionButton}
+              tag="a"
+              target="_blank"
+              href={mainDataProviderLink.link}
+              key={mainDataProviderLink.id}
+            >
+              View <span>on</span> {mainDataProviderLink.name}
+              <Icon src="#open-in-new" />
+            </Button>
+          )}
+        </div>
       </div>
       <div className={styles.containerMain}>
         <section id="abstract" className={styles.abstract}>

@@ -37,6 +37,18 @@ export async function getServerSideProps({ params: routeParams }) {
     })
     const workWithUrls = findUrlsByType(work)
 
+    const mainDataProviderLink = {
+      id: workWithUrls.arxivId || workWithUrls.pubmedId,
+      link:
+        (workWithUrls.arxivId &&
+          `https://arxiv.com/abs/${workWithUrls.arxivId}`) ||
+        (workWithUrls.pubmedId &&
+          `https://pubmed.ncbi.nlm.nih.gov/PMC${workWithUrls.pubmedId}`),
+      name:
+        (workWithUrls.arxivId && 'arXiv') ||
+        (workWithUrls.pubmedId && 'PubMed'),
+    }
+
     Object.assign(data, {
       ...workWithUrls,
       identifiers: {
@@ -52,6 +64,7 @@ export async function getServerSideProps({ params: routeParams }) {
         workWithUrls.sourceFulltextUrls[0],
       outputs,
       dataProvider: workWithUrls.dataProviders[0],
+      mainDataProviderLink,
     })
   } catch (error) {
     log(error)

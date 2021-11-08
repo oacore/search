@@ -214,3 +214,8 @@
   width: 100%;
   color: var(--gray-400);
 }
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
