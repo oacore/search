@@ -17,7 +17,9 @@
 .bar-item {
   display: flex;
   justify-content: space-between;
-  min-width: 7.15rem;
+  min-width: calc(
+    ((100vw - var(--page-padding-x) * 2) * var(--main-content-ratio) / 7)
+  );
   padding: 0.2rem 0.3rem 0.2rem 1rem;
   color: var(--gray-700);
   cursor: pointer;
@@ -197,7 +199,9 @@
 }
 
 .bar-item-loading {
-  min-width: 7.57rem;
+  width: calc(
+    ((100vw - var(--page-padding-x) * 2) * var(--main-content-ratio) / 6.65)
+  );
 }
 
 @media (--screen-until-desktop) {
