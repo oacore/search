@@ -64,7 +64,11 @@ export async function getServerSideProps({ params: routeParams }) {
         workWithUrls.sourceFulltextUrls[0],
       outputs,
       dataProvider: workWithUrls.dataProviders[0],
-      mainDataProviderLink,
+      mainDataProviderLink: Object.values(mainDataProviderLink).some(
+        (link) => link !== null
+      )
+        ? mainDataProviderLink
+        : null,
     })
   } catch (error) {
     log(error)
