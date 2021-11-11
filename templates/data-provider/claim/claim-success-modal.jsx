@@ -32,10 +32,10 @@ const ClaimSuccessModal = ({
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         className={
-          newEmail ? styles.successImageCheck : styles.successImageInvitation
+          newEmail ? styles.successImageInvitation : styles.successImageCheck
         }
       >
-        <image href={newEmail ? successCheckSVG : successCheckInvitationSVG} />
+        <image href={newEmail ? successCheckInvitationSVG : successCheckSVG} />
       </svg>
       {newEmail ? (
         <p>
@@ -50,7 +50,7 @@ const ClaimSuccessModal = ({
         </p>
       )}
     </Modal.Content>
-    <Modal.Footer className={styles.footer}>
+    <Modal.Footer className={styles.footerClose}>
       <Button onClick={onClose} variant="contained">
         Close
       </Button>

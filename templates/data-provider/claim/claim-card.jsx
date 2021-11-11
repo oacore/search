@@ -64,10 +64,20 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
 
   return (
     <Card className={classNames.use(styles.claimCard, className)}>
+      <div className={classNames.use(styles.cardTitle)}>
+        Repository Dashboard
+      </div>
       <div>
-        <b>Do you manage {nameDataProvider}?</b> Access insider analytics, issue
-        reports and manage access to outputs from your repository in
-        the&nbsp;CORE&nbsp;Dashboard!&nbsp;
+        Do you manage {nameDataProvider}? Access insider analytics, issue
+        reports and manage access to outputs from your repository in the{' '}
+        <a
+          href="https://core.ac.uk/services/repository-dashboard"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.linkUnderline}
+        >
+          CORE Repository Dashboard!
+        </a>
         <span aria-hidden="true" role="img">
           👇
         </span>

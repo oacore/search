@@ -1,3 +1,9 @@
+.card-title {
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
 .claim-card {
   box-shadow: none;
 }
@@ -20,13 +26,45 @@
   cursor: pointer;
 }
 
+.input-email {
+  color: var(--form-helper-color);
+}
+
+.input-email input {
+  border-color: var(--form-helper-color);
+}
+
+.input-email label {
+  color: var(--form-helper-color);
+}
+
+.input-email span {
+  border-color: var(--form-helper-color);
+}
+
+.input-email svg {
+  fill: var(--form-helper-color) !important;
+}
+
 .claim-card-action:not(:last-child) {
   margin-right: 0.5rem;
 }
 
-.footer {
+.footer,
+.footer-close {
   display: flex;
-  justify-content: space-between;
+}
+
+.footer {
+  justify-content: end;
+}
+
+.footer-close {
+  justify-content: start;
+}
+
+.footer .continue {
+  margin-left: 15px;
 }
 
 .hide {
@@ -69,4 +107,19 @@
   position: absolute;
   top: -21px;
   z-index: 110;
+}
+
+.link-underline {
+  text-decoration: underline;
+}
+
+.button-revers {
+  color: var(--primary);
+  background-color: #fff;
+  box-shadow: none;
+}
+
+.button-revers:hover {
+  background-color: #fff;
+  box-shadow: none;
 }

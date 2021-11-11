@@ -34,6 +34,11 @@ const ClaimModalEdit = (props) => {
     focus: focusRationale,
   } = useInput('', 'contactRationale')
 
+  const handleBackSubmit = (evt) => {
+    evt.preventDefault()
+    setModalEditActive(false)
+  }
+
   const handleSubmit = (evt) => {
     evt.preventDefault()
 
@@ -62,7 +67,7 @@ const ClaimModalEdit = (props) => {
       </Modal.Title>
       <Modal.Content tag="div">
         <p>
-          Enter the administrator email address and a few details to to get
+          Enter the administrator email address and a few details to get
           invitation to the CORE Dashboard.
         </p>
         <TextField
@@ -114,10 +119,16 @@ const ClaimModalEdit = (props) => {
         />
       </Modal.Content>
       <Modal.Footer className={styles.footer}>
-        <Button onClick={handleSubmit} variant="contained">
+        <Button onClick={handleBackSubmit} className={styles.buttonRevers}>
+          Back
+        </Button>
+        <Button
+          onClick={handleSubmit}
+          variant="contained"
+          className={styles.continue}
+        >
           Continue
         </Button>
-        <a href="https://dashboard.core.ac.uk/">Sign in to Dashboard</a>
       </Modal.Footer>
     </Modal>
   )
