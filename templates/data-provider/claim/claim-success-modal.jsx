@@ -10,7 +10,6 @@ const ClaimSuccessModal = ({
   className,
   setClaimModalActive,
   setClaimModalEditActive,
-  setLoginModalActive,
   setModalActive,
   onClose,
   newEmail,
@@ -21,7 +20,6 @@ const ClaimSuccessModal = ({
     onClose={() => {
       setClaimModalActive(false)
       setClaimModalEditActive(false)
-      setLoginModalActive(false)
       setModalActive(false)
     }}
     className={classNames.use(styles.modal, className)}

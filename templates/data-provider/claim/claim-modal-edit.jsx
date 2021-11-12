@@ -53,6 +53,11 @@ const ClaimModalEdit = (props) => {
     }
   }
 
+  const rationaleHelper =
+    'Repository manager will manually check you are the authorised person to get access, additional information would be very apperciated.'
+  // const rationaleHelper =
+  // 'Since you changed email, we need to manually check you are the repository manager, additional information would be very apperciated.'
+
   return (
     <Modal
       aria-labelledby="gain-access-modal-title"
@@ -110,10 +115,7 @@ const ClaimModalEdit = (props) => {
           {...bindRationale}
           helper={
             <>
-              <span className={styles.label}>Rationale</span>
-              Since you changed email, we need to manually check you are the
-              repository manager, additional information would be very
-              apperciated.
+              <span className={styles.label}>Rationale</span> {rationaleHelper}
             </>
           }
         />

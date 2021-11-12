@@ -123,3 +123,7 @@
   background-color: #fff;
   box-shadow: none;
 }
+
+.modal-sign-in {
+  max-width: 28rem;
+}
