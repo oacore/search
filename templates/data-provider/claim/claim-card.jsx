@@ -8,6 +8,7 @@ import ClaimModalEdit from './claim-modal-edit'
 import styles from './styles.module.css'
 import ClaimSuccessModal from './claim-success-modal'
 import fetchClaim from '../../../api/claim'
+import fetchDataProviderAccounts from '../../../api/data-provider-accounts'
 
 export async function getClaim({ params: claimParams }) {
   const data = {}
@@ -53,13 +54,43 @@ export async function getClaim({ params: claimParams }) {
   }
 }
 
+export async function getDataProviderAccounts({ params }) {
+  const data = {}
+  let { id, setIsDataProviderHasAccounts } = params
+  try {
+    const dataProviderAccounts = await fetchDataProviderAccounts({ id })
+
+    if (dataProviderAccounts.length > 0) setIsDataProviderHasAccounts(true)
+    data.accounts = {
+      [id]: dataProviderAccounts,
+    }
+  } catch (errorWithDataProvider) {
+    return {
+      props: {
+        error: errorWithDataProvider,
+      },
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { data },
+  }
+}
+
 const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
   const [isClaimModalActive, setIsClaimModalActive] = useState(false)
   const [isClaimModalEditActive, setIsClaimModalEditActive] = useState(false)
   const [isSignInModalActive, setIsSignInModalActive] = useState(false)
   const [isClaimSuccessModalActive, setIsClaimSuccessModalActive] =
     useState(false)
+  const [isDataProviderHasAccounts, setIsDataProviderHasAccounts] =
+    useState(false)
   const [newEmail, setNewEmail] = useState(false)
+
+  getDataProviderAccounts({
+    params: { id, setIsDataProviderHasAccounts },
+  })
 
   return (
     <Card className={classNames.use(styles.claimCard, className)}>
@@ -82,35 +113,45 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
         </span>
       </div>
       <div className={styles.claimCardActions}>
-        <Button
-          variant="contained"
-          className={styles.claimCardAction}
-          onClick={() => setIsClaimModalActive(true)}
-        >
-          Gain access now
-        </Button>
-
-        {1 !== 1 ? (
-          <Button
-            className={styles.claimCardAction}
-            onClick={() => {
-              window.open(
-                'https://core.ac.uk/services/repository-dashboard',
-                '_blank'
-              )
-            }}
-          >
-            More details
-          </Button>
+        {!isDataProviderHasAccounts ? (
+          <>
+            <Button
+              variant="contained"
+              className={styles.claimCardAction}
+              onClick={() => setIsClaimModalActive(true)}
+            >
+              Gain access now
+            </Button>
+            <Button
+              className={styles.claimCardAction}
+              onClick={() => {
+                window.open(
+                  'https://core.ac.uk/services/repository-dashboard',
+                  '_blank'
+                )
+              }}
+            >
+              More details
+            </Button>
+          </>
         ) : (
-          <Button
-            className={styles.claimCardAction}
-            onClick={() => {
-              window.open('https://dashboard.core.ac.uk/', '_blank')
-            }}
-          >
-            SIGN IN
-          </Button>
+          <>
+            <Button
+              variant="contained"
+              className={styles.claimCardAction}
+              onClick={() => setIsClaimModalEditActive(true)}
+            >
+              Gain access now
+            </Button>
+            <Button
+              className={styles.claimCardAction}
+              onClick={() => {
+                window.open('https://dashboard.core.ac.uk/', '_blank')
+              }}
+            >
+              SIGN IN
+            </Button>
+          </>
         )}
 
         {isClaimModalActive && (
@@ -139,6 +180,7 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
             contactData={contactData}
             setModalActive={setIsClaimModalActive}
             setModalEditActive={setIsClaimModalEditActive}
+            isDataProviderHasAccounts={isDataProviderHasAccounts}
             onContinueClick={(options) =>
               getClaim({
                 params: {

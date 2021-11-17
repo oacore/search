@@ -10,6 +10,7 @@ const ClaimModalEdit = (props) => {
     contactData,
     setModalActive,
     setModalEditActive,
+    isDataProviderHasAccounts,
     onContinueClick,
     className,
   } = props
@@ -53,10 +54,13 @@ const ClaimModalEdit = (props) => {
     }
   }
 
-  const rationaleHelper =
-    'Repository manager will manually check you are the authorised person to get access, additional information would be very apperciated.'
-  // const rationaleHelper =
-  // 'Since you changed email, we need to manually check you are the repository manager, additional information would be very apperciated.'
+  let rationaleHelper =
+    'Since you changed email, we need to manually check you are the repository manager, additional information would be very apperciated.'
+
+  if (isDataProviderHasAccounts) {
+    rationaleHelper =
+      'Repository manager will manually check you are the authorised person to get access, additional information would be very apperciated.'
+  }
 
   return (
     <Modal
