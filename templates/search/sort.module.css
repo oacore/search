@@ -1,0 +1,32 @@
+.sort {
+  position: relative;
+}
+
+.sort-box {
+  display: flex;
+  justify-content: space-between;
+  width: 13rem;
+  padding: 0.2rem 1rem;
+  color: var(--gray-800);
+  text-transform: capitalize;
+  cursor: pointer;
+  background-color: var(--gray-100);
+}
+
+.active-item {
+  font-weight: 500;
+}
+
+.sort-box-menu {
+  position: absolute;
+  top: 2rem;
+  z-index: 1;
+  width: 13rem;
+  padding: 0;
+  background-color: var(--white);
+  box-shadow: var(--elevation-04);
+}
+
+.sort-box-menu li:nth-child(1) {
+  border-bottom: 1px solid var(--gray-300);
+}

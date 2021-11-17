@@ -3,13 +3,12 @@ import Head from 'next/head'
 import { Header } from '@oacore/design'
 import { useRouter } from 'next/router'
 
-import Error404 from '../../templates/error/404'
-
 import { fetchWork, fetchWorkOutputs } from 'api/works'
 import { fetchCitations } from 'api/outputs'
 import { useStore } from 'store'
 import Meta from 'modules/meta'
 import Template from 'templates/output'
+import Error404 from 'templates/error/404'
 import { findUrlsByType } from 'utils/helpers'
 
 const LOCALE = 'en-GB'
@@ -59,9 +58,9 @@ export async function getServerSideProps({ params: routeParams }) {
         ? work.publishedDate
         : work.yearPublished,
       sourceFulltextUrls:
-        workWithUrls.sourceFulltextUrls &&
-        workWithUrls.sourceFulltextUrls instanceof Array &&
-        workWithUrls.sourceFulltextUrls[0],
+        (workWithUrls.sourceFulltextUrls &&
+          workWithUrls.sourceFulltextUrls[0]) ||
+        null,
       outputs,
       dataProvider: workWithUrls.dataProviders[0],
       mainDataProviderLink: Object.values(mainDataProviderLink).some(

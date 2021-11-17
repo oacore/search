@@ -1,27 +1,27 @@
 import { Modal } from '@oacore/design/lib/modules'
 import React from 'react'
-import { Button } from '@oacore/design/lib/elements'
+import { Button, Fieldset } from '@oacore/design/lib/elements'
 
 import styles from './styles.module.css'
 
-import Fieldset from 'modules/fieldset'
+// import Fieldset from 'modules/fieldset'
 import { useStore, observe } from 'store'
 
 const downloadVariants = [
   {
     id: 1,
-    value: 1000,
-    label: '1000 outputs',
+    value: 10,
+    label: 'Current page',
   },
   {
     id: 2,
-    value: 5000,
-    label: '5000 outputs',
+    value: 100,
+    label: 'Top 100 results',
   },
   {
     id: 3,
-    value: 10000,
-    label: '10 000 outputs',
+    value: 1000,
+    label: 'All the results (up to 1,000)',
   },
 ]
 
@@ -36,7 +36,7 @@ const DownloadResultModal = observe(() => {
     search.downloadResults()
     search.setActiveDownloadModal()
   }
-
+  // fw500
   return (
     <Modal
       aria-label="Download results in cvs modal"
@@ -52,7 +52,12 @@ const DownloadResultModal = observe(() => {
         page.
         <br /> Choose how many articles you want to download.
       </Modal.Content>
-      <Fieldset title="Size" items={downloadVariants} onClick={onChange} />
+      <Fieldset
+        title="Size"
+        items={downloadVariants}
+        onClick={onChange}
+        className={styles.variants}
+      />
       <Modal.Footer className={styles.buttons}>
         <Button
           onClick={() => search.setActiveDownloadModal(false)}

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import { Button } from '@oacore/design/lib/elements'
+import { Button, LoadingBar } from '@oacore/design/lib/elements'
 import { classNames } from '@oacore/design/lib/utils'
+import { toJS } from 'mobx'
 
 import styles from './styles.module.css'
 import FilterBarItem from './bar-item'
@@ -13,17 +14,22 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
   const [query, setQuery] = React.useState(initialQuery)
   const { filters } = useStore()
 
+  // useEffect(() => {
+  //   if (!initialQuery.includes(query)) {
+  //     setQuery(initialQuery)
+
+  //     filters.fetchFilters(initialQuery, sortType)
+  //   }
+  // }, [initialQuery])
+
   useEffect(() => {
     if (!initialQuery.includes(query)) {
       setQuery(initialQuery)
-
-      filters.fetchFilters(initialQuery, sortType)
+      filters.setInitialData({})
     }
-  }, [initialQuery])
 
-  useEffect(() => {
-    filters.fetchFilters(query, sortType)
-  }, [])
+    filters.fetchFilters(initialQuery, sortType)
+  }, [initialQuery])
 
   const onHandleClickClear = () => {
     filters.reset(query)
@@ -34,7 +40,8 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
   }
 
   return (
-    <>
+    <div className={styles.container}>
+      {filters.isLoading && <LoadingBar fixed />}
       <Button
         type="button"
         className={classNames.use(styles.button, styles.toggleButton)}
@@ -49,7 +56,9 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
           })
           .join(className)}
       >
-        {!filters.isLoading ? (
+        {filters.isLoading ? (
+          <LoadingBlock />
+        ) : (
           <>
             {filters.data.map((filter) => (
               <FilterBarItem key={filter.value} filter={filter} />
@@ -59,17 +68,15 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
                 type="button"
                 variant="text"
                 onClick={onHandleClickClear}
-                className={styles.button}
+                className={classNames.use(styles.clearButton, styles.button)}
               >
                 Clear all filters
               </Button>
             )}
           </>
-        ) : (
-          <LoadingBlock items={filters.aggregations} />
         )}
       </ul>
-    </>
+    </div>
   )
 })
 

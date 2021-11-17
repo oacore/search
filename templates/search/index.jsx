@@ -11,9 +11,10 @@ import QueryError from '../error/query'
 import Notification from './notification'
 import coreImage from './images/core.png'
 import DownloadResultModal from './modals/download-results'
+import Sort from './sort'
 
 import Search from 'modules/search-layout'
-import Filters from 'modules/filters'
+import FiltersBar from 'modules/filters'
 import { useStore, observe } from 'store'
 import useWindowSize from 'hooks/use-window-size'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
@@ -35,15 +36,18 @@ const SearchTemplate = observe(({ data }) => {
   }, [])
 
   React.useEffect(() => {
+    search.setSortOptions(data.sort)
     search.setWorks(data.results)
     search.setQuery(data.query)
   }, [data])
 
+  const onHandleChangeSortOptions = (option) => {
+    search.setActiveSortOption(option)
+  }
+
   return (
     <>
-      {data.results.length > 0 && (
-        <Filters query={data.query} sortType={data.sort} />
-      )}
+      <FiltersBar query={data.query} sortType={data.sort} />
       <Search className={classNames.use(styles.layout, styles.search)}>
         {search.isLoading && <LoadingBar fixed />}
         <Search.Main>
@@ -56,15 +60,20 @@ const SearchTemplate = observe(({ data }) => {
                   found
                 </p>
                 <div className={styles.actionButtons}>
-                  <Button
-                    type="button"
-                    variant="text"
-                    onClick={() => search.setActiveDownloadModal(true)}
-                    className={styles.actionButton}
+                  <Popover
+                    placement="top"
+                    content="Download results in CSV"
+                    className={styles.popover}
                   >
-                    <Icon src="#download" className={styles.actionIcon} />
-                  </Button>
-
+                    <Button
+                      type="button"
+                      variant="text"
+                      onClick={() => search.setActiveDownloadModal(true)}
+                      className={styles.actionButton}
+                    >
+                      <Icon src="#download" className={styles.actionIcon} />
+                    </Button>
+                  </Popover>
                   <Popover
                     placement="top"
                     content="Copy url"
@@ -83,6 +92,14 @@ const SearchTemplate = observe(({ data }) => {
                     </Button>
                   </Popover>
                 </div>
+                <span className={styles.solid} />
+                {search.sortOptions.length > 0 && (
+                  <Sort
+                    options={search.sortOptions}
+                    onClick={onHandleChangeSortOptions}
+                    className={styles.sort}
+                  />
+                )}
               </div>
               <Results works={search.works} />
               {data.currentPage === 1000 && (

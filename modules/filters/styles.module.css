@@ -1,8 +1,13 @@
 /* stylelint-disable declaration-no-important */
+.container {
+  position: fixed;
+  z-index: 11;
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: var(--elevation-03);
+}
+
 .bar {
-  position: sticky;
-  top: 3rem;
-  z-index: 9;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -10,8 +15,6 @@
   padding: 0.5rem var(--page-padding-x);
   margin: 0;
   list-style-type: none;
-  background-color: var(--white);
-  box-shadow: var(--elevation-03);
 }
 
 .bar-item {
@@ -29,12 +32,6 @@
 .bar-item-active {
   color: var(--white);
   background-color: var(--primary);
-}
-
-.sort-bar-item {
-  width: 7rem;
-  margin-right: 0.5rem;
-  border: none;
 }
 
 .bar-item p {
@@ -68,6 +65,10 @@
 .year-box {
   width: 30rem;
   overflow: hidden;
+}
+
+.year-box .filter-box-item {
+  border-bottom: 1px solid var(--gray-200);
 }
 
 .disabled {
@@ -160,7 +161,7 @@
   padding: 0 1rem;
   font-size: 0.8rem;
   color: var(--gray-800);
-  cursor: pointer;
+  cursor: initial;
 }
 
 .custom-range-text p {
@@ -185,6 +186,7 @@
 
 .button {
   all: unset;
+  margin-left: 1rem;
   color: var(--primary);
   cursor: pointer;
 }
@@ -198,16 +200,30 @@
   display: none;
 }
 
+.loading-block {
+  display: flex;
+}
+
 .bar-item-loading {
-  width: calc(
-    ((100vw - var(--page-padding-x) * 2) * var(--main-content-ratio) / 6.65)
-  );
+  cursor: wait;
+  opacity: 0.4;
 }
 
 @media (--screen-until-desktop) {
+  .button {
+    margin-left: 0;
+  }
+
+  .clear-button {
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
   .toggle-button {
     display: block;
-    padding-top: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 1rem;
     text-align: center;
     text-transform: capitalize;
   }
@@ -223,8 +239,15 @@
     display: flex;
   }
 
-  .bar-item:not(.sort-bar-item) {
-    width: 6.25rem;
+  .bar-item {
+    width: 6.7rem;
+  }
+
+  .bar-item p {
+    margin: 0;
+    overflow: hidden;
+    text-transform: capitalize;
+    white-space: nowrap;
   }
 
   .bar-item-wrapper {
@@ -246,10 +269,6 @@
     width: 100%;
     border-top: 1px solid var(--gray-300);
     box-shadow: var(--elevation-03);
-  }
-
-  .clear-button {
-    margin-top: 0.5rem;
   }
 
   .slider {

@@ -1,5 +1,6 @@
 .layout {
   padding: var(--page-padding-y) var(--page-padding-x);
+  margin-top: 1.5rem;
 }
 
 .search p {
@@ -10,10 +11,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  flex: 1;
 }
 
 .action-buttons {
   display: flex;
+  flex: 0;
+  align-items: center;
 }
 
 .popover {
@@ -91,9 +99,32 @@
 }
 
 .sidebar-image {
-  margin-top: 2.3rem;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  margin-top: 3rem;
 }
+
 @media (--screen-until-desktop) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .header p {
+    font-size: 0.8rem;
+  }
+
+  .solid {
+    width: 100%;
+    padding-bottom: 1rem;
+    border-top: 1px solid var(--gray-300);
+  }
+
+  .layout {
+    padding: 1rem var(--page-padding-x);
+    margin-top: 2rem;
+  }
+
   .sidebar-image {
     display: none;
   }

@@ -12,20 +12,6 @@ const setFilterBox = (label, filters, onChange) => {
       break
     }
 
-    case 'sort by': {
-      component = filters.map((item) => (
-        <FilterItem
-          key={item.value}
-          value={item.value}
-          checkedIcon="#check"
-          unCheckedIcon={null}
-          item={item}
-          onChangeFunction={onChange}
-          useActiveStyles
-        />
-      ))
-      break
-    }
     default:
       component = (
         <>

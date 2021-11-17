@@ -27,6 +27,7 @@ const FilterItem = ({
     <li
       className={classNames.use(styles.filterBoxItem, {
         [styles.filterBoxItemActive]: useActiveStyles && item.checked,
+        [styles.disabled]: item.count === 0,
       })}
       onClick={onToggleChecked}
       role="presentation"

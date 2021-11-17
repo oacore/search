@@ -15,17 +15,19 @@ import invalidatePreviousRequests from 'utils/invalidatePreviousRequests'
 class Filters {
   data = []
 
+  initialData = {}
+
   activeFilter = {}
 
   activeFilterSuggestions = []
 
   aggregations = [
-    'authors',
     'fieldsOfStudy',
+    'yearPublished',
+    'documentType',
+    'authors',
     'language',
     'publisher',
-    'documentType',
-    'yearPublished',
   ]
 
   groupedYearDates = []
@@ -42,6 +44,7 @@ class Filters {
       activeFilter: observable,
       activeFilterSuggestions: observable,
       groupedYearDates: observable,
+      initialData: observable,
       isLoading: observable,
       worksCount: observable,
       isVisibleClearButton: observable,
@@ -52,6 +55,7 @@ class Filters {
       setGroupedYearDates: action,
       setWorksCount: action,
       setIsLoading: action,
+      setInitialData: action,
       setIsVisibleClearButton: action,
       reset: action,
       maxYear: computed,
@@ -70,6 +74,10 @@ class Filters {
     this.isVisibleClearButton = boolean || checkActiveItems(this.data)
   }
 
+  setInitialData(data) {
+    this.initialData = data
+  }
+
   @invalidatePreviousRequests
   async fetchFilters(query, sortType) {
     this.setIsLoading(true)
@@ -81,8 +89,26 @@ class Filters {
 
       const fullQuery = `${query}?sort=${sortType}`
       const labelValues = this.aggregations
-      const filters = transformFiltersData(aggregations, labelValues, fullQuery)
-      this.setData(filters)
+
+      if (Object.keys(this.initialData).length === 0) {
+        this.setInitialData(aggregations)
+        const filters = transformFiltersData(
+          aggregations,
+          aggregations,
+          labelValues,
+          fullQuery
+        )
+        this.setData(filters)
+      } else {
+        const filters = transformFiltersData(
+          this.initialData,
+          aggregations,
+          labelValues,
+          fullQuery
+        )
+
+        this.setData(filters)
+      }
       this.setIsVisibleClearButton()
     } catch (error) {
       console.error(error)
@@ -91,8 +117,8 @@ class Filters {
     }
   }
 
-  setData(arr) {
-    this.data = arr.map((filter) => {
+  setData(newData) {
+    this.data = newData.map((filter) => {
       sortItemsByNumberDesc(filter.items, 'count')
       setItemFirst(filter.items)
       return filter
@@ -229,28 +255,6 @@ class Filters {
       .reduce((prev, curr) => prev + curr.count, 0)
   }
 
-  setActiveSortType(sortType) {
-    const activeFilterSuggestions = this.activeFilterSuggestions.map((item) => {
-      item.checked = false
-      return item
-    })
-    const foundedIndex = activeFilterSuggestions.findIndex(
-      (i) => i.value === sortType.value
-    )
-    const foundedElement = activeFilterSuggestions[foundedIndex]
-    foundedElement.checked = true
-    this.setActiveFilterSuggestions(activeFilterSuggestions)
-
-    Router.push({
-      pathname: '/search/[query]',
-      query: {
-        ...Router.query,
-        sort: sortType.value,
-        page: 1,
-      },
-    })
-  }
-
   setActiveFilterSuggestions(items) {
     let sortedArray = []
     sortItemsByNumberDesc(items, 'count')
@@ -268,20 +272,8 @@ class Filters {
   }
 
   reset(query) {
-    this.data = this.data.map((filter) => {
-      if (filter.label !== 'sort by')
-        filter.items = filter.items.map((item) => ({ ...item, checked: false }))
-      return filter
-    })
+    this.initialData = {}
     this.activeFilter = {}
-    this.aggregations = [
-      'authors',
-      'language',
-      'yearPublished',
-      'documentType',
-      'publisher',
-      'fieldsOfStudy',
-    ]
     this.isLoading = false
     this.isVisibleClearButton = false
     Router.push({
@@ -292,6 +284,7 @@ class Filters {
         page: 1,
       },
     })
+    this.fetchFilters(query.replace(/ .*/, ''))
   }
 }
 

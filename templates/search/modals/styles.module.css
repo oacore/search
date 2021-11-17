@@ -17,3 +17,15 @@
 .buttons button:nth-child(1) {
   margin-right: 0.5rem;
 }
+
+.variants p {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.variants span {
+  display: inline-block;
+  max-width: 6rem;
+  font-weight: 500;
+}

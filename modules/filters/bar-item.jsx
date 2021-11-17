@@ -32,17 +32,10 @@ const FilterBarItem = observe(({ filter }) => {
     filters.toggleCheckboxFilter(element)
   }
 
-  const onChangeSortFilter = (element) => {
-    filters.setActiveSortType(element)
-    hideFilterBox()
-  }
-
   const component = setFilterBox(
     filter.label,
     filters.activeFilterSuggestions,
-    filter.label === 'sort by'
-      ? onChangeSortFilter
-      : onChangeFiltersWithCheckbox
+    onChangeFiltersWithCheckbox
   )
 
   return (

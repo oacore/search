@@ -1,10 +1,22 @@
 import { action, makeObservable, observable } from 'mobx'
+import Router from 'next/router'
 
 import { downloadResultsInCSV } from '../api/search'
 
 import { findDataProviders } from 'utils/helpers'
 import invalidatePreviousRequests from 'utils/invalidatePreviousRequests'
 import apiRequest from 'api'
+
+const sortFilterValues = [
+  {
+    value: 'relevance',
+    checked: false,
+  },
+  {
+    value: 'recent',
+    checked: false,
+  },
+]
 
 class Search {
   works = []
@@ -15,7 +27,9 @@ class Search {
 
   dataProviders = []
 
-  activeLimit = 1000
+  sortOptions = []
+
+  activeLimit = 10
 
   activeDownloadModal = false
 
@@ -27,12 +41,15 @@ class Search {
       activeLimit: observable,
       query: observable,
       activeDownloadModal: observable,
+      sortOptions: observable,
       setWorks: action,
       setIsLoading: action,
       setQuery: action,
+      setSortOptions: action,
       fetchDataProviders: action,
       setDataProviders: action,
       downloadResults: action,
+      setActiveSortOption: action,
       reset: action,
       setWorkDataProviders: action,
     })
@@ -70,6 +87,28 @@ class Search {
     this.activeDownloadModal = boolean
   }
 
+  setSortOptions(activeSortValue) {
+    const options = sortFilterValues.map((sortOption) => {
+      sortOption.checked = false
+      if (sortOption.value === activeSortValue) sortOption.checked = true
+      return sortOption
+    })
+
+    this.sortOptions = options
+  }
+
+  setActiveSortOption(sortType) {
+    this.setSortOptions(sortType.value)
+    Router.push({
+      pathname: '/search/[query]',
+      query: {
+        ...Router.query,
+        sort: sortType.value,
+        page: 1,
+      },
+    })
+  }
+
   @invalidatePreviousRequests
   async fetchDataProviders() {
     try {
@@ -85,6 +124,7 @@ class Search {
     }
   }
 
+  @invalidatePreviousRequests
   async downloadResults() {
     try {
       this.setIsLoading(true)

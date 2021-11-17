@@ -28,7 +28,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
     const offset = page - 1 > 0 ? (page - 1) * 10 : page - 1
 
     const body = {
-      q,
+      q: q.replace('/', '%2'),
       offset,
       limit,
       exclude: ['fullText'],
@@ -72,6 +72,7 @@ const SearchOutputsPage = ({ data, queryError }) => {
     onQueryChanged: (searchTerm) => {
       router.push(encodeURIComponent(searchTerm))
     },
+    useAdvancedSearch: true,
     initQuery: data.query,
     searchBarProps: {
       label: `Search ${totalArticlesCount} papers around the world`,

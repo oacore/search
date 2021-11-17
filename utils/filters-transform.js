@@ -1,5 +1,4 @@
 import data from '../data/languages.json'
-import sortFilterValues from '../modules/filters/utils/sort-filter-values'
 import { sortItemsByValueIndex } from './sort'
 
 export const checkActiveItems = (filters) => {
@@ -40,8 +39,31 @@ const setFilterLabels = (value) => {
   return label
 }
 
-const transformFiltersData = (initialObject, labelValues, query) => {
-  const arrayOfObj = Object.entries(initialObject)
+const transformFiltersData = (initialObject, newObject, labelValues, query) => {
+  const isObject = (val) => typeof val === 'object' && val // required for "null" comparison
+
+  function compare(obj1 = {}, obj2 = {}) {
+    const output = {}
+    const merged = { ...obj1, ...obj2 } // has properties of both
+
+    Object.keys(merged).map((key) => {
+      const value1 = obj1[key]
+      const value2 = obj2[key]
+
+      if (isObject(value1) || isObject(value2))
+        output[key] = compare(value1, value2)
+      // recursively call
+      else output[key] = value2 || 0
+
+      return output
+    })
+
+    return output
+  }
+
+  const comparedData = compare(initialObject, newObject)
+
+  const arrayOfObj = Object.entries(comparedData)
     .map((e) => ({
       value: e[0],
       items: e[1],
@@ -61,8 +83,6 @@ const transformFiltersData = (initialObject, labelValues, query) => {
   })
 
   sortItemsByValueIndex(filters, labelValues, 'value')
-
-  filters.push(sortFilterValues)
 
   filters
     .find((item) => item.value === 'language')
@@ -85,8 +105,9 @@ const transformFiltersData = (initialObject, labelValues, query) => {
     filter.items = filter.items.map((item) => ({
       ...item,
       checked:
-        query.includes(item.value.toString()) ||
-        query.includes(`"${item.code}"`),
+        item.value.toString() !== '' &&
+        (query.includes(item.value.toString()) ||
+          query.includes(`"${item.code}"`)),
     }))
 
     return filter

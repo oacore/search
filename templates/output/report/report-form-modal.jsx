@@ -1,11 +1,10 @@
 import React from 'react'
-import { Modal, Button, Form, TextField } from '@oacore/design'
+import { Modal, Button, Form, TextField, Fieldset } from '@oacore/design'
 
 import { ROLES } from '../utils/dummy-data'
 import styles from './styles.module.css'
 import { useReportController } from '../hooks'
 
-import Fieldset from 'modules/fieldset'
 import { observe } from 'store'
 import useInput from 'hooks/use-input'
 

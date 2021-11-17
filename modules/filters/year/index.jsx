@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Histoslider } from '@oacore/design/lib/elements'
 
 import styles from '../styles.module.css'
 import FilterItem from '../filter-item'
@@ -7,7 +8,7 @@ import YearSelects from './selects'
 import useYearFilterController from './hooks/use-year-filter-controller'
 
 import { observe } from 'store'
-import Histoslider from 'modules/histoslider'
+// import Histoslider from 'modules/histoslider'
 
 const YearFilter = observe(() => {
   const {
