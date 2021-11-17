@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Button, LoadingBar } from '@oacore/design/lib/elements'
 import { classNames } from '@oacore/design/lib/utils'
-import { toJS } from 'mobx'
 
 import styles from './styles.module.css'
 import FilterBarItem from './bar-item'
