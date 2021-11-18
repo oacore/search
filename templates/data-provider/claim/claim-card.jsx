@@ -120,7 +120,7 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
         </span>
       </div>
       <div className={styles.claimCardActions}>
-        {!isDataProviderHasAccounts ? (
+        {isDataProviderHasAccounts ? (
           <>
             <Button
               variant="contained"
