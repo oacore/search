@@ -76,7 +76,7 @@ const ClaimModalEdit = (props) => {
       className={classNames.use(styles.modal, className)}
     >
       <Modal.Title id="gain-access-modal-title">
-        Claim CORE Dashboard
+        Claim Repository Dashboard
       </Modal.Title>
       <Modal.Content tag="div">
         <p>{contentTitle}</p>
