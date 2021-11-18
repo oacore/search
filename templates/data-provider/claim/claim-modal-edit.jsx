@@ -61,7 +61,7 @@ const ClaimModalEdit = (props) => {
 
   if (isDataProviderHasAccounts) {
     contentTitle =
-      'Enter the institutional email address and a few details to to get invitation to the CORE Dashboard.'
+      'Enter the institutional email address and a few details to get invitation to the CORE Dashboard.'
     rationaleHelper =
       'Repository manager will manually check you are the authorised person to get access, additional information would be very apperciated.'
   }
