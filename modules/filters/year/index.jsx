@@ -8,7 +8,6 @@ import YearSelects from './selects'
 import useYearFilterController from './hooks/use-year-filter-controller'
 
 import { observe } from 'store'
-// import Histoslider from 'modules/histoslider'
 
 const YearFilter = observe(() => {
   const {

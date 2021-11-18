@@ -3,6 +3,9 @@ import useHistogram from './use-histogram'
 import { useStore } from 'store'
 import { findMaxValueInArray, findMinValueInArray } from 'utils/helpers'
 
+const MAX_YEAR = 2021
+const MIN_YEAR = 1950
+
 const useYearFilterController = () => {
   const { filters } = useStore()
   const { selection, onHistogramChange } = useHistogram()
@@ -21,11 +24,16 @@ const useYearFilterController = () => {
       onHistogramChange([activeYearsMinValue, activeYearsMaxValue + 1])
   }
 
-  const yearsAxis = filters.activeFilterSuggestions.map((suggestion) => ({
-    x0: suggestion.value,
-    x: suggestion.value + 1,
-    y: suggestion.count,
-  }))
+  const yearsAxis = filters.activeFilterSuggestions
+    .filter(
+      (suggestion) =>
+        suggestion.value >= MIN_YEAR && suggestion.value <= MAX_YEAR
+    )
+    .map((suggestion) => ({
+      x0: suggestion.value,
+      x: suggestion.value + 1,
+      y: suggestion.count,
+    }))
 
   const onSelectActiveFilterItem = (selectedItem) => {
     let yearsRange
