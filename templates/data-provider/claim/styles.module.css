@@ -43,7 +43,7 @@
 }
 
 .input-email svg {
-  fill: var(--form-helper-color) !important;
+  fill: var(--form-helper-color) important;
 }
 
 .claim-card-action:not(:last-child) {
