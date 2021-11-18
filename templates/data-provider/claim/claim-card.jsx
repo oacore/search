@@ -16,6 +16,7 @@ export async function getClaim({ params: claimParams }) {
     id,
     setIsClaimSuccessModalActive,
     setNewEmail,
+    isDataProviderHasAccounts,
     name,
     email,
     rationale,
@@ -32,7 +33,13 @@ export async function getClaim({ params: claimParams }) {
       setNewEmail('')
     }
 
-    const dataProvider = await fetchClaim({ id, name, email, rationale })
+    const dataProvider = await fetchClaim({
+      id,
+      name,
+      email,
+      rationale,
+      isDataProviderHasAccounts,
+    })
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(dataProvider)) // Debug
     setIsClaimSuccessModalActive(true)
@@ -165,6 +172,7 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
                   id,
                   setIsClaimSuccessModalActive,
                   setNewEmail,
+                  isDataProviderHasAccounts,
                   ...options,
                 },
               })
@@ -187,6 +195,7 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
                   id,
                   setIsClaimSuccessModalActive,
                   setNewEmail,
+                  isDataProviderHasAccounts,
                   ...options,
                 },
               })
@@ -203,6 +212,7 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
             setClaimModalEditActive={setIsClaimModalEditActive}
             setSignInModalActive={setIsSignInModalActive}
             setModalActive={setIsClaimSuccessModalActive}
+            isDataProviderHasAccounts={isDataProviderHasAccounts}
             onClose={() => {
               if (isClaimModalActive) setIsClaimModalActive(false)
               if (isClaimModalEditActive) setIsClaimModalEditActive(false)
