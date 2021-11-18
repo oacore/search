@@ -125,6 +125,24 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
             <Button
               variant="contained"
               className={styles.claimCardAction}
+              onClick={() => setIsClaimModalEditActive(true)}
+            >
+              Gain access now
+            </Button>
+            <Button
+              className={styles.claimCardAction}
+              onClick={() => {
+                window.open('https://dashboard.core.ac.uk/', '_blank')
+              }}
+            >
+              SIGN IN
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button
+              variant="contained"
+              className={styles.claimCardAction}
               onClick={() => setIsClaimModalActive(true)}
             >
               Gain access now
@@ -139,24 +157,6 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
               }}
             >
               More details
-            </Button>
-          </>
-        ) : (
-          <>
-            <Button
-              variant="contained"
-              className={styles.claimCardAction}
-              onClick={() => setIsClaimModalEditActive(true)}
-            >
-              Gain access now
-            </Button>
-            <Button
-              className={styles.claimCardAction}
-              onClick={() => {
-                window.open('https://dashboard.core.ac.uk/', '_blank')
-              }}
-            >
-              SIGN IN
             </Button>
           </>
         )}
