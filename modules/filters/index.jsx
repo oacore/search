@@ -13,14 +13,6 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
   const [query, setQuery] = React.useState(initialQuery)
   const { filters } = useStore()
 
-  // useEffect(() => {
-  //   if (!initialQuery.includes(query)) {
-  //     setQuery(initialQuery)
-
-  //     filters.fetchFilters(initialQuery, sortType)
-  //   }
-  // }, [initialQuery])
-
   useEffect(() => {
     if (!initialQuery.includes(query)) {
       setQuery(initialQuery)
@@ -37,7 +29,6 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
   const onToggleFiltersBar = () => {
     setVisibleFiltersBar(!visibleFiltersBar)
   }
-
   return (
     <div className={styles.container}>
       {filters.isLoading && <LoadingBar fixed />}
@@ -55,7 +46,7 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
           })
           .join(className)}
       >
-        {filters.isLoading ? (
+        {filters.isLoading && Object.keys(filters.initialData).length === 0 ? (
           <LoadingBlock />
         ) : (
           <>

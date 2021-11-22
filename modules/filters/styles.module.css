@@ -60,6 +60,7 @@
 .wide-box {
   flex-wrap: wrap;
   width: 30rem;
+  overflow-x: scroll;
 }
 
 .year-box {

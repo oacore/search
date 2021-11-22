@@ -92,6 +92,7 @@ class Filters {
 
       if (Object.keys(this.initialData).length === 0) {
         this.setInitialData(aggregations)
+
         const filters = transformFiltersData(
           aggregations,
           aggregations,
@@ -100,6 +101,7 @@ class Filters {
         )
         this.setData(filters)
       } else {
+        aggregations.yearPublished = this.initialData.yearPublished
         const filters = transformFiltersData(
           this.initialData,
           aggregations,
@@ -108,6 +110,13 @@ class Filters {
         )
 
         this.setData(filters)
+        const activeFilterIndex = filters.findIndex(
+          (item) => item.value === this.activeFilter.value
+        )
+        if (activeFilterIndex > 0) {
+          const activeFilterItems = filters[activeFilterIndex].items
+          this.setActiveFilterSuggestions(activeFilterItems)
+        }
       }
       this.setIsVisibleClearButton()
     } catch (error) {

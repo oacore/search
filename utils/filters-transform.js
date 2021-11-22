@@ -44,15 +44,13 @@ const transformFiltersData = (initialObject, newObject, labelValues, query) => {
 
   function compare(obj1 = {}, obj2 = {}) {
     const output = {}
-    const merged = { ...obj1, ...obj2 } // has properties of both
+    const merged = { ...obj1, ...obj2 }
 
     Object.keys(merged).map((key) => {
       const value1 = obj1[key]
       const value2 = obj2[key]
-
       if (isObject(value1) || isObject(value2))
         output[key] = compare(value1, value2)
-      // recursively call
       else output[key] = value2 || 0
 
       return output
