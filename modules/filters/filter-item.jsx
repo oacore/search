@@ -15,12 +15,13 @@ const FilterItem = observe(
     useActiveStyles,
     onChangeFunction,
   }) => {
+    const { filters } = useStore()
+
     const onToggleChecked = (e) => {
       e.preventDefault()
+      filters.setIsLoading(true)
       onChangeFunction(item)
     }
-
-    const { filters } = useStore()
 
     // eslint-disable-next-line consistent-return
     const setIcon = () => {
