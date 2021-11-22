@@ -100,8 +100,15 @@ const DataProviderTemplate = ({
           latitude={data.location.latitude}
           longitude={data.location.longitude}
         >
-          {data.name} is based in{' '}
-          {countryName.of(data.location.countryCode.toUpperCase())}
+          {data.name}
+          {data.location.countryCode ? (
+            <>
+              is based in{' '}
+              {countryName.of(data.location.countryCode.toUpperCase())}
+            </>
+          ) : (
+            ' '
+          )}
         </MapCard>
         <ClaimCard
           nameDataProvider={data.name}
