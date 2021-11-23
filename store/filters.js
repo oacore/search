@@ -101,7 +101,6 @@ class Filters {
         )
         this.setData(filters)
       } else {
-        aggregations.yearPublished = this.initialData.yearPublished
         const filters = transformFiltersData(
           this.initialData,
           aggregations,
@@ -113,7 +112,7 @@ class Filters {
         const activeFilterIndex = filters.findIndex(
           (item) => item.value === this.activeFilter.value
         )
-        if (activeFilterIndex > 0) {
+        if (activeFilterIndex > -1) {
           const activeFilterItems = filters[activeFilterIndex].items
           this.setActiveFilterSuggestions(activeFilterItems)
         }
