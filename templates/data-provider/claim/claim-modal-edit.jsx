@@ -26,7 +26,10 @@ const ClaimModalEdit = (props) => {
     element: contactEmail,
     bind: bindEmail,
     focus: focusEmail,
-  } = useInput(contactData.email, 'contactEmail')
+  } = useInput(
+    isDataProviderHasAccounts ? '' : contactData.email,
+    'contactEmail'
+  )
 
   const {
     value: rationale,
