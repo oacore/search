@@ -1,12 +1,12 @@
 import React from 'react'
-import { Modal, Button, Icon, Card, Form, TextField } from '@oacore/design'
-import classNames from '@oacore/design/lib/utils/class-names'
+import { Modal, Button, Form, TextField, Fieldset } from '@oacore/design'
 
 import { ROLES } from '../utils/dummy-data'
 import styles from './styles.module.css'
-import { useReportController, useInput } from '../hooks'
+import { useReportController } from '../hooks'
 
 import { observe } from 'store'
+import useInput from 'hooks/use-input'
 
 const ReportFormModal = observe(({ id: outputId }) => {
   const {
@@ -30,7 +30,6 @@ const ReportFormModal = observe(({ id: outputId }) => {
   const {
     report: { role: reporterRole, updateOption },
     setActiveReporter,
-    setIsModalReportSuccessActive,
     setIsModalReportFormActive,
     handleSubmitForm,
     resetReport,
@@ -42,7 +41,6 @@ const ReportFormModal = observe(({ id: outputId }) => {
     if (outputId && name && email) {
       handleSubmitForm({ outputId, name, email, message })
       setIsModalReportFormActive(false)
-      setIsModalReportSuccessActive(true)
     }
   }
 
@@ -61,35 +59,12 @@ const ReportFormModal = observe(({ id: outputId }) => {
         Fill up your request
       </Modal.Title>
       <Modal.Content>
-        <fieldset className={styles.modalReporterContainer}>
-          <legend className={styles.modalReporterTitle}>Who you are</legend>
-          <div className={styles.cardModalReporter}>
-            {ROLES.map(({ label, id, role }) => (
-              <Card
-                variant="outlined"
-                className={classNames.use(
-                  styles.cardModal,
-                  styles.cardModalReporterItem,
-                  {
-                    [styles.cardModalActive]: reporterRole === role,
-                  }
-                )}
-                key={id}
-                onClick={() => setActiveReporter(role)}
-              >
-                <Card.Description className={styles.cardModalDescription}>
-                  <Icon src="#account" />
-                  <span
-                    className={classNames.use(styles.cardModalDescriptionText)}
-                  >
-                    {label}
-                  </span>
-                </Card.Description>
-              </Card>
-            ))}
-          </div>
-        </fieldset>
-
+        <Fieldset
+          items={ROLES}
+          icon="#account"
+          onClick={setActiveReporter}
+          title="Who you are"
+        />
         <Form className={styles.modalReporterForm} onSubmit={onHandleSubmit}>
           {reporterRole && (
             <>

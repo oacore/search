@@ -1,0 +1,282 @@
+/* stylelint-disable declaration-no-important */
+.container {
+  position: fixed;
+  z-index: 11;
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: var(--elevation-03);
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem var(--page-padding-x);
+  margin: 0;
+  list-style-type: none;
+}
+
+.bar-item {
+  display: flex;
+  justify-content: space-between;
+  min-width: calc(
+    ((100vw - var(--page-padding-x) * 2) * var(--main-content-ratio) / 7)
+  );
+  padding: 0.2rem 0.3rem 0.2rem 1rem;
+  color: var(--gray-700);
+  cursor: pointer;
+  border: 1px solid var(--gray-300);
+}
+
+.bar-item-active {
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.bar-item p {
+  margin: 0;
+  margin-right: 1rem;
+  text-transform: capitalize;
+}
+
+.bar-item-wrapper:not(:first-child) {
+  margin-left: 1rem;
+}
+
+.filter-box {
+  position: absolute;
+  top: 3.03rem;
+  display: flex;
+  flex-direction: column;
+  width: 17rem;
+  max-height: 26rem;
+  padding: 0;
+  overflow-y: auto;
+  background-color: var(--white);
+  box-shadow: var(--elevation-04);
+}
+
+.wide-box {
+  flex-wrap: wrap;
+  width: 30rem;
+  overflow-x: scroll;
+}
+
+.year-box {
+  width: 30rem;
+  overflow: hidden;
+}
+
+.year-box .filter-box-item {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.filter-box-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.filter-box-item:hover {
+  background-color: var(--gray-100);
+}
+
+.filter-box-item-active {
+  pointer-events: none;
+  cursor: unset;
+}
+
+.filter-box-item-active .label-text,
+.label-text-active {
+  color: var(--primary);
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox + svg {
+  position: absolute;
+  color: var(--gray-700);
+}
+
+.checkbox:checked + svg {
+  color: var(--primary);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.label-text {
+  flex: 1;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0;
+  margin-left: 2rem;
+  line-height: 1.4;
+  color: var(--gray-800);
+  text-transform: capitalize;
+}
+
+.label span {
+  margin-left: auto;
+  color: var(--gray-700);
+}
+
+.text-field span {
+  order: 1 !important;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  margin: 0;
+  border: none;
+}
+
+.text-field span svg {
+  fill: var(--gray-700) !important;
+}
+
+.text-field input {
+  padding-left: 0;
+  font-size: 0.8rem;
+  color: var(--primary);
+  border: none;
+}
+
+.text-field input::placeholder {
+  color: var(--gray-800);
+}
+
+.custom-range-text {
+  padding: 0 1rem;
+  font-size: 0.8rem;
+  color: var(--gray-800);
+  cursor: initial;
+}
+
+.custom-range-text p {
+  flex: 1;
+  padding: 0.2rem 0;
+  margin: 0;
+  margin-left: 2rem;
+}
+
+.custom-range-text svg + p {
+  margin-left: 0.5rem;
+}
+
+.custom-range-text span {
+  margin-left: auto;
+  color: var(--gray-700);
+}
+
+.slider {
+  margin-left: 5.5rem;
+}
+
+.button {
+  all: unset;
+  margin-left: 1rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  --button-focus-ring: none;
+}
+
+.toggle-button {
+  display: none;
+}
+
+.loading-block {
+  display: flex;
+}
+
+.bar-item-loading {
+  cursor: wait;
+  opacity: 0.4;
+}
+
+@media (--screen-until-desktop) {
+  .button {
+    margin-left: 0;
+  }
+
+  .clear-button {
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .toggle-button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .bar {
+    position: relative;
+    top: 0;
+    display: none;
+    justify-content: space-between;
+  }
+
+  .expanded {
+    display: flex;
+  }
+
+  .bar-item {
+    width: 6.7rem;
+  }
+
+  .bar-item p {
+    margin: 0;
+    overflow: hidden;
+    text-transform: capitalize;
+    white-space: nowrap;
+  }
+
+  .bar-item-wrapper {
+    position: unset;
+  }
+
+  .bar-item-wrapper:nth-child(n + 4) {
+    margin-top: 0.5rem;
+  }
+
+  .bar-item-wrapper:not(:first-child) {
+    margin-left: 0;
+  }
+
+  .filter-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid var(--gray-300);
+    box-shadow: var(--elevation-03);
+  }
+
+  .slider {
+    display: none;
+  }
+
+  .custom-range-text {
+    display: none;
+  }
+}

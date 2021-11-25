@@ -6,7 +6,7 @@ import styles from './styles.module.css'
 import { formatDate } from 'utils/helpers'
 
 const Metadata = ({ authors, publisher, publishedDate }) => (
-  <MetadataList>
+  <MetadataList className={styles.metadata}>
     <MetadataList.Item id="metadata-authors" label="Authors">
       <ExpandableList>
         {authors.map(({ name }) => (
@@ -18,7 +18,7 @@ const Metadata = ({ authors, publisher, publishedDate }) => (
             itemType="https://schema.org/Person"
           >
             <a
-              href={`https://core.ac.uk/search?q=author:(${name})`}
+              href={`https://core.ac.uk/search/authors:(${name})`}
               className={styles.authorLink}
             >
               {(name || '').replace(/([^,]*),\s(.*)/, '$2 $1')}
@@ -27,7 +27,6 @@ const Metadata = ({ authors, publisher, publishedDate }) => (
         ))}
       </ExpandableList>
     </MetadataList.Item>
-
     <MetadataList.Item id="metadata-publication-date" label="Publication date">
       {formatDate(publishedDate, {
         year: 'numeric',

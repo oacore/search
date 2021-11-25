@@ -108,9 +108,9 @@ const CitationManager = ({ data }) => {
   )
 
   return (
-    <p>
+    <>
       <Button
-        variant="outlined"
+        variant="contained"
         onClick={openModal}
         aria-pressed={isModalOpen}
         className={styles.citeButton}
@@ -119,7 +119,7 @@ const CitationManager = ({ data }) => {
         <span className={styles.citeBtn}>{data.actionLabel}</span>
       </Button>
       {modal}
-    </p>
+    </>
   )
 }
 

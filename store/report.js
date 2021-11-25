@@ -52,11 +52,11 @@ class Report {
   @invalidatePreviousRequests
   async submit(data) {
     data.updateOption = this.updateOption
-
     data.role = this.role
     this.isLoading = true
     try {
       await createReport(data)
+      this.isModalReportSuccessActive = true
     } catch (error) {
       this.error = ERROR_MESSAGE
     } finally {

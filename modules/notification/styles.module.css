@@ -1,0 +1,9 @@
+.notification {
+  position: absolute;
+  padding: 0 2rem;
+  margin: auto;
+  font-size: 0.8rem;
+  color: var(--white);
+  background-color: var(--gray-600);
+  border-radius: 0.5rem;
+}

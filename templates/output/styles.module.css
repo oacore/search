@@ -134,7 +134,7 @@
 }
 
 .background {
-  width: 100vw;
+  width: calc(100vw - 1rem);
   padding: var(--page-padding-y) var(--page-padding-x) 1.5rem
     var(--page-padding-x);
   background-color: var(--gray-100);
@@ -149,12 +149,18 @@
     grid-template-columns: 1fr !important;
   }
 
+  .background {
+    width: 100vw;
+  }
+
   .background h1 {
     max-width: 100vw;
   }
 }
 
 .related-searches-result {
+  display: flex;
+  flex-wrap: wrap;
   padding: 1rem;
   border: 1px solid hsl(var(--card-color, var(--on-surface)) / 0.12);
   border-radius: 2px;
@@ -175,4 +181,41 @@
 
 .detach-dot:last-child::after {
   display: none;
+}
+
+.metadata {
+  max-width: 50rem;
+}
+
+.boxes {
+  margin-top: 1rem;
+}
+
+.action-bar {
+  display: flex;
+  max-width: 50rem;
+}
+
+.action-button {
+  text-transform: capitalize !important;
+}
+
+.action-button span {
+  text-transform: lowercase;
+}
+
+.action-button:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.abstract-empty {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: var(--gray-400);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
 }

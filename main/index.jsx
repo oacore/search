@@ -6,14 +6,16 @@ import Head from './head'
 import Layout from 'modules/layout'
 import { useInitStore, StoreProvider } from 'store'
 
-const Main = ({ children, initialState, loading }) => {
+const Main = ({ children, initialState, loading, isSearchPage }) => {
   const store = useInitStore(initialState)
 
   return (
     <StoreProvider store={store}>
       <DesignProvider>
         <Head />
-        <Layout loading={loading}>{children}</Layout>
+        <Layout isSearchPage={isSearchPage} loading={loading}>
+          {children}
+        </Layout>
       </DesignProvider>
     </StoreProvider>
   )

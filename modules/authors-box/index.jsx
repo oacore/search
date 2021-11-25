@@ -6,7 +6,7 @@ import styles from './styles.module.css'
 
 const AuthorLink = ({ name }) => (
   <Link
-    href={`https://core.ac.uk/search?q=author:(${name})`}
+    href={`https://core.ac.uk/search/author:(${name})`}
     className={styles.authorLink}
   >
     {name.replace(',', ' ')}

@@ -1,12 +1,15 @@
 import React from 'react'
 import Head from 'next/head'
 import { Header } from '@oacore/design'
+import { useRouter } from 'next/router'
 
 import request from 'api'
 import { fetchMetadata, fetchCitations } from 'api/outputs'
 import { useStore } from 'store'
 import Meta from 'modules/meta'
 import Template from 'templates/output'
+import { findUrlsByType } from 'utils/helpers'
+import Error404 from 'templates/error/404'
 
 const LOCALE = 'en-GB'
 const CITATION_STYLES = ['apa', 'bibtex']
@@ -19,6 +22,28 @@ const log = (...args) => {
     console.log(...args)
 }
 
+const setOutputError = (error, id) => {
+  let serverError = { code: error.status }
+  if (error.status === 410) {
+    serverError = {
+      ...serverError,
+      message:
+        error.status === 410 && `The article with ID ${id} has been disabled`,
+    }
+  } else if (error.message.includes('data-providers')) {
+    serverError = {
+      ...serverError,
+      message: 'Data provider has been disabled',
+    }
+  } else {
+    serverError = {
+      ...serverError,
+      message: 'The page you were looking for could not be found',
+    }
+  }
+  return serverError
+}
+
 export async function getServerSideProps({ params: routeParams }) {
   const { id } = routeParams
 
@@ -29,22 +54,29 @@ export async function getServerSideProps({ params: routeParams }) {
 
     // Strip some properties to optimise network traffic
     const { fullText: _, ...output } = rawOutput
-
     const { data: dataProvider } = await request(output.dataProvider.url)
+    const { sourceFulltextUrls } = output
 
-    output.publishedDate = output.publishedDate
-      ? output.publishedDate
-      : output.yearPublished
+    if (
+      sourceFulltextUrls instanceof Array &&
+      sourceFulltextUrls &&
+      sourceFulltextUrls[0]
+    )
+      output.sourceFulltextUrls = [sourceFulltextUrls]
+    const outputWithUrls = findUrlsByType(output)
 
     Object.assign(data, {
-      ...output,
+      ...outputWithUrls,
+      publishedDate: output.publishedDate
+        ? output.publishedDate
+        : output.yearPublished,
       dataProvider,
     })
   } catch (error) {
     log(error)
+    const serverError = setOutputError(error, id)
     return {
-      props: { error },
-      notFound: true,
+      props: { serverError },
     }
   }
 
@@ -60,146 +92,24 @@ export async function getServerSideProps({ params: routeParams }) {
   } catch (citationRetrievalError) {
     log(citationRetrievalError)
 
-    // If any error happens, we pretend, citation could not be generated
-    // or retrieved. This behaviour should be improved because we could generate
-    // citations ourselves using some library.
-    //
-    // Take your time to explore:
-    // - https://citeproc-js.readthedocs.io/en/latest/index.html
-    // - https://citationstyles.org
     data.citations = []
   }
-
-  // export async function getStaticProps({ params: routeParams }) {
-  //   const { id } = routeParams
-
-  //   const data = {}
-  //   const revalidate = 60 * 60 * 24 * 7 // seconds, i.e. every week
-
-  //   try {
-  //     const rawOutput = await fetchMetadata(id)
-
-  //     // Strip some properties to optimise network traffic
-  //     const { fullText: _, ...output } = rawOutput
-
-  //     const { data: dataProvider } = await request(output.dataProvider)
-
-  //     output.publishedDate = output.publishedDate
-  //       ? output.publishedDate
-  //       : output.yearPublished
-
-  //     Object.assign(data, {
-  //       ...output,
-  //       dataProvider,
-  //     })
-  //   } catch (error) {
-  //     log(error)
-
-  //     return {
-  //       props: { error },
-  //       notFound: true,
-  //     }
-  //   }
-
-  //   try {
-  //     const doi = data.identifiers?.doi
-  //     if (!doi) throw new Error('No DOI — no citation')
-
-  //     const citations = await fetchCitations(doi, {
-  //       styles: CITATION_STYLES,
-  //       locale: LOCALE,
-  //     })
-  //     data.citations = citations
-  //   } catch (citationRetrievalError) {
-  //     log(citationRetrievalError)
-
-  //     // If any error happens, we pretend, citation could not be generated
-  // or retrieved. This behaviour should be improved because we could generate
-  //     // citations ourselves using some library.
-  //     //
-  //     // Take your time to explore:
-  //     // - https://citeproc-js.readthedocs.io/en/latest/index.html
-  //     // - https://citationstyles.org
-  //     data.citations = []
-  //   }
-
-  //   // try {
-  //   //   const similarOutputs = await fetchSimilarTo(id)
-
-  //   //   // Strip some properties to optimise network traffic
-  //   //   data.similarOutputs = similarOutputs.map(
-  //   //     ({ fullText, ...output }) => output
-  //   //   )
-  //   // } catch (error) {
-  //   //   log(error)
-
-  //   //   // If any error happens, we pretend, there were no recommendations
-  // This behaviour could be changed to explicit error reporting but should
-  //   //   // be considered deeper.
-  //   //   data.similarOutputs = []
-  //   //   revalidate = 30
-  //   // }
-
-  //   return {
-  //     props: { data },
-  //     revalidate,
-  //   }
-  // }
-
-  // try {
-  //   const similarOutputs = await fetchSimilarTo(id)
-
-  //   // Strip some properties to optimise network traffic
-  //   data.similarOutputs = similarOutputs.map(
-  //     ({ fullText, ...output }) => output
-  //   )
-  // } catch (error) {
-  //   log(error)
-
-  //   // If any error happens, we pretend, there were no recommendations
-  //   // This behaviour could be changed to explicit error reporting but should
-  //   // be considered deeper.
-  //   data.similarOutputs = []
-  //   revalidate = 30
-  // }
 
   return {
     props: { data },
   }
 }
 
-// export async function getStaticPaths() {
-//   // Generating only 1st page as static for the first time
-//   // In the future we could retrieve a number of most popular pages
-//   // and pre-render them to static
-//   const paths = [
-//     {
-//       params: { id: '1' },
-//     },
-//   ]
-
-//   return { paths, fallback: 'blocking' }
-// }
-
-const ScientificOutputPage = ({ data }) => {
+const ScientificOutputPage = ({ serverError, data }) => {
   const { statistics } = useStore()
+  const router = useRouter()
+
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
 
-  const { sourceFulltextUrls } = data
-  if (
-    sourceFulltextUrls instanceof Array &&
-    data.sourceFulltextUrls &&
-    sourceFulltextUrls[0]
-  )
-    // eslint-disable-next-line prefer-destructuring
-    data.sourceFulltextUrls = sourceFulltextUrls[0]
-
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {
-      window.location.href = `https://core.ac.uk/search?q=${encodeURIComponent(
-        searchTerm
-      )}`
+      router.push(encodeURIComponent(searchTerm))
     },
     initQuery: '',
     searchBarProps: {
@@ -209,6 +119,7 @@ const ScientificOutputPage = ({ data }) => {
       changeOnBlur: false,
     },
   })
+  if (serverError) return <Error404 error={serverError} />
 
   return (
     <>

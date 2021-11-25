@@ -71,9 +71,17 @@ const useLoading = (initialState = false) => {
 const App = ({ Component: PageComponent, pageProps, statistics }) => {
   const loading = useLoading()
   useAnalytics()
+
+  const router = useRouter()
+  const isSearchPage = router.asPath.match(/search/gm)
+
   return (
     <ErrorBoundary>
-      <Main initialState={{ statistics }} loading={loading}>
+      <Main
+        isSearchPage={isSearchPage}
+        initialState={{ statistics }}
+        loading={loading}
+      >
         <PageComponent {...pageProps} />
       </Main>
     </ErrorBoundary>
@@ -91,7 +99,7 @@ App.getInitialProps = async () => {
   if (
     !statistics.data ||
     // fetch new stats if they are 1 day old
-    (Date.now() - statistics.timestamp) / (1000 * 3600 * 24) > 1
+    (Date.now() - statistics.timestamp) / (1000 * 3600 * 24) > 2
   ) {
     const { data } = await apiRequest('/statistics')
     statistics = data
