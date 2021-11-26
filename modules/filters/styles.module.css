@@ -65,6 +65,7 @@
 
 .year-box {
   width: 30rem;
+  padding-bottom: 1rem;
   overflow: hidden;
 }
 
@@ -159,7 +160,7 @@
 }
 
 .custom-range-text {
-  padding: 0 1rem;
+  padding: 1rem 1rem 0;
   font-size: 0.8rem;
   color: var(--gray-800);
   cursor: initial;
@@ -182,6 +183,7 @@
 }
 
 .slider {
+  padding-top: 0 !important;
   margin-left: 5.5rem;
 }
 

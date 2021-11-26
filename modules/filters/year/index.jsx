@@ -35,16 +35,20 @@ const YearFilter = observe(() => {
           useActiveStyles
         />
       ))}
-      <CustomRange count={filters.worksCount} />
-      <Histoslider
-        data={yearsAxis}
-        selection={selection}
-        className={styles.slider}
-        padding={20}
-        width={298}
-        showLabels
-        selectFunc={onSelectActiveFilterItem}
+      <CustomRange
+        count={yearsAxis.length > 1 ? filters.worksCount : yearsAxis[0].y}
       />
+      {yearsAxis.length > 1 && (
+        <Histoslider
+          data={yearsAxis}
+          selection={selection}
+          className={styles.slider}
+          padding={20}
+          width={298}
+          showLabels
+          selectFunc={onSelectActiveFilterItem}
+        />
+      )}
       <YearSelects years={filters.activeFilterSuggestions} />
     </>
   )
