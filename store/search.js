@@ -100,7 +100,7 @@ class Search {
   setActiveSortOption(sortType) {
     this.setSortOptions(sortType.value)
     Router.push({
-      pathname: '/search/[query]',
+      pathname: '/search',
       query: {
         ...Router.query,
         sort: sortType.value,
