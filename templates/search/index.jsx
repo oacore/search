@@ -27,7 +27,7 @@ const SearchTemplate = observe(({ data }) => {
   const url =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
-      : 'https://core.ac.uk/'
+      : 'https://core.ac.uk'
 
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(url + router.asPath)
 
