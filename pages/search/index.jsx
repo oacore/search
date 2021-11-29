@@ -1,18 +1,17 @@
 import { useRouter } from 'next/router'
 
-const Search = () => {
+export const getServerSideProps = async ({ query }) => ({
+  props: { query },
+})
+
+const Search = ({ query }) => {
   const router = useRouter()
-  if (typeof window !== 'undefined') router.push('/')
+  if (typeof window !== 'undefined') {
+    if (Object.keys(query).includes('q')) router.push(`/search/${query.q}`)
+    else router.push('/')
+  }
 
   return null
-}
-
-Search.getInitialProps = (ctx) => {
-  if (ctx.res) {
-    ctx.res.writeHead(302, { Location: '/' })
-    ctx.res.end()
-  }
-  return {}
 }
 
 export default Search
