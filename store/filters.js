@@ -148,23 +148,23 @@ class Filters {
 
     const filterKey = this.activeFilter.value
     const filterValue = filterKey === 'language' ? element.code : element.value
-    const { query } = Router.query
+    const { q: query } = Router.query
 
     if (query.includes(filterValue)) {
       Router.push({
-        pathname: '/search/[query]',
+        pathname: '/search',
         query: {
           ...Router.query,
-          query: query.replace(` AND ${filterKey}:"${filterValue}"`, ''),
+          q: query.replace(` AND ${filterKey}:"${filterValue}"`, ''),
           page: 1,
         },
       })
     } else {
       Router.push({
-        pathname: '/search/[query]',
+        pathname: '/search',
         query: {
           ...Router.query,
-          query: `${query} AND ${filterKey}:"${filterValue}"`,
+          q: `${query} AND ${filterKey}:"${filterValue}"`,
           page: 1,
         },
       })
@@ -208,13 +208,13 @@ class Filters {
     this.groupedYearDates = groupedData
 
     const filterKey = this.activeFilter.value
-    const { query } = Router.query
+    const { q: query } = Router.query
 
     Router.push({
-      pathname: '/search/[query]',
+      pathname: '/search',
       query: {
         ...Router.query,
-        query: `${query.replace(/ AND \(year(.*)\)/g, '')} AND (${filterKey}>=${
+        q: `${query.replace(/ AND \(year(.*)\)/g, '')} AND (${filterKey}>=${
           yearsRange[0]
         } AND ${filterKey}<=${yearsRange[1]})`,
         page: 1,
@@ -282,13 +282,14 @@ class Filters {
   reset(query) {
     this.initialData = {}
     this.activeFilter = {}
+    this.groupedYearDates = []
     this.isLoading = false
     this.isVisibleClearButton = false
     Router.push({
-      pathname: '/search/[query]',
+      pathname: '/search',
       query: {
         ...Router.query,
-        query: query.replace(/ .*/, ''),
+        q: query.replace(/ .*/, ''),
         page: 1,
       },
     })

@@ -16,14 +16,14 @@ const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }) => {
 
   const router = useRouter()
 
-  const routerParams = router.query
-
-  const baseURL = `/search/${routerParams.query}${
-    routerParams.sort ? `?sort=${routerParams.sort}&page=` : '?page='
-  }`
-
   const onPageChange = (number) => {
-    router.push(`${baseURL}${number}`)
+    router.push({
+      pathname: '/search',
+      query: {
+        ...router.query,
+        page: number,
+      },
+    })
     setCurrentPage(number)
   }
 
