@@ -10,6 +10,7 @@ const ClaimModalEdit = (props) => {
     contactData,
     setModalActive,
     setModalEditActive,
+    isDataProviderHasAccounts,
     onContinueClick,
     className,
   } = props
@@ -25,7 +26,10 @@ const ClaimModalEdit = (props) => {
     element: contactEmail,
     bind: bindEmail,
     focus: focusEmail,
-  } = useInput(contactData.email, 'contactEmail')
+  } = useInput(
+    isDataProviderHasAccounts ? '' : contactData.email,
+    'contactEmail'
+  )
 
   const {
     value: rationale,
@@ -33,6 +37,11 @@ const ClaimModalEdit = (props) => {
     bind: bindRationale,
     focus: focusRationale,
   } = useInput('', 'contactRationale')
+
+  const handleBackSubmit = (evt) => {
+    evt.preventDefault()
+    setModalEditActive(false)
+  }
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
@@ -48,6 +57,18 @@ const ClaimModalEdit = (props) => {
     }
   }
 
+  let contentTitle =
+    'Enter the administrator email address and a few details to get invitation to the CORE Dashboard.'
+  let rationaleHelper =
+    'Since you changed email, we need to manually check you are the repository manager, additional information would be very apperciated.'
+
+  if (isDataProviderHasAccounts) {
+    contentTitle =
+      'Enter the institutional email address and a few details to get invitation to the CORE Dashboard.'
+    rationaleHelper =
+      'Repository manager will manually check you are the authorised person to get access, additional information would be very apperciated.'
+  }
+
   return (
     <Modal
       aria-labelledby="gain-access-modal-title"
@@ -58,13 +79,10 @@ const ClaimModalEdit = (props) => {
       className={classNames.use(styles.modal, className)}
     >
       <Modal.Title id="gain-access-modal-title">
-        Claim CORE Dashboard
+        Claim Repository Dashboard
       </Modal.Title>
       <Modal.Content tag="div">
-        <p>
-          Enter the administrator email address and a few details to to get
-          invitation to the CORE Dashboard.
-        </p>
+        <p>{contentTitle}</p>
         <TextField
           id={contactEmail}
           type="email"
@@ -77,7 +95,6 @@ const ClaimModalEdit = (props) => {
           helper={
             <>
               Your institutional email address. <br />
-              <br />
             </>
           }
         />
@@ -85,39 +102,39 @@ const ClaimModalEdit = (props) => {
           id={contactName}
           type="text"
           name={contactName}
+          label="Name"
           placeholder="How would you like to be called?"
           required
           {...bindName}
           className={classNames.use(styles.claimCardGroup)}
-          helper={
-            <>
-              <span className={styles.label}>Name</span>
-              <br />
-            </>
-          }
+          helper={<> </>}
         />
         <TextField
           id={contactRationale}
           type="text"
           name={contactRationale}
+          label="Rationale"
           placeholder="Why are you the authorised person to get access?"
           required
           {...bindRationale}
-          helper={
-            <>
-              <span className={styles.label}>Rationale</span>
-              Since you changed email, we need to manually check you are the
-              repository manager, additional information would be very
-              apperciated.
-            </>
-          }
+          helper={<>{rationaleHelper}</>}
         />
       </Modal.Content>
       <Modal.Footer className={styles.footer}>
-        <Button onClick={handleSubmit} variant="contained">
+        {isDataProviderHasAccounts ? (
+          ''
+        ) : (
+          <Button onClick={handleBackSubmit} className={styles.buttonRevers}>
+            Back
+          </Button>
+        )}
+        <Button
+          onClick={handleSubmit}
+          variant="contained"
+          className={styles.continue}
+        >
           Continue
         </Button>
-        <a href="https://dashboard.core.ac.uk/">Sign in to Dashboard</a>
       </Modal.Footer>
     </Modal>
   )
