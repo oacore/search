@@ -45,12 +45,21 @@ const ClaimModal = ({
       className={classNames.use(className)}
     >
       <Modal.Title id="gain-access-modal-title">
-        Gain access to CORE Dashboard
+        Claim Repository Dashboard
       </Modal.Title>
       <Modal.Content tag="div">
         <p>
-          Enter the administrator email address and a few details to get
-          invitation to the core Dashboard
+          Enter the administrator email address and a few details to get access
+          to the{' '}
+          <a
+            href="https://core.ac.uk/services/repository-dashboard"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.linkUnderline}
+          >
+            Repository Dashboard
+          </a>
+          .
         </p>
         <TextField
           id={contactEmailFirst}
@@ -58,7 +67,11 @@ const ClaimModal = ({
           name={contactEmailFirst}
           label="Email"
           onClick={() => setModalEditActive(true)}
-          className={classNames.use(styles.claimCardGroup, styles.inputPointer)}
+          className={classNames.use(
+            styles.claimCardGroup,
+            styles.inputPointer,
+            styles.inputEmail
+          )}
           statusIcon="#pencil"
           required
           placeholder="You need enter email."
@@ -88,7 +101,6 @@ const ClaimModal = ({
         <Button onClick={handleSubmit} variant="contained">
           Continue
         </Button>
-        <a href="https://dashboard.core.ac.uk/">Sign in to Dashboard</a>
       </Modal.Footer>
     </Modal>
   )

@@ -5,10 +5,10 @@ import { classNames } from '@oacore/design/lib/utils'
 
 import ClaimModal from './claim-modal'
 import ClaimModalEdit from './claim-modal-edit'
-import LoginModal from './login-modal'
 import styles from './styles.module.css'
 import ClaimSuccessModal from './claim-success-modal'
 import fetchClaim from '../../../api/claim'
+import fetchDataProviderAccounts from '../../../api/data-provider-accounts'
 
 export async function getClaim({ params: claimParams }) {
   const data = {}
@@ -16,6 +16,7 @@ export async function getClaim({ params: claimParams }) {
     id,
     setIsClaimSuccessModalActive,
     setNewEmail,
+    isDataProviderHasAccounts,
     name,
     email,
     rationale,
@@ -32,7 +33,13 @@ export async function getClaim({ params: claimParams }) {
       setNewEmail('')
     }
 
-    const dataProvider = await fetchClaim({ id, name, email, rationale })
+    const dataProvider = await fetchClaim({
+      id,
+      name,
+      email,
+      rationale,
+      isDataProviderHasAccounts,
+    })
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(dataProvider)) // Debug
     setIsClaimSuccessModalActive(true)
@@ -54,43 +61,106 @@ export async function getClaim({ params: claimParams }) {
   }
 }
 
+export async function getDataProviderAccounts({ params }) {
+  const data = {}
+  let { id, setIsDataProviderHasAccounts } = params
+  try {
+    const dataProviderAccounts = await fetchDataProviderAccounts({ id })
+
+    if (dataProviderAccounts.length > 0) setIsDataProviderHasAccounts(true)
+    data.accounts = {
+      [id]: dataProviderAccounts,
+    }
+  } catch (errorWithDataProvider) {
+    return {
+      props: {
+        error: errorWithDataProvider,
+      },
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { data },
+  }
+}
+
 const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
   const [isClaimModalActive, setIsClaimModalActive] = useState(false)
   const [isClaimModalEditActive, setIsClaimModalEditActive] = useState(false)
-  const [isLoginModalActive, setIsLoginModalActive] = useState(false)
+  const [isSignInModalActive, setIsSignInModalActive] = useState(false)
   const [isClaimSuccessModalActive, setIsClaimSuccessModalActive] =
+    useState(false)
+  const [isDataProviderHasAccounts, setIsDataProviderHasAccounts] =
     useState(false)
   const [newEmail, setNewEmail] = useState(false)
 
+  getDataProviderAccounts({
+    params: { id, setIsDataProviderHasAccounts },
+  })
+
   return (
     <Card className={classNames.use(styles.claimCard, className)}>
+      <div className={classNames.use(styles.cardTitle)}>
+        Repository Dashboard
+      </div>
       <div>
-        <b>Do you manage {nameDataProvider}?</b> Access insider analytics, issue
-        reports and manage access to outputs from your repository in
-        the&nbsp;CORE&nbsp;Dashboard!&nbsp;
+        Do you manage {nameDataProvider}? Access insider analytics, issue
+        reports and manage access to outputs from your repository in the{' '}
+        <a
+          href="https://core.ac.uk/services/repository-dashboard"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.linkUnderline}
+        >
+          CORE Repository Dashboard!
+        </a>
         <span aria-hidden="true" role="img">
           👇
         </span>
       </div>
       <div className={styles.claimCardActions}>
-        <Button
-          variant="contained"
-          className={styles.claimCardAction}
-          onClick={() => setIsClaimModalActive(true)}
-        >
-          Gain access now
-        </Button>
-        <Button
-          className={styles.claimCardAction}
-          onClick={() => {
-            window.open(
-              'https://core.ac.uk/services/repository-dashboard',
-              '_blank'
-            )
-          }}
-        >
-          More details
-        </Button>
+        {isDataProviderHasAccounts ? (
+          <>
+            <Button
+              variant="contained"
+              className={styles.claimCardAction}
+              onClick={() => setIsClaimModalEditActive(true)}
+            >
+              Gain access now
+            </Button>
+            <Button
+              className={styles.claimCardAction}
+              onClick={() => {
+                window.open('https://dashboard.core.ac.uk/', '_blank')
+              }}
+            >
+              SIGN IN
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button
+              variant="contained"
+              className={styles.claimCardAction}
+              onClick={() => setIsClaimModalActive(true)}
+            >
+              Gain access now
+            </Button>
+            <Button
+              className={styles.claimCardAction}
+              onClick={() => {
+                window.open(
+                  'https://core.ac.uk/services/repository-dashboard',
+                  '_blank'
+                )
+              }}
+            >
+              More details
+            </Button>
+          </>
+        )}
+
         {isClaimModalActive && (
           <ClaimModal
             contactData={contactData}
@@ -102,12 +172,13 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
                   id,
                   setIsClaimSuccessModalActive,
                   setNewEmail,
+                  isDataProviderHasAccounts,
                   ...options,
                 },
               })
             }
             className={
-              (isLoginModalActive || isClaimSuccessModalActive) && styles.hide
+              (isSignInModalActive || isClaimSuccessModalActive) && styles.hide
             }
           />
         )}
@@ -117,35 +188,35 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
             contactData={contactData}
             setModalActive={setIsClaimModalActive}
             setModalEditActive={setIsClaimModalEditActive}
+            isDataProviderHasAccounts={isDataProviderHasAccounts}
             onContinueClick={(options) =>
               getClaim({
                 params: {
                   id,
                   setIsClaimSuccessModalActive,
                   setNewEmail,
+                  isDataProviderHasAccounts,
                   ...options,
                 },
               })
             }
             className={
-              (isLoginModalActive || isClaimSuccessModalActive) && styles.hide
+              (isSignInModalActive || isClaimSuccessModalActive) && styles.hide
             }
           />
-        )}
-        {isLoginModalActive && (
-          <LoginModal setModalActive={setIsLoginModalActive} />
         )}
         {isClaimSuccessModalActive && (
           <ClaimSuccessModal
             isModalActive={isClaimSuccessModalActive}
             setClaimModalActive={setIsClaimModalActive}
             setClaimModalEditActive={setIsClaimModalEditActive}
-            setLoginModalActive={setIsLoginModalActive}
+            setSignInModalActive={setIsSignInModalActive}
             setModalActive={setIsClaimSuccessModalActive}
+            isDataProviderHasAccounts={isDataProviderHasAccounts}
             onClose={() => {
               if (isClaimModalActive) setIsClaimModalActive(false)
               if (isClaimModalEditActive) setIsClaimModalEditActive(false)
-              if (isLoginModalActive) setIsLoginModalActive(false)
+              if (isSignInModalActive) setIsSignInModalActive(false)
               if (isClaimSuccessModalActive) setIsClaimSuccessModalActive(false)
             }}
             newEmail={newEmail}

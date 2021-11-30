@@ -13,7 +13,6 @@ import 'leaflet.markercluster/dist/MarkerCluster.css'
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import '@oacore/design/lib/index.css'
 import 'main/global.css'
-import apiRequest from '../api'
 
 import useAnalytics from 'hooks/use-analytics'
 import Main from 'main'
