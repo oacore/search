@@ -205,6 +205,8 @@
 
 .loading-block {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .bar-item-loading {
@@ -226,7 +228,7 @@
   .toggle-button {
     display: block;
     width: 100%;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0;
     text-align: center;
     text-transform: capitalize;
   }

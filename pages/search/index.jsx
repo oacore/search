@@ -100,12 +100,4 @@ const Search = ({ data, queryError }) => {
   )
 }
 
-// Search.getInitialProps = (ctx) => {
-//   if (ctx.res) {
-//     ctx.res.writeHead(302, { Location: '/' })
-//     ctx.res.end()
-//   }
-//   return {}
-// }
-
 export default Search
