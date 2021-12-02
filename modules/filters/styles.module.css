@@ -46,7 +46,7 @@
 
 .filter-box {
   position: absolute;
-  top: 3.03rem;
+  top: 3rem;
   display: flex;
   flex-direction: column;
   width: 17rem;
@@ -228,7 +228,7 @@
   .toggle-button {
     display: block;
     width: 100%;
-    padding: 0.5rem 0;
+    padding: 0.3rem 0;
     text-align: center;
     text-transform: capitalize;
   }
