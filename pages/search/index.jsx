@@ -84,7 +84,7 @@ const Search = ({ data, queryError }) => {
         pathname: '/search',
         query: {
           ...router.query,
-          q: encodeURIComponent(searchTerm),
+          q: searchTerm,
           page: 1,
         },
       })

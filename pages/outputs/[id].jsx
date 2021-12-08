@@ -109,7 +109,7 @@ const ScientificOutputPage = ({ serverError, data }) => {
 
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {
-      router.push(`/search/${encodeURIComponent(searchTerm)}`)
+      router.push(`/search/?q=${searchTerm}`)
     },
     initQuery: '',
     searchBarProps: {
