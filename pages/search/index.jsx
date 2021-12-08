@@ -16,8 +16,12 @@ const log = (...args) => {
 }
 
 export const getServerSideProps = async ({ query: searchParams }) => {
+  if (!searchParams.q) {
+    return {
+      props: { redirect: true },
+    }
+  }
   const { q, page = 1, limit = 10, sort = 'relevance' } = searchParams
-
   const data = {
     currentPage: +page,
     query: q,
@@ -61,9 +65,14 @@ export const getServerSideProps = async ({ query: searchParams }) => {
   }
 }
 
-const Search = ({ data, queryError }) => {
-  const { statistics } = useStore()
+const Search = ({ data, queryError, redirect }) => {
   const router = useRouter()
+  if (redirect) {
+    router.push('/')
+    return null
+  }
+
+  const { statistics } = useStore()
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
 
