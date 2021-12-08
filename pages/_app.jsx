@@ -15,7 +15,6 @@ import '@oacore/design/lib/index.css'
 import 'main/global.css'
 
 import getStatistics from '../lib/statistics-loader'
-import statisticsData from '../.statistics.json'
 
 import useAnalytics from 'hooks/use-analytics'
 import Main from 'main'
@@ -98,8 +97,8 @@ let statistics = {
 // TODO: Replace with getStaticProps once this is solved
 //       https://github.com/vercel/next.js/discussions/10949
 App.getInitialProps = async () => {
-  await getStatistics()
-  if (Object.keys(statisticsData).length > 0) statistics = statisticsData
+  const data = await getStatistics()
+  if (Object.keys(data).length > 0) statistics = data
   else statistics = { totalArticlesCount: 'more than 200 million' }
 
   return {
