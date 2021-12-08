@@ -16,8 +16,16 @@ const log = (...args) => {
 }
 
 export const getServerSideProps = async ({ query: searchParams }) => {
+  if (Object.keys(searchParams).length === 0) {
+    return {
+      redirect: {
+        permanent: true,
+        destination: '/',
+      },
+      props: {},
+    }
+  }
   const { q, page = 1, limit = 10, sort = 'relevance' } = searchParams
-
   const data = {
     currentPage: +page,
     query: q,
@@ -62,8 +70,11 @@ export const getServerSideProps = async ({ query: searchParams }) => {
 }
 
 const Search = ({ data, queryError }) => {
-  const { statistics } = useStore()
   const router = useRouter()
+
+  if (queryError) return <QueryError query={queryError.query} />
+
+  const { statistics } = useStore()
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
 
@@ -87,8 +98,6 @@ const Search = ({ data, queryError }) => {
       changeOnBlur: false,
     },
   })
-
-  if (queryError) return <QueryError query={queryError.query} />
 
   return (
     <>
