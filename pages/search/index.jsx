@@ -15,11 +15,11 @@ const log = (...args) => {
     console.log(...args)
 }
 
-export const getServerSideProps = async ({ query: searchParams }) => {
+export const getServerSideProps = async ({ res, query: searchParams }) => {
   if (!searchParams.q) {
-    return {
-      props: { redirect: true },
-    }
+    res.statusCode = 302
+    res.setHeader('Location', `/`) // Replace <link> with your url link
+    return { props: {} }
   }
   const { q, page = 1, limit = 10, sort = 'relevance' } = searchParams
   const data = {
@@ -65,12 +65,8 @@ export const getServerSideProps = async ({ query: searchParams }) => {
   }
 }
 
-const Search = ({ data, queryError, redirect }) => {
+const Search = ({ data, queryError }) => {
   const router = useRouter()
-  if (redirect) {
-    router.push('/')
-    return null
-  }
 
   const { statistics } = useStore()
   const totalArticlesCount =
