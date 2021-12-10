@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Button, LoadingBar } from '@oacore/design/lib/elements'
+import { Button } from '@oacore/design/lib/elements'
 import { classNames } from '@oacore/design/lib/utils'
 
 import styles from './styles.module.css'
@@ -31,7 +31,6 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
   }
   return (
     <div className={styles.container}>
-      {filters.isLoading && <LoadingBar fixed />}
       <Button
         type="button"
         className={classNames.use(styles.button, styles.toggleButton)}
