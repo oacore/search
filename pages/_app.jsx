@@ -14,6 +14,8 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import '@oacore/design/lib/index.css'
 import 'main/global.css'
 
+import getStatistics from '../lib/statistics-loader'
+
 import useAnalytics from 'hooks/use-analytics'
 import Main from 'main'
 import { Sentry } from 'utils/sentry'
@@ -95,17 +97,9 @@ let statistics = {
 // TODO: Replace with getStaticProps once this is solved
 //       https://github.com/vercel/next.js/discussions/10949
 App.getInitialProps = async () => {
-  if (
-    !statistics.data ||
-    // fetch new stats if they are 1 day old
-    (Date.now() - statistics.timestamp) / (1000 * 3600 * 24) > 2
-  )
-    statistics = { totalArticlesCount: 'more than 200 million' }
-  // try {
-  //   const { data } = await apiRequest('/statisticss')
-  //   statistics = data
-  // } catch (error) {
-  // }
+  const data = await getStatistics()
+  if (Object.keys(data).length > 0) statistics = data
+  else statistics = { totalArticlesCount: 'more than 200 million' }
 
   return {
     statistics,
