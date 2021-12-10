@@ -20,8 +20,13 @@ const nextConfig = {
     ]
   },
 
-  webpack(config) {
+  webpack(config, { isServer }) {
     const { rules } = config.module
+    if (!isServer) {
+      config.node = {
+        fs: 'empty',
+      }
+    }
 
     // TODO: Remove once https://github.com/zeit/next.js/issues/10584 is solved and released
     // Find the array of "style rules" in the webpack config.
