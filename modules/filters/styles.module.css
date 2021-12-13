@@ -214,6 +214,18 @@
   opacity: 0.4;
 }
 
+.loading-box {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 15rem;
+  color: var(--gray-600);
+}
+
+.loading-box span {
+  margin-left: 1rem;
+}
+
 @media (--screen-until-desktop) {
   .button {
     margin-left: 0;

@@ -1,8 +1,10 @@
-import { Icon } from '@oacore/design/lib/elements'
+import React, { useState, useRef } from 'react'
+import { Icon, ProgressSpinner } from '@oacore/design/lib/elements'
 import classNames from '@oacore/design/lib/utils/class-names'
-import React from 'react'
 
 import styles from './styles.module.css'
+
+import useOutsideClick from 'hooks/use-outside-click'
 
 const FILTERS_LABELS = [
   'Field',
@@ -13,15 +15,47 @@ const FILTERS_LABELS = [
   'Publisher',
 ]
 
+const Facet = ({ label }) => {
+  const [isComponentVisible, setIsComponentVisible] = useState(false)
+
+  const node = useRef()
+
+  const toggleVisibleComponent = () => {
+    setIsComponentVisible(!isComponentVisible)
+  }
+
+  const hideFilterBox = () => {
+    setIsComponentVisible(false)
+  }
+
+  useOutsideClick(node, hideFilterBox)
+
+  return (
+    <li className={styles.barItemWrapper} ref={node}>
+      <div
+        className={classNames.use(styles.barItem)}
+        onClick={toggleVisibleComponent}
+        role="presentation"
+      >
+        <p>{label}</p>
+        <Icon className={styles.barItemIcon} src="#menu-down" />
+      </div>
+      {isComponentVisible && <Box />}
+    </li>
+  )
+}
+
+const Box = () => (
+  <div className={classNames.use(styles.filterBox, styles.loadingBox)}>
+    <ProgressSpinner />
+    <span>Loading</span>
+  </div>
+)
+
 const LoadingBlock = () => (
   <div className={styles.loadingBlock}>
     {FILTERS_LABELS.map((item) => (
-      <li className={styles.barItemWrapper} key={item}>
-        <div className={classNames.use(styles.barItem, styles.barItemLoading)}>
-          <p>{item}</p>
-          <Icon className={styles.barItemIcon} src="#menu-down" />
-        </div>
-      </li>
+      <Facet label={item} key={item} />
     ))}
   </div>
 )
