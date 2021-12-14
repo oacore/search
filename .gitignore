@@ -6,3 +6,5 @@ dist
 build
 node_modules
 public/static/design
+
+.statistics.json
