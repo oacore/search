@@ -95,7 +95,6 @@ const Search = ({ data, queryError }) => {
       label: `Search ${totalArticlesCount} papers around the world`,
       placeholder: `Search ${totalArticlesCount} papers around the world`,
       prependIcon: '#magnify',
-      changeOnBlur: false,
     },
   })
 
