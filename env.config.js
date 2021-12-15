@@ -5,7 +5,7 @@ const local = {
 }
 
 const development = {
-  API_URL: 'https://api.core.ac.uk/internal',
+  API_URL: 'https://api-dev.core.ac.uk/internal',
 }
 
 const production = {
