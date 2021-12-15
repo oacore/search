@@ -60,11 +60,10 @@ const CustomMap = ({ locations }) => {
         title: name,
         icon: markerIcon,
       })
-
       if (href) {
         marker.bindPopup(
           `<a
-               href={href}
+               href=${href}
                target="_blank"
                rel="noopener noreferrer"
            >
