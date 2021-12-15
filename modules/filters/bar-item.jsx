@@ -1,14 +1,14 @@
-import React, { useRef, useState } from 'react'
+import React, { memo, useRef, useState } from 'react'
 import { Icon } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
 
 import styles from './styles.module.css'
-import setFilterBox from './utils/set-filter-box'
+import FilterBox from './filter-box'
 
 import useOutsideClick from 'hooks/use-outside-click'
 import { observe, useStore } from 'store'
 
-const FilterBarItem = observe(({ filter }) => {
+const FilterBarItem = ({ filter }) => {
   const [isComponentVisible, setIsComponentVisible] = useState(false)
 
   const node = useRef()
@@ -16,7 +16,7 @@ const FilterBarItem = observe(({ filter }) => {
 
   const onToggleFilterBox = () => {
     setIsComponentVisible(!isComponentVisible)
-    if (!isComponentVisible) {
+    if (!isComponentVisible && filter.items) {
       filters.setActiveFilter(filter)
       filters.setActiveFilterSuggestions(filter.items)
     }
@@ -28,16 +28,6 @@ const FilterBarItem = observe(({ filter }) => {
 
   useOutsideClick(node, hideFilterBox)
 
-  const onChangeFiltersWithCheckbox = (element) => {
-    filters.toggleCheckboxFilter(element)
-  }
-
-  const component = setFilterBox(
-    filter.label,
-    filters.activeFilterSuggestions,
-    onChangeFiltersWithCheckbox
-  )
-
   return (
     <li className={styles.barItemWrapper} ref={node}>
       <div
@@ -46,26 +36,20 @@ const FilterBarItem = observe(({ filter }) => {
         className={classNames.use(styles.barItem, {
           [styles.barItemActive]:
             filter.label !== 'sort by' &&
+            filter.items &&
             filter.items.find((item) => item.checked === true),
           [styles.sortBarItem]: filter.label === 'sort by',
-          [styles.disabled]: filter.items.length === 0,
+          [styles.disabled]: filter.items && filter.items.length === 0,
         })}
       >
         <p>{filter.label}</p>
         <Icon className={styles.barItemIcon} src="#menu-down" />
       </div>
       {isComponentVisible && (
-        <ul
-          className={classNames.use(styles.filterBox, {
-            [styles.wideBox]: filter.label === 'field',
-            [styles.yearBox]: filter.label === 'year',
-          })}
-        >
-          {component}
-        </ul>
+        <FilterBox label={filter.label} filterItems={filter.items} />
       )}
     </li>
   )
-})
+}
 
 export default FilterBarItem

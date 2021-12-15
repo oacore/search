@@ -4,8 +4,8 @@ import classNames from '@oacore/design/lib/utils/class-names'
 
 import styles from './sort.module.css'
 
+import FilterItem from 'modules/filters/filter-box-item'
 import useOutsideClick from 'hooks/use-outside-click'
-import FilterItem from 'modules/filters/filter-item'
 
 const Sort = ({ options, onClick, className }) => {
   const [boxVisible, setBoxVisible] = React.useState(false)

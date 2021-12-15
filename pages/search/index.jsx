@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { Header } from '@oacore/design/lib/modules'
 
 import { fetchWorks } from 'api/search'
-import { useStore } from 'store'
+import { useStore, observe } from 'store'
 import { findUrlsByType } from 'utils/helpers'
 import Template from 'templates/search'
 import QueryError from 'templates/error/query'
@@ -69,7 +69,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
   }
 }
 
-const Search = ({ data, queryError }) => {
+const Search = observe(({ data, queryError }) => {
   const router = useRouter()
 
   if (queryError) return <QueryError query={queryError.query} />
@@ -107,6 +107,6 @@ const Search = ({ data, queryError }) => {
       <Template data={data} />
     </>
   )
-}
+})
 
 export default Search

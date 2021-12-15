@@ -12,8 +12,29 @@ import { findMaxValueInArray, findMinValueInArray } from '../utils/helpers'
 import transformFiltersData, { checkActiveItems } from 'utils/filters-transform'
 import invalidatePreviousRequests from 'utils/invalidatePreviousRequests'
 
+const INITIAL_DATA = [
+  {
+    label: 'field',
+  },
+  {
+    label: 'Year',
+  },
+  {
+    label: 'Type',
+  },
+  {
+    label: 'Author',
+  },
+  {
+    label: 'Language',
+  },
+  {
+    label: 'Publisher',
+  },
+]
+
 class Filters {
-  data = []
+  data = INITIAL_DATA
 
   initialData = {}
 
@@ -127,14 +148,18 @@ class Filters {
 
   setData(newData) {
     this.data = newData.map((filter) => {
-      sortItemsByNumberDesc(filter.items, 'count')
-      setItemFirst(filter.items)
-      return filter
+      if (filter.items) {
+        sortItemsByNumberDesc(filter.items, 'count')
+        setItemFirst(filter.items)
+        return filter
+      }
+      return false
     })
     this.setGroupedYearDates([2014, 2016, 2018])
   }
 
   toggleCheckboxFilter(element) {
+    this.setIsLoading(true)
     const { activeFilterSuggestions } = this
     const foundedIndex = activeFilterSuggestions.findIndex(
       (i) => i.value === element.value

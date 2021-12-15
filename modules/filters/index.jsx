@@ -4,11 +4,10 @@ import { classNames } from '@oacore/design/lib/utils'
 
 import styles from './styles.module.css'
 import FilterBarItem from './bar-item'
-import LoadingBlock from './loading-block'
 
 import { observe, useStore } from 'store'
 
-const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
+const FiltersBar = ({ className, query: initialQuery, sortType }) => {
   const [visibleFiltersBar, setVisibleFiltersBar] = React.useState(false)
   const [query, setQuery] = React.useState(initialQuery)
   const { filters } = useStore()
@@ -29,6 +28,7 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
   const onToggleFiltersBar = () => {
     setVisibleFiltersBar(!visibleFiltersBar)
   }
+
   return (
     <div className={styles.container}>
       <Button
@@ -45,28 +45,22 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
           })
           .join(className)}
       >
-        {filters.isLoading && Object.keys(filters.initialData).length === 0 ? (
-          <LoadingBlock />
-        ) : (
-          <>
-            {filters.data.map((filter) => (
-              <FilterBarItem key={filter.value} filter={filter} />
-            ))}
-            {filters.isVisibleClearButton && (
-              <Button
-                type="button"
-                variant="text"
-                onClick={onHandleClickClear}
-                className={classNames.use(styles.clearButton, styles.button)}
-              >
-                Clear all filters
-              </Button>
-            )}
-          </>
+        {filters.data.map((filter) => (
+          <FilterBarItem key={filter.value} filter={filter} />
+        ))}
+        {filters.isVisibleClearButton && (
+          <Button
+            type="button"
+            variant="text"
+            onClick={onHandleClickClear}
+            className={classNames.use(styles.clearButton, styles.button)}
+          >
+            Clear all filters
+          </Button>
         )}
       </ul>
     </div>
   )
-})
+}
 
 export default FiltersBar

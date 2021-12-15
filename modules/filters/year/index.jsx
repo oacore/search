@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Histoslider } from '@oacore/design/lib/elements'
 
 import styles from '../styles.module.css'
-import FilterItem from '../filter-item'
+import FilterItem from '../filter-box-item'
 import CustomRange from './custom-range'
 import YearSelects from './selects'
 import useYearFilterController from './hooks/use-year-filter-controller'
