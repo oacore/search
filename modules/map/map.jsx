@@ -28,7 +28,7 @@ const CustomMap = ({ locations }) => {
           <a href="https://www.openstreetmap.org">OpenStreetMap</a> under
           <a href="https://creativecommons.org/licenses/by-sa/2.0">CC-BY-SA</a>
         `,
-        minZoom: 2,
+        minZoom: 1,
         maxZoom: 12,
       }
     )
@@ -38,10 +38,10 @@ const CustomMap = ({ locations }) => {
         locations[0].latitude && locations[0].longitude
           ? new L.LatLng(locations[0].latitude, locations[0].longitude)
           : centerPosition,
-      zoom: 2,
+      zoom: 1,
       maxBounds: [
-        [-90, -180],
-        [90, 180],
+        [70, 180],
+        [-70, -180],
       ],
       layers: [coverLayer],
       scrollWheelZoom: false,
@@ -60,11 +60,10 @@ const CustomMap = ({ locations }) => {
         title: name,
         icon: markerIcon,
       })
-
       if (href) {
         marker.bindPopup(
           `<a
-               href={href}
+               href=${href}
                target="_blank"
                rel="noopener noreferrer"
            >
