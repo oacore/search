@@ -171,9 +171,7 @@ const DataProvidersSearchTemplate = React.memo(
         <Search.Sidebar>
           <Map
             className={styles.map}
-            locations={filterAndMapDataProviders(
-              query === '' ? results : results.slice(0, dataProvidersSize)
-            )}
+            locations={filterAndMapDataProviders(results)}
           />
           <p>
             We aggregate research papers from data providers all over the world

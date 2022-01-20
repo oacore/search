@@ -20,7 +20,7 @@ export const schema = {
 }
 
 class DataProviders {
-  @observable data
+  data
 
   params
 
