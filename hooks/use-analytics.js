@@ -1,18 +1,21 @@
 import { useCallback, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { pageview, initialize } from 'react-ga'
+import { useCookie } from '@oacore/design'
 
 const useAnalytics = () => {
+  const analyticsAllowed = useCookie('analytics_allowed')
+
   const router = useRouter()
   const reportPageview = useCallback((url) => {
     pageview(url)
   }, [])
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
+    if (analyticsAllowed && process.env.NODE_ENV === 'production') {
       // Initialise production Google Analytics
       initialize(process.env.GA_TRACKING_CODE)
-    } else {
+    } else if (analyticsAllowed) {
       window.ga = (...args) =>
         // We want to have logging in the development environment
         // eslint-disable-next-line no-console

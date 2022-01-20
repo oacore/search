@@ -1,5 +1,9 @@
 import React from 'react'
-import { DesignProvider } from '@oacore/design'
+import {
+  DesignProvider,
+  CookiesProvider,
+  Cookies as CookiesPopup,
+} from '@oacore/design'
 
 import Head from './head'
 
@@ -12,10 +16,13 @@ const Main = ({ children, initialState, loading, isSearchPage }) => {
   return (
     <StoreProvider store={store}>
       <DesignProvider>
-        <Head />
-        <Layout isSearchPage={isSearchPage} loading={loading}>
-          {children}
-        </Layout>
+        <CookiesProvider>
+          <Head />
+          <Layout isSearchPage={isSearchPage} loading={loading}>
+            {children}
+          </Layout>
+          <CookiesPopup />
+        </CookiesProvider>
       </DesignProvider>
     </StoreProvider>
   )
