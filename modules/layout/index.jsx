@@ -1,10 +1,9 @@
 import React from 'react'
-import { LoadingBar } from '@oacore/design'
+import { LoadingBar, Footer } from '@oacore/design'
 
 import Container from './container'
 import AppBar from './app-bar'
 import styles from './styles.module.css'
-import Footer from './footer'
 
 const Layout = ({ children, loading, isSearchPage }) => (
   <Container>
