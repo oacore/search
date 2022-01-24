@@ -4,7 +4,7 @@ import { pageview, initialize } from 'react-ga'
 import { useCookie } from '@oacore/design'
 
 const useAnalytics = () => {
-  const analyticsAllowed = useCookie('analytics_allowed')
+  const analyticsAllowed = useCookie('analytics_cookies_allowed')
 
   const router = useRouter()
   const reportPageview = useCallback((url) => {
