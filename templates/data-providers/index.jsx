@@ -113,6 +113,7 @@ const DataProvidersSearchTemplate = React.memo(
     const getSuggestions = useCallback(
       (term) => {
         const matches = searchDataProviders(term)
+
         return matches.slice(0, 10).map((dataProvider) => ({
           id: dataProvider.id,
           value: dataProvider.name,
@@ -167,12 +168,13 @@ const DataProvidersSearchTemplate = React.memo(
             )}
           </div>
         </SearchResults>
-
         <Search.Sidebar>
-          <Map
-            className={styles.map}
-            locations={filterAndMapDataProviders(results)}
-          />
+          {results.length > 0 && (
+            <Map
+              className={styles.map}
+              locations={filterAndMapDataProviders(results)}
+            />
+          )}
           <p>
             We aggregate research papers from data providers all over the world
             including institutional and subject repositories and journal
