@@ -5,7 +5,7 @@ import React, {
   useState,
 } from 'react'
 import { useRouter } from 'next/router'
-
+import { CookiesProvider } from '@oacore/design'
 // TODO: Move to map component once
 //       https://github.com/vercel/next.js/issues/12079 is solved
 import 'leaflet/dist/leaflet.css'
@@ -16,7 +16,6 @@ import 'main/global.css'
 
 import getStatistics from '../lib/statistics-loader'
 
-import useAnalytics from 'hooks/use-analytics'
 import Main from 'main'
 import { Sentry } from 'utils/sentry'
 
@@ -71,21 +70,22 @@ const useLoading = (initialState = false) => {
 
 const App = ({ Component: PageComponent, pageProps, statistics }) => {
   const loading = useLoading()
-  useAnalytics()
 
   const router = useRouter()
   const isSearchPage = router.asPath.match(/search/gm)
 
   return (
-    <ErrorBoundary>
-      <Main
-        isSearchPage={isSearchPage}
-        initialState={{ statistics }}
-        loading={loading}
-      >
-        <PageComponent {...pageProps} />
-      </Main>
-    </ErrorBoundary>
+    <CookiesProvider>
+      <ErrorBoundary>
+        <Main
+          isSearchPage={isSearchPage}
+          initialState={{ statistics }}
+          loading={loading}
+        >
+          <PageComponent {...pageProps} />
+        </Main>
+      </ErrorBoundary>
+    </CookiesProvider>
   )
 }
 
