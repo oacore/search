@@ -78,26 +78,29 @@ const Search = ({ data, queryError }) => {
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
 
-  Header.useSearchBar({
-    onQueryChanged: (searchTerm) => {
-      router.push({
-        pathname: '/search',
-        query: {
-          ...router.query,
-          q: searchTerm,
-          page: 1,
-        },
-      })
+  Header.useSearchBar(
+    {
+      onQueryChanged: (searchTerm) => {
+        router.push({
+          pathname: '/search',
+          query: {
+            ...router.query,
+            q: searchTerm,
+            page: 1,
+          },
+        })
+      },
+      useAdvancedSearch: true,
+      initQuery: data.query,
+      searchBarProps: {
+        label: `Search ${totalArticlesCount} papers around the world`,
+        placeholder: `Search ${totalArticlesCount} papers around the world`,
+        prependIcon: '#magnify',
+        changeOnBlur: false,
+      },
     },
-    useAdvancedSearch: true,
-    initQuery: data.query,
-    searchBarProps: {
-      label: `Search ${totalArticlesCount} papers around the world`,
-      placeholder: `Search ${totalArticlesCount} papers around the world`,
-      prependIcon: '#magnify',
-      changeOnBlur: false,
-    },
-  })
+    { isHidden: false }
+  )
 
   return (
     <>
