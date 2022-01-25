@@ -123,16 +123,19 @@ const DataProvidersSearchTemplate = React.memo(
       [searchDataProviders]
     )
 
-    Header.useSearchBar({
-      onQueryChanged: setQuery,
-      getSuggestions,
-      initQuery: query,
-      searchBarProps: {
-        label: 'Search data providers',
-        placeholder: 'e.g. repository or journal name',
-        prependIcon: '#magnify',
+    Header.useSearchBar(
+      {
+        onQueryChanged: setQuery,
+        getSuggestions,
+        initQuery: query,
+        searchBarProps: {
+          label: 'Search data providers',
+          placeholder: 'e.g. repository or journal name',
+          prependIcon: '#magnify',
+        },
       },
-    })
+      { isHidden: false }
+    )
 
     return (
       <Search className={styles.layout}>
