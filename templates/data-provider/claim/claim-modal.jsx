@@ -45,7 +45,7 @@ const ClaimModal = ({
       className={classNames.use(className)}
     >
       <Modal.Title id="gain-access-modal-title">
-        Claim Repository Dashboard
+        Create Repository Dashboard Account
       </Modal.Title>
       <Modal.Content tag="div">
         <p>
