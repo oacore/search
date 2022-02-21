@@ -72,7 +72,7 @@ const useInterceptNextDataHref = ({ router, namespace }) => {
   useEffect(() => {
     if (router.pageLoader?.getDataHref) {
       const originalGetDataHref = router.pageLoader.getDataHref
-      router.pageLoader.getDataHref = function (args) {
+      router.pageLoader.getDataHref = (args) => {
         const r = originalGetDataHref.call(router.pageLoader, args)
         return r && r.startsWith('/_next/data') ? `${namespace}${r}` : r
       }
