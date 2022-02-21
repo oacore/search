@@ -1,6 +1,29 @@
 const getAssetsPath = (path = '/', target = process.env.BUILD_TARGET || '') =>
   target === 'aws' ? `/data-providers${path}` : path
 
+const rewriteDataPath = (
+  path = '/_next/data/:path*',
+  target = process.env.NODE_ENV || ''
+) => {
+  let outputDataPath = {
+    destination: path,
+  }
+
+  if (target === 'production') {
+    outputDataPath = {
+      ...outputDataPath,
+      source: `/search${path}`,
+    }
+  } else {
+    outputDataPath = {
+      ...outputDataPath,
+      source: outputDataPath.destination,
+    }
+  }
+
+  return outputDataPath
+}
+
 const formatDate = (date, options = {}) => {
   const dateTimeFormat = new Intl.DateTimeFormat('en-GB', options)
 
@@ -61,6 +84,7 @@ const findUrlsByType = (article) => {
 
 module.exports = {
   getAssetsPath,
+  rewriteDataPath,
   formatDate,
   findDataProviders,
   findMaxValueInArray,
