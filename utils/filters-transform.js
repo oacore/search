@@ -86,10 +86,13 @@ const transformFiltersData = (initialObject, newObject, labelValues, query) => {
     .find((item) => item.value === 'language')
     .items.map((filter) => {
       filter.code = filter.value
-      filter.value = data.find(
+      const founded = data.find(
         (language) => language.code === filter.code.toLowerCase()
-      ).name
-      return filter
+      )
+
+      if (founded) filter.value = founded.name
+
+      return filter.value
     })
 
   filters

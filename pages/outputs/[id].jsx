@@ -113,8 +113,8 @@ const ScientificOutputPage = ({ serverError, data }) => {
     },
     initQuery: '',
     searchBarProps: {
-      label: `Search ${totalArticlesCount} papers around the world`,
-      placeholder: `Search ${totalArticlesCount} papers around the world`,
+      label: `Search ${totalArticlesCount} from papers around the world`,
+      placeholder: `Search ${totalArticlesCount} from papers around the world`,
       prependIcon: '#magnify',
       changeOnBlur: false,
     },

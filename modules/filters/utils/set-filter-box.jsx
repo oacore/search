@@ -18,7 +18,7 @@ const setFilterBox = (label, filters, onChange) => {
           <Search />
           {filters.map((item) => (
             <FilterItem
-              key={item.value}
+              key={item.code || item.value}
               value={item.value}
               checkedIcon="#checkbox-marked"
               unCheckedIcon="#checkbox-blank-outline"
