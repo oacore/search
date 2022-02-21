@@ -83,6 +83,8 @@ const CardDropdown = ({
                 href={sourceFulltextUrls}
                 aria-labelledby={`${id}-downloaded-from-title`}
                 aria-describedby={`${id}-downloaded-from-body`}
+                target="_blank"
+                rel="noreferrer"
               >
                 View original full text link
               </a>
