@@ -1,9 +1,6 @@
 const getAssetsPath = (path = '/', target = process.env.BUILD_TARGET || '') =>
   target === 'aws' ? `/data-providers${path}` : path
 
-const getBasePath = (path = '', target = process.env.NODE_ENV) =>
-  target === 'production' ? `/search` : path
-
 const formatDate = (date, options = {}) => {
   const dateTimeFormat = new Intl.DateTimeFormat('en-GB', options)
 
@@ -64,7 +61,6 @@ const findUrlsByType = (article) => {
 
 module.exports = {
   getAssetsPath,
-  getBasePath,
   formatDate,
   findDataProviders,
   findMaxValueInArray,

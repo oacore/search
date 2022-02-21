@@ -9,7 +9,6 @@ const helpers = require('./utils/helpers')
 
 const nextConfig = {
   env: envConfig,
-  basePath: helpers.getBasePath(''),
   assetPrefix: helpers.getAssetsPath(''),
 
   async headers() {
