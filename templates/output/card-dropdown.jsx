@@ -79,7 +79,7 @@ const CardDropdown = ({
           coreDownloadUrl.match(/core.ac.uk/gm) &&
           sourceFulltextUrls && (
             <Card.Description className={styles.descriptionLink} tag="span">
-              <Link href={sourceFulltextUrls} external icon={false}>
+              <Link href={sourceFulltextUrls} external icon={false} passHref>
                 View original full text link
               </Link>
             </Card.Description>
