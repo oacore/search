@@ -21,7 +21,7 @@ class Filters {
 
   activeFilterSuggestions = []
 
-  aggregations = [
+  aggregationsNames = [
     'fieldsOfStudy',
     'yearPublished',
     'documentType',
@@ -83,13 +83,12 @@ class Filters {
     this.setIsLoading(true)
     try {
       const { aggregations } = await fetchAggregations({
-        aggregations: this.aggregations,
+        aggregations: this.aggregationsNames,
         q: query,
       })
 
       const fullQuery = `${query}?sort=${sortType}`
-      const labelValues = this.aggregations
-
+      const labelValues = this.aggregationsNames
       if (Object.keys(this.initialData).length === 0) {
         this.setInitialData(aggregations)
 
@@ -109,6 +108,7 @@ class Filters {
         )
 
         this.setData(filters)
+
         const activeFilterIndex = filters.findIndex(
           (item) => item.value === this.activeFilter.value
         )

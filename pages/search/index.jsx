@@ -3,17 +3,12 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Header } from '@oacore/design/lib/modules'
 
+import log from 'utils/logger'
 import { fetchWorks } from 'api/search'
 import { useStore } from 'store'
 import { findUrlsByType } from 'utils/helpers'
 import Template from 'templates/search'
 import QueryError from 'templates/error/query'
-
-const log = (...args) => {
-  if (process.env.NODE_ENV !== 'production')
-    // eslint-disable-next-line no-console
-    console.log(...args)
-}
 
 export const getServerSideProps = async ({ query: searchParams }) => {
   if (Object.keys(searchParams).length === 0) {
@@ -26,6 +21,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
     }
   }
   const { q, page = 1, limit = 10, sort = 'relevance' } = searchParams
+
   const data = {
     currentPage: +page,
     query: q,
@@ -77,7 +73,6 @@ const Search = ({ data, queryError }) => {
   const { statistics } = useStore()
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
-
   Header.useSearchBar(
     {
       onQueryChanged: (searchTerm) => {

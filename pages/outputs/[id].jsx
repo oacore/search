@@ -10,17 +10,13 @@ import Meta from 'modules/meta'
 import Template from 'templates/output'
 import { findUrlsByType } from 'utils/helpers'
 import Error404 from 'templates/error/404'
+import log from 'utils/logger'
 
 const LOCALE = 'en-GB'
 const CITATION_STYLES = ['apa', 'bibtex']
 
 // Needed for clear development of the data retrieval
 // At the time of development the API was unstable
-const log = (...args) => {
-  if (process.env.NODE_ENV !== 'production')
-    // eslint-disable-next-line no-console
-    console.log(...args)
-}
 
 const setOutputError = (error, id) => {
   let serverError = { code: error.status }
