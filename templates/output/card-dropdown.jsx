@@ -11,6 +11,7 @@ import DropDown from 'modules/dropdown'
 
 const httpsValidate = (sourceFulltextUrls) => {
   let url = sourceFulltextUrls
+  if (url === null) return sourceFulltextUrls
   if (typeof url === 'object') url = url.join('')
   if (url.match(/http:/gm)) url = url.replace(/http:/, 'https:')
   return url
