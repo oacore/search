@@ -68,10 +68,33 @@ const useLoading = (initialState = false) => {
   return isLoading
 }
 
-const App = ({ Component: PageComponent, pageProps, statistics }) => {
-  const loading = useLoading()
+const useInterceptNextDataHref = ({ router, namespace }) => {
+  useEffect(() => {
+    if (router.pageLoader?.getDataHref) {
+      const originalGetDataHref = router.pageLoader.getDataHref
+      router.pageLoader.getDataHref = (args) => {
+        const r = originalGetDataHref.call(router.pageLoader, args)
+        return r && r.startsWith('/_next/data') ? `${namespace}${r}` : r
+      }
+    }
+  }, [router, namespace])
+}
 
+const App = ({
+  Component: PageComponent,
+  pageProps,
+  statistics,
+  router: approuter,
+}) => {
   const router = useRouter()
+
+  if (process.env.NODE_ENV === 'production') {
+    useInterceptNextDataHref({
+      router: approuter,
+      namespace: '/search',
+    })
+  }
+  const loading = useLoading()
   const isSearchPage = router.asPath.match(/search/gm)
 
   return (

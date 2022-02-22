@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Header } from '@oacore/design'
 import { useRouter } from 'next/router'
 
+import log from 'utils/logger'
 import { fetchWork, fetchWorkOutputs } from 'api/works'
 import { fetchCitations } from 'api/outputs'
 import { useStore } from 'store'
@@ -13,12 +14,6 @@ import { findUrlsByType } from 'utils/helpers'
 
 const LOCALE = 'en-GB'
 const CITATION_STYLES = ['apa', 'bibtex']
-
-const log = (...args) => {
-  if (process.env.NODE_ENV !== 'production')
-    // eslint-disable-next-line no-console
-    console.log(...args)
-}
 
 export async function getServerSideProps({ params: routeParams }) {
   const { id } = routeParams

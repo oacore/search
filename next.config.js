@@ -11,6 +11,15 @@ const nextConfig = {
   env: envConfig,
   assetPrefix: helpers.getAssetsPath(''),
 
+  async rewrites() {
+    const dataPath = helpers.rewriteDataPath()
+    return [
+      {
+        source: dataPath.source,
+        destination: dataPath.destination,
+      },
+    ]
+  },
   async headers() {
     return [
       {
