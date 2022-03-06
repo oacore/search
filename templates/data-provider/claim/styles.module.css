@@ -129,11 +129,11 @@
 }
 
 .helper {
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 0.0025em;
   padding: 16px;
   margin-bottom: 25px;
+  font-size: 14px;
+  line-height: 24px;
   color: #424242;
-  background-color: #F5F5F5;
+  letter-spacing: 0.0025em;
+  background-color: #f5f5f5;
 }

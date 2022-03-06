@@ -89,12 +89,13 @@ const ClaimModalEdit = (props) => {
           {...bindEmail}
           className={classNames.use(styles.claimCardGroup)}
         />
-                    <div className={styles.helper}>
-              If there is no registered repository adminstrator email or you do not have 
-              access to the the registered email address, then you can change the email address. 
-              However, this means that a manual verification process will be used and it might 
-              take a few days to give you access.
-            </div>
+        <div className={styles.helper}>
+          If there is no registered repository adminstrator email or you do not
+          have have access to the the registered email address, then you can
+          change the email address. However, this means that a manual
+          verification process will be used and it might take a few days to give
+          you access.
+        </div>
         <TextField
           id={contactName}
           type="text"

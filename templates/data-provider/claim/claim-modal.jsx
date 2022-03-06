@@ -19,8 +19,6 @@ const ClaimModal = ({
     focus: focusEmailFirst,
   } = useInput(contactData.email, 'contactEmailFirst')
 
-  console.log(contactData)
-
   const {
     value: nameFirst,
     element: contactNameFirst,
