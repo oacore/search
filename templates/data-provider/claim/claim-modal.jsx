@@ -45,12 +45,11 @@ const ClaimModal = ({
       className={classNames.use(className)}
     >
       <Modal.Title id="gain-access-modal-title">
-        Claim Repository Dashboard
+        Create Repository Dashboard Account
       </Modal.Title>
       <Modal.Content tag="div">
         <p>
-          Enter the administrator email address and a few details to get access
-          to the{' '}
+          To give you instant access to the{' '}
           <a
             href="https://core.ac.uk/services/repository-dashboard"
             target="_blank"
@@ -59,7 +58,8 @@ const ClaimModal = ({
           >
             Repository Dashboard
           </a>
-          .
+          , we need to verify that you have ownership of the repository by
+          sending an email to the registered repository administrator.
         </p>
         <TextField
           id={contactEmailFirst}
@@ -77,13 +77,7 @@ const ClaimModal = ({
           placeholder="You need enter email."
           {...bindEmailFirst}
           helper={
-            <>
-              This address is listed as Admin Email in the OAI-PMH Identify.
-              <br />
-              You can use another email but the confirmation may take up a few
-              days.
-              <br />
-            </>
+            <>This address is listed as Admin Email in the OAI-PMH Identify.</>
           }
         />
 

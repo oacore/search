@@ -102,11 +102,12 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
   return (
     <Card className={classNames.use(styles.claimCard, className)}>
       <div className={classNames.use(styles.cardTitle)}>
-        Repository Dashboard
+        Access Repository Dashboard
       </div>
       <div>
         Do you manage {nameDataProvider}? Access insider analytics, issue
-        reports and manage access to outputs from your repository in the{' '}
+        reports and manage access to outputs from your repository in the CORE
+        Repository Dashboard!{' '}
         <a
           href="https://core.ac.uk/services/repository-dashboard"
           target="_blank"
@@ -127,7 +128,7 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
               className={styles.claimCardAction}
               onClick={() => setIsClaimModalEditActive(true)}
             >
-              Gain access now
+              SIGN IN
             </Button>
             <Button
               className={styles.claimCardAction}
@@ -135,7 +136,7 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
                 window.open('https://dashboard.core.ac.uk/', '_blank')
               }}
             >
-              SIGN IN
+              Create account
             </Button>
           </>
         ) : (
@@ -145,7 +146,7 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
               className={styles.claimCardAction}
               onClick={() => setIsClaimModalActive(true)}
             >
-              Gain access now
+              Create account
             </Button>
             <Button
               className={styles.claimCardAction}
