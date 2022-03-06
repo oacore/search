@@ -146,7 +146,7 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
               className={styles.claimCardAction}
               onClick={() => setIsClaimModalActive(true)}
             >
-              Gain access now
+              Create account
             </Button>
             <Button
               className={styles.claimCardAction}

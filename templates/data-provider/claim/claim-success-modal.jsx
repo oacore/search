@@ -25,7 +25,7 @@ const ClaimSuccessModal = ({
     }}
     className={classNames.use(styles.modal, className)}
   >
-    <Modal.Title>Claim Repository Dashboard</Modal.Title>
+    <Modal.Title>Create Repository Dashboard Account</Modal.Title>
     {isDataProviderHasAccounts ? (
       <Modal.Content tag="div" className={styles.successModalContent}>
         <svg
@@ -36,9 +36,9 @@ const ClaimSuccessModal = ({
           <image href={successCheckSVG} />
         </svg>
         <p>
-          You request sent to the repository manager. Your eligibility to claim
-          the repository will be checked and you will be contacted at
-          <b> {contactData.email}</b>. It may take a few business days.{' '}
+          We sent your request to the registered repository manager for
+          approval. You will be contacted at <b> {contactData.email}</b> as soon
+          repository manager approves your request.{' '}
         </p>
       </Modal.Content>
     ) : (
@@ -56,12 +56,13 @@ const ClaimSuccessModal = ({
         </svg>
         {newEmail ? (
           <p>
-            We will check your eligibility to claim the repository and contact
-            you at <b>{newEmail}</b>. It may take a few business days.
+            We will now check your eligibility for a Repository Dashboard
+            Account and contact you at <b>{newEmail}</b>. It may take a few
+            business days.
           </p>
         ) : (
           <p>
-            We sent you the invitation to join CORE Dashboard to{' '}
+            We sent the invitation to join Repository Dashboard to{' '}
             <b>{contactData.email}</b>. Please, check your inbox and follow the
             link to continue.
           </p>

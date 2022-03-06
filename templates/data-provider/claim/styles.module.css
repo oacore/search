@@ -127,3 +127,13 @@
 .modal-sign-in {
   max-width: 28rem;
 }
+
+.helper {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.0025em;
+  padding: 16px;
+  margin-bottom: 25px;
+  color: #424242;
+  background-color: #F5F5F5;
+}
