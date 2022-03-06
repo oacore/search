@@ -137,3 +137,7 @@
   letter-spacing: 0.0025em;
   background-color: #f5f5f5;
 }
+
+.backlight-prime {
+  color: var(--primary);
+}

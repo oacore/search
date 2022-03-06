@@ -49,17 +49,11 @@ const ClaimModal = ({
       </Modal.Title>
       <Modal.Content tag="div">
         <p>
-          To give you instant access to the{' '}
-          <a
-            href="https://core.ac.uk/services/repository-dashboard"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.linkUnderline}
-          >
-            Repository Dashboard
-          </a>
-          , we need to verify that you have ownership of the repository by
-          sending an email to the registered repository administrator.
+          To give you{' '}
+          <span className={styles.backlightPrime}>instant access</span> to the
+          Repository Dashboard, we need to verify that you have ownership of the
+          repository by sending an email to the registered repository
+          administrator.
         </p>
         <TextField
           id={contactEmailFirst}

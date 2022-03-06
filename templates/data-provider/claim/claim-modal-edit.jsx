@@ -54,16 +54,11 @@ const ClaimModalEdit = (props) => {
     }
   }
 
-  let contentTitle =
-    'To give you instant access to the Repository Dashboard, we need to verify that you have ownership of the repository by sending an email to the registered repository administrator.'
   let rationaleHelper =
     'Since you changed email, we need to manually check that you are the repository manager, additional information would be very appreciated.'
 
-  if (isDataProviderHasAccounts) {
-    contentTitle =
-      'Enter the institutional email address and a few details to get invitation to the CORE Dashboard.'
+  if (isDataProviderHasAccounts)
     rationaleHelper = `We will send an email with your justification to the registered repository manager of ${contactData.name} to check that you are an authorised person to get access.`
-  }
 
   return (
     <Modal
@@ -78,7 +73,20 @@ const ClaimModalEdit = (props) => {
         Create Repository Dashboard Account
       </Modal.Title>
       <Modal.Content tag="div">
-        <p>{contentTitle}</p>
+        {isDataProviderHasAccounts ? (
+          <p>
+            Enter the institutional email address and a few details to get
+            invitation to the CORE Dashboard.
+          </p>
+        ) : (
+          <p>
+            To give you{' '}
+            <span className={styles.backlightPrime}>instant access</span> to
+            Repository Dashboard, we need to verify that you have ownership of
+            of the repository by sending an email to the registered repository
+            administrator.
+          </p>
+        )}
         <TextField
           id={contactEmail}
           type="email"
@@ -88,14 +96,22 @@ const ClaimModalEdit = (props) => {
           required
           {...bindEmail}
           className={classNames.use(styles.claimCardGroup)}
+          helper={
+            isDataProviderHasAccounts ? 'Your institutional email address.' : ''
+          }
         />
-        <div className={styles.helper}>
-          If there is no registered repository adminstrator email or you do not
-          have have access to the the registered email address, then you can
-          change the email address. However, this means that a manual
-          verification process will be used and it might take a few days to give
-          you access.
-        </div>
+        {isDataProviderHasAccounts ? (
+          ''
+        ) : (
+          <div className={styles.helper}>
+            If there is no registered repository adminstrator email or you do
+            not have have access to the the registered email address, then you
+            can change the email address. However, this means that a{' '}
+            <span className={styles.backlightPrime}>manual verification</span>{' '}
+            process will be used and it might take a few days to give you
+            access.
+          </div>
+        )}
         <TextField
           id={contactName}
           type="text"
