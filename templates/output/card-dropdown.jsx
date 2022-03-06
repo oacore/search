@@ -9,6 +9,14 @@ import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
 import Notification from 'modules/notification'
 import DropDown from 'modules/dropdown'
 
+const httpsValidate = (sourceFulltextUrls) => {
+  let url = sourceFulltextUrls
+  if (url === null) return sourceFulltextUrls
+  if (typeof url === 'object') url = url.join('')
+  if (url.match(/http:/gm)) url = url.replace(/http:/, 'https:')
+  return url
+}
+
 const CardDropdown = ({
   id,
   title,
@@ -34,6 +42,7 @@ const CardDropdown = ({
 
   const Tag = activeArticle ? Link : 'div'
   const subtitleLinkText = setSubtitleLinkText()
+  const sourceFulltextUrlsUpd = httpsValidate(sourceFulltextUrls)
 
   const subtitleText = (
     <Tag
@@ -80,9 +89,11 @@ const CardDropdown = ({
           sourceFulltextUrls && (
             <Card.Description className={styles.descriptionLink} tag="span">
               <a
-                href={sourceFulltextUrls}
+                href={sourceFulltextUrlsUpd}
                 aria-labelledby={`${id}-downloaded-from-title`}
                 aria-describedby={`${id}-downloaded-from-body`}
+                target="_blank"
+                rel="noreferrer"
               >
                 View original full text link
               </a>

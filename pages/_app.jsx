@@ -14,7 +14,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import '@oacore/design/lib/index.css'
 import 'main/global.css'
 
-import getStatistics from '../lib/statistics-loader'
+// import getStatistics from '../lib/statistics-loader'
 
 import Main from 'main'
 import { Sentry } from 'utils/sentry'
@@ -68,10 +68,33 @@ const useLoading = (initialState = false) => {
   return isLoading
 }
 
-const App = ({ Component: PageComponent, pageProps, statistics }) => {
-  const loading = useLoading()
+const useInterceptNextDataHref = ({ router, namespace }) => {
+  useEffect(() => {
+    if (router.pageLoader?.getDataHref) {
+      const originalGetDataHref = router.pageLoader.getDataHref
+      router.pageLoader.getDataHref = (args) => {
+        const r = originalGetDataHref.call(router.pageLoader, args)
+        return r && r.startsWith('/_next/data') ? `${namespace}${r}` : r
+      }
+    }
+  }, [router, namespace])
+}
 
+const App = ({
+  Component: PageComponent,
+  pageProps,
+  statistics,
+  router: approuter,
+}) => {
   const router = useRouter()
+
+  if (process.env.NODE_ENV === 'production') {
+    useInterceptNextDataHref({
+      router: approuter,
+      namespace: '/search',
+    })
+  }
+  const loading = useLoading()
   const isSearchPage = router.asPath.match(/search/gm)
 
   return (
@@ -97,7 +120,7 @@ let statistics = {
 // TODO: Replace with getStaticProps once this is solved
 //       https://github.com/vercel/next.js/discussions/10949
 App.getInitialProps = async () => {
-  const data = await getStatistics()
+  const data = {}
   if (Object.keys(data).length > 0) statistics = data
   else statistics = { totalArticlesCount: 'more than 200 million' }
 

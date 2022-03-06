@@ -46,9 +46,11 @@ const transformFiltersData = (initialObject, newObject, labelValues, query) => {
     const output = {}
     const merged = { ...obj1, ...obj2 }
 
-    Object.keys(merged).map((key) => {
+    const { yearPublished, ...otherFilters } = merged
+    Object.keys(otherFilters).map((key) => {
       const value1 = obj1[key]
       const value2 = obj2[key]
+
       if (isObject(value1) || isObject(value2))
         output[key] = compare(value1, value2)
       else output[key] = value2 || 0
@@ -60,6 +62,9 @@ const transformFiltersData = (initialObject, newObject, labelValues, query) => {
   }
 
   const comparedData = compare(initialObject, newObject)
+
+  // We want always have all years
+  comparedData.yearPublished = initialObject.yearPublished
 
   const arrayOfObj = Object.entries(comparedData)
     .map((e) => ({
@@ -86,10 +91,13 @@ const transformFiltersData = (initialObject, newObject, labelValues, query) => {
     .find((item) => item.value === 'language')
     .items.map((filter) => {
       filter.code = filter.value
-      filter.value = data.find(
+      const founded = data.find(
         (language) => language.code === filter.code.toLowerCase()
-      ).name
-      return filter
+      )
+
+      if (founded) filter.value = founded.name
+
+      return filter.value
     })
 
   filters
