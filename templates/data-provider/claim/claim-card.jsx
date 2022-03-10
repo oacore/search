@@ -129,7 +129,6 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
               onClick={() => {
                 window.open('https://dashboard.core.ac.uk/', '_blank')
               }}
-             
             >
               SIGN IN
             </Button>
