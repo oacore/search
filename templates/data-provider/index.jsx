@@ -83,11 +83,13 @@ const DataProviderTemplate = ({
             )
           }
         )}
-        {outputs.length === 0 && outputs.error == null && (
-          <div className={styles.noResultsFind}>No results found</div>
+        {outputs.data.length === 0 && outputs.error == null && (
+          <div className={styles.noResultsFound}>
+            This data provider has not articles yet.
+          </div>
         )}
         {outputs.error != null && (
-          <div className={styles.noResultsFind}>
+          <div className={styles.noResultsFound}>
             An error occured. Try to reload the page in a bit or contact us.
           </div>
         )}
