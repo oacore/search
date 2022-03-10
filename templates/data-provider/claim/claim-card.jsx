@@ -126,15 +126,16 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
             <Button
               variant="contained"
               className={styles.claimCardAction}
-              onClick={() => setIsClaimModalEditActive(true)}
+              onClick={() => {
+                window.open('https://dashboard.core.ac.uk/', '_blank')
+              }}
+             
             >
               SIGN IN
             </Button>
             <Button
               className={styles.claimCardAction}
-              onClick={() => {
-                window.open('https://dashboard.core.ac.uk/', '_blank')
-              }}
+              onClick={() => setIsClaimModalEditActive(true)}
             >
               Create account
             </Button>
