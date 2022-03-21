@@ -13,15 +13,15 @@ import transformFiltersData, { checkActiveItems } from 'utils/filters-transform'
 import invalidatePreviousRequests from 'utils/invalidatePreviousRequests'
 
 class Filters {
-  data = []
+  @observable data = []
 
-  initialData = {}
+  @observable initialData = {}
 
-  activeFilter = {}
+  @observable activeFilter = {}
 
-  activeFilterSuggestions = []
+  @observable activeFilterSuggestions = []
 
-  aggregationsNames = [
+  @observable aggregationsNames = [
     'fieldsOfStudy',
     'yearPublished',
     'documentType',
@@ -30,60 +30,51 @@ class Filters {
     'publisher',
   ]
 
-  groupedYearDates = []
+  @observable groupedYearDates = []
 
-  isLoading = false
+  @observable isLoading = false
 
-  worksCount = null
+  @observable yearWorksCount = null
 
-  isVisibleClearButton = false
+  @observable isVisibleClearButton = false
 
   constructor() {
-    makeObservable(this, {
-      data: observable,
-      activeFilter: observable,
-      activeFilterSuggestions: observable,
-      groupedYearDates: observable,
-      initialData: observable,
-      isLoading: observable,
-      worksCount: observable,
-      isVisibleClearButton: observable,
-      setData: action,
-      setActiveFilter: action,
-      setActiveFilterSuggestions: action,
-      toggleCheckboxFilter: action,
-      setGroupedYearDates: action,
-      setWorksCount: action,
-      setIsLoading: action,
-      setInitialData: action,
-      setIsVisibleClearButton: action,
-      reset: action,
-      maxYear: computed,
-    })
+    makeObservable(this, null)
   }
 
+  @action
   setActiveFilter(filter) {
     this.activeFilter = filter
   }
 
+  @action
   setIsLoading(isLoading) {
     this.isLoading = isLoading
   }
 
+  @action
   setIsVisibleClearButton(boolean) {
     this.isVisibleClearButton = boolean || checkActiveItems(this.data)
   }
 
+  @action
   setInitialData(data) {
     this.initialData = data
   }
 
+  @action
   @invalidatePreviousRequests
   async fetchFilters(query, sortType) {
     this.setIsLoading(true)
+
+    const activeFilter = this.activeFilter.value
+
     try {
       const { aggregations } = await fetchAggregations({
-        aggregations: this.aggregationsNames,
+        aggregations:
+          activeFilter === 'yearPublished'
+            ? this.filterNamesWithoutYear
+            : this.aggregationsNames,
         q: query,
       })
 
@@ -94,7 +85,7 @@ class Filters {
 
         const filters = transformFiltersData(
           aggregations,
-          aggregations,
+          null,
           labelValues,
           fullQuery
         )
@@ -106,16 +97,7 @@ class Filters {
           labelValues,
           fullQuery
         )
-
-        this.setData(filters)
-
-        const activeFilterIndex = filters.findIndex(
-          (item) => item.value === this.activeFilter.value
-        )
-        if (activeFilterIndex > -1) {
-          const activeFilterItems = filters[activeFilterIndex].items
-          this.setActiveFilterSuggestions(activeFilterItems)
-        }
+        this.checkYearPublishedStatis(filters)
       }
       this.setIsVisibleClearButton()
     } catch (error) {
@@ -125,6 +107,45 @@ class Filters {
     }
   }
 
+  @action
+  checkYearPublishedStatis(transformFilters) {
+    let filters = []
+
+    const currentYearPublished = this.getFilterByValue(
+      transformFilters,
+      'yearPublished'
+    )
+
+    if (currentYearPublished.items.every(({ count }) => count === 0)) {
+      const prevYearPublishedValues = this.getFilterByValue(
+        this.data,
+        'yearPublished'
+      )
+
+      const newdata = transformFilters.map((item) =>
+        item.value === 'yearPublished'
+          ? { ...item, ...prevYearPublishedValues }
+          : item
+      )
+
+      filters = [...newdata]
+
+      this.setData(filters)
+    } else {
+      filters = [...transformFilters]
+      this.setData(filters)
+    }
+
+    const activeFilterIndex = filters.findIndex(
+      (item) => item.value === this.activeFilter.value
+    )
+    if (activeFilterIndex > -1) {
+      const activeFilterItems = filters[activeFilterIndex].items
+      this.setActiveFilterSuggestions(activeFilterItems)
+    }
+  }
+
+  @action
   setData(newData) {
     this.data = newData.map((filter) => {
       sortItemsByNumberDesc(filter.items, 'count')
@@ -134,6 +155,7 @@ class Filters {
     this.setGroupedYearDates([2014, 2016, 2018])
   }
 
+  @action
   toggleCheckboxFilter(element) {
     const { activeFilterSuggestions } = this
     const foundedIndex = activeFilterSuggestions.findIndex(
@@ -171,6 +193,7 @@ class Filters {
     }
   }
 
+  @action
   setActiveYearDate(yearsRange) {
     const activeFilterSuggestions = this.activeFilterSuggestions.map((item) => {
       item.checked = false
@@ -201,8 +224,8 @@ class Filters {
     }))
 
     if (groupedData.filter((year) => year.checked).length > 0)
-      this.worksCount = null
-    else this.setWorksCount([activeYearsMinValue, activeYearsMaxValue + 1])
+      this.yearWorksCount = null
+    else this.setYearWorksCount([activeYearsMinValue, activeYearsMaxValue + 1])
 
     this.activeFilterSuggestions = activeFilterSuggestions
     this.groupedYearDates = groupedData
@@ -223,6 +246,7 @@ class Filters {
     this.setIsVisibleClearButton(true)
   }
 
+  @action
   setGroupedYearDates(yearFrom, yearTo = this.maxYear) {
     const datesFilter = this.data.find(
       (filter) => filter.label === 'year'
@@ -250,19 +274,23 @@ class Filters {
       !groupedData.find((year) => year.checked) &&
       datesFilter.map((item) => item.checked === true).length === 0
     )
-      this.setWorksCount([activeYearsMinValue, activeYearsMaxValue + 1])
+      this.setYearWorksCount([activeYearsMinValue, activeYearsMaxValue + 1])
 
     this.groupedYearDates = groupedData.sort((a, b) => b.yearFrom - a.yearFrom)
   }
 
-  setWorksCount(yearsRange) {
-    this.worksCount = this.activeFilterSuggestions
-      .filter(
-        (item) => item.value >= yearsRange[0] && item.value < yearsRange[1]
-      )
-      .reduce((prev, curr) => prev + curr.count, 0)
+  @action
+  setYearWorksCount(yearsRange) {
+    if (yearsRange) {
+      this.yearWorksCount = this.activeFilterSuggestions
+        .filter(
+          (item) => item.value >= yearsRange[0] && item.value < yearsRange[1]
+        )
+        .reduce((prev, curr) => prev + curr.count, 0)
+    } else this.yearWorksCount = null
   }
 
+  @action
   setActiveFilterSuggestions(items) {
     let sortedArray = []
     sortItemsByNumberDesc(items, 'count')
@@ -270,6 +298,7 @@ class Filters {
     this.activeFilterSuggestions = sortedArray
   }
 
+  @computed
   get maxYear() {
     return Math.max.apply(
       null,
@@ -279,10 +308,22 @@ class Filters {
     )
   }
 
+  @computed
+  get filterNamesWithoutYear() {
+    return this.aggregationsNames.filter((item) => item !== 'yearPublished')
+  }
+
+  @action
+  getFilterByValue(array = this.data, key) {
+    return array.find((item) => item.value === key)
+  }
+
+  @action
   reset(query) {
     this.initialData = {}
     this.activeFilter = {}
     this.groupedYearDates = []
+    this.yearWorksCount = null
     this.isLoading = false
     this.isVisibleClearButton = false
     Router.push({
@@ -294,6 +335,13 @@ class Filters {
       },
     })
     this.fetchFilters(query.replace(/ .*/, ''))
+  }
+
+  @action
+  routeChanged() {
+    this.setActiveFilter({})
+    this.setInitialData({})
+    this.setYearWorksCount(null)
   }
 }
 
