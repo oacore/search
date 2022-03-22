@@ -50,7 +50,10 @@ const YearFilter = observe(() => {
           selectFunc={onSelectActiveFilterItem}
         />
       )}
-      <YearSelects years={filters.activeFilterSuggestions} />
+      <YearSelects
+        onSelect={onSelectActiveFilterItem}
+        years={filters.activeFilterSuggestions}
+      />
     </>
   )
 })
