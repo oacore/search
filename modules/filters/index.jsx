@@ -16,7 +16,7 @@ const FiltersBar = observe(({ className, query: initialQuery, sortType }) => {
   useEffect(() => {
     if (!initialQuery.includes(query)) {
       setQuery(initialQuery)
-      filters.setInitialData({})
+      filters.routeChanged()
     }
 
     filters.fetchFilters(initialQuery, sortType)

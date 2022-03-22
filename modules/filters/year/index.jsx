@@ -24,9 +24,10 @@ const YearFilter = observe(() => {
 
   return (
     <>
-      {filters.groupedYearDates.map((groupedYearDate) => (
+      {filters.groupedYearDates.map((groupedYearDate, index) => (
         <FilterItem
-          key={groupedYearDate.count}
+          // eslint-disable-next-line react/no-array-index-key
+          key={`${index}-${groupedYearDate.count}`}
           value={groupedYearDate.value}
           checkedIcon="#check"
           unCheckedIcon={null}
@@ -36,7 +37,7 @@ const YearFilter = observe(() => {
         />
       ))}
       <CustomRange
-        count={yearsAxis.length > 1 ? filters.worksCount : yearsAxis[0].y}
+        count={yearsAxis.length > 1 ? filters.yearWorksCount : yearsAxis[0].y}
       />
       {yearsAxis.length > 1 && (
         <Histoslider
@@ -49,7 +50,10 @@ const YearFilter = observe(() => {
           selectFunc={onSelectActiveFilterItem}
         />
       )}
-      <YearSelects years={filters.activeFilterSuggestions} />
+      <YearSelects
+        onSelect={onSelectActiveFilterItem}
+        years={filters.activeFilterSuggestions}
+      />
     </>
   )
 })

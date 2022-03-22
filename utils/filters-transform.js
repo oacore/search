@@ -1,4 +1,4 @@
-import data from '../data/languages.json'
+import languagesData from '../data/languages.json'
 import { sortItemsByValueIndex } from './sort'
 
 export const checkActiveItems = (filters) => {
@@ -42,12 +42,13 @@ const setFilterLabels = (value) => {
 const transformFiltersData = (initialObject, newObject, labelValues, query) => {
   const isObject = (val) => typeof val === 'object' && val // required for "null" comparison
 
+  // eslint-disable-next-line no-param-reassign
+  if (!newObject) newObject = JSON.parse(JSON.stringify(initialObject))
+
   function compare(obj1 = {}, obj2 = {}) {
     const output = {}
     const merged = { ...obj1, ...obj2 }
-
-    const { yearPublished, ...otherFilters } = merged
-    Object.keys(otherFilters).map((key) => {
+    Object.keys(merged).map((key) => {
       const value1 = obj1[key]
       const value2 = obj2[key]
 
@@ -62,9 +63,6 @@ const transformFiltersData = (initialObject, newObject, labelValues, query) => {
   }
 
   const comparedData = compare(initialObject, newObject)
-
-  // We want always have all years
-  comparedData.yearPublished = initialObject.yearPublished
 
   const arrayOfObj = Object.entries(comparedData)
     .map((e) => ({
@@ -86,12 +84,11 @@ const transformFiltersData = (initialObject, newObject, labelValues, query) => {
   })
 
   sortItemsByValueIndex(filters, labelValues, 'value')
-
   filters
     .find((item) => item.value === 'language')
     .items.map((filter) => {
       filter.code = filter.value
-      const founded = data.find(
+      const founded = languagesData.find(
         (language) => language.code === filter.code.toLowerCase()
       )
 
@@ -100,12 +97,13 @@ const transformFiltersData = (initialObject, newObject, labelValues, query) => {
       return filter.value
     })
 
-  filters
-    .find((item) => item.value === 'yearPublished')
-    .items.map((filter) => {
+  const founded = filters.find((item) => item.value === 'yearPublished')
+  if (founded) {
+    founded.items.map((filter) => {
       filter.value = parseInt(filter.value, 10)
       return filter
     })
+  }
 
   filters.map((filter) => {
     filter.items = filter.items.map((item) => ({

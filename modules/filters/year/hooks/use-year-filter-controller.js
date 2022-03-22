@@ -42,7 +42,6 @@ const useYearFilterController = () => {
     else yearsRange = selectedItem
 
     onHistogramChange(yearsRange)
-
     filters.setActiveYearDate([yearsRange[0], yearsRange[1] - 1])
   }
 
