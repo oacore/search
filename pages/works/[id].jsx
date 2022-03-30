@@ -15,7 +15,7 @@ import { findUrlsByType } from 'utils/helpers'
 const LOCALE = 'en-GB'
 const CITATION_STYLES = ['apa', 'bibtex']
 
-export async function getServerSideProps({ params: routeParams }) {
+export async function getServerSideProps({ params: routeParams, req }) {
   const { id } = routeParams
 
   const data = {}
@@ -66,12 +66,15 @@ export async function getServerSideProps({ params: routeParams }) {
     })
   } catch (error) {
     log(error)
+    const prevHistoryUrl = req.headers.referer ?? null
+
     const serverError = {
       code: error.status,
       message:
         error.status === 410
           ? error.data
           : `The page you were looking for could not be found`,
+      prevHistoryUrl,
     }
     return {
       props: { serverError },
@@ -104,7 +107,6 @@ const ScientificWorkPage = ({ serverError, data }) => {
 
   const totalArticlesCount =
     statistics.totalArticlesCount.toLocaleString('en-GB')
-
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {
       router.push(`/search?q=${searchTerm}`)
