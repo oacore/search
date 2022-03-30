@@ -14,8 +14,12 @@ const Error404 = ({ error }) => {
         <h1>Uh-oh</h1>
         <p>{error.message}</p>
         <div className={styles.buttons}>
-          <Button variant="contained" href="/" tag="a">
-            Go to homepage
+          <Button
+            variant="contained"
+            href={error.prevHistoryUrl || '/'}
+            tag="a"
+          >
+            {error.prevHistoryUrl ? 'Go back' : 'Go to homepage'}
           </Button>
           <Button variant="outlined" href="/contact" tag="a">
             Contact us
