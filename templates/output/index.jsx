@@ -1,5 +1,8 @@
 import React from 'react'
 import { Button, Icon } from '@oacore/design/lib/elements'
+import { InlineMath, BlockMath } from 'react-katex'
+import ReactMarkdown from 'react-markdown'
+import RemarkMathPlugin from 'remark-math'
 
 import SimilarWorks from './similar-works'
 import RelatedSearch from './related-search'
@@ -13,6 +16,19 @@ import styles from './styles.module.css'
 import OtherVersions from './other-versions'
 
 import Search from 'modules/search-layout'
+
+const mapProps = (props) => ({
+  ...props,
+  escapeHtml: false,
+  plugins: [RemarkMathPlugin],
+  renderers: {
+    ...props.renderers,
+    math: ({ value }) => <BlockMath>{value}</BlockMath>,
+    inlineMath: ({ value }) => <InlineMath>{value}</InlineMath>,
+  },
+})
+
+const Markdown = (props) => <ReactMarkdown {...mapProps(props)} />
 
 const ScientificOutputTemplate = ({
   data: {
@@ -83,7 +99,7 @@ const ScientificOutputTemplate = ({
         <section id="abstract" className={styles.abstract}>
           <h2>Abstract</h2>
           {abstract ? (
-            <p>{abstract}</p>
+            <Markdown>{abstract}</Markdown>
           ) : (
             <span className={styles.abstractEmpty}>
               Abstract is not available.
@@ -100,7 +116,7 @@ const ScientificOutputTemplate = ({
         id={`full-text-thumbnail-${id}`}
         href={readerUrl || `//core.ac.uk/reader/${id}`}
         src={thumbnailLargeUrl || `//core.ac.uk/image/${id}/large`}
-        alt="thumbnail-image "
+        alt="thumbnail-image"
         data={{
           title: !useOtherVersions ? dataProvider.name : null,
           updatedDate,

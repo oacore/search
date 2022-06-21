@@ -49,6 +49,7 @@ export async function getServerSideProps({ params: routeParams, req }) {
         ...work.identifiers,
         doi: work.doi,
       },
+      abstract: work.abstract.replace(new RegExp('\\$', 'g'), '$$$$'),
       publishedDate: work.publishedDate
         ? work.publishedDate
         : work.yearPublished,

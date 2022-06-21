@@ -14,7 +14,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import '@oacore/design/lib/index.css'
 import 'main/global.css'
 
-// import getStatistics from '../lib/statistics-loader'
+import 'katex/dist/katex.min.css'
 
 import Main from 'main'
 import { Sentry } from 'utils/sentry'
@@ -94,6 +94,7 @@ const App = ({
       namespace: '/search',
     })
   }
+
   const loading = useLoading()
   const isSearchPage = router.asPath.match(/search/gm)
 
