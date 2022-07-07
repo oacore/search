@@ -87,6 +87,7 @@ const nextConfig = {
       'utils': path.join(__dirname, 'utils'),
       'templates': path.join(__dirname, 'templates'),
       'modules': path.join(__dirname, 'modules'),
+      'lib': path.join(__dirname, 'lib'),
       '@sentry/node': config.isServer ? '@sentry/node' : '@sentry/browser',
 
       'react': path.join(__dirname, 'node_modules', 'react'),

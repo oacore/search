@@ -1,3 +1,5 @@
+import { fetchLogos } from './data-provider'
+
 import apiRequest from './index'
 
 const fetchWork = async (id) => {
@@ -11,6 +13,9 @@ const fetchWorkOutputs = async (id) => {
   const url = new URL(`/v3/works/${id}/outputs`, process.env.API_URL).href
 
   const { data } = await apiRequest(url)
-  return data
+
+  const outputsWithLogos = await fetchLogos(data)
+
+  return outputsWithLogos
 }
 export { fetchWork, fetchWorkOutputs }

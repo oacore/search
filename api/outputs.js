@@ -1,3 +1,5 @@
+import { fetchLogo } from './data-provider'
+
 import apiRequest from './index'
 
 const fetchMetadata = async (id) => {
@@ -5,6 +7,14 @@ const fetchMetadata = async (id) => {
   const url = new URL(`/v3/outputs/${id}`, process.env.API_URL).href
   const { data } = await apiRequest(url)
   return data
+}
+const fetchDataProvider = async (url) => {
+  const { data: dataProvider } = await apiRequest(url)
+  const logo = await fetchLogo(dataProvider.id)
+  Object.assign(dataProvider, {
+    logo,
+  })
+  return dataProvider
 }
 
 const fetchSimilarTo = async (id, params) => {
@@ -56,4 +66,10 @@ const createReport = async (body) => {
   return response
 }
 
-export { fetchMetadata, fetchSimilarTo, fetchCitations, createReport }
+export {
+  fetchMetadata,
+  fetchSimilarTo,
+  fetchCitations,
+  createReport,
+  fetchDataProvider,
+}

@@ -29,8 +29,8 @@ export async function getServerSideProps({ params: routeParams, req }) {
       const articleWithUrls = findUrlsByType(output)
       return articleWithUrls
     })
-    const workWithUrls = findUrlsByType(work)
 
+    const workWithUrls = findUrlsByType(work)
     const mainDataProviderLink = {
       id: workWithUrls.arxivId || workWithUrls.pubmedId,
       link:

@@ -12,6 +12,7 @@ import CitationManager from './citation'
 import styles from './styles.module.css'
 import OtherVersions from './other-versions'
 
+import { getAssetsPath } from 'utils/helpers'
 import Search from 'modules/search-layout'
 
 const ScientificOutputTemplate = ({
@@ -47,13 +48,23 @@ const ScientificOutputTemplate = ({
           {documentType && (
             <span className={styles.documentType}>{documentType}</span>
           )}
-          {doi && <span className={styles.doi}>{doi}</span>}
+          {oai && (
+            <div className={styles.oai}>
+              <img
+                src={getAssetsPath('/static/images/oai.svg')}
+                alt="oai"
+                className={styles.oaiLogo}
+              />
+              {oai}
+            </div>
+          )}
         </div>
         <h1>{title}</h1>
         <Metadata
           authors={authors}
           publishedDate={publishedDate}
           publisher={publisher}
+          doi={doi}
         />
         <div className={styles.buttons}>
           {citations && citations.length > 0 && (
@@ -82,6 +93,7 @@ const ScientificOutputTemplate = ({
       <div className={styles.containerMain}>
         <section id="abstract" className={styles.abstract}>
           <h2>Abstract</h2>
+          <img src="https://api.core.ac.uk/data-providers/86/logo" />
           {abstract ? (
             <p>{abstract}</p>
           ) : (
@@ -100,9 +112,10 @@ const ScientificOutputTemplate = ({
         id={`full-text-thumbnail-${id}`}
         href={readerUrl || `//core.ac.uk/reader/${id}`}
         src={thumbnailLargeUrl || `//core.ac.uk/image/${id}/large`}
-        alt="thumbnail-image "
+        alt="thumbnail-image"
         data={{
           title: !useOtherVersions ? dataProvider.name : null,
+          dataProviderLogo: dataProvider.logo,
           updatedDate,
           sourceFulltextUrls,
           fulltextStatus,

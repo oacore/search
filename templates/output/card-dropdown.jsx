@@ -4,7 +4,7 @@ import classNames from '@oacore/design/lib/utils/class-names'
 
 import styles from './card-dropdown.module.css'
 
-import { formatDate } from 'utils/helpers'
+import { formatDate, getAssetsPath } from 'utils/helpers'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
 import Notification from 'modules/notification'
 import DropDown from 'modules/dropdown'
@@ -21,13 +21,14 @@ const CardDropdown = ({
   id,
   title,
   oai,
+  image,
   updatedDate,
   createdDate,
   sourceFulltextUrls,
   download: coreDownloadUrl,
   href,
   activeArticle = false,
-  defaultDropdownState,
+  useExpandButton,
 }) => {
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(oai)
 
@@ -57,12 +58,13 @@ const CardDropdown = ({
 
   return (
     <DropDown
+      imageSrc={image}
       title={title}
       subtitle={subtitleText}
       activeArticle={activeArticle}
       className={!activeArticle && styles.dropdown}
       href={href}
-      defaultDropdownState={defaultDropdownState}
+      useExpandButton={useExpandButton}
     >
       <div className={styles.dropdownContent}>
         {oai && (
@@ -70,6 +72,11 @@ const CardDropdown = ({
             className={classNames.use(styles.identifier)}
             tag="span"
           >
+            <img
+              src={getAssetsPath('/static/images/oai.svg')}
+              alt="oai"
+              className={styles.oaiLogo}
+            />
             {oai}
             <Icon
               src="#content-copy"

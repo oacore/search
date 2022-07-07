@@ -1,0 +1,38 @@
+.circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.1rem;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+
+  &::before {
+    position: absolute;
+    z-index: -1;
+    content: ' ';
+    border: 2px solid var(--gray-300);
+    border-radius: 50%;
+    inset: 0;
+  }
+
+  & .image {
+    color: var(--gray-700);
+    object-fit: contain;
+  }
+}
+
+.md {
+  width: 50px;
+  height: 50px;
+
+  & .image {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.hidden {
+  display: none;
+}

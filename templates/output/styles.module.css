@@ -185,6 +185,7 @@
 
 .metadata {
   max-width: 50rem;
+  color: var(--gray-900);
 }
 
 .boxes {
@@ -217,5 +218,12 @@
 
 .buttons {
   display: flex;
+  align-items: center;
+}
+
+.oai {
+  color: var(--primary);
+  display: flex;
+  gap: 0.5rem;
   align-items: center;
 }

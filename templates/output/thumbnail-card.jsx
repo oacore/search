@@ -51,7 +51,12 @@ const FullTextThumbnail = ({
     )}
     {!useOtherVersions && (
       <div className={styles.body} id={`${id}-body`}>
-        <CardDropdown activeArticle {...data} defaultDropdownState />
+        <CardDropdown
+          image={data.dataProviderLogo}
+          activeArticle
+          {...data}
+          useExpandButton={false}
+        />
       </div>
     )}
   </Card>

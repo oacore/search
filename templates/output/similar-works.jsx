@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { SearchResult, Icon } from '@oacore/design'
+import { toJS } from 'mobx'
 
 import styles from './styles.module.css'
 
@@ -43,6 +44,7 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
             abstract,
             publishedDate,
             yearPublished,
+            dataProviders,
             links,
           }) => {
             const downloadLink = links.find((l) => l.type === 'download')?.url
@@ -67,7 +69,7 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
                   thumbnailUrl: `//core.ac.uk/image/${id}/medium`,
                   metadataLink,
                   fullTextLink: readerLink || downloadLink,
-                  dataProviders: [],
+                  dataProviders,
                 }}
               >
                 {abstract}

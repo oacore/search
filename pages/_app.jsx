@@ -6,6 +6,7 @@ import React, {
 } from 'react'
 import { useRouter } from 'next/router'
 import { CookiesProvider } from '@oacore/design'
+
 // TODO: Move to map component once
 //       https://github.com/vercel/next.js/issues/12079 is solved
 import 'leaflet/dist/leaflet.css'
@@ -14,8 +15,9 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import '@oacore/design/lib/index.css'
 import 'main/global.css'
 
-// import getStatistics from '../lib/statistics-loader'
+import cachedStatistics from '../.statistics.json'
 
+import getStatistics from 'lib/statistics-loader'
 import Main from 'main'
 import { Sentry } from 'utils/sentry'
 
@@ -120,7 +122,8 @@ let statistics = {
 // TODO: Replace with getStaticProps once this is solved
 //       https://github.com/vercel/next.js/discussions/10949
 App.getInitialProps = async () => {
-  const data = {}
+  await getStatistics()
+  const data = cachedStatistics
   if (Object.keys(data).length > 0) statistics = data
   else statistics = { totalArticlesCount: 'more than 200 million' }
 
