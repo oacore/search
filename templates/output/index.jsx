@@ -44,7 +44,7 @@ const ScientificOutputTemplate = ({
   <Search {...passProps} className={styles.outputContainer}>
     <Search.Main>
       <div className={styles.background}>
-        <div>
+        <div className={styles.info}>
           {documentType && (
             <span className={styles.documentType}>{documentType}</span>
           )}
@@ -93,7 +93,6 @@ const ScientificOutputTemplate = ({
       <div className={styles.containerMain}>
         <section id="abstract" className={styles.abstract}>
           <h2>Abstract</h2>
-          <img src="https://api.core.ac.uk/data-providers/86/logo" />
           {abstract ? (
             <p>{abstract}</p>
           ) : (

@@ -221,9 +221,14 @@
   align-items: center;
 }
 
+.info {
+  display: flex;
+  align-items: center;
+}
+
 .oai {
   color: var(--primary);
-  display: flex;
+  display: inline-flex;
   gap: 0.5rem;
   align-items: center;
 }

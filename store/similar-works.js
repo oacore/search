@@ -1,7 +1,7 @@
 import { action, makeObservable, observable } from 'mobx'
 
+import { transformDataProviders } from 'utils/data-providers-transform'
 import invalidatePreviousRequests from 'utils/invalidatePreviousRequests'
-import { fetchLogos } from 'api/data-provider'
 import { fetchSimilarTo } from 'api/outputs'
 
 class SimilarWorks {
@@ -25,21 +25,18 @@ class SimilarWorks {
     this.reset()
     this.isLoading = true
     try {
-      const similarOutputs = await fetchSimilarTo(id, { ...params })
-      await this.setDataProviderLogo(similarOutputs)
-    } catch (error) {
-      this.error = true
-    } finally {
-      this.isLoading = false
-    }
-  }
+      const data = await fetchSimilarTo(id, { ...params })
 
-  @invalidatePreviousRequests
-  async setDataProviderLogo(outputs) {
-    this.isLoading = true
-    try {
-      const outputsWithLogos = await fetchLogos(outputs)
-      this.similarOutputs = outputsWithLogos
+      const similarOutputs = await Promise.all(
+        data.map(async (output) => ({
+          ...output,
+          dataProviders: await transformDataProviders(
+            output.dataProviders || [output.dataProvider]
+          ),
+        }))
+      )
+
+      this.similarOutputs = similarOutputs
     } catch (error) {
       this.error = true
     } finally {

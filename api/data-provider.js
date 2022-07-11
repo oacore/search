@@ -17,51 +17,27 @@ const fetchOutputs = async (id, searchParams) => {
   return data
 }
 
-const fetchLogo = async (dataProvider) => {
-  const id =
-    typeof dataProvider === 'number'
-      ? dataProvider
-      : dataProvider?.match(/data-providers\/([0-9]+)/)[1]
-  const { data } = await request(`/data-providers/${id}/logo`)
-  return data
+const fetchLogo = async (url) => {
+  const response = await request(url)
+  return response
 }
 
-const fetchLogos = async (outputs) => {
-  const dataProvidersRequest = outputs.map(async (output) => {
-    const updatedOutput = {}
-    if (output.dataProviders) {
-      const requests = output.dataProviders.map(async (dp) => {
-        const logo = await fetchLogo(dp)
-        const updatedDataProvider = {
-          logo,
-          url: dp,
-        }
-
-        return updatedDataProvider
-      })
-      const updatedDataProvider = await Promise.all(requests)
-      Object.assign(updatedOutput, {
-        ...output,
-        dataProviders: updatedDataProvider,
-      })
+const setLogoToMultipleDataProviders = async (dataProviders) => {
+  const logoRequests = dataProviders.map(async (dataProvider) => {
+    try {
+      await fetchLogo(dataProvider.logo)
+    } catch (error) {
+      dataProvider.logo = null
     }
-    if (output.dataProvider) {
-      const logo = await fetchLogo(output.dataProvider.url)
-      Object.assign(updatedOutput, {
-        ...output,
-        dataProviders: [
-          {
-            ...output.dataProvider,
-            logo,
-          },
-        ],
-      })
-    }
-
-    return updatedOutput
+    return dataProvider
   })
-  const outputWithLogos = await Promise.all(dataProvidersRequest)
-  return outputWithLogos
+  const transformedDataProviders = await Promise.all(logoRequests)
+  return transformedDataProviders
 }
 
-export { fetchMetadata, fetchOutputs, fetchLogo, fetchLogos }
+export {
+  fetchMetadata,
+  fetchOutputs,
+  fetchLogo,
+  setLogoToMultipleDataProviders,
+}

@@ -5,7 +5,6 @@ import { downloadResultsInCSV } from '../api/search'
 
 import { findDataProviders } from 'utils/helpers'
 import invalidatePreviousRequests from 'utils/invalidatePreviousRequests'
-import apiRequest from 'api'
 
 const sortFilterValues = [
   {
@@ -46,8 +45,6 @@ class Search {
       setIsLoading: action,
       setQuery: action,
       setSortOptions: action,
-      fetchDataProviders: action,
-      setDataProviders: action,
       downloadResults: action,
       setActiveSortOption: action,
       reset: action,
@@ -59,11 +56,6 @@ class Search {
     this.works = works
     if (this.dataProviders.length > 0)
       this.setWorkDataProviders(works, this.dataProviders)
-  }
-
-  setDataProviders(dataProviders) {
-    this.dataProviders = dataProviders
-    this.setWorkDataProviders(this.works, dataProviders)
   }
 
   setWorkDataProviders(works, dataProviders) {
@@ -107,21 +99,6 @@ class Search {
         page: 1,
       },
     })
-  }
-
-  @invalidatePreviousRequests
-  async fetchDataProviders() {
-    try {
-      this.setIsLoading(true)
-      const { data: allDataProviders } = await apiRequest(
-        '/repositories/formap'
-      )
-      this.setDataProviders(allDataProviders)
-    } catch (error) {
-      console.error(error)
-    } finally {
-      this.setIsLoading(false)
-    }
   }
 
   @invalidatePreviousRequests

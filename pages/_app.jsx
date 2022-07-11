@@ -18,6 +18,8 @@ import 'main/global.css'
 import cachedStatistics from '../.statistics.json'
 
 import getStatistics from 'lib/statistics-loader'
+import getMembers from 'lib/members-loader'
+import getDataProviders from 'lib/formap-loader'
 import Main from 'main'
 import { Sentry } from 'utils/sentry'
 
@@ -123,7 +125,10 @@ let statistics = {
 //       https://github.com/vercel/next.js/discussions/10949
 App.getInitialProps = async () => {
   await getStatistics()
-  const data = cachedStatistics
+  await getDataProviders()
+  await getMembers()
+
+  const { data } = cachedStatistics
   if (Object.keys(data).length > 0) statistics = data
   else statistics = { totalArticlesCount: 'more than 200 million' }
 

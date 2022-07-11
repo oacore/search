@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Header } from '@oacore/design'
 import { useRouter } from 'next/router'
 
+import { checkLogo, checkMembership } from 'utils/data-providers-transform'
 import { fetchMetadata, fetchCitations, fetchDataProvider } from 'api/outputs'
 import { useStore } from 'store'
 import Meta from 'modules/meta'
@@ -50,6 +51,10 @@ export async function getServerSideProps({ params: routeParams }) {
     // Strip some properties to optimise network traffic
     const { fullText: _, ...output } = rawOutput
     const dataProvider = await fetchDataProvider(output.dataProvider.url)
+
+    const isMember = checkMembership(dataProvider.id)
+
+    dataProvider.logo = await checkLogo(isMember, dataProvider.logo)
 
     const { sourceFulltextUrls } = output
 

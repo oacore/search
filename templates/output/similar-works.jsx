@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { SearchResult, Icon } from '@oacore/design'
-import { toJS } from 'mobx'
 
 import styles from './styles.module.css'
 

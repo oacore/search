@@ -157,6 +157,7 @@ class Filters {
 
   @action
   toggleCheckboxFilter(element) {
+    this.setIsLoading(true)
     const { activeFilterSuggestions } = this
     const foundedIndex = activeFilterSuggestions.findIndex(
       (i) => i.value === element.value

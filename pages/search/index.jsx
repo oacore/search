@@ -3,12 +3,13 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Header } from '@oacore/design/lib/modules'
 
+import { findUrlsByType } from 'utils/helpers'
 import log from 'utils/logger'
 import { fetchWorks } from 'api/search'
 import { useStore } from 'store'
-import { findUrlsByType } from 'utils/helpers'
 import Template from 'templates/search'
 import QueryError from 'templates/error/query'
+import { transformDataProviders } from 'utils/data-providers-transform'
 
 export const getServerSideProps = async ({ query: searchParams }) => {
   if (Object.keys(searchParams).length === 0) {
@@ -41,14 +42,20 @@ export const getServerSideProps = async ({ query: searchParams }) => {
     try {
       const response = await fetchWorks(body)
 
-      response.results.map((item) => {
-        const articleWithUrls = findUrlsByType(item)
-        item.dataProviders = item.dataProviders.map((dataProvider) => ({
-          url: dataProvider,
-        }))
-        return articleWithUrls
+      const transformedWorks = await Promise.all(
+        response.results.map(async (work) => {
+          const articleWithUrls = findUrlsByType(work)
+          return {
+            ...articleWithUrls,
+            dataProviders: await transformDataProviders(work.dataProviders),
+          }
+        })
+      )
+
+      Object.assign(data, {
+        ...response,
+        results: transformedWorks,
       })
-      Object.assign(data, response)
     } catch (error) {
       log(error)
       const queryError = {

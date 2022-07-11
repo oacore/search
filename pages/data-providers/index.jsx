@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useMemo } from 'react'
 import Head from 'next/head'
 
+import cachedData from '../../.formap.json'
+
 import { observe, useStore } from 'store'
 import DataProvidersSearchTemplate from 'templates/data-providers'
-import apiRequest from 'api'
 import {
   generateMetadata,
   normalizeDataProviders,
@@ -12,8 +13,7 @@ import { useClaimController } from 'templates/data-providers/hooks'
 import { useSyncUrlParamsWithStore } from 'hooks/use-sync-url-params-with-store'
 
 export async function getServerSideProps({ query }) {
-  const { data } = await apiRequest('/repositories/formap')
-
+  const { data } = cachedData || []
   return {
     props: {
       initialState: {

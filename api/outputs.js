@@ -1,5 +1,3 @@
-import { fetchLogo } from './data-provider'
-
 import apiRequest from './index'
 
 const fetchMetadata = async (id) => {
@@ -10,10 +8,7 @@ const fetchMetadata = async (id) => {
 }
 const fetchDataProvider = async (url) => {
   const { data: dataProvider } = await apiRequest(url)
-  const logo = await fetchLogo(dataProvider.id)
-  Object.assign(dataProvider, {
-    logo,
-  })
+
   return dataProvider
 }
 

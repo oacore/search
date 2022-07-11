@@ -11,6 +11,7 @@ import Meta from 'modules/meta'
 import Template from 'templates/output'
 import Error404 from 'templates/error/404'
 import { findUrlsByType } from 'utils/helpers'
+import { checkLogo, checkMembership } from 'utils/data-providers-transform'
 
 const LOCALE = 'en-GB'
 const CITATION_STYLES = ['apa', 'bibtex']
@@ -25,10 +26,21 @@ export async function getServerSideProps({ params: routeParams, req }) {
     const { fullText: _, ...work } = rawWork
     const outputs = await fetchWorkOutputs(id)
 
-    outputs.map((output) => {
-      const articleWithUrls = findUrlsByType(output)
-      return articleWithUrls
-    })
+    const transformedOutputs = await Promise.all(
+      outputs.map(async (output) => {
+        const articleWithUrls = findUrlsByType(output)
+
+        const { dataProvider } = output
+
+        const isMember = checkMembership(dataProvider.id)
+        dataProvider.logo = await checkLogo(isMember, dataProvider.logo)
+
+        return {
+          ...articleWithUrls,
+          dataProvider,
+        }
+      })
+    )
 
     const workWithUrls = findUrlsByType(work)
     const mainDataProviderLink = {
@@ -56,7 +68,7 @@ export async function getServerSideProps({ params: routeParams, req }) {
         (workWithUrls.sourceFulltextUrls &&
           workWithUrls.sourceFulltextUrls[0]) ||
         null,
-      outputs,
+      outputs: transformedOutputs,
       dataProvider: workWithUrls.dataProviders[0],
       mainDataProviderLink: Object.values(mainDataProviderLink).some(
         (link) => link !== null
@@ -120,7 +132,6 @@ const ScientificWorkPage = ({ serverError, data }) => {
     },
   })
   if (serverError) return <Error404 error={serverError} />
-
   return (
     <>
       <Head>
