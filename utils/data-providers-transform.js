@@ -1,6 +1,5 @@
-import cachedDataProviders from '../.formap.json'
-import cachedMembers from '../.members.json'
-
+import cachedDataProviders from 'data/.formap.json'
+import cachedMembers from 'data/.members.json'
 import { fetchLogo } from 'api/data-provider'
 
 const checkLogo = async (isMember, logoUrl) => {
@@ -28,8 +27,7 @@ const transformDataProviders = async (dataProviders) => {
       )
 
       const isMember = checkMembership(id)
-
-      dataProvider.logo = await checkLogo(isMember, logo)
+      if (dataProvider) dataProvider.logo = await checkLogo(isMember, logo)
 
       return {
         url,

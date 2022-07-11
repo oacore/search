@@ -15,11 +15,8 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import '@oacore/design/lib/index.css'
 import 'main/global.css'
 
-import cachedStatistics from '../.statistics.json'
-
-import getStatistics from 'lib/statistics-loader'
-import getMembers from 'lib/members-loader'
-import getDataProviders from 'lib/formap-loader'
+import { getStatistics, getMembers, getDataProviders } from 'lib'
+import cachedStatistics from 'data/.statistics.json'
 import Main from 'main'
 import { Sentry } from 'utils/sentry'
 
@@ -129,7 +126,7 @@ App.getInitialProps = async () => {
   await getMembers()
 
   const { data } = cachedStatistics
-  if (Object.keys(data).length > 0) statistics = data
+  if (data && Object.keys(data).length > 0) statistics = data
   else statistics = { totalArticlesCount: 'more than 200 million' }
 
   return {

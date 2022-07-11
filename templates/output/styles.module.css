@@ -1,8 +1,4 @@
 /* stylelint-disable declaration-no-important */
-.search-result:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
 .card {
   min-width: unset;
 }

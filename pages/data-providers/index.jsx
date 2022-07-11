@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useMemo } from 'react'
 import Head from 'next/head'
 
-import cachedData from '../../.formap.json'
-
+import cachedData from 'data/.formap.json'
 import { observe, useStore } from 'store'
 import DataProvidersSearchTemplate from 'templates/data-providers'
 import {
