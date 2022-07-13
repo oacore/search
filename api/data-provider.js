@@ -10,6 +10,11 @@ const fetchMetadata = async (id) => {
   return data
 }
 
+const fetchStats = async (id) => {
+  const { data } = await requestV3(`/data-providers/${id}/stats`)
+  return data
+}
+
 const fetchOutputs = async (id, searchParams) => {
   const { data } = await requestV3(`/data-providers/${id}/outputs`, {
     searchParams,
@@ -17,4 +22,4 @@ const fetchOutputs = async (id, searchParams) => {
   return data
 }
 
-export { fetchMetadata, fetchOutputs }
+export { fetchMetadata, fetchOutputs, fetchStats }

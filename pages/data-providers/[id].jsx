@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { useRouter } from 'next/router'
 
-import { fetchMetadata, fetchOutputs } from 'api/data-provider'
+import { fetchMetadata, fetchOutputs, fetchStats } from 'api/data-provider'
 import Template from 'templates/data-provider'
 
 const useSearch = () => {
@@ -35,7 +35,13 @@ export async function getServerSideProps({
 
   try {
     const dataProvider = await fetchMetadata(id)
-    Object.assign(data, dataProvider)
+    const dataProviderStats = await fetchStats(id)
+    Object.assign(data, {
+      metadata: {
+        ...dataProviderStats,
+      },
+      ...dataProvider,
+    })
   } catch (errorWithDataProvider) {
     return {
       props: {
@@ -71,7 +77,6 @@ export async function getServerSideProps({
 
 const DataProviderPage = ({ data }) => {
   const handleSearch = useSearch()
-
   return <Template data={data} onSearch={handleSearch} />
 }
 

@@ -1,12 +1,14 @@
 import React from 'react'
 import { SearchResult } from '@oacore/design'
 import { classNames } from '@oacore/design/lib/utils'
+import { DataProviderLogo } from '@oacore/design/lib/elements/logo'
 
 import DataProviderOutputsSearch from './search'
 import ClaimCard from './claim/claim-card'
 import MapCard from './map-card'
 import styles from './styles.module.css'
 import Pagination from './pagination'
+import MetaBox from './meta-box'
 
 import Search from 'modules/search-layout'
 import formatDate from 'utils/format-date'
@@ -30,7 +32,6 @@ const DataProviderTemplate = ({
     name: data.name,
     email: data.email,
   }
-
   return (
     <Search
       className={classNames.use(styles.layout).join(className)}
@@ -39,6 +40,7 @@ const DataProviderTemplate = ({
       <Search.Main>
         <header className={styles.header}>
           {/* <span>{data.institution}</span> */}
+          <DataProviderLogo alt={data.name} imageSrc={data.logo} size="lg" />
           <h1 className={styles.title}>{data.name}</h1>
         </header>
 
@@ -46,7 +48,7 @@ const DataProviderTemplate = ({
           initQuery={data.outputs.query}
           onQueryChanged={onSearch}
           className={styles.search}
-          placeholder={`Search research outputs in ${data.name}`}
+          placeholder={`Search over ${data.outputs.total} research outputs in ${data.name}`}
         />
         {(outputs.data ?? []).map(
           ({
@@ -63,7 +65,7 @@ const DataProviderTemplate = ({
             return (
               <SearchResult
                 key={id}
-                id={id}
+                id={id.toString()}
                 className={styles.resultItem}
                 tag={Search.Result}
                 data={{
@@ -97,6 +99,12 @@ const DataProviderTemplate = ({
       </Search.Main>
 
       <Search.Sidebar tag="aside">
+        {data?.metadata && (
+          <MetaBox
+            countMetadata={data.metadata.countMetadata}
+            countFullText={data.metadata.countFulltext}
+          />
+        )}
         <MapCard
           name={data.name}
           latitude={data.location.latitude}
