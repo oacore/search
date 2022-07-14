@@ -1,8 +1,5 @@
 import React from 'react'
-import { Button, Icon } from '@oacore/design/lib/elements'
-import { InlineMath, BlockMath } from 'react-katex'
-import ReactMarkdown from 'react-markdown'
-import RemarkMathPlugin from 'remark-math'
+import { Button, Icon, MathMarkdown } from '@oacore/design/lib/elements'
 
 import SimilarWorks from './similar-works'
 import RelatedSearch from './related-search'
@@ -16,19 +13,6 @@ import styles from './styles.module.css'
 import OtherVersions from './other-versions'
 
 import Search from 'modules/search-layout'
-
-const mapProps = (props) => ({
-  ...props,
-  escapeHtml: false,
-  plugins: [RemarkMathPlugin],
-  renderers: {
-    ...props.renderers,
-    math: ({ value }) => <BlockMath>{value}</BlockMath>,
-    inlineMath: ({ value }) => <InlineMath>{value}</InlineMath>,
-  },
-})
-
-const Markdown = (props) => <ReactMarkdown {...mapProps(props)} />
 
 const ScientificOutputTemplate = ({
   data: {
@@ -65,7 +49,9 @@ const ScientificOutputTemplate = ({
           )}
           {doi && <span className={styles.doi}>{doi}</span>}
         </div>
-        <h1>{title}</h1>
+        <h1>
+          <MathMarkdown>{title}</MathMarkdown>
+        </h1>
         <Metadata
           authors={authors}
           publishedDate={publishedDate}
@@ -99,7 +85,7 @@ const ScientificOutputTemplate = ({
         <section id="abstract" className={styles.abstract}>
           <h2>Abstract</h2>
           {abstract ? (
-            <Markdown>{abstract}</Markdown>
+            <MathMarkdown>{abstract}</MathMarkdown>
           ) : (
             <span className={styles.abstractEmpty}>
               Abstract is not available.

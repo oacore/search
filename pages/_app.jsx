@@ -14,8 +14,6 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import '@oacore/design/lib/index.css'
 import 'main/global.css'
 
-import 'katex/dist/katex.min.css'
-
 import Main from 'main'
 import { Sentry } from 'utils/sentry'
 
