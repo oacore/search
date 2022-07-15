@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/oacore/search#readme",
   "dependencies": {
+    "@oacore/design": "latest",
     "@oacore/stylelint-config-base": "^1.0.6",
     "@sentry/browser": "^5.28.0",
     "@sentry/node": "^5.28.0",
@@ -24,7 +25,7 @@
     "filesize": "^6.1.0",
     "i18n-iso-countries": "^6.2.2",
     "js-file-download": "^0.4.12",
-    "leaflet": "^1.7.1",
+    "leaflet": "^1.8.0",
     "leaflet.markercluster": "^1.4.1",
     "mobx": "^6.0.0",
     "mobx-react-lite": "^3.0.0",
