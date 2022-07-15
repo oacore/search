@@ -42,7 +42,7 @@ const formatDate = (date, options = {}) => {
 const findDataProviders = (allDataProviders, articles) => {
   articles.map((article) => {
     const dataProvidersWithNames = article.dataProviders.map(({ url }) => {
-      const id = url?.match(/\d+$/s).join(' ')
+      const id = url.match(/\d+$/s).join(' ')
 
       const dataProvider = allDataProviders.find(
         (dp) => dp.id === parseInt(id, 10)
