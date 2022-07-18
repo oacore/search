@@ -42,9 +42,7 @@ const formatDate = (date, options = {}) => {
 }
 
 const findDataProviders = (allDataProviders, articles) => {
-  console.log(toJS(articles))
   articles.map((article) => {
-    console.log(toJS(article.dataProviders))
     const dataProvidersWithNames = article.dataProviders.map(({ url }) => {
       const id = url.match(/\d+$/s).join(' ')
 
