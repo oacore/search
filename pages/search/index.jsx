@@ -43,9 +43,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
 
       response.results.map((item) => {
         const articleWithUrls = findUrlsByType(item)
-        item.dataProviders = item.dataProviders.map((dataProvider) => ({
-          url: dataProvider,
-        }))
+
         return articleWithUrls
       })
       Object.assign(data, response)

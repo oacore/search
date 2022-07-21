@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/oacore/search#readme",
   "dependencies": {
-    "@oacore/design": "^4.7.3",
+    "@oacore/design": "latest",
     "@oacore/stylelint-config-base": "^1.0.6",
     "@sentry/browser": "^5.28.0",
     "@sentry/node": "^5.28.0",
@@ -55,10 +55,10 @@
     "eslint-plugin-react": "^7.21.5",
     "husky": "^4.3.0",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.1.7",
+    "postcss": "8.4.14",
     "postcss-custom-media": "^8.0.0",
-    "postcss-extend": "^1.0.5",
-    "postcss-preset-env": "7.0.1",
+    "postcss-extend-rule": "^4.0.0",
+    "postcss-preset-env": "^7.7.2",
     "prettier": "^2.2.1",
     "stylelint": "^13.8.0"
   },
