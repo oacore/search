@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon } from '@oacore/design/lib/elements'
+import { Button, Icon, MathMarkdown } from '@oacore/design/lib/elements'
 
 import SimilarWorks from './similar-works'
 import RelatedSearch from './related-search'
@@ -49,7 +49,9 @@ const ScientificOutputTemplate = ({
           )}
           {doi && <span className={styles.doi}>{doi}</span>}
         </div>
-        <h1>{title}</h1>
+        <h1>
+          <MathMarkdown>{title}</MathMarkdown>
+        </h1>
         <Metadata
           authors={authors}
           publishedDate={publishedDate}
@@ -83,7 +85,7 @@ const ScientificOutputTemplate = ({
         <section id="abstract" className={styles.abstract}>
           <h2>Abstract</h2>
           {abstract ? (
-            <p>{abstract}</p>
+            <MathMarkdown>{abstract}</MathMarkdown>
           ) : (
             <span className={styles.abstractEmpty}>
               Abstract is not available.
@@ -100,7 +102,7 @@ const ScientificOutputTemplate = ({
         id={`full-text-thumbnail-${id}`}
         href={readerUrl || `//core.ac.uk/reader/${id}`}
         src={thumbnailLargeUrl || `//core.ac.uk/image/${id}/large`}
-        alt="thumbnail-image "
+        alt="thumbnail-image"
         data={{
           title: !useOtherVersions ? dataProvider.name : null,
           updatedDate,
