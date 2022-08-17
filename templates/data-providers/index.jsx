@@ -198,7 +198,7 @@ const DataProvidersSearchTemplate = React.memo(
               window.location.hash = 'add-new-data-provider'
             }}
           >
-            Become data provider
+            Become a data provider
           </Button>
         </Search.Sidebar>
       </Search>
