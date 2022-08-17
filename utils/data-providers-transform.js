@@ -13,16 +13,14 @@ const checkLogo = async (logoUrl) => {
 
 const checkMembership = (dataProviderId) =>
   cachedMembers.data.find(
-    (member) =>
-      member.repo_id == dataProviderId && member.billing_type !== 'starting'
+    ({ repo_id: repoId, billing_type: billingType }) =>
+      +repoId === +dataProviderId && billingType !== 'starting'
   )
 
 const transformDataProviders = async (dataProviders) => {
   const transformedData = await Promise.all(
     dataProviders.map(async ({ url, id, logo }) => {
-      const dataProvider = cachedDataProviders.data.find(
-        (dp) => dp.id === parseInt(id, 10)
-      )
+      const dataProvider = cachedDataProviders.data.find((dp) => dp.id === +id)
 
       const isMember = !!checkMembership(id)
       if (dataProvider && isMember) dataProvider.logo = await checkLogo(logo)

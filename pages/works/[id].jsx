@@ -34,7 +34,6 @@ export async function getServerSideProps({ params: routeParams, req }) {
 
         const isMember = !!checkMembership(dataProvider.id)
         if (isMember) dataProvider.logo = await checkLogo(dataProvider.logo)
-        console.log(dataProvider.logo)
 
         return {
           ...articleWithUrls,

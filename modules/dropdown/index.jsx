@@ -31,7 +31,12 @@ const DropDown = ({
   return (
     <div className={classNames.use(styles.dropdown).join(className)}>
       <div className={styles.header}>
-        <DataProviderLogo imageSrc={imageSrc} useDefault alt={title} size='md' />
+        <DataProviderLogo
+          imageSrc={imageSrc}
+          useDefault
+          alt={title}
+          size="md"
+        />
         <Tag className={styles.content} href={href}>
           <Card.Title
             className={classNames.use(styles.title, {
