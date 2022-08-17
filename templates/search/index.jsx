@@ -23,17 +23,12 @@ const SearchTemplate = observe(({ data }) => {
   const router = useRouter()
   const { search } = useStore()
   const { width } = useWindowSize()
-
   const url =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
       : 'https://core.ac.uk'
 
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(url + router.asPath)
-
-  React.useEffect(() => {
-    search.fetchDataProviders()
-  }, [])
 
   React.useEffect(() => {
     search.setSortOptions(data.sort)
@@ -101,7 +96,7 @@ const SearchTemplate = observe(({ data }) => {
                   />
                 )}
               </div>
-              <Results works={search.works} />
+              <Results works={data.results} />
               {data.currentPage === 1000 && (
                 <div className={styles.more}>
                   Our search interface allows you to see only the first 10.000

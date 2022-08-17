@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon } from '@oacore/design/lib/elements'
+import { Button, Icon, MathMarkdown } from '@oacore/design/lib/elements'
 
 import SimilarWorks from './similar-works'
 import RelatedSearch from './related-search'
@@ -12,6 +12,7 @@ import CitationManager from './citation'
 import styles from './styles.module.css'
 import OtherVersions from './other-versions'
 
+import { getAssetsPath } from 'utils/helpers'
 import Search from 'modules/search-layout'
 
 const ScientificOutputTemplate = ({
@@ -43,17 +44,29 @@ const ScientificOutputTemplate = ({
   <Search {...passProps} className={styles.outputContainer}>
     <Search.Main>
       <div className={styles.background}>
-        <div>
+        <div className={styles.info}>
           {documentType && (
             <span className={styles.documentType}>{documentType}</span>
           )}
-          {doi && <span className={styles.doi}>{doi}</span>}
+          {oai && (
+            <div className={styles.oai}>
+              <img
+                src={getAssetsPath('/static/images/oai.svg')}
+                alt="oai"
+                className={styles.oaiLogo}
+              />
+              {oai}
+            </div>
+          )}
         </div>
-        <h1>{title}</h1>
+        <h1>
+          <MathMarkdown>{title}</MathMarkdown>
+        </h1>
         <Metadata
           authors={authors}
           publishedDate={publishedDate}
           publisher={publisher}
+          doi={doi}
         />
         <div className={styles.buttons}>
           {citations && citations.length > 0 && (
@@ -83,7 +96,7 @@ const ScientificOutputTemplate = ({
         <section id="abstract" className={styles.abstract}>
           <h2>Abstract</h2>
           {abstract ? (
-            <p>{abstract}</p>
+            <MathMarkdown>{abstract}</MathMarkdown>
           ) : (
             <span className={styles.abstractEmpty}>
               Abstract is not available.
@@ -100,9 +113,10 @@ const ScientificOutputTemplate = ({
         id={`full-text-thumbnail-${id}`}
         href={readerUrl || `//core.ac.uk/reader/${id}`}
         src={thumbnailLargeUrl || `//core.ac.uk/image/${id}/large`}
-        alt="thumbnail-image "
+        alt="thumbnail-image"
         data={{
           title: !useOtherVersions ? dataProvider.name : null,
+          dataProviderLogo: dataProvider.logo,
           updatedDate,
           sourceFulltextUrls,
           fulltextStatus,

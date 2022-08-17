@@ -112,8 +112,7 @@ const DataProvidersSearchTemplate = React.memo(
   }) => {
     const getSuggestions = useCallback(
       (term) => {
-        const matches = searchDataProviders(term)
-
+        const matches = searchDataProviders(encodeURI(term))
         return matches.slice(0, 10).map((dataProvider) => ({
           id: dataProvider.id,
           value: dataProvider.name,
@@ -199,7 +198,7 @@ const DataProvidersSearchTemplate = React.memo(
               window.location.hash = 'add-new-data-provider'
             }}
           >
-            Become data provider
+            Become a data provider
           </Button>
         </Search.Sidebar>
       </Search>

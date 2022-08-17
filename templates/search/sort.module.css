@@ -1,5 +1,6 @@
 .sort {
   position: relative;
+  z-index: 10;
 }
 
 .sort-box {

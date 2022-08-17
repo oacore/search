@@ -6,6 +6,11 @@ const fetchMetadata = async (id) => {
   const { data } = await apiRequest(url)
   return data
 }
+const fetchDataProvider = async (url) => {
+  const { data: dataProvider } = await apiRequest(url)
+
+  return dataProvider
+}
 
 const fetchSimilarTo = async (id, params) => {
   const limit = 5
@@ -56,4 +61,10 @@ const createReport = async (body) => {
   return response
 }
 
-export { fetchMetadata, fetchSimilarTo, fetchCitations, createReport }
+export {
+  fetchMetadata,
+  fetchSimilarTo,
+  fetchCitations,
+  createReport,
+  fetchDataProvider,
+}

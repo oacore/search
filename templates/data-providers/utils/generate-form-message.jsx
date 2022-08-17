@@ -48,19 +48,24 @@ const generateFormMessage = ({ created, duplicated, error }) => {
   }
 
   if (duplicated) {
+    const { message } = duplicated
+    const { existingDataProviders } = JSON.parse(message)
+
     return {
       helper: (
         <>
-          <a href={searchUrlFor(duplicated.existingDataProviders[0].id)}>
-            {duplicated.existingDataProviders[0].name}
-          </a>{' '}
-          {duplicated.existingDataProviders.length > 1
-            ? `and ${
-                duplicated.existingDataProviders.length - 1
-              } more are our data providers`
-            : 'is our data provider'}{' '}
-          already. If you host multiple repositories or journals on the same
-          domain please specify exact OAI-PMH endpoint or contact us at{' '}
+          {existingDataProviders && existingDataProviders[0] ? (
+            <>
+              <a href={searchUrlFor(existingDataProviders[0].id)}>
+                {existingDataProviders[0].name}
+              </a>{' '}
+              is our data provider already.{' '}
+            </>
+          ) : (
+            <>Data provider already exists. </>
+          )}
+          If you host multiple repositories or journals on the same domain
+          please specify exact OAI-PMH endpoint or contact us at{' '}
           <Link href={SUPPORT_EMAIL_URL}>{SUPPORT_EMAIL}</Link>.
         </>
       ),

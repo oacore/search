@@ -5,7 +5,7 @@ import styles from './styles.module.css'
 
 import { formatDate } from 'utils/helpers'
 
-const Metadata = ({ authors, publisher, publishedDate }) => (
+const Metadata = ({ authors, publisher, publishedDate, doi }) => (
   <MetadataList className={styles.metadata}>
     <MetadataList.Item id="metadata-authors" label="Authors">
       <ExpandableList>
@@ -38,6 +38,11 @@ const Metadata = ({ authors, publisher, publishedDate }) => (
     <MetadataList.Item id="metadata-publisher" label="Publisher">
       {publisher}
     </MetadataList.Item>
+    {doi && (
+      <MetadataList.Item id="doi" label="Doi">
+        DOI:{doi}
+      </MetadataList.Item>
+    )}
   </MetadataList>
 )
 

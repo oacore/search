@@ -9,22 +9,6 @@
   color: var(--gray-700);
 }
 
-.icon-menu-building {
-  width: 2rem;
-  height: 2rem;
-}
-
-.circle {
-  padding: 0.5rem;
-  color: var(--gray-500);
-  border: 1px solid var(--primary);
-  border-radius: 40px;
-}
-
-.circle-active {
-  color: var(--primary);
-}
-
 .icon-menu-active {
   transform: rotate(180deg);
 }

@@ -24,7 +24,6 @@ const Results = ({ works }) =>
       const publicationDate = publishedDate
         ? formatDate(new Date(publishedDate))
         : yearPublished !== null && toString(yearPublished)
-
       return (
         <SearchResult
           id={`search-output-${id}`}
