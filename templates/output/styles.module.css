@@ -1,8 +1,4 @@
 /* stylelint-disable declaration-no-important */
-.search-result:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
 .card {
   min-width: unset;
 }
@@ -186,6 +182,7 @@
 
 .metadata {
   max-width: 50rem;
+  color: var(--gray-900);
 }
 
 .boxes {
@@ -219,4 +216,16 @@
 .buttons {
   display: flex;
   align-items: center;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.oai {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: var(--primary);
 }

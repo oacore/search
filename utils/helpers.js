@@ -39,28 +39,6 @@ const formatDate = (date, options = {}) => {
   }
 }
 
-const findDataProviders = (allDataProviders, articles) => {
-  articles.map((article) => {
-    const dataProvidersWithNames = article.dataProviders.map(({ url }) => {
-      const id = url.match(/\d+$/s).join(' ')
-
-      const dataProvider = allDataProviders.find(
-        (dp) => dp.id === parseInt(id, 10)
-      )
-
-      return {
-        url,
-        name: dataProvider ? dataProvider.name : null,
-        id,
-      }
-    })
-    article.dataProviders = dataProvidersWithNames
-
-    return article
-  })
-  return articles
-}
-
 const findMinValueInArray = (array, key) =>
   Math.min.apply(
     null,
@@ -86,7 +64,6 @@ module.exports = {
   getAssetsPath,
   rewriteDataPath,
   formatDate,
-  findDataProviders,
   findMaxValueInArray,
   findMinValueInArray,
   findUrlsByType,

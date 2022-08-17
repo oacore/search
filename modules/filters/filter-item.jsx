@@ -19,7 +19,6 @@ const FilterItem = observe(
 
     const onToggleChecked = (e) => {
       e.preventDefault()
-      filters.setIsLoading(true)
       onChangeFunction(item)
     }
 
@@ -29,10 +28,7 @@ const FilterItem = observe(
       if (unCheckedIcon) return <Icon src={unCheckedIcon} />
     }
 
-    const isLoading =
-      filters.isLoading &&
-      Object.keys(filters.initialData).length > 0 &&
-      !item.checked
+    const { isLoading } = filters
 
     return (
       <li

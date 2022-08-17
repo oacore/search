@@ -1,5 +1,11 @@
 import React, { useState } from 'react'
-import { Button, Card, Icon, Link } from '@oacore/design/lib/elements'
+import {
+  Button,
+  Card,
+  Icon,
+  Link,
+  DataProviderLogo,
+} from '@oacore/design/lib/elements'
 import classNames from '@oacore/design/lib/utils/class-names'
 
 import styles from './styles.module.css'
@@ -7,13 +13,14 @@ import styles from './styles.module.css'
 const DropDown = ({
   title,
   subtitle,
+  imageSrc,
   children,
   className,
   activeArticle = false,
-  defaultDropdownState = false,
+  useExpandButton = true,
   href,
 }) => {
-  const [activeDropdown, setActiveDropdown] = useState(defaultDropdownState)
+  const [activeDropdown, setActiveDropdown] = useState(!useExpandButton)
 
   const onToggleDropdown = () => {
     setActiveDropdown(!activeDropdown)
@@ -24,13 +31,7 @@ const DropDown = ({
   return (
     <div className={classNames.use(styles.dropdown).join(className)}>
       <div className={styles.header}>
-        <div
-          className={classNames.use(styles.circle, {
-            [styles.circleActive]: activeArticle,
-          })}
-        >
-          <Icon src="#office-building" className={styles.iconMenuBuilding} />
-        </div>
+        <DataProviderLogo imageSrc={imageSrc} useDefault alt={title} size='md' />
         <Tag className={styles.content} href={href}>
           <Card.Title
             className={classNames.use(styles.title, {
@@ -40,13 +41,12 @@ const DropDown = ({
           >
             {title}
           </Card.Title>
-
           <Card.Description className={styles.subtitle} tag="span">
             {subtitle}
           </Card.Description>
         </Tag>
 
-        {!defaultDropdownState && (
+        {useExpandButton && (
           <Button type="button" onClick={onToggleDropdown}>
             <Icon
               src="#menu-down"

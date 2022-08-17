@@ -28,7 +28,6 @@ const Sort = ({ options, onClick, className }) => {
   }
 
   const activeItem = options.find((item) => item.checked === true)
-
   return (
     <div className={classNames.use(styles.sort).join(className)} ref={node}>
       <div

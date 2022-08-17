@@ -31,3 +31,7 @@
 .link-disabled {
   color: var(--gray-500);
 }
+
+.oai-logo {
+  margin-right: 0.5rem;
+}

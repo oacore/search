@@ -80,6 +80,7 @@ const nextConfig = {
 
     Object.assign(config.resolve.alias, {
       'api': path.join(__dirname, 'api'),
+      'data': path.join(__dirname, 'data'),
       'main': path.join(__dirname, 'main'),
       'hooks': path.join(__dirname, 'hooks'),
       'config': path.join(__dirname, 'config.js'),
@@ -87,8 +88,8 @@ const nextConfig = {
       'utils': path.join(__dirname, 'utils'),
       'templates': path.join(__dirname, 'templates'),
       'modules': path.join(__dirname, 'modules'),
+      'lib': path.join(__dirname, 'lib'),
       '@sentry/node': config.isServer ? '@sentry/node' : '@sentry/browser',
-
       'react': path.join(__dirname, 'node_modules', 'react'),
       'react-dom': path.join(__dirname, 'node_modules', 'react-dom'),
     })

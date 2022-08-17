@@ -10,7 +10,7 @@ import { getAssetsPath } from 'utils/helpers'
 const centerPosition = new L.LatLng(26.523257520856546, -43.10211013159716)
 
 const markerIcon = L.icon({
-  iconUrl: getAssetsPath('/static/map/marker.svg'),
+  iconUrl: getAssetsPath('/static/images/map/marker.svg'),
   iconSize: [32, 32],
   iconAnchor: [16, 32],
   popupAnchor: [0, -32],

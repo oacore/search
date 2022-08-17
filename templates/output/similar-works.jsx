@@ -43,6 +43,7 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
             abstract,
             publishedDate,
             yearPublished,
+            dataProviders,
             links,
           }) => {
             const downloadLink = links.find((l) => l.type === 'download')?.url
@@ -67,7 +68,7 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
                   thumbnailUrl: `//core.ac.uk/image/${id}/medium`,
                   metadataLink,
                   fullTextLink: readerLink || downloadLink,
-                  dataProviders: [],
+                  dataProviders,
                 }}
               >
                 {abstract}
