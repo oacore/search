@@ -95,6 +95,7 @@ const App = ({
       namespace: '/search',
     })
   }
+
   const loading = useLoading()
   const isSearchPage = router.asPath.match(/search/gm)
 

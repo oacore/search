@@ -125,6 +125,7 @@
 }
 
 .container-main {
+  max-width: 100vw;
   padding-top: var(--page-padding-y);
   padding-left: var(--page-padding-x);
 }

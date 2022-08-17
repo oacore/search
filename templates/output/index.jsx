@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon } from '@oacore/design/lib/elements'
+import { Button, Icon, MathMarkdown } from '@oacore/design/lib/elements'
 
 import SimilarWorks from './similar-works'
 import RelatedSearch from './related-search'
@@ -59,7 +59,9 @@ const ScientificOutputTemplate = ({
             </div>
           )}
         </div>
-        <h1>{title}</h1>
+        <h1>
+          <MathMarkdown>{title}</MathMarkdown>
+        </h1>
         <Metadata
           authors={authors}
           publishedDate={publishedDate}
@@ -94,7 +96,7 @@ const ScientificOutputTemplate = ({
         <section id="abstract" className={styles.abstract}>
           <h2>Abstract</h2>
           {abstract ? (
-            <p>{abstract}</p>
+            <MathMarkdown>{abstract}</MathMarkdown>
           ) : (
             <span className={styles.abstractEmpty}>
               Abstract is not available.

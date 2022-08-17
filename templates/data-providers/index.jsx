@@ -112,8 +112,7 @@ const DataProvidersSearchTemplate = React.memo(
   }) => {
     const getSuggestions = useCallback(
       (term) => {
-        const matches = searchDataProviders(term)
-
+        const matches = searchDataProviders(encodeURI(term))
         return matches.slice(0, 10).map((dataProvider) => ({
           id: dataProvider.id,
           value: dataProvider.name,

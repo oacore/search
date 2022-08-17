@@ -1,13 +1,1 @@
-{
-  "data": {
-    "totalArticlesCount": 207255818,
-    "fullTextCount": 28529136,
-    "repositoriesCount": 10599,
-    "countriesCount": 250,
-    "lastMonthDataprovidersCount": 7,
-    "lastYearDataprovidersCount": 369,
-    "openAccessLinksCount2": 152732190,
-    "openAccessLinksCount": 88305172
-  },
-  "timestamp": 11
-}
+{"data":{"totalArticlesCount":207255818,"fullTextCount":29504495,"repositoriesCount":10625,"countriesCount":250,"lastMonthDataprovidersCount":19,"lastYearDataprovidersCount":357,"openAccessLinksCount2":153849237,"openAccessLinksCount":97983188},"timestamp":17}
