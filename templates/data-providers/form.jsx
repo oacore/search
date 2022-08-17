@@ -15,6 +15,7 @@ const AddDataProviderForm = React.forwardRef(
 
     return (
       <Card className={styles.addDataProviderCard}>
+        <h3>Suggest a new data provider</h3>
         <form ref={ref} onSubmit={handleSubmit}>
           <TextField
             id="data-provider-url"
