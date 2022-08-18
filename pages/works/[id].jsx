@@ -32,8 +32,9 @@ export async function getServerSideProps({ params: routeParams, req }) {
 
         const { dataProvider } = output
 
-        const isMember = !!checkMembership(dataProvider.id)
-        if (isMember) dataProvider.logo = await checkLogo(dataProvider.logo)
+        Object.assign(dataProvider, {
+          logo: await checkLogo(dataProvider.id, dataProvider.logo),
+        })
 
         return {
           ...articleWithUrls,

@@ -4,16 +4,16 @@ import { classNames } from '@oacore/design/lib/utils'
 
 import styles from './styles.module.css'
 
-const MetaBox = ({ className }) => (
+const MetaBox = ({ className, countMetadata, countFullText }) => (
   <Card className={classNames.use(styles.meta).join(className)}>
     <div className={styles.boxes}>
       <div className={styles.boxItem}>
-        <h1>9,266</h1>
-        <span>full texts</span>
+        <Card.Title className={styles.count}>{countFullText}</Card.Title>
+        <span className={styles.caption}>full texts</span>
       </div>
       <div className={styles.boxItem}>
-        <h1>11,266</h1>
-        <span>metadata records</span>
+        <Card.Title className={styles.count}>{countMetadata}</Card.Title>
+        <span className={styles.caption}>metadata records</span>
       </div>
     </div>
     <div className={styles.updateDate}>Updated in last 30 days.</div>

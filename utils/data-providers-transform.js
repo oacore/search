@@ -2,28 +2,31 @@ import cachedDataProviders from 'data/.formap.json'
 import cachedMembers from 'data/.members.json'
 import { fetchLogo } from 'api/data-provider'
 
-const checkLogo = async (logoUrl) => {
+const checkMembership = (dataProviderId) =>
+  cachedMembers?.data.find(
+    ({ repo_id: repoId, billing_type: billingType }) =>
+      +repoId === +dataProviderId && billingType !== 'starting'
+  )
+
+const checkLogo = async (dataProviderId, logoUrl) => {
+  const isMember = !!checkMembership(dataProviderId)
+  if (!isMember) return null
   try {
     await fetchLogo(logoUrl)
+    console.log('fetched')
     return logoUrl
   } catch (error) {
     return null
   }
 }
 
-const checkMembership = (dataProviderId) =>
-  cachedMembers.data.find(
-    ({ repo_id: repoId, billing_type: billingType }) =>
-      +repoId === +dataProviderId && billingType !== 'starting'
-  )
-
 const transformDataProviders = async (dataProviders) => {
   const transformedData = await Promise.all(
     dataProviders.map(async ({ url, id, logo }) => {
       const dataProvider = cachedDataProviders.data.find((dp) => dp.id === +id)
-
-      const isMember = !!checkMembership(id)
-      if (dataProvider && isMember) dataProvider.logo = await checkLogo(logo)
+      Object.assign(dataProvider, {
+        logo: await checkLogo(id, logo),
+      })
       return {
         url,
         ...dataProvider,

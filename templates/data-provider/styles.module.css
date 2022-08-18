@@ -1,6 +1,10 @@
 .layout {
   z-index: 5;
   padding: var(--page-padding-y) var(--page-padding-x);
+  background-image: url('./images/map-background.png');
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-position: top; /* Center the image */
+  background-size: contain;
 }
 
 .title-box {
@@ -13,11 +17,14 @@
 }
 
 .header {
+  display: flex;
+  align-items: center;
   margin-bottom: 3rem;
+  gap: 2rem;
 }
 
-.title {
-  margin-top: 0;
+.header-info-title {
+  margin-top: 1rem;
 }
 
 .card:not(:last-child) {
@@ -110,4 +117,47 @@
   pointer-events: none;
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+.meta {
+  padding: 0;
+}
+
+.boxes {
+  display: flex;
+  align-items: center;
+}
+
+.box-item {
+  flex: 1;
+  padding: 0.5rem 1rem;
+}
+
+.box-item:nth-child(1) {
+  border-right: 1px solid var(--gray-200);
+}
+
+.update-date {
+  padding: 1rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.count {
+  margin-bottom: 0.3rem;
+  font-size: var(--h1-font-size, 2rem);
+  font-weight: 400;
+}
+
+.caption {
+  font-weight: 500;
+}
+
+.header-info-caption {
+  font-weight: 400;
+  color: var(--gray-700);
+  margin-bottom: 0;
+}
+
+.header-info-caption:first-letter {
+  text-transform: capitalize;
 }
