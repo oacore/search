@@ -24,7 +24,6 @@ const transformDataProviders = async (dataProviders) => {
 
       const isMember = !!checkMembership(id)
       if (dataProvider && isMember) dataProvider.logo = await checkLogo(logo)
-      else dataProvider.logo = null
       return {
         url,
         ...dataProvider,
