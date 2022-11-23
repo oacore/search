@@ -32,7 +32,7 @@ const DataProviderTemplate = ({
     name: data.name,
     email: data.email,
   }
-  console.log(data)
+  console.log(data, "dada")
   return (
     <Search
       className={classNames.use(styles.layout).join(className)}

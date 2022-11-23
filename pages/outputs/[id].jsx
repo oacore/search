@@ -52,9 +52,13 @@ export async function getServerSideProps({ params: routeParams }) {
     const { fullText: _, ...output } = rawOutput
     const dataProvider = await fetchDataProvider(output.dataProvider.url)
 
-    Object.assign(dataProvider, {
-      logo: await checkLogo(dataProvider.id, dataProvider.logo),
-    })
+    const isMember = !!checkMembership(dataProvider.id)
+    if (isMember) dataProvider.logo = await checkLogo(dataProvider.logo)
+    else dataProvider.logo = null
+
+    // Object.assign(dataProvider, {
+    //   logo: await checkLogo(dataProvider.id, dataProvider.logo),
+    // })
 
     const { sourceFulltextUrls } = output
 
