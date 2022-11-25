@@ -9,6 +9,8 @@ import MapCard from './map-card'
 import styles from './styles.module.css'
 import Pagination from './pagination'
 import MetaBox from './meta-box'
+import FiltersBar from '../../modules/filters'
+import { useStore } from '../../store'
 
 import Search from 'modules/search-layout'
 import formatDate from 'utils/format-date'
@@ -28,11 +30,18 @@ const DataProviderTemplate = ({
 }) => {
   const { outputs } = data
 
+  const { search } = useStore()
+
   const contactData = {
     name: data.name,
     email: data.email,
   }
-  console.log(data, "dada")
+  React.useEffect(() => {
+    search.setSortOptions(data.sort)
+    search.setWorks(data.results)
+    search.setQuery(data.query)
+  }, [data])
+
   return (
     <Search
       className={classNames.use(styles.layout).join(className)}
@@ -47,6 +56,7 @@ const DataProviderTemplate = ({
               {data.billingType} member
             </h5>
             <h1 className={styles.headerInfoTitle}>{data.name}</h1>
+            <span className={styles.subHeaderInfo}>Open Research Online</span>
           </div>
         </header>
 
@@ -56,6 +66,7 @@ const DataProviderTemplate = ({
           className={styles.search}
           placeholder={`Search over ${data.outputs.total} research outputs in ${data.name}`}
         />
+        <FiltersBar query={data.query} sortType={data.sort} testProp />
         {(outputs.data ?? []).map(
           ({
             id,
