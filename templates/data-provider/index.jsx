@@ -11,6 +11,7 @@ import Pagination from './pagination'
 import MetaBox from './meta-box'
 import FiltersBar from '../../modules/filters'
 import { useStore } from '../../store'
+import Sort from '../search/sort'
 
 import Search from 'modules/search-layout'
 import formatDate from 'utils/format-date'
@@ -36,11 +37,16 @@ const DataProviderTemplate = ({
     name: data.name,
     email: data.email,
   }
+
   React.useEffect(() => {
     search.setSortOptions(data.sort)
     search.setWorks(data.results)
     search.setQuery(data.query)
   }, [data])
+
+  const onHandleChangeSortOptions = (option) => {
+    search.setActiveSortOption(option)
+  }
 
   return (
     <Search
@@ -59,14 +65,23 @@ const DataProviderTemplate = ({
             <span className={styles.subHeaderInfo}>Open Research Online</span>
           </div>
         </header>
-
         <DataProviderOutputsSearch
           initQuery={data.outputs.query}
           onQueryChanged={onSearch}
           className={styles.search}
           placeholder={`Search over ${data.outputs.total} research outputs in ${data.name}`}
         />
-        <FiltersBar query={data.query} sortType={data.sort} testProp />
+        <FiltersBar styleProp />
+        <div className={styles.sortWrapper}>
+          <span className={styles.searchTotal}>
+            {data.outputs.totalHits} research outputs found
+          </span>
+          <Sort
+            options={search.sortOptions}
+            onClick={onHandleChangeSortOptions}
+            className={styles.sort}
+          />
+        </div>
         {(outputs.data ?? []).map(
           ({
             id,

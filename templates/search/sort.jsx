@@ -35,9 +35,9 @@ const Sort = ({ options, onClick, className }) => {
         role="presentation"
         onClick={onToggleBoxVisible}
       >
-        <p>
-          Sort by <span className={styles.activeItem}>{activeItem.value}</span>
-        </p>
+        <span>
+          Sort by <span className={styles.activeItem}>{activeItem?.value}</span>
+        </span>
         <Icon className={styles.sortBoxIcon} src="#menu-down" />
       </div>
       {boxVisible && (

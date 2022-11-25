@@ -9,7 +9,7 @@ import LoadingBlock from './loading-block'
 import { observe, useStore } from 'store'
 
 const FiltersBar = observe(
-  ({ className, query: initialQuery, sortType, testProp }) => {
+  ({ className, query: initialQuery, sortType, styleProp }) => {
     const [visibleFiltersBar, setVisibleFiltersBar] = React.useState(false)
     const [query, setQuery] = React.useState(initialQuery)
     const { filters } = useStore()
@@ -33,7 +33,7 @@ const FiltersBar = observe(
     return (
       <div
         className={classNames.use(styles.container, {
-          [styles.searchContainer]: testProp,
+          [styles.searchContainer]: styleProp,
         })}
       >
         <Button
@@ -46,6 +46,7 @@ const FiltersBar = observe(
         <ul
           className={classNames
             .use(styles.bar, {
+              [styles.searchBar]: styleProp,
               [styles.expanded]: visibleFiltersBar,
             })
             .join(className)}
