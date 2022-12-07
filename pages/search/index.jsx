@@ -82,9 +82,9 @@ const Search = ({ data, queryError }) => {
     statistics.totalArticlesCount.toLocaleString('en-GB')
   Header.useSearchBar(
     {
-      onQueryChanged: (searchTerm) => {
+      onQueryChanged: (searchTerm, pathName) => {
         router.push({
-          pathname: '/search',
+          pathname: pathName,
           query: {
             ...router.query,
             q: searchTerm,

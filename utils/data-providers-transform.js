@@ -4,8 +4,8 @@ import { fetchLogo } from 'api/data-provider'
 
 const checkMembership = (dataProviderId) =>
   cachedMembers?.data.find(
-    ({ repo_id: repoId, billing_type: billingType }) =>
-      +repoId === +dataProviderId && billingType !== 'starting'
+    ({ repo_id: repoId, }) =>
+      +repoId === +dataProviderId
   )
 
 const checkLogo = async (dataProviderId, logoUrl) => {

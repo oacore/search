@@ -85,13 +85,19 @@ export async function getDataProviderAccounts({ params }) {
   }
 }
 
-const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
+const ClaimCard = ({
+  nameDataProvider,
+  dataProviderType,
+  id,
+  className,
+  contactData,
+  isDataProviderHasAccounts,
+  setIsDataProviderHasAccounts,
+}) => {
   const [isClaimModalActive, setIsClaimModalActive] = useState(false)
   const [isClaimModalEditActive, setIsClaimModalEditActive] = useState(false)
   const [isSignInModalActive, setIsSignInModalActive] = useState(false)
   const [isClaimSuccessModalActive, setIsClaimSuccessModalActive] =
-    useState(false)
-  const [isDataProviderHasAccounts, setIsDataProviderHasAccounts] =
     useState(false)
   const [newEmail, setNewEmail] = useState(false)
 
@@ -105,23 +111,47 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
         Access Repository Dashboard
       </div>
       <div>
-        Do you manage {nameDataProvider}? Access insider analytics, issue
-        reports and manage access to outputs from your repository in the CORE
-        Repository Dashboard!{' '}
-        <a
-          href="https://core.ac.uk/services/repository-dashboard"
-          target="_blank"
-          rel="noreferrer"
-          className={styles.linkUnderline}
-        >
-          CORE Repository Dashboard!
-        </a>
-        <span aria-hidden="true" role="img">
-          👇
-        </span>
+        {isDataProviderHasAccounts || dataProviderType === 'starting' ? (
+          <>
+            Do you manage {nameDataProvider}? Access insider analytics, issue
+            reports and manage access to outputs from your repository in the{' '}
+            <a
+              href="https://core.ac.uk/services/repository-dashboard"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.linkUnderline}
+            >
+              CORE Repository Dashboard!
+            </a>
+            <span aria-hidden="true" role="img">
+              👇
+            </span>
+          </>
+        ) : (
+          <>
+            Do you manage Open Research Online? Become a{' '}
+            <a
+              href="https://core.ac.uk/membership"
+              target="_blank"
+              rel="noreferrer"
+            >
+              CORE Member
+            </a>{' '}
+            to access insider analytics, issue reports and manage access to
+            outputs from your repository in the{' '}
+            <a
+              href="https://core.ac.uk/services/repository-dashboard"
+              target="_blank"
+              rel="noreferrer"
+            >
+              CORE Repository Dashboard!
+            </a>{' '}
+            👇
+          </>
+        )}
       </div>
       <div className={styles.claimCardActions}>
-        {isDataProviderHasAccounts ? (
+        {isDataProviderHasAccounts || dataProviderType === 'starting' ? (
           <>
             <Button
               variant="contained"
@@ -144,20 +174,11 @@ const ClaimCard = ({ nameDataProvider, id, className, contactData }) => {
             <Button
               variant="contained"
               className={styles.claimCardAction}
-              onClick={() => setIsClaimModalActive(true)}
-            >
-              Create account
-            </Button>
-            <Button
-              className={styles.claimCardAction}
               onClick={() => {
-                window.open(
-                  'https://core.ac.uk/services/repository-dashboard',
-                  '_blank'
-                )
+                window.open('https://core.ac.uk/membership', '_blank')
               }}
             >
-              More details
+              Become a member
             </Button>
           </>
         )}

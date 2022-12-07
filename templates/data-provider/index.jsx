@@ -1,5 +1,4 @@
-import React from 'react'
-import { SearchResult } from '@oacore/design'
+import React, {useState} from 'react';
 import { classNames } from '@oacore/design/lib/utils'
 import { DataProviderLogo } from '@oacore/design/lib/elements/logo'
 
@@ -12,9 +11,9 @@ import MetaBox from './meta-box'
 import FiltersBar from '../../modules/filters'
 import { useStore } from '../../store'
 import Sort from '../search/sort'
+import Results from '../search/results'
 
 import Search from 'modules/search-layout'
-import formatDate from 'utils/format-date'
 
 // TODO: Look for polyfill
 const countryName =
@@ -33,6 +32,9 @@ const DataProviderTemplate = ({
 
   const { search } = useStore()
 
+  const [isDataProviderHasAccounts, setIsDataProviderHasAccounts] =
+    useState(false)
+
   const contactData = {
     name: data.name,
     email: data.email,
@@ -44,8 +46,9 @@ const DataProviderTemplate = ({
     search.setQuery(data.query)
   }, [data])
 
+
   const onHandleChangeSortOptions = (option) => {
-    search.setActiveSortOption(option)
+    search.setActiveSortOption(option, `/data-providers/${data.id}`)
   }
 
   return (
@@ -58,11 +61,27 @@ const DataProviderTemplate = ({
           {/* <span>{data.institution}</span> */}
           <DataProviderLogo alt={data.name} imageSrc={data.logo} size="lg" />
           <div className={styles.headerInfo}>
-            <h5 className={styles.headerInfoCaption}>
-              {data.billingType} member
-            </h5>
             <h1 className={styles.headerInfoTitle}>{data.name}</h1>
             <span className={styles.subHeaderInfo}>Open Research Online</span>
+            <h5
+              className={classNames.use(styles.headerInfoCaption, {
+                [styles.headerInfoCaptionColor]: !isDataProviderHasAccounts,
+              })}
+            >
+              <a
+                href="https://core.ac.uk/membership"
+                target="_blank"
+                rel="noreferrer"
+                className={classNames.use(styles.headerInfoCaptionLink, {
+                  [styles.headerInfoCaptionLinkColor]:
+                    !isDataProviderHasAccounts,
+                })}
+              >
+                {isDataProviderHasAccounts
+                  ? `${data.billingType} member`
+                  : `Not a member yet`}
+              </a>
+            </h5>
           </div>
         </header>
         <DataProviderOutputsSearch
@@ -71,7 +90,12 @@ const DataProviderTemplate = ({
           className={styles.search}
           placeholder={`Search over ${data.outputs.total} research outputs in ${data.name}`}
         />
-        <FiltersBar styleProp />
+        <FiltersBar
+          query={data.query}
+          sortType={data.sort}
+          styleProp
+          pathName={`/data-providers/${data.id}`}
+        />
         <div className={styles.sortWrapper}>
           <span className={styles.searchTotal}>
             {data.outputs.totalHits} research outputs found
@@ -82,41 +106,7 @@ const DataProviderTemplate = ({
             className={styles.sort}
           />
         </div>
-        {(outputs.data ?? []).map(
-          ({
-            id,
-            abstract,
-            title,
-            authors,
-            publishedDate: publicationDate,
-            links,
-          }) => {
-            const fullTextLink = links.find((l) => l.type === 'download')?.url
-            const metadataLink = links.find((l) => l.type === 'display')?.url
-
-            return (
-              <SearchResult
-                key={id}
-                id={id.toString()}
-                className={styles.resultItem}
-                tag={Search.Result}
-                data={{
-                  title,
-                  author: authors,
-                  publicationDate: publicationDate
-                    ? formatDate(new Date(publicationDate))
-                    : null,
-                  thumbnailUrl: `//core.ac.uk/image/${id}/medium`,
-                  metadataLink,
-                  fullTextLink,
-                }}
-                aria-busy={loading}
-              >
-                {abstract}
-              </SearchResult>
-            )
-          }
-        )}
+        <Results works={outputs.results} />
         {outputs.data.length === 0 && outputs.error == null && (
           <div className={styles.noResultsFound}>
             This data provider has not articles yet.
@@ -139,11 +129,11 @@ const DataProviderTemplate = ({
         )}
         <MapCard
           name={data.name}
-          latitude={data.location.latitude}
-          longitude={data.location.longitude}
+          latitude={data.location?.latitude}
+          longitude={data.location?.longitude}
         >
           {data.name}
-          {data.location.countryCode ? (
+          {data.location?.countryCode ? (
             <>
               is based in{' '}
               {countryName.of(data.location.countryCode.toUpperCase())}
@@ -154,9 +144,12 @@ const DataProviderTemplate = ({
         </MapCard>
         <ClaimCard
           nameDataProvider={data.name}
+          dataProviderType={data.billingType}
           id={data.id}
           className={styles.card}
           contactData={contactData}
+          setIsDataProviderHasAccounts={setIsDataProviderHasAccounts}
+          isDataProviderHasAccounts={isDataProviderHasAccounts}
         />
       </Search.Sidebar>
     </Search>
