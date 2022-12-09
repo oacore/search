@@ -17,6 +17,12 @@ const checkMembership = (dataProviderId) =>
       +repoId === +dataProviderId && billingType !== 'starting'
   )
 
+const checkType = (dataProviderId) =>
+  cachedMembers.data.find(
+    (data) =>
+      +data.repoId === +dataProviderId && data.billingType !== 'starting'
+  )
+
 const transformDataProviders = async (dataProviders) => {
   const transformedData = await Promise.all(
     dataProviders.map(async ({ url, id, logo }) => {
@@ -34,4 +40,4 @@ const transformDataProviders = async (dataProviders) => {
   return transformedData
 }
 
-export { checkLogo, checkMembership, transformDataProviders }
+export { checkLogo, checkMembership, transformDataProviders, checkType }

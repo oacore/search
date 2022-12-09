@@ -3,6 +3,7 @@ import { Card, Icon, Link } from '@oacore/design/lib/elements'
 import classNames from '@oacore/design/lib/utils/class-names'
 
 import styles from './card-dropdown.module.css'
+import { checkType } from '../../utils/data-providers-transform'
 
 import { formatDate, getAssetsPath } from 'utils/helpers'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
@@ -29,6 +30,8 @@ const CardDropdown = ({
   href,
   activeArticle = false,
   useExpandButton,
+  dataProviderId,
+  makeVisible,
 }) => {
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(oai)
 
@@ -44,6 +47,7 @@ const CardDropdown = ({
   const Tag = activeArticle ? Link : 'div'
   const subtitleLinkText = setSubtitleLinkText()
   const sourceFulltextUrlsUpd = httpsValidate(sourceFulltextUrls)
+  const ourType = !!checkType(dataProviderId)
 
   const subtitleText = (
     <Tag
@@ -65,6 +69,8 @@ const CardDropdown = ({
       className={!activeArticle && styles.dropdown}
       href={href}
       useExpandButton={useExpandButton}
+      ourType={ourType}
+      makeVisible={makeVisible}
     >
       <div className={styles.dropdownContent}>
         {oai && (
@@ -106,6 +112,13 @@ const CardDropdown = ({
               </a>
             </Card.Description>
           )}
+        {ourType && makeVisible ? (
+          <span className={styles.memberHighlight}>
+            Provided by our Sustaining member
+          </span>
+        ) : (
+          <></>
+        )}
       </div>
     </DropDown>
   )
