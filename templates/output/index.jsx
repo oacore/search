@@ -37,7 +37,7 @@ const ScientificOutputTemplate = ({
     thumbnail_l: thumbnailLargeUrl,
     identifiers: { doi, oai },
     mainDataProviderLink,
-    ourType
+    ourType,
   },
   useOtherVersions = false,
   ...passProps
