@@ -18,10 +18,7 @@ const checkMembership = (dataProviderId) =>
   )
 
 const checkType = (dataProviderId) =>
-  cachedMembers.data.find(
-    (data) =>
-      +data.repoId === +dataProviderId && data.billingType !== 'starting'
-  )
+  cachedMembers.data.find((data) => +data.repo_id === +dataProviderId)
 
 const transformDataProviders = async (dataProviders) => {
   const transformedData = await Promise.all(

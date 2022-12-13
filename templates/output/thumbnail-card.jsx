@@ -17,7 +17,7 @@ const FullTextThumbnail = ({
   className,
   tag: Tag = 'a',
   useOtherVersions,
-  dataProviderId,
+  providerId,
   ...passProps
 }) => (
   <Card
@@ -55,6 +55,7 @@ const FullTextThumbnail = ({
         <CardDropdown
           image={data.dataProviderLogo}
           activeArticle
+          dataProviderId={providerId}
           makeVisible
           {...data}
           useExpandButton={false}

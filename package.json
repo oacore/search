@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/oacore/search#readme",
   "dependencies": {
-    "@oacore/design": "latest",
+    "@oacore/design": "4.8.0",
     "@oacore/stylelint-config-base": "^1.0.6",
     "@sentry/browser": "^5.28.0",
     "@sentry/node": "^5.28.0",

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Card, Icon, Link } from '@oacore/design/lib/elements'
 import classNames from '@oacore/design/lib/utils/class-names'
 
@@ -47,7 +47,14 @@ const CardDropdown = ({
   const Tag = activeArticle ? Link : 'div'
   const subtitleLinkText = setSubtitleLinkText()
   const sourceFulltextUrlsUpd = httpsValidate(sourceFulltextUrls)
-  const ourType = !!checkType(dataProviderId)
+  const memberType = checkType(dataProviderId)
+
+  const checkBillingType = useMemo(
+    () =>
+      memberType?.billing_type === 'supporting' ||
+      memberType?.billing_type === 'sustaining',
+    []
+  )
 
   const subtitleText = (
     <Tag
@@ -69,7 +76,8 @@ const CardDropdown = ({
       className={!activeArticle && !makeVisible && styles.dropdown}
       href={href}
       useExpandButton={useExpandButton}
-      ourType={ourType}
+      memberType={memberType}
+      checkBillingType={checkBillingType}
       makeVisible={makeVisible}
     >
       <div className={styles.dropdownContent}>
@@ -112,9 +120,9 @@ const CardDropdown = ({
               </a>
             </Card.Description>
           )}
-        {ourType && makeVisible ? (
+        {checkBillingType && makeVisible ? (
           <span className={styles.memberHighlight}>
-            Provided by our Sustaining member
+            Provided by our {memberType?.billing_type} member
           </span>
         ) : (
           <></>

@@ -16,7 +16,8 @@ const DropDown = ({
   imageSrc,
   children,
   className,
-  ourType,
+  memberType,
+  checkBillingType,
   activeArticle = false,
   useExpandButton = true,
   href,
@@ -32,9 +33,11 @@ const DropDown = ({
 
   return (
     <>
-      {ourType && !makeVisible ? (
+      {checkBillingType && !makeVisible ? (
         <div className={styles.placement}>
-          <span className={styles.memberType}>Sustaining member</span>
+          <span className={styles.memberType}>
+            {memberType?.billing_type} member
+          </span>
         </div>
       ) : (
         <></>
@@ -42,7 +45,7 @@ const DropDown = ({
       <div
         className={classNames
           .use(styles.dropdown, {
-            [styles.activeClass]: ourType && !makeVisible,
+            [styles.activeClass]: checkBillingType && !makeVisible,
           })
           .join(className)}
       >
