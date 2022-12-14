@@ -51,7 +51,7 @@ const DropDown = ({
       >
         <div className={styles.header}>
           <DataProviderLogo
-            imageSrc={imageSrc}
+            imageSrc={checkBillingType ? imageSrc : ''}
             useDefault
             alt={title}
             size="md"
