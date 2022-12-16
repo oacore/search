@@ -1,5 +1,5 @@
-import cachedDataProviders from 'data/.formap.json'
 import cachedMembers from 'data/.members.json'
+import cachedDataProviders from 'data/.formap.json'
 import { fetchLogo } from 'api/data-provider'
 
 const checkLogo = async (logoUrl) => {
