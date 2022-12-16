@@ -33,7 +33,6 @@ const transformDataProviders = async (dataProviders) => {
       }
     })
   )
-
   return transformedData
 }
 
