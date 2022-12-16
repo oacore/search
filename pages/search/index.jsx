@@ -79,7 +79,7 @@ const Search = ({ data, queryError }) => {
 
   const { statistics } = useStore()
   const totalArticlesCount =
-    statistics.totalArticlesCount.toLocaleString('en-GB')
+    statistics?.totalArticlesCount.toLocaleString('en-GB')
   Header.useSearchBar(
     {
       onQueryChanged: (searchTerm) => {

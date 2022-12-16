@@ -9,6 +9,7 @@ import {
 import classNames from '@oacore/design/lib/utils/class-names'
 
 import styles from './styles.module.css'
+import { capitalizeFirstLetter } from '../../utils/titleCase'
 
 const DropDown = ({
   title,
@@ -36,7 +37,7 @@ const DropDown = ({
       {checkBillingType && !makeVisible ? (
         <div className={styles.placement}>
           <span className={styles.memberType}>
-            {memberType?.billing_type} member
+            {capitalizeFirstLetter(memberType?.billing_type)} member
           </span>
         </div>
       ) : (

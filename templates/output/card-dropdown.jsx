@@ -4,6 +4,7 @@ import classNames from '@oacore/design/lib/utils/class-names'
 
 import styles from './card-dropdown.module.css'
 import { checkType } from '../../utils/data-providers-transform'
+import { capitalizeFirstLetter } from '../../utils/titleCase'
 
 import { formatDate, getAssetsPath } from 'utils/helpers'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
@@ -122,7 +123,8 @@ const CardDropdown = ({
           )}
         {checkBillingType && makeVisible ? (
           <span className={styles.memberHighlight}>
-            Provided by our {memberType?.billing_type} member
+            Provided by our {capitalizeFirstLetter(memberType?.billing_type)}{' '}
+            member
           </span>
         ) : (
           <></>
