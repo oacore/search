@@ -37,6 +37,7 @@ const ScientificOutputTemplate = ({
     thumbnail_l: thumbnailLargeUrl,
     identifiers: { doi, oai },
     mainDataProviderLink,
+    memberType,
   },
   useOtherVersions = false,
   ...passProps
@@ -124,8 +125,10 @@ const ScientificOutputTemplate = ({
           oai,
           download,
         }}
+        providerId={dataProvider.id}
         tag={fulltextStatus === 'disabled' ? 'div' : 'a'}
         useOtherVersions={useOtherVersions}
+        memberType={memberType}
       />
       {useOtherVersions && outputs.length > 0 && (
         <OtherVersions outputs={outputs} />

@@ -9,6 +9,7 @@ import {
 import classNames from '@oacore/design/lib/utils/class-names'
 
 import styles from './styles.module.css'
+import { capitalizeFirstLetter } from '../../utils/titleCase'
 
 const DropDown = ({
   title,
@@ -16,9 +17,12 @@ const DropDown = ({
   imageSrc,
   children,
   className,
+  memberType,
+  checkBillingType,
   activeArticle = false,
   useExpandButton = true,
   href,
+  makeVisible,
 }) => {
   const [activeDropdown, setActiveDropdown] = useState(!useExpandButton)
 
@@ -29,41 +33,58 @@ const DropDown = ({
   const Tag = href ? Link : 'div'
 
   return (
-    <div className={classNames.use(styles.dropdown).join(className)}>
-      <div className={styles.header}>
-        <DataProviderLogo
-          imageSrc={imageSrc}
-          useDefault
-          alt={title}
-          size="md"
-        />
-        <Tag className={styles.content} href={href}>
-          <Card.Title
-            className={classNames.use(styles.title, {
-              [styles.titleColored]: !activeArticle,
-            })}
-            tag="h3"
-          >
-            {title}
-          </Card.Title>
-          <Card.Description className={styles.subtitle} tag="span">
-            {subtitle}
-          </Card.Description>
-        </Tag>
-
-        {useExpandButton && (
-          <Button type="button" onClick={onToggleDropdown}>
-            <Icon
-              src="#menu-down"
-              className={classNames.use(styles.iconMenu, {
-                [styles.iconMenuActive]: activeDropdown,
+    <>
+      {checkBillingType && !makeVisible ? (
+        <div className={styles.placement}>
+          <span className={styles.memberType}>
+            {capitalizeFirstLetter(memberType?.billing_type)} member
+          </span>
+        </div>
+      ) : (
+        <></>
+      )}
+      <div
+        className={classNames
+          .use(styles.dropdown, {
+            [styles.activeClass]: checkBillingType && !makeVisible,
+          })
+          .join(className)}
+      >
+        <div className={styles.header}>
+          <DataProviderLogo
+            imageSrc={checkBillingType ? imageSrc : ''}
+            useDefault
+            alt={title}
+            size="md"
+          />
+          <Tag className={styles.content} href={href}>
+            <Card.Title
+              className={classNames.use(styles.title, {
+                [styles.titleColored]: !activeArticle,
               })}
-            />
-          </Button>
-        )}
+              tag="h3"
+            >
+              {title}
+            </Card.Title>
+            <Card.Description className={styles.subtitle} tag="span">
+              {subtitle}
+            </Card.Description>
+          </Tag>
+
+          {useExpandButton && (
+            <Button type="button" onClick={onToggleDropdown}>
+              <Icon
+                src="#menu-down"
+                className={classNames.use(styles.iconMenu, {
+                  [styles.iconMenuActive]: activeDropdown,
+                })}
+              />
+            </Button>
+          )}
+        </div>
+        {activeDropdown && children}
       </div>
-      {activeDropdown && children}
-    </div>
+    </>
   )
 }
 
