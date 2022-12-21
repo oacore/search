@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Icon, Link, LoadingBar } from '@oacore/design/lib/elements'
 import { Popover } from '@oacore/design/lib/modules'
 import classNames from '@oacore/design/lib/utils/class-names'
@@ -9,13 +9,14 @@ import Results from './results'
 import styles from './styles.module.css'
 import QueryError from '../error/query'
 import Notification from './notification'
-import coreImage from './images/core.png'
+import defaultImage from './images/defaultImage.png'
 import DownloadResultModal from './modals/download-results'
 import Sort from './sort'
+import { fetchLogos } from '../../api/search'
 
 import Search from 'modules/search-layout'
 import FiltersBar from 'modules/filters'
-import { useStore, observe } from 'store'
+import { observe, useStore } from 'store'
 import useWindowSize from 'hooks/use-window-size'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
 
@@ -23,6 +24,9 @@ const SearchTemplate = observe(({ data }) => {
   const router = useRouter()
   const { search } = useStore()
   const { width } = useWindowSize()
+  const [banner, setBanner] = useState()
+  const [loading, setLoading] = useState()
+
   const url =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
@@ -35,6 +39,15 @@ const SearchTemplate = observe(({ data }) => {
     search.setWorks(data.results)
     search.setQuery(data.query)
   }, [data])
+
+  useEffect(() => {
+    setLoading(true)
+    fetchLogos()
+      .then((bannerData) => {
+        if (bannerData) setBanner(bannerData)
+      })
+      .finally(() => setLoading(false))
+  }, [])
 
   const onHandleChangeSortOptions = (option) => {
     search.setActiveSortOption(option)
@@ -114,15 +127,26 @@ const SearchTemplate = observe(({ data }) => {
             </>
           )}
         </Search.Main>
-
         <Search.Sidebar tag="aside">
           <Link
-            href="https://www.core.ac.uk"
+            href={`${
+              banner?.dataprovider_id !== ''
+            } ? https://core.ac.uk/data-providers/${
+              banner?.dataprovider_id
+            } : https://core.ac.uk/membership`}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.logo}
           >
-            <img src={coreImage} alt="core" className={styles.sidebarImage} />
+            <img
+              src={`${
+                loading
+                  ? defaultImage
+                  : `data:image/jpeg;base64,${banner?.base64Banner}`
+              }`}
+              alt="core"
+              className={styles.sidebarImage}
+            />
           </Link>
         </Search.Sidebar>
         {copyUrlStatus === 'copied' && <Notification />}
