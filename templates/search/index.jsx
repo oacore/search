@@ -10,6 +10,7 @@ import styles from './styles.module.css'
 import QueryError from '../error/query'
 import Notification from './notification'
 import defaultImage from './images/defaultImage.png'
+import coreImage from './images/core.png'
 import DownloadResultModal from './modals/download-results'
 import Sort from './sort'
 import { fetchLogos } from '../../api/search'
@@ -129,24 +130,32 @@ const SearchTemplate = observe(({ data }) => {
         </Search.Main>
         <Search.Sidebar tag="aside">
           <Link
-            href={`${
+            href={
               banner?.dataprovider_id !== ''
-            } ? https://core.ac.uk/data-providers/${
-              banner?.dataprovider_id
-            } : https://core.ac.uk/membership`}
+                ? ` https://core.ac.uk/data-providers/${banner?.dataprovider_id}`
+                : 'https://core.ac.uk/membership`'
+            }
             target="_blank"
             rel="noopener noreferrer"
             className={styles.logo}
           >
             <img
-              src={`${
+              src={
                 loading
                   ? defaultImage
                   : `data:image/jpeg;base64,${banner?.base64Banner}`
-              }`}
+              }
               alt="core"
               className={styles.sidebarImage}
             />
+          </Link>
+          <Link
+            href="https://www.core.ac.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.logo}
+          >
+            <img src={coreImage} alt="core" className={styles.sidebarImage} />
           </Link>
         </Search.Sidebar>
         {copyUrlStatus === 'copied' && <Notification />}
