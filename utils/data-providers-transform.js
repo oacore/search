@@ -11,14 +11,27 @@ const checkLogo = async (logoUrl) => {
   }
 }
 
-const checkMembership = (dataProviderId) =>
-  cachedMembers.data.find(
-    ({ repo_id: repoId, billing_type: billingType }) =>
-      +repoId === +dataProviderId && billingType !== 'starting'
-  )
+function checkMembership(dataProviderId) {
+  // eslint-disable-next-line array-callback-return,consistent-return
+  return cachedMembers.data.find((item) => {
+    if (Array.isArray(item.repo_id)) {
+      return (
+        item.repo_id.includes(dataProviderId.toString()) &&
+        item.billingType !== 'starting'
+      )
+    }
+    return +item.repo_id === +dataProviderId && item.billingType !== 'starting'
+  })
+}
 
-const checkType = (dataProviderId) =>
-  cachedMembers.data.find((data) => +data.repo_id === +dataProviderId)
+function checkType(dataProviderId) {
+  // eslint-disable-next-line array-callback-return,consistent-return
+  return cachedMembers.data.find((item) => {
+    if (Array.isArray(item.repo_id))
+      return item.repo_id.includes(dataProviderId.toString())
+    return +item.repo_id === +dataProviderId
+  })
+}
 
 const transformDataProviders = async (dataProviders) => {
   const transformedData = await Promise.all(
