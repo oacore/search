@@ -72,7 +72,9 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
                   title,
                   author: authors,
                   publicationDate: publicationDate || null,
-                  thumbnailUrl: `//core.ac.uk/image/${id}/medium`,
+                  // eslint-disable-next-line max-len
+                  // thumbnailUrl: `//core.ac.uk/image/${id}/medium`, // TODO debug long loading page
+                  thumbnailUrl: '//core.ac.uk/images/document-placeholder.svg',
                   metadataLink,
                   fullTextLink: readerLink || downloadLink,
                   dataProviders,
