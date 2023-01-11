@@ -25,10 +25,11 @@ function checkMembership(dataProviderId) {
 }
 
 function checkType(dataProviderId) {
+  // TODO To many requests to this function
   // eslint-disable-next-line array-callback-return,consistent-return
   return cachedMembers.data.find((item) => {
     if (Array.isArray(item.repo_id))
-      return item.repo_id.includes(dataProviderId.toString())
+      return item.repo_id.includes(dataProviderId?.toString())
     return +item.repo_id === +dataProviderId
   })
 }
