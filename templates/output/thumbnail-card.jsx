@@ -42,7 +42,7 @@ const FullTextThumbnail = ({
         Full text removed upon author&apos;s request
       </Card.Title>
     )}
-    {useOtherVersions && (
+    {useOtherVersions && href && (
       <div className={styles.buttonContainer}>
         <Button variant="contained" href={href} tag="a">
           Open in the Core reader{' '}

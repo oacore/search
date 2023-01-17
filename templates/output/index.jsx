@@ -112,7 +112,7 @@ const ScientificOutputTemplate = ({
     <Search.Sidebar className={styles.containerSidebar}>
       <FullTextThumbnail
         id={`full-text-thumbnail-${id}`}
-        href={readerUrl || `//core.ac.uk/reader/${id}`}
+        href={readerUrl}
         src={thumbnailLargeUrl || `//core.ac.uk/image/${id}/large`}
         alt="thumbnail-image"
         data={{
