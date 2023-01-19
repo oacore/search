@@ -66,7 +66,7 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
                 variant="outlined"
                 id={`similar-output-${id}`}
                 className={styles.searchResult}
-                useLogo={!!checkBillingType}
+                useLogo={!!checkBillingType()}
                 data={{
                   id,
                   title,
