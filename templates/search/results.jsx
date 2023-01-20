@@ -2,6 +2,7 @@ import React from 'react'
 import { SearchResult } from '@oacore/design'
 
 import styles from './styles.module.css'
+import { checkType } from '../../utils/data-providers-transform'
 
 import { formatDate } from 'utils/helpers'
 
@@ -21,15 +22,23 @@ const Results = ({ works }) =>
       thumbnail_m: thumbnailLink,
       display: displayLink,
     }) => {
+      const memberType = checkType(dataProviders[0].id)
+
       const publicationDate = publishedDate
         ? formatDate(new Date(publishedDate))
         : yearPublished !== null && toString(yearPublished)
+
+      const checkBillingType = () =>
+        memberType?.billing_type === 'supporting' ||
+        memberType?.billing_type === 'sustaining'
+
       return (
         <SearchResult
           id={`search-output-${id}`}
           key={`search-result-${id}`}
           variant="outlined"
           className={styles.searchResults}
+          useLogo={!!checkBillingType()}
           data={{
             id,
             title,
