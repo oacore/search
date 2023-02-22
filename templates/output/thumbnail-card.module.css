@@ -69,10 +69,23 @@
   padding: 1rem;
 }
 
+.download-container {
+  display: flex;
+  padding: 0 1rem 1rem;
+}
+
+.download {
+  padding: 8px 0;
+}
+
 .icon {
   padding-bottom: 0.2rem;
 }
 
 .button-container a {
+  width: 100%;
+}
+
+.download-container a {
   width: 100%;
 }

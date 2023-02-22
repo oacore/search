@@ -14,6 +14,7 @@ import { capitalizeFirstLetter } from '../../utils/titleCase'
 const DropDown = ({
   title,
   subtitle,
+  renderOAI,
   imageSrc,
   children,
   className,
@@ -31,6 +32,10 @@ const DropDown = ({
   }
 
   const Tag = href ? Link : 'div'
+
+  const redirectOnClick = () => {
+    window.location.href = href
+  }
 
   return (
     <>
@@ -57,7 +62,7 @@ const DropDown = ({
             alt={title}
             size="md"
           />
-          <Tag className={styles.content} href={href}>
+          <Tag className={styles.content} onClick={redirectOnClick}>
             <Card.Title
               className={classNames.use(styles.title, {
                 [styles.titleColored]: !activeArticle,
@@ -68,6 +73,9 @@ const DropDown = ({
             </Card.Title>
             <Card.Description className={styles.subtitle} tag="span">
               {subtitle}
+            </Card.Description>
+            <Card.Description className={styles.subtitle} tag="span">
+              {renderOAI}
             </Card.Description>
           </Tag>
 
