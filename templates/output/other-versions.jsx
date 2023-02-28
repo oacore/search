@@ -10,6 +10,7 @@ const OtherVersions = ({ outputs }) => (
     {outputs.map((output) => (
       <CardDropdown
         {...output}
+        dataProviderId={output.dataProvider.id}
         image={output.dataProvider.logo}
         title={output.dataProvider.name}
         href={output.display}

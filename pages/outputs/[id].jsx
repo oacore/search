@@ -110,7 +110,7 @@ const ScientificOutputPage = ({ serverError, data }) => {
   const router = useRouter()
 
   const totalArticlesCount =
-    statistics.totalArticlesCount.toLocaleString('en-GB')
+    statistics?.totalArticlesCount.toLocaleString('en-GB')
 
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {

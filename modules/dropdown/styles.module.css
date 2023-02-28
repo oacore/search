@@ -34,3 +34,29 @@
   margin-top: 0.3rem;
   color: var(--gray-700);
 }
+
+.activeClass {
+  border: 1px solid #B75400;
+  background: #F5F5F5;
+  padding: 0.5rem;
+}
+
+.placement {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: -1rem;
+}
+
+.memberType {
+  min-width: 113px;
+  width: max-content;
+  background: #B75400;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.004em;
+  color: #FFFFFF;
+  padding: 0.25rem;
+  align-items: flex-end;
+}

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { SearchResult, Icon } from '@oacore/design'
 
 import styles from './styles.module.css'
+import { checkType } from '../../utils/data-providers-transform'
 
 import { observe, useStore } from 'store'
 import { formatDate } from 'utils/helpers'
@@ -35,7 +36,7 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
       {isLoading && <Loader text="Loading suggested articles..." />}
       {error && <LoadingError />}
       {similarOutputs &&
-        similarOutputs.map(
+        similarOutputs?.map(
           ({
             id,
             title,
@@ -49,6 +50,11 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
             const downloadLink = links.find((l) => l.type === 'download')?.url
             const readerLink = links.find((l) => l.type === 'reader')?.url
             const metadataLink = links.find((l) => l.type === 'similar')?.url
+            const memberType = checkType(dataProviders[0].id)
+
+            const checkBillingType = () =>
+              memberType?.billing_type === 'supporting' ||
+              memberType?.billing_type === 'sustaining'
 
             const publicationDate = publishedDate
               ? formatDate(new Date(publishedDate))
@@ -60,12 +66,15 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
                 variant="outlined"
                 id={`similar-output-${id}`}
                 className={styles.searchResult}
+                useLogo={!!checkBillingType()}
                 data={{
                   id,
                   title,
                   author: authors,
                   publicationDate: publicationDate || null,
-                  thumbnailUrl: `//core.ac.uk/image/${id}/medium`,
+                  // eslint-disable-next-line max-len
+                  // thumbnailUrl: `//core.ac.uk/image/${id}/medium`, // TODO debug long loading page
+                  thumbnailUrl: '//core.ac.uk/images/document-placeholder.svg',
                   metadataLink,
                   fullTextLink: readerLink || downloadLink,
                   dataProviders,

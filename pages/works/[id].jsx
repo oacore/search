@@ -123,7 +123,7 @@ const ScientificWorkPage = ({ serverError, data }) => {
   const router = useRouter()
 
   const totalArticlesCount =
-    statistics.totalArticlesCount.toLocaleString('en-GB')
+    statistics?.totalArticlesCount.toLocaleString('en-GB')
   Header.useSearchBar({
     onQueryChanged: (searchTerm) => {
       router.push(`/search?q=${searchTerm}`)

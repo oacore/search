@@ -35,3 +35,19 @@
 .oai-logo {
   margin-right: 0.5rem;
 }
+
+.member-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  padding: 2px 4px;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.004em;
+  background: #b75400;
+  border-radius: 2px;
+}

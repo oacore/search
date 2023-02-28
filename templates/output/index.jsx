@@ -37,6 +37,7 @@ const ScientificOutputTemplate = ({
     thumbnail_l: thumbnailLargeUrl,
     identifiers: { doi, oai },
     mainDataProviderLink,
+    memberType,
   },
   useOtherVersions = false,
   ...passProps
@@ -111,7 +112,7 @@ const ScientificOutputTemplate = ({
     <Search.Sidebar className={styles.containerSidebar}>
       <FullTextThumbnail
         id={`full-text-thumbnail-${id}`}
-        href={readerUrl || `//core.ac.uk/reader/${id}`}
+        href={readerUrl}
         src={thumbnailLargeUrl || `//core.ac.uk/image/${id}/large`}
         alt="thumbnail-image"
         data={{
@@ -124,8 +125,10 @@ const ScientificOutputTemplate = ({
           oai,
           download,
         }}
+        providerId={dataProvider.id}
         tag={fulltextStatus === 'disabled' ? 'div' : 'a'}
         useOtherVersions={useOtherVersions}
+        memberType={memberType}
       />
       {useOtherVersions && outputs.length > 0 && (
         <OtherVersions outputs={outputs} />

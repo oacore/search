@@ -17,6 +17,7 @@ const FullTextThumbnail = ({
   className,
   tag: Tag = 'a',
   useOtherVersions,
+  providerId,
   ...passProps
 }) => (
   <Card
@@ -41,7 +42,7 @@ const FullTextThumbnail = ({
         Full text removed upon author&apos;s request
       </Card.Title>
     )}
-    {useOtherVersions && (
+    {useOtherVersions && href && (
       <div className={styles.buttonContainer}>
         <Button variant="contained" href={href} tag="a">
           Open in the Core reader{' '}
@@ -54,6 +55,8 @@ const FullTextThumbnail = ({
         <CardDropdown
           image={data.dataProviderLogo}
           activeArticle
+          dataProviderId={providerId}
+          makeVisible
           {...data}
           useExpandButton={false}
         />

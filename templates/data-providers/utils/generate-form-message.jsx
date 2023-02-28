@@ -1,7 +1,8 @@
 import { Link } from '@oacore/design'
 import React from 'react'
 
-const searchUrlFor = (id) => `https://core.ac.uk/search?q=repositories.id:${id}`
+const searchUrlFor = (id) =>
+  `https://core.ac.uk/search?q=repositories.id:(${id})`
 
 const HARVESTED_BY_CORE = 'https://core.ac.uk/faq#harvested-by-CORE-snippet'
 const SUPPORT_EMAIL_URL = 'mailto:t%68%65t%65am%40core%2e%61c%2eu%6b'
