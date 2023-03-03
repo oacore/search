@@ -20,6 +20,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 20px;
+}
+
+.sort-wrapper .sort {
+  margin-bottom: 0.5rem;
 }
 
 .search-total {
@@ -190,6 +195,14 @@
   border-radius: 2px;
 }
 
+.header-info-caption a {
+  color: var(--white);
+}
+
+.header-info-caption a:hover {
+  color: var(--white);
+  text-decoration: none;
+}
 
 .header-info-caption::first-letter {
   text-transform: capitalize;

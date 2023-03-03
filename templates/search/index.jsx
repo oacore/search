@@ -51,16 +51,12 @@ const SearchTemplate = observe(({ data }) => {
   }, [])
 
   const onHandleChangeSortOptions = (option) => {
-    search.setActiveSortOption(option)
+    search.setActiveSortOption(option, '/search')
   }
 
   return (
     <>
-      <FiltersBar
-        query={data.query}
-        sortType={data.sort}
-        pathName="/search"
-      />
+      <FiltersBar query={data.query} sortType={data.sort} pathName="/search" />
       <Search className={classNames.use(styles.layout, styles.search)}>
         {search.isLoading && <LoadingBar fixed />}
         <Search.Main>

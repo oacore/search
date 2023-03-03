@@ -11,6 +11,7 @@ const Results = ({ works }) =>
     ({
       id,
       title,
+      links,
       authors,
       abstract,
       publishedDate,
@@ -22,7 +23,9 @@ const Results = ({ works }) =>
       thumbnail_m: thumbnailLink,
       display: displayLink,
     }) => {
-      const memberType = checkType(dataProviders[0].id)
+      const memberType = checkType(dataProviders?.[0].id)
+      const fullTextLink = links.find((l) => l.type === 'download')?.url
+      const metadataLink = links.find((l) => l.type === 'display')?.url
 
       const publicationDate = publishedDate
         ? formatDate(new Date(publishedDate))
@@ -46,8 +49,8 @@ const Results = ({ works }) =>
             publicationVenue: publicationVenue || null,
             publicationDate: publicationDate || null,
             thumbnailUrl: thumbnailLink || `//core.ac.uk/image/${id}/medium`,
-            metadataLink: displayLink,
-            fullTextLink: readerLink || downloadLink,
+            metadataLink: metadataLink || displayLink,
+            fullTextLink: fullTextLink || readerLink || downloadLink,
             dataProviders: dataProviders || [],
           }}
         >

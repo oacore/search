@@ -30,7 +30,7 @@ export async function getServerSideProps({
   query: searchParams,
 }) {
   const { id } = routeParams
-  const { q = '', offset = 0, limit = 10 } = searchParams
+  const { q = '', offset = 0, limit = 10, sort = 'relevance' } = searchParams
 
   const data = {}
   try {
@@ -59,10 +59,11 @@ export async function getServerSideProps({
     offset,
     limit,
     query: q,
+    sort,
   }
 
   try {
-    const outputs = await fetchOutputs(id, { q, offset, limit })
+    const outputs = await fetchOutputs(id, { q, offset, limit, sort })
     Object.assign(data.outputs, {
       total: outputs.totalHits,
       data: outputs.results,

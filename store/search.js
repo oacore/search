@@ -89,7 +89,7 @@ class Search {
     this.sortOptions = options
   }
 
-  setActiveSortOption(sortType, pathname) {
+  setActiveSortOptionData(sortType, pathname) {
     if (pathname?.includes('data-providers')) delete Router.query.id
 
     this.setSortOptions(sortType.value)
@@ -98,6 +98,18 @@ class Search {
       query: {
         ...Router.query,
         sort: sortType.value === 'recent' ? 'recency' : sortType.value,
+        page: 1,
+      },
+    })
+  }
+
+  setActiveSortOption(sortType) {
+    this.setSortOptions(sortType.value)
+    Router.push({
+      pathname: '/search',
+      query: {
+        ...Router.query,
+        sort: sortType.value,
         page: 1,
       },
     })

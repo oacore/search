@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react'
 import { classNames } from '@oacore/design/lib/utils'
 import { DataProviderLogo } from '@oacore/design/lib/elements/logo'
 
@@ -8,10 +8,10 @@ import MapCard from './map-card'
 import styles from './styles.module.css'
 import Pagination from './pagination'
 import MetaBox from './meta-box'
-import FiltersBar from '../../modules/filters'
 import { useStore } from '../../store'
 import Sort from '../search/sort'
 import Results from '../search/results'
+import { checkUniversity } from '../../utils/data-providers-transform'
 
 import Search from 'modules/search-layout'
 
@@ -44,11 +44,16 @@ const DataProviderTemplate = ({
     search.setSortOptions(data.sort)
     search.setWorks(data.results)
     search.setQuery(data.query)
-  }, [data])
-
+  }, [data.sort, data.results, data.query])
 
   const onHandleChangeSortOptions = (option) => {
-    search.setActiveSortOption(option, `/data-providers/${data.id}`)
+    search.setActiveSortOptionData(option, `/data-providers/${data.id}`)
+  }
+
+  const renderName = () => {
+    const hasName = checkUniversity(data.id)
+    if (hasName) return hasName.organisation_name
+    return ''
   }
 
   return (
@@ -58,11 +63,10 @@ const DataProviderTemplate = ({
     >
       <Search.Main>
         <header className={styles.header}>
-          {/* <span>{data.institution}</span> */}
           <DataProviderLogo alt={data.name} imageSrc={data.logo} size="lg" />
           <div className={styles.headerInfo}>
-            <h1 className={styles.headerInfoTitle}>{data.name}</h1>
-            <span className={styles.subHeaderInfo}>Open Research Online</span>
+            <h1 className={styles.headerInfoTitle}>{renderName()}</h1>
+            <span className={styles.subHeaderInfo}>{data.name}</span>
             <h5
               className={classNames.use(styles.headerInfoCaption, {
                 [styles.headerInfoCaptionColor]: !isDataProviderHasAccounts,
@@ -90,12 +94,12 @@ const DataProviderTemplate = ({
           className={styles.search}
           placeholder={`Search over ${data.outputs.total} research outputs in ${data.name}`}
         />
-        <FiltersBar
-          query={data.query}
-          sortType={data.sort}
-          styleProp
-          pathName={`/data-providers/${data.id}`}
-        />
+        {/* <FiltersBar */}
+        {/*  query={data.query} */}
+        {/*  sortType={data.sort} */}
+        {/*  styleProp */}
+        {/*  pathName={`/data-providers/${data.id}`} */}
+        {/* /> */}
         <div className={styles.sortWrapper}>
           <span className={styles.searchTotal}>
             {data.outputs.totalHits} research outputs found
