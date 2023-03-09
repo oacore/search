@@ -26,15 +26,23 @@ const ClaimModal = ({
     focus: focusNameFirst,
   } = useInput(contactData.name, 'contactNameFirst')
 
+  const {
+    value: rationale,
+    element: contactRationale,
+    bind: bindRationale,
+    focus: focusRationale,
+  } = useInput('', 'contactRationale')
+
   const handleSubmit = (evt) => {
     evt.preventDefault()
 
     const modalEdit = false
-    if (nameFirst && emailFirst)
-      onContinueClick({ nameFirst, emailFirst, modalEdit })
+    if (nameFirst && emailFirst && rationale)
+      onContinueClick({ nameFirst, emailFirst, modalEdit, rationale })
     else {
       focusEmailFirst()
       focusNameFirst()
+      focusRationale()
     }
   }
 
@@ -83,6 +91,23 @@ const ClaimModal = ({
           placeholder="How would you like to be called?"
           {...bindNameFirst}
           required
+        />
+        <br />
+        <TextField
+          id={contactRationale}
+          type="text"
+          name={contactRationale}
+          label="Justification"
+          placeholder="Why are you the authorised person to get access?"
+          required
+          {...bindRationale}
+          helper={
+            <>
+              We will send an email with your justification to the registered
+              repository manager of {contactData.name} to check that you are an
+              authorised person to get access.
+            </>
+          }
         />
       </Modal.Content>
       <Modal.Footer className={styles.footer}>
