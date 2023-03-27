@@ -41,8 +41,8 @@ class DataProviders {
   search(searchTerm) {
     return this.data.filter(
       (el) =>
-        el.name?.toLowerCase().search(searchTerm.toLowerCase()) !== -1 ||
-        el.normalizedName.toLowerCase().search(searchTerm.toLowerCase()) !== -1
+        el.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        el.normalizedName.toLowerCase().includes(searchTerm.toLowerCase())
     )
   }
 }
