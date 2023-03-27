@@ -42,7 +42,8 @@ class DataProviders {
     return this.data.filter(
       (el) =>
         el.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        el.normalizedName.toLowerCase().includes(searchTerm.toLowerCase())
+        el.normalizedName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        el.urlHomepage?.toLowerCase().includes(searchTerm.toLowerCase())
     )
   }
 }
