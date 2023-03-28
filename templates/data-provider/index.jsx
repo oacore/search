@@ -21,12 +21,7 @@ const countryName =
     ? new Intl.DisplayNames(['en'], { type: 'region' })
     : { of: (v) => v }
 
-const DataProviderTemplate = ({
-  data,
-  onSearch,
-  className,
-  ...restProps
-}) => {
+const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
   const { outputs } = data
 
   const { search } = useStore()
