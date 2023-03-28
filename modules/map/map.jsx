@@ -35,8 +35,8 @@ const CustomMap = ({ locations }) => {
 
     map.current = L.map(mapContainerRef.current, {
       center:
-        locations[0].latitude && locations[0].longitude
-          ? new L.LatLng(locations[0].latitude, locations[0].longitude)
+        locations[0]?.latitude && locations[0]?.longitude
+          ? new L.LatLng(locations[0]?.latitude, locations[0]?.longitude)
           : centerPosition,
       zoom: 1,
       maxBounds: [
