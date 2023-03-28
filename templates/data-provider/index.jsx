@@ -24,7 +24,6 @@ const countryName =
 const DataProviderTemplate = ({
   data,
   onSearch,
-  loading = false,
   className,
   ...restProps
 }) => {

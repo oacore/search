@@ -155,7 +155,6 @@ class Filters {
     this.setGroupedYearDates([2014, 2016, 2018])
   }
 
-
   @action
   toggleCheckboxFilter(element, pathName) {
     this.setIsLoading(true)
