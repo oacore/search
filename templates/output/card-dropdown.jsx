@@ -79,14 +79,14 @@ const CardDropdown = ({
   )
 
   const EllipsisText = (text) =>
-    text?.length > 12 ? `${text.substring(0, 12)}...` : text
+    text?.length > 22 ? `${text.substring(0, 22)}...` : text
 
   const renderOAI = (
     <Card.Description className={classNames.use(styles.identifier)} tag="span">
       <img
         src={getAssetsPath('/static/images/oai.svg')}
         alt="oai"
-        className={styles.oaiLogo}
+        className={styles.logo}
       />
       <a
         className={styles.ellipsis}

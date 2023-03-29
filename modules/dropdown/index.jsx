@@ -27,7 +27,8 @@ const DropDown = ({
 }) => {
   const [activeDropdown, setActiveDropdown] = useState(!useExpandButton)
 
-  const onToggleDropdown = () => {
+  const onToggleDropdown = (e) => {
+    e.stopPropagation()
     setActiveDropdown(!activeDropdown)
   }
 
@@ -56,39 +57,49 @@ const DropDown = ({
           .join(className)}
       >
         <div className={styles.header}>
-          <DataProviderLogo
-            imageSrc={checkBillingType ? imageSrc : ''}
-            useDefault
-            alt={title}
-            size="md"
-          />
           <Tag className={styles.content} onClick={redirectOnClick}>
-            <Card.Title
-              className={classNames.use(styles.title, {
-                [styles.titleColored]: !activeArticle,
+            <div className={styles.headerWrapper}>
+              <div className={styles.itemWrapper}>
+                <DataProviderLogo
+                  imageSrc={checkBillingType ? imageSrc : ''}
+                  useDefault
+                  alt={title}
+                  size="md"
+                />
+                <div className={styles.innerWrapper}>
+                  <Card.Title
+                    className={classNames.use(styles.title, {
+                      [styles.titleColored]: !activeArticle,
+                    })}
+                    tag="h3"
+                  >
+                    {title}
+                  </Card.Title>
+                  <Card.Description className={styles.subtitle} tag="span">
+                    {subtitle}
+                  </Card.Description>
+                </div>
+              </div>
+              {useExpandButton && (
+                <Button type="button" onClick={onToggleDropdown}>
+                  <Icon
+                    src="#menu-down"
+                    className={classNames.use(styles.iconMenu, {
+                      [styles.iconMenuActive]: activeDropdown,
+                    })}
+                  />
+                </Button>
+              )}
+            </div>
+            <Card.Description
+              className={classNames.use(styles.subtitle, {
+                [styles.oaiTitle]: renderOAI,
               })}
-              tag="h3"
+              tag="span"
             >
-              {title}
-            </Card.Title>
-            <Card.Description className={styles.subtitle} tag="span">
-              {subtitle}
-            </Card.Description>
-            <Card.Description className={styles.subtitle} tag="span">
               {renderOAI}
             </Card.Description>
           </Tag>
-
-          {useExpandButton && (
-            <Button type="button" onClick={onToggleDropdown}>
-              <Icon
-                src="#menu-down"
-                className={classNames.use(styles.iconMenu, {
-                  [styles.iconMenuActive]: activeDropdown,
-                })}
-              />
-            </Button>
-          )}
         </div>
         {activeDropdown && children}
       </div>

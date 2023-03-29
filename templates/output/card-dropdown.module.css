@@ -38,6 +38,10 @@
   margin-right: 0.5rem;
 }
 
+.logo {
+  margin: 0 0.5rem;
+}
+
 .ellipsis {
   display: inline-block;
   overflow: hidden;
