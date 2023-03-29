@@ -5,7 +5,6 @@ import classNames from '@oacore/design/lib/utils/class-names'
 import styles from './card-dropdown.module.css'
 import { checkType } from '../../utils/data-providers-transform'
 import { capitalizeFirstLetter } from '../../utils/titleCase'
-import fetchOaiResolver from '../../api/oai-resolver'
 
 import { formatDate, getAssetsPath } from 'utils/helpers'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
@@ -18,14 +17,6 @@ const httpsValidate = (sourceFulltextUrls) => {
   if (typeof url === 'object') url = url.join('')
   if (url.match(/http:/gm)) url = url.replace(/http:/, 'https:')
   return url
-}
-
-const validateIdentifier = (string) => {
-  const regexp = RegExp('(^oai:).+', 'g')
-
-  if (regexp.exec('oai_resolver') !== null) return true
-
-  return regexp.exec(string) !== null
 }
 
 const CardDropdown = ({
@@ -53,21 +44,6 @@ const CardDropdown = ({
 
   const handleMouseLeave = () => {
     setIsTooltipVisible(false)
-  }
-
-  async function handleSubmit(e) {
-    e.stopPropagation()
-    const valueInput = oai
-    if (validateIdentifier(valueInput)) {
-      try {
-        const result = await fetchOaiResolver(valueInput)
-        console.log(result, 'resultresult')
-        window.location.href = result
-      } catch (error) {
-        console.error(error)
-        alert('erori')
-      }
-    } else alert('Invalidi.')
   }
 
   const setSubtitleLinkText = () => {
@@ -112,16 +88,14 @@ const CardDropdown = ({
         alt="oai"
         className={styles.oaiLogo}
       />
-      {/* eslint-disable-next-line max-len */}
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-      <span
+      <a
         className={styles.ellipsis}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={handleSubmit}
+        href={`https://api.core.ac.uk/oai/${oai}`}
       >
         {EllipsisText(oai)}
-      </span>
+      </a>
       {isTooltipVisible && <div className={styles.tooltip}>{oai}</div>}
       <Icon
         src="#content-copy"
@@ -160,16 +134,14 @@ const CardDropdown = ({
               alt="oai"
               className={styles.oaiLogo}
             />
-            {/* eslint-disable-next-line max-len */}
-            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events */}
-            <span
+            <a
               className={styles.ellipsis}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              onClick={handleSubmit}
+              href={`https://api.core.ac.uk/oai/${oai}`}
             >
               {EllipsisText(oai)}
-            </span>
+            </a>
             <Icon
               src="#content-copy"
               className={styles.iconCopy}
