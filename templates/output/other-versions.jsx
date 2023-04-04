@@ -16,6 +16,7 @@ const OtherVersions = ({ outputs }) => (
         href={output.display}
         oai={output.identifiers.oai}
         key={output.id}
+        worksOai
       />
     ))}
   </Card>

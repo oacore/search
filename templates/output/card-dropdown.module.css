@@ -13,7 +13,9 @@
 }
 
 .identifier {
-  display: block;
+  position: relative;
+  display: flex;
+  align-items: center;
   color: var(--primary);
 }
 
@@ -34,6 +36,47 @@
 
 .oai-logo {
   margin-right: 0.5rem;
+}
+
+.logo {
+  margin: 0 0.5rem;
+}
+
+.ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 30%;
+  z-index: 4;
+  width: max-content;
+  max-width: 300px;
+  padding: 4px;
+  font-size: 14px;
+  text-align: center;
+  white-space: normal;
+  background: #f5f5f5;
+  border-radius: 6px;
+  transform: translateX(-50%);
+}
+
+.tooltip::after {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  content: '';
+  border-top: 5px solid #f5f5f5;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  transform: translateX(-50%);
 }
 
 .member-highlight {

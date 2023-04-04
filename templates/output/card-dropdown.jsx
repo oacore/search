@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Card, Icon, Link } from '@oacore/design/lib/elements'
 import classNames from '@oacore/design/lib/utils/class-names'
 
@@ -33,8 +33,18 @@ const CardDropdown = ({
   useExpandButton,
   dataProviderId,
   makeVisible,
+  worksOai,
 }) => {
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(oai)
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false)
+
+  const handleMouseEnter = () => {
+    setIsTooltipVisible(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsTooltipVisible(false)
+  }
 
   const setSubtitleLinkText = () => {
     let text = ''
@@ -68,11 +78,43 @@ const CardDropdown = ({
     </Tag>
   )
 
+  const EllipsisText = (text) =>
+    text?.length > 22 ? `${text.substring(0, 22)}...` : text
+
+  const renderOAI = (
+    <Card.Description className={classNames.use(styles.identifier)} tag="span">
+      <img
+        src={getAssetsPath('/static/images/oai.svg')}
+        alt="oai"
+        className={styles.logo}
+      />
+      <a
+        className={styles.ellipsis}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        href={`https://api.core.ac.uk/oai/${oai}`}
+      >
+        {EllipsisText(oai)}
+      </a>
+      {isTooltipVisible && <div className={styles.tooltip}>{oai}</div>}
+      <Icon
+        src="#content-copy"
+        className={styles.iconCopy}
+        onClick={(e) => {
+          e.stopPropagation()
+          copyUrl()
+        }}
+      />
+      {copyUrlStatus === 'copied' && <Notification text="Copied" />}
+    </Card.Description>
+  )
+
   return (
     <DropDown
       imageSrc={image}
       title={title}
       subtitle={subtitleText}
+      renderOAI={worksOai && oai && renderOAI}
       activeArticle={activeArticle}
       className={!activeArticle && !makeVisible && styles.dropdown}
       href={href}
@@ -82,7 +124,7 @@ const CardDropdown = ({
       makeVisible={makeVisible}
     >
       <div className={styles.dropdownContent}>
-        {oai && (
+        {!worksOai && oai && (
           <Card.Description
             className={classNames.use(styles.identifier)}
             tag="span"
@@ -92,7 +134,14 @@ const CardDropdown = ({
               alt="oai"
               className={styles.oaiLogo}
             />
-            {oai}
+            <a
+              className={styles.ellipsis}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              href={`https://api.core.ac.uk/oai/${oai}`}
+            >
+              {EllipsisText(oai)}
+            </a>
             <Icon
               src="#content-copy"
               className={styles.iconCopy}

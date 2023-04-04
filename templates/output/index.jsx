@@ -56,7 +56,7 @@ const ScientificOutputTemplate = ({
                 alt="oai"
                 className={styles.oaiLogo}
               />
-              {oai}
+              <a href={`https://api.core.ac.uk/oai/${oai}`}>{oai}</a>
             </div>
           )}
         </div>
