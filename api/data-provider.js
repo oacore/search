@@ -10,6 +10,11 @@ const fetchMetadata = async (id) => {
   return data
 }
 
+const fetchStats = async (id) => {
+  const { data } = await requestV3(`/data-providers/${id}/stats`)
+  return data
+}
+
 const fetchOutputs = async (id, searchParams) => {
   const { data } = await requestV3(`/data-providers/${id}/outputs`, {
     searchParams,
@@ -22,22 +27,4 @@ const fetchLogo = async (url) => {
   return response
 }
 
-const setLogoToMultipleDataProviders = async (dataProviders) => {
-  const logoRequests = dataProviders.map(async (dataProvider) => {
-    try {
-      await fetchLogo(dataProvider.logo)
-    } catch (error) {
-      dataProvider.logo = null
-    }
-    return dataProvider
-  })
-  const transformedDataProviders = await Promise.all(logoRequests)
-  return transformedDataProviders
-}
-
-export {
-  fetchMetadata,
-  fetchOutputs,
-  fetchLogo,
-  setLogoToMultipleDataProviders,
-}
+export { fetchMetadata, fetchOutputs, fetchStats, fetchLogo }

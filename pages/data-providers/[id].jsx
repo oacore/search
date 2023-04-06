@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react'
 import { useRouter } from 'next/router'
 
-import { fetchMetadata, fetchOutputs } from 'api/data-provider'
+import { fetchMetadata, fetchOutputs, fetchStats } from 'api/data-provider'
 import Template from 'templates/data-provider'
+import { checkLogo, checkMembership } from 'utils/data-providers-transform'
 
 const useSearch = () => {
   const router = useRouter()
@@ -29,13 +30,22 @@ export async function getServerSideProps({
   query: searchParams,
 }) {
   const { id } = routeParams
-  const { q = '', offset = 0, limit = 10 } = searchParams
+  const { q = '', offset = 0, limit = 10, sort = 'relevance' } = searchParams
 
   const data = {}
-
   try {
     const dataProvider = await fetchMetadata(id)
-    Object.assign(data, dataProvider)
+    const dataProviderStats = await fetchStats(id)
+
+    Object.assign(data, {
+      ...dataProvider,
+      billingType: checkMembership(dataProvider.id)?.billing_type || null,
+      metadata: {
+        ...dataProviderStats,
+      },
+
+      logo: await checkLogo(dataProvider.id, dataProvider.logo),
+    })
   } catch (errorWithDataProvider) {
     return {
       props: {
@@ -49,10 +59,11 @@ export async function getServerSideProps({
     offset,
     limit,
     query: q,
+    sort,
   }
 
   try {
-    const outputs = await fetchOutputs(id, { q, offset, limit })
+    const outputs = await fetchOutputs(id, { q, offset, limit, sort })
     Object.assign(data.outputs, {
       total: outputs.totalHits,
       data: outputs.results,
@@ -71,7 +82,6 @@ export async function getServerSideProps({
 
 const DataProviderPage = ({ data }) => {
   const handleSearch = useSearch()
-
   return <Template data={data} onSearch={handleSearch} />
 }
 

@@ -37,8 +37,9 @@ const ClaimSuccessModal = ({
         </svg>
         <p>
           We sent your request to the registered repository manager for
-          approval. You will be contacted at <b> {contactData.email}</b> as soon
-          repository manager approves your request.{' '}
+          approval. You will be contacted at{' '}
+          <b className={styles.successModalEmail}> {contactData.email}</b> as
+          soon repository manager approves your request.{' '}
         </p>
       </Modal.Content>
     ) : (

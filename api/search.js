@@ -15,7 +15,10 @@ export const fetchWorks = async (body) => {
 export const fetchAggregations = async (body) => {
   const url = new URL(`/v3/search/works/aggregate`, process.env.API_URL).href
   const { data: aggregations } = await apiRequest(url, {
-    body,
+    body: {
+      ...body,
+      q: body.q || '',
+    },
     method: 'POST',
   })
   return aggregations

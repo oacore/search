@@ -8,7 +8,7 @@ import setFilterBox from './utils/set-filter-box'
 import useOutsideClick from 'hooks/use-outside-click'
 import { observe, useStore } from 'store'
 
-const FilterBarItem = observe(({ filter }) => {
+const FilterBarItem = observe(({ filter, pathName }) => {
   const [isComponentVisible, setIsComponentVisible] = useState(false)
 
   const node = useRef()
@@ -29,7 +29,7 @@ const FilterBarItem = observe(({ filter }) => {
   useOutsideClick(node, hideFilterBox)
 
   const onChangeFiltersWithCheckbox = (element) => {
-    filters.toggleCheckboxFilter(element)
+    filters.toggleCheckboxFilter(element, pathName)
   }
 
   const component = setFilterBox(
@@ -48,7 +48,6 @@ const FilterBarItem = observe(({ filter }) => {
             filter.label !== 'sort by' &&
             filter.items.find((item) => item.checked === true),
           [styles.sortBarItem]: filter.label === 'sort by',
-          [styles.disabled]: filter.items.length === 0,
         })}
       >
         <p>{filter.label}</p>

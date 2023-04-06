@@ -7,6 +7,17 @@
   box-shadow: var(--elevation-03);
 }
 
+.search-container {
+  position: unset;
+  display: flex;
+  padding: 1rem 0 2rem;
+  box-shadow: unset;
+}
+
+.search-bar {
+  padding: unset !important;
+}
+
 .bar {
   display: flex;
   flex-wrap: wrap;

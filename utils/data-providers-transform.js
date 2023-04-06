@@ -2,15 +2,6 @@ import cachedMembers from 'data/.members.json'
 import cachedDataProviders from 'data/.formap.json'
 import { fetchLogo } from 'api/data-provider'
 
-const checkLogo = async (logoUrl) => {
-  try {
-    await fetchLogo(logoUrl)
-    return logoUrl
-  } catch (error) {
-    return null
-  }
-}
-
 function checkMembership(dataProviderId) {
   return cachedMembers.data.find((item) => {
     if (Array.isArray(item.repo_id)) {
@@ -21,6 +12,17 @@ function checkMembership(dataProviderId) {
     }
     return +item.repo_id === +dataProviderId && item.billingType !== 'starting'
   })
+}
+
+const checkLogo = async (dataProviderId, logoUrl) => {
+  const isMember = !!checkMembership(dataProviderId)
+  if (!isMember) return null
+  try {
+    await fetchLogo(logoUrl)
+    return logoUrl
+  } catch (error) {
+    return null
+  }
 }
 
 function checkType(dataProviderId) {
@@ -45,7 +47,26 @@ const transformDataProviders = async (dataProviders) => {
       }
     })
   )
+
   return transformedData
 }
 
-export { checkLogo, checkMembership, transformDataProviders, checkType }
+function checkUniversity(dataProviderId) {
+  return cachedMembers.data.find((item) => {
+    if (Array.isArray(item.repo_id)) {
+      return (
+        item.repo_id.includes(dataProviderId.toString()) &&
+        item.organisation_name
+      )
+    }
+    return +item.repo_id === +dataProviderId && item.organisation_name
+  })
+}
+
+export {
+  checkLogo,
+  checkMembership,
+  transformDataProviders,
+  checkType,
+  checkUniversity,
+}

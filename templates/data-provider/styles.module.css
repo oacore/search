@@ -1,6 +1,10 @@
 .layout {
   z-index: 5;
   padding: var(--page-padding-y) var(--page-padding-x);
+  background-image: url('./images/map-background.png');
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-position: top; /* Center the image */
+  background-size: contain;
 }
 
 .title-box {
@@ -12,12 +16,44 @@
   grid-row: 2;
 }
 
-.header {
-  margin-bottom: 3rem;
+.sort-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-.title {
-  margin-top: 0;
+.sort-wrapper .sort {
+  margin-bottom: 0.5rem;
+}
+
+.search-total {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  gap: 2.5rem;
+}
+
+.header-info-title {
+  margin: 1rem 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--black);
+}
+
+.sub-header-info {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--black);
 }
 
 .card:not(:last-child) {
@@ -53,7 +89,7 @@
 .result-item {
   transition: filter 150ms;
 
-  &[aria-busy='true'] {
+  & [aria-busy='true'] {
     filter: grayscale(100%);
   }
 }
@@ -67,7 +103,7 @@
 .map-caption {
   margin-top: calc(2 * var(--card-padding-y, var(--component-padding-y)));
 
-  &:empty {
+  & :empty {
     display: none;
   }
 }
@@ -110,4 +146,64 @@
   pointer-events: none;
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+.meta {
+  padding: 0;
+}
+
+.boxes {
+  display: flex;
+  align-items: center;
+}
+
+.box-item {
+  flex: 1;
+  padding: 1rem;
+}
+
+.box-item:nth-child(1) {
+  border-right: 1px solid var(--gray-200);
+}
+
+.update-date {
+  padding: 1rem;
+  font-size: 14px;
+  font-weight: 400;
+  border-top: 1px solid var(--gray-200);
+}
+
+.count {
+  margin-bottom: 0.3rem;
+  font-size: var(--h1-font-size, 2rem);
+  font-weight: 400;
+}
+
+.caption {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.header-info-caption {
+  width: max-content;
+  padding: 4px;
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--white);
+  background: #b75400;
+  border-radius: 2px;
+}
+
+.header-info-caption a {
+  color: var(--white);
+}
+
+.header-info-caption a:hover {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.header-info-caption::first-letter {
+  text-transform: capitalize;
 }

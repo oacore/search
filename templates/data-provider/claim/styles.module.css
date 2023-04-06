@@ -59,6 +59,10 @@
   justify-content: end;
 }
 
+.success-modal-email {
+  color: var(--primary);
+}
+
 .footer-close {
   justify-content: start;
 }

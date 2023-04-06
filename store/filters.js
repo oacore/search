@@ -156,7 +156,7 @@ class Filters {
   }
 
   @action
-  toggleCheckboxFilter(element) {
+  toggleCheckboxFilter(element, pathName) {
     this.setIsLoading(true)
     const { activeFilterSuggestions } = this
     const foundedIndex = activeFilterSuggestions.findIndex(
@@ -175,7 +175,7 @@ class Filters {
 
     if (query.includes(filterValue)) {
       Router.push({
-        pathname: '/search',
+        pathname: pathName,
         query: {
           ...Router.query,
           q: query.replace(` AND ${filterKey}:"${filterValue}"`, ''),
@@ -184,7 +184,7 @@ class Filters {
       })
     } else {
       Router.push({
-        pathname: '/search',
+        pathname: pathName,
         query: {
           ...Router.query,
           q: `${query} AND ${filterKey}:"${filterValue}"`,
@@ -195,7 +195,7 @@ class Filters {
   }
 
   @action
-  setActiveYearDate(yearsRange) {
+  setActiveYearDate(yearsRange, pathName) {
     const activeFilterSuggestions = this.activeFilterSuggestions.map((item) => {
       item.checked = false
       return item
@@ -235,7 +235,7 @@ class Filters {
     const { q: query } = Router.query
 
     Router.push({
-      pathname: '/search',
+      pathname: pathName,
       query: {
         ...Router.query,
         q: `${query.replace(/ AND \(year(.*)\)/g, '')} AND (${filterKey}>=${
@@ -314,13 +314,17 @@ class Filters {
     return this.aggregationsNames.filter((item) => item !== 'yearPublished')
   }
 
+  get filterNamesWithoutPublisher() {
+    return this.aggregationsNames.filter((item) => item !== 'publisher')
+  }
+
   @action
   getFilterByValue(array = this.data, key) {
     return array.find((item) => item.value === key)
   }
 
   @action
-  reset(query) {
+  reset(query, pathName) {
     this.initialData = {}
     this.activeFilter = {}
     this.groupedYearDates = []
@@ -328,10 +332,10 @@ class Filters {
     this.isLoading = false
     this.isVisibleClearButton = false
     Router.push({
-      pathname: '/search',
+      pathname: pathName,
       query: {
         ...Router.query,
-        q: query.replace(/ .*/, ''),
+        q: query?.replace(/ .*/, ''),
         page: 1,
       },
     })

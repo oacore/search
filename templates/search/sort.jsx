@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Icon } from '@oacore/design/lib/elements'
 import classNames from '@oacore/design/lib/utils/class-names'
 
@@ -8,7 +8,8 @@ import useOutsideClick from 'hooks/use-outside-click'
 import FilterItem from 'modules/filters/filter-item'
 
 const Sort = ({ options, onClick, className }) => {
-  const [boxVisible, setBoxVisible] = React.useState(false)
+  const [boxVisible, setBoxVisible] = useState(false)
+  const [activeOption, setActiveOption] = useState()
 
   const node = useRef()
 
@@ -24,10 +25,18 @@ const Sort = ({ options, onClick, className }) => {
 
   const onHandleChange = (option) => {
     onClick(option)
+    setActiveOption(option)
     hideFilterBox()
   }
 
-  const activeItem = options.find((item) => item.checked === true)
+  useEffect(() => {
+    const activeItem = options.find((item) => item.checked === true) || {
+      ...options[0],
+      checked: true,
+    }
+    setActiveOption(activeItem)
+  }, [options])
+
   return (
     <div className={classNames.use(styles.sort).join(className)} ref={node}>
       <div
@@ -35,9 +44,10 @@ const Sort = ({ options, onClick, className }) => {
         role="presentation"
         onClick={onToggleBoxVisible}
       >
-        <p>
-          Sort by <span className={styles.activeItem}>{activeItem.value}</span>
-        </p>
+        <span>
+          Sort by{' '}
+          <span className={styles.activeItem}>{activeOption?.value}</span>
+        </span>
         <Icon className={styles.sortBoxIcon} src="#menu-down" />
       </div>
       {boxVisible && (
