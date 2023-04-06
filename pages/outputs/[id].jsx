@@ -56,10 +56,6 @@ export async function getServerSideProps({ params: routeParams }) {
     if (isMember) dataProvider.logo = await checkLogo(dataProvider.logo)
     else dataProvider.logo = null
 
-    // Object.assign(dataProvider, {
-    //   logo: await checkLogo(dataProvider.id, dataProvider.logo),
-    // })
-
     const { sourceFulltextUrls } = output
 
     if (
