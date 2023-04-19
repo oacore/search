@@ -26,7 +26,7 @@ const SearchTemplate = observe(({ data }) => {
   const { search } = useStore()
   const { width } = useWindowSize()
   const [banner, setBanner] = useState()
-  const [loading, setLoading] = useState()
+  const [loading, setLoading] = useState(true)
 
   const url =
     process.env.NODE_ENV === 'development'
@@ -42,12 +42,17 @@ const SearchTemplate = observe(({ data }) => {
   }, [data])
 
   useEffect(() => {
-    setLoading(true)
     fetchLogos()
       .then((bannerData) => {
         if (bannerData) setBanner(bannerData)
       })
-      .finally(() => setLoading(false))
+      .finally(() => {
+        if (
+          banner?.base64Banner !== 'undefined' &&
+          banner?.base64Banner.length > 0
+        )
+          setLoading(false)
+      })
   }, [])
 
   const onHandleChangeSortOptions = (option) => {
