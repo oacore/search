@@ -45,10 +45,19 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+    # Check if artifacts exists
+      - name: Check for existing artifacts directory
+        run: |
+         if [ -d "./artifacts" ]; then
+            echo "Artifacts directory exists, skipping artifact download"
+            touch ./artifacts_exists
+         fi
+            
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
           name: node-app
+        if: success() && !startsWith(needs.build.outputs['steps.run-build.outputs.status'], 'failure') && !contains(runner.workspace, '/artifacts_exists')
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
