@@ -47,17 +47,23 @@ jobs:
     steps:
     # Check if artifacts exists
       - name: Check for existing artifacts directory
+        id: check_artifacts
         run: |
          if [ -d "./artifacts" ]; then
             echo "Artifacts directory exists, skipping artifact download"
             touch ./artifacts_exists
+            echo "::set-output name=artifacts_exist::true"
+         else
+            echo "::set-output name=artifacts_exist::false"
          fi
             
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
           name: node-app
-        if: success() && !startsWith(needs.build.outputs['steps.run-build.outputs.status'], 'failure') && !contains(runner.workspace, '/artifacts_exists')
+        if: success() &&
+            !startsWith(needs.build.outputs['run-build.outputs.status'], 'failure') &&
+            steps.check_artifacts.outputs.artifacts_exist != 'true'
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
