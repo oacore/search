@@ -1,13 +1,13 @@
-name: Azure-CoreGroup-workflow
+name: core-search-ui
 
 env:
-   NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-   API_KEY: searchstaging-4f66dbcd27af40b1a6
+  NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  API_KEY: searchstaging-4f66dbcd27af40b1a6
 
 on:
   push:
     branches:
-      - azure-new-test
+      - s_azure_test
   workflow_dispatch:
 
 jobs:
@@ -30,42 +30,27 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: search-node-app
+          name: search-ui-node-app
           path: .
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'production'
+      name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-    # Check if artifacts exists
-      - name: Check for existing artifacts directory
-        id: check_artifacts
-        run: |
-         if [ -d "./search-node-app" ]; then
-            echo "Artifacts directory exists, skipping artifact download"
-            touch ./artifacts_exists
-            echo "::set-output name=artifacts_exist::true"
-         else
-            echo "::set-output name=artifacts_exist::false"
-         fi
-         
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: search-node-app
-        if: success() &&
-            !startsWith(needs.build.outputs['run-build.outputs.status'], 'failure') &&
-            steps.check_artifacts.outputs.artifacts_exist != 'true'
+          name: search-ui-node-app
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'core-search'
-          slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_1234 }}
+          app-name: 'core-search-ui'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BE9E147589754588AC31020C2B1EE73B }}
           package: .
