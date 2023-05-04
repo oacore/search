@@ -7,7 +7,7 @@
 
 # Helpers
 # -------
-
+echo "in kudu"
 exitWithMessageOnError () {
   if [ ! $? -eq 0 ]; then
     echo "An error has occurred during web site deployment."
@@ -112,11 +112,18 @@ fi
 # 3. Install npm packages
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
-  echo "Running npm install --production"
-  eval npm install --production
+  echo "Running npm install"
+  eval npm install
   exitWithMessageOnError "npm failed"
   cd - > /dev/null
 fi
-echo "Not really sure wehre we are $NPM_TOKEN is it here?"
+echo "Running npm run build"
+echo "$DEPLOYMENT_TARGET"
+cd "$DEPLOYMENT_TARGET"
+eval npm run build
+exitWithMessageOnError "npm build failed"
+cd - > /dev/null
+
+echo "$PWD"
 ##################################################################################################################################
 echo "Finished successfully."
