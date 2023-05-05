@@ -113,6 +113,7 @@ fi
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   echo "Running npm install"
+  eval node -v
   eval npm install
   exitWithMessageOnError "npm failed"
   cd - > /dev/null
