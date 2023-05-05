@@ -120,6 +120,7 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
 fi
 echo "Running npm run build"
 echo "$DEPLOYMENT_TARGET"
+eval node -v
 cd "$DEPLOYMENT_TARGET"
 eval npm run build
 exitWithMessageOnError "npm build failed"
