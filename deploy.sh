@@ -110,6 +110,7 @@ fi
 #selectNodeVersion
 
 # 3. Install npm packages
+eval export API_KEY=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
 eval rm package-lock.json
 eval rm -rf node_modules
 #if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
