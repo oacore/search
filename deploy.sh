@@ -110,6 +110,8 @@ fi
 #selectNodeVersion
 
 # 3. Install npm packages
+eval rm package-lock.json
+eval rm -rf node_modules
 #if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
 #  cd "$DEPLOYMENT_TARGET"
 #  echo "Running npm install"
