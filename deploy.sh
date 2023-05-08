@@ -118,7 +118,7 @@ eval rm package-lock.json
 #  echo "Running npm install"
 #  eval node -v
 #  echo "$PWD"
-#  eval npm install
+eval npm install
 #  exitWithMessageOnError "npm failed"
 #  cd - > /dev/null
 #fi
