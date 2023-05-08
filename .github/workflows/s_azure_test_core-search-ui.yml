@@ -2,7 +2,7 @@ name: core-search-ui
 
 env:
   NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  API_KEY: searchstaging-4f66dbcd27af40b1a6
+  API_KEY: ${{ secrets.API_TOKEN }}
 
 on:
   push:
