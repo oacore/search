@@ -133,6 +133,7 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
           {data.name}
           {data.location?.countryCode ? (
             <>
+              {' '}
               is based in{' '}
               {countryName.of(data.location.countryCode.toUpperCase())}
             </>
