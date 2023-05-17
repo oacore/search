@@ -51,7 +51,8 @@ class DataProviders {
           ?.join('|')
           .toLowerCase()
           .includes(searchTerm.toLowerCase()) ||
-        el.rorId?.toLowerCase().includes(searchTerm.toLowerCase()) )
+        el.rorId?.toLowerCase().includes(searchTerm.toLowerCase())
+    )
   }
 }
 
