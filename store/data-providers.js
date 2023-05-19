@@ -43,7 +43,15 @@ class DataProviders {
       (el) =>
         el.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         el.normalizedName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        el.urlHomepage?.toLowerCase().includes(searchTerm.toLowerCase())
+        el.urlHomepage?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        el.normalizedInstitutionName
+          ?.toLowerCase()
+          .includes(searchTerm.toLowerCase()) ||
+        el.aliases
+          ?.join('|')
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase()) ||
+        el.rorId?.toLowerCase().includes(searchTerm.toLowerCase())
     )
   }
 }

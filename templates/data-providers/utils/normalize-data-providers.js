@@ -7,6 +7,7 @@ const normalizeDataProviders = (dataProviders) =>
     .map((el) => ({
       ...el,
       normalizedName: normalize(el.name || ''),
+      normalizedInstitutionName: normalize(el.institutionName || ''),
     }))
 
 export default normalizeDataProviders
