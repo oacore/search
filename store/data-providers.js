@@ -38,7 +38,9 @@ class DataProviders {
     this.params = new Params(params, schema)
   }
 
-  search(searchTerm) {
+  search(encodedSearchTerm) {
+    const searchTerm = decodeURI(encodedSearchTerm)
+
     return this.data.filter(
       (el) =>
         el.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
