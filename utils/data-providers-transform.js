@@ -52,7 +52,7 @@ const transformDataProviders = async (dataProviders) => {
 }
 
 function checkUniversity(dataProviderId) {
-  return cachedMembers.data.find((item) => {
+  const member = cachedMembers.data.find((item) => {
     if (Array.isArray(item.repo_id)) {
       return (
         item.repo_id.includes(dataProviderId.toString()) &&
@@ -61,6 +61,15 @@ function checkUniversity(dataProviderId) {
     }
     return +item.repo_id === +dataProviderId && item.organisation_name
   })
+  let universityName = member?.organisationName
+  if (!universityName) {
+    const dataProvider = cachedDataProviders.data.find(
+      (dp) => dp.id === +dataProviderId
+    )
+    universityName = dataProvider.institutionName
+    console.log(universityName)
+  }
+  return universityName
 }
 
 export {

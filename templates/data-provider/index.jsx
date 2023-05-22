@@ -45,9 +45,8 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
   }
 
   const renderName = () => {
-    const hasName = checkUniversity(data.id)
-    if (hasName) return hasName.organisation_name
-    return ''
+    const universityName = checkUniversity(data.id)
+    return universityName ?? ''
   }
 
   return (
