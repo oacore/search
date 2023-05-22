@@ -67,7 +67,6 @@ function checkUniversity(dataProviderId) {
       (dp) => dp.id === +dataProviderId
     )
     universityName = dataProvider.institutionName
-    console.log(universityName)
   }
   return universityName
 }
