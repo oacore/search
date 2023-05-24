@@ -75,7 +75,7 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
                     !isDataProviderHasAccounts,
                 })}
               >
-                {isDataProviderHasAccounts
+                {isDataProviderHasAccounts && data.billingType !== null
                   ? `${data.billingType} member`
                   : `Not a member yet`}
               </a>
