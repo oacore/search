@@ -45,9 +45,8 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
   }
 
   const renderName = () => {
-    const hasName = checkUniversity(data.id)
-    if (hasName) return hasName.organisation_name
-    return ''
+    const universityName = checkUniversity(data.id)
+    return universityName ?? ''
   }
 
   return (
@@ -133,6 +132,7 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
           {data.name}
           {data.location?.countryCode ? (
             <>
+              {' '}
               is based in{' '}
               {countryName.of(data.location.countryCode.toUpperCase())}
             </>
