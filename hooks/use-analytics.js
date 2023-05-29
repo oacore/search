@@ -23,7 +23,6 @@ const useAnalytics = () => {
     if (analyticsAllowed && process.env.NODE_ENV === 'production') {
       // Initialise production Google Analytics
       ReactGA.initialize(process.env.GA_TRACKING_CODE)
-      // ReactGA.initialize(process.env.GA_CODE)
     } else if (analyticsAllowed) {
       window.ga = (...args) =>
         // We want to have logging in the development environment
