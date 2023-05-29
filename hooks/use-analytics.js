@@ -8,16 +8,13 @@ const useAnalytics = () => {
   const analyticsAllowed = useCookie('analytics_cookies_allowed')
 
   const router = useRouter()
-  const reportPageview = useCallback(
-    (url, title = 'Search page', type = 'pageview') => {
-      ReactGA.send({
-        hitType: type,
-        page: url,
-        title,
-      })
-    },
-    []
-  )
+  const reportPageview = useCallback((url, title, type = 'pageview') => {
+    ReactGA.send({
+      hitType: type,
+      page: url,
+      title: `Search page. ${window.location.search.substring(1)}`,
+    })
+  }, [])
 
   useEffect(() => {
     if (analyticsAllowed && process.env.NODE_ENV === 'production') {
