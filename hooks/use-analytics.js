@@ -12,7 +12,7 @@ const useAnalytics = () => {
     ReactGA.send({
       hitType: type,
       page: url,
-      title: `Search page. ${window.location.search.substring(1)}`,
+      title: `Search | ${window.location.search.substring(1)}`,
     })
   }, [])
 
