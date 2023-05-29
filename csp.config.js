@@ -6,6 +6,7 @@ const PRODUCTION = '*.core.ac.uk core.ac.uk'
 
 const config = {
   'default-src': [SELF, PRODUCTION],
+  'script-src-elem': ["'self'", "'unsafe-eval'"],
   'script-src': [SELF, '*.google-analytics.com', '*.doubleclick.net'],
   // TODO: Move 'unsafe-inline' to dev when the Next.js' bug is resolved
   // See more: https://github.com/vercel/next.js/issues/17445
