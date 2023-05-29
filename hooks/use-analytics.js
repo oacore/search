@@ -9,7 +9,7 @@ const useAnalytics = () => {
 
   const router = useRouter()
   const reportPageview = useCallback(
-    (url, title = 'title', type = 'pageview') => {
+    (url, title = 'Search page', type = 'pageview') => {
       ReactGA.send({
         hitType: type,
         page: url,
