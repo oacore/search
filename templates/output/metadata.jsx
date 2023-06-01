@@ -1,11 +1,17 @@
 import React from 'react'
-import { MetadataList, ExpandableList } from '@oacore/design'
+import { ExpandableList, MetadataList } from '@oacore/design'
 
 import styles from './styles.module.css'
 
 import { formatDate } from 'utils/helpers'
 
-const Metadata = ({ authors, publisher, publishedDate, doi }) => (
+const Metadata = ({
+  authors,
+  publisher,
+  publishedDate,
+  doi,
+  uniqueDoiArray,
+}) => (
   <MetadataList className={styles.metadata}>
     <MetadataList.Item id="metadata-authors" label="Authors">
       <ExpandableList>
@@ -40,7 +46,19 @@ const Metadata = ({ authors, publisher, publishedDate, doi }) => (
     </MetadataList.Item>
     {doi && (
       <MetadataList.Item id="doi" label="Doi">
-        DOI:{doi}
+        <ExpandableList>
+          {uniqueDoiArray.map((doiItem) => (
+            <ExpandableList.Item
+              key={doiItem}
+              id="doi"
+              itemProp="doi"
+              itemScope=""
+              itemType="doi"
+            >
+              {doiItem && `DOI: ${doiItem.toUpperCase()}`}
+            </ExpandableList.Item>
+          ))}
+        </ExpandableList>
       </MetadataList.Item>
     )}
   </MetadataList>
