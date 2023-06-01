@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Icon, MathMarkdown } from '@oacore/design/lib/elements'
 
 import SimilarWorks from './similar-works'
@@ -42,9 +42,15 @@ const ScientificOutputTemplate = ({
   useOtherVersions = false,
   ...passProps
 }) => {
-  const doiArray = [doi, ...outputs.map((item) => item.doi.toLowerCase())]
+  const [uniqueDoiArray, setUiqueDoiArray] = useState([])
 
-  const uniqueDoiArray = [...new Set(doiArray)]
+  useEffect(() => {
+    const doiArray = [doi]
+
+    if (outputs) doiArray.push(...outputs.map((item) => item.doi.toLowerCase()))
+
+    setUiqueDoiArray([...new Set(doiArray)])
+  }, [])
 
   return (
     <Search {...passProps} className={styles.outputContainer}>
