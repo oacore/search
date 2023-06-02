@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import {
   Button,
   Card,
+  DataProviderLogo,
   Icon,
   Link,
-  DataProviderLogo,
 } from '@oacore/design/lib/elements'
 import classNames from '@oacore/design/lib/utils/class-names'
 
@@ -24,6 +24,7 @@ const DropDown = ({
   useExpandButton = true,
   href,
   makeVisible,
+  disableRedirect,
 }) => {
   const [activeDropdown, setActiveDropdown] = useState(!useExpandButton)
 
@@ -34,7 +35,10 @@ const DropDown = ({
 
   const Tag = href ? Link : 'div'
 
+  // eslint-disable-next-line consistent-return
   const redirectOnClick = () => {
+    if (disableRedirect && activeArticle) return null
+
     window.location.href = href
   }
 
