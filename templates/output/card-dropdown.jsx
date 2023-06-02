@@ -50,7 +50,8 @@ const CardDropdown = ({
     let text = ''
     if (coreDownloadUrl && coreDownloadUrl.match(/core.ac.uk/gm))
       text = 'Provided a free PDF'
-    else if (sourceFulltextUrls) text = 'Provided original full text link'
+    else if (sourceFulltextUrls && sourceFulltextUrls.length > 0)
+      text = 'Provided original full text link'
     else text = 'Full text is not available'
     return text
   }
@@ -67,16 +68,19 @@ const CardDropdown = ({
     []
   )
 
-  const subtitleText = (
-    <Tag
-      href={coreDownloadUrl || sourceFulltextUrls}
-      className={classNames.use(styles.link, {
-        [styles.linkDisabled]: !coreDownloadUrl && !sourceFulltextUrls,
-      })}
-    >
-      {subtitleLinkText}
-    </Tag>
-  )
+  const subtitleText =
+    coreDownloadUrl?.length > 0 || sourceFulltextUrls.length > 0 ? (
+      <Tag
+        href={coreDownloadUrl || sourceFulltextUrls || '#'}
+        className={classNames.use(styles.link, {
+          [styles.linkDisabled]: !coreDownloadUrl && !sourceFulltextUrls,
+        })}
+      >
+        {subtitleLinkText}
+      </Tag>
+    ) : (
+      subtitleLinkText
+    )
 
   const EllipsisText = (text) =>
     text?.length > 22 ? `${text.substring(0, 22)}...` : text
@@ -111,6 +115,7 @@ const CardDropdown = ({
 
   return (
     <DropDown
+      disableRedirect
       imageSrc={image}
       title={title}
       subtitle={subtitleText}
