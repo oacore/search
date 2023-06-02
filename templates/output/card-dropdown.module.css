@@ -94,3 +94,8 @@
   background: #b75400;
   border-radius: 2px;
 }
+
+.member-highlight:hover {
+  color: #fff;
+  text-decoration: none;
+}

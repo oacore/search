@@ -117,6 +117,7 @@ const CardDropdown = ({
     <DropDown
       disableRedirect
       imageSrc={image}
+      dataProviderId={dataProviderId}
       title={title}
       subtitle={subtitleText}
       renderOAI={worksOai && oai && renderOAI}
@@ -176,10 +177,10 @@ const CardDropdown = ({
             </Card.Description>
           )}
         {checkBillingType && makeVisible ? (
-          <span className={styles.memberHighlight}>
+          <a href="/membership" className={styles.memberHighlight}>
             Provided by our {capitalizeFirstLetter(memberType?.billing_type)}{' '}
             member
-          </span>
+          </a>
         ) : (
           <></>
         )}
