@@ -88,3 +88,8 @@
   padding: 0.25rem;
   align-items: flex-end;
 }
+
+.memberType:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
