@@ -8,7 +8,7 @@ const useAnalytics = () => {
   const analyticsAllowed = useCookie('analytics_cookies_allowed')
 
   const router = useRouter()
-  const reportPageview = useCallback((url, title, type = 'pageview') => {
+  const reportPageview = useCallback((url, title, type = 'search') => {
     ReactGA.send({
       hitType: type,
       page: url,
