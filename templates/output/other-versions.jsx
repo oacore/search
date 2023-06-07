@@ -11,7 +11,7 @@ const OtherVersions = ({ outputs }) => (
       <CardDropdown
         {...output}
         dataProviderId={output.dataProvider.id}
-        image={output.dataProvider.logo}
+        image={output.dataProvider.url}
         title={output.dataProvider.name}
         href={output.display}
         oai={output.identifiers.oai}

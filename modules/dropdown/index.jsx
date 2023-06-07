@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Button,
   Card,
+  DataProviderLogo,
   Icon,
   Link,
-  DataProviderLogo,
 } from '@oacore/design/lib/elements'
 import classNames from '@oacore/design/lib/utils/class-names'
 
@@ -15,7 +15,6 @@ const DropDown = ({
   title,
   subtitle,
   renderOAI,
-  imageSrc,
   children,
   className,
   memberType,
@@ -24,8 +23,11 @@ const DropDown = ({
   useExpandButton = true,
   href,
   makeVisible,
+  dataProviderId,
+  disableRedirect,
 }) => {
   const [activeDropdown, setActiveDropdown] = useState(!useExpandButton)
+  const [logoFetched, setLogoFetched] = useState('')
 
   const onToggleDropdown = (e) => {
     e.stopPropagation()
@@ -34,17 +36,39 @@ const DropDown = ({
 
   const Tag = href ? Link : 'div'
 
+  // eslint-disable-next-line consistent-return
   const redirectOnClick = () => {
+    if (disableRedirect && activeArticle) return null
+
     window.location.href = href
+  }
+
+  const getLogoLink = () => {
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const link = `https://api.core.ac.uk/data-providers/${dataProviderId}/logo`
+          const response = await fetch(link)
+          if (response.ok) setLogoFetched(link)
+        } catch (err) {
+          // eslint-disable-next-line no-console
+          console.log(err)
+        }
+      }
+
+      fetchData()
+    }, [])
+
+    return logoFetched
   }
 
   return (
     <>
       {checkBillingType && !makeVisible ? (
         <div className={styles.placement}>
-          <span className={styles.memberType}>
+          <a href="/membership" className={styles.memberType}>
             {capitalizeFirstLetter(memberType?.billing_type)} member
-          </span>
+          </a>
         </div>
       ) : (
         <></>
@@ -61,7 +85,7 @@ const DropDown = ({
             <div className={styles.headerWrapper}>
               <div className={styles.itemWrapper}>
                 <DataProviderLogo
-                  imageSrc={checkBillingType ? imageSrc : ''}
+                  imageSrc={checkBillingType ? getLogoLink() : ''}
                   useDefault
                   alt={title}
                   size="md"

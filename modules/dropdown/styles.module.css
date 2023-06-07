@@ -60,6 +60,13 @@
   border: 1px solid #B75400;
   background: #F5F5F5;
   padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.activeClass:hover {
+  box-shadow: 0px 4px 4px 0px #00000040;
+  transition: all 0.5s ease-in-out;
 }
 
 .placement {
@@ -80,4 +87,9 @@
   color: #FFFFFF;
   padding: 0.25rem;
   align-items: flex-end;
+}
+
+.memberType:hover {
+  color: #FFFFFF;
+  text-decoration: none;
 }
