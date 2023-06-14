@@ -24,7 +24,14 @@ const FullTextThumbnail = ({
     const pdfUrl = data.download
     const link = document.createElement('a')
     link.href = pdfUrl
-    link.download = 'example.pdf'
+    link.target = '_blank'
+    link.rel = 'noopener noreferrer'
+
+    link.addEventListener('click', () => {
+      link.remove()
+    })
+
+    document.body.appendChild(link)
     link.click()
   }
 
