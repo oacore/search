@@ -66,7 +66,12 @@ function checkUniversity(dataProviderId) {
     const dataProvider = cachedDataProviders.data.find(
       (dp) => dp.id === +dataProviderId
     )
-    universityName = dataProvider.institutionName
+
+    if (dataProvider && dataProvider.institutionName)
+      return dataProvider.institutionName
+
+    // No information about `institutionName`
+    universityName = ''
   }
   return universityName
 }
