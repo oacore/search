@@ -52,6 +52,7 @@ const Results = ({ works }) =>
             metadataLink: metadataLink || displayLink,
             fullTextLink: fullTextLink || readerLink || downloadLink,
             dataProviders: dataProviders || [],
+            isRecommended: memberType?.billing_type === 'sustaining',
           }}
         >
           {abstract}
