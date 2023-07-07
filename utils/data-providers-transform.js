@@ -14,6 +14,14 @@ function checkMembership(dataProviderId) {
   })
 }
 
+function checkDataProvider(dataProviderId) {
+  return cachedMembers.data.find((item) => {
+    if (Array.isArray(item.repo_id))
+      return item.repo_id.includes(dataProviderId.toString())
+    return +item.repo_id === +dataProviderId
+  })
+}
+
 const checkLogo = async (dataProviderId, logoUrl) => {
   const isMember = !!checkMembership(dataProviderId)
   if (!isMember) return null
@@ -51,6 +59,9 @@ const transformDataProviders = async (dataProviders) => {
   return transformedData
 }
 
+const findDataProvider = (id) =>
+  cachedDataProviders.data.find((dp) => dp.id === +id)
+
 function checkUniversity(dataProviderId) {
   const member = cachedMembers.data.find((item) => {
     if (Array.isArray(item.repo_id)) {
@@ -82,4 +93,6 @@ export {
   transformDataProviders,
   checkType,
   checkUniversity,
+  checkDataProvider,
+  findDataProvider,
 }
