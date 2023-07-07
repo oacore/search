@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useLayoutEffect, useCallback } from 'react'
+import React, { useCallback, useEffect, useLayoutEffect, useRef } from 'react'
 import { Button, Header } from '@oacore/design'
 import { countries } from 'i18n-iso-countries/langs/en.json'
 
@@ -56,7 +56,7 @@ const SearchResults = ({
           </h2>
           <p>
             We could not find any data provider matching your query. If there is
-            an open access repository or a journal you think should be added to
+            an open access repository or a journal you think should be added to
             CORE, use the form below{' '}
             <span role="img" aria-label="">
               👇

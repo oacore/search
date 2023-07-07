@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { classNames } from '@oacore/design/lib/utils'
 import { DataProviderLogo } from '@oacore/design/lib/elements/logo'
 
+import arrowRight from './claim/images/modal/arrowRight.svg'
 import DataProviderOutputsSearch from './search'
 import ClaimCard from './claim/claim-card'
 import MapCard from './map-card'
@@ -11,7 +12,11 @@ import MetaBox from './meta-box'
 import { useStore } from '../../store'
 import Sort from '../search/sort'
 import Results from '../search/results'
-import { checkUniversity } from '../../utils/data-providers-transform'
+import {
+  checkDataProvider,
+  checkUniversity,
+  findDataProvider,
+} from '../../utils/data-providers-transform'
 
 import Search from 'modules/search-layout'
 
@@ -23,9 +28,7 @@ const countryName =
 
 const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
   const { outputs } = data
-
   const { search } = useStore()
-
   const [isDataProviderHasAccounts, setIsDataProviderHasAccounts] =
     useState(false)
 
@@ -47,6 +50,13 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
   const renderName = () => {
     const universityName = checkUniversity(data.id)
     return universityName ?? ''
+  }
+
+  const checkProvider = checkDataProvider(`${data.id}`)
+
+  const truncate = (str, maxLength) => {
+    if (str.length <= maxLength) return str
+    return `${str.substring(0, maxLength)}...`
   }
 
   return (
@@ -118,6 +128,33 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
       </Search.Main>
 
       <Search.Sidebar tag="aside">
+        {Array.isArray(checkProvider?.repo_id) ? (
+          <div>
+            <h3 className={styles.dataSources}>Data sources:</h3>
+            <div className={styles.sourcesWrapper}>
+              {checkProvider?.repo_id?.map((item) => (
+                <a
+                  href={`/data-providers/${item}`}
+                  className={classNames.use(styles.sourceItem, {
+                    [styles.activeItem]: +data.id === +item,
+                  })}
+                >
+                  {+data.id === +item && (
+                    <img src={arrowRight} alt="arrowRight" />
+                  )}
+                  <span
+                    title={findDataProvider(item).name}
+                    className={styles.sourceTitle}
+                  >
+                    {truncate(findDataProvider(item).name, 40)}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <></>
+        )}
         {data?.metadata && (
           <MetaBox
             countMetadata={data.metadata.countMetadata}
