@@ -3,6 +3,8 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Header } from '@oacore/design/lib/modules'
 
+import ErrorCard from '../error-card'
+
 import { findUrlsByType } from 'utils/helpers'
 import log from 'utils/logger'
 import { fetchWorks } from 'api/search'
@@ -60,6 +62,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       log(error)
       const queryError = {
         query: q,
+        status: error?.status,
       }
       return {
         props: { queryError },
@@ -75,7 +78,9 @@ export const getServerSideProps = async ({ query: searchParams }) => {
 const Search = ({ data, queryError }) => {
   const router = useRouter()
 
-  if (queryError) return <QueryError query={queryError.query} />
+  const searchItem = router.query.q
+
+  if (queryError?.status) return <ErrorCard />
 
   const { statistics } = useStore()
   const totalArticlesCount =
@@ -93,7 +98,7 @@ const Search = ({ data, queryError }) => {
         })
       },
       useAdvancedSearch: true,
-      initQuery: data.query,
+      initQuery: data?.query,
       searchBarProps: {
         label: `Search ${totalArticlesCount} from papers around the world`,
         placeholder: `Search ${totalArticlesCount} from papers around the world`,
@@ -105,12 +110,18 @@ const Search = ({ data, queryError }) => {
   )
 
   return (
-    <>
-      <Head>
-        <title>Search CORE</title>
-      </Head>
-      <Template data={data} />
-    </>
+    <div>
+      {data?.results?.length >= 1 ? (
+        <>
+          <Head>
+            <title>Search CORE</title>
+          </Head>
+          <Template data={data} />
+        </>
+      ) : (
+        <QueryError query={searchItem} />
+      )}
+    </div>
   )
 }
 
