@@ -174,7 +174,8 @@ const DataProvidersSearchTemplate = React.memo(
           {results.length > 0 && (
             <Map
               className={styles.map}
-              locations={filterAndMapDataProviders(results)}
+              // We have too long load map with full list data-providers
+              locations={filterAndMapDataProviders(results.slice(0, 200))}
             />
           )}
           <p>
