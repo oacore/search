@@ -6,6 +6,6 @@ build
 node_modules
 public/static/design
 
-#!data/.gitkeep
-#!data/languages.json
-#data/*
+!data/.gitkeep
+!data/languages.json
+data/*
