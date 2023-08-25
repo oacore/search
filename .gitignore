@@ -7,4 +7,5 @@ build
 node_modules
 public/static/design
 
-#data/*
+!data/.gitkeep
+data/*
