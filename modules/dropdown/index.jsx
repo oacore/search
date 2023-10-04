@@ -82,7 +82,11 @@ const DropDown = ({
       >
         <div className={styles.header}>
           <Tag className={styles.content} onClick={redirectOnClick}>
-            <div className={styles.headerWrapper}>
+            <div
+              className={classNames.use(styles.headerWrapper, {
+                [styles.headerWrapperClickable]: useExpandButton,
+              })}
+            >
               <div className={styles.itemWrapper}>
                 <DataProviderLogo
                   imageSrc={checkBillingType ? getLogoLink() : ''}
