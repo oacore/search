@@ -3,7 +3,7 @@ import useHistogram from './use-histogram'
 import { useStore } from 'store'
 import { findMaxValueInArray, findMinValueInArray } from 'utils/helpers'
 
-const MAX_YEAR = 2021
+const MAX_YEAR = new Date().getFullYear()
 const MIN_YEAR = 1950
 
 const useYearFilterController = () => {
