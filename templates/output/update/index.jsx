@@ -38,7 +38,8 @@ const UpdateTemplate = observe(() => {
     evt.preventDefault()
 
     const regexStringPatterns =
-      /(http(s)?:\/\/)?core.ac.uk\/(display|download\/pdf)\/\d+|^\d+$/s
+      /(http(s)?:\/\/)?core.ac.uk\/(display|download)\/\d+|^\d+$/s
+    // /(http(s)?:\/\/)?core.ac.uk\/(display|download\/pdf)\/\d+|^\d+$/s
     const regexNumberPattern = /\d+/s
 
     const outputId = url
@@ -46,6 +47,8 @@ const UpdateTemplate = observe(() => {
       ?.join('')
       ?.match(regexNumberPattern)
       ?.join('')
+    // eslint-disable-next-line no-console
+    console.log(`Takedown outputId => ${outputId}`)
 
     if (!outputId) setErrorMessage('Please provide correct URL')
 
