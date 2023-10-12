@@ -6,8 +6,8 @@ import styles from './styles.module.css'
 const links = [
   {
     id: 1,
-    label: 'A display page URL',
-    link: 'https://core.ac.uk/display/82976757',
+    label: 'A outputs page URL',
+    link: 'https://core.ac.uk/outputs/82976757',
   },
   {
     id: 2,
