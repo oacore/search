@@ -43,7 +43,7 @@ if (process.env.NODE_ENV !== 'production') {
   // Allow connection to the local hosts in development:
   // - local API is running on a different port
   // - `localhost` and `127.0.0.1` are not the same domain technically
-  config['connect-src'].push('localhost:* 127.0.0.1:*')
+  config['connect-src'].push('localhost:* 127.0.0.1:* api-dev.core.ac.uk')
 }
 
 const policy = Object.entries(config)
