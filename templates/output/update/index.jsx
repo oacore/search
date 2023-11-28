@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Button, TextField, Form } from '@oacore/design/lib'
+import { Button, Form, Link, TextField } from '@oacore/design/lib'
 import classNames from '@oacore/design/lib/utils/class-names'
 
 import { useReportController } from '../hooks'
@@ -113,7 +113,8 @@ const UpdateTemplate = observe(() => {
         <Links />
         <p>
           Please note that the form does not accept links which start with
-          &quot;https://core.ac.uk/<strong>search</strong>&quot;.
+          &quot;https://core.ac.uk/<strong>search</strong>&quot; and
+          &quot;https://core.ac.uk/<strong>works</strong>&quot;.
         </p>
       </section>
       <div className={classNames.use(styles.note, styles.container)} />
