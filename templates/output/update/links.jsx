@@ -12,7 +12,7 @@ const links = [
   {
     id: 2,
     label: 'A fulltext URL',
-    link: 'https://core.ac.uk/download/pdf/82976757.pdf ',
+    link: 'https://core.ac.uk/download/82976757.pdf ',
   },
 ]
 
