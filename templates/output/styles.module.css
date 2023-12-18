@@ -121,11 +121,11 @@
 }
 
 .oai-modal {
-  background: #fff;
   position: fixed;
-  width: 456px;
   top: 15px;
   right: 6%;
+  background: #fff;
+  width: 456px;
   z-index: 10001;
   padding: 1rem;
   border-radius: 2px;
@@ -208,8 +208,8 @@
 }
 
 .boxes {
-  margin-top: 1rem;
   padding: 0;
+  margin-top: 1rem;
   box-shadow: unset;
 }
 
