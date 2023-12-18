@@ -14,10 +14,12 @@ const FullTextThumbnail = ({
   src,
   alt,
   href,
+  doi,
   className,
   tag: Tag = 'a',
   useOtherVersions,
   providerId,
+  metadata,
   ...passProps
 }) => {
   const downloadPDF = () => {
@@ -87,6 +89,8 @@ const FullTextThumbnail = ({
             activeArticle
             dataProviderId={providerId}
             makeVisible
+            doi={doi}
+            metadata={metadata}
             {...data}
             useExpandButton={false}
           />

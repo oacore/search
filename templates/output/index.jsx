@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button, Icon, MathMarkdown } from '@oacore/design/lib/elements'
+import { useRouter } from 'next/router'
 
 import SimilarWorks from './similar-works'
 import RelatedSearch from './related-search'
@@ -42,7 +43,22 @@ const ScientificOutputTemplate = ({
   useOtherVersions = false,
   ...passProps
 }) => {
+  const router = useRouter()
+
+  const includeOai = router.asPath.includes('source=oai')
   const [uniqueDoiArray, setUiqueDoiArray] = useState([])
+  const [oaiModal, setOaiModal] = useState(includeOai)
+
+  const modalRef = useRef(null)
+
+  const closeModal = () => {
+    setOaiModal(false)
+  }
+
+  const handleClickOutside = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target))
+      closeModal()
+  }
 
   useEffect(() => {
     const doiArray = [doi]
@@ -52,8 +68,47 @@ const ScientificOutputTemplate = ({
     setUiqueDoiArray([...new Set(doiArray)])
   }, [])
 
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
   return (
     <Search {...passProps} className={styles.outputContainer}>
+      {oaiModal && !useOtherVersions && (
+        <div ref={modalRef} className={styles.oaiModal}>
+          <h3 className={styles.oaiModalTitle}>Repository landing page</h3>
+          <div className={styles.oaiModalText}>
+            We are not able to resolve this{' '}
+            <a href="https://oai.core.ac.uk">OAI</a> Identifier to the
+            repository landing page. If you are the repository manager for this
+            record, please head to the{' '}
+            <a href="https://core.ac.uk/services/repository-dashboard">
+              Dashboard
+            </a>{' '}
+            and adjust the settings.
+          </div>
+          <div className={styles.oaiModalButtons}>
+            <Button
+              onClick={() => {
+                window.open(
+                  'https://core.ac.uk/services/repository-dashboard',
+                  '_blank'
+                )
+              }}
+              variant="contained"
+            >
+              Go to the Dashboard
+            </Button>
+            <Button onClick={closeModal} variant="text">
+              Close
+            </Button>
+          </div>
+        </div>
+      )}
       <Search.Main>
         <div className={styles.background}>
           <div className={styles.info}>
@@ -127,6 +182,7 @@ const ScientificOutputTemplate = ({
           href={readerUrl}
           src={thumbnailLargeUrl || `//core.ac.uk/image/${id}/large`}
           alt="thumbnail-image"
+          doi={doi}
           data={{
             title: !useOtherVersions ? dataProvider.name : null,
             dataProviderLogo: dataProvider.logo,
@@ -137,13 +193,22 @@ const ScientificOutputTemplate = ({
             oai,
             download,
           }}
+          metadata={{
+            hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
+          }}
           providerId={dataProvider.id}
           tag={fulltextStatus === 'disabled' ? 'div' : 'a'}
           useOtherVersions={useOtherVersions}
           memberType={memberType}
         />
         {useOtherVersions && outputs.length > 0 && (
-          <OtherVersions outputs={outputs} />
+          <OtherVersions
+            useOtherVersions={useOtherVersions}
+            outputs={outputs}
+            metadata={{
+              hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
+            }}
+          />
         )}
         {!useOtherVersions && (
           <MapCard

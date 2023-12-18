@@ -34,6 +34,10 @@ const CardDropdown = ({
   dataProviderId,
   makeVisible,
   worksOai,
+  outputRedirect,
+  metadata,
+  doi,
+  useOtherVersions,
 }) => {
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(oai)
   const [isTooltipVisible, setIsTooltipVisible] = useState(false)
@@ -128,6 +132,15 @@ const CardDropdown = ({
       memberType={memberType}
       checkBillingType={checkBillingType}
       makeVisible={makeVisible}
+      outputRedirect={outputRedirect}
+      metadata={metadata}
+      coreDownloadUrl={coreDownloadUrl}
+      sourceFulltextUrls={sourceFulltextUrls}
+      sourceFulltextUrlsUpd={sourceFulltextUrlsUpd}
+      id={id}
+      oai={oai}
+      doi={doi}
+      useOtherVersions={useOtherVersions}
     >
       <div className={styles.dropdownContent}>
         {!worksOai && oai && (
@@ -161,23 +174,11 @@ const CardDropdown = ({
             Last time updated on {formatDate(updatedDate || createdDate)}
           </Card.Description>
         )}
-        {coreDownloadUrl &&
-          coreDownloadUrl.match(/core.ac.uk/gm) &&
-          sourceFulltextUrls && (
-            <Card.Description className={styles.descriptionLink} tag="span">
-              <a
-                href={sourceFulltextUrlsUpd}
-                aria-labelledby={`${id}-downloaded-from-title`}
-                aria-describedby={`${id}-downloaded-from-body`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                View original full text link
-              </a>
-            </Card.Description>
-          )}
         {checkBillingType && makeVisible ? (
-          <a href="/membership" className={styles.memberHighlight}>
+          <a
+            href="https://core.ac.uk/membership"
+            className={styles.memberHighlight}
+          >
             Provided by our {capitalizeFirstLetter(memberType?.billing_type)}{' '}
             member
           </a>

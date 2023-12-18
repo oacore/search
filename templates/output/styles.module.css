@@ -120,6 +120,29 @@
     1fr !important;
 }
 
+.oai-modal {
+  position: fixed;
+  top: 15px;
+  right: 6%;
+  z-index: 10001;
+  width: 456px;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #b75400;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.oai-modal-text {
+  margin: 24px 0;
+}
+
+.oai-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 .container-sidebar {
   padding-top: var(--page-padding-y);
 }
@@ -132,8 +155,7 @@
 
 .background {
   width: calc(100vw - 1rem);
-  padding: var(--page-padding-y) var(--page-padding-x) 1.5rem
-    var(--page-padding-x);
+  padding: var(--page-padding-y) var(--page-padding-x) 1.5rem;
   background-color: var(--gray-100);
 }
 
@@ -186,7 +208,17 @@
 }
 
 .boxes {
+  padding: 0;
   margin-top: 1rem;
+  box-shadow: unset;
+}
+
+.version-title {
+  padding: 1rem 1rem 0 0;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
 }
 
 .action-bar {
