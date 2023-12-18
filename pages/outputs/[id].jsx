@@ -4,7 +4,7 @@ import { Header } from '@oacore/design'
 import { useRouter } from 'next/router'
 
 import { checkLogo, checkMembership } from 'utils/data-providers-transform'
-import { fetchMetadata, fetchCitations, fetchDataProvider } from 'api/outputs'
+import { fetchCitations, fetchDataProvider, fetchMetadata } from 'api/outputs'
 import { useStore } from 'store'
 import Meta from 'modules/meta'
 import Template from 'templates/output'
