@@ -1,6 +1,5 @@
 import { useCallback, useEffect } from 'react'
 import { useRouter } from 'next/router'
-// eslint-disable-next-line import/no-extraneous-dependencies
 import ReactGA from 'react-ga4'
 import { useCookie } from '@oacore/design'
 
