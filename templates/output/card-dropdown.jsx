@@ -87,33 +87,37 @@ const CardDropdown = ({
     )
 
   const EllipsisText = (text) =>
-    text?.length > 22 ? `${text.substring(0, 22)}...` : text
+    text?.length > 30 ? `${text.substring(0, 30)}...` : text
 
   const renderOAI = (
     <Card.Description className={classNames.use(styles.identifier)} tag="span">
-      <img
-        src={getAssetsPath('/static/images/oai.svg')}
-        alt="oai"
-        className={styles.logo}
-      />
-      <a
-        className={styles.ellipsis}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        href={`https://api.core.ac.uk/oai/${oai}`}
-      >
-        {EllipsisText(oai)}
-      </a>
-      {isTooltipVisible && <div className={styles.tooltip}>{oai}</div>}
-      <Icon
-        src="#content-copy"
-        className={styles.iconCopy}
-        onClick={(e) => {
-          e.stopPropagation()
-          copyUrl()
-        }}
-      />
-      {copyUrlStatus === 'copied' && <Notification text="Copied" />}
+      <div className={styles.innerIdentifier}>
+        <img
+          src={getAssetsPath('/static/images/oai.svg')}
+          alt="oai"
+          className={styles.logo}
+        />
+        <a
+          className={styles.ellipsis}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          href={`https://api.core.ac.uk/oai/${oai}`}
+        >
+          {EllipsisText(oai)}
+        </a>
+        {isTooltipVisible && <div className={styles.tooltip}>{oai}</div>}
+      </div>
+      <div>
+        <Icon
+          src="#content-copy"
+          className={styles.iconCopy}
+          onClick={(e) => {
+            e.stopPropagation()
+            copyUrl()
+          }}
+        />
+        {copyUrlStatus === 'copied' && <Notification text="Copied" />}
+      </div>
     </Card.Description>
   )
 
@@ -148,25 +152,29 @@ const CardDropdown = ({
             className={classNames.use(styles.identifier)}
             tag="span"
           >
-            <img
-              src={getAssetsPath('/static/images/oai.svg')}
-              alt="oai"
-              className={styles.oaiLogo}
-            />
-            <a
-              className={styles.ellipsis}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              href={`https://api.core.ac.uk/oai/${oai}`}
-            >
-              {EllipsisText(oai)}
-            </a>
-            <Icon
-              src="#content-copy"
-              className={styles.iconCopy}
-              onClick={copyUrl}
-            />
-            {copyUrlStatus === 'copied' && <Notification text="Copied" />}
+            <div className={styles.innerIdentifier}>
+              <img
+                src={getAssetsPath('/static/images/oai.svg')}
+                alt="oai"
+                className={styles.oaiLogo}
+              />
+              <a
+                className={styles.ellipsis}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                href={`https://api.core.ac.uk/oai/${oai}`}
+              >
+                {EllipsisText(oai)}
+              </a>
+            </div>
+            <div>
+              <Icon
+                src="#content-copy"
+                className={styles.iconCopy}
+                onClick={copyUrl}
+              />
+              {copyUrlStatus === 'copied' && <Notification text="Copied" />}
+            </div>
           </Card.Description>
         )}
         {(updatedDate || createdDate) && (

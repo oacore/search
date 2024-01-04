@@ -6,4 +6,5 @@
   color: var(--white);
   background-color: var(--gray-600);
   border-radius: 0.5rem;
+  width: max-content;
 }
