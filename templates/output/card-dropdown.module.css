@@ -10,7 +10,14 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   color: var(--primary);
+}
+
+.inner-identifier {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-copy {

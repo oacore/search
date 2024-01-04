@@ -1,5 +1,6 @@
 .notification {
   position: absolute;
+  width: max-content;
   padding: 0 2rem;
   margin: auto;
   font-size: 0.8rem;
