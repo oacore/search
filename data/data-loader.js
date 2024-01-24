@@ -4,7 +4,6 @@ const fs = require('fs')
 
 const fetch = require('node-fetch')
 
-
 // Hack to avoid data retrieval in the all components
 // TODO: Implement Babel plugin instead
 
@@ -70,26 +69,21 @@ const getApiFromFileName = function (filepath) {
 const retrieveStats = async (cacheFilePath) => {
   const errorMsg =
     'Fail. ==> Statistics retrieval failed due to API Core instability.'
-  try {
-    return await loadCachedStats(cacheFilePath, { ignoreModified: false })
-  } catch (cacheError) {
-    try {
-      const stats = await fetchStats(getApiFromFileName(cacheFilePath))
-      if (!stats) return null
-      try {
-        console.info(`Downloaded, now saving to ${cacheFilePath}`)
-        return await saveCachedStats(cacheFilePath, JSON.stringify(stats))
-      } catch (cannotWriteFile) {
-        // Ignored
-        // We don't care if we cannot create a local cache. It's for dev only.
-        console.error(cannotWriteFile)
-      }
 
-      return stats
-    } catch (fetchError) {
-      console.error(fetchError)
-      throw new Error(errorMsg)
+  try {
+    const stats = await fetchStats(getApiFromFileName(cacheFilePath))
+    if (!stats) return null
+    try {
+      console.info(`Downloaded, now saving to ${cacheFilePath}`)
+      return await saveCachedStats(cacheFilePath, JSON.stringify(stats))
+    } catch (cannotWriteFile) {
+      console.error(cannotWriteFile)
     }
+
+    return stats
+  } catch (fetchError) {
+    console.error(fetchError)
+    throw new Error(errorMsg)
   }
 }
 
