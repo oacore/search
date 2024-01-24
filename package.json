@@ -68,7 +68,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node ./node_modules/.bin/design build icons && next build",
+    "build": "node ./data/data-loader.js && node ./node_modules/.bin/design build icons && next build",
     "start": "next start",
     "lint:json": "prettier --ignore-path .gitignore --check '**/*.json'",
     "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",
