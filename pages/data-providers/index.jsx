@@ -12,7 +12,8 @@ import { useClaimController } from 'templates/data-providers/hooks'
 import { useSyncUrlParamsWithStore } from 'hooks/use-sync-url-params-with-store'
 
 export async function getServerSideProps({ query }) {
-  const { data } = cachedData || []
+  const data = cachedData || []
+
   return {
     props: {
       initialState: {
