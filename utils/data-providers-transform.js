@@ -3,7 +3,7 @@ import cachedDataProviders from 'data/.formap.json'
 import { fetchLogo } from 'api/data-provider'
 
 function checkMembership(dataProviderId) {
-  return cachedMembers.data.find((item) => {
+  return cachedMembers.find((item) => {
     if (Array.isArray(item.repo_id)) {
       return (
         item.repo_id.includes(dataProviderId.toString()) &&
@@ -15,7 +15,7 @@ function checkMembership(dataProviderId) {
 }
 
 function checkDataProvider(dataProviderId) {
-  return cachedMembers.data.find((item) => {
+  return cachedMembers.find((item) => {
     if (Array.isArray(item.repo_id))
       return item.repo_id.includes(dataProviderId.toString())
     return +item.repo_id === +dataProviderId
@@ -35,7 +35,7 @@ const checkLogo = async (dataProviderId, logoUrl) => {
 
 function checkType(dataProviderId) {
   // TODO To many requests to this function
-  return cachedMembers.data.find((item) => {
+  return cachedMembers.find((item) => {
     if (Array.isArray(item.repo_id))
       return item.repo_id.includes(dataProviderId?.toString())
     return +item.repo_id === +dataProviderId
@@ -45,7 +45,7 @@ function checkType(dataProviderId) {
 const transformDataProviders = async (dataProviders) => {
   const transformedData = await Promise.all(
     dataProviders.map(async ({ url, id, logo }) => {
-      const dataProvider = cachedDataProviders.data.find((dp) => dp.id === +id)
+      const dataProvider = cachedDataProviders.find((dp) => dp.id === +id)
 
       const isMember = !!checkMembership(id)
       if (dataProvider && isMember) dataProvider.logo = await checkLogo(logo)
@@ -60,10 +60,10 @@ const transformDataProviders = async (dataProviders) => {
 }
 
 const findDataProvider = (id) =>
-  cachedDataProviders.data.find((dp) => dp.id === +id)
+  cachedDataProviders.find((dp) => dp.id === +id)
 
 function checkUniversity(dataProviderId) {
-  const member = cachedMembers.data.find((item) => {
+  const member = cachedMembers.find((item) => {
     if (Array.isArray(item.repo_id)) {
       return (
         item.repo_id.includes(dataProviderId.toString()) &&
@@ -74,7 +74,7 @@ function checkUniversity(dataProviderId) {
   })
   let universityName = member?.organisationName
   if (!universityName) {
-    const dataProvider = cachedDataProviders.data.find(
+    const dataProvider = cachedDataProviders.find(
       (dp) => dp.id === +dataProviderId
     )
 
