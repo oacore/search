@@ -59,8 +59,7 @@ const transformDataProviders = async (dataProviders) => {
   return transformedData
 }
 
-const findDataProvider = (id) =>
-  cachedDataProviders.find((dp) => dp.id === +id)
+const findDataProvider = (id) => cachedDataProviders.find((dp) => dp.id === +id)
 
 function checkUniversity(dataProviderId) {
   const member = cachedMembers.find((item) => {
