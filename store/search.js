@@ -8,11 +8,11 @@ import invalidatePreviousRequests from 'utils/invalidatePreviousRequests'
 
 const sortFilterValues = [
   {
-    value: 'relevance',
+    value: 'recent',
     checked: false,
   },
   {
-    value: 'recent',
+    value: 'relevance',
     checked: false,
   },
 ]
