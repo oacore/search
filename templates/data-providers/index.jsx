@@ -163,7 +163,10 @@ const DataProvidersSearchTemplate = React.memo(
                   Cannot find your repository or journal in our list? Become a
                   data provider now!
                 </p>
-                <Button onClick={() => setShowForm(true)} variant="contained">
+                <Button
+                  href="https://core.ac.uk/benefits#join-core"
+                  variant="contained"
+                >
                   Add data provider
                 </Button>
               </>
@@ -194,10 +197,7 @@ const DataProvidersSearchTemplate = React.memo(
           </p>
           <Button
             variant="outlined"
-            onClick={() => {
-              setShowForm(true)
-              window.location.hash = 'add-new-data-provider'
-            }}
+            href="https://core.ac.uk/benefits#join-core"
           >
             Become a data provider
           </Button>
