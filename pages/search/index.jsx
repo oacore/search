@@ -23,7 +23,9 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       props: {},
     }
   }
-  const { q, page = 1, limit = 10, sort = 'recency' } = searchParams
+  // TODO for nice response
+  // const { q, page = 1, limit = 10, sort = 'recency' } = searchParams
+  const { q, page = 1, limit = 10, sort = 'relevance' } = searchParams
 
   const data = {
     currentPage: +page,

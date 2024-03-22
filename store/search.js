@@ -97,7 +97,7 @@ class Search {
       pathname,
       query: {
         ...Router.query,
-        sort: sortType.value === 'recent' ? 'relevance' : sortType.value,
+        sort: sortType.value === 'recent' ? 'recency' : sortType.value,
         page: 1,
       },
     })
