@@ -12,6 +12,12 @@ const config = {
     '*.doubleclick.net',
     '*.googletagmanager.com',
   ],
+  'script-src-elem': [
+    SELF,
+    '*.google-analytics.com',
+    '*.doubleclick.net',
+    '*.googletagmanager.com',
+  ],
   // TODO: Move 'unsafe-inline' to dev when the Next.js' bug is resolved
   // See more: https://github.com/vercel/next.js/issues/17445
   'style-src': [SELF, "'unsafe-inline'"],
@@ -39,6 +45,7 @@ const config = {
 if (process.env.NODE_ENV !== 'production') {
   // Allow hot module replacement using inlined scripts and styles
   config['script-src'].push("'unsafe-inline'", "'unsafe-eval'")
+  config['script-src-elem'].push("'unsafe-inline'", "'unsafe-eval'")
 
   // Allow connection to the local hosts in development:
   // - local API is running on a different port
