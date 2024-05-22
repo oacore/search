@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react'
 import L from 'leaflet'
-import { MarkerClusterGroup } from 'leaflet.markercluster'
 
 import styles from './styles.module.css'
 
@@ -19,8 +18,7 @@ const markerIcon = L.icon({
 const CustomMap = ({ locations }) => {
   const markersData = locations
 
-  const mapRef = useRef(null);
-  const markerClusterGroupRef = useRef(null);
+  const mapRef = useRef(null)
 
   useEffect(() => {
     // Initialize the map
@@ -30,20 +28,18 @@ const CustomMap = ({ locations }) => {
         zoom: 3, // Default zoom level
         layers: [
           L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          })
-        ]
-      });
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          }),
+        ],
+      })
     }
 
     // Create and add markers
-    const markers = markersData.map(markerData => {
-
+    const markers = markersData.map((markerData) => {
       const { name, href, latitude, longitude } = markerData
-
-      const latLng = new L.LatLng(latitude, longitude);
-
-      const marker = L.marker(latLng).addTo(mapRef.current);
+      const latLng = new L.LatLng(latitude, longitude)
+      const marker = L.marker(latLng).addTo(mapRef.current)
       if (href) {
         marker.bindPopup(
           `<a
@@ -57,12 +53,12 @@ const CustomMap = ({ locations }) => {
       } else marker.bindPopup(name)
 
       // marker.bindPopup(name);
-      return marker;
-    });
+      return marker
+    })
 
     return () => {
       // Cleanup the map and markers
-      markers.forEach(marker => marker.remove());
+      markers.forEach((marker) => marker.remove())
       mapRef.current.remove()
       mapRef.current = null
     }
