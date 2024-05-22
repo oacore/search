@@ -17,49 +17,33 @@ const markerIcon = L.icon({
 })
 
 const CustomMap = ({ locations }) => {
-  const mapContainerRef = useRef(null)
-  const map = useRef(null)
+  const markersData = locations
+
+  const mapRef = useRef(null);
+  const markerClusterGroupRef = useRef(null);
 
   useEffect(() => {
-    const coverLayer = L.tileLayer(
-      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      {
-        attribution: `
-          <a href="https://www.openstreetmap.org">OpenStreetMap</a> under
-          <a href="https://creativecommons.org/licenses/by-sa/2.0">CC-BY-SA</a>
-        `,
-        minZoom: 1,
-        maxZoom: 12,
-      }
-    )
+    // Initialize the map
+    if (!mapRef.current) {
+      mapRef.current = L.map('map', {
+        center: [50, 10], // Default center of the map
+        zoom: 3, // Default zoom level
+        layers: [
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          })
+        ]
+      });
+    }
 
-    map.current = L.map(mapContainerRef.current, {
-      center:
-        locations[0]?.latitude && locations[0]?.longitude
-          ? new L.LatLng(locations[0]?.latitude, locations[0]?.longitude)
-          : centerPosition,
-      zoom: 1,
-      maxBounds: [
-        [70, 180],
-        [-70, -180],
-      ],
-      layers: [coverLayer],
-      scrollWheelZoom: false,
-    })
-    return () => map.current.remove()
-  }, [])
+    // Create and add markers
+    const markers = markersData.map(markerData => {
 
-  useEffect(() => {
-    const markers = new MarkerClusterGroup({
-      chunkedLoading: true,
-      icon: markerIcon,
-    })
+      const { name, href, latitude, longitude } = markerData
 
-    locations.forEach(({ name, href, latitude, longitude }) => {
-      const marker = L.marker(new L.LatLng(latitude, longitude), {
-        title: name,
-        icon: markerIcon,
-      })
+      const latLng = new L.LatLng(latitude, longitude);
+
+      const marker = L.marker(latLng).addTo(mapRef.current);
       if (href) {
         marker.bindPopup(
           `<a
@@ -72,15 +56,19 @@ const CustomMap = ({ locations }) => {
         )
       } else marker.bindPopup(name)
 
-      markers.addLayer(marker)
-    })
+      // marker.bindPopup(name);
+      return marker;
+    });
 
-    map.current.addLayer(markers)
+    return () => {
+      // Cleanup the map and markers
+      markers.forEach(marker => marker.remove());
+      mapRef.current.remove()
+      mapRef.current = null
+    }
+  }, [markersData])
 
-    return () => map.current.removeLayer(markers)
-  }, [locations])
-
-  return <div ref={mapContainerRef} className={styles.map} />
+  return <div id="map" style={{ height: '100vh', width: '100%' }} />
 }
 
 export default CustomMap
