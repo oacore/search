@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import L from 'leaflet'
+import { MarkerClusterGroup } from 'leaflet.markercluster'
 
 import { getAssetsPath } from 'utils/helpers'
 
@@ -8,7 +9,7 @@ const centerPosition = new L.LatLng(50, 10)
 
 const markerIcon = L.icon({
   iconUrl: getAssetsPath('/static/images/map/marker.svg'),
-  iconSize: [32, 32],
+  iconSize: [18, 18],
   iconAnchor: [16, 32],
   popupAnchor: [0, -32],
 })
@@ -35,6 +36,11 @@ const CustomMap = ({ locations }) => {
       })
     }
 
+    // const markersGroup = new MarkerClusterGroup({
+    //   chunkedLoading: true,
+    //   icon: markerIcon,
+    // })
+
     // Create and add markers
     const markers = markersData.map((markerData) => {
       const { name, href, latitude, longitude } = markerData
@@ -42,6 +48,7 @@ const CustomMap = ({ locations }) => {
       const marker = L.marker(latLng, {
         title: name,
         icon: markerIcon,
+        chunkedLoading: true,
       }).addTo(mapRef.current)
       if (href) {
         marker.bindPopup(
@@ -55,7 +62,8 @@ const CustomMap = ({ locations }) => {
         )
       } else marker.bindPopup(name)
 
-      // marker.bindPopup(name);
+      // markersGroup.addLayer(marker)
+      // return markersGroup
       return marker
     })
 
