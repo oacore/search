@@ -29,6 +29,9 @@ npm run build      # to build all files for next server (stored in .next folder)
 npm run start      # to start simple development server
 ```
 
+Fix broken dependencies:
+`npm install --legacy-peer-deps`
+
 Server starts listen on `0.0.0.0:3000`
 
 [github-token]: https://github.com/settings/tokens
