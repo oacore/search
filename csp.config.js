@@ -11,12 +11,14 @@ const config = {
     '*.google-analytics.com',
     '*.doubleclick.net',
     '*.googletagmanager.com',
+    '*.cloudflareinsights.com',
   ],
   'script-src-elem': [
     SELF,
     '*.google-analytics.com',
     '*.doubleclick.net',
     '*.googletagmanager.com',
+    '*.cloudflareinsights.com',
   ],
   // TODO: Move 'unsafe-inline' to dev when the Next.js' bug is resolved
   // See more: https://github.com/vercel/next.js/issues/17445
@@ -31,6 +33,7 @@ const config = {
     '*.google-analytics.com',
     '*.doubleclick.net',
     '*.googletagmanager.com',
+    '*.cloudflareinsights.com',
   ],
   'connect-src': [
     SELF,
@@ -39,6 +42,7 @@ const config = {
     '*.google-analytics.com',
     '*.doubleclick.net',
     '*.googletagmanager.com',
+    '*.cloudflareinsights.com',
   ],
 }
 
