@@ -91,9 +91,8 @@ const dataLoader = async function loadDataFile() {
   await fs.readdir(path.join(__dirname, ''), function (err, files) {
     if (err) return console.error(`Unable to scan directory: ${err}`)
 
-    // TODO hot debug on prod
-    // for (const file of files)
-    //   if (file.endsWith('.json')) retrieveStats(path.join(__dirname, file))
+    for (const file of files)
+      if (file.endsWith('.json')) retrieveStats(path.join(__dirname, file))
 
     return true
   })
