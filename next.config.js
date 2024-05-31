@@ -8,6 +8,7 @@ const cspConfig = require('./csp.config')
 const helpers = require('./utils/helpers')
 
 const nextConfig = {
+  trailingSlash: true,
   env: envConfig,
   assetPrefix: helpers.getAssetsPath(''),
 
