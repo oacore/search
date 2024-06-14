@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState } from 'react'
 import L from 'leaflet'
 
 import 'leaflet.markercluster'
+import styles from './styles.module.css'
+
 import { getAssetsPath } from 'utils/helpers'
 
 const KEY_MOVE = 'moveend'
@@ -75,7 +77,7 @@ const CustomMap = ({ locations }) => {
     return () => markerClusterGroup.clearLayers()
   }, [visibleMarkers])
 
-  return <div id="map" style={{ height: '26vh', width: '100%' }} />
+  return <div id="map" className={styles.map} />
 }
 
 export default CustomMap
