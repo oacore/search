@@ -18,8 +18,7 @@ export async function getServerSideProps({ query }) {
     props: {
       initialState: {
         dataProviders: {
-          data:
-            normalizeDataProviders(data),
+          data: normalizeDataProviders(data),
           params: {
             ...Object.fromEntries(
               Object.entries(query).filter(([, v]) => v != null)
