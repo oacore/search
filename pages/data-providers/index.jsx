@@ -19,11 +19,6 @@ export async function getServerSideProps({ query }) {
       initialState: {
         dataProviders: {
           data:
-            // TODO: Remove once https://github.com/vercel/next.js/issues/16122 is solved
-            //       or once we migrate to backend search
-            // normalizeDataProviders(
-            //   process.env.NODE_ENV === 'production' ? data : data.slice(0, 200)
-            // ),
             normalizeDataProviders(data),
           params: {
             ...Object.fromEntries(

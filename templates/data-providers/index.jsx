@@ -150,7 +150,11 @@ const DataProvidersSearchTemplate = React.memo(
           results={results}
           setDataProvidersOffset={setDataProvidersSize}
         >
-          <div id="add-new-data-provider" key="add-new-data-provider" className={styles.addDataProvider}>
+          <div
+            id="add-new-data-provider"
+            key="add-new-data-provider"
+            className={styles.addDataProvider}
+          >
             {showAddDataProviderForm ? (
               <AddDataProviderForm
                 ref={formRef}
