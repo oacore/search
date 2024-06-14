@@ -8,23 +8,22 @@ import AddDataProviderForm from './form'
 
 import { formatNumber } from 'utils/format-number'
 import Search from 'modules/search-layout'
+import Map from 'modules/map'
 
-// REMOVE TEMP until data is correct
-
-// const filterAndMapDataProviders = (dataProviders) =>
-//   dataProviders
-//     .filter(
-//       ({ name, dataProviderLocation }) =>
-//         dataProviderLocation?.latitude != null &&
-//         dataProviderLocation?.longitude != null &&
-//         name
-//     )
-//     .map(({ id, name, dataProviderLocation }) => ({
-//       name,
-//       href: `/data-providers/${id}`,
-//       latitude: dataProviderLocation?.latitude,
-//       longitude: dataProviderLocation?.longitude,
-//     }))
+const filterAndMapDataProviders = (dataProviders) =>
+  dataProviders
+    .filter(
+      ({ name, dataProviderLocation }) =>
+        dataProviderLocation?.latitude != null &&
+        dataProviderLocation?.longitude != null &&
+        name
+    )
+    .map(({ id, name, dataProviderLocation }) => ({
+      name,
+      href: `/data-providers/${id}`,
+      latitude: dataProviderLocation?.latitude,
+      longitude: dataProviderLocation?.longitude,
+    }))
 
 const getCountryName = (code) => {
   const countryName = countries[String(code).toUpperCase()]
@@ -151,7 +150,11 @@ const DataProvidersSearchTemplate = React.memo(
           results={results}
           setDataProvidersOffset={setDataProvidersSize}
         >
-          <div id="add-new-data-provider" className={styles.addDataProvider}>
+          <div
+            id="add-new-data-provider"
+            key="add-new-data-provider"
+            className={styles.addDataProvider}
+          >
             {showAddDataProviderForm ? (
               <AddDataProviderForm
                 ref={formRef}
@@ -175,16 +178,13 @@ const DataProvidersSearchTemplate = React.memo(
           </div>
         </SearchResults>
         <Search.Sidebar>
-          {/* // REMOVE TEMP until data is correct  */}
-
-          {/* {results.length > 0 && ( */}
-          {/*  <Map */}
-          {/*    className={styles.map} */}
-          {/*    // We have too long load map with full list data-providers */}
-          {/* eslint-disable-next-line max-len */}
-          {/*    locations={filterAndMapDataProviders(results.slice(0, 200))} */}
-          {/*  /> */}
-          {/* )} */}
+          {results.length > 0 && (
+            <Map
+              className={styles.map}
+              locations={filterAndMapDataProviders(results)}
+              // locations={filterAndMapDataProviders(results.slice(0, 500))}
+            />
+          )}
           <p>
             We aggregate research papers from data providers all over the world
             including institutional and subject repositories and journal
