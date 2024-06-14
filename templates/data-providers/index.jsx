@@ -136,9 +136,6 @@ const DataProvidersSearchTemplate = React.memo(
       { isHidden: false }
     )
 
-    // console.log('results ' + JSON.stringify(results))
-    // console.table(results.length)
-
     return (
       <Search className={styles.layout}>
         {Boolean(results.length) && (
@@ -181,9 +178,7 @@ const DataProvidersSearchTemplate = React.memo(
             <Map
               className={styles.map}
               locations={filterAndMapDataProviders(results)}
-              // locations={filterAndMapDataProviders(results.slice(0, 3500))}
-              // locations={filterAndMapDataProviders(results.slice(0, 6500))}
-              // locations={filterAndMapDataProviders(results.slice(0, 8500))}
+              // locations={filterAndMapDataProviders(results.slice(0, 500))}
             />
           )}
           <p>
