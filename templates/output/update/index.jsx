@@ -62,14 +62,14 @@ const UpdateTemplate = observe(() => {
   return (
     <>
       <section className={classNames.use(styles.header, styles.container)}>
-        <h2 className="display">Article Update/Takedown Request </h2>
+        <h2 className="display">Article Takedown Request </h2>
         <img src={takedownSVG} alt="takedown" />
       </section>
       <section className={classNames.use(styles.update, styles.container)}>
         <div className={styles.updateDescription}>
           <p>
-            To update or remove a paper from CORE, please search for the paper
-            using the search box at the top of this page.
+            To remove a paper from CORE, please search for the paper using the
+            search box at the top of this page.
           </p>
           <p>
             When you have found the paper, please enter the URL of the paper
@@ -122,8 +122,8 @@ const UpdateTemplate = observe(() => {
       <section className={classNames.use(styles.faq, styles.container)}>
         <img src={faqSVG} alt="faq" />
         <p>
-          You can find out more information about updating/deleting articles in
-          the &nbsp;
+          You can find out more information about deleting articles in the
+          &nbsp;
           <Link href="https://core.ac.uk/faq">
             &quot;Removing full text or metadata&quot;
           </Link>
