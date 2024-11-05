@@ -6,7 +6,7 @@ import { checkType } from '../../utils/data-providers-transform'
 
 import { formatDate } from 'utils/helpers'
 
-const Results = ({ works }) =>
+const Results = ({ works, searchId }) =>
   works.map(
     ({
       id,
@@ -42,14 +42,17 @@ const Results = ({ works }) =>
           variant="outlined"
           className={styles.searchResults}
           useLogo={!!checkBillingType()}
+          searchId={searchId}
           data={{
-            id,
+            workId: id,
             title,
             author: authors,
             publicationVenue: publicationVenue || null,
             publicationDate: publicationDate || null,
             thumbnailUrl: thumbnailLink || `//core.ac.uk/image/${id}/medium`,
-            metadataLink: metadataLink || displayLink,
+            metadataLink:
+              `${metadataLink}/?t=${searchId}-${id}` ||
+              `${displayLink}/?t=${searchId}-${id}}`,
             fullTextLink: fullTextLink || readerLink || downloadLink,
             dataProviders: dataProviders || [],
             isRecommended: memberType?.billing_type === 'sustaining',
