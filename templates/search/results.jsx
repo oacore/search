@@ -35,6 +35,11 @@ const Results = ({ works, searchId }) =>
         memberType?.billing_type === 'supporting' ||
         memberType?.billing_type === 'sustaining'
 
+      const generateMetadataLink = (baseLink, searchId, id) =>
+        `${baseLink}/?t=${searchId}-${id}`
+
+      const modifiedReaderLink = readerLink?.replace('/reader/', '/reader-ui/')
+
       return (
         <SearchResult
           id={`search-output-${id}`}
@@ -51,9 +56,12 @@ const Results = ({ works, searchId }) =>
             publicationDate: publicationDate || null,
             thumbnailUrl: thumbnailLink || `//core.ac.uk/image/${id}/medium`,
             metadataLink:
-              `${metadataLink}/?t=${searchId}-${id}` ||
-              `${displayLink}/?t=${searchId}-${id}}`,
-            fullTextLink: fullTextLink || readerLink || downloadLink,
+              generateMetadataLink(metadataLink, searchId, id) ||
+              generateMetadataLink(displayLink, searchId, id),
+            fullTextLink:
+              generateMetadataLink(modifiedReaderLink, searchId, id) ||
+              fullTextLink ||
+              downloadLink,
             dataProviders: dataProviders || [],
             isRecommended: memberType?.billing_type === 'sustaining',
           }}
