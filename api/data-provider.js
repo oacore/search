@@ -5,8 +5,8 @@ const API_V3_URL = process.env.API_URL.replace('/internal', '/v3')
 
 const requestV3 = (url, ...args) => request(`${API_V3_URL}${url}`, ...args)
 
-const fetchMetadata = async (id) => {
-  const { data } = await requestV3(`/data-providers/${id}`)
+const fetchMetadata = async (id, search_id) => {
+  const { data } = await requestV3(`/data-providers/${id}?t=${search_id}`)
   return data
 }
 
