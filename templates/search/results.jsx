@@ -6,7 +6,7 @@ import { checkType } from '../../utils/data-providers-transform'
 
 import { formatDate } from 'utils/helpers'
 
-const Results = ({ works }) =>
+const Results = ({ works, searchId }) =>
   works.map(
     ({
       id,
@@ -35,6 +35,11 @@ const Results = ({ works }) =>
         memberType?.billing_type === 'supporting' ||
         memberType?.billing_type === 'sustaining'
 
+      const generateMetadataLink = (baseLink, propSearchId, propId) =>
+        `${baseLink}/?t=${propSearchId}-${propId}`
+
+      const modifiedReaderLink = readerLink?.replace('/reader/', '/reader-ui/')
+
       return (
         <SearchResult
           id={`search-output-${id}`}
@@ -42,15 +47,21 @@ const Results = ({ works }) =>
           variant="outlined"
           className={styles.searchResults}
           useLogo={!!checkBillingType()}
+          searchId={searchId}
           data={{
-            id,
+            workId: id,
             title,
             author: authors,
             publicationVenue: publicationVenue || null,
             publicationDate: publicationDate || null,
             thumbnailUrl: thumbnailLink || `//core.ac.uk/image/${id}/medium`,
-            metadataLink: metadataLink || displayLink,
-            fullTextLink: fullTextLink || readerLink || downloadLink,
+            metadataLink:
+              generateMetadataLink(metadataLink, searchId, id) ||
+              generateMetadataLink(displayLink, searchId, id),
+            fullTextLink:
+              generateMetadataLink(modifiedReaderLink, searchId, id) ||
+              fullTextLink ||
+              downloadLink,
             dataProviders: dataProviders || [],
             isRecommended: memberType?.billing_type === 'sustaining',
           }}
