@@ -38,7 +38,9 @@ const Results = ({ works, searchId }) =>
       const generateMetadataLink = (baseLink, propSearchId, propId) =>
         `${baseLink}/?t=${propSearchId}-${propId}`
 
-      const modifiedReaderLink = readerLink?.replace('/reader/', '/reader-ui/')
+      const modifiedReaderLink = readerLink
+        ?.replace(/(https:\/\/)(core\.ac\.uk)/, '$1api.$2')
+        .replace('/reader/', '/reader-ui/')
 
       return (
         <SearchResult

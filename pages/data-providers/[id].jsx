@@ -30,11 +30,18 @@ export async function getServerSideProps({
   query: searchParams,
 }) {
   const { id } = routeParams
-  const { q = '', offset = 0, limit = 10, sort = 'recency' } = searchParams
-
+  const {
+    q = '',
+    offset = 0,
+    limit = 10,
+    sort = 'recency',
+    // eslint-disable-next-line camelcase
+    search_id,
+  } = searchParams
   const data = {}
   try {
-    const dataProvider = await fetchMetadata(id)
+    // eslint-disable-next-line camelcase
+    const dataProvider = await fetchMetadata(id, search_id)
     const dataProviderStats = await fetchStats(id)
 
     Object.assign(data, {
