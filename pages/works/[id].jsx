@@ -22,11 +22,13 @@ export async function getServerSideProps({
   req,
 }) {
   const { id } = routeParams
+  // eslint-disable-next-line camelcase
   const { search_id } = searchParams
 
   const data = {}
 
   try {
+    // eslint-disable-next-line camelcase
     const rawWork = await fetchWork(id, search_id)
     const { fullText: _, ...work } = rawWork
     const outputs = await fetchWorkOutputs(id)

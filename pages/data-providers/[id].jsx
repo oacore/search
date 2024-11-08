@@ -35,10 +35,12 @@ export async function getServerSideProps({
     offset = 0,
     limit = 10,
     sort = 'recency',
+    // eslint-disable-next-line camelcase
     search_id,
   } = searchParams
   const data = {}
   try {
+    // eslint-disable-next-line camelcase
     const dataProvider = await fetchMetadata(id, search_id)
     const dataProviderStats = await fetchStats(id)
 
