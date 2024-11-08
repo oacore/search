@@ -35,8 +35,8 @@ const Results = ({ works, searchId }) =>
         memberType?.billing_type === 'supporting' ||
         memberType?.billing_type === 'sustaining'
 
-      const generateMetadataLink = (baseLink, searchId, id) =>
-        `${baseLink}/?t=${searchId}-${id}`
+      const generateMetadataLink = (baseLink, propSearchId, propId) =>
+        `${baseLink}/?t=${propSearchId}-${propId}`
 
       const modifiedReaderLink = readerLink?.replace('/reader/', '/reader-ui/')
 
