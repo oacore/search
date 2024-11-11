@@ -43,28 +43,33 @@ const Results = ({ works, searchId }) =>
         .replace('/reader/', '/reader-ui/')
 
       const renderFullTextLink = ({
-        fullTextLink,
-        downloadLink,
-        modifiedReaderLink,
-        searchId,
-        id,
+        fullTextLink: innerFullTextLink,
+        downloadLink: innerDownloadLink,
+        modifiedReaderLink: innerModifiedReaderLink,
+        searchId: innerSearchId,
+        id: innerId,
       }) => {
         if (
-          fullTextLink == null &&
-          downloadLink == null &&
-          modifiedReaderLink == null
+          innerFullTextLink == null &&
+          innerDownloadLink == null &&
+          innerModifiedReaderLink == null
         )
           return null
         if (
-          (fullTextLink && fullTextLink.includes('core')) ||
-          (downloadLink && downloadLink.includes('core')) ||
-          (modifiedReaderLink && modifiedReaderLink.includes('api.core'))
-        )
-          return generateMetadataLink(modifiedReaderLink, searchId, id)
-        if (downloadLink) return downloadLink
-        return fullTextLink
+          (innerFullTextLink && innerFullTextLink.includes('core')) ||
+          (innerDownloadLink && innerDownloadLink.includes('core')) ||
+          (innerModifiedReaderLink &&
+            innerModifiedReaderLink.includes('api.core'))
+        ) {
+          return generateMetadataLink(
+            innerModifiedReaderLink,
+            innerSearchId,
+            innerId
+          )
+        }
+        if (innerDownloadLink) return innerDownloadLink
+        return innerFullTextLink
       }
-
       return (
         <SearchResult
           id={`search-output-${id}`}
