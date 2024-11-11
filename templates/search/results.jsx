@@ -42,6 +42,29 @@ const Results = ({ works, searchId }) =>
         ?.replace(/(https:\/\/)(core\.ac\.uk)/, '$1api.$2')
         .replace('/reader/', '/reader-ui/')
 
+      const renderFullTextLink = ({
+        fullTextLink,
+        downloadLink,
+        modifiedReaderLink,
+        searchId,
+        id,
+      }) => {
+        if (
+          fullTextLink == null &&
+          downloadLink == null &&
+          modifiedReaderLink == null
+        )
+          return null
+        if (
+          (fullTextLink && fullTextLink.includes('core')) ||
+          (downloadLink && downloadLink.includes('core')) ||
+          (modifiedReaderLink && modifiedReaderLink.includes('api.core'))
+        )
+          return generateMetadataLink(modifiedReaderLink, searchId, id)
+        if (downloadLink) return downloadLink
+        return fullTextLink
+      }
+
       return (
         <SearchResult
           id={`search-output-${id}`}
@@ -60,10 +83,13 @@ const Results = ({ works, searchId }) =>
             metadataLink:
               generateMetadataLink(metadataLink, searchId, id) ||
               generateMetadataLink(displayLink, searchId, id),
-            fullTextLink:
-              generateMetadataLink(modifiedReaderLink, searchId, id) ||
-              fullTextLink ||
+            fullTextLink: renderFullTextLink({
+              fullTextLink,
               downloadLink,
+              modifiedReaderLink,
+              searchId,
+              id,
+            }),
             dataProviders: dataProviders || [],
             isRecommended: memberType?.billing_type === 'sustaining',
           }}
