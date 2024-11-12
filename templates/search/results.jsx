@@ -6,7 +6,7 @@ import { checkType } from '../../utils/data-providers-transform'
 
 import { formatDate } from 'utils/helpers'
 
-const Results = ({ works, searchId }) =>
+const Results = ({ works, searchId, renderKeys }) =>
   works.map(
     ({
       id,
@@ -26,6 +26,8 @@ const Results = ({ works, searchId }) =>
       const memberType = checkType(dataProviders?.[0].id)
       const fullTextLink = links.find((l) => l.type === 'download')?.url
       const metadataLink = links.find((l) => l.type === 'display')?.url
+
+      const urlSearchString = window.location.search
 
       const publicationDate = publishedDate
         ? formatDate(new Date(publishedDate))
@@ -78,7 +80,8 @@ const Results = ({ works, searchId }) =>
           className={styles.searchResults}
           useLogo={!!checkBillingType()}
           searchId={searchId}
-          renderRedirectLink
+          renderKeys={renderKeys}
+          renderRedirectLink={!urlSearchString.includes('author')}
           data={{
             workId: id,
             title,
