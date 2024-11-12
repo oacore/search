@@ -27,8 +27,6 @@ const Results = ({ works, searchId }) =>
       const fullTextLink = links.find((l) => l.type === 'download')?.url
       const metadataLink = links.find((l) => l.type === 'display')?.url
 
-      const urlSearchString = window.location.search
-
       const publicationDate = publishedDate
         ? formatDate(new Date(publishedDate))
         : yearPublished !== null && toString(yearPublished)
