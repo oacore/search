@@ -78,6 +78,7 @@ const Results = ({ works, searchId }) =>
           className={styles.searchResults}
           useLogo={!!checkBillingType()}
           searchId={searchId}
+          renderRedirectLink
           data={{
             workId: id,
             title,
