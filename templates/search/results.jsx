@@ -6,7 +6,7 @@ import { checkType } from '../../utils/data-providers-transform'
 
 import { formatDate } from 'utils/helpers'
 
-const Results = ({ works, searchId, renderKeys }) =>
+const Results = ({ works, searchId }) =>
   works.map(
     ({
       id,
@@ -80,8 +80,7 @@ const Results = ({ works, searchId, renderKeys }) =>
           className={styles.searchResults}
           useLogo={!!checkBillingType()}
           searchId={searchId}
-          renderKeys={renderKeys}
-          renderRedirectLink={!urlSearchString.includes('author')}
+          renderRedirectLink
           data={{
             workId: id,
             title,
