@@ -80,7 +80,7 @@ const Results = ({ works, searchId, renderKeys }) =>
           className={styles.searchResults}
           useLogo={!!checkBillingType()}
           searchId={searchId}
-          renderKeys
+          renderKeys={renderKeys}
           renderRedirectLink={!urlSearchString.includes('author')}
           data={{
             workId: id,
