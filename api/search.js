@@ -3,7 +3,13 @@ import apiRequest from './index'
 const FileDownload = require('js-file-download')
 
 export const fetchWorks = async (body) => {
-  const url = new URL(`/v3/search/works`, process.env.API_URL).href
+  // eslint-disable-next-line camelcase
+  const { search_id } = body
+  const url = new URL(
+    // eslint-disable-next-line camelcase
+    `/v3/search/works${search_id ? `?t=${search_id}` : ''}`,
+    process.env.API_URL
+  ).href
   const { data: dataWorks } = await apiRequest(url, {
     body,
     method: 'POST',

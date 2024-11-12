@@ -40,10 +40,12 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       q,
       offset,
       limit,
-      t,
       exclude: ['fullText'],
       sort: sort === 'recent' ? 'recency' : sort,
     }
+
+    if (t) body.t = t
+
     try {
       const response = await fetchWorks(body)
 
