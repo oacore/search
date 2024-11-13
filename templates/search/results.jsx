@@ -93,15 +93,22 @@ const Results = ({ works, searchId }) =>
             publicationDate: publicationDate || null,
             thumbnailUrl: thumbnailLink || `//core.ac.uk/image/${id}/medium`,
             metadataLink:
-              generateMetadataLink(metadataLink, searchId, id) ||
-              generateMetadataLink(displayLink, searchId, id),
-            fullTextLink: renderFullTextLink({
-              fullTextLink,
-              downloadLink,
-              modifiedReaderLink,
-              searchId,
-              id,
-            }),
+              !urlSearchString.includes('author') &&
+              !window.location.pathname.includes('data-providers')
+                ? generateMetadataLink(metadataLink, searchId, id) ||
+                  generateMetadataLink(displayLink, searchId, id)
+                : metadataLink || displayLink,
+            fullTextLink:
+              !urlSearchString.includes('author') &&
+              !window.location.pathname.includes('data-providers')
+                ? renderFullTextLink({
+                    fullTextLink,
+                    downloadLink,
+                    modifiedReaderLink,
+                    searchId,
+                    id,
+                  })
+                : fullTextLink || readerLink || downloadLink,
             dataProviders: dataProviders || [],
             isRecommended: memberType?.billing_type === 'sustaining',
           }}
