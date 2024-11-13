@@ -5,9 +5,11 @@ const FileDownload = require('js-file-download')
 export const fetchWorks = async (body) => {
   // eslint-disable-next-line camelcase
   const { search_id } = body
+  const split = search_id?.split('-')
+  const isUndefined = split?.some((item) => item === undefined)
   const url = new URL(
     // eslint-disable-next-line camelcase
-    `/v3/search/works${search_id ? `?t=${search_id}` : ''}`,
+    `/v3/search/works${!isUndefined ? `?t=${search_id}` : ''}`,
     process.env.API_URL
   ).href
   const { data: dataWorks } = await apiRequest(url, {
