@@ -27,6 +27,8 @@ const Results = ({ works, searchId }) =>
       const fullTextLink = links.find((l) => l.type === 'download')?.url
       const metadataLink = links.find((l) => l.type === 'display')?.url
 
+      const urlSearchString = window.location.search
+
       const publicationDate = publishedDate
         ? formatDate(new Date(publishedDate))
         : yearPublished !== null && toString(yearPublished)
@@ -70,6 +72,7 @@ const Results = ({ works, searchId }) =>
         if (innerDownloadLink) return innerDownloadLink
         return innerFullTextLink
       }
+
       return (
         <SearchResult
           id={`search-output-${id}`}
@@ -78,7 +81,10 @@ const Results = ({ works, searchId }) =>
           className={styles.searchResults}
           useLogo={!!checkBillingType()}
           searchId={searchId}
-          renderRedirectLink
+          renderRedirectLink={
+            !urlSearchString.includes('author') &&
+            !window.location.pathname.includes('data-providers')
+          }
           data={{
             workId: id,
             title,
