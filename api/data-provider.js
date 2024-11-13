@@ -7,9 +7,11 @@ const requestV3 = (url, ...args) => request(`${API_V3_URL}${url}`, ...args)
 
 // eslint-disable-next-line camelcase
 const fetchMetadata = async (id, search_id) => {
+  const split = search_id?.split('-')
+  const isUndefined = split?.some((item) => item === undefined)
   const { data } = await requestV3(
     // eslint-disable-next-line camelcase
-    `/data-providers/${id}${search_id ? `?t=${search_id}` : ''}`
+    `/data-providers/${id}${!isUndefined ? `?t=${search_id}` : ''}`
   )
   return data
 }
