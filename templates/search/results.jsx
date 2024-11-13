@@ -27,8 +27,6 @@ const Results = ({ works, searchId }) =>
       const fullTextLink = links.find((l) => l.type === 'download')?.url
       const metadataLink = links.find((l) => l.type === 'display')?.url
 
-      const urlSearchString = window.location.search
-
       const publicationDate = publishedDate
         ? formatDate(new Date(publishedDate))
         : yearPublished !== null && toString(yearPublished)
@@ -72,7 +70,6 @@ const Results = ({ works, searchId }) =>
         if (innerDownloadLink) return innerDownloadLink
         return innerFullTextLink
       }
-
       return (
         <SearchResult
           id={`search-output-${id}`}
@@ -81,10 +78,7 @@ const Results = ({ works, searchId }) =>
           className={styles.searchResults}
           useLogo={!!checkBillingType()}
           searchId={searchId}
-          renderRedirectLink={
-            !urlSearchString.includes('author') &&
-            !window.location.pathname.includes('data-providers')
-          }
+          renderRedirectLink
           data={{
             workId: id,
             title,
@@ -93,22 +87,15 @@ const Results = ({ works, searchId }) =>
             publicationDate: publicationDate || null,
             thumbnailUrl: thumbnailLink || `//core.ac.uk/image/${id}/medium`,
             metadataLink:
-              !urlSearchString.includes('author') &&
-              !window.location.pathname.includes('data-providers')
-                ? generateMetadataLink(metadataLink, searchId, id) ||
-                  generateMetadataLink(displayLink, searchId, id)
-                : metadataLink || displayLink,
-            fullTextLink:
-              !urlSearchString.includes('author') &&
-              !window.location.pathname.includes('data-providers')
-                ? renderFullTextLink({
-                    fullTextLink,
-                    downloadLink,
-                    modifiedReaderLink,
-                    searchId,
-                    id,
-                  })
-                : fullTextLink || readerLink || downloadLink,
+              generateMetadataLink(metadataLink, searchId, id) ||
+              generateMetadataLink(displayLink, searchId, id),
+            fullTextLink: renderFullTextLink({
+              fullTextLink,
+              downloadLink,
+              modifiedReaderLink,
+              searchId,
+              id,
+            }),
             dataProviders: dataProviders || [],
             isRecommended: memberType?.billing_type === 'sustaining',
           }}
