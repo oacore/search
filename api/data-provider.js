@@ -11,7 +11,7 @@ const fetchMetadata = async (id, search_id) => {
   const isUndefined = split?.some((item) => item === undefined)
   const { data } = await requestV3(
     // eslint-disable-next-line camelcase
-    `/data-providers/${id}${!isUndefined ? `?t=${search_id}` : ''}`
+    `/data-providers/${id}${!isUndefined || search_id ? `?t=${search_id}` : ''}`
   )
   return data
 }

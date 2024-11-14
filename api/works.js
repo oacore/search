@@ -6,7 +6,7 @@ const fetchWork = async (id, search_id) => {
   const isUndefined = split?.some((item) => item === undefined)
   const url = new URL(
     // eslint-disable-next-line camelcase
-    `/v3/works/${id}${!isUndefined ? `?t=${search_id}` : ''}`,
+    `/v3/works/${id}${!isUndefined || search_id ? `?t=${search_id}` : ''}`,
     process.env.API_URL
   ).href
 
