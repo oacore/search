@@ -90,17 +90,13 @@ const Results = ({ works, searchId }) =>
             metadataLink:
               generateMetadataLink(metadataLink, searchId, id) ||
               generateMetadataLink(displayLink, searchId, id),
-            fullTextLink:
-              !window.location.search.includes('author') &&
-              !window.location.pathname.includes('data-providers')
-                ? renderFullTextLink({
-                    fullTextLink,
-                    downloadLink,
-                    modifiedReaderLink,
-                    searchId,
-                    id,
-                  })
-                : fullTextLink || readerLink || downloadLink,
+            fullTextLink: renderFullTextLink({
+              fullTextLink,
+              downloadLink,
+              modifiedReaderLink,
+              searchId,
+              id,
+            }),
             dataProviders: dataProviders || [],
             isRecommended: memberType?.billing_type === 'sustaining',
           }}
