@@ -9,7 +9,7 @@ export const fetchWorks = async (body) => {
   const isUndefined = split?.some((item) => item === undefined)
   const url = new URL(
     // eslint-disable-next-line camelcase
-    `/v3/search/works${!isUndefined ? `?t=${search_id}` : ''}`,
+    `/v3/search/works${!isUndefined || search_id ? `?t=${search_id}` : ''}`,
     process.env.API_URL
   ).href
   const { data: dataWorks } = await apiRequest(url, {

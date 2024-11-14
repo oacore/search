@@ -70,6 +70,7 @@ const Results = ({ works, searchId }) =>
         if (innerDownloadLink) return innerDownloadLink
         return innerFullTextLink
       }
+
       return (
         <SearchResult
           id={`search-output-${id}`}
@@ -89,13 +90,17 @@ const Results = ({ works, searchId }) =>
             metadataLink:
               generateMetadataLink(metadataLink, searchId, id) ||
               generateMetadataLink(displayLink, searchId, id),
-            fullTextLink: renderFullTextLink({
-              fullTextLink,
-              downloadLink,
-              modifiedReaderLink,
-              searchId,
-              id,
-            }),
+            fullTextLink:
+              !window.location.search.includes('author') &&
+              !window.location.pathname.includes('data-providers')
+                ? renderFullTextLink({
+                    fullTextLink,
+                    downloadLink,
+                    modifiedReaderLink,
+                    searchId,
+                    id,
+                  })
+                : fullTextLink || readerLink || downloadLink,
             dataProviders: dataProviders || [],
             isRecommended: memberType?.billing_type === 'sustaining',
           }}
