@@ -25,7 +25,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
   }
   // TODO for nice response
   // const { q, page = 1, limit = 10, sort = 'recency' } = searchParams
-  const { q, page = 1, limit = 10, sort = 'relevance', t } = searchParams
+  const { q, page = 1, limit = 10, sort = 'relevance' } = searchParams
 
   const data = {
     currentPage: +page,
@@ -40,7 +40,6 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       q,
       offset,
       limit,
-      t,
       exclude: ['fullText'],
       sort: sort === 'recent' ? 'recency' : sort,
     }
