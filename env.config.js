@@ -9,7 +9,7 @@ const development = {
 }
 
 const production = {
-  API_URL: 'https://api01.core.ac.uk/internal',
+  API_URL: 'https://api.core.ac.uk/internal',
 }
 
 const validate = (config) =>
