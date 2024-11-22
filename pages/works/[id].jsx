@@ -16,18 +16,13 @@ import { checkLogo, checkMembership } from 'utils/data-providers-transform'
 const LOCALE = 'en-GB'
 const CITATION_STYLES = ['apa', 'bibtex']
 
-export async function getServerSideProps({
-  params: routeParams,
-  query: searchParams,
-  req,
-}) {
+export async function getServerSideProps({ params: routeParams, req }) {
   const { id } = routeParams
-  const { t } = searchParams
 
   const data = {}
 
   try {
-    const rawWork = await fetchWork(id, t)
+    const rawWork = await fetchWork(id)
     const { fullText: _, ...work } = rawWork
     const outputs = await fetchWorkOutputs(id)
 

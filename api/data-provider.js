@@ -5,14 +5,8 @@ const API_V3_URL = process.env.API_URL.replace('/internal', '/v3')
 
 const requestV3 = (url, ...args) => request(`${API_V3_URL}${url}`, ...args)
 
-// eslint-disable-next-line camelcase
-const fetchMetadata = async (id, search_id) => {
-  const split = search_id?.split('-')
-  const isUndefined = split?.some((item) => item === undefined)
-  const { data } = await requestV3(
-    // eslint-disable-next-line camelcase
-    `/data-providers/${id}${!isUndefined || search_id ? `?t=${search_id}` : ''}`
-  )
+const fetchMetadata = async (id) => {
+  const { data } = await requestV3(`/data-providers/${id}`)
   return data
 }
 
