@@ -110,7 +110,7 @@ const SearchTemplate = observe(({ data }) => {
                   />
                 )}
               </div>
-              <Results works={data.results} searchId={data.searchId} />
+              <Results works={data.results} />
               {data.currentPage === 1000 && (
                 <div className={styles.more}>
                   Our search interface allows you to see only the first 10.000
