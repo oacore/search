@@ -35,8 +35,10 @@ const Results = ({ works, searchId }) =>
         memberType?.billing_type === 'supporting' ||
         memberType?.billing_type === 'sustaining'
 
-      const generateMetadataLink = (baseLink, propSearchId, propId) =>
-        `${baseLink}/?t=${propSearchId}-${propId}`
+      const generateMetadataLink = (baseLink, propSearchId, propId) => {
+        if (!propSearchId) return baseLink
+        return `${baseLink}/?t=${propSearchId}-${propId}`
+      }
 
       const modifiedReaderLink = readerLink
         ?.replace(/(https:\/\/)(core\.ac\.uk)/, '$1api.$2')
