@@ -44,8 +44,6 @@ const Results = ({ works, searchId }) =>
         ?.replace(/(https:\/\/)(core\.ac\.uk)/, '$1api.$2')
         .replace('/reader/', '/reader-ui/')
 
-      // fullTextLink: fullTextLink || readerLink || downloadLink,
-
       const renderFullTextLink = ({
         fullTextLink: innerFullTextLink,
         downloadLink: innerDownloadLink,
