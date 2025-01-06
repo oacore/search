@@ -44,6 +44,8 @@ const Results = ({ works, searchId }) =>
         ?.replace(/(https:\/\/)(core\.ac\.uk)/, '$1api.$2')
         .replace('/reader/', '/reader-ui/')
 
+      // fullTextLink: fullTextLink || readerLink || downloadLink,
+
       const renderFullTextLink = ({
         fullTextLink: innerFullTextLink,
         downloadLink: innerDownloadLink,
@@ -51,12 +53,7 @@ const Results = ({ works, searchId }) =>
         searchId: innerSearchId,
         id: innerId,
       }) => {
-        if (
-          innerFullTextLink == null &&
-          innerDownloadLink == null &&
-          innerModifiedReaderLink == null
-        )
-          return null
+        if (innerFullTextLink) return innerFullTextLink
         if (
           (innerFullTextLink && innerFullTextLink.includes('core')) ||
           (innerDownloadLink && innerDownloadLink.includes('core')) ||
@@ -70,8 +67,22 @@ const Results = ({ works, searchId }) =>
           )
         }
         if (innerDownloadLink) return innerDownloadLink
-        return innerFullTextLink
+        if (
+          innerFullTextLink == null &&
+          innerDownloadLink == null &&
+          innerModifiedReaderLink == null
+        )
+          return null
+        return null
       }
+
+      const fullTextLinkResolved = renderFullTextLink({
+        fullTextLink,
+        downloadLink,
+        modifiedReaderLink,
+        searchId,
+        id,
+      })
 
       return (
         <SearchResult
@@ -92,13 +103,7 @@ const Results = ({ works, searchId }) =>
             metadataLink:
               generateMetadataLink(metadataLink, searchId, id) ||
               generateMetadataLink(displayLink, searchId, id),
-            fullTextLink: renderFullTextLink({
-              fullTextLink,
-              downloadLink,
-              modifiedReaderLink,
-              searchId,
-              id,
-            }),
+            fullTextLink: fullTextLinkResolved,
             dataProviders: dataProviders || [],
             isRecommended: memberType?.billing_type === 'sustaining',
           }}
