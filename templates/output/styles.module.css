@@ -263,20 +263,20 @@
 }
 
 .license-wrapper {
-  margin-top: 24px;
   display: flex;
-  gap: 10px;
   align-items: center;
-  color: #424242;
+  margin-top: 24px;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
+  color: #424242;
   letter-spacing: 0.024px;
+  gap: 10px;
 }
 
 .license-type {
-  border-radius: 2px;
-  background: #f5f5f5;
   padding: 4px 6px;
+  background: #f5f5f5;
+  border-radius: 2px;
 }
