@@ -77,8 +77,6 @@ const ScientificOutputTemplate = ({
     }
   }, [])
 
-  console.log(dataProvider, 'dataProvider')
-
   return (
     <Search {...passProps} className={styles.outputContainer}>
       {oaiModal && !useOtherVersions && (
