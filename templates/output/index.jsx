@@ -39,6 +39,7 @@ const ScientificOutputTemplate = ({
     identifiers: { doi, oai },
     mainDataProviderLink,
     memberType,
+    license,
   },
   useOtherVersions = false,
   ...passProps
@@ -226,6 +227,11 @@ const ScientificOutputTemplate = ({
             sourceFulltextUrls={sourceFulltextUrls}
             dataProvider={dataProvider.name}
           />
+        )}
+        {license && (
+          <div className={styles.licenseWrapper}>
+            License: <span className={styles.licenseType}>{license}</span>
+          </div>
         )}
       </Search.Sidebar>
     </Search>
