@@ -230,7 +230,7 @@ const ScientificOutputTemplate = ({
         )}
         {license && (
           <div className={styles.licenseWrapper}>
-            License: <span className={styles.licenseType}>{license}</span>
+            Licence: <span className={styles.licenseType}>{license}</span>
           </div>
         )}
       </Search.Sidebar>
