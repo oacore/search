@@ -264,7 +264,6 @@
 
 .license-wrapper {
   display: flex;
-  align-items: center;
   margin-top: 24px;
   font-size: 16px;
   font-style: normal;
@@ -277,6 +276,6 @@
 
 .license-type {
   padding: 4px 6px;
-  background: #f5f5f5;
   border-radius: 2px;
+  flex: 1;
 }
