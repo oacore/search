@@ -52,7 +52,7 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
     return universityName ?? ''
   }
 
-  const checkProvider = checkDataProvider(`${data.id}`)
+  const checkProvider = checkDataProvider(data.id)
 
   const truncate = (str, maxLength) => {
     if (str.length <= maxLength) return str

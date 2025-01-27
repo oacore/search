@@ -6,10 +6,10 @@ function checkMembership(dataProviderId) {
   return cachedMembers.find((item) => {
     if (Array.isArray(item.repo_id)) {
       return (
-        item.repo_id.includes(dataProviderId.toString()) &&
-        item.billingType !== 'starting'
+        item.repo_id.includes(dataProviderId) && item.billingType !== 'starting'
       )
     }
+
     return +item.repo_id === +dataProviderId && item.billingType !== 'starting'
   })
 }
@@ -17,7 +17,7 @@ function checkMembership(dataProviderId) {
 function checkDataProvider(dataProviderId) {
   return cachedMembers.find((item) => {
     if (Array.isArray(item.repo_id))
-      return item.repo_id.includes(dataProviderId.toString())
+      return item.repo_id.includes(dataProviderId)
     return +item.repo_id === +dataProviderId
   })
 }
