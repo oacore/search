@@ -1,12 +1,10 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import L from 'leaflet'
 
 import 'leaflet.markercluster'
 import styles from './styles.module.css'
 
 import { getAssetsPath } from 'utils/helpers'
-
-const KEY_MOVE = 'moveend'
 
 const centerPosition = new L.LatLng(26.523257520856546, -43.10211013159716)
 
@@ -18,22 +16,12 @@ const markerIcon = L.icon({
 })
 
 const CustomMap = ({ locations }) => {
-  const [visibleMarkers, setVisibleMarkers] = useState([])
-  // const [mapLoaded, setMapLoaded] = useState(false)
-
   const mapRef = useRef(null)
+  const markerClusterGroupRef = useRef(null)
 
-  const loadVisibleMarkers = () => {
-    const bounds = mapRef.current.getBounds()
-    const inViewMarkers = locations.filter((loc) =>
-      bounds.contains(new L.LatLng(loc.latitude, loc.longitude))
-    )
-    setVisibleMarkers(inViewMarkers)
-  }
-
+  // Initialize the map only once
   useEffect(() => {
-    // Initialize the map
-    if (locations.length > 0 && !mapRef.current) {
+    if (!mapRef.current) {
       mapRef.current = L.map('map', {
         center: centerPosition,
         zoom: 2,
@@ -46,36 +34,26 @@ const CustomMap = ({ locations }) => {
           }),
         ],
       })
-      // Handle map movements to load new markers
-      mapRef.current.on(KEY_MOVE, loadVisibleMarkers)
-    }
 
-    // Initialize marker cluster group
-    const markerClusterGroup = new L.MarkerClusterGroup()
-    mapRef.current.addLayer(markerClusterGroup)
-
-    return () => {
-      // Cleanup the map and markers
-      mapRef.current.off(KEY_MOVE, loadVisibleMarkers)
-      mapRef.current.remove()
-      mapRef.current = null
+      markerClusterGroupRef.current = new L.MarkerClusterGroup()
+      mapRef.current.addLayer(markerClusterGroupRef.current)
     }
   }, [])
 
+  // Update markers when locations change
   useEffect(() => {
-    const markerClusterGroup = new L.MarkerClusterGroup()
-    // Create and add markers
-    visibleMarkers.forEach(({ name, href, latitude, longitude }) => {
-      const marker = L.marker([latitude, longitude], {
-        icon: markerIcon,
-      }).bindPopup(href ? `<a href=${href} target="_blank">${name}</a>` : name)
-      markerClusterGroup.addLayer(marker)
-    })
-
-    mapRef.current.addLayer(markerClusterGroup)
-
-    return () => markerClusterGroup.clearLayers()
-  }, [visibleMarkers])
+    if (markerClusterGroupRef.current) {
+      markerClusterGroupRef.current.clearLayers()
+      locations.forEach(({ name, href, latitude, longitude }) => {
+        const marker = L.marker([latitude, longitude], {
+          icon: markerIcon,
+        }).bindPopup(
+          href ? `<a href=${href} target="_blank">${name}</a>` : name
+        )
+        markerClusterGroupRef.current.addLayer(marker)
+      })
+    }
+  }, [locations])
 
   return <div id="map" className={styles.map} />
 }
