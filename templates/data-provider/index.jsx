@@ -114,7 +114,7 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
           />
         </div>
         <Results works={outputs.results} />
-        {outputs.data.length === 0 && outputs.error == null && (
+        {outputs.data && outputs.data.length === 0 && outputs.error == null && (
           <div className={styles.noResultsFound}>
             This data provider has not articles yet.
           </div>
