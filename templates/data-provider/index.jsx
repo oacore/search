@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { classNames } from '@oacore/design/lib/utils'
 import { DataProviderLogo } from '@oacore/design/lib/elements/logo'
 
@@ -37,7 +37,7 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
     email: data.email,
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     search.setSortOptions(data.sort)
     search.setWorks(data.results)
     search.setQuery(data.query)

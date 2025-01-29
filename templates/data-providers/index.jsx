@@ -18,7 +18,7 @@ const filterAndMapDataProviders = (dataProviders) =>
         dataProviderLocation?.longitude != null &&
         name
     )
-    .map(({ id, name, dataProviderLocation }) => ({
+    ?.map(({ id, name, dataProviderLocation }) => ({
       name,
       href: `/data-providers/${id}`,
       latitude: dataProviderLocation?.latitude,
@@ -70,7 +70,7 @@ const SearchResults = ({
 
   return (
     <Search.Main>
-      {results.slice(0, dataProvidersSize).map((el) => (
+      {results?.slice(0, dataProvidersSize)?.map((el) => (
         <ResultCard
           key={el.id}
           repoId={el.id}
@@ -113,7 +113,7 @@ const DataProvidersSearchTemplate = React.memo(
     const getSuggestions = useCallback(
       (term) => {
         const matches = searchDataProviders(encodeURI(term))
-        return matches.slice(0, 10).map((dataProvider) => ({
+        return matches?.slice(0, 10)?.map((dataProvider) => ({
           id: dataProvider.id,
           value: dataProvider.name,
           icon: '#magnify',
