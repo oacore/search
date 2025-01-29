@@ -48,7 +48,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       const response = await fetchWorks(body)
 
       const transformedWorks = await Promise.all(
-        response.results.map(async (work) => {
+        response?.results?.map(async (work) => {
           const articleWithUrls = findUrlsByType(work)
           return {
             ...articleWithUrls,
