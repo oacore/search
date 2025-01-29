@@ -47,20 +47,22 @@ export const getServerSideProps = async ({ query: searchParams }) => {
     try {
       const response = await fetchWorks(body)
 
-      const transformedWorks = await Promise.all(
-        response?.results?.map(async (work) => {
-          const articleWithUrls = findUrlsByType(work)
-          return {
-            ...articleWithUrls,
-            dataProviders: await transformDataProviders(work.dataProviders),
-          }
-        })
-      )
+      if (response?.results) {
+        const transformedWorks = await Promise.all(
+          response.results.map(async (work) => {
+            const articleWithUrls = findUrlsByType(work)
+            return {
+              ...articleWithUrls,
+              dataProviders: await transformDataProviders(work.dataProviders),
+            }
+          })
+        )
 
-      Object.assign(data, {
-        ...response,
-        results: transformedWorks,
-      })
+        Object.assign(data, {
+          ...response,
+          results: transformedWorks,
+        })
+      } else data.results = []
     } catch (error) {
       log(error)
       const queryError = {

@@ -113,7 +113,7 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
             className={styles.sort}
           />
         </div>
-        <Results works={outputs.results} />
+        <Results works={outputs?.results || []} />
         {outputs.data && outputs.data.length === 0 && outputs.error == null && (
           <div className={styles.noResultsFound}>
             This data provider has not articles yet.
