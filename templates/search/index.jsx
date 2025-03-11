@@ -54,6 +54,15 @@ const SearchTemplate = observe(({ data }) => {
     search.setActiveSortOption(option, '/search')
   }
 
+  const getRedirectUrl = (dataProviderId) => {
+    if (dataProviderId === 0) return 'https://core.ac.uk/sponsorship'
+
+    if (dataProviderId)
+      return `https://core.ac.uk/data-providers/${dataProviderId}`
+
+    return 'https://core.ac.uk/membership'
+  }
+
   return (
     <>
       <FiltersBar query={data.query} sortType={data.sort} pathName="/search" />
@@ -130,11 +139,7 @@ const SearchTemplate = observe(({ data }) => {
         </Search.Main>
         <Search.Sidebar tag="aside">
           <Link
-            href={
-              banner?.dataprovider_id !== ''
-                ? ` https://core.ac.uk/data-providers/${banner?.dataprovider_id}`
-                : 'https://core.ac.uk/membership`'
-            }
+            href={getRedirectUrl(banner?.dataprovider_id)}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.logo}
