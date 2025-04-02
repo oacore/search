@@ -8,9 +8,9 @@ env:
    API_KEY: searchstaging-4f66dbcd27af40b1a6
 
 on:
-  push:
-    branches:
-      - s_azure_test
+  # push:
+  #   branches:
+  #     - s_azure_test
   workflow_dispatch:
 
 jobs:
