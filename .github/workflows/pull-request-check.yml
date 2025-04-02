@@ -1,6 +1,8 @@
 name: Pull request check
 
-on: [push]
+# on: [push]
+on:
+  workflow_dispatch:
 
 env:
   NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
