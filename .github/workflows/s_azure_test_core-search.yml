@@ -4,8 +4,8 @@
 name: 2025 deploy test
 
 env:
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-  API_KEY: ${{ secrets.API_KEY }}
+  NPM_TOKEN: ${{ secrets.NPM1_TOKEN }}
+  API_KEY: ${{ secrets.API1_KEY }}
 
 on:
   push:
