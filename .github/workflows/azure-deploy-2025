@@ -11,7 +11,7 @@ on:
   push:
     branches:
       - s_azure_test
-  workflow_dispatch:
+  workflow_dispatch: 
 
 jobs:
   build:
