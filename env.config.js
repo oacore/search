@@ -1,3 +1,5 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+
 const NODE_ENV = process.env.NODE_ENV || 'development'
 
 const local = {
