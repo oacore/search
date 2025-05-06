@@ -24,7 +24,8 @@ export const fetchWorks = async (body) => {
     })
     return dataWorks
   } catch (err) {
-    console.warn(`Primary API failed (${urlPrimary}), retrying fallback…`, err)
+    console.warn('Primary API failed')
+    console.error(`Primary API failed (${urlPrimary}), retrying fallback…`, err)
     const { data: dataWorks } = await apiRequest(urlFallback, {
       method: 'POST',
       body,
@@ -34,15 +35,33 @@ export const fetchWorks = async (body) => {
 }
 
 export const fetchAggregations = async (body) => {
-  const url = new URL(`/v3/search/works/aggregate`, process.env.API_URL).href
-  const { data: aggregations } = await apiRequest(url, {
-    body: {
-      ...body,
-      q: body.q || '',
-    },
-    method: 'POST',
-  })
-  return aggregations
+  const urlPrimary = new URL(`/v3/search/works/aggregate`, process.env.API_URL).href
+  const urlFallback = new URL(`/v3/search/works/aggregate`, process.env.API_URL_01).href
+
+  try {
+    const { data: aggregations } = await apiRequest(urlPrimary, {
+      body: {
+        ...body,
+        q: body.q || '',
+      },
+      method: 'POST',
+    })
+    return aggregations
+  } catch (err) {
+    console.warn('Primary API failed')
+    console.error(
+      `Primary API failed (${urlPrimary}), retrying fallback for aggregate …`,
+      err
+    )
+    const { data: aggregations } = await apiRequest(urlFallback, {
+      body: {
+        ...body,
+        q: body.q || '',
+      },
+      method: 'POST',
+    })
+    return aggregations
+  }
 }
 
 export const downloadResultsInCSV = async (body) => {
