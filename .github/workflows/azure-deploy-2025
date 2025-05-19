@@ -6,6 +6,7 @@ name: 2025 deploy test
 env:
   NPM_TOKEN: ${{ secrets.NPM1_TOKEN }}
   API_KEY: ${{ secrets.API1_KEY }}
+  GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID}}
 
 on:
   push:
