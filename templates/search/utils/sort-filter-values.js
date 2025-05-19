@@ -3,11 +3,11 @@ const sortFilterValues = {
   value: 'sort by',
   items: [
     {
-      value: 'relevance',
+      value: 'recent',
       checked: false,
     },
     {
-      value: 'recent',
+      value: 'relevance',
       checked: false,
     },
   ],

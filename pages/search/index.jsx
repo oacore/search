@@ -3,6 +3,8 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Header } from '@oacore/design/lib/modules'
 
+import ErrorCard from '../error-card'
+
 import { findUrlsByType } from 'utils/helpers'
 import log from 'utils/logger'
 import { fetchWorks } from 'api/search'
@@ -21,7 +23,9 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       props: {},
     }
   }
-  const { q, page = 1, limit = 10, sort = 'relevance' } = searchParams
+  // TODO for nice response
+  // const { q, page = 1, limit = 10, sort = 'recency' } = searchParams
+  const { q, page = 1, limit = 10, sort = 'relevance', t } = searchParams
 
   const data = {
     currentPage: +page,
@@ -36,30 +40,34 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       q,
       offset,
       limit,
+      t,
       exclude: ['fullText'],
       sort: sort === 'recent' ? 'recency' : sort,
     }
     try {
       const response = await fetchWorks(body)
 
-      const transformedWorks = await Promise.all(
-        response.results.map(async (work) => {
-          const articleWithUrls = findUrlsByType(work)
-          return {
-            ...articleWithUrls,
-            dataProviders: await transformDataProviders(work.dataProviders),
-          }
-        })
-      )
+      if (response?.results) {
+        const transformedWorks = await Promise.all(
+          response.results.map(async (work) => {
+            const articleWithUrls = findUrlsByType(work)
+            return {
+              ...articleWithUrls,
+              dataProviders: await transformDataProviders(work.dataProviders),
+            }
+          })
+        )
 
-      Object.assign(data, {
-        ...response,
-        results: transformedWorks,
-      })
+        Object.assign(data, {
+          ...response,
+          results: transformedWorks,
+        })
+      } else data.results = []
     } catch (error) {
       log(error)
       const queryError = {
         query: q,
+        status: error?.status ?? null,
       }
       return {
         props: { queryError },
@@ -75,7 +83,9 @@ export const getServerSideProps = async ({ query: searchParams }) => {
 const Search = ({ data, queryError }) => {
   const router = useRouter()
 
-  if (queryError) return <QueryError query={queryError.query} />
+  const searchItem = router.query.q
+
+  if (queryError?.status) return <ErrorCard />
 
   const { statistics } = useStore()
   const totalArticlesCount =
@@ -93,7 +103,7 @@ const Search = ({ data, queryError }) => {
         })
       },
       useAdvancedSearch: true,
-      initQuery: data.query,
+      initQuery: data?.query,
       searchBarProps: {
         label: `Search ${totalArticlesCount} from papers around the world`,
         placeholder: `Search ${totalArticlesCount} from papers around the world`,
@@ -105,12 +115,18 @@ const Search = ({ data, queryError }) => {
   )
 
   return (
-    <>
-      <Head>
-        <title>Search CORE</title>
-      </Head>
-      <Template data={data} />
-    </>
+    <div>
+      {data?.results?.length >= 1 ? (
+        <>
+          <Head>
+            <title>Search CORE</title>
+          </Head>
+          <Template data={data} />
+        </>
+      ) : (
+        <QueryError query={searchItem} />
+      )}
+    </div>
   )
 }
 

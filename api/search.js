@@ -3,7 +3,13 @@ import apiRequest from './index'
 const FileDownload = require('js-file-download')
 
 export const fetchWorks = async (body) => {
-  const url = new URL(`/v3/search/works`, process.env.API_URL).href
+  const { t } = body
+  const split = t?.split('-')
+  const isUndefined = split?.some((item) => item === undefined)
+  const url = new URL(
+    `/v3/search/works${!isUndefined || t ? `?t=${t}` : ''}`,
+    process.env.API_URL
+  ).href
   const { data: dataWorks } = await apiRequest(url, {
     body,
     method: 'POST',

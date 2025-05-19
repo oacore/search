@@ -1,0 +1,29 @@
+.container-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.error-title {
+  margin: 42px 0 16px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.87);
+  text-align: center;
+}
+
+.error-description {
+  margin-bottom: 42px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.87);
+  text-align: center;
+  letter-spacing: 0.024px;
+}

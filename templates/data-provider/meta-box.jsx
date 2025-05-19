@@ -12,13 +12,13 @@ const MetaBox = ({ className, countMetadata, countFullText }) => (
     <div className={styles.boxes}>
       <div className={styles.boxItem}>
         <Card.Title className={styles.count}>
-          {numberWithCommas(countFullText)}
+          {countFullText ? numberWithCommas(countFullText) : 0}
         </Card.Title>
         <span className={styles.caption}>full texts</span>
       </div>
       <div className={styles.boxItem}>
         <Card.Title className={styles.count}>
-          {numberWithCommas(countMetadata)}
+          {countMetadata ? numberWithCommas(countMetadata) : 0}
         </Card.Title>
         <span className={styles.caption}>metadata records</span>
       </div>

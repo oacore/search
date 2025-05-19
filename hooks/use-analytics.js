@@ -1,20 +1,24 @@
 import { useCallback, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { pageview, initialize } from 'react-ga'
+import ReactGA from 'react-ga4'
 import { useCookie } from '@oacore/design'
 
 const useAnalytics = () => {
   const analyticsAllowed = useCookie('analytics_cookies_allowed')
 
   const router = useRouter()
-  const reportPageview = useCallback((url) => {
-    pageview(url)
+  const reportPageview = useCallback((url, title, type = 'search') => {
+    ReactGA.send({
+      hitType: type,
+      page: url,
+      title: `Search | ${window.location.search.substring(1)}`,
+    })
   }, [])
 
   useEffect(() => {
     if (analyticsAllowed && process.env.NODE_ENV === 'production') {
       // Initialise production Google Analytics
-      initialize(process.env.GA_TRACKING_CODE)
+      ReactGA.initialize(process.env.GA_TRACKING_CODE)
     } else if (analyticsAllowed) {
       window.ga = (...args) =>
         // We want to have logging in the development environment

@@ -26,3 +26,8 @@ body,
 .leaflet-popup-tip {
   margin-top: -10px;
 }
+
+.leaflet-container .leaflet-bar a:first-child,
+.leaflet-container .leaflet-bar a:last-child {
+  text-decoration: none;
+}

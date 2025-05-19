@@ -23,6 +23,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+
+.header-wrapper-clickable {
+  cursor: pointer;
 }
 
 .item-wrapper {
@@ -41,7 +48,11 @@
 }
 
 .title-colored {
-  color: var(--primary);
+  color: var(--gray-900);
+}
+
+.redirect-img {
+  margin-left: 1rem;
 }
 
 .subtitle {
@@ -49,30 +60,78 @@
   padding-bottom: 0.3rem;
   margin-top: 0.3rem;
   color: var(--gray-700);
-}
-
-.oai-title {
-  border-top: 1px solid #e0e0e0;
   padding-top: 10px;
 }
 
-.activeClass {
-  border: 1px solid #B75400;
+.action-button {
+  width: 100%;
+  margin-bottom: 14px;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.175px;
+  text-transform: initial;
+}
+
+.disabled-button {
+  width: 100%;
+  border: 1px solid #9E9E9E;
+  color: #9E9E9E;
+  cursor: not-allowed;
+  margin-bottom: 14px;
+  letter-spacing: 0.175px;
+  text-transform: initial;
+}
+
+.popover {
+  padding: 4px;
+  width: 160px;
+  color: #FFF;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0.048px;
+}
+
+.disabled-button:hover {
+  background: unset;
+}
+
+.oai-title {
+  padding-top: 10px;
+}
+
+.card-item {
   background: #F5F5F5;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem 1rem;
+}
+
+.activeClass {
+  padding: 0 1rem 1rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.activeClass:hover {
+  box-shadow: 0px 4px 4px 0px #00000040;
+  transition: all 0.5s ease-in-out;
 }
 
 .placement {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: -1rem;
+  margin-bottom: 0.5rem;
+  margin-right: -1rem;
 }
 
 .memberType {
   min-width: 113px;
   width: max-content;
-  background: #B75400;
+  background: #8BC34A;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -80,4 +139,9 @@
   color: #FFFFFF;
   padding: 0.25rem;
   align-items: flex-end;
+}
+
+.memberType:hover {
+  color: #FFFFFF;
+  text-decoration: none;
 }

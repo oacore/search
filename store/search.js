@@ -8,11 +8,11 @@ import invalidatePreviousRequests from 'utils/invalidatePreviousRequests'
 
 const sortFilterValues = [
   {
-    value: 'relevance',
+    value: 'recent',
     checked: false,
   },
   {
-    value: 'recent',
+    value: 'relevance',
     checked: false,
   },
 ]
@@ -97,7 +97,7 @@ class Search {
       pathname,
       query: {
         ...Router.query,
-        sort: sortType.value === 'recent' ? 'recency' : sortType.value,
+        sort: sortType.value === 'recent' ? 'relevance' : sortType.value,
         page: 1,
       },
     })

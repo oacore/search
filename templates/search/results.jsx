@@ -6,7 +6,7 @@ import { checkType } from '../../utils/data-providers-transform'
 
 import { formatDate } from 'utils/helpers'
 
-const Results = ({ works }) =>
+const Results = ({ works, searchId }) =>
   works.map(
     ({
       id,
@@ -35,6 +35,53 @@ const Results = ({ works }) =>
         memberType?.billing_type === 'supporting' ||
         memberType?.billing_type === 'sustaining'
 
+      const generateMetadataLink = (baseLink, propSearchId, propId) => {
+        if (!propSearchId) return baseLink
+        return `${baseLink}/?t=${propSearchId}-${propId}`
+      }
+
+      const modifiedReaderLink = readerLink
+        ?.replace(/(https:\/\/)(core\.ac\.uk)/, '$1api.$2')
+        .replace('/reader/', '/reader-ui/')
+
+      const renderFullTextLink = ({
+        fullTextLink: innerFullTextLink,
+        downloadLink: innerDownloadLink,
+        modifiedReaderLink: innerModifiedReaderLink,
+        searchId: innerSearchId,
+        id: innerId,
+      }) => {
+        if (innerFullTextLink) return innerFullTextLink
+        if (
+          (innerFullTextLink && innerFullTextLink.includes('core')) ||
+          (innerDownloadLink && innerDownloadLink.includes('core')) ||
+          (innerModifiedReaderLink &&
+            innerModifiedReaderLink.includes('api.core'))
+        ) {
+          return generateMetadataLink(
+            innerModifiedReaderLink,
+            innerSearchId,
+            innerId
+          )
+        }
+        if (innerDownloadLink) return innerDownloadLink
+        if (
+          innerFullTextLink == null &&
+          innerDownloadLink == null &&
+          innerModifiedReaderLink == null
+        )
+          return null
+        return null
+      }
+
+      const fullTextLinkResolved = renderFullTextLink({
+        fullTextLink,
+        downloadLink,
+        modifiedReaderLink,
+        searchId,
+        id,
+      })
+
       return (
         <SearchResult
           id={`search-output-${id}`}
@@ -42,16 +89,21 @@ const Results = ({ works }) =>
           variant="outlined"
           className={styles.searchResults}
           useLogo={!!checkBillingType()}
+          searchId={searchId}
+          renderRedirectLink
           data={{
-            id,
+            workId: id,
             title,
             author: authors,
             publicationVenue: publicationVenue || null,
             publicationDate: publicationDate || null,
             thumbnailUrl: thumbnailLink || `//core.ac.uk/image/${id}/medium`,
-            metadataLink: metadataLink || displayLink,
-            fullTextLink: fullTextLink || readerLink || downloadLink,
+            metadataLink:
+              generateMetadataLink(metadataLink, searchId, id) ||
+              generateMetadataLink(displayLink, searchId, id),
+            fullTextLink: fullTextLinkResolved,
             dataProviders: dataProviders || [],
+            isRecommended: memberType?.billing_type === 'sustaining',
           }}
         >
           {abstract}

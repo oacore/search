@@ -12,17 +12,13 @@ import { useClaimController } from 'templates/data-providers/hooks'
 import { useSyncUrlParamsWithStore } from 'hooks/use-sync-url-params-with-store'
 
 export async function getServerSideProps({ query }) {
-  const { data } = cachedData || []
+  const data = cachedData || []
+
   return {
     props: {
       initialState: {
         dataProviders: {
-          data:
-            // TODO: Remove once https://github.com/vercel/next.js/issues/16122 is solved
-            //       or once we migrate to backend search
-            normalizeDataProviders(
-              process.env.NODE_ENV === 'production' ? data : data.slice(0, 200)
-            ),
+          data: normalizeDataProviders(data),
           params: {
             ...Object.fromEntries(
               Object.entries(query).filter(([, v]) => v != null)

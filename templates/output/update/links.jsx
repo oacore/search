@@ -6,15 +6,14 @@ import styles from './styles.module.css'
 const links = [
   {
     id: 1,
-    label: 'A display page URL',
-    link: 'https://core.ac.uk/display/82976757',
+    label: 'A outputs page URL',
+    link: 'https://core.ac.uk/outputs/82976757',
   },
   {
     id: 2,
     label: 'A fulltext URL',
-    link: 'https://core.ac.uk/download/pdf/82976757.pdf ',
+    link: 'https://core.ac.uk/download/82976757.pdf ',
   },
-  { id: 3, label: 'Directly to CORE ID', link: '82976757' },
 ]
 
 const Links = () => (

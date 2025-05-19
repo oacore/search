@@ -6,17 +6,18 @@
   margin-bottom: 1rem;
 }
 
-.dropdown-content {
-  padding-top: 0.5rem;
-  margin-bottom: 1rem;
-  border-top: 1px solid var(--gray-100);
-}
-
 .identifier {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   color: var(--primary);
+}
+
+.inner-identifier {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-copy {
@@ -91,6 +92,11 @@
   font-weight: 400;
   color: #fff;
   letter-spacing: 0.004em;
-  background: #b75400;
+  background: #8bc34a;
   border-radius: 2px;
+}
+
+.member-highlight:hover {
+  color: #fff;
+  text-decoration: none;
 }

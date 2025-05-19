@@ -14,17 +14,26 @@ const FullTextThumbnail = ({
   src,
   alt,
   href,
+  doi,
   className,
   tag: Tag = 'a',
   useOtherVersions,
   providerId,
+  metadata,
   ...passProps
 }) => {
   const downloadPDF = () => {
     const pdfUrl = data.download
     const link = document.createElement('a')
     link.href = pdfUrl
-    link.download = 'example.pdf'
+    link.target = '_blank'
+    link.rel = 'noopener noreferrer'
+
+    link.addEventListener('click', () => {
+      link.remove()
+    })
+
+    document.body.appendChild(link)
     link.click()
   }
 
@@ -80,6 +89,8 @@ const FullTextThumbnail = ({
             activeArticle
             dataProviderId={providerId}
             makeVisible
+            doi={doi}
+            metadata={metadata}
             {...data}
             useExpandButton={false}
           />

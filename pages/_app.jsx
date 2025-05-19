@@ -128,7 +128,7 @@ App.getInitialProps = async () => {
 
   const { data } = cachedStatistics
   if (data && Object.keys(data).length > 0) statistics = data
-  else statistics = { totalArticlesCount: 'more than 200 million' }
+  else statistics = { totalArticlesCount: 'more than 356 million' }
 
   return {
     statistics,

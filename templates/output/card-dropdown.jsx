@@ -34,6 +34,10 @@ const CardDropdown = ({
   dataProviderId,
   makeVisible,
   worksOai,
+  outputRedirect,
+  metadata,
+  doi,
+  useOtherVersions,
 }) => {
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(oai)
   const [isTooltipVisible, setIsTooltipVisible] = useState(false)
@@ -50,7 +54,8 @@ const CardDropdown = ({
     let text = ''
     if (coreDownloadUrl && coreDownloadUrl.match(/core.ac.uk/gm))
       text = 'Provided a free PDF'
-    else if (sourceFulltextUrls) text = 'Provided original full text link'
+    else if (sourceFulltextUrls && sourceFulltextUrls.length > 0)
+      text = 'Provided original full text link'
     else text = 'Full text is not available'
     return text
   }
@@ -67,51 +72,60 @@ const CardDropdown = ({
     []
   )
 
-  const subtitleText = (
-    <Tag
-      href={coreDownloadUrl || sourceFulltextUrls}
-      className={classNames.use(styles.link, {
-        [styles.linkDisabled]: !coreDownloadUrl && !sourceFulltextUrls,
-      })}
-    >
-      {subtitleLinkText}
-    </Tag>
-  )
+  const subtitleText =
+    coreDownloadUrl?.length > 0 || sourceFulltextUrls.length > 0 ? (
+      <Tag
+        href={coreDownloadUrl || sourceFulltextUrls || '#'}
+        className={classNames.use(styles.link, {
+          [styles.linkDisabled]: !coreDownloadUrl && !sourceFulltextUrls,
+        })}
+      >
+        {subtitleLinkText}
+      </Tag>
+    ) : (
+      subtitleLinkText
+    )
 
   const EllipsisText = (text) =>
-    text?.length > 22 ? `${text.substring(0, 22)}...` : text
+    text?.length > 30 ? `${text.substring(0, 30)}...` : text
 
   const renderOAI = (
     <Card.Description className={classNames.use(styles.identifier)} tag="span">
-      <img
-        src={getAssetsPath('/static/images/oai.svg')}
-        alt="oai"
-        className={styles.logo}
-      />
-      <a
-        className={styles.ellipsis}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        href={`https://api.core.ac.uk/oai/${oai}`}
-      >
-        {EllipsisText(oai)}
-      </a>
-      {isTooltipVisible && <div className={styles.tooltip}>{oai}</div>}
-      <Icon
-        src="#content-copy"
-        className={styles.iconCopy}
-        onClick={(e) => {
-          e.stopPropagation()
-          copyUrl()
-        }}
-      />
-      {copyUrlStatus === 'copied' && <Notification text="Copied" />}
+      <div className={styles.innerIdentifier}>
+        <img
+          src={getAssetsPath('/static/images/oai.svg')}
+          alt="oai"
+          className={styles.logo}
+        />
+        <a
+          className={styles.ellipsis}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          href={`https://api.core.ac.uk/oai/${oai}`}
+        >
+          {EllipsisText(oai)}
+        </a>
+        {isTooltipVisible && <div className={styles.tooltip}>{oai}</div>}
+      </div>
+      <div>
+        <Icon
+          src="#content-copy"
+          className={styles.iconCopy}
+          onClick={(e) => {
+            e.stopPropagation()
+            copyUrl()
+          }}
+        />
+        {copyUrlStatus === 'copied' && <Notification text="Copied" />}
+      </div>
     </Card.Description>
   )
 
   return (
     <DropDown
+      disableRedirect
       imageSrc={image}
+      dataProviderId={dataProviderId}
       title={title}
       subtitle={subtitleText}
       renderOAI={worksOai && oai && renderOAI}
@@ -122,6 +136,15 @@ const CardDropdown = ({
       memberType={memberType}
       checkBillingType={checkBillingType}
       makeVisible={makeVisible}
+      outputRedirect={outputRedirect}
+      metadata={metadata}
+      coreDownloadUrl={coreDownloadUrl}
+      sourceFulltextUrls={sourceFulltextUrls}
+      sourceFulltextUrlsUpd={sourceFulltextUrlsUpd}
+      id={id}
+      oai={oai}
+      doi={doi}
+      useOtherVersions={useOtherVersions}
     >
       <div className={styles.dropdownContent}>
         {!worksOai && oai && (
@@ -129,25 +152,29 @@ const CardDropdown = ({
             className={classNames.use(styles.identifier)}
             tag="span"
           >
-            <img
-              src={getAssetsPath('/static/images/oai.svg')}
-              alt="oai"
-              className={styles.oaiLogo}
-            />
-            <a
-              className={styles.ellipsis}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              href={`https://api.core.ac.uk/oai/${oai}`}
-            >
-              {EllipsisText(oai)}
-            </a>
-            <Icon
-              src="#content-copy"
-              className={styles.iconCopy}
-              onClick={copyUrl}
-            />
-            {copyUrlStatus === 'copied' && <Notification text="Copied" />}
+            <div className={styles.innerIdentifier}>
+              <img
+                src={getAssetsPath('/static/images/oai.svg')}
+                alt="oai"
+                className={styles.oaiLogo}
+              />
+              <a
+                className={styles.ellipsis}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                href={`https://api.core.ac.uk/oai/${oai}`}
+              >
+                {EllipsisText(oai)}
+              </a>
+            </div>
+            <div>
+              <Icon
+                src="#content-copy"
+                className={styles.iconCopy}
+                onClick={copyUrl}
+              />
+              {copyUrlStatus === 'copied' && <Notification text="Copied" />}
+            </div>
           </Card.Description>
         )}
         {(updatedDate || createdDate) && (
@@ -155,26 +182,14 @@ const CardDropdown = ({
             Last time updated on {formatDate(updatedDate || createdDate)}
           </Card.Description>
         )}
-        {coreDownloadUrl &&
-          coreDownloadUrl.match(/core.ac.uk/gm) &&
-          sourceFulltextUrls && (
-            <Card.Description className={styles.descriptionLink} tag="span">
-              <a
-                href={sourceFulltextUrlsUpd}
-                aria-labelledby={`${id}-downloaded-from-title`}
-                aria-describedby={`${id}-downloaded-from-body`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                View original full text link
-              </a>
-            </Card.Description>
-          )}
         {checkBillingType && makeVisible ? (
-          <span className={styles.memberHighlight}>
+          <a
+            href="https://core.ac.uk/membership"
+            className={styles.memberHighlight}
+          >
             Provided by our {capitalizeFirstLetter(memberType?.billing_type)}{' '}
             member
-          </span>
+          </a>
         ) : (
           <></>
         )}

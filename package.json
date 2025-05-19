@@ -33,7 +33,7 @@
     "next-images": "^1.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-ga": "^3.2.1",
+    "react-ga4": "^2.1.0",
     "throttle-debounce": "^3.0.1"
   },
   "devDependencies": {
@@ -63,12 +63,12 @@
     "stylelint": "^13.8.0"
   },
   "engines": {
-    "node": "^12.0.0 || >=14.0.0",
-    "npm": "^7.0.0"
+    "node": ">=16.18.1",
+    "npm": ">=8.19.2"
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node ./node_modules/.bin/design build icons && next build",
+    "build": "node ./data/data-loader.js && node ./node_modules/.bin/design build icons && next build",
     "start": "next start",
     "lint:json": "prettier --ignore-path .gitignore --check '**/*.json'",
     "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",

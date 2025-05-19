@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useLayoutEffect, useCallback } from 'react'
+import React, { useCallback, useEffect, useLayoutEffect, useRef } from 'react'
 import { Button, Header } from '@oacore/design'
 import { countries } from 'i18n-iso-countries/langs/en.json'
 
@@ -18,7 +18,7 @@ const filterAndMapDataProviders = (dataProviders) =>
         dataProviderLocation?.longitude != null &&
         name
     )
-    .map(({ id, name, dataProviderLocation }) => ({
+    ?.map(({ id, name, dataProviderLocation }) => ({
       name,
       href: `/data-providers/${id}`,
       latitude: dataProviderLocation?.latitude,
@@ -56,7 +56,7 @@ const SearchResults = ({
           </h2>
           <p>
             We could not find any data provider matching your query. If there is
-            an open access repository or a journal you think should be added to
+            an open access repository or a journal you think should be added to
             CORE, use the form below{' '}
             <span role="img" aria-label="">
               👇
@@ -70,7 +70,7 @@ const SearchResults = ({
 
   return (
     <Search.Main>
-      {results.slice(0, dataProvidersSize).map((el) => (
+      {results?.slice(0, dataProvidersSize)?.map((el) => (
         <ResultCard
           key={el.id}
           repoId={el.id}
@@ -113,7 +113,7 @@ const DataProvidersSearchTemplate = React.memo(
     const getSuggestions = useCallback(
       (term) => {
         const matches = searchDataProviders(encodeURI(term))
-        return matches.slice(0, 10).map((dataProvider) => ({
+        return matches?.slice(0, 10)?.map((dataProvider) => ({
           id: dataProvider.id,
           value: dataProvider.name,
           icon: '#magnify',
@@ -150,7 +150,11 @@ const DataProvidersSearchTemplate = React.memo(
           results={results}
           setDataProvidersOffset={setDataProvidersSize}
         >
-          <div id="add-new-data-provider" className={styles.addDataProvider}>
+          <div
+            id="add-new-data-provider"
+            key="add-new-data-provider"
+            className={styles.addDataProvider}
+          >
             {showAddDataProviderForm ? (
               <AddDataProviderForm
                 ref={formRef}
@@ -163,7 +167,10 @@ const DataProvidersSearchTemplate = React.memo(
                   Cannot find your repository or journal in our list? Become a
                   data provider now!
                 </p>
-                <Button onClick={() => setShowForm(true)} variant="contained">
+                <Button
+                  href="https://core.ac.uk/benefits#join-core"
+                  variant="contained"
+                >
                   Add data provider
                 </Button>
               </>
@@ -175,6 +182,7 @@ const DataProvidersSearchTemplate = React.memo(
             <Map
               className={styles.map}
               locations={filterAndMapDataProviders(results)}
+              // locations={filterAndMapDataProviders(results.slice(0, 500))}
             />
           )}
           <p>
@@ -193,10 +201,7 @@ const DataProvidersSearchTemplate = React.memo(
           </p>
           <Button
             variant="outlined"
-            onClick={() => {
-              setShowForm(true)
-              window.location.hash = 'add-new-data-provider'
-            }}
+            href="https://core.ac.uk/benefits#join-core"
           >
             Become a data provider
           </Button>

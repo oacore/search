@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Button, TextField, Form } from '@oacore/design/lib'
+import { Button, Form, Link, TextField } from '@oacore/design/lib'
 import classNames from '@oacore/design/lib/utils/class-names'
 
 import { useReportController } from '../hooks'
@@ -38,7 +38,9 @@ const UpdateTemplate = observe(() => {
     evt.preventDefault()
 
     const regexStringPatterns =
-      /(http(s)?:\/\/)?core.ac.uk\/(display|download\/pdf)\/\d+|^\d+$/s
+      /(http(s)?:\/\/)?core.ac.uk\/(outputs|display|download|download\/pdf)\/\d+|^\d+$/s
+    // /(http(s)?:\/\/)?core.ac.uk\/(outputs|display|download)\/\d+|^\d+$/s
+    // /(http(s)?:\/\/)?core.ac.uk\/(display|download\/pdf)\/\d+|^\d+$/s
     const regexNumberPattern = /\d+/s
 
     const outputId = url
@@ -46,6 +48,8 @@ const UpdateTemplate = observe(() => {
       ?.join('')
       ?.match(regexNumberPattern)
       ?.join('')
+    // eslint-disable-next-line no-console
+    console.log(`Takedown outputId => ${outputId}`)
 
     if (!outputId) setErrorMessage('Please provide correct URL')
 
@@ -58,14 +62,14 @@ const UpdateTemplate = observe(() => {
   return (
     <>
       <section className={classNames.use(styles.header, styles.container)}>
-        <h2 className="display">Article Update/Takedown Request </h2>
+        <h2 className="display">Article Takedown Request </h2>
         <img src={takedownSVG} alt="takedown" />
       </section>
       <section className={classNames.use(styles.update, styles.container)}>
         <div className={styles.updateDescription}>
           <p>
-            To update or remove a paper from CORE, please search for the paper
-            using the search box at the top of this page.
+            To remove a paper from CORE, please search for the paper using the
+            search box at the top of this page.
           </p>
           <p>
             When you have found the paper, please enter the URL of the paper
@@ -110,15 +114,16 @@ const UpdateTemplate = observe(() => {
         <Links />
         <p>
           Please note that the form does not accept links which start with
-          &quot;https://core.ac.uk/<strong>search</strong>&quot;.
+          &quot;https://core.ac.uk/<strong>search</strong>&quot; and
+          &quot;https://core.ac.uk/<strong>works</strong>&quot;.
         </p>
       </section>
       <div className={classNames.use(styles.note, styles.container)} />
       <section className={classNames.use(styles.faq, styles.container)}>
         <img src={faqSVG} alt="faq" />
         <p>
-          You can find out more information about updating/deleting articles in
-          the &nbsp;
+          You can find out more information about deleting articles in the
+          &nbsp;
           <Link href="https://core.ac.uk/faq">
             &quot;Removing full text or metadata&quot;
           </Link>
