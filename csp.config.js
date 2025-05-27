@@ -3,6 +3,7 @@
  */
 const SELF = "'self'"
 const PRODUCTION = '*.core.ac.uk core.ac.uk'
+const LOGROCKET = '*.logrocket.com *.lgrckt-in.com'
 
 const config = {
   'default-src': [SELF, PRODUCTION],
@@ -12,6 +13,9 @@ const config = {
     '*.doubleclick.net',
     '*.googletagmanager.com',
     '*.cloudflareinsights.com',
+    LOGROCKET,
+    'blob:',
+    'data:',
   ],
   'script-src-elem': [
     SELF,
@@ -19,6 +23,17 @@ const config = {
     '*.doubleclick.net',
     '*.googletagmanager.com',
     '*.cloudflareinsights.com',
+    LOGROCKET,
+    'blob:',
+    'data:',
+    "'unsafe-inline'",
+    "'unsafe-eval'",
+  ],
+  'worker-src': [
+    SELF,
+    LOGROCKET,
+    'blob:',
+    'data:',
   ],
   // TODO: Move 'unsafe-inline' to dev when the Next.js' bug is resolved
   // See more: https://github.com/vercel/next.js/issues/17445
@@ -34,6 +49,7 @@ const config = {
     '*.doubleclick.net',
     '*.googletagmanager.com',
     '*.cloudflareinsights.com',
+    LOGROCKET,
   ],
   'connect-src': [
     SELF,
@@ -43,7 +59,11 @@ const config = {
     '*.doubleclick.net',
     '*.googletagmanager.com',
     '*.cloudflareinsights.com',
+    LOGROCKET,
   ],
+  'object-src': ["'none'"],
+  'media-src': [SELF, 'data:', LOGROCKET],
+  'child-src': [SELF, 'blob:', LOGROCKET],
 }
 
 if (process.env.NODE_ENV !== 'production') {

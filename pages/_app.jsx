@@ -6,7 +6,6 @@ import React, {
 } from 'react'
 import { useRouter } from 'next/router'
 import { CookiesProvider } from '@oacore/design'
-
 // TODO: Move to map component once
 //       https://github.com/vercel/next.js/issues/12079 is solved
 import 'leaflet/dist/leaflet.css'
@@ -15,10 +14,14 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import '@oacore/design/lib/index.css'
 import 'main/global.css'
 
-import { getStatistics, getMembers, getDataProviders } from 'lib'
+import LogRocket from 'logrocket'
+
+import { getDataProviders, getMembers, getStatistics } from 'lib'
 import cachedStatistics from 'data/.statistics.json'
 import Main from 'main'
 import { Sentry } from 'utils/sentry'
+
+LogRocket.init('cab1al/search-gfe6o')
 
 process.on('unhandledRejection', (err) => {
   Sentry.captureException(err)
