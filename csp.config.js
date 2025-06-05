@@ -29,12 +29,7 @@ const config = {
     "'unsafe-inline'",
     "'unsafe-eval'",
   ],
-  'worker-src': [
-    SELF,
-    LOGROCKET,
-    'blob:',
-    'data:',
-  ],
+  'worker-src': [SELF, LOGROCKET, 'blob:', 'data:'],
   // TODO: Move 'unsafe-inline' to dev when the Next.js' bug is resolved
   // See more: https://github.com/vercel/next.js/issues/17445
   'style-src': [SELF, "'unsafe-inline'"],
