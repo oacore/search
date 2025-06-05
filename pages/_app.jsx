@@ -21,8 +21,6 @@ import cachedStatistics from 'data/.statistics.json'
 import Main from 'main'
 import { Sentry } from 'utils/sentry'
 
-LogRocket.init('cab1al/search-gfe6o')
-
 process.on('unhandledRejection', (err) => {
   Sentry.captureException(err)
 })
@@ -91,6 +89,9 @@ const App = ({
   router: approuter,
 }) => {
   const router = useRouter()
+
+  if (process.env.NODE_ENV === 'production')
+    LogRocket.init('cab1al/search-gfe6o')
 
   if (process.env.NODE_ENV === 'production') {
     useInterceptNextDataHref({
