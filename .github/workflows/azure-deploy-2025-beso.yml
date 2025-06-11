@@ -25,6 +25,8 @@ jobs:
           node-version: '16.x'
 
       - name: Install dependencies and build
+        env:
+            GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
         run: |
           npm install --legacy-peer-deps
           npm run build --if-present
