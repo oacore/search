@@ -1,4 +1,82 @@
-name: 2025 deploy azure
+# name: 2025 deploy azure
+
+# env:
+#   NPM_TOKEN: ${{ secrets.NPM1_TOKEN }}
+#   API_KEY: ${{ secrets.API_KEY }}
+#   GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
+
+# on:
+#   push:
+#     branches:
+#       - s_azure_test
+#   workflow_dispatch: 
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: read
+
+#     steps:
+#       - uses: actions/checkout@v4
+#       - name: Set up Node.js version
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '16.x'
+
+#       - name: Install dependencies and build
+#         run: |
+#           npm install --legacy-peer-deps
+#           npm run build --if-present
+
+#       - name: Analyze artifact size
+#         run: |
+#           echo "********Analyzing artifact size*********"
+#           du -sh .
+#           ls -RF | head -n 50
+#           echo "********Bold folders:*********"
+#           du -hd 1
+
+#       - name: Zip artifact for deployment
+#         run: zip -r release.zip .
+#         # run: zip -r release.zip . -x "node_modules/*" "*.git/*" "tests/*"
+
+#       - name: Upload artifact for deployment job
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: search-node-app
+#           path: release.zip
+
+#   deploy:
+#     runs-on: ubuntu-latest
+#     needs: build
+#     environment:
+#       name: 'Production'
+#       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+#     permissions:
+#       id-token: write
+#       contents: read
+
+#     steps:
+#       - name: Download artifact from build job
+#         uses: actions/download-artifact@v4
+#         with:
+#           name: search-node-app
+
+#       - name: Unzip artifact
+#         run: unzip release.zip
+
+#       - name: 'Deploy to Azure Web App'
+#         id: deploy-to-webapp
+#         uses: azure/webapps-deploy@v3
+#         with:
+#           app-name: 'core-search'
+#           slot-name: 'Production'
+#           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BCA28C303AFF490AA6E9231236FD8202 }}
+#           package: .
+
+
+name: 2025 deploy azure optimized
 
 env:
   NPM_TOKEN: ${{ secrets.NPM1_TOKEN }}
@@ -9,7 +87,7 @@ on:
   push:
     branches:
       - s_azure_test
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   build:
@@ -20,14 +98,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up Node.js version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '16.x'
+          cache: 'npm'
 
-      - name: Install dependencies and build
-        run: |
-          npm install --legacy-peer-deps
-          npm run build --if-present
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Run build script (Next.js)
+        run: npm run build --if-present
 
       - name: Analyze artifact size
         run: |
@@ -36,16 +116,26 @@ jobs:
           ls -RF | head -n 50
           echo "********Bold folders:*********"
           du -hd 1
+          echo "********Size of node_modules:*********"
+          du -sh node_modules
 
       - name: Zip artifact for deployment
-        # run: zip -r release.zip .
-        run: zip -r release.zip . -x "node_modules/*" "*.git/*" "tests/*"
+        run: |
+          mkdir deploy_package
+          rsync -a --exclude='.git/' --exclude='.github/' --exclude='tests/' \
+                --exclude='*.log' --exclude='*.md' --exclude='*.yaml' --exclude='*.yml' \
+                --exclude='node_modules/webpack*' --exclude='node_modules/.bin' \
+                ./ deploy_package/
+          zip -r release.zip deploy_package/
+          echo "Size of release.zip: $(du -sh release.zip | awk '{print $1}')"
+          rm -rf deploy_package
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: search-node-app
           path: release.zip
+          retention-days: 1
 
   deploy:
     runs-on: ubuntu-latest
@@ -62,9 +152,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: search-node-app
-
-      - name: Unzip artifact
-        run: unzip release.zip
+          path: . 
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -73,4 +161,4 @@ jobs:
           app-name: 'core-search'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BCA28C303AFF490AA6E9231236FD8202 }}
-          package: .
+          package: release.zip
