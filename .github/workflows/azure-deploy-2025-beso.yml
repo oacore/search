@@ -1,8 +1,9 @@
 name: 2025 deploy azure
 
 env:
-  NPM_TOKEN: ${{ secrets.NPM1_TOKEN }}
-  API_KEY: ${{ secrets.API1_KEY }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  API_KEY: ${{ secrets.API_KEY }}
+  GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
 
 on:
   push:
@@ -18,25 +19,32 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
 
       - name: Install dependencies and build
-        env:
-            GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
         run: |
           npm install --legacy-peer-deps
           npm run build --if-present
+
+      - name: Analyze artifact size
+        run: |
+          echo "********Analyzing artifact size*********"
+          du -sh .
+          ls -RF | head -n 50
+          echo "********Top 10 bold folders:*********"
+          find . -type f -print0 | xargs -0 du -h | sort -rh | head -n 10
+
       - name: Zip artifact for deployment
-        run: zip -r release.zip .
+        # run: zip -r release.zip .
+        run: zip -r release.zip . -x "node_modules/*" "*.git/*" "tests/*"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: reader-node-app
+          name: search-node-app
           path: release.zip
 
   deploy:
@@ -53,7 +61,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: reader-node-app
+          name: search-node-app
 
       - name: Unzip artifact
         run: unzip release.zip
