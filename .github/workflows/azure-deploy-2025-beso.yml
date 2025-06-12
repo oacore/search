@@ -121,14 +121,9 @@ jobs:
 
       - name: Zip artifact for deployment
         run: |
-          mkdir deploy_package
-          rsync -a --exclude='.git/' --exclude='.github/' --exclude='tests/' \
-                --exclude='*.log' --exclude='*.md' --exclude='*.yaml' --exclude='*.yml' \
-                --exclude='node_modules/webpack*' --exclude='node_modules/.bin' \
-                ./ deploy_package/
-          zip -r release.zip deploy_package/
-          echo "Size of release.zip: $(du -sh release.zip | awk '{print $1}')"
-          rm -rf deploy_package
+          echo "********Creating deploy package*********"
+          zip -r release.zip . -x "node_modules/webpack*" "node_modules/.bin" "*.git/*" "*.log"
+          echo "Size of release.zip: $(du -sh release.zip | awk '{print $1}')"          
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
