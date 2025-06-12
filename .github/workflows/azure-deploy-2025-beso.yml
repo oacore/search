@@ -34,8 +34,8 @@ jobs:
           echo "********Analyzing artifact size*********"
           du -sh .
           ls -RF | head -n 50
-          echo "********Top 10 bold folders:*********"
-          find . -type f -print0 | xargs -0 du -h | sort -rh | head -n 10
+          echo "********Bold folders:*********"
+          du -hd 1
 
       - name: Zip artifact for deployment
         # run: zip -r release.zip .
