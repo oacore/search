@@ -99,10 +99,14 @@ const nextConfig = {
   },
 }
 
-module.exports = withImages(withSourceMaps(nextConfig))
+// module.exports = withImages(withSourceMaps(nextConfig))
 
-module.exports = {
-  env: {
-    GA_MEASUREMENT_ID: process.env.GA_MEASUREMENT_ID,
-  },
-};
+module.exports = withImages(
+  withSourceMaps({
+    ...nextConfig,
+    env: {
+      ...nextConfig.env,
+      GA_MEASUREMENT_ID: process.env.GA_MEASUREMENT_ID,
+    },
+  })
+);
