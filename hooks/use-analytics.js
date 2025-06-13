@@ -16,7 +16,7 @@ const useAnalytics = () => {
   }, [])
 
   useEffect(() => {
-    if (analyticsAllowed && process.env.NODE_ENV === 'production') {
+    if (analyticsAllowed && process.env.NODE_ENV === 'azure') {
       // Initialise production Google Analytics
       ReactGA.initialize(process.env.GA_TRACKING_CODE)
     } else if (analyticsAllowed) {
