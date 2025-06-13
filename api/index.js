@@ -90,7 +90,8 @@ const processBody = (response, { method }) => {
 const processError = (error, details) => {
   const { response } = error
   if (response == null) throw error // re-throwing if nothing to process
-
+  console.log(error)
+  
   return processBody(response, details).then((body) => {
     Object.assign(error, body)
 
