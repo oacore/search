@@ -34,6 +34,7 @@ const prepareHeaders = ({ headers: customHeaders, body }) => {
   const defaultHeaders = {
     Accept: 'application/json',
     Authorization: `Bearer ${API_KEY}`,
+    'User-Agent': 'OACore/1.0'
   }
   const contentHeaders =
     typeof body == 'object' && body != null
@@ -91,7 +92,7 @@ const processError = (error, details) => {
   const { response } = error
   if (response == null) throw error // re-throwing if nothing to process
   console.log(error)
-  
+
   return processBody(response, details).then((body) => {
     Object.assign(error, body)
 
