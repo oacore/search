@@ -35,6 +35,7 @@ jobs:
           GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
           NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
           NEXT_PUBLIC_GA_CODE: ${{ secrets.GA_MEASUREMENT_ID }}
+          GA_TRACKING_CODE: ${{ secrets.GA_MEASUREMENT_ID }}
         run: npm ci --legacy-peer-deps
 
       - name: Run build script
