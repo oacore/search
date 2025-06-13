@@ -96,6 +96,7 @@ const processError = (error, details) => {
   return processBody(response, details).then((body) => {
     Object.assign(error, body)
     console.log(body)
+    console.log(API_KEY)
     console.log('******asdasdasdas********')
 
     // re-throwing after processing
