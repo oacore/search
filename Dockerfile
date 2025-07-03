@@ -40,10 +40,10 @@ WORKDIR /app
 COPY --from=builder /app /app
 
 # Expose app port
-EXPOSE 80
+EXPOSE 8080
 
 # Use dumb-init as entrypoint
 ENTRYPOINT ["dumb-init", "--"]
 
 # Start the Next.js server
-CMD ["node_modules/next/dist/bin/next", "start", "-p", "80"]
+CMD ["node_modules/next/dist/bin/next", "start", "-p", "8080"]
