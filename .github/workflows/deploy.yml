@@ -10,7 +10,8 @@ env:
   ACR_NAME: corefrontend
   IMAGE_NAME: search
   RESOURCE_GROUP: test-rg
-  WEBAPP_NAME: core-search-container
+  CONTAINERAPP_NAME: core-containerapp-search
+  CONTAINER_PORT: 80
 
 permissions:
   id-token: write
@@ -43,8 +44,6 @@ jobs:
       - name: Docker Build and Tag
         run: |
           docker build \
-            --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
-            --build-arg API_KEY=${{ secrets.API_KEY }} \
             -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.tag }} \
             -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:latest \
             .
@@ -69,25 +68,10 @@ jobs:
       - name: Set image tag from build job
         run: echo "TAG=${{ needs.build-and-push.outputs.tag }}" >> $GITHUB_ENV
 
-      - name: Set app settings (API_KEY & NPM_TOKEN)
+      - name: Deploy to Azure Container App
         run: |
-          az webapp config appsettings set \
-            --name ${{ env.WEBAPP_NAME }} \
+          az containerapp update \
+            --name ${{ env.CONTAINERAPP_NAME }} \
             --resource-group ${{ env.RESOURCE_GROUP }} \
-            --settings \
-              API_KEY=${{ secrets.API_KEY }} \
-              NPM_TOKEN=${{ secrets.NPM_TOKEN }}
-
-      - name: Deploy Docker image to Azure Web App
-        run: |
-          az webapp config container set \
-            --name ${{ env.WEBAPP_NAME }} \
-            --resource-group ${{ env.RESOURCE_GROUP }} \
-            --docker-custom-image-name ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ env.TAG }} \
-            --docker-registry-server-url https://${{ env.ACR_NAME }}.azurecr.io
-
-      - name: Restart Web App
-        run: |
-          az webapp restart \
-            --name ${{ env.WEBAPP_NAME }} \
-            --resource-group ${{ env.RESOURCE_GROUP }}
+            --image ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ env.TAG }} \
+            --container-name ${{ env.IMAGE_NAME }}
