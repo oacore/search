@@ -7,6 +7,7 @@ import {
 } from '@oacore/design/lib/elements'
 import classNames from '@oacore/design/lib/utils/class-names'
 import { Popover } from '@oacore/design/lib/modules'
+import LogRocket from 'logrocket'
 
 import redirect from '../../public/static/images/redirect.svg'
 import styles from './styles.module.css'
@@ -57,13 +58,18 @@ const DropDown = ({
           const link = `https://api.core.ac.uk/data-providers/${dataProviderId}/logo`
           const response = await fetch(link)
           if (response.ok) setLogoFetched(link)
+          else {
+            LogRocket.captureMessage(
+              `Failed to fetch logo. Status: ${response.status}`
+            )
+          }
         } catch (err) {
-          // eslint-disable-next-line no-console
-          console.log(err)
+          console.error(err)
+          LogRocket.captureException(err)
         }
       }
 
-      fetchData()
+      if (dataProviderId) fetchData()
     }, [])
 
     return logoFetched

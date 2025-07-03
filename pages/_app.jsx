@@ -6,19 +6,17 @@ import React, {
 } from 'react'
 import { useRouter } from 'next/router'
 import { CookiesProvider } from '@oacore/design'
+import LogRocket from 'logrocket'
 
-// TODO: Move to map component once
-//       https://github.com/vercel/next.js/issues/12079 is solved
+import { getDataProviders, getMembers, getStatistics } from 'lib'
+import cachedStatistics from 'data/.statistics.json'
+import Main from 'main'
+import { Sentry } from 'utils/sentry'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet.markercluster/dist/MarkerCluster.css'
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import '@oacore/design/lib/index.css'
 import 'main/global.css'
-
-import { getStatistics, getMembers, getDataProviders } from 'lib'
-import cachedStatistics from 'data/.statistics.json'
-import Main from 'main'
-import { Sentry } from 'utils/sentry'
 
 process.on('unhandledRejection', (err) => {
   Sentry.captureException(err)
@@ -88,6 +86,9 @@ const App = ({
   router: approuter,
 }) => {
   const router = useRouter()
+
+  if (process.env.NODE_ENV === 'production')
+    LogRocket.init('cab1al/search-gfe6o')
 
   if (process.env.NODE_ENV === 'production') {
     useInterceptNextDataHref({
