@@ -1,5 +1,5 @@
 # Stage 1: Build stage
-FROM node:v16 AS builder
+FROM node:16 AS builder
 
 # Accept tokens as build args
 ARG NPM_TOKEN
