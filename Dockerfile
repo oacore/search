@@ -8,8 +8,12 @@ ARG API_KEY
 # Set working directory
 WORKDIR /app
 
+RUN printf "//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n" > .npmrc \
+  && printf "@oacore:registry=https://npm.pkg.github.com/\n"   >> .npmrc \
+  && printf "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}\n" >> .npmrc
+
 # Set npm token for public npm registry
-RUN echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+#RUN echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
 
 # Copy only dependency-related files first
 COPY package*.json ./
