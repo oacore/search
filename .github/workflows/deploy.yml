@@ -12,6 +12,12 @@ env:
   RESOURCE_GROUP: test-rg
   CONTAINERAPP_NAME: core-containerapp-search
   CONTAINER_PORT: 80
+  NPM_TOKEN: ${{ secrets.NPM1_TOKEN }}
+  API_KEY: ${{ secrets.API_KEY }}
+  GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
+  GA_CODE: ${{ secrets.GA_MEASUREMENT_ID }}
+  NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
+  NEXT_PUBLIC_GA_CODE: ${{ secrets.GA_MEASUREMENT_ID }}
 
 permissions:
   id-token: write
