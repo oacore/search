@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-about:
-    uses: devops-workflows/.github/workflows/docker-build-push.yml@main
+    uses: oacore/devops-workflows/.github/workflows/docker-build-push.yml@main
     with:
       image_name: saerch
     secrets:
