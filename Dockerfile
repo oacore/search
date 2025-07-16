@@ -16,13 +16,10 @@ RUN printf "//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n" > .npmrc \
 #RUN echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
 
 # Copy only dependency-related files first
-COPY package*.json ./
+COPY . .
 
 # Install dependencies
 RUN npm ci --legacy-peer-deps
-
-# Copy full source code
-COPY . .
 
 # Build the Next.js app
 RUN npm run build
