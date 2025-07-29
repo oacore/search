@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/oacore/search#readme",
   "dependencies": {
+    "@zeit/next-source-maps": "0.0.4"
     "@oacore/design": "latest",
     "@oacore/stylelint-config-base": "^1.0.6",
     "@sentry/browser": "^5.28.0",
