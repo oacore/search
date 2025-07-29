@@ -39,7 +39,7 @@ WORKDIR /app
 COPY --from=builder /app /app
 
 # Set environment variables for runtime
-ENV NODE_ENV=production
+# ENV NODE_ENV=production
 ENV PORT=80
 
 # Expose port 80 (Azure Container Apps expects this by default)
