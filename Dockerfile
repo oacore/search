@@ -42,5 +42,5 @@ EXPOSE 8080
 # Use dumb-init as entrypoint
 ENTRYPOINT ["dumb-init", "--"]
 
-# Start the Next.js server
+# Start the Next.js server 
 CMD ["node_modules/next/dist/bin/next", "start", "-p", "8080"]
