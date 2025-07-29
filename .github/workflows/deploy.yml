@@ -1,10 +1,10 @@
 name: containerapp deploy azure
 
 on:
-  push:
-    branches:
-      - containerapp_deploy
-  workflow_dispatch: {}
+  # push:
+  #   branches:
+  #     - containerapp_deploy
+  workflow_dispatch: 
 
 env:
   ACR_NAME: corefrontend
