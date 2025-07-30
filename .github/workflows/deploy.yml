@@ -52,7 +52,6 @@ jobs:
           docker build \
             --build-arg NPM_TOKEN=${{ secrets.NPM1_TOKEN }} \
             --build-arg API_KEY=${{ secrets.API_KEY }} \
-            --build-arg USE_MOCK_DATA=true \
             -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.tag }} \
             -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:latest \
             .
