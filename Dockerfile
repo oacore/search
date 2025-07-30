@@ -1,52 +1,50 @@
-# Stage 1: Build stage
-FROM node:16 AS builder
+# Stage 1: Build
+FROM node:18 AS builder
 
-# Accept tokens as build args
+# Accept NPM token for private packages
 ARG NPM_TOKEN
 ARG API_KEY
-ARG USE_MOCK_DATA=false
-
-# Make sure the build environment knows about USE_MOCK_DATA
-ENV USE_MOCK_DATA=$USE_MOCK_DATA
-ENV NODE_ENV=production
 
 # Set working directory
 WORKDIR /app
 
-# Configure npm authentication
-RUN printf "//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n" > .npmrc \
-  && printf "@oacore:registry=https://npm.pkg.github.com/\n" >> .npmrc \
-  && printf "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}\n" >> .npmrc
+# Configure private access to GitHub Packages and NPM
+RUN echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > /root/.npmrc \
+ && echo "@oacore:registry=https://npm.pkg.github.com/" >> /root/.npmrc \
+ && echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" >> /root/.npmrc
 
-# Copy all files
-COPY . .
+# Copy dependency declarations
+COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --legacy-peer-deps
+RUN npm ci --save-dev @zeit/next-source-maps --legacy-peer-deps
 
-# Build the Next.js app
+# Copy the entire project
+COPY . .
+
+# Increase memory & fix OpenSSL issue
+ENV NODE_OPTIONS="--openssl-legacy-provider --max-old-space-size=4096"
+
+# Run build (fail if broken)
 RUN npm run build
 
-# Stage 2: Runtime stage
-FROM node:16-alpine
+# Stage 2: Runtime
+FROM node:18-alpine
 
-# Install dumb-init for proper signal handling
+# Install dumb-init for signal handling
 RUN apk add --no-cache dumb-init
 
+# Set working directory
 WORKDIR /app
 
-# Copy built app from builder
+# Copy built app from previous stage
 COPY --from=builder /app /app
 
-# Set environment variables for runtime
-# ENV NODE_ENV=production
-ENV PORT=80
+# Expose the app port
+EXPOSE 8080
 
-# Expose port 80 (Azure Container Apps expects this by default)
-EXPOSE 80
-
-# Use dumb-init as the entrypoint
+# Entry point using dumb-init
 ENTRYPOINT ["dumb-init", "--"]
 
-# Start the Next.js server on port 80
-CMD ["node_modules/next/dist/bin/next", "start", "-p", "80"]
+# Start Next.js in production mode
+CMD ["node_modules/next/dist/bin/next", "start", "-p", "8080"]
