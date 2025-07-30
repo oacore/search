@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:18 AS builder
+FROM node:16 AS builder
 
 # Accept NPM token for private packages
 ARG NPM_TOKEN
@@ -31,7 +31,7 @@ ENV NODE_OPTIONS="--openssl-legacy-provider --max-old-space-size=4096"
 RUN npm run build
 
 # Stage 2: Runtime
-FROM node:18-alpine
+FROM node:16-alpine
 
 # Install dumb-init for signal handling
 RUN apk add --no-cache dumb-init
