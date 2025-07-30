@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:16 AS builder
+FROM node:18 AS builder
 
 # Accept NPM token for private packages
 ARG NPM_TOKEN
@@ -17,23 +17,19 @@ RUN echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > /root/.npmrc \
 COPY package*.json ./
 
 # Install dependencies
-#RUN npm install --save-dev @zeit/next-source-maps
-
-# RUN npm install
-
 RUN npm ci --legacy-peer-deps
 
 # Copy the entire project
 COPY . .
 
 # Increase memory & fix OpenSSL issue
-ENV NODE_OPTIONS="--openssl-legacy-provider"
+ENV NODE_OPTIONS="--openssl-legacy-provider --max-old-space-size=4096"
 
 # Run build (fail if broken)
 RUN npm run build
 
 # Stage 2: Runtime
-FROM node:16-alpine
+FROM node:18-alpine
 
 # Install dumb-init for signal handling
 RUN apk add --no-cache dumb-init
