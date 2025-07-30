@@ -1,9 +1,9 @@
 name: containerapp deploy azure
 
 on:
-  # push:
-  #   branches:
-  #     - containerapp_deploy
+  push:
+    branches:
+      - containerapp_deploy
   workflow_dispatch: 
 
 env:
