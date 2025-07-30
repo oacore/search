@@ -17,7 +17,9 @@ RUN echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > /root/.npmrc \
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --save-dev @zeit/next-source-maps --legacy-peer-deps
+RUN npm install --save-dev @zeit/next-source-maps
+
+RUN npm install
 
 # Copy the entire project
 COPY . .
