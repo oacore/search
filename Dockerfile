@@ -27,7 +27,7 @@ RUN npm ci --legacy-peer-deps
 COPY . .
 
 # Increase memory & fix OpenSSL issue
-ENV NODE_OPTIONS="--openssl-legacy-provider --max-old-space-size=4096"
+ENV NODE_OPTIONS="--openssl-legacy-provider"
 
 # Run build (fail if broken)
 RUN npm run build
