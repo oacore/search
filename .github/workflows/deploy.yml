@@ -10,8 +10,9 @@ env:
   ACR_NAME: corefrontend
   IMAGE_NAME: search
   RESOURCE_GROUP: test-rg
-  CONTAINERAPP_NAME: core-containerapp-search
-
+  # CONTAINERAPP_NAME: core-containerapp-search
+  CONTAINERAPP_NAME: search-container-test
+  
 permissions:
   id-token: write
   contents: read
