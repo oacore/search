@@ -12,6 +12,7 @@ env:
   RESOURCE_GROUP: test-rg
   # CONTAINERAPP_NAME: core-containerapp-search
   CONTAINERAPP_NAME: search-container-test
+  CONTAINER_NAME: search-container
   
 permissions:
   id-token: write
@@ -76,20 +77,20 @@ jobs:
             --name ${{ env.CONTAINERAPP_NAME }} \
             --resource-group ${{ env.RESOURCE_GROUP }} \
             --image ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ env.TAG }} \
-            --container-name ${{ env.CONTAINERAPP_NAME }} \
+            --container-name ${{ env.CONTAINER_NAME }} \
 
 
       - name: Set API_KEY secret
         run: |
           az containerapp secret set \
-            --name ${{ env.CONTAINERAPP_NAME }} \
+            --name ${{ env.CONTAINER_NAME }} \
             --resource-group ${{ env.RESOURCE_GROUP }} \
             --secrets api-key=${{ secrets.API_KEY }}
 
       - name: Bind API_KEY env to container
         run: |
           az containerapp update \
-            --name ${{ env.CONTAINERAPP_NAME }} \
+            --name ${{ env.CONTAINER_NAME }} \
             --resource-group ${{ env.RESOURCE_GROUP }} \
             --container-name $CONTAINER_NAME \
             --set-env-vars API_KEY=secretref:api-key
