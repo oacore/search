@@ -40,15 +40,16 @@ WORKDIR /app
 # Copy built app from previous stage
 COPY --from=builder /app /app
 
-# Expose the app port
 # EXPOSE 8080
 
-EXPOSE 8080
-
 # Entry point using dumb-init
-ENTRYPOINT ["dumb-init", "--"]
+# ENTRYPOINT ["dumb-init", "--"]
 
 # Start Next.js in production mode
 # CMD ["node_modules/next/dist/bin/next", "start", "-p", "8080"]
 
-CMD ["sh", "-c", "node_modules/next/dist/bin/next start -p 8080"]
+EXPOSE 8080
+
+ENTRYPOINT ["dumb-init", "--"]
+
+CMD ["npm", "run", "start"]
