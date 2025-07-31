@@ -52,4 +52,4 @@ EXPOSE 8080
 
 ENTRYPOINT ["dumb-init", "--"]
 
-CMD ["npm", "run", "start"]
+CMD ["node_modules/next/dist/bin/next", "start", "-p", "8080"]
