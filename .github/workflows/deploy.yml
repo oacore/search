@@ -81,15 +81,19 @@ jobs:
             --container-name ${{ env.IMAGE_NAME }} \
 
 
-      - name: Ensure API_KEY secret and env
+      - name: Set API_KEY secret
         run: |
           az containerapp secret set \
             --name ${{ env.CONTAINERAPP_NAME }} \
             --resource-group ${{ env.RESOURCE_GROUP }} \
             --secrets api-key=${{ secrets.API_KEY }}
 
+      - name: Bind API_KEY env to container
+        run: |
           az containerapp update \
             --name ${{ env.CONTAINERAPP_NAME }} \
             --resource-group ${{ env.RESOURCE_GROUP }} \
+            --container-name ${{ env.IMAGE_NAME }} \
             --set-env-vars API_KEY=secretref:api-key
+
 
