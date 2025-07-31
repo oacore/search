@@ -4,6 +4,7 @@ FROM node:18 AS builder
 # Accept NPM token for private packages
 ARG NPM_TOKEN
 ARG API_KEY
+ENV API_KEY=$API_KEY
 
 # Set working directory
 WORKDIR /app
