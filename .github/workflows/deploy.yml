@@ -82,4 +82,7 @@ jobs:
             --name ${{ env.CONTAINERAPP_NAME }} \
             --resource-group ${{ env.RESOURCE_GROUP }} \
             --image ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ env.TAG }} \
-            --container-name ${{ env.IMAGE_NAME }}
+            --container-name ${{ env.IMAGE_NAME }} \
+            --target-port 80 \
+            --ingress external
+
