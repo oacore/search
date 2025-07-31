@@ -4,16 +4,13 @@ on:
   push:
     branches:
       - containerapp_deploy
-  workflow_dispatch: 
+  workflow_dispatch:
 
 env:
   ACR_NAME: corefrontend
   IMAGE_NAME: search
   RESOURCE_GROUP: test-rg
   CONTAINERAPP_NAME: core-containerapp-search
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-  API_KEY: ${{ secrets.API_KEY }}
-
 
 permissions:
   id-token: write
@@ -47,7 +44,6 @@ jobs:
         run: |
           docker build \
             --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
-            --build-arg API_KEY=${{ secrets.API_KEY }} \
             -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.tag }} \
             -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:latest \
             .
@@ -65,35 +61,17 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1
         with:
-            client-id: ${{ secrets.AZURE_CLIENT_ID }}
-            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Set image tag from build job
         run: echo "TAG=${{ needs.build-and-push.outputs.tag }}" >> $GITHUB_ENV
 
-      - name: Deploy to Azure Container App
+      - name: Deploy container image
         run: |
           az containerapp update \
             --name ${{ env.CONTAINERAPP_NAME }} \
             --resource-group ${{ env.RESOURCE_GROUP }} \
             --image ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ env.TAG }} \
-            --container-name ${{ env.IMAGE_NAME }} \
-
-
-      - name: Set API_KEY secret
-        run: |
-          az containerapp secret set \
-            --name ${{ env.CONTAINERAPP_NAME }} \
-            --resource-group ${{ env.RESOURCE_GROUP }} \
-            --secrets api-key=${{ secrets.API_KEY }}
-
-      - name: Bind API_KEY env to container
-        run: |
-          az containerapp update \
-            --name ${{ env.CONTAINERAPP_NAME }} \
-            --resource-group ${{ env.RESOURCE_GROUP }} \
-            --container-name ${{ env.IMAGE_NAME }} \
-            --set-env-vars API_KEY=secretref:api-key
-
-
+            --container-name ${{ env.IMAGE_NAME }}
