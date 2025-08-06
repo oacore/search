@@ -12,7 +12,7 @@ env:
   RESOURCE_GROUP: core-frontend
   # CONTAINERAPP_NAME: core-containerapp-search
   CONTAINERAPP_NAME: core-frontend-search
-  CONTAINER_NAME: search-container
+  CONTAINER_NAME: core-frontend-search
   
 permissions:
   id-token: write
