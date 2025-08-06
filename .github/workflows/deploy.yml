@@ -9,9 +9,9 @@ on:
 env:
   ACR_NAME: corefrontend
   IMAGE_NAME: search
-  RESOURCE_GROUP: test-rg
+  RESOURCE_GROUP: core-frontend
   # CONTAINERAPP_NAME: core-containerapp-search
-  CONTAINERAPP_NAME: search-container-test
+  CONTAINERAPP_NAME: core-frontend-search
   CONTAINER_NAME: search-container
   
 permissions:
