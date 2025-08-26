@@ -19,6 +19,10 @@ const nextConfig = {
         source: dataPath.source,
         destination: dataPath.destination,
       },
+      {
+        source: `/data-providers/_next/:path*`,
+        destination: '/_next/:path*',
+      },
     ]
   },
   async headers() {
