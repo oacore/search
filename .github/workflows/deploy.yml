@@ -13,6 +13,7 @@ env:
   # CONTAINERAPP_NAME: core-containerapp-search
   CONTAINERAPP_NAME: core-frontend-search
   CONTAINER_NAME: core-frontend-search
+  BUILD_TARGET: ${{ secrets.BUILD_TARGET }}
   
 permissions:
   id-token: write
