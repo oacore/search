@@ -20,8 +20,8 @@ const nextConfig = {
         destination: dataPath.destination,
       },
       {
-        source: `/data-providers/_next/:path*`,
-        destination: '/_next/:path*',
+        source: `/static/:path*`,
+        destination: '/:path*',
       },
     ]
   },

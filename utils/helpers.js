@@ -1,5 +1,5 @@
 const getAssetsPath = (path = '/', target = process.env.BUILD_TARGET || '') =>
-  target === 'aws' ? `/data-providers${path}` : path
+  target === 'azure' ? `/static${path}` : path
 
 const rewriteDataPath = (
   path = '/_next/data/:path*',
