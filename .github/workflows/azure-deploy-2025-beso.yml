@@ -7,7 +7,7 @@ env:
   GA_CODE: ${{ secrets.GA_MEASUREMENT_ID }}
   NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
   NEXT_PUBLIC_GA_CODE: ${{ secrets.GA_MEASUREMENT_ID }}
-
+  BUILD_TARGET: ${{ secrets.BUILD_TARGET}}
 
 on:
   push:
