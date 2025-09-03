@@ -89,7 +89,11 @@ const SearchTemplate = observe(({ data }) => {
                       onClick={() => search.setActiveDownloadModal(true)}
                       className={styles.actionButton}
                     >
-                      <Icon src="#download" className={styles.actionIcon} />
+                      <Icon
+                        src="#download"
+                        className={styles.actionIcon}
+                        srcPrefix="/static"
+                      />
                     </Button>
                   </Popover>
                   <Popover
@@ -106,6 +110,7 @@ const SearchTemplate = observe(({ data }) => {
                       <Icon
                         src="#share-variant"
                         className={styles.actionIcon}
+                        srcPrefix="/static"
                       />
                     </Button>
                   </Popover>
