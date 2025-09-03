@@ -5,6 +5,7 @@ dist
 build
 node_modules
 public/static/design
+public/design
 public/icons
 public/icons.svg
 
