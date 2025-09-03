@@ -5,6 +5,8 @@ dist
 build
 node_modules
 public/static/design
+public/icons
+public/icons.svg
 
 !data/.gitkeep
 !data/languages.json
