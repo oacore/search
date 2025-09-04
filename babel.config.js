@@ -22,6 +22,7 @@ module.exports = (api) => {
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
     'add-react-displayname',
+    "@babel/plugin-transform-runtime",
   ]
 
   return {
