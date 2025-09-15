@@ -14,6 +14,8 @@ env:
   CONTAINER_NAME: core-frontend-search
   BUILD_TARGET: ${{ secrets.BUILD_TARGET }}
   ICONS_PUBLIC_PATH: /reader/design/
+  SENTRY_DSN: https://c075d5369bec4df9adc56815e5d07412@o318858.ingest.sentry.io/5340405
+
   
 permissions:
   id-token: write
@@ -46,6 +48,7 @@ jobs:
       - name: Docker Build and Tag
         run: |
           docker build \
+            --build-arg SENTRY_DSN=${{env.SENTRY_DSN}}
             --build-arg GA_TRACKING_CODE=${{secrets.GA_TRACKING_CODE}} \
             --build-arg ICONS_PUBLIC_PATH=${{env.ICONS_PUBLIC_PATH}} \
             --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
