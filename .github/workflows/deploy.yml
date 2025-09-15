@@ -48,7 +48,7 @@ jobs:
       - name: Docker Build and Tag
         run: |
           docker buildx build \
-            --build-arg SENTRY_DSN=${{env.SENTRY_DSN}}
+            --build-arg SENTRY_DSN=${{env.SENTRY_DSN}} \
             --build-arg GA_TRACKING_CODE=${{secrets.GA_TRACKING_CODE}} \
             --build-arg ICONS_PUBLIC_PATH=${{env.ICONS_PUBLIC_PATH}} \
             --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
