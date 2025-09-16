@@ -8,7 +8,7 @@ on:
 
 env:
   ACR_NAME: corecontainers
-  IMAGE_NAME: search
+  IMAGE_NAME: core-frontend-search
   RESOURCE_GROUP: core-frontend
   CONTAINERAPP_NAME: core-frontend-search
   CONTAINER_NAME: core-frontend-search
