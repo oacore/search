@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  ACR_NAME: corefrontend
+  ACR_NAME: corecontainers
   IMAGE_NAME: search
   RESOURCE_GROUP: core-frontend
   CONTAINERAPP_NAME: core-frontend-search
