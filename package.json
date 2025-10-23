@@ -17,12 +17,12 @@
   "dependencies": {
     "@oacore/design": "latest",
     "@oacore/stylelint-config-base": "^1.0.6",
-    "@sentry/browser": "^5.28.0",
-    "@sentry/node": "^5.28.0",
+    "@sentry/browser": "^10.21.0",
+    "@sentry/node": "^10.21.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "bibtex-parse-js": "0.0.24",
+    "bibtex-parse-js": "^0.0.23",
     "core-js": "^3.8.1",
-    "cssnano": "^4.1.10",
+    "cssnano": "^7.1.1",
     "filesize": "^6.1.0",
     "i18n-iso-countries": "^6.2.2",
     "js-file-download": "^0.4.12",
@@ -32,7 +32,7 @@
     "logrocket-react": "^6.0.3",
     "mobx": "^6.0.0",
     "mobx-react-lite": "^3.0.0",
-    "next": "^10.0.3",
+    "next": "^16.0.0",
     "next-images": "^1.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -78,6 +78,5 @@
     "lint:css": "stylelint --ignore-path .gitignore '**/*.css'",
     "lint": "run-p lint:*",
     "build_windows": "node ./data/data-loader.js && design build icons && next build"
-
   }
 }
