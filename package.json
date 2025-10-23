@@ -17,8 +17,8 @@
   "dependencies": {
     "@oacore/design": "latest",
     "@oacore/stylelint-config-base": "^1.0.6",
-    "@sentry/browser": "^10.21.0",
-    "@sentry/node": "^10.21.0",
+    "@sentry/browser": "^5.28.0",
+    "@sentry/node": "^5.28.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "bibtex-parse-js": "^0.0.23",
     "core-js": "^3.8.1",
@@ -72,7 +72,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node ./data/data-loader.js && node ./node_modules/.bin/design build icons && next build",
+    "build_next": "next build",
     "start": "next start",
     "lint:json": "prettier --ignore-path .gitignore --check '**/*.json'",
     "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",
