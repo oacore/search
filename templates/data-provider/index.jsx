@@ -105,7 +105,7 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
         {/* /> */}
         <div className={styles.sortWrapper}>
           <span className={styles.searchTotal}>
-            {data.outputs.totalHits} research outputs found
+            {data.outputs.totalHits} research Output found
           </span>
           <Sort
             options={search.sortOptions}
