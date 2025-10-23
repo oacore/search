@@ -76,6 +76,8 @@
     "lint:json": "prettier --ignore-path .gitignore --check '**/*.json'",
     "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",
     "lint:css": "stylelint --ignore-path .gitignore '**/*.css'",
-    "lint": "run-p lint:*"
+    "lint": "run-p lint:*",
+    "build_windows": "node ./data/data-loader.js && design build icons && next build"
+
   }
 }
