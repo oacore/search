@@ -1,17 +1,17 @@
-name: containerapp deploy azure
+name: stage deploy azure
 
 on:
   push:
     branches:
-      - containerapp_deploy
+      - stage
   workflow_dispatch:
 
 env:
   ACR_NAME: corecontainers
-  IMAGE_NAME: core-frontend-search
-  RESOURCE_GROUP: core-frontend
-  CONTAINERAPP_NAME: core-frontend-search
-  CONTAINER_NAME: core-frontend-search
+  IMAGE_NAME: core-frontend-stage-search
+  RESOURCE_GROUP: core-frontend-stage
+  CONTAINERAPP_NAME: core-frontend-stage-search
+  CONTAINER_NAME: core-frontend-stage-search
   BUILD_TARGET: ${{ secrets.BUILD_TARGET }}
   ICONS_PUBLIC_PATH: /reader/design/
   SENTRY_DSN: https://c075d5369bec4df9adc56815e5d07412@o318858.ingest.sentry.io/5340405
