@@ -1,4 +1,4 @@
-name: containerapp deploy azure
+name: prod deploy azure
 
 on:
   push:
