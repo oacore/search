@@ -6,33 +6,66 @@ export const fetchWorks = async (body) => {
   const { t } = body
   const split = t?.split('-')
   const isUndefined = split?.some((item) => item === undefined)
-  const url = new URL(
+
+  const urlPrimary = new URL(
     `/v3/search/works${!isUndefined || t ? `?t=${t}` : ''}`,
     process.env.API_URL
   ).href
-  const { data: dataWorks } = await apiRequest(url, {
-    body,
-    method: 'POST',
-  })
 
-  return dataWorks
+  const urlFallback = new URL(
+    `/v3/search/works${!isUndefined || t ? `?t=${t}` : ''}`,
+    process.env.API_URL_01
+  ).href
+
+  try {
+    const { data: dataWorks } = await apiRequest(urlPrimary, {
+      method: 'POST',
+      body,
+    })
+    return dataWorks
+  } catch (err) {
+    console.warn('Primary API failed')
+    console.error(`Primary API failed (${urlPrimary}), retrying fallback…`, err)
+    const { data: dataWorks } = await apiRequest(urlFallback, {
+      method: 'POST',
+      body,
+    })
+    return dataWorks
+  }
 }
 
 export const fetchAggregations = async (body) => {
-  const url = new URL(`/v3/search/works/aggregate`, process.env.API_URL).href
-  const { data: aggregations } = await apiRequest(url, {
-    body: {
-      ...body,
-      q: body.q || '',
-    },
-    method: 'POST',
-  })
-  return aggregations
+  const urlPrimary = new URL(`/v3/search/works/aggregate`, process.env.API_URL).href
+  const urlFallback = new URL(`/v3/search/works/aggregate`, process.env.API_URL_01).href
+
+  try {
+    const { data: aggregations } = await apiRequest(urlPrimary, {
+      body: {
+        ...body,
+        q: body.q || '',
+      },
+      method: 'POST',
+    })
+    return aggregations
+  } catch (err) {
+    console.warn('Primary API failed')
+    console.error(
+      `Primary API failed (${urlPrimary}), retrying fallback for aggregate …`,
+      err
+    )
+    const { data: aggregations } = await apiRequest(urlFallback, {
+      body: {
+        ...body,
+        q: body.q || '',
+      },
+      method: 'POST',
+    })
+    return aggregations
+  }
 }
 
 export const downloadResultsInCSV = async (body) => {
   const url = new URL(`/v3/search/works`, process.env.API_URL).href
-
   await apiRequest(url, {
     body,
     method: 'POST',
