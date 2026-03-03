@@ -163,6 +163,27 @@
   max-width: 50rem;
 }
 
+.navigation-trail a,
+.navigation-trail a:link:focus,
+.navigation-trail a:visited{
+  color: #424242;
+  cursor: pointer;
+}
+
+.navigation-trail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  line-height: 130%;
+  color: #424242;
+}
+
+.separator {
+  color: #424242;
+}
+
 @media (--screen-until-desktop) {
   .output-container {
     grid-template-columns: 1fr !important;
@@ -174,6 +195,10 @@
 
   .background h1 {
     max-width: 100vw;
+  }
+
+  .navigation-trail {
+    font-size: 1.25rem;
   }
 }
 
