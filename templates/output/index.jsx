@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useRef, useState } from 'react'
 import { Button, Icon, MathMarkdown } from '@oacore/design/lib/elements'
 import { useRouter } from 'next/router'
@@ -77,6 +78,13 @@ const ScientificOutputTemplate = ({
     }
   }, [])
 
+  const isTypeWorks = router.asPath.includes('/works/')
+  const isTypeOutputs = router.asPath.includes('/outputs/')
+  const pos = router.asPath.indexOf('search=')
+  const resultSearch = `https://core.ac.uk/search/?${router.asPath.slice(
+    pos + 7
+  )}`
+
   return (
     <Search {...passProps} className={styles.outputContainer}>
       {oaiModal && !useOtherVersions && (
@@ -112,6 +120,22 @@ const ScientificOutputTemplate = ({
       )}
       <Search.Main>
         <div className={styles.background}>
+          <div className={styles.navigationTrail}>
+            <a href={resultSearch} target="_blank" rel="noreferrer">
+              Search results
+            </a>
+            {(isTypeWorks || isTypeOutputs) && (
+              <>
+                <span className={styles.separator}>{'>'}</span>
+                {isTypeWorks && <a href="#">Research work</a>}
+                {isTypeOutputs && (
+                  <a href="#">
+                    Research output from {dataProvider?.name || 'repository'}
+                  </a>
+                )}
+              </>
+            )}
+          </div>
           <div className={styles.info}>
             {documentType && (
               <span className={styles.documentType}>{documentType}</span>

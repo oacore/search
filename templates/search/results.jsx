@@ -1,5 +1,6 @@
 import React from 'react'
 import { SearchResult } from '@oacore/design'
+import { useRouter } from 'next/router'
 
 import styles from './styles.module.css'
 import { checkType } from '../../utils/data-providers-transform'
@@ -26,6 +27,7 @@ const Results = ({ works, searchId }) =>
       const memberType = checkType(dataProviders?.[0].id)
       const fullTextLink = links.find((l) => l.type === 'download')?.url
       const metadataLink = links.find((l) => l.type === 'display')?.url
+      const router = useRouter()
 
       const publicationDate = publishedDate
         ? formatDate(new Date(publishedDate))
@@ -37,7 +39,11 @@ const Results = ({ works, searchId }) =>
 
       const generateMetadataLink = (baseLink, propSearchId, propId) => {
         if (!propSearchId) return baseLink
-        return `${baseLink}/?t=${propSearchId}-${propId}`
+
+        const pos = router.asPath.indexOf('?')
+        const result = router.asPath.slice(pos + 1)
+
+        return `${baseLink}/?t=${propSearchId}-${propId}&search=${result}`
       }
 
       const modifiedReaderLink = readerLink
