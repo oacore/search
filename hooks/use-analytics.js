@@ -1,50 +1,30 @@
-import { useCallback, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import ReactGA from 'react-ga4'
+import { useEffect, useRef } from 'react'
+import { init } from '@plausible-analytics/tracker'
 import { useCookie } from '@oacore/design'
+
+const PLAUSIBLE_DOMAIN = 'core.ac.uk'
 
 const useAnalytics = () => {
   const analyticsAllowed = useCookie('analytics_cookies_allowed')
+  const isInitialised = useRef(false)
 
-  const router = useRouter()
-  const reportPageview = useCallback((url, title, type = 'search') => {
-    ReactGA.send({
-      hitType: type,
-      page: url,
-      title: `Search | ${window.location.search.substring(1)}`,
+  useEffect(() => {
+    // if (
+    //   !analyticsAllowed ||
+    //   process.env.NODE_ENV !== 'production' ||
+    //   isInitialised.current
+    // )
+    //   return
+
+    init({
+      domain: PLAUSIBLE_DOMAIN,
+      outboundLinks: true,
+      fileDownloads: true,
+      formSubmissions: true,
     })
-  }, [])
 
-  useEffect(() => {
-    if (analyticsAllowed && process.env.NODE_ENV === 'production') {
-      // Initialise production Google Analytics
-      console.log(process.env.GA_TRACKING_CODE)
-      console.log("GA")
-
-      ReactGA.initialize(process.env.GA_TRACKING_CODE)
-    } else if (analyticsAllowed) {
-      window.ga = (...args) =>
-        // We want to have logging in the development environment
-        // eslint-disable-next-line no-console
-        console.log(`ga(${JSON.stringify(args).slice(1, -1)})`)
-    }
-
-    // Reporting first page view manually because the event doesn't fire
-    reportPageview(router.asPath)
-
-    // This clean-up is quite tricky
-    return () => {
-      window.ga = null
-    }
-  }, [])
-
-  useEffect(() => {
-    router.events.on('routeChangeComplete', reportPageview)
-
-    return () => {
-      router.events.off('routeChangeComplete', reportPageview)
-    }
-  }, [])
+    isInitialised.current = true
+  }, [analyticsAllowed])
 }
 
 export default useAnalytics

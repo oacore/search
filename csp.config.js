@@ -50,6 +50,7 @@ const config = {
     SELF,
     PRODUCTION,
     'sentry.io',
+    'plausible.io',
     '*.google-analytics.com',
     '*.doubleclick.net',
     '*.googletagmanager.com',
