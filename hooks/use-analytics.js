@@ -19,15 +19,19 @@ const useAnalytics = () => {
   }, [])
 
   useEffect(() => {
+    console.log('init useAnalytics')
     if (typeof window === 'undefined') return undefined
 
     if (analyticsAllowed && process.env.NODE_ENV === 'production') {
       // Initialise production Google Analytics
       console.log(process.env.GA_TRACKING_CODE)
-      console.log("GA")
+      console.log("init GA")
 
       ReactGA.initialize(process.env.GA_TRACKING_CODE)
     } else if (analyticsAllowed) {
+      console.log(process.env.GA_TRACKING_CODE)
+      console.log("init analyticsAllowed")
+
       window.ga = (...args) =>
         // We want to have logging in the development environment
         // eslint-disable-next-line no-console
@@ -35,13 +39,17 @@ const useAnalytics = () => {
     }
 
     import('@plausible-analytics/tracker').then(({ init }) => {
+      console.log('Init plausible-analytics/tracker')
       init({
         domain: PLAUSIBLE_DOMAIN,
         outboundLinks: true,
         fileDownloads: true,
         formSubmissions: true,
       })
-    }).catch(() => {})
+    }).catch((error) => {
+      console.log('Error plausible-analytics/tracker')
+      console.log(error)
+    })
 
     // Reporting first page view manually because the event doesn't fire
     reportPageview(router.asPath)
