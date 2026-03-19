@@ -4,7 +4,7 @@ import ReactGA from 'react-ga4'
 import { useCookie } from '@oacore/design'
 
 const useAnalytics = () => {
-  const PLAUSIBLE_DOMAIN = 'http://core-frontend-stage-search.thankfulplant-67ea1df5.uksouth.azurecontainerapps.io/'
+  const PLAUSIBLE_DOMAIN = 'core-frontend-stage-search.thankfulplant-67ea1df5.uksouth.azurecontainerapps.io/'
   const analyticsAllowed = useCookie('analytics_cookies_allowed')
 
   const router = useRouter()
@@ -42,6 +42,7 @@ const useAnalytics = () => {
       console.log('Init plausible-analytics/tracker')
       init({
         domain: PLAUSIBLE_DOMAIN,
+        apiHost: 'http://51.142.10.140/',
         outboundLinks: true,
         fileDownloads: true,
         formSubmissions: true,
