@@ -20,8 +20,8 @@ const nextConfig = {
         destination: dataPath.destination,
       },
       {
-        // source: `/static/:path*`,
-        source: `/:path*`,
+        source: `/static/:path*`,
+        // source: `/:path*`,
         destination: '/:path*',
       },
     ]
