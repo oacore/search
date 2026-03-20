@@ -67,6 +67,7 @@ const getApiFromFileName = function (filepath) {
 }
 
 const retrieveStats = async (cacheFilePath) => {
+  if (process.env.NODE_ENV === 'development') return null
   const errorMsg =
     'Fail. ==> Statistics retrieval failed due to API Core instability.'
 
