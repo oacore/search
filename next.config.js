@@ -21,6 +21,7 @@ const nextConfig = {
       },
       {
         source: `/static/:path*`,
+        // source: `/:path*`,
         destination: '/:path*',
       },
     ]
