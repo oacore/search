@@ -19,7 +19,35 @@ const useAnalytics = () => {
   }, [])
 
   useEffect(() => {
-    console.log('init useAnalytics')
+    console.log('init useAnalytics plausible')
+    if (typeof window === 'undefined') return undefined
+
+    import('@plausible-analytics/tracker').then(({ init }) => {
+      console.log('Init plausible-analytics/tracker')
+      init({
+        domain: PLAUSIBLE_DOMAIN,
+        apiHost: 'https://tracker.core.ac.uk',
+        outboundLinks: true,
+        fileDownloads: true,
+        formSubmissions: true,
+        autoCapturePageviews: false,
+      })
+      console.log('Plausible initialized, window.plausible:', !!window.plausible)
+      if (window.plausible) {
+        window.plausible('pageview')
+        console.log('Plausible pageview sent')
+      }
+    }).catch((error) => {
+      console.log('Error plausible-analytics/tracker')
+      console.log(error)
+    })
+
+    return undefined
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
+    console.log('init useAnalytics GA')
     if (typeof window === 'undefined') return undefined
 
     if (analyticsAllowed && process.env.NODE_ENV === 'production') {
@@ -38,24 +66,6 @@ const useAnalytics = () => {
         console.log(`ga(${JSON.stringify(args).slice(1, -1)})`)
     }
 
-    import('@plausible-analytics/tracker').then(({ init }) => {
-      console.log('Init plausible-analytics/tracker')
-      init({
-        domain: PLAUSIBLE_DOMAIN,
-        apiHost: 'https://tracker.core.ac.uk',
-        outboundLinks: true,
-        fileDownloads: true,
-        formSubmissions: true,
-      })
-      if (window.plausible) {
-        window.plausible('pageview')
-        console.log('Plausible pageview sent')
-      }
-    }).catch((error) => {
-      console.log('Error plausible-analytics/tracker')
-      console.log(error)
-    })
-
     // Reporting first page view manually because the event doesn't fire
     reportPageview(router.asPath)
 
@@ -63,13 +73,21 @@ const useAnalytics = () => {
     return () => {
       window.ga = null
     }
-  }, [PLAUSIBLE_DOMAIN, analyticsAllowed, reportPageview, router.asPath])
+  }, [analyticsAllowed, reportPageview, router.asPath])
 
   useEffect(() => {
-    router.events.on('routeChangeComplete', reportPageview)
+    const handleRouteChange = (url) => {
+      reportPageview(url)
+      if (typeof window !== 'undefined' && window.plausible) {
+        window.plausible('pageview')
+        console.log('Plausible pageview on route change:', url)
+      }
+    }
+
+    router.events.on('routeChangeComplete', handleRouteChange)
 
     return () => {
-      router.events.off('routeChangeComplete', reportPageview)
+      router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [])
 }
