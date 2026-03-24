@@ -47,6 +47,10 @@ const useAnalytics = () => {
         fileDownloads: true,
         formSubmissions: true,
       })
+      if (window.plausible) {
+        window.plausible('pageview')
+        console.log('Plausible pageview sent')
+      }
     }).catch((error) => {
       console.log('Error plausible-analytics/tracker')
       console.log(error)
