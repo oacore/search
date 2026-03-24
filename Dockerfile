@@ -26,7 +26,9 @@ RUN npm ci --include=dev --legacy-peer-deps || npm install --include=dev --legac
 ENV NODE_ENV=$NODE_ENV
 ENV NODE_OPTIONS="--openssl-legacy-provider"
 
-RUN npm run build
+RUN npm run build && \
+    mkdir -p public/static/search/_next && \
+    cp -r .next/static public/static/search/_next/
 
 EXPOSE 8080
 CMD ["node_modules/next/dist/bin/next", "start", "-p", "8080"]
