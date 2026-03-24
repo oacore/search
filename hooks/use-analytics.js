@@ -26,7 +26,7 @@ const useAnalytics = () => {
       console.log('Init plausible-analytics/tracker')
       init({
         domain: PLAUSIBLE_DOMAIN,
-        apiHost: 'https://tracker.core.ac.uk',
+        endpoint: 'https://tracker.core.ac.uk/api/event',
         outboundLinks: true,
         fileDownloads: true,
         formSubmissions: true,
