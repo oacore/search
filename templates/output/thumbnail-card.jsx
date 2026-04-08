@@ -16,7 +16,7 @@ const FullTextThumbnail = ({
   href,
   doi,
   className,
-  tag: Tag = 'a',
+  // tag: Tag = 'a',
   useOtherVersions,
   providerId,
   metadata,
