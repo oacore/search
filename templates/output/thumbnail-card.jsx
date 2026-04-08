@@ -64,8 +64,7 @@ const FullTextThumbnail = ({
         <div>
           <div className={styles.buttonContainer}>
             <Button variant="contained" href={href} tag="a">
-              Open in the Core reader{' '}
-              <Icon src="#open-in-new" className={styles.icon} />
+              Core reader <Icon src="#open-in-new" className={styles.icon} />
             </Button>
           </div>
           <div className={styles.downloadContainer}>
@@ -77,7 +76,7 @@ const FullTextThumbnail = ({
               onClick={downloadPDF}
               tag="a"
             >
-              Download PDF
+              Download
             </Button>
           </div>
         </div>
