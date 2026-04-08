@@ -46,14 +46,14 @@ const FullTextThumbnail = ({
       <h2 className={styles.title} id={`${id}-title`}>
         Full text
       </h2>
-      <Tag
-        className={styles.image}
-        href={href}
-        aria-labelledby={`${id}-title`}
-        aria-describedby={`${id}-body`}
-      >
-        <img className={styles.image} src={src} alt={alt} />
-      </Tag>
+      {/* <Tag */}
+      {/*  className={styles.image} */}
+      {/*  href={href} */}
+      {/*  aria-labelledby={`${id}-title`} */}
+      {/*  aria-describedby={`${id}-body`} */}
+      {/* > */}
+      {/*  <img className={styles.image} src={src} alt={alt} /> */}
+      {/* </Tag> */}
 
       {data.fulltextStatus === DISABLED_STATUS && (
         <Card.Title className={styles.disabled} tag="span">
