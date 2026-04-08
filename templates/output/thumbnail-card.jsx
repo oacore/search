@@ -16,7 +16,7 @@ const FullTextThumbnail = ({
   href,
   doi,
   className,
-  tag: Tag = 'a',
+  // tag: Tag = 'a',
   useOtherVersions,
   providerId,
   metadata,
@@ -46,6 +46,7 @@ const FullTextThumbnail = ({
       <h2 className={styles.title} id={`${id}-title`}>
         Full text
       </h2>
+      {/* TODO TEMP REMOVE */}
       {/* <Tag */}
       {/*  className={styles.image} */}
       {/*  href={href} */}
@@ -64,7 +65,8 @@ const FullTextThumbnail = ({
         <div>
           <div className={styles.buttonContainer}>
             <Button variant="contained" href={href} tag="a">
-              Core reader <Icon src="#open-in-new" className={styles.icon} />
+              Open in the Core reader{' '}
+              <Icon src="#open-in-new" className={styles.icon} />
             </Button>
           </div>
           <div className={styles.downloadContainer}>
@@ -76,7 +78,7 @@ const FullTextThumbnail = ({
               onClick={downloadPDF}
               tag="a"
             >
-              Download
+              Download PDF
             </Button>
           </div>
         </div>
