@@ -42,13 +42,29 @@ function checkType(dataProviderId) {
   })
 }
 
+// Making Search fast. Logo is exist
+// const transformDataProviders = async (dataProviders) => {
+//   const transformedData = await Promise.all(
+//     dataProviders.map(async ({ url, id, logo }) => {
+//       const dataProvider = cachedDataProviders.find((dp) => dp.id === +id)
+//
+//       const isMember = !!checkMembership(id)
+//       if (dataProvider && isMember) dataProvider.logo = await checkLogo(logo)
+//       return {
+//         url,
+//         ...dataProvider,
+//       }
+//     })
+//   )
+//
+//   return transformedData
+// }
+
 const transformDataProviders = async (dataProviders) => {
   const transformedData = await Promise.all(
-    dataProviders.map(async ({ url, id, logo }) => {
+    dataProviders.map(async ({ url, id }) => {
       const dataProvider = cachedDataProviders.find((dp) => dp.id === +id)
 
-      const isMember = !!checkMembership(id)
-      if (dataProvider && isMember) dataProvider.logo = await checkLogo(logo)
       return {
         url,
         ...dataProvider,
