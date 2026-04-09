@@ -10,12 +10,20 @@ export const fetchWorks = async (body) => {
     `/v3/search/works${!isUndefined || t ? `?t=${t}` : ''}`,
     process.env.API_URL
   ).href
-  const { data: dataWorks } = await apiRequest(url, {
-    body,
-    method: 'POST',
-  })
 
-  return dataWorks
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), 20000)
+
+  try {
+    const { data: dataWorks } = await apiRequest(url, {
+      body,
+      method: 'POST',
+      signal: controller.signal,
+    })
+    return dataWorks
+  } finally {
+    clearTimeout(timeout)
+  }
 }
 
 export const fetchAggregations = async (body) => {
