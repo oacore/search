@@ -45,9 +45,12 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       sort: sort === 'recent' ? 'recency' : sort,
     }
     try {
+      console.time('fetchWorks')
       const response = await fetchWorks(body)
+      console.timeEnd('fetchWorks')
 
       if (response?.results) {
+        console.time('transformDataProviders')
         const transformedWorks = await Promise.all(
           response.results.map(async (work) => {
             const articleWithUrls = findUrlsByType(work)
@@ -57,6 +60,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
             }
           })
         )
+        console.timeEnd('transformDataProviders')
 
         Object.assign(data, {
           ...response,
