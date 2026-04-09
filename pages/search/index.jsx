@@ -44,13 +44,14 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       exclude: ['fullText'],
       sort: sort === 'recent' ? 'recency' : sort,
     }
+    const reqId = `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`
     try {
-      console.time('fetchWorks')
+      console.time(`fetchWorks:${reqId}`)
       const response = await fetchWorks(body)
-      console.timeEnd('fetchWorks')
+      console.timeEnd(`fetchWorks:${reqId}`)
 
       if (response?.results) {
-        console.time('transformDataProviders')
+        console.time(`transformDataProviders:${reqId}`)
         const transformedWorks = await Promise.all(
           response.results.map(async (work) => {
             const articleWithUrls = findUrlsByType(work)
@@ -60,7 +61,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
             }
           })
         )
-        console.timeEnd('transformDataProviders')
+        console.timeEnd(`transformDataProviders:${reqId}`)
 
         Object.assign(data, {
           ...response,
