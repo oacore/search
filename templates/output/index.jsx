@@ -152,7 +152,7 @@ const ScientificOutputTemplate = ({
             )}
           </div>
           <h1>
-            <MathMarkdown>{title}</MathMarkdown>
+            {title}
           </h1>
           <Metadata
             authors={authors}
@@ -189,7 +189,7 @@ const ScientificOutputTemplate = ({
           <section id="abstract" className={styles.abstract}>
             <h2>Abstract</h2>
             {abstract ? (
-              <MathMarkdown>{abstract}</MathMarkdown>
+              {abstract}
             ) : (
               <span className={styles.abstractEmpty}>
                 Abstract is not available.
