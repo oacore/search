@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: core-frontend-search
+  namespace: core-frontend
+  labels:
+    app: core-frontend-search
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: core-frontend-search
+  template:
+    metadata:
+      labels:
+        app: core-frontend-search
+    spec:
+      nodeSelector:
+        agentpool: userpool
+      containers:
+        - name: core-frontend-search
+          image: ${IMAGE}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 1000m
+              memory: 1000Mi
