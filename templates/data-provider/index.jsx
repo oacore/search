@@ -143,24 +143,26 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
           <div>
             <h3 className={styles.dataSources}>Data sources:</h3>
             <div className={styles.sourcesWrapper}>
-              {checkProvider?.repo_id?.map((item) => (
-                <a
-                  href={`/data-providers/${item}`}
-                  className={classNames.use(styles.sourceItem, {
-                    [styles.activeItem]: +data.id === +item,
-                  })}
-                >
-                  {+data.id === +item && (
-                    <img src={arrowRight} alt="arrowRight" />
-                  )}
-                  <span
-                    title={findDataProvider(item).name}
-                    className={styles.sourceTitle}
+              {checkProvider?.repo_id?.map((item) => {
+                const linked = findDataProvider(item)
+                const label = linked?.name ?? `Data provider ${item}`
+                return (
+                  <a
+                    key={item}
+                    href={`/data-providers/${item}`}
+                    className={classNames.use(styles.sourceItem, {
+                      [styles.activeItem]: +data.id === +item,
+                    })}
                   >
-                    {truncate(findDataProvider(item).name, 40)}
-                  </span>
-                </a>
-              ))}
+                    {+data.id === +item && (
+                      <img src={arrowRight} alt="arrowRight" />
+                    )}
+                    <span title={label} className={styles.sourceTitle}>
+                      {truncate(label, 40)}
+                    </span>
+                  </a>
+                )
+              })}
             </div>
           </div>
         ) : (
