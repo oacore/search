@@ -26,6 +26,17 @@ const countryName =
     ? new Intl.DisplayNames(['en'], { type: 'region' })
     : { of: (v) => v }
 
+const regionDisplayName = (code) => {
+  if (code == null || typeof code !== 'string') return ''
+  const normalized = code.trim().toUpperCase()
+  if (!normalized) return ''
+  try {
+    return countryName.of(normalized)
+  } catch {
+    return normalized
+  }
+}
+
 const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
   const { outputs } = data
   const { search } = useStore()
@@ -167,12 +178,8 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
           longitude={data.location?.longitude}
         >
           {data.name}
-          {data.location?.countryCode ? (
-            <>
-              {' '}
-              is based in{' '}
-              {countryName.of(data.location.countryCode.toUpperCase())}
-            </>
+          {data.location?.countryCode?.trim() ? (
+            <> is based in {regionDisplayName(data.location.countryCode)}</>
           ) : (
             ' '
           )}
