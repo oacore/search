@@ -75,7 +75,7 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
     if (str.length <= maxLength) return str
     return `${str.substring(0, maxLength)}...`
   }
-
+  console.log(data, 'data')
   return (
     <Search
       className={classNames.use(styles.layout).join(className)}
