@@ -65,6 +65,12 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
 
   const checkProvider = checkDataProvider(data.id)
 
+  const dataSourcesWithNames = Array.isArray(checkProvider?.repo_id)
+    ? checkProvider.repo_id
+        .map((item) => ({ item, linked: findDataProvider(item) }))
+        .filter(({ linked }) => Boolean(linked?.name))
+    : []
+
   const truncate = (str, maxLength) => {
     if (str.length <= maxLength) return str
     return `${str.substring(0, maxLength)}...`
@@ -139,30 +145,26 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
       </Search.Main>
 
       <Search.Sidebar tag="aside">
-        {Array.isArray(checkProvider?.repo_id) ? (
+        {dataSourcesWithNames.length > 0 ? (
           <div>
             <h3 className={styles.dataSources}>Data sources:</h3>
             <div className={styles.sourcesWrapper}>
-              {checkProvider?.repo_id?.map((item) => {
-                const linked = findDataProvider(item)
-                const label = linked?.name ?? `Data provider ${item}`
-                return (
-                  <a
-                    key={item}
-                    href={`/data-providers/${item}`}
-                    className={classNames.use(styles.sourceItem, {
-                      [styles.activeItem]: +data.id === +item,
-                    })}
-                  >
-                    {+data.id === +item && (
-                      <img src={arrowRight} alt="arrowRight" />
-                    )}
-                    <span title={label} className={styles.sourceTitle}>
-                      {truncate(label, 40)}
-                    </span>
-                  </a>
-                )
-              })}
+              {dataSourcesWithNames.map(({ item, linked }) => (
+                <a
+                  key={item}
+                  href={`/data-providers/${item}`}
+                  className={classNames.use(styles.sourceItem, {
+                    [styles.activeItem]: +data.id === +item,
+                  })}
+                >
+                  {+data.id === +item && (
+                    <img src={arrowRight} alt="arrowRight" />
+                  )}
+                  <span title={linked.name} className={styles.sourceTitle}>
+                    {truncate(linked.name, 40)}
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
         ) : (
