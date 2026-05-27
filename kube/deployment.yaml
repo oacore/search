@@ -27,6 +27,9 @@ spec:
         - name: core-frontend-search
           image: ${IMAGE}
           imagePullPolicy: IfNotPresent
+          envFrom:
+            - secretRef:
+                name: core-frontend-search-secrets
           ports:
             - name: http
               containerPort: 8080
