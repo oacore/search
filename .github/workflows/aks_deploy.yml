@@ -69,7 +69,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
           GA_TRACKING_CODE: ${{ secrets.GA_TRACKING_CODE }} 
           API_KEY: ${{ secrets.API_KEY }} 
-          SENTRY_DSN: ${{ secrets.SENTRY_DSN }} 
           ICONS_PUBLIC_PATH: ${{ secrets.ICONS_PUBLIC_PATH }} 
         run: |
           kubectl create secret generic core-frontend-search-secrets \
@@ -77,7 +76,6 @@ jobs:
             --from-literal=NPM_TOKEN="${{ env.NPM_TOKEN }}" \
             --from-literal=GA_TRACKING_CODE="${{ secrets.GA_TRACKING_CODE }}" \
             --from-literal=API_KEY="${{ secrets.API_KEY }}" \
-            --from-literal=SENTRY_DSN="${{ secrets.SENTRY_DSN }}" \
             --from-literal=ICONS_PUBLIC_PATH="${{ secrets.ICONS_PUBLIC_PATH }}" \
             --dry-run=client -o yaml | kubectl apply -f -
 
