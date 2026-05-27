@@ -66,11 +66,11 @@ jobs:
 
       - name: Sync secrets to AKS
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} \
-          GA_TRACKING_CODE: ${{ secrets.GA_TRACKING_CODE }} \
-          API_KEY: ${{ secrets.API_KEY }} \
-          SENTRY_DSN: ${{ secrets.SENTRY_DSN }} \
-          ICONS_PUBLIC_PATH: ${{ secrets.ICONS_PUBLIC_PATH }} \
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
+          GA_TRACKING_CODE: ${{ secrets.GA_TRACKING_CODE }} 
+          API_KEY: ${{ secrets.API_KEY }} 
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }} 
+          ICONS_PUBLIC_PATH: ${{ secrets.ICONS_PUBLIC_PATH }} 
         run: |
           kubectl create secret generic core-frontend-search-secrets \
             --namespace core-frontend \
