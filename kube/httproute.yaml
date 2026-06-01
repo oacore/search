@@ -9,6 +9,7 @@ spec:
       namespace: gateway-system
   hostnames:
     - core.preferans.uk
+    - core.ac.uk
   rules:
     - matches:
         - path:
