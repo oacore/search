@@ -28,7 +28,8 @@ ENV NODE_OPTIONS="--openssl-legacy-provider"
 
 RUN npm run build && \
     mkdir -p public/static/search/_next && \
-    cp -r .next/static public/static/search/_next/
+    cp -r .next/static public/static/search/_next/ && \
+    cp -r public/static/images public/static/search/static/
 
 EXPOSE 8080
 CMD ["node_modules/next/dist/bin/next", "start", "-p", "8080"]
