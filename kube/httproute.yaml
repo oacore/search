@@ -27,6 +27,9 @@ spec:
         - path:
             type: PathPrefix
             value: /static/search
+      timeouts:
+        request: 35s
+        backendRequest: 30s
       backendRefs:
         - name: core-frontend-search
           port: 80
@@ -41,6 +44,9 @@ spec:
             path:
               type: ReplacePrefixMatch
               replacePrefixMatch: /outputs
+      timeouts:
+        request: 35s
+        backendRequest: 30s
       backendRefs:
         - name: core-frontend-search
           port: 80

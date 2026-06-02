@@ -6,7 +6,7 @@ metadata:
   labels:
     app: core-frontend-search
 spec:
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 5
   strategy:
     type: RollingUpdate
@@ -21,6 +21,7 @@ spec:
       labels:
         app: core-frontend-search
     spec:
+      terminationGracePeriodSeconds: 60
       nodeSelector:
         agentpool: userpool
       containers:
@@ -34,10 +35,30 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
+          startupProbe:
+            httpGet:
+              path: /
+              port: http
+            failureThreshold: 30
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            periodSeconds: 10
+            failureThreshold: 3
+            successThreshold: 1
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            failureThreshold: 3
           resources:
             requests:
-              cpu: 100m
-              memory: 256Mi
+              cpu: 500m
+              memory: 512Mi
             limits:
-              cpu: 1000m
-              memory: 1000Mi
+              cpu: 2000m
+              memory: 1500Mi
