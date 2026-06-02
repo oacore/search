@@ -24,9 +24,23 @@ spec:
         - path:
             type: PathPrefix
             value: /data-providers
+      timeouts:
+        request: 35s
+        backendRequest: 30s
+      backendRefs:
+        - name: core-frontend-search
+          port: 80
+
+    - matches:
         - path:
             type: PathPrefix
             value: /static/search
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
       timeouts:
         request: 35s
         backendRequest: 30s
