@@ -83,8 +83,7 @@ jobs:
         run: |
           kubectl apply -f kube/service.yaml
           kubectl apply -f kube/httproute.yaml
-          kubectl apply -f kube/hpa.yaml
-          kubectl apply -f kube/pdb.yaml
+
 
       - name: Deploy to AKS
         run: |
