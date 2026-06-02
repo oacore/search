@@ -79,10 +79,12 @@ jobs:
             --from-literal=ICONS_PUBLIC_PATH="${{ secrets.ICONS_PUBLIC_PATH }}" \
             --dry-run=client -o yaml | kubectl apply -f -
 
-      - name: Apply Service and HTTPRoute
+      - name: Apply Kubernetes manifests
         run: |
           kubectl apply -f kube/service.yaml
           kubectl apply -f kube/httproute.yaml
+          kubectl apply -f kube/hpa.yaml
+          kubectl apply -f kube/pdb.yaml
 
       - name: Deploy to AKS
         run: |
