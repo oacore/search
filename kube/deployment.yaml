@@ -24,6 +24,12 @@ spec:
       terminationGracePeriodSeconds: 60
       nodeSelector:
         agentpool: userpool
+      securityContext: 
+        sysctls:
+          - name: net.ipv4.tcp_tw_reuse
+            value: "1"
+          - name: net.ipv4.ip_local_port_range
+            value: "1024 65535"
       containers:
         - name: core-frontend-search
           image: ${IMAGE}
