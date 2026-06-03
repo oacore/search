@@ -24,6 +24,14 @@ spec:
       terminationGracePeriodSeconds: 60
       nodeSelector:
         agentpool: userpool
+      hostAliases:
+        - ip: 131.145.121.88
+          hostnames:
+            - api.core.ac.uk
+      volumes:
+        - name: cf-origin-ca
+          configMap:
+            name: cf-origin-ca
       containers:
         - name: core-frontend-search
           image: ${IMAGE}
@@ -31,6 +39,8 @@ spec:
           env:
             - name: NODE_OPTIONS
               value: "--max-old-space-size=1024"
+            - name: NODE_EXTRA_CA_CERTS
+              value: /etc/ssl/cf/cf-origin-ca.pem
           envFrom:
             - secretRef:
                 name: core-frontend-search-secrets
@@ -38,6 +48,10 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
+          volumeMounts:
+            - name: cf-origin-ca
+              mountPath: /etc/ssl/cf
+              readOnly: true
           lifecycle:
             preStop:
               exec:
