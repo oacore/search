@@ -10,6 +10,11 @@ The project requires [__Node.js__][node-download] and
 After cloning this repository you will need to generate Github Token with package read permission [here][github-token] in order to download our @oacore packages from Github NPM registry.
 
 
+On windows small pre config
+```sh
+export NODE_OPTIONS=--openssl-legacy-provider
+```
+
 ```sh
 export NPM_TOKEN=<github_token_with_packages_read_permission>
 export API_KEY=<apikey_from_core>
