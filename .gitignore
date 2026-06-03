@@ -1,6 +1,8 @@
 .idea
 .env
 .next
+.npmrc
+
 dist
 build
 node_modules
