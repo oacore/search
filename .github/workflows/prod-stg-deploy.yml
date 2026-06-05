@@ -135,12 +135,14 @@ jobs:
         shell: bash
         run: |
           if [[ "${{ steps.vars.outputs.deploy_env }}" == "staging" ]]; then
-            INSTALL_DEV=true
+            APP_ENV="staging"
           else
-            INSTALL_DEV=false
+            APP_ENV="production"
           fi
 
           docker build \
+            --build-arg APP_ENV="$APP_ENV" \
+            --build-arg BUILD_TARGET="${{ env.BUILD_TARGET }}" \
             --build-arg SENTRY_DSN=${{env.SENTRY_DSN}} \
             --build-arg GA_TRACKING_CODE=${{secrets.GA_TRACKING_CODE}} \
             --build-arg ICONS_PUBLIC_PATH=${{env.ICONS_PUBLIC_PATH}} \
