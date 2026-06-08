@@ -8,15 +8,15 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: core-frontend-search
-  minReplicas: 4                     
-  maxReplicas: 20                     
+  minReplicas: 4
+  maxReplicas: 15   
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 60          
+          averageUtilization: 75   
     - type: Resource
       resource:
         name: memory
@@ -25,18 +25,14 @@ spec:
           averageUtilization: 80
   behavior:
     scaleUp:
-      stabilizationWindowSeconds: 0       
+      stabilizationWindowSeconds: 0
       policies:
-        - type: Percent
-          value: 100          
-          periodSeconds: 15
         - type: Pods
-          value: 4                    
+          value: 3
           periodSeconds: 15
-      selectPolicy: Max                 
     scaleDown:
-      stabilizationWindowSeconds: 300  
+      stabilizationWindowSeconds: 300
       policies:
         - type: Pods
           value: 1
-          periodSeconds: 120
+          periodSeconds: 180

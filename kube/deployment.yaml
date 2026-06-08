@@ -6,12 +6,12 @@ metadata:
   labels:
     app: core-frontend-search
 spec:
-  replicas: 4                          
+  replicas: 4
   revisionHistoryLimit: 5
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 2                     
+      maxSurge: 2
       maxUnavailable: 0
   selector:
     matchLabels:
@@ -31,7 +31,7 @@ spec:
       securityContext:
         sysctls:
           - name: net.ipv4.ip_local_port_range
-            value: "1024 65535" 
+            value: "1024 65535"
       volumes:
         - name: cf-origin-ca
           configMap:
@@ -45,7 +45,7 @@ spec:
               value: "--max-old-space-size=1024"
             - name: NODE_EXTRA_CA_CERTS
               value: /etc/ssl/cf/cf-origin-ca.pem
-            - name: UV_THREADPOOL_SIZE  
+            - name: UV_THREADPOOL_SIZE
               value: "32"
           envFrom:
             - secretRef:
@@ -66,29 +66,27 @@ spec:
             httpGet:
               path: /
               port: http
-            failureThreshold: 60        
+            failureThreshold: 60
             periodSeconds: 5
             timeoutSeconds: 10
           readinessProbe:
-            httpGet:
-              path: /
+            tcpSocket:            
               port: http
+            initialDelaySeconds: 10
             periodSeconds: 10
-            failureThreshold: 5        
-            successThreshold: 1
-            timeoutSeconds: 15        
+            timeoutSeconds: 3
+            failureThreshold: 3
           livenessProbe:
-            httpGet:
-              path: /
+            tcpSocket:       
               port: http
-            initialDelaySeconds: 60     
-            periodSeconds: 60           
-            failureThreshold: 10       
-            timeoutSeconds: 30         
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 5
           resources:
             requests:
-              cpu: 1000m
-              memory: 768Mi
+              cpu: 1200m  
+              memory: 512Mi   
             limits:
-              cpu: 2000m
-              memory: 1500Mi
+              cpu: 1500m       
+              memory: 1Gi    
