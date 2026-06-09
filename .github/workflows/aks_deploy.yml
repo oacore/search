@@ -2,7 +2,7 @@ name: AKS deployment - core-frontend-search
 
 on:
   push:
-    branches: [main, aks]
+    branches: [main]
   workflow_dispatch:
 
 env:
