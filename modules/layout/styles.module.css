@@ -2,6 +2,34 @@
   box-shadow: none;
 }
 
+.stickyTop {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+}
+
+.stickyTop > header {
+  position: relative;
+  top: unset;
+}
+
+.maintenanceBanner {
+  width: 100%;
+  padding: 6px 0;
+  text-align: center;
+  background: #fdd835;
+}
+
+.maintenanceBannerText {
+  margin: 0;
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%; /* 18.2px */
+  letter-spacing: 0.006px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
