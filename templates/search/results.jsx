@@ -24,7 +24,7 @@ const Results = ({ works, searchId }) =>
       thumbnail_m: thumbnailLink,
       display: displayLink,
     }) => {
-      const memberType = checkType(dataProviders?.[0].id)
+      const memberType = checkType(dataProviders?.[0]?.id)
       const fullTextLink = links.find((l) => l.type === 'download')?.url
       const metadataLink = links.find((l) => l.type === 'display')?.url
       const router = useRouter()
