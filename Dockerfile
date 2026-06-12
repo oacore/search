@@ -22,12 +22,5 @@ RUN npm run build && \
     cp public/design/icons.svg public/icons.svg && \
     mkdir -p public/images && \
     cp -r public/static/images/* public/images/
-
-# process manager — cluster mode (multi-core per pod)
-RUN npm install -g pm2
-
 EXPOSE 8080
-# pm2-runtime keeps PID 1 in foreground (correct for containers) and supervises
-# server.js (via ecosystem.config.js), which Node-clusters WEB_CONCURRENCY
-# workers across cores on one shared :8080 socket.
-CMD ["pm2-runtime", "start", "ecosystem.config.js"]
+CMD ["node_modules/next/dist/bin/next", "start", "-p", "8080"]

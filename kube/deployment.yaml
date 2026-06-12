@@ -63,20 +63,23 @@ spec:
               exec:
                 command: ["/bin/sh", "-c", "sleep 10"]
           startupProbe:
-            tcpSocket:
+            httpGet:
+              path: /api/healthz/
               port: http
             failureThreshold: 60
             periodSeconds: 5
             timeoutSeconds: 10
           readinessProbe:
-            tcpSocket:
+            httpGet:
+              path: /api/healthz/
               port: http
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
             failureThreshold: 3
           livenessProbe:
-            tcpSocket:
+            httpGet:
+              path: /api/healthz/
               port: http
             initialDelaySeconds: 60
             periodSeconds: 30
