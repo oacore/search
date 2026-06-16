@@ -92,7 +92,8 @@ jobs:
       - name: Deploy to AKS
         run: |
           export IMAGE="${{ steps.image.outputs.ref }}"
-          envsubst < kube/deployment.yaml | kubectl apply -f -
+          envsubst '${IMAGE}' < kube/deployment.yaml | \
+            kubectl apply --server-side --force-conflicts -f -
 
       - name: Wait for rollout
         run: |
