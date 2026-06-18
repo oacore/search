@@ -2,7 +2,7 @@ name: AKS stage
 
 on:
   push:
-    branches: [main]
+    branches: [stage]
   schedule:
     - cron: '0 4 * * *'
   workflow_dispatch:
