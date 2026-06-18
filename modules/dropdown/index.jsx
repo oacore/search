@@ -48,7 +48,7 @@ const DropDown = ({
   }
 
   const redirectToProviders = () => {
-    window.location.href = metadata.hrefDataProvider
+    window.location.href = `//core.ac.uk/data-providers/${dataProviderId}`
   }
 
   const getLogoLink = () => {
