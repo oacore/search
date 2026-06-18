@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: core-frontend-search
+  namespace: core-frontend-stage
+  labels:
+    app: core-frontend-search
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: core-frontend-search
+  template:
+    metadata:
+      labels:
+        app: core-frontend-search
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        agentpool: userpool
+      hostAliases:
+        - ip: 131.145.121.88
+          hostnames:
+            - api.core.ac.uk
+      securityContext:
+        sysctls:
+          - name: net.ipv4.ip_local_port_range
+            value: "1024 65535"
+      volumes:
+        - name: cf-origin-ca
+          configMap:
+            name: cf-origin-ca
+      containers:
+        - name: core-frontend-search
+          image: ${IMAGE}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: NODE_OPTIONS
+              value: "--max-old-space-size=1024"
+            - name: NODE_EXTRA_CA_CERTS
+              value: /etc/ssl/cf/cf-origin-ca.pem
+            - name: UV_THREADPOOL_SIZE
+              value: "32"
+          envFrom:
+            - secretRef:
+                name: core-frontend-search-secrets
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - name: cf-origin-ca
+              mountPath: /etc/ssl/cf
+              readOnly: true
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sh", "-c", "sleep 10"]
+          startupProbe:
+            httpGet:
+              path: /api/healthz/
+              port: http
+            failureThreshold: 60
+            periodSeconds: 5
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /api/healthz/
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /api/healthz/
+              port: http
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 6
+          resources:
+            requests:
+              cpu: 1200m  
+              memory: 512Mi   
+            limits:
+              cpu: 1500m       
+              memory: 1Gi    

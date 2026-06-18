@@ -72,6 +72,10 @@ const CardDropdown = ({
     []
   )
 
+  const dateValue = updatedDate ?? createdDate
+  const lastUpdatedDate =
+    dateValue != null ? formatDate(new Date(dateValue)) : null
+
   const subtitleText =
     coreDownloadUrl?.length > 0 || sourceFulltextUrls.length > 0 ? (
       <Tag
@@ -177,9 +181,9 @@ const CardDropdown = ({
             </div>
           </Card.Description>
         )}
-        {(updatedDate || createdDate) && (
+        {lastUpdatedDate && (
           <Card.Description tag="span" className={styles.date}>
-            Last time updated on {formatDate(updatedDate || createdDate)}
+            Last time updated on {lastUpdatedDate}
           </Card.Description>
         )}
         {checkBillingType && makeVisible ? (
