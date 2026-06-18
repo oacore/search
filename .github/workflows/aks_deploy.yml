@@ -1,4 +1,4 @@
-name: AKS deployment - core-frontend-search
+name: AKS prod
 
 on:
   push:
@@ -83,16 +83,16 @@ jobs:
 
       - name: Apply Kubernetes manifests
         run: |
-          kubectl apply -f kube/service.yaml
-          kubectl apply -f kube/httproute.yaml
-          kubectl apply -f kube/hpa.yaml
-          kubectl apply -f kube/pdb.yaml
+          kubectl apply -f kube/prod/service.yaml
+          kubectl apply -f kube/prod/httproute.yaml
+          kubectl apply -f kube/prod/hpa.yaml
+          kubectl apply -f kube/prod/pdb.yaml
 
 
       - name: Deploy to AKS
         run: |
           export IMAGE="${{ steps.image.outputs.ref }}"
-          envsubst '${IMAGE}' < kube/deployment.yaml | \
+          envsubst '${IMAGE}' < kube/prod/deployment.yaml | \
             kubectl apply --server-side --force-conflicts -f -
 
       - name: Wait for rollout
