@@ -29,9 +29,13 @@ const Results = ({ works, searchId }) =>
       const metadataLink = links.find((l) => l.type === 'display')?.url
       const router = useRouter()
 
-      const publicationDate = publishedDate
-        ? formatDate(new Date(publishedDate))
-        : yearPublished !== null && toString(yearPublished)
+      let publicationDate = null
+      if (yearPublished != null) {
+        publicationDate = String(yearPublished)
+      }
+      if (publishedDate != null) {
+        publicationDate = formatDate(new Date(publishedDate))
+      }
 
       const checkBillingType = () =>
         memberType?.billing_type === 'supporting' ||
