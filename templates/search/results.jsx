@@ -29,13 +29,12 @@ const Results = ({ works, searchId }) =>
       const metadataLink = links.find((l) => l.type === 'display')?.url
       const router = useRouter()
 
-      let publicationDate = null
-      if (yearPublished != null) {
-        publicationDate = String(yearPublished)
-      }
-      if (publishedDate != null) {
-        publicationDate = formatDate(new Date(publishedDate))
-      }
+      // eslint-disable-next-line no-nested-ternary
+      const publicationDate = publishedDate
+        ? formatDate(new Date(publishedDate))
+        : yearPublished != null
+        ? String(yearPublished)
+        : null
 
       const checkBillingType = () =>
         memberType?.billing_type === 'supporting' ||

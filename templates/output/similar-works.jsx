@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { SearchResult, Icon } from '@oacore/design'
+import { Icon, SearchResult } from '@oacore/design'
 
 import styles from './styles.module.css'
 import { checkType } from '../../utils/data-providers-transform'
@@ -56,9 +56,12 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
               memberType?.billing_type === 'supporting' ||
               memberType?.billing_type === 'sustaining'
 
+            // eslint-disable-next-line no-nested-ternary
             const publicationDate = publishedDate
               ? formatDate(new Date(publishedDate))
-              : yearPublished !== null && toString(yearPublished)
+              : yearPublished != null
+              ? String(yearPublished)
+              : null
 
             return (
               <SearchResult
