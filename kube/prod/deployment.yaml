@@ -25,7 +25,7 @@ spec:
       nodeSelector:
         agentpool: userpool
       hostAliases:
-        - ip: 131.145.121.88
+        - ip: 74.177.197.180
           hostnames:
             - api.core.ac.uk
       securityContext:
