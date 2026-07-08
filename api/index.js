@@ -1,6 +1,7 @@
 import LogRocket from 'logrocket'
 
 import NetworkError from './errors'
+import internalize from './internalize'
 
 // Environment variables are replaced in the bundle using the `DefinePlugin`
 // in WebPack, so destructuring won't work here.
@@ -57,6 +58,12 @@ const prepareRequest = (init) => {
   request.url = request.url.toString()
   request.method = prepareMethod(init)
   request.headers = prepareHeaders(init)
+
+  // Server-side: route through the in-cluster API service (skips CF/gateway).
+  // No-op in the browser and when Internal_API isn't configured.
+  const internal = internalize(request.url)
+  request.url = internal.url
+  request.headers = { ...request.headers, ...internal.headers }
 
   const body = prepareBody({ ...init, method: request.method })
   if (body != null) request.body = body
