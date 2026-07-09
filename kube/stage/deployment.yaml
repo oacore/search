@@ -96,8 +96,9 @@ spec:
             failureThreshold: 6
           resources:
             requests:
-              cpu: 1200m  
-              memory: 512Mi   
+              # Right-sized 2026-07-09 from live usage (see prod deployment.yaml).
+              cpu: 300m
+              memory: 512Mi
             limits:
-              cpu: 1500m       
-              memory: 1Gi    
+              cpu: 1500m
+              memory: 1Gi
