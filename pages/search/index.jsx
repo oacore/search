@@ -25,6 +25,7 @@ const serializeSearchError = (error) => ({
   url: error?.url ?? error?.response?.url ?? null,
   responseData: error?.data ?? error?.responseData ?? null,
   responseBody: error?.responseBody ?? error?.response?.body ?? null,
+  request: error?.request ?? null,
   code: error?.code ?? null,
   stack: error?.stack,
 })
@@ -108,6 +109,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
         message: serializedError.message,
         responseData: serializedError.responseData,
         responseBody: serializedError.responseBody,
+        request: serializedError.request,
       }
       return {
         props: { queryError },
