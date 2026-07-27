@@ -3,7 +3,8 @@ import apiRequest from './index'
 const FileDownload = require('js-file-download')
 
 export const fetchWorks = async (body) => {
-  const timeoutMs = 20000
+  // const timeoutMs = 20000 // prod 09.04.2026
+  const timeoutMs = 50000 // prod 27.06.2026
   const { t } = body
   const split = t?.split('-')
   const isUndefined = split?.some((item) => item === undefined)
