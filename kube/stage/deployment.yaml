@@ -24,10 +24,10 @@ spec:
       terminationGracePeriodSeconds: 60
       nodeSelector:
         agentpool: userpool
-      hostAliases:
-        - ip: 131.145.121.88
-          hostnames:
-            - api.core.ac.uk
+      # No hostAlias for api.core.ac.uk: server-side (SSR) API calls are routed
+      # to the in-cluster API service via Internal_API (see env below), and
+      # browser calls use the public host directly. So the pod never needs to
+      # resolve api.core.ac.uk to a reachable origin.
       securityContext:
         sysctls:
           - name: net.ipv4.ip_local_port_range
@@ -47,6 +47,15 @@ spec:
               value: /etc/ssl/cf/cf-origin-ca.pem
             - name: UV_THREADPOOL_SIZE
               value: "32"
+            # Server-side (SSR) API calls go straight to the in-cluster API
+            # service (cross-namespace to core-frontend), skipping Cloudflare and
+            # the gateway. Internal_API_HOST is sent as the Host header so the
+            # backend routes as if it were the public host. Browser calls are
+            # unaffected (these vars are not exposed to the client bundle).
+            - name: Internal_API
+              value: http://core-frontend-api.core-frontend.svc.cluster.local
+            - name: Internal_API_HOST
+              value: api.core.ac.uk
           envFrom:
             - secretRef:
                 name: core-frontend-search-secrets
