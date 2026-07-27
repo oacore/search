@@ -16,8 +16,16 @@ import { transformDataProviders } from 'utils/data-providers-transform'
 const serializeSearchError = (error) => ({
   name: error?.name,
   message: error?.message,
-  status: error?.status ?? error?.response?.status ?? null,
-  url: error?.response?.url ?? null,
+  status:
+    error?.status ??
+    error?.response?.status ??
+    error?.responseData?.status ??
+    null,
+  statusText: error?.statusText ?? error?.response?.statusText ?? null,
+  url: error?.url ?? error?.response?.url ?? null,
+  responseData: error?.data ?? error?.responseData ?? null,
+  responseBody: error?.responseBody ?? error?.response?.body ?? null,
+  code: error?.code ?? null,
   stack: error?.stack,
 })
 
@@ -98,6 +106,8 @@ export const getServerSideProps = async ({ query: searchParams }) => {
         status: serializedError.status,
         reqId,
         message: serializedError.message,
+        responseData: serializedError.responseData,
+        responseBody: serializedError.responseBody,
       }
       return {
         props: { queryError },

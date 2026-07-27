@@ -96,12 +96,52 @@ const processBody = (response, { method }) => {
   ).then((data) => ({ data, type, status, headers }))
 }
 
+const serializeHeaders = (headers) =>
+  Object.fromEntries(Array.from(headers.entries()))
+
+const processErrorBody = (response, { method }) => {
+  const { status, headers } = response
+  const type = headers.get('Content-Type')
+
+  if (method === 'HEAD') return Promise.resolve({ data: null, type, status })
+
+  return response.text().then((text) => {
+    if (/application\/([\w.-]\+)?json/g.test(type)) {
+      try {
+        return { data: JSON.parse(text), type, status, text }
+      } catch {
+        return { data: text, type, status, text }
+      }
+    }
+
+    return { data: text, type, status, text }
+  })
+}
+
 const processError = (error, details) => {
   const { response } = error
   if (response == null) throw error // re-throwing if nothing to process
 
-  return processBody(response, details).then((body) => {
-    Object.assign(error, body)
+  return processErrorBody(response, details).then((body) => {
+    const responseDetails = {
+      data: body.data,
+      body: body.text,
+      headers: serializeHeaders(response.headers),
+      status: body.status,
+      statusText: response.statusText,
+      type: body.type,
+      url: response.url,
+    }
+
+    Object.assign(error, body, {
+      headers: responseDetails.headers,
+      response: responseDetails,
+      responseData: body.data,
+      status: body.status,
+      statusText: response.statusText,
+      responseBody: body.text,
+      url: response.url,
+    })
 
     // re-throwing after processing
     throw error
