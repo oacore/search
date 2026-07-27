@@ -3,8 +3,6 @@ import apiRequest from './index'
 const FileDownload = require('js-file-download')
 
 export const fetchWorks = async (body) => {
-  // const timeoutMs = 20000 // prod 09.04.2026
-  const timeoutMs = 50000 // prod 27.06.2026
   const { t } = body
   const split = t?.split('-')
   const isUndefined = split?.some((item) => item === undefined)
@@ -14,7 +12,8 @@ export const fetchWorks = async (body) => {
   ).href
 
   const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), timeoutMs)
+  // TODO TEMP
+  const timeout = setTimeout(() => controller.abort(), 50000)
 
   try {
     const { data: dataWorks } = await apiRequest(url, {
@@ -23,21 +22,6 @@ export const fetchWorks = async (body) => {
       signal: controller.signal,
     })
     return dataWorks
-  } catch (error) {
-    if (error?.name === 'AbortError') {
-      Object.assign(error, {
-        code: 'REQUEST_TIMEOUT',
-        request: {
-          body,
-          method: 'POST',
-          timeoutMs,
-          url,
-        },
-        status: null,
-      })
-    }
-
-    throw error
   } finally {
     clearTimeout(timeout)
   }

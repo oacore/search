@@ -13,24 +13,6 @@ import Template from 'templates/search'
 import QueryError from 'templates/error/query'
 import { transformDataProviders } from 'utils/data-providers-transform'
 
-const serializeSearchError = (error) => ({
-  name: error?.name,
-  message: error?.message,
-  status:
-    error?.status ??
-    error?.response?.status ??
-    error?.responseData?.status ??
-    null,
-  statusText: error?.statusText ?? error?.response?.statusText ?? null,
-  url: error?.url ?? error?.response?.url ?? null,
-  responseData: error?.data ?? error?.responseData ?? null,
-  responseBody: error?.responseBody ?? error?.response?.body ?? null,
-  request: error?.request ?? null,
-  code: error?.code ?? null,
-  stack: error?.stack,
-  errorFull: error,
-})
-
 export const getServerSideProps = async ({ query: searchParams }) => {
   if (Object.keys(searchParams).length === 0) {
     return {
@@ -87,30 +69,10 @@ export const getServerSideProps = async ({ query: searchParams }) => {
         })
       } else data.results = []
     } catch (error) {
-      const serializedError = serializeSearchError(error)
-
-      // eslint-disable-next-line no-console
-      console.error('[search:getServerSideProps] fetchWorks failed', {
-        reqId,
-        query: q,
-        page,
-        limit,
-        sort,
-        t,
-        requestBody: body,
-        ...serializedError,
-      })
-
       log(error)
-
       const queryError = {
         query: q,
-        status: serializedError.status,
-        reqId,
-        message: serializedError.message,
-        responseData: serializedError.responseData,
-        responseBody: serializedError.responseBody,
-        request: serializedError.request,
+        status: error?.status ?? null,
       }
       return {
         props: { queryError },
