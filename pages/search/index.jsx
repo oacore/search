@@ -73,6 +73,8 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       const queryError = {
         query: q,
         status: error?.status ?? null,
+        data: JSON.stringify(data),
+        error: JSON.stringify(error),
       }
       return {
         props: { queryError },
