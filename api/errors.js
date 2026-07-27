@@ -5,6 +5,20 @@ class NetworkError extends Error {
     super(message)
     this.name = this.constructor.name
     this.response = response
+    this.status = response?.status ?? null
+    this.statusText = response?.statusText ?? null
+    this.url = response?.url ?? null
+  }
+
+  toJSON() {
+    return {
+      name: this.name,
+      message: this.message,
+      status: this.status,
+      statusText: this.statusText,
+      url: this.url,
+      stack: this.stack,
+    }
   }
 }
 

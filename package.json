@@ -30,7 +30,7 @@
     "leaflet": "^1.8.0",
     "leaflet.markercluster": "^1.4.1",
     "logrocket": "^10.0.0",
-    "logrocket-react": "^6.0.3",
+    "logrocket-react": "^5.0.1",
     "mobx": "^6.0.0",
     "mobx-react-lite": "^3.0.0",
     "next": "^10.0.3",
