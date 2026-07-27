@@ -28,7 +28,6 @@ const serializeSearchError = (error) => ({
   request: error?.request ?? null,
   code: error?.code ?? null,
   stack: error?.stack,
-  errorFull: error,
 })
 
 export const getServerSideProps = async ({ query: searchParams }) => {
