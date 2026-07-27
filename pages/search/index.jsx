@@ -13,6 +13,14 @@ import Template from 'templates/search'
 import QueryError from 'templates/error/query'
 import { transformDataProviders } from 'utils/data-providers-transform'
 
+const serializeSearchError = (error) => ({
+  name: error?.name,
+  message: error?.message,
+  status: error?.status ?? error?.response?.status ?? null,
+  url: error?.response?.url ?? null,
+  stack: error?.stack,
+})
+
 export const getServerSideProps = async ({ query: searchParams }) => {
   if (Object.keys(searchParams).length === 0) {
     return {
@@ -69,12 +77,27 @@ export const getServerSideProps = async ({ query: searchParams }) => {
         })
       } else data.results = []
     } catch (error) {
+      const serializedError = serializeSearchError(error)
+
+      // eslint-disable-next-line no-console
+      console.error('[search:getServerSideProps] fetchWorks failed', {
+        reqId,
+        query: q,
+        page,
+        limit,
+        sort,
+        t,
+        requestBody: body,
+        ...serializedError,
+      })
+
       log(error)
+
       const queryError = {
         query: q,
-        status: error?.status ?? null,
-        data: JSON.stringify(data),
-        error: JSON.stringify(error),
+        status: serializedError.status,
+        reqId,
+        message: serializedError.message,
       }
       return {
         props: { queryError },
