@@ -12,7 +12,8 @@ export const fetchWorks = async (body) => {
   ).href
 
   const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), 20000)
+  // TODO TEMP
+  const timeout = setTimeout(() => controller.abort(), 50000)
 
   try {
     const { data: dataWorks } = await apiRequest(url, {
