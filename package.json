@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/oacore/search.git"
   },
-  "author": "CORE, The Open University <dev@core.ac.uk>",
+  "author": "CORE, The Open University <dev@core.science>",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/oacore/search/issues"
