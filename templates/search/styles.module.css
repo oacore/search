@@ -98,35 +98,73 @@
   transform: translate(-50%, -50%);
 }
 
-/*MINE*/
-.sidebar-image-relative {
+/* MINE */
+.parent-image {
   position: relative;
+  display: block;
+  width: 100%;
+}
+
+.parent-image-bg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.banner-logo-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
 }
 
 .repository-logo {
-  position: absolute;
-  top: 45%;
-  left: 20px;
   flex-shrink: 0;
-  width: 70px;
-  height: 70px;
+  width: 160px;
+  height: 94px;
   object-fit: contain;
 }
 
-.member-billing-type {
+.banner-name {
+  margin-top: 8px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  color: #000;
+  text-align: center;
+}
+
+.banner-name-tooltip {
+  padding: 0.3rem;
+}
+
+.parent-image .member-billing-type {
   position: absolute;
-  top: 5px;
+  top: -19px;
   right: 0;
-  color: #FFF;
+  left: auto;
+  z-index: 3;
+  width: max-content;
+  max-width: none;
+  padding: 4px;
+  margin: 0;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 12px; /* 100% */
+  line-height: 12px;
+  color: #fff;
+  text-align: left;
   letter-spacing: 0.048px;
+  white-space: nowrap;
+  background: #b75400;
   border-radius: 2px 2px 0 0;
-  background: #B75400;
-  padding: 4px;
-  width: max-content;
+  transform: none;
 }
 
 .sidebar-image {
