@@ -269,14 +269,16 @@ const SearchTemplate = observe(({ data }) => {
                     className={styles.parentImageBg}
                   />
                   <div className={styles.bannerLogoWrapper}>
-                    <img
-                      className={styles.repositoryLogo}
-                      src={repositoryLogo}
-                      onError={(e) => {
-                        e.target.src = imagePlaceholder
-                      }}
-                      alt={member.organisation_name || 'repository logo'}
-                    />
+                    <div className={styles.repositoryLogoWrapper}>
+                      <img
+                        className={styles.repositoryLogo}
+                        src={repositoryLogo}
+                        onError={(e) => {
+                          e.target.src = imagePlaceholder
+                        }}
+                        alt={member.organisation_name || 'repository logo'}
+                      />
+                    </div>
                     {member.organisation_name?.length > 22 ? (
                       <Popover
                         placement="top"
