@@ -10,22 +10,84 @@ import styles from './styles.module.css'
 import QueryError from '../error/query'
 import Notification from './notification'
 import defaultImage from './images/defaultImage.png'
+import placeholderImage from './images/placeholder.svg'
 import coreImage from './images/core.png'
 import DownloadResultModal from './modals/download-results'
 import Sort from './sort'
-import { fetchLogos } from '../../api/search'
+import { fetchLogos, fetchMembers } from '../../api/search'
+import imagePlaceholder from '../data-provider/images/Default.svg'
 
 import Search from 'modules/search-layout'
 import FiltersBar from 'modules/filters'
 import { observe, useStore } from 'store'
 import useWindowSize from 'hooks/use-window-size'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
+import { capitalizeFirstLetter } from 'utils/titleCase'
+
+const getApiOrigin = () =>
+  (process.env.API_URL || 'https://api.core.ac.uk/internal').replace(
+    /\/internal\/?$/,
+    ''
+  )
+
+const getDataProviderLogoUrl = (repoId) =>
+  `${getApiOrigin()}/data-providers/${repoId}/logo`
+
+const findMemberByRepoId = (members, repoId) =>
+  members.find((item) => {
+    if (Array.isArray(item.repo_id))
+      return item.repo_id.map(Number).includes(Number(repoId))
+    return Number(item.repo_id) === Number(repoId)
+  })
+
+const pickFeaturedMember = (members, preferredRepoId) => {
+  const matchedMember = findMemberByRepoId(members, preferredRepoId)
+  if (matchedMember) return matchedMember
+
+  const eligible = members.filter(
+    (item) =>
+      item.activated &&
+      (item.billing_type === 'supporting' || item.billing_type === 'sustaining')
+  )
+
+  if (eligible.length)
+    return eligible[Math.floor(Math.random() * eligible.length)]
+
+  const activated = members.filter(
+    (item) => item.activated && item.billing_type !== 'starting'
+  )
+
+  if (activated.length)
+    return activated[Math.floor(Math.random() * activated.length)]
+
+  return members[0]
+}
+
+const resolveRepoId = async (repoId) => {
+  const repoIds = Array.isArray(repoId) ? repoId.filter(Boolean) : [repoId]
+
+  const results = await Promise.all(
+    repoIds.map(async (id) => {
+      try {
+        const response = await fetch(getDataProviderLogoUrl(id))
+        return response.ok ? id : null
+      } catch {
+        return null
+      }
+    })
+  )
+
+  return results.find(Boolean) ?? repoIds[0]
+}
 
 const SearchTemplate = observe(({ data }) => {
   const router = useRouter()
   const { search } = useStore()
   const { width } = useWindowSize()
   const [banner, setBanner] = useState()
+  const [member, setMember] = useState()
+  const [repositoryLogo, setRepositoryLogo] = useState()
+  const [dataProviderId, setDataProviderId] = useState()
   const [loading, setLoading] = useState()
 
   const url =
@@ -42,23 +104,62 @@ const SearchTemplate = observe(({ data }) => {
   }, [data])
 
   useEffect(() => {
-    setLoading(true)
-    fetchLogos()
-      .then((bannerData) => {
+    let isMounted = true
+
+    const loadMemberBanner = async () => {
+      setLoading(true)
+
+      try {
+        const [bannerResult, membersResult] = await Promise.allSettled([
+          fetchLogos(),
+          fetchMembers(),
+        ])
+
+        if (!isMounted) return
+
+        const bannerData =
+          bannerResult.status === 'fulfilled' ? bannerResult.value : null
+        const membersData =
+          membersResult.status === 'fulfilled' ? membersResult.value : []
+
         if (bannerData) setBanner(bannerData)
-      })
-      .finally(() => setLoading(false))
+
+        const members = Array.isArray(membersData) ? membersData : []
+        const featuredMember = pickFeaturedMember(
+          members,
+          bannerData?.dataprovider_id
+        )
+
+        if (!featuredMember) return
+
+        const resolvedRepoId = await resolveRepoId(featuredMember.repo_id)
+        if (!isMounted) return
+
+        setMember(featuredMember)
+        if (resolvedRepoId) {
+          setDataProviderId(resolvedRepoId)
+          setRepositoryLogo(getDataProviderLogoUrl(resolvedRepoId))
+        }
+      } finally {
+        if (isMounted) setLoading(false)
+      }
+    }
+
+    loadMemberBanner()
+
+    return () => {
+      isMounted = false
+    }
   }, [])
 
   const onHandleChangeSortOptions = (option) => {
     search.setActiveSortOption(option, '/search')
   }
 
-  const getRedirectUrl = (dataProviderId) => {
-    if (dataProviderId === 0) return 'https://core.ac.uk/sponsorship'
+  const getRedirectUrl = (providerId) => {
+    if (providerId === 0) return 'https://core.ac.uk/sponsorship'
 
-    if (dataProviderId)
-      return `https://core.ac.uk/data-providers/${dataProviderId}`
+    if (providerId) return `https://core.ac.uk/data-providers/${providerId}`
 
     return 'https://core.ac.uk/membership'
   }
@@ -139,20 +240,31 @@ const SearchTemplate = observe(({ data }) => {
         </Search.Main>
         <Search.Sidebar tag="aside">
           <Link
-            href={getRedirectUrl(banner?.dataprovider_id)}
+            href={getRedirectUrl(dataProviderId || banner?.dataprovider_id)}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.logo}
           >
-            <img
-              src={
-                loading
-                  ? defaultImage
-                  : `data:image/jpeg;base64,${banner?.base64Banner}`
-              }
-              alt="core"
-              className={styles.sidebarImage}
-            />
+            <div className={styles.sidebarImageRelative}>
+              <img
+                className={styles.repositoryLogo}
+                src={repositoryLogo || imagePlaceholder}
+                onError={(e) => {
+                  e.target.src = imagePlaceholder
+                }}
+                alt={member?.organisation_name || 'repository logo'}
+              />
+              {member?.billing_type && (
+                <p className={styles.memberBillingType}>
+                  {capitalizeFirstLetter(member?.billing_type)} member
+                </p>
+              )}
+              <img
+                src={loading ? defaultImage : placeholderImage}
+                alt="core"
+                className={styles.sidebarImage}
+              />
+            </div>
           </Link>
           <Link
             href="https://www.core.ac.uk"

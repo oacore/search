@@ -98,6 +98,37 @@
   transform: translate(-50%, -50%);
 }
 
+/*MINE*/
+.sidebar-image-relative {
+  position: relative;
+}
+
+.repository-logo {
+  position: absolute;
+  top: 45%;
+  left: 20px;
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.member-billing-type {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  color: #FFF;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px; /* 100% */
+  letter-spacing: 0.048px;
+  border-radius: 2px 2px 0 0;
+  background: #B75400;
+  padding: 4px;
+  width: max-content;
+}
+
 .sidebar-image {
   z-index: 1;
   width: 100%;
@@ -125,6 +156,7 @@
     margin-top: 2rem;
   }
 
+  .member-info,
   .sidebar-image {
     display: none;
   }

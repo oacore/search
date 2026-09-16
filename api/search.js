@@ -56,3 +56,11 @@ export const fetchLogos = async () => {
   // eslint-disable-next-line no-return-await
   return await response.data
 }
+
+export const fetchMembers = async () => {
+  const url = new URL(`/internal/members`, process.env.API_URL).href
+  const response = await apiRequest(url, {
+    method: 'GET',
+  })
+  return response.data
+}
