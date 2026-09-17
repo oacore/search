@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Button, Icon, Link, LoadingBar } from '@oacore/design/lib/elements'
 import { Popover } from '@oacore/design/lib/modules'
 import classNames from '@oacore/design/lib/utils/class-names'
@@ -12,7 +12,6 @@ import Notification from './notification'
 import coreImage from './images/core.png'
 import DownloadResultModal from './modals/download-results'
 import Sort from './sort'
-import { fetchLogos, fetchMembers } from '../../api/search'
 import imagePlaceholder from '../data-provider/images/Default.svg'
 import repoPlaceholder from '../data-provider/images/repoPlaceholder.svg'
 
@@ -22,70 +21,20 @@ import { observe, useStore } from 'store'
 import useWindowSize from 'hooks/use-window-size'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
 import { capitalizeFirstLetter } from 'utils/titleCase'
+import {
+  getDataProviderLogoUrl,
+  getMemberRepoId,
+} from 'templates/search/utils/featured-member'
 
-const getApiOrigin = () =>
-  (process.env.API_URL || 'https://api.core.ac.uk/internal').replace(
-    /\/internal\/?$/,
-    ''
-  )
-
-const getDataProviderLogoUrl = (repoId) =>
-  `${getApiOrigin()}/data-providers/${repoId}/logo`
-
-const findMemberByRepoId = (members, repoId) =>
-  members.find((item) => {
-    if (Array.isArray(item.repo_id))
-      return item.repo_id.map(Number).includes(Number(repoId))
-    return Number(item.repo_id) === Number(repoId)
-  })
-
-const pickFeaturedMember = (members, preferredRepoId) => {
-  const matchedMember = findMemberByRepoId(members, preferredRepoId)
-  if (matchedMember) return matchedMember
-
-  const eligible = members.filter(
-    (item) =>
-      item.activated &&
-      (item.billing_type === 'supporting' || item.billing_type === 'sustaining')
-  )
-
-  if (eligible.length)
-    return eligible[Math.floor(Math.random() * eligible.length)]
-
-  const activated = members.filter(
-    (item) => item.activated && item.billing_type !== 'starting'
-  )
-
-  if (activated.length)
-    return activated[Math.floor(Math.random() * activated.length)]
-
-  return members[0]
-}
-
-const resolveRepoId = async (repoId) => {
-  const repoIds = Array.isArray(repoId) ? repoId.filter(Boolean) : [repoId]
-
-  const results = await Promise.all(
-    repoIds.map(async (id) => {
-      try {
-        const response = await fetch(getDataProviderLogoUrl(id))
-        return response.ok ? id : null
-      } catch {
-        return null
-      }
-    })
-  )
-
-  return results.find(Boolean) ?? repoIds[0]
-}
-
-const SearchTemplate = observe(({ data }) => {
+const SearchTemplate = observe(({ data, members = [] }) => {
   const router = useRouter()
   const { search } = useStore()
   const { width } = useWindowSize()
-  const [member, setMember] = useState()
-  const [repositoryLogo, setRepositoryLogo] = useState()
-  const [dataProviderId, setDataProviderId] = useState()
+  const member = members[0] || null
+  const dataProviderId = getMemberRepoId(member)
+  const repositoryLogo = dataProviderId
+    ? getDataProviderLogoUrl(dataProviderId)
+    : null
 
   const url =
     process.env.NODE_ENV === 'development'
@@ -99,45 +48,6 @@ const SearchTemplate = observe(({ data }) => {
     search.setWorks(data.results)
     search.setQuery(data.query)
   }, [data])
-
-  useEffect(() => {
-    let isMounted = true
-
-    const loadMemberBanner = async () => {
-      const [bannerResult, membersResult] = await Promise.allSettled([
-        fetchLogos(),
-        fetchMembers(),
-      ])
-
-      if (!isMounted) return
-
-      const bannerData =
-        bannerResult.status === 'fulfilled' ? bannerResult.value : null
-      const membersData =
-        membersResult.status === 'fulfilled' ? membersResult.value : []
-
-      const members = Array.isArray(membersData) ? membersData : []
-      const featuredMember = pickFeaturedMember(
-        members,
-        bannerData?.dataprovider_id
-      )
-
-      if (!featuredMember) return
-
-      const resolvedRepoId = await resolveRepoId(featuredMember.repo_id)
-      if (!isMounted || !resolvedRepoId) return
-
-      setMember(featuredMember)
-      setDataProviderId(resolvedRepoId)
-      setRepositoryLogo(getDataProviderLogoUrl(resolvedRepoId))
-    }
-
-    loadMemberBanner()
-
-    return () => {
-      isMounted = false
-    }
-  }, [])
 
   const onHandleChangeSortOptions = (option) => {
     search.setActiveSortOption(option, '/search')
