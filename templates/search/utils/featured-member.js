@@ -1,11 +1,6 @@
-const getApiOrigin = () =>
-  (process.env.API_URL || 'https://api.core.ac.uk/internal').replace(
-    /\/internal\/?$/,
-    ''
-  )
-
+// Public production host — staging logo URLs hang in the browser.
 export const getDataProviderLogoUrl = (repoId) =>
-  `${getApiOrigin()}/data-providers/${repoId}/logo`
+  `https://api.core.ac.uk/data-providers/${repoId}/logo`
 
 export const findMemberByRepoId = (members, repoId) =>
   members.find((item) => {

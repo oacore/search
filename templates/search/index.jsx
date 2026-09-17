@@ -144,7 +144,7 @@ const SearchTemplate = observe(({ data, members = [] }) => {
           >
             {member ? (
               <div className={styles.memberInfo}>
-                <span className={styles.memberBadge}>CORE Member</span>
+                <span className={styles.memberBadge}>CORE membership</span>
                 <div className={styles.memberBody}>
                   <div className={styles.repositoryLogoWrap}>
                     <img
@@ -159,7 +159,7 @@ const SearchTemplate = observe(({ data, members = [] }) => {
                   <div className={styles.memberMeta}>
                     {member.billing_type && (
                       <p className={styles.memberBillingType}>
-                        {capitalizeFirstLetter(member.billing_type)} membership
+                        {capitalizeFirstLetter(member.billing_type)} member
                       </p>
                     )}
                     {member.organisation_name && (
@@ -172,7 +172,7 @@ const SearchTemplate = observe(({ data, members = [] }) => {
               </div>
             ) : (
               <div className={styles.memberInfo}>
-                <span className={styles.memberBadge}>CORE Member</span>
+                <span className={styles.memberBadge}>CORE membership</span>
                 <div className={styles.memberBody}>
                   <div className={styles.repositoryLogoWrap}>
                     <img
