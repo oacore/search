@@ -159,7 +159,7 @@ const SearchTemplate = observe(({ data, members = [] }) => {
                   <div className={styles.memberMeta}>
                     {member.billing_type && (
                       <p className={styles.memberBillingType}>
-                        {capitalizeFirstLetter(member.billing_type)} member
+                        {capitalizeFirstLetter(member.billing_type)} membership
                       </p>
                     )}
                     {member.organisation_name && (
