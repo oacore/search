@@ -82,11 +82,9 @@ const SearchTemplate = observe(({ data }) => {
   const router = useRouter()
   const { search } = useStore()
   const { width } = useWindowSize()
-  const [banner, setBanner] = useState()
   const [member, setMember] = useState()
   const [repositoryLogo, setRepositoryLogo] = useState()
   const [dataProviderId, setDataProviderId] = useState()
-  const [, setLoading] = useState(true)
 
   const url =
     process.env.NODE_ENV === 'development'
@@ -95,7 +93,7 @@ const SearchTemplate = observe(({ data }) => {
 
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(url + router.asPath)
 
-  React.useEffect(() => {
+  useEffect(() => {
     search.setSortOptions(data.sort)
     search.setWorks(data.results)
     search.setQuery(data.query)
@@ -105,40 +103,32 @@ const SearchTemplate = observe(({ data }) => {
     let isMounted = true
 
     const loadMemberBanner = async () => {
-      setLoading(true)
+      const [bannerResult, membersResult] = await Promise.allSettled([
+        fetchLogos(),
+        fetchMembers(),
+      ])
 
-      try {
-        const [bannerResult, membersResult] = await Promise.allSettled([
-          fetchLogos(),
-          fetchMembers(),
-        ])
+      if (!isMounted) return
 
-        if (!isMounted) return
+      const bannerData =
+        bannerResult.status === 'fulfilled' ? bannerResult.value : null
+      const membersData =
+        membersResult.status === 'fulfilled' ? membersResult.value : []
 
-        const bannerData =
-          bannerResult.status === 'fulfilled' ? bannerResult.value : null
-        const membersData =
-          membersResult.status === 'fulfilled' ? membersResult.value : []
+      const members = Array.isArray(membersData) ? membersData : []
+      const featuredMember = pickFeaturedMember(
+        members,
+        bannerData?.dataprovider_id
+      )
 
-        if (bannerData) setBanner(bannerData)
+      if (!featuredMember) return
 
-        const members = Array.isArray(membersData) ? membersData : []
-        const featuredMember = pickFeaturedMember(
-          members,
-          bannerData?.dataprovider_id
-        )
+      const resolvedRepoId = await resolveRepoId(featuredMember.repo_id)
+      if (!isMounted || !resolvedRepoId) return
 
-        if (!featuredMember) return
-
-        const resolvedRepoId = await resolveRepoId(featuredMember.repo_id)
-        if (!isMounted || !resolvedRepoId) return
-
-        setMember(featuredMember)
-        setDataProviderId(resolvedRepoId)
-        setRepositoryLogo(getDataProviderLogoUrl(resolvedRepoId))
-      } finally {
-        if (isMounted) setLoading(false)
-      }
+      setMember(featuredMember)
+      setDataProviderId(resolvedRepoId)
+      setRepositoryLogo(getDataProviderLogoUrl(resolvedRepoId))
     }
 
     loadMemberBanner()
@@ -236,7 +226,7 @@ const SearchTemplate = observe(({ data }) => {
         </Search.Main>
         <Search.Sidebar tag="aside">
           <Link
-            href={getRedirectUrl(dataProviderId || banner?.dataprovider_id)}
+            href={getRedirectUrl(dataProviderId)}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.logo}
