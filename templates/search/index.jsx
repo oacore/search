@@ -14,6 +14,7 @@ import DownloadResultModal from './modals/download-results'
 import Sort from './sort'
 import { fetchLogos, fetchMembers } from '../../api/search'
 import imagePlaceholder from '../data-provider/images/Default.svg'
+import repoPlaceholder from '../data-provider/images/repoPlaceholder.svg'
 
 import Search from 'modules/search-layout'
 import FiltersBar from 'modules/filters'
@@ -231,7 +232,7 @@ const SearchTemplate = observe(({ data }) => {
             rel="noopener noreferrer"
             className={styles.logo}
           >
-            {member && (
+            {member ? (
               <div className={styles.memberInfo}>
                 <span className={styles.memberBadge}>CORE Member</span>
                 <div className={styles.memberBody}>
@@ -256,6 +257,28 @@ const SearchTemplate = observe(({ data }) => {
                         {member.organisation_name}
                       </p>
                     )}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className={styles.memberInfo}>
+                <span className={styles.memberBadge}>CORE Member</span>
+                <div className={styles.memberBody}>
+                  <div className={styles.repositoryLogoWrap}>
+                    <img
+                      className={styles.repositoryLogo}
+                      src={repoPlaceholder}
+                      onError={(e) => {
+                        e.target.src = imagePlaceholder
+                      }}
+                      alt="repository logo"
+                    />
+                  </div>
+                  <div className={styles.memberMeta}>
+                    <p className={styles.memberBillingType}>
+                      Type of membership
+                    </p>
+                    <p className={styles.organisationName}>Organisation name</p>
                   </div>
                 </div>
               </div>

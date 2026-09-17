@@ -178,6 +178,10 @@
   line-height: 24px; /* 120% */
 }
 
+.member-placeholder-text {
+  color: #9e9e9e;
+}
+
 .member-info + .sidebar-image {
   margin-top: 0;
 }
