@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Button, Icon, Link, LoadingBar } from '@oacore/design/lib/elements'
 import { Popover } from '@oacore/design/lib/modules'
 import classNames from '@oacore/design/lib/utils/class-names'
@@ -9,24 +9,32 @@ import Results from './results'
 import styles from './styles.module.css'
 import QueryError from '../error/query'
 import Notification from './notification'
-import defaultImage from './images/defaultImage.png'
-import coreImage from './images/core.png'
+import coreImage from './images/CoreB.png'
 import DownloadResultModal from './modals/download-results'
 import Sort from './sort'
-import { fetchLogos } from '../../api/search'
+import imagePlaceholder from '../data-provider/images/Default.svg'
+import repoPlaceholder from '../data-provider/images/repoPlaceholder.svg'
 
 import Search from 'modules/search-layout'
 import FiltersBar from 'modules/filters'
 import { observe, useStore } from 'store'
 import useWindowSize from 'hooks/use-window-size'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
+import { capitalizeFirstLetter } from 'utils/titleCase'
+import {
+  getDataProviderLogoUrl,
+  getMemberRepoId,
+} from 'templates/search/utils/featured-member'
 
-const SearchTemplate = observe(({ data }) => {
+const SearchTemplate = observe(({ data, members = [] }) => {
   const router = useRouter()
   const { search } = useStore()
   const { width } = useWindowSize()
-  const [banner, setBanner] = useState()
-  const [loading, setLoading] = useState()
+  const member = members[0] || null
+  const dataProviderId = getMemberRepoId(member)
+  const repositoryLogo = dataProviderId
+    ? getDataProviderLogoUrl(dataProviderId)
+    : null
 
   const url =
     process.env.NODE_ENV === 'development'
@@ -35,30 +43,20 @@ const SearchTemplate = observe(({ data }) => {
 
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(url + router.asPath)
 
-  React.useEffect(() => {
+  useEffect(() => {
     search.setSortOptions(data.sort)
     search.setWorks(data.results)
     search.setQuery(data.query)
   }, [data])
 
-  useEffect(() => {
-    setLoading(true)
-    fetchLogos()
-      .then((bannerData) => {
-        if (bannerData) setBanner(bannerData)
-      })
-      .finally(() => setLoading(false))
-  }, [])
-
   const onHandleChangeSortOptions = (option) => {
     search.setActiveSortOption(option, '/search')
   }
 
-  const getRedirectUrl = (dataProviderId) => {
-    if (dataProviderId === 0) return 'https://core.ac.uk/sponsorship'
+  const getRedirectUrl = (providerId) => {
+    if (providerId === 0) return 'https://core.ac.uk/sponsorship'
 
-    if (dataProviderId)
-      return `https://core.ac.uk/data-providers/${dataProviderId}`
+    if (providerId) return `https://core.ac.uk/data-providers/${providerId}`
 
     return 'https://core.ac.uk/membership'
   }
@@ -139,20 +137,62 @@ const SearchTemplate = observe(({ data }) => {
         </Search.Main>
         <Search.Sidebar tag="aside">
           <Link
-            href={getRedirectUrl(banner?.dataprovider_id)}
+            href={getRedirectUrl(dataProviderId)}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.logo}
           >
-            <img
-              src={
-                loading
-                  ? defaultImage
-                  : `data:image/jpeg;base64,${banner?.base64Banner}`
-              }
-              alt="core"
-              className={styles.sidebarImage}
-            />
+            {member ? (
+              <div className={styles.memberInfo}>
+                <span className={styles.memberBadge}>CORE membership</span>
+                <div className={styles.memberBody}>
+                  <div className={styles.repositoryLogoWrap}>
+                    <img
+                      className={styles.repositoryLogo}
+                      src={repositoryLogo || imagePlaceholder}
+                      onError={(e) => {
+                        e.target.src = imagePlaceholder
+                      }}
+                      alt={member.organisation_name || 'repository logo'}
+                    />
+                  </div>
+                  <div className={styles.memberMeta}>
+                    {member.billing_type && (
+                      <p className={styles.memberBillingType}>
+                        {capitalizeFirstLetter(member.billing_type)} member
+                      </p>
+                    )}
+                    {member.organisation_name && (
+                      <p className={styles.organisationName}>
+                        {member.organisation_name}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className={styles.memberInfo}>
+                <span className={styles.memberBadge}>CORE membership</span>
+                <div className={styles.memberBody}>
+                  <div className={styles.repositoryLogoWrap}>
+                    <img
+                      className={styles.repositoryLogo}
+                      src={repoPlaceholder}
+                      onError={(e) => {
+                        e.target.src = imagePlaceholder
+                      }}
+                      alt="repository logo"
+                    />
+                  </div>
+                  <div className={styles.memberMeta}>
+                    <p className={styles.memberBillingType}>
+                      Type of membership
+                    </p>
+                    <p className={styles.organisationName}>Organisation name</p>
+                  </div>
+                </div>
+              </div>
+            )}
           </Link>
           <Link
             href="https://www.core.ac.uk"
