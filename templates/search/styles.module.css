@@ -112,7 +112,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border: 1px solid #C87E4C;
+  border: 1px solid #b75400;
   border-radius: 2px;
 }
 
@@ -191,7 +191,9 @@
   z-index: 1;
   width: 100%;
   height: auto;
-  margin-top: 32px;
+  margin-top: 24px;
+  border: 1px solid #b75400;
+  border-radius: 2px;
 }
 
 @media (--screen-until-desktop) {
