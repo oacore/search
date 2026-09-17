@@ -9,8 +9,6 @@ import Results from './results'
 import styles from './styles.module.css'
 import QueryError from '../error/query'
 import Notification from './notification'
-import defaultImage from './images/defaultImage.png'
-import placeholderImage from './images/placeholder.svg'
 import coreImage from './images/core.png'
 import DownloadResultModal from './modals/download-results'
 import Sort from './sort'
@@ -80,19 +78,6 @@ const resolveRepoId = async (repoId) => {
   return results.find(Boolean) ?? repoIds[0]
 }
 
-const waitForImage = (src) =>
-  new Promise((resolve) => {
-    const image = new Image()
-    image.onload = () => resolve(true)
-    image.onerror = () => resolve(false)
-    image.src = src
-  })
-
-const truncateText = (text, maxLength) => {
-  if (!text || text.length <= maxLength) return text
-  return `${text.substring(0, maxLength)}...`
-}
-
 const SearchTemplate = observe(({ data }) => {
   const router = useRouter()
   const { search } = useStore()
@@ -101,7 +86,7 @@ const SearchTemplate = observe(({ data }) => {
   const [member, setMember] = useState()
   const [repositoryLogo, setRepositoryLogo] = useState()
   const [dataProviderId, setDataProviderId] = useState()
-  const [loading, setLoading] = useState(true)
+  const [, setLoading] = useState(true)
 
   const url =
     process.env.NODE_ENV === 'development'
@@ -148,13 +133,9 @@ const SearchTemplate = observe(({ data }) => {
         const resolvedRepoId = await resolveRepoId(featuredMember.repo_id)
         if (!isMounted || !resolvedRepoId) return
 
-        const logoUrl = getDataProviderLogoUrl(resolvedRepoId)
-        await waitForImage(logoUrl)
-        if (!isMounted) return
-
         setMember(featuredMember)
         setDataProviderId(resolvedRepoId)
-        setRepositoryLogo(logoUrl)
+        setRepositoryLogo(getDataProviderLogoUrl(resolvedRepoId))
       } finally {
         if (isMounted) setLoading(false)
       }
@@ -260,54 +241,34 @@ const SearchTemplate = observe(({ data }) => {
             rel="noopener noreferrer"
             className={styles.logo}
           >
-            {repositoryLogo && member && !loading ? (
-              <div className={styles.sidebarImage}>
-                <div className={styles.parentImage}>
-                  <img
-                    src={placeholderImage}
-                    alt={member.organisation_name || 'member banner'}
-                    className={styles.parentImageBg}
-                  />
-                  <div className={styles.bannerLogoWrapper}>
-                    <div className={styles.repositoryLogoWrapper}>
-                      <img
-                        className={styles.repositoryLogo}
-                        src={repositoryLogo}
-                        onError={(e) => {
-                          e.target.src = imagePlaceholder
-                        }}
-                        alt={member.organisation_name || 'repository logo'}
-                      />
-                    </div>
-                    {member.organisation_name?.length > 22 ? (
-                      <Popover
-                        placement="top"
-                        content={member.organisation_name}
-                        className={styles.bannerNameTooltip}
-                      >
-                        <p className={styles.bannerName}>
-                          {truncateText(member.organisation_name, 22)}
-                        </p>
-                      </Popover>
-                    ) : (
-                      <p className={styles.bannerName}>
+            {member && (
+              <div className={styles.memberInfo}>
+                <span className={styles.memberBadge}>CORE Member</span>
+                <div className={styles.memberBody}>
+                  <div className={styles.repositoryLogoWrap}>
+                    <img
+                      className={styles.repositoryLogo}
+                      src={repositoryLogo || imagePlaceholder}
+                      onError={(e) => {
+                        e.target.src = imagePlaceholder
+                      }}
+                      alt={member.organisation_name || 'repository logo'}
+                    />
+                  </div>
+                  <div className={styles.memberMeta}>
+                    {member.billing_type && (
+                      <p className={styles.memberBillingType}>
+                        {capitalizeFirstLetter(member.billing_type)} member
+                      </p>
+                    )}
+                    {member.organisation_name && (
+                      <p className={styles.organisationName}>
                         {member.organisation_name}
                       </p>
                     )}
                   </div>
-                  {member.billing_type && (
-                    <p className={styles.memberBillingType}>
-                      {capitalizeFirstLetter(member.billing_type)} member
-                    </p>
-                  )}
                 </div>
               </div>
-            ) : (
-              <img
-                src={defaultImage}
-                alt="core"
-                className={styles.sidebarImage}
-              />
             )}
           </Link>
           <Link

@@ -98,88 +98,88 @@
   transform: translate(-50%, -50%);
 }
 
-/* MINE */
-.parent-image {
+.logo {
+  text-decoration: none;
+}
+
+.member-info {
   position: relative;
-  display: block;
-  width: 100%;
+  margin-top: 3rem;
+  text-align: left;
+  text-decoration: none;
+  background-color: #fff;
+  background-image: url('../data-provider/images/repoBackground.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid #b75400;
 }
 
-.parent-image-bg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.banner-logo-wrapper {
+.member-badge {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -20px;
+  right: -1px;
   z-index: 2;
-  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 100%;
-  padding: 1.25rem 1rem 0.75rem;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+  background: #b75400;
+  border-radius: 0 0 0 2px;
 }
 
-.repository-logo-wrapper {
+.member-body {
   display: flex;
-  flex: 1 1 auto;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-width: 0;
-  min-height: 0;
+  gap: 1rem;
+  padding: 16px;
+}
+
+.repository-logo-wrap {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid #b75400;
+  border-radius: 50%;
+  padding: 4px;
 }
 
 .repository-logo {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: center;
+  border-radius: 50%;
 }
 
-.banner-name {
-  flex-shrink: 0;
-  max-width: 100%;
-  margin-top: 8px;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 130%;
+.member-meta {
+  min-width: 0;
+}
+
+.member-billing-type {
+  font-weight: 400;
   color: #000;
-  text-align: center;
-}
-
-.banner-name-tooltip {
-  padding: 0.3rem;
-}
-
-.parent-image .member-billing-type {
-  position: absolute;
-  top: -19px;
-  right: 0;
-  left: auto;
-  z-index: 3;
-  width: max-content;
-  max-width: none;
-  padding: 4px;
-  margin: 0;
   font-size: 12px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 12px;
-  color: #fff;
-  text-align: left;
-  letter-spacing: 0.048px;
-  white-space: nowrap;
-  background: #b75400;
-  border-radius: 2px 2px 0 0;
-  transform: none;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: 0.018px;
+}
+
+.organisation-name {
+  margin: 4px 0 0 0;
+  font-weight: 700;
+  color: #000;
+  font-size: 20px;
+  font-style: normal;
+  line-height: 24px; /* 120% */
+}
+
+.member-info + .sidebar-image {
+  margin-top: 0;
 }
 
 .sidebar-image {
