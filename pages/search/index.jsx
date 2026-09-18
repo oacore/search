@@ -8,10 +8,12 @@ import ErrorCard from '../error-card'
 import { findUrlsByType } from 'utils/helpers'
 import log from 'utils/logger'
 import { fetchWorks } from 'api/search'
+import apiRequest from 'api'
 import { useStore } from 'store'
 import Template from 'templates/search'
 import QueryError from 'templates/error/query'
 import { transformDataProviders } from 'utils/data-providers-transform'
+import { pickFeaturedMember } from 'templates/search/utils/featured-member'
 
 export const getServerSideProps = async ({ query: searchParams }) => {
   if (Object.keys(searchParams).length === 0) {
@@ -80,12 +82,35 @@ export const getServerSideProps = async ({ query: searchParams }) => {
     }
   } else data.results = []
 
+  let members = []
+  try {
+    const { data: membersData } = await apiRequest('/members')
+    members = (Array.isArray(membersData) ? membersData : []).filter(
+      (member) => {
+        const orgName = member?.organisation_name?.toLowerCase() || ''
+        return (
+          member?.billing_type !== 'starting' &&
+          orgName &&
+          !orgName.includes('test') &&
+          !orgName.includes('demo')
+        )
+      }
+    )
+  } catch (membersError) {
+    log(membersError)
+  }
+
+  const featuredMember = pickFeaturedMember(members)
+
   return {
-    props: { data },
+    props: {
+      data,
+      members: featuredMember ? [featuredMember] : [],
+    },
   }
 }
 
-const Search = ({ data, queryError }) => {
+const Search = ({ data, queryError, members }) => {
   const router = useRouter()
 
   const searchItem = router.query.q
@@ -126,7 +151,7 @@ const Search = ({ data, queryError }) => {
           <Head>
             <title>Search CORE</title>
           </Head>
-          <Template data={data} />
+          <Template data={data} members={members} />
         </>
       ) : (
         <QueryError query={searchItem} />
