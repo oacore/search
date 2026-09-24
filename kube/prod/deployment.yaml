@@ -6,7 +6,8 @@ metadata:
   labels:
     app: core-frontend-search
 spec:
-  replicas: 4
+  # replicas intentionally unset: the HPA (kube/prod/hpa.yaml) owns scaling,
+  # otherwise every deploy snaps the pod count back to a fixed number.
   revisionHistoryLimit: 5
   strategy:
     type: RollingUpdate
