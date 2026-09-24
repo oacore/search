@@ -33,10 +33,6 @@ spec:
         sysctls:
           - name: net.ipv4.ip_local_port_range
             value: "1024 65535"
-      volumes:
-        - name: cf-origin-ca
-          configMap:
-            name: cf-origin-ca
       containers:
         - name: core-frontend-search
           image: ${IMAGE}
@@ -44,8 +40,6 @@ spec:
           env:
             - name: NODE_OPTIONS
               value: "--max-old-space-size=1024"
-            - name: NODE_EXTRA_CA_CERTS
-              value: /etc/ssl/cf/cf-origin-ca.pem
             - name: UV_THREADPOOL_SIZE
               value: "32"
             # Server-side (SSR) API calls go straight to the in-cluster API
@@ -64,10 +58,6 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
-          volumeMounts:
-            - name: cf-origin-ca
-              mountPath: /etc/ssl/cf
-              readOnly: true
           lifecycle:
             preStop:
               exec:
