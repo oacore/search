@@ -84,7 +84,6 @@ jobs:
 
       - name: Apply Kubernetes manifests
         run: |
-          kubectl apply -f kube/stage/cf-origin-ca.yaml
           kubectl apply -f kube/stage/service.yaml
           kubectl apply -f kube/stage/httproute.yaml
 
