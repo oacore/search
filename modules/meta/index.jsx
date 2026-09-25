@@ -18,16 +18,32 @@ const DCMeta = ({
   </>
 )
 
-const CitationMeta = ({ data: { title, authors, downloadLink, year } }) => (
-  <>
-    {downloadLink && <meta name="citation_pdf_url" content={downloadLink} />}
-    {title && <meta name="citation_title" content={title} />}
-    {(authors || []).map(({ name }) => (
-      <meta key={name} name="citation_author" content={name} />
-    ))}
-    {year && <meta name="citation_publication_date" content={year} />}
-  </>
-)
+const formatCitationDate = (date) => {
+  const [year, month, day] = date.split('T')[0].split('-')
+
+  return `${year}/${Number(month)}/${day}`
+}
+
+const CitationMeta = ({
+  data: { title, authors, downloadLink, year, publishedDate },
+}) => {
+  const publicationDate = publishedDate
+    ? formatCitationDate(publishedDate)
+    : year
+
+  return (
+    <>
+      {downloadLink && <meta name="citation_pdf_url" content={downloadLink} />}
+      {title && <meta name="citation_title" content={title} />}
+      {(authors || []).map(({ name }) => (
+        <meta key={name} name="citation_author" content={name} />
+      ))}
+      {publicationDate && (
+        <meta name="citation_publication_date" content={publicationDate} />
+      )}
+    </>
+  )
+}
 
 const addEllipsis = (text, max) =>
   text.length <= max ? text : `${text.substring(0, max - 3)}...`

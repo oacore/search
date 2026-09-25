@@ -5,7 +5,7 @@ import invalidatePreviousRequests from '../utils/invalidatePreviousRequests'
 import { createReport, fetchMetadata } from 'api/outputs'
 
 const ERROR_MESSAGE =
-  'We couldn’t perform the action. For any issue contact theteam@core.ac.uk'
+  'We couldn’t perform the action. For any issue contact theteam@core.science'
 
 class Report {
   output = {}

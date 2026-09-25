@@ -6,7 +6,8 @@ metadata:
   labels:
     app: core-frontend-search
 spec:
-  replicas: 4
+  # replicas intentionally unset: the HPA (kube/prod/hpa.yaml) owns scaling,
+  # otherwise every deploy snaps the pod count back to a fixed number.
   revisionHistoryLimit: 5
   strategy:
     type: RollingUpdate
@@ -32,10 +33,6 @@ spec:
         sysctls:
           - name: net.ipv4.ip_local_port_range
             value: "1024 65535"
-      volumes:
-        - name: cf-origin-ca
-          configMap:
-            name: cf-origin-ca
       containers:
         - name: core-frontend-search
           image: ${IMAGE}
@@ -43,8 +40,6 @@ spec:
           env:
             - name: NODE_OPTIONS
               value: "--max-old-space-size=1024"
-            - name: NODE_EXTRA_CA_CERTS
-              value: /etc/ssl/cf/cf-origin-ca.pem
             - name: UV_THREADPOOL_SIZE
               value: "32"
             # Server-side (SSR) API calls go straight to the in-cluster API
@@ -63,10 +58,6 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
-          volumeMounts:
-            - name: cf-origin-ca
-              mountPath: /etc/ssl/cf
-              readOnly: true
           lifecycle:
             preStop:
               exec:
@@ -96,11 +87,8 @@ spec:
             failureThreshold: 6
           resources:
             requests:
-              # Right-sized 2026-07-09 from live usage (~150m/pod at full public
-              # traffic). The old 1200m request reserved 8x actual use and made
-              # the CPU HPA target unreachable (utilization never left ~12%).
               cpu: 300m
               memory: 512Mi
             limits:
-              cpu: 1500m
-              memory: 1Gi
+              cpu: 600m
+              memory: 768Mi

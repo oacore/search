@@ -51,7 +51,15 @@ const UpdateTemplate = observe(() => {
     // eslint-disable-next-line no-console
     console.log(`Takedown outputId => ${outputId}`)
 
-    if (!outputId) setErrorMessage('Please provide correct URL')
+    if (!outputId) {
+      setErrorMessage(
+        <>
+          Links starting with https://core.ac.uk/<strong>works</strong> or
+          https://core.ac.uk/<strong>search</strong> are not accepted. Please
+          see below types of links you can use or contact us.
+        </>
+      )
+    }
 
     if (outputId) {
       setErrorMessage('')
@@ -112,7 +120,7 @@ const UpdateTemplate = observe(() => {
         </p>
         <p> In the CORE URL box, you may enter one of the following:</p>
         <Links />
-        <p>
+        <p className={styles.noteWarning}>
           Please note that the form does not accept links which start with
           &quot;https://core.ac.uk/<strong>search</strong>&quot; and
           &quot;https://core.ac.uk/<strong>works</strong>&quot;.

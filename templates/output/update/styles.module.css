@@ -62,6 +62,17 @@
   border-bottom: 1px solid var(--gray-300);
 }
 
+.note-warning {
+  padding: 16px 20px;
+  border: 1px solid #C6A700;
+  background: #FDF4CD;
+  color: #2C3841;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
 .note {
   background-color: var(--gray-100);
 }

@@ -12,7 +12,8 @@ export const fetchWorks = async (body) => {
   ).href
 
   const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), 20000)
+  // TODO TEMP
+  const timeout = setTimeout(() => controller.abort(), 50000)
 
   try {
     const { data: dataWorks } = await apiRequest(url, {
@@ -45,13 +46,4 @@ export const downloadResultsInCSV = async (body) => {
     body,
     method: 'POST',
   }).then(({ data }) => FileDownload(data, 'results.csv'))
-}
-
-export const fetchLogos = async () => {
-  const url = new URL(`/internal/members/banner`, process.env.API_URL).href
-  const response = await apiRequest(url, {
-    method: 'GET',
-  })
-  // eslint-disable-next-line no-return-await
-  return await response.data
 }
