@@ -13,7 +13,7 @@ const staging = {
 }
 
 const production = {
-  API_URL: 'https://api.core.ac.uk/internal',
+  API_URL: 'https://api-stg.core.ac.uk/internal',
 }
 
 const validate = (config) =>
