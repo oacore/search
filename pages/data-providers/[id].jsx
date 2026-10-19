@@ -3,14 +3,18 @@ import { useRouter } from 'next/router'
 
 import { fetchMetadata, fetchOutputs, fetchStats } from 'api/data-provider'
 import Template from 'templates/data-provider'
-import { checkLogo, checkMembership } from 'utils/data-providers-transform'
+import {
+  checkLogo,
+  checkMembership,
+  findDataProvider,
+} from 'utils/data-providers-transform'
 
 const base64ImageMimeTypes = {
   '/9j/': 'image/jpeg',
-  iVBOR: 'image/png',
-  R0lG: 'image/gif',
-  PHN2: 'image/svg+xml',
-  UklG: 'image/webp',
+  'iVBOR': 'image/png',
+  'R0lG': 'image/gif',
+  'PHN2': 'image/svg+xml',
+  'UklG': 'image/webp',
 }
 
 const getBase64ImageSrc = (logoBase64) => {
@@ -59,6 +63,13 @@ export async function getServerSideProps({
 }) {
   const { id } = routeParams
   const { q = '', offset = 0, limit = 10, sort = 'recency', t } = searchParams
+
+  if (!findDataProvider(id)) {
+    return {
+      notFound: true,
+    }
+  }
+
   const data = {}
   try {
     const dataProvider = await fetchMetadata(id, t)
