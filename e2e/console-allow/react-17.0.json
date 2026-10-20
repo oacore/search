@@ -1,0 +1,5 @@
+{
+  "react": "17.0",
+  "description": "Browser console.error messages allowed by the journey guard on React 17.0 (40 §8 rule 6: each entry cites an R/Q row and enters via an AD row; T-741 proposes its pins through the harness)",
+  "entries": []
+}
