@@ -712,7 +712,7 @@ async function up(argv, opt) {
     if (s && s.status === 'ready') {
       console.log(
         `run ${run} ready (${s.mode}${
-          s.evidence ? '' : ', not evidence'
+          s.evidence ? '' : ', local mode: host processes'
         }): base ${s.baseURL}, allow-all ${s.allowURL}, app ${
           s.appURL
         }, control ${s.controlURL}; E2E_PORT_BASE=${s.portBase}; env ${envFile(

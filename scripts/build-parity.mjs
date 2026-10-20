@@ -70,7 +70,7 @@ export function runtimeKey(
   ref = 'HEAD',
   variant = 'default',
   mode = 'host',
-  install = 'link',
+  install = 'ci',
   gitDir = REPO
 ) {
   const git = (...a) => gitIn(gitDir, ...a)
@@ -220,14 +220,15 @@ function linkNodeModules(dir) {
   }
 }
 
-// install: 'link' = the repo node_modules linked (fast; test runs) | 'ci' = `npm ci --include=dev
-// --legacy-peer-deps` of the ref's own lock on Node 18.20.8, as the Dockerfile does (inertness proof, T-006,
-// T-014 in local mode)
+// install: 'ci' (default) = `npm ci --include=dev --legacy-peer-deps` of the ref's own lock on Node 18.20.8,
+// as the Dockerfile does: its .next equals the image's (a linked tree resolves packages outside the build
+// directory, which changes webpack module ids and chunk names) | 'link' = the repo node_modules linked
+// (seconds faster; never for comparisons)
 export async function hostBuild({
   ref = 'HEAD',
   variant = 'default',
   force = false,
-  install = 'link',
+  install = 'ci',
   suffix = '',
   gitDir = REPO,
   log = console.error,
@@ -439,7 +440,7 @@ export function findBuild({
   ref = 'HEAD',
   variant = 'default',
   mode = 'host',
-  install = 'link',
+  install = 'ci',
 } = {}) {
   const k = runtimeKey(ref, variant, mode, install)
   const b = readImages().builds[k.key]
@@ -457,7 +458,7 @@ async function main(argv) {
   const mode = opt('--mode', process.env.E2E_MODE || 'host')
   const ref = opt('--ref', 'HEAD')
   const variant = opt('--variant', 'default')
-  const install = opt('--install', 'link')
+  const install = opt('--install', 'ci')
   if (argv.includes('--key-only')) {
     console.log(JSON.stringify(runtimeKey(ref, variant, mode, install)))
     return

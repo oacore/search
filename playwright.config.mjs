@@ -106,8 +106,8 @@ export default defineConfig({
   timeout: 60000,
   expect: { timeout: 10000 },
   outputDir: path.join(RUN_DIR, 'test-results'),
-  // host-mode captures are provisional (owner notes §1): the platform suffix keeps them apart from the
-  // runner's linux captures in the committed snapshot folders
+  // local-mode captures are this machine's host baseline (owner notes §1, macOS arm64): the platform suffix
+  // keeps them apart from the runner's linux captures in the committed snapshot folders
   snapshotPathTemplate:
     '{testDir}/{testFileDir}/{testFileName}-snapshots/{arg}{-projectName}{-platform}{ext}',
   reporter: [

@@ -39,7 +39,7 @@ export async function expectPixelExact(target, name, { fullPage = true } = {}) {
   })()
   const provisional =
     !env || env.mode !== 'docker'
-      ? 'host-provisional'
+      ? `host baseline (${process.platform} ${process.arch})`
       : process.env.RECORD_PROVISIONAL === '1'
       ? 'provisional'
       : null
