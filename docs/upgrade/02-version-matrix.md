@@ -1,0 +1,181 @@
+# 02 — Version matrix (M1 register)
+
+**Purpose.** The only place that states a library version, its registry latest and the step that reaches it (D6/M1). **Read it** at every step start, every gate and before any `npm install`. **Owns:** version numbers, the Node policy, M1 exceptions with closing steps, the re-resolution procedure. Not here: change sites ([20](20-change-sites.md)), security column ([50](50-roadmap.md)), audit numbers (CI-8, [42](42-baselines-and-ci.md)).
+
+**Conventions.** *Latest* = registry `latest` on 2026-10-19 with that release's peers/engines. *Installed* = `package-lock.json` at tree `a825839` (`origin/main@cc0e228`). Steps: 50, 70, 80. Evidence: `X02.n` = `review:00 X02.n` (likewise other `X…`), `VER-n` = `review:versions.verdicts`, `DS-n` = `review:design-system`; `VF-nn` is in [STATUS](STATUS.md).
+
+## 1. Rules (D6)
+
+1. **Library choice** comes from the dashboard ([00](00-decisions.md) D11), **versions** from the registry (dashboard ranges are not targets, VER-22).
+2. **Target = registry latest at step start**, never lower than this table. The first PR of a step re-resolves (§5), pins exactly (`--save-exact`, no `^`/`~` on anything the track touches) and edits the row.
+3. **Status** is definitional (progress: [STATUS](STATUS.md)): the row's state at the first gate where it exists; a later removal is written in *Target*. `AT-LATEST`: installed = latest. `TARGET`: reaches latest at the named step. `EXCEPTION`: below latest at that gate; needs blocker evidence, a closing step and its authority (D6, plus the OD where one exists); listed in §4 while open. `REMOVED`: gone (deleted, vendored or replaced) before any gate.
+4. **Gates.** At GATE-S, GATE-A and GATE-F ([55](55-gates-and-confidence.md)) the outdated list of direct dependencies (shape of `npm outdated --long --json`; `--all` would list ~330 transitive names), evaluated at the gate's version cut-off Tr (55 GATE-x.1: the last commit of the gate sweep, §5) by `scripts/outdated-at.mjs <Tr>` (a version published after Tr is ignored, listed in the gate record and taken in the first step after the gate), may list only the rows §4 allows open at that gate; vendored-closure rows (§3.7) and CI-only binaries are checked with §5 step 2. A newer registry major (for example Next 17, VF-15) is taken like any release but needs its own step: add the row, raise an OD in [90](90-open-decisions.md), and keep the row `EXCEPTION` until a step is named.
+5. A package a step introduces is added here in the same PR, at registry latest unless an `engines`/peer conflict is shown.
+6. `--legacy-peer-deps` stays until strict `npm ci` passes, expected at 7.F (CS-AN-5 removes next-images). Strict-mode `npm ls --all` problems today (7): `react`/`react-dom` invalid (logrocket-react; closes W0); missing `eslint-plugin-react-hooks` (airbnb config; W1); missing `jquery` (slick-carousel 1.8.1; 6.9); missing `webpack` ×3 (next-images 1.8.5, file-loader, url-loader; 7.F). GATE-S, GATE-A: `npm ci --legacy-peer-deps` passes and the strict problem set ⊆ the §4 allow-list; GATE-F: strict `npm ci` passes and `npm ls --all` exits 0 (55 GATE-x.1). Test under `npm_config_userconfig=/dev/null` (a user-level `.npmrc` may set `legacy-peer-deps=true`; T-008, [41](41-test-inventory.md)); a problem outside the allow-list fails T-008.
+
+## 2. Node: tooling versus runtime
+
+| Node | State on 2026-10-19 | Use |
+|---|---|---|
+| 18 | EOL; `node:18-alpine` last pushed 2025-03-27 | runtime to W4d |
+| 20, 22 | 20 EOL (2026-04-30); 22 maintenance, EOL 2027-04-30 | not used (22 rejected, X02.4) |
+| 24 | LTS until 2028-04-30 | tooling from 2.1; runtime from W4e |
+| 26 | LTS from 2026-10-28 | runtime at 6.10 if LTS for ≥1 month and green |
+
+- **Tooling Node 24** (lint, format, hooks, Playwright, scripts; `.nvmrc` by CS-W0-5) satisfies every `engines` below. **Runtime Node** = Dockerfile `ARG NODE_VERSION`: 18 → `node:24-alpine` by digest at W4e (CS-N12-6, OD-05) → `node:26-alpine` at 6.10 (CS-NODE-6). Use 24.x ≥ 24.15 (cssnano 9, npm-run-all2 9).
+- Jest runs on the step's runtime Node (CI-2, [42](42-baselines-and-ci.md)); Docker installs devDependencies on it with `EBADENGINE` warnings only. So before W4e **nothing that runs in the image build or at runtime may need Node >18**; every W0–W4d bump below meets it.
+- Verified (X02.4, X20.4): Next 12.3.7–16.4.2 build and serve on Node 24.18.1 (alpine arm64: VF-05). **12.3.7 fails on Node 26.12.0** (`SlowBuffer` removed), so Node 26 follows W7c. `--openssl-legacy-provider` is needed at 10.2.3 + `future.webpack5` (W4b), not from 12.1.6 (W4c); 10.2.3 on Node 24 is proven only for md4 with the flag (VF-11).
+- npm: lock regeneration needs npm ≥10 on any OS (CS-N12-4; tested on 10.8.2 and 11.16). `devEngines` = tooling floor, `engines.node` = runtime floor (set at W4e): CS-W0-5.
+
+## 3. Matrix
+
+Last item of *Target → step* = final.
+
+### 3.1 Next.js and React
+
+| Step | next (CS) | React peer of this Next | Node engines | React installed | Runtime Node |
+|---|---|---|---|---|---|
+| W4b | 10.2.3 + `future.webpack5` (CS-N11-0) | ^16.6/^17 | ≥10.13 | 17.0.2 | 18 |
+| W4c | 12.1.6 (CS-N12-7) | ^17.0.2/^18.0.0-0 | ≥12.22 | 17.0.2 | 18 |
+| W4d | 12.3.7 (CS-N12-5) | ^17.0.2/^18 | ≥12.22 | 17.0.2 | 18 |
+| W6c | 13.5.11 (CS-N13-6) | ^18.2 | ≥16.14 | 18.3.1 | 24 |
+| W6d | 14.2.35 (CS-N14-1) | ^18.2 | ≥18.17 | 18.3.1 | 24 |
+| W7a | 15.5.28 (CS-N15-1) | ^18.2/^19 | ^18.18/^19.8/≥20 | 18.3.1 | 24 |
+| W7c | 16.4.2 + `--webpack` (CS-N16-5) | ^18.2/^19 | ≥20.9 | 19.3.1 | 24 (26 at 6.10) |
+
+Installed: `next` 10.2.3, `react`/`react-dom` 17.0.2. Latest: `next` 16.4.2, `react`/`react-dom` 19.3.1 (react-dom peers `react ^19.3.1`: keep identical). Status **TARGET**, re-resolved at W7c/W7b; React 18.3.1 lands at W6a (CS-R18-1) on 12.3.7, 19.3.1 at W7b (CS-R19-6) on 15.5.28. Other `next` versions are **path-only intermediates**, not exceptions (no gate falls between W4b and W7c); each is the last release of its line. Install with `npm i next@<v> --save-exact`; a codemod only with `--skip-react-upgrade` (else it merges W7a and W7b, X02.15).
+
+### 3.2 Runtime libraries
+
+| Package | Installed | Latest (peers/engines) | Target → step | Status | Blocker → closing step |
+|---|---|---|---|---|---|
+| mobx | 6.13.7 | 7.0.6 | 6.16.1 (W3) → removed 6.5 | EXCEPTION | mobx 7 drops legacy decorators (26 in `store/filters.js`; X02.8). Closes 6.5 (zustand, OD-13); fallback CS-MOBX-3 |
+| mobx-react-lite | 3.4.3 | 5.1.0 (mobx ^7, react ^18/^19) | 4.1.1 (W3) → removed 6.5 | EXCEPTION | 5.x needs mobx 7; 4.1.1 uses a `use-sync-external-store` shim on React 17. Closes 6.5 (OD-13) |
+| @sentry/browser, @sentry/node | 5.30.0 | 11.8.0 (Node ≥20.19/≥22.12) | 7.120.4 exact (W2a, CS-SEN-1) → removed 6.8 | EXCEPTION | 7.120.4 = last 7.x, fixes GHSA-593m-55hh-j8gv. 11.x needs Node ≥20.19 (runtime 18 until W4e); its Next SDK needs Next ≥14 (X02.7). Closes 6.8 (OD-14) |
+| @sentry/nextjs | - | 11.8.0 (next ^14/^15/^16) | 11.8.0 (6.8, CS-SEN-2) | TARGET | replaces both rows above and the `@sentry/node` alias in `next.config.js` |
+| logrocket | 10.0.0 | 12.4.0 | 12.4.0 (W2b, CS-LR-1 + CS-LR-2) | TARGET | ≥11 talks to `logr-in.com`; the CSP allows only `lgrckt-in.com` (X20.6) |
+| logrocket-react | 6.0.3 | 7.0.1 | removed W0 (CS-W0-2) | REMOVED | 0 imports; its peer causes the only strict-peer ERESOLVE today (X20.9) |
+| react-ga4 | 2.1.0 | 3.0.1 (ESM-only) | 3.0.1 (W4c) | TARGET | needs webpack 5: fails on 10.2.3 with and without `future.webpack5`, builds on Next ≥11.1.4 (X02.11) |
+| core-js | 3.42.0 | 3.51.0 | 3.51.0 (W2c, CS-CORE-1) → removed 6.7 | TARGET | injected by Babel `useBuiltIns`; leaves with Babel |
+| i18n-iso-countries | 6.8.0 | 7.14.0 | removed W0 (CS-I18N-1) | REMOVED | 7.14.0 changes 9 country names (R-031) = text change (D1); the 6.8.0 `en` map becomes owned data (OD-27, X02.12) |
+| bibtex-parse-js | 0.0.24 | 0.0.24 | removed W0 (CS-BIB-1) | REMOVED | `bibtexParse.js` vendored verbatim; drops 450 lock entries (1,760 → 1,310). Licence MIT per registry, read the file (VF-19). ORCID fork 0.0.25 throws `TypeError`s (0.0.24: strings): only after T-114 and the owner (OD-17) |
+| leaflet, leaflet.markercluster, js-file-download | 1.9.4, 1.5.3, 0.4.12 | same | keep | AT-LATEST | - |
+| filesize; throttle-debounce (search's own entry) | 6.4.0; 3.0.1 | 11.0.26; 5.0.2 | removed W0 (CS-W0-2) | REMOVED | 0 imports; the design closure keeps its own 3.0.1 (§3.7) |
+| node-fetch (undeclared, hoisted by Next 10) | 2.6.1 | 3.3.2 (ESM) | removed W4a (CS-N12-1, global `fetch`) | REMOVED | Anchor: `require('node-fetch')` in `data/data-loader.js` (R-017) |
+| next-images | 1.8.5 | 1.8.5 (webpack ^4/^5) | keep → removed 7.F (CS-AN-5) | AT-LATEST | latest but unmaintained |
+| @zeit/next-source-maps | 0.0.3 (dev; spec 0.0.4 in `dependencies` is unpublished) | 0.0.3 (deprecated) | removed W4c | REMOVED | replaced by `productionBrowserSourceMaps: true` (CS-N11-4, OD-42) |
+| babel-plugin-add-react-displayname | 0.0.5 | 0.0.5 | keep → removed 6.7 | AT-LATEST | SWC has no such plugin; grep `displayName` reads first ([70](70-phase6.md)) |
+
+### 3.3 Build: Babel, PostCSS, browserslist
+
+| Package | Installed | Latest (peers/engines) | Target → step | Status | Blocker → closing step |
+|---|---|---|---|---|---|
+| @babel/core, preset-env, preset-react, plugin-transform-runtime, plugin-proposal-decorators, plugin-proposal-export-default-from | 7.27.3, 7.27.2, 7.27.1, 7.28.5, 7.27.1, 7.27.1 | 8.0.7, 8.0.7, 8.0.1, 8.0.6, 8.0.2, 8.0.1 (ESM; Node ^22.18/≥24.11; peer @babel/core ^8) | 7.29.7 exact (W2e, CS-BAB-9) → app: removed 6.7; Jest-only copy (CS-SWC-1) → 8.x at 6.10 | EXCEPTION | Babel 8 removes `useBuiltIns`; Next 16.4.2 compiles app code with its own Babel 7, so Babel-8 plugins cannot run in the app build (X02.9). App closes 6.7: SWC is mandatory (OD-12). babel-jest 30.5.2 accepts @babel/core ^8: the Jest copy closes in the 6.10 sweep (§5; proof: CI-2 green, T-018 identical, strict problem set unchanged). A probe with @babel/core 8.0.7 left `@babel/plugin-syntax-*` (peer ^7.0.0-0, via babel-preset-jest) and `@sentry/bundler-plugins` 11.8.0 (optional peer ^7.18.5) invalid: if still so at 6.10, the Jest copy stays 7.29.7 (blocker: those peers), re-checked at the 7.F L2 sweep, else OD-12 DECIDED with the evidence |
+| @babel/plugin-proposal-class-properties; @babel/plugin-syntax-dynamic-import | 7.18.6 (deprecated); 7.8.3 | same (last releases; the syntax plugin is a no-op) | `plugin-transform-class-properties` 7.29.7 only if output is identical (W2e, CS-BAB-9) → removed 6.7 | AT-LATEST | Babel-7 family: removed with Babel |
+| @babel/preset-typescript | - | 8.0.7 (last 7.x: 7.29.7) | 7.29.7 exact (step 6.1, CS-BAB-7) → app: removed 6.7; Jest-only copy as the row above | EXCEPTION | Babel-7 family; closes with the Jest copy (6.10 or 7.F) |
+| @babel/runtime | 7.27.3 (undeclared) | 8.0.7 | declared 7.27.3 (W0, CS-W0-3) → 7.29.10 (W2e) → removed 7.F | EXCEPTION | 8.x has no `./regenerator` export, required by `@oacore/design/lib/modules/search-result/search-result.js:9` (`require("@babel/runtime/regenerator")`): build error (DS-06). Closes 7.F (DV9; D9) |
+| postcss | 8.4.14 | 8.5.31 | 8.5.31 exact (W2d, CS-PCSS-1) | TARGET | - |
+| postcss-preset-env | 7.8.3 | 11.6.1 (ESM; Node ≥20.19) | 11.6.1 (W8, CS-PCSS-2..6) → removed 6.9 | TARGET | - |
+| postcss-custom-media; @csstools/postcss-global-data | 8.0.2; - | 12.0.3; 4.0.0 (ESM; Node ≥20.19) | 12.0.3 + 4.0.0 (W8) → removed 6.9 | TARGET | `importFrom` removed upstream; global-data replaces it |
+| postcss-extend-rule | 4.0.0 | 4.0.0 | keep → removed 6.9 | AT-LATEST | - |
+| cssnano | 4.1.11 | 9.9.0 (postcss ^8.5.29; Node ^22.22.3/^24.15; ESM) | 9.9.0 or removed (W8, decided by T-003 + T-801) | TARGET | - |
+| caniuse-lite; browserslist | 1.0.30001754; 4.27.0 | 1.0.30001816; 4.29.4 | pin both at installed via `overrides`, plus Next 10's nested browserslist 4.16.6 (2.1, CS-W0-10) → latest (6.10, CS-W0-11) | EXCEPTION | lock regeneration re-resolves both and changes Babel/PostCSS output (R-065). Closes 6.10 (OD-16) |
+
+**W8 fallback.** A PostCSS plugin that cannot reach latest at 0 px stays at its installed major as an `EXCEPTION` (blocker = the failing T-003/T-801 run), closed at 6.9 when all plugins go (OD-33 P1).
+
+### 3.4 Lint, format, hooks (devDependencies; step W1 unless stated)
+
+| Package | Installed | Latest (peers/engines) | Target | Status | Notes |
+|---|---|---|---|---|---|
+| eslint; @eslint/js; globals | 7.32.0; -; 11.12.0 (transitive) | 10.13.0 (Node ^20.19/^22.13/≥24); 10.0.1; 17.13.0 | 10.13.0; 10.0.1; 17.13.0 | TARGET | flat config (CS-LINT-1) |
+| eslint-plugin-react; eslint-plugin-jsx-a11y | 7.37.5; 6.10.2 | same (peers stop at eslint ^9.7/^9) | keep | AT-LATEST | load on ESLint 10 via npm `overrides`; the 7 of 103 react rules that crash are replaced (`@eslint-react/eslint-plugin` 5.28.2) or dropped with a parity note (CS-LINT-1) |
+| eslint-plugin-import → eslint-plugin-import-x | 2.31.0 | 2.32.0; import-x 4.17.1 (eslint ^8.57/^9/^10) | import-x 4.17.1 under the key `import` | TARGET | 4 of 46 `import` rules crash on ESLint 10; the 38 `eslint-disable` comments still resolve |
+| eslint-plugin-react-hooks | - | 7.1.1 (eslint up to ^10) | 7.1.1 | TARGET | `rules-of-hooks` only, never `recommended` (React Compiler rules, X20.8) |
+| typescript-eslint | - | 8.72.0 (eslint ^10; **typescript <6.1.0**) | 8.72.0 as JS/JSX parser (W1); TS rules at 6.2 | TARGET | `@babel/eslint-parser` crashes on ESLint 10 (7.x) or needs Babel 8: not used. Needs `typescript` at W1 (§3.6) |
+| @next/eslint-plugin-next | - | 16.4.2 | 16.4.2 (6.2, CS-LINT-5) | TARGET | Next 16 has no `next lint` |
+| babel-eslint; eslint-plugin-prettier; @oacore/eslint-config-react; @oacore/prettier-config; @oacore/stylelint-config-base | 10.1.0; 3.4.1; 1.0.6 ×3 | deprecated; 5.5.7; private | removed (CS-LINT-1, CS-PRET-1, CS-STY-1) | REMOVED | own configs, generated from the baseline resolved configs, replace them |
+| prettier | 2.8.8 | 3.9.10 | 3.9.10 | TARGET | own `prettier.config.js` (5 org options inlined); one format-only commit (8 files), listed in `.git-blame-ignore-revs` |
+| stylelint | 13.13.1 | 17.16.0 (Node ≥20.19) | 17.16.0 | TARGET | with stylelint-order 8.1.2, stylelint-config-css-modules 4.6.0, stylelint-prettier 5.0.3. `stylelint-config-standard` not adopted (adds 40 findings); explicit rules, no `--fix` (X02.2) |
+| husky; lint-staged | 4.3.8; - | 9.1.7; 17.6.0 (Node ≥22.22.1; ESM) | 9.1.7; 17.6.0 | TARGET | `HUSKY=0` in Docker (CS-W0-6) |
+| npm-run-all | 4.1.5 | npm-run-all2 9.0.3 (Node ^22.22.2/^24.15/≥26) | npm-run-all2 9.0.3 (CS-NRA-1) | TARGET | 4.1.5 is the old package's last release |
+
+### 3.5 Test tooling (added at 2.1; Playwright and axe in `e2e/package.json`)
+
+| Package | Installed | Latest (peers/engines) | Target → step | Status | Blocker → closing step |
+|---|---|---|---|---|---|
+| jest, babel-jest, jest-environment-jsdom; jest-fixed-jsdom | - | 30.5.2 (Node ^18.14/^20/^22/≥24); 0.0.11 | 30.5.2 exact; 0.0.11 (2.1) | TARGET | verified with React 17.0.2 + RTL 12.1.5 on Node 18.20.8, 22.18, 24.18 (X02.6) |
+| @testing-library/react | - | 16.3.3 (react ^18/^19; dom ^10) | 12.1.5 (2.1) → 16.3.3 (W6a, CS-R18-5) | EXCEPTION | RTL ≥13 needs React 18 (D6). Closes W6a |
+| @testing-library/dom; @testing-library/user-event | -; - | 10.4.2; 14.6.8 (dom ≥7.21.4) | 10.4.2; 14.6.8 (2.1) | TARGET | top-level for dom-10 queries (40 §2.1); RTL 12 keeps a nested dom 8 |
+| @testing-library/jest-dom | - | 7.0.1 (Node ≥22; dom ≥10 <11) | 6.9.1 exact (2.1) → 7.0.1 (W4e) | EXCEPTION | 6.10.0 is deprecated ("use 6.9.1"): pin exactly. 7.x needs Node ≥22: Jest runs on runtime Node 24 from W4e (CI-2). Closes W4e (D6) |
+| msw | - | 3.0.3 (Node ≥22.12; ESM-only) | 2.15.0 exact (2.1), Jest only, with the ESM allow-list ([40](40-test-strategy.md)) → 3.x if the 6.0 re-test passes | EXCEPTION | msw 3 fails under Jest CJS on Node 18 even with the allow-list; Node 24 and Jest ESM untested (VF-07). The SSR mock is a real HTTP stub, so msw never runs in the Node-18 server. Closes 6.0 (D6) |
+| @playwright/test; @axe-core/playwright | -; - | 1.64.1 (Node ≥20); 4.14.0 (Node ≥22.12) | 1.64.1 exact (image `mcr.microsoft.com/playwright:v1.64.1-noble-arm64` by digest); 4.14.0 (2.1) → re-resolved at GATE-S with baseline re-capture ([40](40-test-strategy.md)) | TARGET | - |
+| @stryker-mutator/core; es-check | -; - | 10.0.0 (Node ≥22); 9.8.1 | pin at 2.7 (C2; T-015) | TARGET | Stryker vs legacy decorators: VF-08 |
+| html-validate | - | 11.16.4 (Node ^22.22/≥24.8) | 11.16.4 exact (2.3) | TARGET | T-602 raw HTML ([40](40-test-strategy.md) §4) |
+| @swc/jest; @swc/core | -; - | 0.2.39; 1.16.18 (registry queried 2026-10-20) | exact at 6.7 for `test:unit:swc` ([40](40-test-strategy.md) §2.1), re-resolved then | TARGET | - |
+
+CI-only binaries and actions (nginx, dnsmasq, runner base image, pinned actions): pinned by digest or SHA where used, bumped per 42 §9; target = registry latest at each gate's version cut-off Tr (GATE-x.1, GATE-x.7).
+
+### 3.6 Phase 6 and 7 libraries (re-resolve at step start)
+
+| Package | Installed | Latest (peers/engines) | Target → step | Status | Blocker → closing step |
+|---|---|---|---|---|---|
+| typescript | - | 7.0.2 (native compiler: `require('typescript')` has no compiler API) | 6.0.3 exact (W1, API for the typescript-eslint parser) → CI `tsc` 7 via alias `@typescript/native` = `npm:typescript@7.0.2` (step 6.1, CS-TS-3) → plain 7.x | EXCEPTION | typescript-eslint 8.72.0 peers TS `<6.1.0`: strict install with TS 7.0.2 fails ERESOLVE (X02.10). Closes in part at step 6.1 (`tsc` 7 CI step), fully when typescript-eslint's peers include TS 7. Checkpoints step 6.10 and the 7.F L2 sweep: `npm view typescript-eslint peerDependencies`; TS 7 allowed → `typescript` to latest (CS-ID `02`); still `<6.1.0` → OD-07 DECIDED with that blocker, owner-signed |
+| axios; swr; zustand | -; -; - | 1.20.0; 2.5.1 (react ≤^19); 5.0.15 (react ≥18) | 1.20.0 (6.3, CS-AX-1); 2.5.1 (6.4, CS-SWR-1); 5.0.15 (6.5, CS-ZU-1..8) | TARGET | swr scope per OD-43; no `@experimental` options; axios adapter in [70](70-phase6.md) |
+| antd | - | 6.6.6 (react, react-dom ≥18) | 6.6.6 exact (7.0) | TARGET | minors change visuals: exact pin, re-query at 7.0 start (X02.18) |
+| @ant-design/icons; @ant-design/cssinjs; @ant-design/static-style-extract | -; -; - | 6.3.4; 2.1.2; 2.1.0 (antd ≥6) | 6.3.4, 2.1.2 (7.0; one cssinjs copy at antd's range, CS-AN-3); 2.1.0 only if [80](80-phase7-antd.md) picks static extraction | TARGET | antd 6 needs icons ≥6 (dashboard's ^5.5.1 not copied) |
+| @types/react, @types/react-dom; @types/leaflet, @types/leaflet.markercluster | 19.1.6 (transitive); - | 19.3.0, 19.3.0; 1.9.22, 1.5.6 | same (6.1) | TARGET | - |
+| @types/node | 22.15.21 (transitive) | 26.6.5 | 24.19.2 (6.1; matches runtime Node 24) → 26.6.5 (6.10) | EXCEPTION | must match the runtime Node major. Closes 6.10 with CS-NODE-6 (OD-05) |
+
+**Not adopted:** the D11/D3 exclusions ([00](00-decisions.md)), `@sentry/react`, `@ant-design/nextjs-registry` (App Router only), `@ant-design/v5-patch-for-react-19`, react-markdown 10, rehype-raw 7; dayjs and js-cookie only if a unit needs them (rule 5).
+
+### 3.7 Vendored design dependencies (closure of `@oacore/design` 5.0.74)
+
+Closure = packages the compiled lib and its `bin/` require (scan of `node_modules/@oacore/design`); `@babel/runtime`: §3.3. The two in-range bumps (react-focus-lock 2.13.7, katex 0.16.47) are lock-only W2e PRs (no code site: CS-ID `02`, [01](01-playbook.md) §3), 0 px on T-801/T-802. The other bumps wait for readable ownership (DV8, 7.1): latest changes behaviour or pixels (X02.16, X60.5). Per-unit disposition: [60](60-design-ownership.md).
+
+| Package | Installed | Latest | Blocker (evidence) | Target → closing step | Status |
+|---|---|---|---|---|---|
+| @oacore/design | 5.0.74 (spec `latest`) | 5.0.74 (GitHub Packages; peers react, react-dom ^17.0.1) | design repo is deprecated (D9); peers widened in W5 (CS-DSN-3) | exact pin (2.1, CS-W0-1) → `file:` tarball (W0.5, CS-DSN-1) → directory package (W5, CS-DSN-2) → deleted 7.F (CS-DSN-7) | AT-LATEST |
+| react-focus-lock | 2.13.6 | 2.13.7 | patch; peers allow React 19 | 2.13.7 (W2e) | TARGET |
+| katex | 0.16.22 | 0.19.0 | 0.19 renames `.sizing` to `.katex-sizing` and adds `font-display`: HTML, CSS, 60 fonts change (X02.16) | 0.16.47 (latest 0.16, W2e) → 0.19.0 (7.2.DU-20, own PR, 0 px on a math fixture) | EXCEPTION; closes 7.2.DU-20, at the latest the 7.F L2 sweep |
+| throttle-debounce | 3.0.1 | 5.0.2 | v5 is `throttle(delay, callback, options)`; `lib/modules/header/search-bar.js:173` calls `throttle(delay, false, fn)`: TypeError when typing (DS-06) | hold → bump with that call site in owned code (7.1, DU-09), or removed if Header becomes antd | EXCEPTION; closes 7.2.DU-09 |
+| react-cookie; universal-cookie | 4.1.1; 4.0.4 | 8.1.2; 8.1.2 | API and parse defaults change; cookie attributes are pinned by T-416 / Q-070 | hold → 8.1.2 in its own PR after the DU-17 port (7.1), or replaced by js-cookie 3.0.8 there | EXCEPTION; closes 7.2.DU-17 |
+| d3-array; d3-scale | 1.2.4; 1.0.7 | 3.2.4; 4.0.2 (ESM-only) | ESM-only but `require`d by the CJS lib (unproven under Next SSR externals); d3-color <3.1.0 is flagged high (CI-8 allow-list, [42](42-baselines-and-ci.md)) | hold → latest after the DU-19 port (7.1), own pixel PR plus an SSR build of the Histoslider page | EXCEPTION; closes 7.2.DU-19 |
+| react-markdown | 5.0.3 | 10.1.0 (ESM-only) | evaluated by 2 compiled modules (`documentation-membership*`), never rendered by search; v5 `defaultProps` would be lost at `jsx()` call sites on React 19 | held at 5.x → removed 7.F (DV9) | EXCEPTION; closes 7.F |
+| @tippyjs/react; tippy.js; @popperjs/core | 4.2.6; 6.3.7; 2.11.8 | same | unmaintained since 2022; used by Popover (`modules/copyable-input`) | replaced in phase 7 (7.2.DU-11) → removed 7.F | AT-LATEST |
+| react-slick; slick-carousel | 0.28.1; 1.8.1 | 0.31.0; 2.0.0 | react-slick 0.28.1 is the only third-party React cap (^17); carousel never rendered | delete the carousel getter and require in `lib/elements/index.js` (W5, CS-DSN-4; alternative: 0.31.0); slick-carousel removed when DV7 freezes the CSS (6.9; assets per DU-24) | react-slick REMOVED; slick-carousel EXCEPTION, closes 6.9 |
+| sanitize.css | 12.0.1 | 13.0.0 | 13 is not pixel-neutral (`:where()`, `overflow-wrap`, `background-repeat`) | inlined verbatim (CC0) into the owned reset (6.9, DV7, DU-23) | EXCEPTION; closes 6.9 |
+| svgo; yargs; cosmiconfig; deepmerge; svgstore; @mdi/svg | 1.3.2; 16.2.0; 7.1.0; 4.3.1; 3.0.1; 5.9.55 | 4.1.0; 18.2.0; 10.0.1; 4.3.1; 3.0.1; 7.4.47 | build only: svgo 4 and yargs 18 are ESM-only (sprite CLI breaks); @mdi/svg 7 changes sprite bytes | removed when DV7 commits the prod sprite and drops the postinstall (6.9, CS-DSN-6); `@mdi/svg` by 7.F at the latest (CS-AN-5) | EXCEPTION; closes 6.9 |
+| d3-format; body-scroll-lock | 1.4.5; 3.1.5 | 3.1.2; 3.1.5 | never required by the compiled lib | dropped from the vendored `package.json` (W5, CS-DSN-5) | REMOVED |
+| classnames; prop-types | 2.5.1; 15.8.1 | same | - | deleted with the vendored dir (7.F) unless an owned unit imports them | AT-LATEST |
+
+## 4. Exceptions per gate
+
+"Open" = the row may still be on the ledger (`EXCEPTION`, or latest but unmaintained) when the gate is evaluated. A row open past its column fails the gate ([55](55-gates-and-confidence.md)) unless an owner-signed OD created before the gate's version cut-off Tr covers it and names the upstream blocker (55 §4 (b)).
+
+| Row | GATE-S (after W8) | GATE-A (after 6.10) | GATE-F (after 7.F) | Closing step |
+|---|---|---|---|---|
+| Runtime Node 24 (26 is the newest LTS) | open | - | - | 6.10 (OD-05); if its condition fails, a signed OD |
+| mobx 6.16.1, mobx-react-lite 4.1.1 | open | - | - | 6.5 |
+| @sentry/browser, @sentry/node 7.120.4 | open | - | - | 6.8 |
+| @babel/* 7.29.7 incl. preset-typescript (app; Jest-only copy) | open | - | - | 6.7 app; 6.10 Jest, else OD-12 (§3.3) |
+| msw 2.15.0 | open | - | - | 6.0 (VF-07); if the re-test fails, a new OD |
+| caniuse-lite, browserslist pin | open | - | - | 6.10 |
+| PostCSS plugin fallback (only if W8 missed 0 px) | open | - | - | 6.9 |
+| TypeScript 6.0.3 | open | open | - | step 6.1 `tsc` 7 CI step; plain 7.x at the step-6.10 or 7.F checkpoint (§3.6), else OD-07 DECIDED |
+| `--legacy-peer-deps`; allow-list: missing `jquery` (slick-carousel), missing `webpack` ×3 (next-images chain) | open (both) | open (`webpack` only) | - | 6.9 (`jquery`), 7.F (`webpack`, flag dropped; rule 6) |
+| Vendored: sanitize.css, svgo, yargs, cosmiconfig, deepmerge, svgstore, @mdi/svg, slick-carousel | open | - | - | 6.9 (DV7); @mdi/svg by 7.F |
+| Vendored: @babel/runtime, throttle-debounce, react-cookie, universal-cookie, d3-array, d3-scale, katex, react-markdown | open | open | - | 7.1 (DV8), 7.2.<DU>, 7.F |
+| Latest but unmaintained: next-images, @tippyjs/react, tippy.js, @popperjs/core | open | open | - | 7.2.DU-11 (tippy), 7.F |
+
+Rows closing before a gate (RTL 12.1.5, jest-dom 6.9.1, @types/node 24, react-slick) never appear. OD-37 option A (custom minimizer on `cssnano-simple` 2.0.0, [90](90-open-decisions.md)) would add a row; OD-37 must name its closing step before W4c merges.
+
+## 5. Re-resolution procedure
+
+Run at each step start (first PR), at each gate (step 5) and in the three **gate sweeps**: GATE-S (last CS PR of W8), L1 (6.10, GATE-A), L2 (7.F, GATE-F). A sweep runs every row, test tools and CI-only pins included (42 §9), bumps every row whose blocker is gone, and is the last change to the dependency paths before its gate: its last commit sets Tr (55 GATE-x.1).
+
+1. Rows of the step (a sweep: every row): `git grep -n "<step id>" docs/upgrade/02-version-matrix.md`.
+2. Per package: `npm view <pkg> version time.modified dist-tags peerDependencies engines deprecated type --json` (Next: also check `dist-tags`).
+3. Registry newer than this table: read its peers, `engines`, `type` (ESM), `deprecated`. Compatible with the step's runtime Node and peers: take it, update *Latest* and *Target*. Not compatible: keep the table's version, mark the row `EXCEPTION` with the failing command and output as blocker plus a closing step (an OD in [90](90-open-decisions.md) if none exists). A new major follows rule 4.
+4. Install exact: `npm i <pkg>@<version> --save-exact` (`--save-dev` for devDependencies), then `rm -rf node_modules && npm ci` under `npm_config_userconfig=/dev/null`. T-013 and T-008 check the tree.
+5. Gate: `scripts/outdated-at.mjs <Tr>` (new at 2.7, 40 §10; root and `e2e/`): per direct dependency the highest non-prerelease version with `time` ≤ Tr and ≤ the current `latest` dist-tag, from `npm view <pkg> time dist-tags --json`, printed in the `npm outdated --long --json` shape; it also runs in the sweep's head check (01 §4 step 3), so a release between resolution and Tr is caught before the merge. Plus the strict `npm ls --all` problem set, compared with §4 and rule 6. Audit gating is CI-8 ([42](42-baselines-and-ci.md)).
+6. Record: edit this file in the step's first PR; put the old → new diff per row in `records/<step>.md` ([01](01-playbook.md) §7).

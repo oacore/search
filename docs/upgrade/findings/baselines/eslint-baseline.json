@@ -1,0 +1,3128 @@
+[
+  {
+    "filePath": "api/claim.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "api/data-provider-accounts.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "api/data-provider.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "api/errors.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "api/index.js",
+    "messages": [
+      {
+        "ruleId": "import/no-named-as-default",
+        "severity": 2,
+        "message": "Using exported name 'internalize' as identifier for default import.",
+        "line": 4,
+        "column": 8,
+        "nodeType": "ImportDefaultSpecifier",
+        "endLine": 4,
+        "endColumn": 19
+      }
+    ],
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "import LogRocket from 'logrocket'\n\nimport NetworkError from './errors'\nimport internalize from './internalize'\n\n// Environment variables are replaced in the bundle using the `DefinePlugin`\n// in WebPack, so destructuring won't work here.\n//\n// See more:\n// https://github.com/vercel/next.js/issues/6888#issuecomment-479862813\n//\n/* eslint-disable prefer-destructuring */\nconst API_URL = process.env.API_URL\nconst API_KEY = process.env.API_KEY\n/* eslint-enable prefer-destructuring */\n\nconst prepareUrl = (pathname, base = API_URL) => {\n  const url = /^\\w+:\\/\\//.test(pathname) ? pathname : `${base}${pathname}`\n  return new URL(url)\n}\n\nconst prepareParams = ({ url, searchParams }) =>\n  new URLSearchParams([\n    ...Array.from(url.searchParams.entries()),\n    ...Array.from(new URLSearchParams(searchParams).entries()),\n  ])\n\nconst prepareMethod = ({ method = 'GET' }) => method.toUpperCase()\n\nconst prepareBody = ({ method, body }) => {\n  if (!['GET', 'HEAD'].includes(method))\n    return typeof body == 'object' ? JSON.stringify(body) : body\n  return null\n}\n\nconst prepareHeaders = ({ headers: customHeaders, body }) => {\n  const defaultHeaders = {\n    Accept: 'application/json',\n    Authorization: `Bearer ${API_KEY}`,\n  }\n  const contentHeaders =\n    typeof body == 'object' && body != null\n      ? { 'Content-Type': 'application/json' }\n      : {}\n\n  return {\n    ...defaultHeaders,\n    ...contentHeaders,\n    ...customHeaders,\n  }\n}\n\nconst prepareRequest = (init) => {\n  const request = {}\n\n  request.url = prepareUrl(init.url, API_URL)\n  request.url.search = prepareParams({ ...init, url: request.url })\n  request.url = request.url.toString()\n  request.method = prepareMethod(init)\n  request.headers = prepareHeaders(init)\n\n  // Server-side: route through the in-cluster API service (skips CF/gateway).\n  // No-op in the browser and when Internal_API isn't configured.\n  const internal = internalize(request.url)\n  request.url = internal.url\n  request.headers = { ...request.headers, ...internal.headers }\n\n  const body = prepareBody({ ...init, method: request.method })\n  if (body != null) request.body = body\n\n  request.credentials = 'include'\n\n  return { ...init, ...request }\n}\n\nconst processStatus = (response) => {\n  if (response.status >= 400) {\n    const StatusError = NetworkError.getErrorFromStatusCode(response.status)\n    throw new StatusError(\n      `Request for ${response.url} failed on ${response.status}`,\n      response\n    )\n  }\n\n  return response\n}\n\nconst processBody = (response, { method }) => {\n  const { status, headers } = response\n  const type = headers.get('Content-Type')\n\n  return (\n    /application\\/([\\w.-]\\+)?json/g.test(type) && method !== 'HEAD'\n      ? response.json()\n      : response.blob()\n  ).then((data) => ({ data, type, status, headers }))\n}\n\nconst processError = (error, details) => {\n  const { response } = error\n  if (response == null) throw error // re-throwing if nothing to process\n\n  return processBody(response, details).then((body) => {\n    Object.assign(error, body)\n\n    // re-throwing after processing\n    throw error\n  })\n}\n\nconst executeRequest = ({ url, ...options }) =>\n  fetch(url, options)\n    .then(processStatus)\n    .then(\n      (response) => processBody(response, { ...options }),\n      (error) => {\n        LogRocket.captureException(error)\n        return processError(error, { ...options })\n      }\n    )\n// For POST requests use variable - \"body\" and method:\"POST\"\nconst performRequest = (url, options) => {\n  const request = prepareRequest({ url, ...options })\n  return executeRequest(request)\n}\n\nexport default performRequest\n",
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "api/internalize.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "api/oai-resolver.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "api/outputs.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "api/search.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "api/sign-in.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "api/works.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "babel.config.js",
+    "messages": [
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `\"@babel/plugin-transform-runtime\"` with `'@babel/plugin-transform-runtime'`",
+        "line": 25,
+        "column": 5,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 25,
+        "endColumn": 38,
+        "fix": {
+          "range": [485, 518],
+          "text": "'@babel/plugin-transform-runtime'"
+        }
+      }
+    ],
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "source": "module.exports = (api) => {\n  api.cache(true)\n\n  const presets = [\n    [\n      '@babel/preset-env',\n      {\n        useBuiltIns: 'usage',\n        corejs: 3,\n      },\n    ],\n    '@babel/react',\n  ]\n  const plugins = [\n    '@babel/plugin-proposal-export-default-from',\n    [\n      '@babel/plugin-proposal-decorators',\n      {\n        legacy: true,\n      },\n    ],\n    '@babel/plugin-proposal-class-properties',\n    '@babel/plugin-syntax-dynamic-import',\n    'add-react-displayname',\n    \"@babel/plugin-transform-runtime\",\n  ]\n\n  return {\n    presets,\n    plugins,\n  }\n}\n",
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "csp.config.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "design.config.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "env.config.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "hooks/use-analytics.js",
+    "messages": [
+      {
+        "ruleId": "no-console",
+        "severity": 2,
+        "message": "Unexpected console statement.",
+        "line": 22,
+        "column": 7,
+        "nodeType": "MemberExpression",
+        "messageId": "unexpected",
+        "endLine": 22,
+        "endColumn": 18
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `\"GA\"` with `'GA'`",
+        "line": 22,
+        "column": 19,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 22,
+        "endColumn": 23,
+        "fix": { "range": [704, 708], "text": "'GA'" }
+      }
+    ],
+    "errorCount": 2,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "source": "import { useCallback, useEffect } from 'react'\nimport { useRouter } from 'next/router'\nimport ReactGA from 'react-ga4'\nimport { useCookie } from '@oacore/design'\n\nconst useAnalytics = () => {\n  const analyticsAllowed = useCookie('analytics_cookies_allowed')\n\n  const router = useRouter()\n  const reportPageview = useCallback((url, title, type = 'search') => {\n    ReactGA.send({\n      hitType: type,\n      page: url,\n      title: `Search | ${window.location.search.substring(1)}`,\n    })\n  }, [])\n\n  useEffect(() => {\n    if (analyticsAllowed && process.env.NODE_ENV === 'production') {\n      // Initialise production Google Analytics\n      // console.log(process.env.GA_TRACKING_CODE)\n      console.log(\"GA\")\n\n      ReactGA.initialize(process.env.GA_TRACKING_CODE)\n    } else if (analyticsAllowed) {\n      window.ga = (...args) =>\n        // We want to have logging in the development environment\n        // eslint-disable-next-line no-console\n        console.log(`ga(${JSON.stringify(args).slice(1, -1)})`)\n    }\n\n    // Reporting first page view manually because the event doesn't fire\n    reportPageview(router.asPath)\n\n    // This clean-up is quite tricky\n    return () => {\n      window.ga = null\n    }\n  }, [])\n\n  useEffect(() => {\n    router.events.on('routeChangeComplete', reportPageview)\n\n    return () => {\n      router.events.off('routeChangeComplete', reportPageview)\n    }\n  }, [])\n}\n\nexport default useAnalytics\n",
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "hooks/use-copy-to-clipboard.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "hooks/use-debounced-effect.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "hooks/use-input.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "hooks/use-outside-click.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "hooks/use-pagination.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "hooks/use-sync-url-params-with-store/index.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "hooks/use-window-size.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "lib/formap-loader.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "lib/index.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "lib/loader.js",
+    "messages": [
+      {
+        "ruleId": "max-len",
+        "severity": 2,
+        "message": "This line has a length of 81. Maximum allowed is 80.",
+        "line": 14,
+        "column": 1,
+        "nodeType": "Program",
+        "messageId": "max",
+        "endLine": 14,
+        "endColumn": 82
+      },
+      {
+        "ruleId": "class-methods-use-this",
+        "severity": 2,
+        "message": "Expected 'this' to be used by class async method 'fetchData'.",
+        "line": 25,
+        "column": 18,
+        "nodeType": "FunctionExpression",
+        "messageId": "missingThis",
+        "endLine": 41,
+        "endColumn": 4
+      },
+      {
+        "ruleId": "max-len",
+        "severity": 2,
+        "message": "This line has a length of 81. Maximum allowed is 80.",
+        "line": 29,
+        "column": 1,
+        "nodeType": "Program",
+        "messageId": "max",
+        "endLine": 29,
+        "endColumn": 82
+      }
+    ],
+    "errorCount": 3,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "import fs from 'fs'\nimport path from 'path'\n\nimport { internalize } from '../api/internalize'\n\n// Hard cap on how long an SSR render will wait for the internal API.\n// Without this, a slow/ratelimited api.core.ac.uk makes _app.getInitialProps\n// hang forever, which wedges the whole Node event loop under load.\nconst FETCH_TIMEOUT_MS = 3000\n\nclass Loader {\n  constructor(url, fileName) {\n    this.baseUrl = url\n    // path.resolve already yields an absolute path against process.cwd() (/app).\n    this.fileName = path.resolve(fileName)\n  }\n\n  // eslint-disable-next-line class-methods-use-this\n  log(...args) {\n    if (process.env.NODE_ENV !== 'production')\n      // eslint-disable-next-line no-console\n      console.log(...args)\n  }\n\n  async fetchData(url) {\n    const controller = new AbortController()\n    const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)\n    try {\n      // Server-side: hit the in-cluster API service directly (skips CF/gateway).\n      const internal = internalize(url)\n      const res = await fetch(internal.url, {\n        signal: controller.signal,\n        headers: internal.headers,\n      })\n      if (res.status >= 400) throw new Error(`Bad status ${res.status}`)\n      const data = await res.json()\n      return { data, timestamp: new Date().getDate() }\n    } finally {\n      clearTimeout(timer)\n    }\n  }\n\n  readCache() {\n    try {\n      // this.fileName is already absolute — do NOT join with __dirname.\n      return JSON.parse(fs.readFileSync(this.fileName, 'utf8'))\n    } catch (error) {\n      this.log('data cache not initialized', error.message)\n      return null\n    }\n  }\n\n  writeCache(data) {\n    try {\n      fs.writeFileSync(this.fileName, JSON.stringify(data), 'utf8')\n      this.log('Wrote to data cache')\n    } catch (error) {\n      this.log('Error writing data to file', error.message)\n    }\n  }\n\n  async getData() {\n    // 1. Serve from committed/warm cache if present — fast, never blocks.\n    const cached = this.readCache()\n    if (cached) return cached\n\n    // 2. No cache — fetch live, bounded by timeout. On any failure\n    //    (timeout, network, bad status) return null so SSR still renders.\n    try {\n      const data = await this.fetchData(this.baseUrl)\n      this.writeCache(data)\n      return data\n    } catch (error) {\n      this.log('live fetch failed, rendering without it', error.message)\n      return null\n    }\n  }\n}\n\nexport default Loader\n",
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "lib/members-loader.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "lib/statistics-loader.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "main/head.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "main/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/authors-box/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/copyable-input/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/dropdown/index.jsx",
+    "messages": [
+      {
+        "ruleId": "no-unused-vars",
+        "severity": 2,
+        "message": "'metadata' is defined but never used.",
+        "line": 30,
+        "column": 3,
+        "nodeType": "Identifier",
+        "messageId": "unusedVar",
+        "endLine": 30,
+        "endColumn": 11
+      }
+    ],
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "import React, { useEffect, useState } from 'react'\nimport {\n  Button,\n  Card,\n  DataProviderLogo,\n  Link,\n} from '@oacore/design/lib/elements'\nimport classNames from '@oacore/design/lib/utils/class-names'\nimport { Popover } from '@oacore/design/lib/modules'\nimport LogRocket from 'logrocket'\n\nimport redirect from '../../public/static/images/redirect.svg'\nimport styles from './styles.module.css'\nimport { capitalizeFirstLetter } from '../../utils/titleCase'\n\nconst DropDown = ({\n  title,\n  renderOAI,\n  children,\n  className,\n  memberType,\n  checkBillingType,\n  activeArticle = false,\n  useExpandButton = true,\n  href,\n  makeVisible,\n  dataProviderId,\n  disableRedirect,\n  outputRedirect,\n  metadata,\n  coreDownloadUrl,\n  sourceFulltextUrls,\n  sourceFulltextUrlsUpd,\n  id,\n  oai,\n  doi,\n  useOtherVersions,\n}) => {\n  const [logoFetched, setLogoFetched] = useState('')\n\n  const Tag = href ? Link : 'div'\n\n  // eslint-disable-next-line consistent-return\n  const redirectOnClick = () => {\n    if (disableRedirect && activeArticle) return null\n\n    window.location.href = href\n  }\n\n  const redirectToProviders = () => {\n    window.location.href = `//core.ac.uk/data-providers/${dataProviderId}`\n  }\n\n  const getLogoLink = () => {\n    useEffect(() => {\n      async function fetchData() {\n        try {\n          const link = `https://api.core.ac.uk/data-providers/${dataProviderId}/logo`\n          const response = await fetch(link)\n          if (response.ok) setLogoFetched(link)\n          else {\n            LogRocket.captureMessage(\n              `Failed to fetch logo. Status: ${response.status}`\n            )\n          }\n        } catch (err) {\n          console.error(err)\n          LogRocket.captureException(err)\n        }\n      }\n\n      if (dataProviderId) fetchData()\n    }, [])\n\n    return logoFetched\n  }\n\n  return (\n    <>\n      <div\n        className={classNames\n          .use({\n            [styles.activeClass]: checkBillingType && !makeVisible,\n            [styles.cardItem]: useOtherVersions,\n          })\n          .join(className)}\n      >\n        {checkBillingType && !makeVisible ? (\n          <div className={styles.placement}>\n            <a\n              href=\"https://core.ac.uk/membership\"\n              className={styles.memberType}\n            >\n              {capitalizeFirstLetter(memberType?.billing_type)} member\n            </a>\n          </div>\n        ) : (\n          <></>\n        )}\n        <div className={styles.header}>\n          <Tag className={styles.content}>\n            <div\n              className={classNames.use(styles.headerWrapper, {\n                [styles.headerWrapperClickable]: useExpandButton,\n              })}\n            >\n              {/* eslint-disable-next-line max-len */}\n              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}\n              <div className={styles.itemWrapper} onClick={redirectToProviders}>\n                <DataProviderLogo\n                  imageSrc={checkBillingType ? getLogoLink() : ''}\n                  useDefault\n                  alt={title}\n                  size=\"md\"\n                />\n                <div className={styles.innerWrapper}>\n                  <Card.Title\n                    className={classNames.use(styles.title, {\n                      [styles.titleColored]: !activeArticle,\n                    })}\n                    tag=\"h3\"\n                  >\n                    {title}\n                  </Card.Title>\n                </div>\n                <img\n                  className={styles.redirectImg}\n                  src={redirect}\n                  alt=\"redirect\"\n                />\n              </div>\n            </div>\n            <Card.Description\n              className={classNames.use(styles.subtitle, {\n                [styles.oaiTitle]: renderOAI,\n              })}\n              tag=\"span\"\n            >\n              {outputRedirect && (\n                <Button\n                  onClick={redirectOnClick}\n                  className={styles.actionButton}\n                  variant=\"outlined\"\n                >\n                  See this paper in CORE\n                </Button>\n              )}\n              {oai ? (\n                <a\n                  className={styles.ellipsis}\n                  href={`https://api.core.ac.uk/oai/${oai}`}\n                >\n                  <Button className={styles.actionButton} variant=\"outlined\">\n                    Go to the repository landing page\n                  </Button>\n                </a>\n              ) : (\n                <a className={styles.ellipsis} href={`https://doi.org/${doi}`}>\n                  <Button className={styles.actionButton} variant=\"outlined\">\n                    Go to the repository landing page\n                  </Button>\n                </a>\n              )}\n              {coreDownloadUrl &&\n              coreDownloadUrl.match(/core.ac.uk/gm) &&\n              sourceFulltextUrls ? (\n                <a\n                  href={sourceFulltextUrlsUpd}\n                  aria-labelledby={`${id}-downloaded-from-title`}\n                  aria-describedby={`${id}-downloaded-from-body`}\n                  target=\"_blank\"\n                  rel=\"noreferrer\"\n                >\n                  <Button className={styles.actionButton} variant=\"outlined\">\n                    Download from data provider\n                  </Button>\n                </a>\n              ) : (\n                <Popover\n                  placement=\"right\"\n                  content=\"We don't have a full text link from this data provider\"\n                  className={styles.popover}\n                >\n                  <Button className={styles.disabledButton} variant=\"outlined\">\n                    Download from data provider\n                  </Button>\n                </Popover>\n              )}\n              {renderOAI}\n            </Card.Description>\n          </Tag>\n        </div>\n        {children}\n      </div>\n    </>\n  )\n}\n\nexport default DropDown\n",
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/filters/bar-item.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/filters/filter-item.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/filters/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/filters/loading-block.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/filters/search.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/filters/utils/set-filter-box.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/filters/year/custom-range.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/filters/year/hooks/use-histogram.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/filters/year/hooks/use-year-filter-controller.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/filters/year/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/filters/year/selects/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/filters/year/selects/item.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/layout/app-bar.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/layout/container.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/layout/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/layout/maintenance-banner.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/loader/index.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/loader/loader.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/logo/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/map/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/map/map.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/meta/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/notification/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/search-layout/index.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/search-layout/main.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/search-layout/result-stats.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/search-layout/result.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/search-layout/search.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/search-layout/sidebar.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/show-more/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "modules/title/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "next.config.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "pages/404.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "pages/_app.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "pages/api/healthz.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "pages/data-providers/[id].jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "pages/data-providers/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "pages/error-card/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "pages/index.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "pages/outputs/[id].jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "pages/outputs/update.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "pages/search/index.jsx",
+    "messages": [
+      {
+        "ruleId": "no-console",
+        "severity": 2,
+        "message": "Unexpected console statement.",
+        "line": 51,
+        "column": 7,
+        "nodeType": "MemberExpression",
+        "messageId": "unexpected",
+        "endLine": 51,
+        "endColumn": 19
+      },
+      {
+        "ruleId": "no-console",
+        "severity": 2,
+        "message": "Unexpected console statement.",
+        "line": 53,
+        "column": 7,
+        "nodeType": "MemberExpression",
+        "messageId": "unexpected",
+        "endLine": 53,
+        "endColumn": 22
+      },
+      {
+        "ruleId": "no-console",
+        "severity": 2,
+        "message": "Unexpected console statement.",
+        "line": 56,
+        "column": 9,
+        "nodeType": "MemberExpression",
+        "messageId": "unexpected",
+        "endLine": 56,
+        "endColumn": 21
+      },
+      {
+        "ruleId": "no-console",
+        "severity": 2,
+        "message": "Unexpected console statement.",
+        "line": 66,
+        "column": 9,
+        "nodeType": "MemberExpression",
+        "messageId": "unexpected",
+        "endLine": 66,
+        "endColumn": 24
+      }
+    ],
+    "errorCount": 4,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "import React from 'react'\nimport Head from 'next/head'\nimport { useRouter } from 'next/router'\nimport { Header } from '@oacore/design/lib/modules'\n\nimport ErrorCard from '../error-card'\n\nimport { findUrlsByType } from 'utils/helpers'\nimport log from 'utils/logger'\nimport { fetchWorks } from 'api/search'\nimport apiRequest from 'api'\nimport { useStore } from 'store'\nimport Template from 'templates/search'\nimport QueryError from 'templates/error/query'\nimport { transformDataProviders } from 'utils/data-providers-transform'\nimport { pickFeaturedMember } from 'templates/search/utils/featured-member'\n\nexport const getServerSideProps = async ({ query: searchParams }) => {\n  if (Object.keys(searchParams).length === 0) {\n    return {\n      redirect: {\n        permanent: true,\n        destination: '/',\n      },\n      props: {},\n    }\n  }\n  // TODO for nice response\n  // const { q, page = 1, limit = 10, sort = 'recency' } = searchParams\n  const { q, page = 1, limit = 10, sort = 'relevance', t } = searchParams\n\n  const data = {\n    currentPage: +page,\n    query: q,\n    sort,\n  }\n\n  if (page <= 1000) {\n    const offset = page - 1 > 0 ? (page - 1) * 10 : page - 1\n\n    const body = {\n      q,\n      offset,\n      limit,\n      t,\n      exclude: ['fullText'],\n      sort: sort === 'recent' ? 'recency' : sort,\n    }\n    const reqId = `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`\n    try {\n      console.time(`fetchWorks:${reqId}`)\n      const response = await fetchWorks(body)\n      console.timeEnd(`fetchWorks:${reqId}`)\n\n      if (response?.results) {\n        console.time(`transformDataProviders:${reqId}`)\n        const transformedWorks = await Promise.all(\n          response.results.map(async (work) => {\n            const articleWithUrls = findUrlsByType(work)\n            return {\n              ...articleWithUrls,\n              dataProviders: await transformDataProviders(work.dataProviders),\n            }\n          })\n        )\n        console.timeEnd(`transformDataProviders:${reqId}`)\n\n        Object.assign(data, {\n          ...response,\n          results: transformedWorks,\n        })\n      } else data.results = []\n    } catch (error) {\n      log(error)\n      const queryError = {\n        query: q,\n        status: error?.status ?? null,\n      }\n      return {\n        props: { queryError },\n      }\n    }\n  } else data.results = []\n\n  let members = []\n  try {\n    const { data: membersData } = await apiRequest('/members')\n    members = (Array.isArray(membersData) ? membersData : []).filter(\n      (member) => {\n        const orgName = member?.organisation_name?.toLowerCase() || ''\n        return (\n          member?.billing_type !== 'starting' &&\n          orgName &&\n          !orgName.includes('test') &&\n          !orgName.includes('demo')\n        )\n      }\n    )\n  } catch (membersError) {\n    log(membersError)\n  }\n\n  const featuredMember = pickFeaturedMember(members)\n\n  return {\n    props: {\n      data,\n      members: featuredMember ? [featuredMember] : [],\n    },\n  }\n}\n\nconst Search = ({ data, queryError, members }) => {\n  const router = useRouter()\n\n  const searchItem = router.query.q\n\n  if (queryError?.status) return <ErrorCard />\n\n  const { statistics } = useStore()\n  const totalArticlesCount =\n    statistics?.totalArticlesCount.toLocaleString('en-GB')\n  Header.useSearchBar(\n    {\n      onQueryChanged: (searchTerm, pathName) => {\n        router.push({\n          pathname: pathName,\n          query: {\n            ...router.query,\n            q: searchTerm,\n            page: 1,\n          },\n        })\n      },\n      useAdvancedSearch: true,\n      initQuery: data?.query,\n      searchBarProps: {\n        label: `Search ${totalArticlesCount} from papers around the world`,\n        placeholder: `Search ${totalArticlesCount} from papers around the world`,\n        prependIcon: '#magnify',\n        changeOnBlur: false,\n      },\n    },\n    { isHidden: false }\n  )\n\n  return (\n    <div>\n      {data?.results?.length >= 1 ? (\n        <>\n          <Head>\n            <title>Search CORE</title>\n          </Head>\n          <Template data={data} members={members} />\n        </>\n      ) : (\n        <QueryError query={searchItem} />\n      )}\n    </div>\n  )\n}\n\nexport default Search\n",
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "pages/works/[id].jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "postcss.config.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "prettier.config.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "store/claim.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "store/data-providers.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "store/filters.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "store/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "store/params.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "store/report.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "store/root.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "store/search.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "store/similar-works.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "stylelint.config.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/claim/claim-card.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/claim/claim-modal-edit.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/claim/claim-modal.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/claim/claim-success-modal.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/claim/sign-in-modal.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/hooks/use-input.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/hooks/use-state-to-url-effect.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/logo.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/map-card.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/meta-box.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/pagination.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-provider/search.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-providers/form.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-providers/hooks/index.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-providers/hooks/use-claim-controller.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-providers/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-providers/result-card.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-providers/utils/generate-form-message.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-providers/utils/generate-metadata.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-providers/utils/index.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/data-providers/utils/normalize-data-providers.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/error/404.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/error/index.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/error/query.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/api-card.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/card-dropdown.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/chips.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/citation.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/hooks/index.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/hooks/use-report-controller.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/index.jsx",
+    "messages": [
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 192,
+        "column": 15,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 192,
+        "endColumn": 17,
+        "fix": { "range": [5909, 5911], "text": "" }
+      }
+    ],
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "source": "/* eslint-disable jsx-a11y/anchor-is-valid */\nimport React, { useEffect, useRef, useState } from 'react'\nimport { Button, Icon, MathMarkdown } from '@oacore/design/lib/elements'\nimport { useRouter } from 'next/router'\n\nimport SimilarWorks from './similar-works'\nimport RelatedSearch from './related-search'\nimport FullTextThumbnail from './thumbnail-card'\nimport Metadata from './metadata'\nimport MapCard from './map-card'\nimport Keywords from './keywords'\nimport ReportCard from './report'\nimport CitationManager from './citation'\nimport styles from './styles.module.css'\nimport OtherVersions from './other-versions'\n\nimport { getAssetsPath } from 'utils/helpers'\nimport Search from 'modules/search-layout'\n\nconst ScientificOutputTemplate = ({\n  data: {\n    id,\n    title,\n    authors,\n    abstract,\n    publisher,\n    publishedDate,\n    dataProvider,\n    updatedDate,\n    sourceFulltextUrls,\n    fulltextStatus,\n    createdDate,\n    tags,\n    documentType,\n    citations,\n    outputs,\n    reader: readerUrl,\n    download,\n    thumbnail_l: thumbnailLargeUrl,\n    identifiers: { doi, oai },\n    mainDataProviderLink,\n    memberType,\n    license,\n  },\n  useOtherVersions = false,\n  ...passProps\n}) => {\n  const router = useRouter()\n\n  const includeOai = router.asPath.includes('source=oai')\n  const [uniqueDoiArray, setUiqueDoiArray] = useState([])\n  const [oaiModal, setOaiModal] = useState(includeOai)\n\n  const modalRef = useRef(null)\n\n  const closeModal = () => {\n    setOaiModal(false)\n  }\n\n  const handleClickOutside = (event) => {\n    if (modalRef.current && !modalRef.current.contains(event.target))\n      closeModal()\n  }\n\n  useEffect(() => {\n    const doiArray = [doi]\n\n    if (outputs) doiArray.push(...outputs.map((item) => item.doi.toLowerCase()))\n\n    setUiqueDoiArray([...new Set(doiArray)])\n  }, [])\n\n  useEffect(() => {\n    document.addEventListener('mousedown', handleClickOutside)\n\n    return () => {\n      document.removeEventListener('mousedown', handleClickOutside)\n    }\n  }, [])\n\n  const isTypeWorks = router.asPath.includes('/works/')\n  const isTypeOutputs = router.asPath.includes('/outputs/')\n  const pos = router.asPath.indexOf('search=')\n  const resultSearch = `https://core.ac.uk/search/?${router.asPath.slice(\n    pos + 7\n  )}`\n\n  return (\n    <Search {...passProps} className={styles.outputContainer}>\n      {oaiModal && !useOtherVersions && (\n        <div ref={modalRef} className={styles.oaiModal}>\n          <h3 className={styles.oaiModalTitle}>Repository landing page</h3>\n          <div className={styles.oaiModalText}>\n            We are not able to resolve this{' '}\n            <a href=\"https://oai.core.ac.uk\">OAI</a> Identifier to the\n            repository landing page. If you are the repository manager for this\n            record, please head to the{' '}\n            <a href=\"https://core.ac.uk/services/repository-dashboard\">\n              Dashboard\n            </a>{' '}\n            and adjust the settings.\n          </div>\n          <div className={styles.oaiModalButtons}>\n            <Button\n              onClick={() => {\n                window.open(\n                  'https://core.ac.uk/services/repository-dashboard',\n                  '_blank'\n                )\n              }}\n              variant=\"contained\"\n            >\n              Go to the Dashboard\n            </Button>\n            <Button onClick={closeModal} variant=\"text\">\n              Close\n            </Button>\n          </div>\n        </div>\n      )}\n      <Search.Main>\n        <div className={styles.background}>\n          <div className={styles.navigationTrail}>\n            <a href={resultSearch} target=\"_blank\" rel=\"noreferrer\">\n              Search results\n            </a>\n            {(isTypeWorks || isTypeOutputs) && (\n              <>\n                <span className={styles.separator}>{'>'}</span>\n                {isTypeWorks && <a href=\"#\">Research work</a>}\n                {isTypeOutputs && (\n                  <a href=\"#\">\n                    Research output from {dataProvider?.name || 'repository'}\n                  </a>\n                )}\n              </>\n            )}\n          </div>\n          <div className={styles.info}>\n            {documentType && (\n              <span className={styles.documentType}>{documentType}</span>\n            )}\n            {oai && (\n              <div className={styles.oai}>\n                <img\n                  src={getAssetsPath('/static/images/oai.svg')}\n                  alt=\"oai\"\n                  className={styles.oaiLogo}\n                />\n                <a href={`https://api.core.ac.uk/oai/${oai}`}>{oai}</a>\n              </div>\n            )}\n          </div>\n          <h1>\n            <MathMarkdown>{title}</MathMarkdown>\n          </h1>\n          <Metadata\n            authors={authors}\n            publishedDate={publishedDate}\n            publisher={publisher}\n            doi={doi}\n            uniqueDoiArray={uniqueDoiArray}\n          />\n          <div className={styles.buttons}>\n            {citations && citations.length > 0 && (\n              <CitationManager\n                data={{\n                  citations,\n                  actionLabel: 'Cite',\n                }}\n              />\n            )}\n            {useOtherVersions && mainDataProviderLink && (\n              <Button\n                variant=\"outlined\"\n                className={styles.actionButton}\n                tag=\"a\"\n                target=\"_blank\"\n                href={mainDataProviderLink.link}\n                key={mainDataProviderLink.id}\n              >\n                View <span>on</span> {mainDataProviderLink.name}\n                <Icon src=\"#open-in-new\" />\n              </Button>\n            )}\n          </div>\n        </div>\n        <div className={styles.containerMain}>\n          <section id=\"abstract\" className={styles.abstract}>\n            <h2>Abstract</h2>\n            {abstract ? (\n                <MathMarkdown>{abstract}</MathMarkdown>\n            ) : (\n              <span className={styles.abstractEmpty}>\n                Abstract is not available.\n              </span>\n            )}\n          </section>\n          <Keywords tags={tags} />\n          <SimilarWorks articleId={id} useOtherVersions={useOtherVersions} />\n          <RelatedSearch articleId={id} articleTitle={title} />\n        </div>\n      </Search.Main>\n      <Search.Sidebar className={styles.containerSidebar}>\n        <FullTextThumbnail\n          id={`full-text-thumbnail-${id}`}\n          href={readerUrl}\n          src={thumbnailLargeUrl || `//core.ac.uk/image/${id}/large`}\n          alt=\"thumbnail-image\"\n          doi={doi}\n          data={{\n            title: !useOtherVersions ? dataProvider.name : null,\n            dataProviderLogo: dataProvider.logo,\n            updatedDate,\n            sourceFulltextUrls,\n            fulltextStatus,\n            createdDate,\n            oai,\n            download,\n          }}\n          metadata={{\n            hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,\n          }}\n          providerId={dataProvider.id}\n          tag={fulltextStatus === 'disabled' ? 'div' : 'a'}\n          useOtherVersions={useOtherVersions}\n          memberType={memberType}\n        />\n        {useOtherVersions && outputs.length > 0 && (\n          <OtherVersions\n            useOtherVersions={useOtherVersions}\n            outputs={outputs}\n            metadata={{\n              hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,\n            }}\n          />\n        )}\n        {!useOtherVersions && (\n          <MapCard\n            metadata={{\n              name: dataProvider.name,\n              location: dataProvider.location,\n              hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,\n            }}\n          />\n        )}\n\n        {!useOtherVersions && (\n          <ReportCard\n            id={id}\n            sourceFulltextUrls={sourceFulltextUrls}\n            dataProvider={dataProvider.name}\n          />\n        )}\n        {license && (\n          <div className={styles.licenseWrapper}>\n            Licence: <span className={styles.licenseType}>{license}</span>\n          </div>\n        )}\n      </Search.Sidebar>\n    </Search>\n  )\n}\n\nexport default ScientificOutputTemplate\n",
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/keywords.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/map-card.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/metadata.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/other-versions.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/related-search.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/report/index.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/report/report-card.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/report/report-form-modal.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/report/report-success-modal.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/report/report-type-modal.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/similar-works.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/thumbnail-card.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/update/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/update/links.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/output/utils/dummy-data.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/search/index.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/search/modals/download-results.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/search/notification.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/search/pagination.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/search/results.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/search/sort.jsx",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/search/utils/featured-member.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "templates/search/utils/sort-filter-values.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/data-providers-transform.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/debounce.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/filters-transform.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/format-date.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/format-number.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/helpers.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/invalidatePreviousRequests.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/logger.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/related-words.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/sentry.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/sort.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/titleCase.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  },
+  {
+    "filePath": "utils/validation.js",
+    "messages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": [
+      {
+        "ruleId": "lines-around-directive",
+        "replacedBy": ["padding-line-between-statements"]
+      },
+      { "ruleId": "global-require", "replacedBy": [] },
+      { "ruleId": "no-buffer-constructor", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] }
+    ]
+  }
+]

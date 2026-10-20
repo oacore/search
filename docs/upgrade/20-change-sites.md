@@ -1,0 +1,196 @@
+# 20 — Change-site catalogue (phase 2 and version track)
+
+**Purpose.** Every code/config site changed or verified in phase-2 pre-baseline PRs and the version track 2.0 … W8, by step: `path:line`, Anchor, change, proof.
+**Read it** at step start: [50](50-roadmap.md) row → this file (section named by the step ID) → the step's tests in [41](41-test-inventory.md).
+**Owns** CS rows 2.0–W8, the v13–v16 N/A matrix, withdrawn/rescheduled IDs. Design, phase-6 and phase-7 rows: [60](60-design-ownership.md), [70](70-phase6.md), [80](80-phase7-antd.md).
+
+## Rules
+
+- A CS keeps behaviour (D1). Only CS-R18-2/-3/-4, CS-ESC-1..3 (OD-09, OD-40; label `escalates`) change it: own PR, owner signature.
+- **Where**: `path:line` for tree `a825839` (workflows: `.github/workflows/`; `kube/`: `prod` + `stage`). **Anchor**: `git grep -nF '<Anchor>' -- <file>` matches once per file (or `×n`); re-anchor in the step's first PR (01 §9). "(new)" = file absent; `vendor/oacore-design/` = `node_modules/@oacore/design/` until W5.
+- **Proof**: row-specific checks; the DoD ([01](01-playbook.md) §6) always applies. T-### → 41; R/Q/S → [10](10-risk-register.md)/[30](30-quirks-register.md); OD → [90](90-open-decisions.md); VF → STATUS §3; "Verify only": no edit unless proof fails.
+- Versions = exact pins from 02 (`--save-exact`; 02 wins); "path-only" = below latest by design. W9 = 6.7. No `--fix` for ESLint/stylelint (R-049).
+
+## 2.0 — Pre-baseline PRs (gateway rule, Dependabot)
+
+One step (2.0a and 2.0b WITHDRAWN 2026-10-20 with OD-29: today's deploy workflows stay unchanged), branch `upgrade/p2-20-gateway` ([01](01-playbook.md) §2): CS-OPS-6, then CS-OPS-1 (label `infra`, owner signs); one runbook pass (01 §4 with the 01 §6 bootstrap). Both are normal PRs in this repo: the merge to `main` runs the existing `aks_deploy.yml`, whose 'Apply Kubernetes manifests' step (`aks_deploy.yml:88`) puts the route on prod, before 2.4 (G, 42 §4). Stage gets it whenever `stage` is deployed as today (`aks_stage_deploy.yml:88`).
+
+| ID | Where | Anchor | Current | Change | Proof | Refs |
+|-|-|-|-|-|-|-|
+| CS-OPS-1 | `kube/{prod,stage}/httproute.yaml:33-36` | `value: /static/search` | No rule | Rule before the `/static/search` rule, YAML below: `PathPrefix /search/_next/data` → `URLRewrite ReplacePrefixMatch /_next/data`; keep app rewrite and client patch | The prod deploy run's manifest step logs `httproute… configured`; sanity check only (10.2.3 rewrites `/search/_next/data` itself, `next.config.js:15-21`, so it does not discriminate): `/search/_next/data/<buildId>/works/1.json?id=1` = 200 JSON on prod (probe path VF-14). From 2.3: T-604, T-702 with and without the rule through the proxy, T-612. Real gateway: VF-01 below | R-068, OD-03 |
+| CS-OPS-6 | `.github/dependabot.yml` (new) | — | None | `github-actions` weekly; `npm` with `open-pull-requests-limit: 0`. Same PR: `gh label create` for `infra`, `escalates`, `harness`, `upgrade-hold`; every open Dependabot PR labelled `upgrade-hold` (`gh pr list --author app/dependabot`) | Dependabot shows the file parsed with 0 errors; the next scheduled run opens 0 npm PRs (logged, not an exit blocker) | OD-32 |
+
+CS-OPS-1 rule (`kube/prod/httproute.yaml`; stage the same), inserted before the `/static/search` rule:
+
+```yaml
+    - matches: [{path: {type: PathPrefix, value: /search/_next/data}}]
+      filters:
+        - {type: URLRewrite, urlRewrite: {path: {type: ReplacePrefixMatch, replacePrefixMatch: /_next/data}}}
+      timeouts: {request: 35s, backendRequest: 30s}
+      backendRefs: [{name: core-frontend-search, port: 80}]
+```
+
+**VF-01 (real gateway)** is settled in two parts, with no cluster access beyond today's: (1) at 2.0, evidence that this gateway already applies `ReplacePrefixMatch` (`/display` → `/outputs`, `/static/search` → `/`; Q-005) and gives the longest prefix precedence (the HTTPRoute rule the Gateway API defines), plus the route `Accepted`/`ResolvedRefs` where the team's existing read access shows it; (2) the discriminating check with the first build only the rule can serve, W4d (Next 12.3.7): on stage if the step uses it (best effort), and in every case T-907's `_next/data` probe right after the W4d prod rollout (`/search/_next/data/<buildId>/works/<id>.json` = 200 JSON with `pageProps`). A 404 there means the rule is not applied: revert at once (01 §5; full reloads, no data loss, R-068), then the owner picks OD-03 C or D.
+
+## 2.1 — Docker/npm neutral changes
+
+Inert proof: T-013 + T-014 (42 §5); recipe: 42 §2. One step branch `<B>` = `upgrade/p2-21-harness`; every PR goes into `<B>`, which runs the 01 §4 runbook once (steps 3–11). Order: CS-W0-9 (its merge into `<B>` = `<base'>`, SHA in STATUS §1, 42 §5) → the harness PRs (root devDependencies, `jest.config.js`, scripts, T-006/T-011..T-014, prototype `ci.yml`; 40 §2), each T-013-checked against `<base'>` → CS-W0-8 (with `.dockerignore`) → CS-W0-7 → CS-W0-1 → CS-W0-10. **CS-NODE-5** (verify in every `Dockerfile`/`kube/` PR): the ARG defaults `Dockerfile:2,4` feed `ENV BUILD_TARGET` (`:14`) and `NODE_ENV` (`:21`); keep `BUILD_TARGET=azure`, `NODE_ENV=production` (T-901, T-721; R-082).
+
+| ID | Where | Anchor | Current | Change | Proof | Refs |
+|-|-|-|-|-|-|-|
+| CS-W0-1, CS-W0-10 | `package.json:18`; `package.json:70` (new `overrides`) | `"latest"`; `"engines": {` | Floating; drifts | -1: `"@oacore/design": "5.0.74"` exact. -10: `"overrides": {"caniuse-lite": "1.0.30001754", "browserslist": "4.27.0", "next": {"browserslist": "4.16.6"}}` (the lock's versions; the nested key keeps `node_modules/next/node_modules/browserslist` and its `node-releases`); `npm install --package-lock-only --ignore-scripts --legacy-peer-deps` changes only the root lock entry; CI: `npx browserslist` equals the committed copy; the `next` key is re-checked when CS-N12-4 regenerates the lock; unpin: CS-W0-11 (70) | Lock diff = the root spec and `overrides` only (T-013); `npm ci` ok | R-015, R-065, D17, OD-16 |
+| CS-W0-7, CS-W0-9 | `Dockerfile:17-19,23-24` | `COPY . .`; `RUN npm run build` | Late copy; live loader | -7: `COPY package.json package-lock.json design.config.js ./` before `npm ci`, then `COPY . .`; no `--ignore-scripts`, no cached `node_modules`. -9: `ARG BUILD_SCRIPT=build` → `npm run ${BUILD_SCRIPT}`; test images: `build:test` + frozen `data/` snapshot; `NODE_OPTIONS` appended, never replaced | `lib/config.js` in image and CI has `/static/search/icons.svg` (T-006); default build: `.next` identical (T-014) | R-022, R-091 |
+| CS-W0-8 | `Dockerfile:1,6,18-20`; `aks_deploy.yml:54` (stage same) | `FROM node:18-alpine`; `--build-arg NPM_TOKEN` | Token in layer | BuildKit secret `npm_token` replaces `ARG NPM_TOKEN` and the `.npmrc` write (workflows `--secret id=npm_token,env=NPM_TOKEN`: the deploy workflows change only this build flag, so CI images of the same Dockerfile carry no token; trigger, target and rollout stay as today, OD-29); `.dockerignore` (new); `ARG NODE_VERSION=18`, `FROM node:${NODE_VERSION}-alpine@sha256:<digest>` | `docker history --no-trunc`: no `NPM_TOKEN=`; T-901 ENV unchanged | S-3, R-091 |
+
+## 2.6 — CI workflows
+
+**CS-NODE-4**: `ci.yml` (new; replaces the 2.1 prototype) + required check `CI / gate` on `main` (CI-7), spec 42 §10; CI-1 includes `node tools/check-docs.mjs docs/upgrade --repo .` (40 §10). The deploy workflows are not changed (CI-6 WITHDRAWN, OD-29). Proof: 20 consecutive green runs on the unchanged app (55 C5); CI-7 screenshot.
+
+## W0 — Hygiene
+
+| ID | Where | Anchor | Current | Change | Proof | Refs |
+|-|-|-|-|-|-|-|
+| CS-W0-2, CS-W0-3 | `package.json:27,33,41`; `design.config.js:24` | `"filesize"`; `"logrocket-react"`; `"throttle-debounce"`; `@mdi/svg/package.json` | Unused; undeclared | -2: remove the three. -3: declare `@mdi/svg`, `@babel/runtime` at the installed versions (5.9.55, 7.27.3) | no imports (`git grep`); `npm ls` versions unchanged | OD-18, R-054 |
+| CS-W0-4 | `Dockerfile:19` | `npm ci --include=dev` | `\|\| npm install` | `npm ci --include=dev --legacy-peer-deps --fetch-retries=5 \|\| (sleep 10 && npm ci …) \|\| (sleep 30 && npm ci …)`, after T-008 is green; flag stays to DV6 | T-008 on linux/arm64 (VF-05) with `npm_config_userconfig=/dev/null --no-legacy-peer-deps`; all attempts failing exits non-zero | R-014, R-015 |
+| CS-W0-5, CS-W0-6 | `.nvmrc` (new); `package.json:70-73`; `Dockerfile:10-15` | `"engines": {`; `ENV SENTRY_DSN` | `>=16.18.1`; no `HUSKY=0` | -5: `.nvmrc` = tooling Node 24 (02 §2); `devEngines` = tooling floor; `engines.node` = runtime floor (set at W4e); until then CI sets `node-version: 24`. -6: `ENV HUSKY=0` before install | `nvm use && node -v` = v24; T-901 ENV differs only by `HUSKY=0` | 02 §2, R-061 |
+| CS-BAB-3 | `templates/output/hooks/index.js:1`; `templates/data-providers/hooks/index.js:1` | `useReportController from`; `useClaimController from` | `export x from` | `export { default as useX } from './x'` | Output identical | R-060 |
+| CS-BIB-1 | `package.json:24`; `templates/output/citation.jsx:3,67` | `from 'bibtex-parse-js'`; `bibtexParse.toJSON(` | Dependency | Copy `node_modules/bibtex-parse-js/bibtexParse.js` verbatim to `vendor/bibtex-parse-js/` (+ `LICENSE`); relative import; drop the dependency | sha256 = npm's; T-114, T-410; `toJSON` in client and SSR (T-004; R-075 fallback: Babel `ignore`); VF-19 | OD-17, R-053 |
+| CS-I18N-1 | `package.json:28`; `templates/data-providers/index.jsx:3,28-31` | `i18n-iso-countries/langs`; `const getCountryName` | 7.x renames 9 | Copy 6.8.0 `langs/en.json` verbatim to `vendor/i18n-iso-countries/`; `import en from '../../vendor/i18n-iso-countries/en.json'; const { countries } = en`; drop the dependency | Jest: 250 entries deep-equal 6.8.0 | OD-27, R-031 |
+
+Verify only: CS-LEAF-1 (`package.json:30-31`), CS-JFD-1 (`api/search.js:3`): leaflet, markercluster, `js-file-download` are registry latest; re-check each gate (D6).
+
+## W0b — Next-proofing (each neutral on 10.2.3)
+
+One PR per row. **Every row:** T-002, T-003, T-602 (raw `<title>`), T-702, T-801 show 0 diff on 10.2.3, plus its check. Gateway rule = CS-OPS-1.
+
+| ID | Where | Anchor | Current | Change | Proof | Refs |
+|-|-|-|-|-|-|-|
+| CS-W0b-1 | `pages/works/[id].jsx:144`; `pages/outputs/[id].jsx:128`; `pages/data-providers/index.jsx:85`; `modules/title/index.jsx:12` | `{data.title} - CORE`; `Data providers search<`; `{children} - CORE` | Array children | One template string: `` {`${data.title ?? ''} - CORE`} ``; `` {`${query ? `${query} - ` : ''}Data providers search`} ``; `` {`${children} - CORE`} ``. `?? ''` keeps null output | T-602 raw bytes equal incl. a null-title fixture; again at W6c, W7b | R-069 |
+| CS-W0b-2 | `next.config.js:45-77` | `exportLocalsConvention` | Throws on 13+ | Recursive visitor over `rules`/`oneOf`: patch every `css-loader` with `options.modules` in a rule whose RegExp `test` accepts `file.module.css`; **throw if 0 patched**; no early `return config` (`:55`). Spec: review:nextjs-late NL-04 | T-002 (both key forms, client and SSR); built-CSS md5 equal | R-001 |
+| CS-W0b-3, CS-W0b-4 | `next.config.js:97,10` | `config.isServer`; `const nextConfig` | Undefined; no key | -3: `'@sentry/node': isServer ? '@sentry/node' : '@sentry/browser'` (destructured `isServer`, `:37`). -4: `eslint: { ignoreDuringBuilds: true }` (removed by CS-N16-6) | -3: T-004 server requires `@sentry/node`, client `_app` hash unchanged. -4: first 12.x build has no lint step | R-040, Q-065, R-070 |
+| CS-N13-1, CS-N13-2 | `templates/data-provider/pagination.jsx:72,87,101,115`; `templates/data-providers/result-card.jsx:20` | `<Link href={urlTo(` ×4; `<NextLink href=` | No prop | Add `legacyBehavior` to all 5 (no `passHref` on the NextLink). Never pass `shallow` to Pagination (`templates/data-provider/index.jsx:144`) or `scroll={false}` without proof | T-406 (one `<a>` per control), T-407 | R-013, R-052 |
+| CS-N11-9 | `pages/_error.jsx` (new) | — | Built-in page | Copy `node_modules/next/dist/pages/_error.js` (10.2.3) as `pages/_error.jsx` (OD-38). Here only if proven neutral, else W4c | Forced-500 (T-601) HTML byte-equal; V31; build differs only by the page entry [VERIFY: T-014, VF-09] | R-085, Q-098 |
+
+## W1 — Lint, format, hooks (Node 24 tooling)
+
+Detail: review:tooling-ci-deploy TCD-06/07/14/15/17/18.
+
+| ID | Where | Anchor | Current | Change | Proof | Refs |
+|-|-|-|-|-|-|-|
+| CS-LINT-1 | `.eslintrc.yml:1-16`; `package.json:52,55-60` | `eslint-config-react`; `"babel-eslint"` | ESLint 7 | ESLint 10 flat `eslint.config.js` (new), rules generated from `findings/baselines/eslint-resolved-config.jsx.json`; typescript-eslint parser (+ `typescript`, 02 §3.6); `eslint-plugin-import-x` registered **as `import`** (38 disable directives); `reportUnusedDisableDirectives: 'error'`; `ignores`: `.gitignore`, `data/**`, `vendor/**`; drop `babel-eslint`, `eslint-plugin-prettier`, `@oacore` config | T-001: new baseline captured on unchanged code, then frozen | OD-15, R-060 |
+| CS-LINT-2 | 5 `rules-of-hooks` violations (Q-047) | — | Hooks in branches | `react-hooks`: `rules-of-hooks: 'error'`, `exhaustive-deps: 'off'` (never `recommended`); violations into `eslint-suppressions.json` (`--suppress-all`); source untouched | Exit: baseline 0, new violation 1, line shift 0, fixed 2 (`--prune-suppressions`) | Q-047, R-033 |
+| CS-LINT-3, CS-LINT-4 | `package.json:78-80` | `"lint:js"` | `--ignore-path` | `eslint .` (flat `ignores`); the 13 legacy errors stay baseline findings: no autofix, no `no-console` removal without owner OK | Exit codes equal the old script's; T-001 never rises | OD-15 |
+| CS-STY-1 | `stylelint.config.js:1-8`; `package.json:19,68` | `stylelint-config-base`; `"stylelint": "^13` | stylelint 13 | stylelint 17, 61 valid rules generated from `findings/baselines/stylelint-resolved-config.json`; `scripts/stylelint-ratchet.mjs` (new) vs `test/baseline/stylelint-ratchet.json`; drop the `@oacore` dependency | Ratchet = 17 findings; exit 1 on increase, 2 on stale; T-003 unchanged | R-049 |
+| CS-PRET-1 | `prettier.config.js:1`; `package.json:53,67` | `@oacore/prettier-config` | Prettier 2 | Inline `{ trailingComma: 'es5', semi: false, singleQuote: true, endOfLine: 'lf', quoteProps: 'consistent' }`; Prettier 3; one format-only commit (8 files) in `.git-blame-ignore-revs` | `prettier --check`; T-003 declaration sets equal | R-049 |
+| CS-HUS-1, CS-NRA-1 | `package.json:61-62,81` | `"husky": "^4`; `"npm-run-all"`; `run-p lint` | No config; unmaintained | -HUS: husky 9 + lint-staged; `"prepare": "husky"`; `.husky/pre-commit` (new) = `npx lint-staged`; JS → `eslint` + `prettier --write`; CSS → `stylelint` + `prettier --check`; others `prettier --write`; no `--fix`; after CS-W0-6. -NRA: `npm-run-all2`, `run-p` unchanged | Lint error blocks the commit; image build with `HUSKY=0`; `npm run lint` runs 3 scripts | R-061 |
+
+## W2a–W2e, W3 — Leaf libs, state libs
+
+| ID | Where | Anchor | Current | Change | Proof | Refs |
+|-|-|-|-|-|-|-|
+| CS-SEN-1 (W2a) | `package.json:20-21`; `utils/sentry.js:3-15`; `pages/_app.jsx:14,21-42` | `"@sentry/browser"`; `"@sentry/node"` | 5.30 | Both to 7.120.4; keep alias and `utils/sentry.js` | T-608 (DSN set: exit 1 as today; none: survives); T-004; Sentry test event on prod after the merge (VF-04) | R-040, R-055, OD-14 |
+| CS-LR-1, CS-LR-2 (W2b) | `package.json:32`; `csp.config.js:6` | `"logrocket": "^10`; `const LOGROCKET` | 10; old hosts | One PR: logrocket 12.4.0; add `*.logr-in.com` to the CSP set (7 directives, `:16,26,32,47,57,60,61`); alt: `ingestServer`/`sdkServer` old hosts | T-116 diff = that host × 7 (AD row, OD-39); T-720 0 violations; a LogRocket recording on prod after the merge (stage first when used) | R-026 |
+| CS-CORE-1 (W2c), CS-PCSS-1 (W2d) | `package.json:25,63` | `"core-js"`; `"postcss": "8.4.14"` | 3.42; 8.4.14 | core-js 3.51.0; then postcss 8.5.31 (separate steps) | core-js: chunk diff = core-js bodies only, T-724. postcss: T-003, one copy in `npm ls postcss` | R-065 |
+| CS-BAB-9 (W2e) | `package.json:44-51`; `babel.config.js:22` | `"@babel/core"`; `class-properties` | 7.12–7.28 | `@babel/*` 7.29.x, `@babel/runtime` 7.29.10; replace the deprecated plugin only if output identical | `.next/static` diff = helpers only; T-203 | R-011, OD-12 |
+| CS-MOBX-1, CS-MOBX-2 (W3) | `package.json:34-35`; `store/index.jsx:2,10,43` | `"mobx": "^6`; `enableStaticRendering(` | 6.13 / 3.4 | mobx 6.16.1, mobx-react-lite 4.1.1 (`observer`, `enableStaticRendering` still exported: no code change); `clearTimers()` in `afterEach` | T-203; T-209 | R-039, R-018 |
+
+CS-MOBX-3 (not in the track): if phase 6 slips, after W7 do CS-BAB-1, then mobx 7 / mobx-react-lite 5 (OD-13, R-046).
+
+## W4a–W4e — Next 10.2.3 → 12.3.7 (path-only)
+
+| ID | Where | Anchor | Current | Change | Proof | Refs |
+|-|-|-|-|-|-|-|
+| CS-N12-1 (W4a) | `data/data-loader.js:5` | `require('node-fetch')` | Hoisted | Own PR: global `fetch`; keep control flow, messages, exit behaviour. AD rows: log `TypeError: fetch failed`, undici 300 s timeout | T-117: exit codes and files equal | R-017, Q-026, OD-08 |
+| CS-N11-0, CS-N11-1 (W4b) | `next.config.js:10,39-43` | `const nextConfig`; `config.node = {` | webpack 4 | `future: { webpack5: true }` on 10.2.3; `config.resolve.fallback = { ...config.resolve.fallback, fs: false }`; OpenSSL flag stays | 0 HTML and 0 CSS diffs (T-602, T-003); T-901 on Node 18 with the flag | R-035, R-032 |
+| CS-N12-7, CS-N11-5 (W4c) | `package.json:36`; `Dockerfile:23` | `"next": "^10`; `--openssl-legacy-provider` | 10.2.3 | `npm i next@12.1.6 --save-exact`; delete `future`; remove the OpenSSL flag | T-901 on Node 18 without the flag; T-604 | R-043, R-027 |
+| CS-N11-3 (W4c) | `next.config.js:3,106` + 14 imports | `withImages(` | URL strings | Add `images: { disableStaticImages: true }`, keep next-images. Sites: `git grep -n -e "from '.*\.svg'" -e "from '.*\.png'" -- '*.jsx'` | T-005 (9 file URLs + 5 data URIs); T-721 | R-007 |
+| CS-N11-4 (W4c) | `next.config.js:4,106`; `package.json:22,54` | `next-source-maps` (×2 in `package.json`) | Public maps | Remove wrapper and both entries; `productionBrowserSourceMaps: true` | T-601 `.map` matrix: client maps still 200 (CSS maps: VF-24) | S-9, OD-42 |
+| CS-N12-4 (W4c) | `package-lock.json:4` | `"lockfileVersion"` | No SWC | Regenerate with npm ≥10; lock holds `@next/swc-linux-{arm64,x64}-musl`; 12.1.6 prints "patching": keep lock v2 or allow-list [VERIFY: VF-05] | T-008 musl entries; T-901 arm64: no "patching"/"wasm" at 12.3.7 | R-027 |
+| CS-GA-1 (W4c) | `package.json:40`; `hooks/use-analytics.js:3,11` | `from 'react-ga4'` | 2.1.0 | 3.0.1; Jest `jest.mock('react-ga4', factory)` | T-305, T-719 equal; else stop, OD-27 | Q-071 |
+| CS-N12-5, CS-N12-3 (W4d) | `package.json:36`; `pages/_app.jsx:72-77` | `"next": "^10`; `getDataHref = (args)` | 12.1.6 | `next@12.3.7`; entry: CS-OPS-1 live on prod. -3 **unchanged** (identical on all 8 builds); `getDataHref` missing: stop (OD-03) | T-604, T-702 via proxy with the rule; T-901 no "patching"/"wasm"; T-015; VF-25 | R-068, R-077, R-072 |
+| CS-N12-6 (W4e) | `Dockerfile:1` | `FROM node:18-alpine` | Node 18 | `ARG NODE_VERSION=24`, `node:24-alpine@sha256:<digest>`; `engines.node` runtime floor. 12.3.7 fails on Node 26 | T-901 arm64 (VF-05); T-908; first prod rollout: Host + Authorization at the API (VF-02) | R-042, R-080, OD-05 |
+
+CS-N12-8 (W4c, no code; R-043): OD-37 B accepts the 13 changed CSS rules only if T-801 is 0 px, AD rows per T-003 category (VF-06); fallback A: `cssnano-simple@2.0.0` minimizer (M1 exception).
+
+Verify only: CS-N11-7 (`templates/data-providers/index.jsx:3`: default import since CS-I18N-1, no webpack-5 warning); CS-N12-2 (`babel.config.js`: build log says SWC disabled because of it); CS-NODE-3 (`kube/prod/deployment.yaml:41-42`: heap `1024` above the 768Mi limit; keep, R-048).
+
+## W5.5 — ESCALATES fixes on React 17 (OD-40)
+
+A React 18 spike (after W5 widens the peer) runs T-701/T-728; only a **proven red** site gets a React 17 PR: own PR, label `escalates`, signature, AD row if SSR HTML changes.
+
+| ID | Where | Anchor | Current | Change | Proof | Refs |
+|-|-|-|-|-|-|-|
+| CS-R18-2 | `templates/search/results.jsx:33-37`; `templates/output/card-dropdown.jsx:75-77` | `new Date(publishedDate)`; `new Date(dateValue)` | TZ differs | Only if VF-03 or the C4 corpus responses (55 C4) show `Z`, offset or date-only values: first render = server computation, local value after mount; one hook at the top of `Results`/`CardDropdown`, not in `.map`; no `suppressHydrationWarning` | Pre-fix T-728/T-701 red on React 18 (3 TZ), post-fix green; text browser-local (T-108) | Q-050 |
+| CS-R18-3 | `main/index.jsx:22` | `<CookiesPopup />` | Mismatch | Mounted gate here (or vendored `…/cookies/cookies.js` edit, 60) | Pre-fix red; T-416, T-740 equal; SSR HTML unchanged (the design `Cookies` never renders on the server: `typeof window` guard, `../design src/elements/cookies/cookies.jsx:31-32`); first client render now equals SSR, popup after mount; AD row only if T-728 pins the timing | Q-051, Q-070 |
+| CS-R18-4 | `pages/_app.jsx:139-155` | `let NextApp` | Dev wrapper | Remove the wrapper | Production `.next` identical (`diff -r`, buildId normalised) | Q-052 |
+| CS-ESC-1, CS-ESC-2, CS-ESC-3 | `templates/output/index.jsx:225`; `:81-82,127-135`; `templates/data-provider/index.jsx:24-36` | `fulltextStatus === 'disabled'`; `const isTypeWorks`; `new Intl.DisplayNames` | Nested `<a>`; `/display`; region text | -1: minimal DOM fix removing the nested anchor. -2: first render = server value, client value after mount. -3: same for the region name | Pre-fix React 18 error per site; T-802 (-1), T-723/T-732 (-2), T-108 region rows (-3) | Q-072, Q-075, Q-093 |
+
+## W6a, W6c, W6d — React 18, Next 13, Next 14
+
+| ID | Where | Anchor | Current | Change | Proof | Refs |
+|-|-|-|-|-|-|-|
+| CS-R18-1, CS-R18-5 (W6a) | `package.json:38-39`; `test/utils/render.js` (new) | `"react": "^17` | 17.0.2; RTL 12 | `react`/`react-dom` 18.3.1 on 12.3.7. RTL 16.3.3 (dom 10.4.2 since 2.1), only in `render.js`; drop the `configure` shim | T-701/T-728 0 events; `defaultProps` warnings allow-listed (R-012); streaming diffs as AD rows (OD-39); suites identical on the golden commit first | R-014, R-081 |
+| CS-N13-5, CS-N13-6 (W6c) | `package.json:36`; RouterContext map (T-012) | `"next": "^10` | 12.3.7 | `next@13.5.11`; update the RouterContext path-map entry (T-012, 40 §2) | T-602 title (no `<!-- -->`); ≥1 CSS patch per compiler (build log); T-603 as AD rows (308 loses CSP) | R-069, R-083 |
+| CS-N14-1 (W6d) | `package.json:36` | `"next": "^10` | 13.5.11 | `next@14.2.35`; no WASM SWC fallback | T-008: musl SWC in lock and in the alpine arm64 image | R-027, R-072 |
+
+Verify only: CS-R18-6 (`reactStrictMode` stays unset, `git grep -n reactStrictMode -- next.config.js` = 0; OD-22); CS-N13-3, CS-N13-4 (`next.config.js:98-99` aliases build and hydrate on 13–16, R-044, else switch to `react$`/`react-dom$`; `swcMinify` default: T-003 equals 12.3.7).
+
+## W7a–W7c — Next 15.5.28 → React 19 → Next 16
+
+| ID | Where | Anchor | Current | Change | Proof | Refs |
+|-|-|-|-|-|-|-|
+| CS-N15-1 (W7a) | `package.json:36` | `"next": "^10` | 14.2.35 | `npm i next@15.5.28 --save-exact`, React stays 18 (not `@next/codemod upgrade`: it bumps React). First prod Next 15 ≥ 15.5.24 | T-604/T-702 via proxy (15.4+ flags data requests from the original URL: without CS-OPS-1 the client blanks); T-729 per OD-39; T-010; T-008 sharp musl | R-068, R-071, R-072 |
+| CS-R19-2, CS-R19-3 (W7b) | `vendor/oacore-design/lib/elements/histoslider/histoslider.js:141`; `…/math-markdown/math-markdown.js:44` | `Histoslider.defaultProps`; `MathMarkdown.defaultProps` | Dropped on 19 | Apply the same defaults inside the component; first PRs of the step, neutral on 17/18 (`CHANGES.md`, 60) | T-404 (SVG `height="200"`, no `NaN`) green on 17/18 before the React 19 commit; T-417 | R-012, R-059 |
+| CS-R19-4, CS-R19-5 (W7b) | `templates/output/update/index.jsx:55-61`; `@tippyjs/react`, `react-cookie` | `Links starting with` | JSX in observable | -4 only if T-411 fails: store a marker/string, render the same JSX in the component. -5: keep the deps (02); Jest allow-list entry for the dev-only `element.ref` warning | T-411 exact text; T-417 | R-037, R-056 |
+| CS-R19-6 (W7b) | `package.json:38-39` | `"react-dom": "^17` | 18.3.1 | `react`/`react-dom` 19.3.1 | T-701/T-728 vs pinned diff; T-602 title not empty, hoisted meta order and image preloads normalised (R-078); T-417 `src=""`/`href=""` (R-079) | R-069, R-078 |
+| CS-N16-2, CS-N16-5, CS-N16-6 (W7c) | `package.json:36,75-76`; `next.config.js:10` | `"dev": "next dev"`; `const nextConfig` | Turbopack default; 15.5.28 | `next dev --webpack`; `… && next build --webpack` (also the 2.1 test-build script); `next@16.4.2` (re-read latest); remove `eslint: { ignoreDuringBuilds: true }` (CS-W0b-4). | Build log shows webpack and no "Unrecognized key"; T-901 (sharp musl); T-608; T-729 | R-036, R-068, R-070 |
+
+Verify only: CS-N15-2 (`git grep -n experimental -- next.config.js` = 0); CS-N16-3, CS-N16-4 (only `auto` under reduced motion, `sanitize.css/reduce-motion.css:16`: no `smooth` in `git grep -n scroll-behavior -- '*.css'`; T-007 computes first-load gzip per route, Next 16 prints none; R-052, R-064).
+
+## W8 — PostCSS majors (mandatory, pixel-gated)
+
+Upgrade or remove each plugin; one that cannot move is an M1 exception closed at 6.9 (OD-33, 02). Proof for all: T-003, T-801.
+
+| ID | Where | Anchor | Current | Change | Proof | Refs |
+|-|-|-|-|-|-|-|
+| CS-PCSS-2, CS-PCSS-4 | `postcss.config.js:3-5,6-19`; `package.json:66,26` | `'postcss-preset-env'`; `'cssnano'` | 7.8.3 `{stage: 0}`; 4 (advisories) | -2: latest major only if the declaration set per selector is identical and T-801 is 0 px (`stage:0` semantics change); else stay. -4: upgrade (keep the preset flags) or remove | T-003 per-selector declaration sets | R-043 |
+| CS-PCSS-3 | `postcss.config.js:20-22`; `package.json:64` | `'postcss-custom-media'` | 8 `importFrom` | ≥9: `@csstools/postcss-global-data {files: ['main/media-queries.css']}` **before** custom-media; drop `importFrom`; `main/media-queries.css:1-2` stay | T-003(a) 0 `@media (--`; mobile rules apply (T-801 375/767) | R-008 |
+| CS-PCSS-6 | `vendor/oacore-design/lib/reboot.css:1-4` | `~sanitize.css` ×4 | `~` prefix | Only if a css-loader major rejects `~` (VF-20; may surface at W6d/W7a/W7c: fix there): path-only `sanitize.css/…`, in `CHANGES.md` | Built CSS bytes identical (VG-3) | R-043, VF-20 |
+
+Verify only: CS-PCSS-5 (`postcss.config.js`: keep the order preset-env → cssnano → custom-media → extend-rule; design CSS still has `@extend` and `@media (--screen-until-desktop)`; R-009).
+
+## W0.5, W5, phases 6–7 — rows owned elsewhere
+
+[60](60-design-ownership.md): CS-DSN-1..7, CS-BAB-8. [70](70-phase6.md): CS-TS-*, CS-AX-*, CS-SWR-*, CS-ZU-*, CS-SWC-1, CS-CSS-*, CS-LINT-5, CS-BAB-6/-7, CS-W0-11, CS-NODE-6 and the IDs **moved out of this file**: CS-R19-1 (6.1), CS-BAB-1/-2 (6.5), CS-BAB-4/-5 (6.7), CS-SEN-2 (6.8). [80](80-phase7-antd.md): CS-AN-1..6.
+
+## v13–v16 guides: checked N/A (review:nextjs-late §3)
+
+Checked, N/A here: 13 `next/image`, `target`, `next/script`, fonts, AMP, runtime config, images defaults; 14 `next export`, `ImageResponse`, `@next/font`; 15 `useFormState`, `bundlePagesExternals`/`serverExternalPackages`, Speed Insights, `NextRequest.geo`/`ip`; 16 TS ≥5.1, `experimental.turbopack`, `middleware` → `proxy`, `next/image` defaults, `next lint`, `sass-loader`, `devIndicators`, `dynamicIO`/`ppr`/async request APIs.
+
+Applies (undocumented, in no guide): multi-child `<title>` from 13 (R-069), CSS `oneOf` string `test` from 13 (R-001), `data-next-head` from 15 (R-071), data requests flagged from the original URL from 15.4 (R-068), build lints flat config (R-070), `_next/data` charset (R-083), server bundles `@sentry/browser` from webpack 5 (R-040). Documented items that apply have CS rows (CS-N13-1/-2, CS-N16-2..6) or risks (R-077, R-027).
+
+## Withdrawn and rescheduled
+
+| ID | WITHDRAWN, or was → now |
+|-|-|
+| CS-N11-2 | WITHDRAWN → CS-W0b-2 (lookup throws on 13+) |
+| CS-N11-6 | WITHDRAWN (R-006 is L/L) |
+| CS-N11-8 | WITHDRAWN (Next 11.1.4 cannot build the app) → CS-N11-0, CS-N12-7 |
+| CS-NODE-1, CS-NODE-2, CS-N16-1 | WITHDRAWN (duplicates of CS-N12-6, CS-N11-5, CS-N12-6) |
+| CS-OPS-2, CS-OPS-3, CS-OPS-4 | WITHDRAWN (2026-10-20, OD-29 WITHDRAWN): stage cron, prod guard with `paths-ignore` and concurrency, deploy by digest, nightly build-only; today's deploy workflows stay |
+| CS-OPS-5 | WITHDRAWN (2026-10-20, OD-41): no gateway block; the endpoint stays as today |
+| CS-IMG-1 | WITHDRAWN (2026-10-20, OD-41: this part stays the old way): was the `next.config.js` off-switch for the unused optimizer from W4c, now OD-41 option B |
+| CS-SEC-1 | WITHDRAWN (2026-10-20, D16 WITHDRAWN, OD-36): S-4 preserved, pinned by T-602 and T-113 |
+| CS-W0-1 | W0 → 2.1 |
+| CS-BAB-3 | phase 6 → W0 |
+| CS-N13-1, CS-N13-2 | W6c → W0b |
+| CS-GA-1 | W2 → W4c |
+| CS-N11-5 | W4b → W4c |
+| CS-N12-6 | Node 22 after 12.3 → W4e, Node 24 |
+| CS-R18-2, CS-R18-3, CS-R18-4 | W6b → W5.5 |
+| CS-R19-1 | W7b → 6.1 (70) |
+| CS-R19-2, CS-R19-3 | W7 → W7b first PRs |
+| CS-BAB-1/-2/-4/-5, CS-SEN-2 | W9 → 6.5–6.8 (70) |
+| CS-NODE-4 | phase 2 → 2.6 |
+| CS-PCSS-2..6 | optional → mandatory W8 |
+| CS-BIB-1, CS-I18N-1 | → vendored at W0 |

@@ -1,0 +1,342 @@
+[
+  {
+    "source": "main/global.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "main/media-queries.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "modules/authors-box/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "modules/copyable-input/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "modules/dropdown/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "modules/filters/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "modules/layout/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": true,
+    "warnings": [
+      {
+        "line": 26,
+        "column": 3,
+        "rule": "order/properties-order",
+        "severity": "error",
+        "text": "Expected \"font-size\" to come before \"color\" (order/properties-order)"
+      },
+      {
+        "line": 5,
+        "column": 1,
+        "rule": "selector-class-pattern",
+        "severity": "error",
+        "text": "Expected class selector \".stickyTop\" to match pattern \"^[a-z][a-z0-9\\-]*[a-z0-9]$\" (selector-class-pattern)"
+      },
+      {
+        "line": 11,
+        "column": 1,
+        "rule": "selector-class-pattern",
+        "severity": "error",
+        "text": "Expected class selector \".stickyTop\" to match pattern \"^[a-z][a-z0-9\\-]*[a-z0-9]$\" (selector-class-pattern)"
+      },
+      {
+        "line": 16,
+        "column": 1,
+        "rule": "selector-class-pattern",
+        "severity": "error",
+        "text": "Expected class selector \".maintenanceBanner\" to match pattern \"^[a-z][a-z0-9\\-]*[a-z0-9]$\" (selector-class-pattern)"
+      },
+      {
+        "line": 23,
+        "column": 1,
+        "rule": "selector-class-pattern",
+        "severity": "error",
+        "text": "Expected class selector \".maintenanceBannerText\" to match pattern \"^[a-z][a-z0-9\\-]*[a-z0-9]$\" (selector-class-pattern)"
+      }
+    ]
+  },
+  {
+    "source": "modules/loader/loader.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "modules/logo/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "modules/map/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "modules/notification/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "modules/search-layout/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "modules/show-more/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "pages/error-card/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "templates/data-provider/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "templates/data-providers/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "templates/error/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "templates/output/card-dropdown.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "templates/output/citation.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "templates/output/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": true,
+    "warnings": [
+      {
+        "line": 168,
+        "column": 28,
+        "rule": "prettier/prettier",
+        "severity": "error",
+        "text": "Insert \"·\" (prettier/prettier)"
+      }
+    ]
+  },
+  {
+    "source": "templates/output/thumbnail-card.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "templates/search/sort.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "templates/search/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": true,
+    "warnings": [
+      {
+        "line": 150,
+        "column": 3,
+        "rule": "order/properties-order",
+        "severity": "error",
+        "text": "Expected \"padding\" to come before \"border-radius\" (order/properties-order)"
+      },
+      {
+        "line": 167,
+        "column": 3,
+        "rule": "order/properties-order",
+        "severity": "error",
+        "text": "Expected \"font-size\" to come before \"color\" (order/properties-order)"
+      },
+      {
+        "line": 177,
+        "column": 3,
+        "rule": "order/properties-order",
+        "severity": "error",
+        "text": "Expected \"font-size\" to come before \"color\" (order/properties-order)"
+      },
+      {
+        "line": 174,
+        "column": 3,
+        "rule": "shorthand-property-no-redundant-values",
+        "severity": "error",
+        "text": "Unexpected longhand value '4px 0 0 0' instead of '4px 0 0' (shorthand-property-no-redundant-values)"
+      }
+    ]
+  },
+  {
+    "source": "templates/data-provider/claim/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "templates/output/report/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "templates/output/update/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": true,
+    "warnings": [
+      {
+        "line": 68,
+        "column": 3,
+        "rule": "order/properties-order",
+        "severity": "error",
+        "text": "Expected \"background\" to come before \"border\" (order/properties-order)"
+      },
+      {
+        "line": 69,
+        "column": 3,
+        "rule": "order/properties-order",
+        "severity": "error",
+        "text": "Expected \"color\" to come before \"background\" (order/properties-order)"
+      },
+      {
+        "line": 70,
+        "column": 3,
+        "rule": "order/properties-order",
+        "severity": "error",
+        "text": "Expected \"font-size\" to come before \"color\" (order/properties-order)"
+      },
+      {
+        "line": 67,
+        "column": 22,
+        "rule": "prettier/prettier",
+        "severity": "error",
+        "text": "Replace \"C6A\" with \"c6a\" (prettier/prettier)"
+      },
+      {
+        "line": 68,
+        "column": 16,
+        "rule": "prettier/prettier",
+        "severity": "error",
+        "text": "Replace \"FDF4CD\" with \"fdf4cd\" (prettier/prettier)"
+      },
+      {
+        "line": 69,
+        "column": 12,
+        "rule": "prettier/prettier",
+        "severity": "error",
+        "text": "Replace \"C\" with \"c\" (prettier/prettier)"
+      }
+    ]
+  },
+  {
+    "source": "templates/search/modals/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  },
+  {
+    "source": "modules/filters/year/selects/styles.module.css",
+    "deprecations": [],
+    "invalidOptionWarnings": [],
+    "parseErrors": [],
+    "errored": false,
+    "warnings": []
+  }
+]
