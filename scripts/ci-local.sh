@@ -33,7 +33,11 @@ run_job() {
 }
 
 job_unit() { PATH="$(dirname "$node18"):$PATH" npm run test:unit; }
-job_harness() { PATH="$(dirname "$node24"):$PATH" npm run test:harness; }
+job_harness() {
+  PATH="$(dirname "$node24"):$PATH" npm run test:harness || return 1
+  # CS-W0-10: browser targets equal the committed copy
+  PATH="$(dirname "$node24"):$PATH" npx browserslist | diff - test/static/fixtures/browserslist.txt
+}
 job_image() {
   export PATH="$(dirname "$node24"):$PATH"
   local a b
