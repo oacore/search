@@ -6,6 +6,7 @@
 // a slot whose supervisor is gone is reclaimed. The app is never built here (scripts/build-parity.mjs).
 //
 //   up      --run <id> [--mode host|docker] [--ref HEAD] [--variant default|nodsn|harness] [--overlay cs-ops-1]
+//           [--build <key of $ARTIFACT_DIR/images.json>]
 //           [--app-env K=V]... (K= unsets K) [--mount <file>:<path>]...
 //   down    --run <id>
 //   status  [--run <id>]
@@ -304,11 +305,12 @@ async function superviseHost(opts) {
     return c
   }
   try {
-    const build = findBuild({
-      ref: opts.ref,
-      variant: opts.variant,
-      mode: 'host',
-    })
+    // --build <key> picks a recorded build (the fault runner's faulted trees); else the ref's own build
+    const build = opts.buildKey
+      ? readJson(path.join(ARTIFACT_DIR, 'images.json'), { builds: {} }).builds[
+          opts.buildKey
+        ] || null
+      : findBuild({ ref: opts.ref, variant: opts.variant, mode: 'host' })
     if (!build)
       throw new Error(
         `no host build for ${opts.ref} variant ${
@@ -693,6 +695,7 @@ async function up(argv, opt) {
     opt('--variant', 'default'),
   ]
   if (opt('--overlay')) args.push('--overlay', opt('--overlay'))
+  if (opt('--build')) args.push('--build', opt('--build'))
   for (const v of parseList(argv, '--app-env')) args.push('--app-env', v)
   for (const v of parseList(argv, '--mount')) args.push('--mount', v)
   if (argv.includes('--no-health-wait')) args.push('--no-health-wait')
@@ -961,6 +964,7 @@ async function main(argv) {
       ref: opt('--ref', 'HEAD'),
       variant: opt('--variant', 'default'),
       overlay: opt('--overlay', null),
+      buildKey: opt('--build', null),
       appEnv: parseList(rest, '--app-env'),
       mounts: parseList(rest, '--mount'),
       noHealthWait: rest.includes('--no-health-wait'),

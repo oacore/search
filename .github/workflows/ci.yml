@@ -1,0 +1,118 @@
+# Prototype CI of step 2.1 (42 §10; replaced by the full ci.yml at 2.6, CS-NODE-4). Jobs: unit (Jest on the
+# runtime Node), harness (self-tests on tooling Node), image (two no-cache parity images of the head:
+# T-006, T-011, T-013, T-014 (a) on their .next), e2e (smoke on a parity build). scripts/ci-local.sh runs
+# the same steps on a workstation. Not required by branch protection until 2.6 (CI-7).
+name: CI
+
+on:
+  pull_request:
+    branches: [main, stage, 'upgrade/**']
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+env:
+  ARTIFACT_DIR: ${{ github.workspace }}/../artifacts
+  NEXT_TELEMETRY_DISABLED: '1'
+
+jobs:
+  unit:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 18.20.8
+          registry-url: https://npm.pkg.github.com
+          scope: '@oacore'
+      - run: npm ci --include=dev --legacy-peer-deps
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm run test:unit
+
+  harness:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          registry-url: https://npm.pkg.github.com
+          scope: '@oacore'
+      - run: npm ci --include=dev --legacy-peer-deps
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm ci --no-audit --no-fund
+        working-directory: e2e
+      - run: npm run test:harness
+
+  image:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          registry-url: https://npm.pkg.github.com
+          scope: '@oacore'
+      - run: npm ci --include=dev --legacy-peer-deps
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Two parity images of the head, no cache (T-014 (a))
+        run: |
+          bash scripts/build-image.sh parity HEAD p2-ci:a --no-cache
+          bash scripts/build-image.sh parity HEAD p2-ci:b --no-cache
+          bash scripts/extract-next.sh p2-ci:a "$ARTIFACT_DIR/image-a"
+          bash scripts/extract-next.sh p2-ci:b "$ARTIFACT_DIR/image-b"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Layer A on the image (T-006, T-011, T-013, T-014 (a))
+        run: npm run test:static -- -t 'T-006|T-011|T-013|T-014'
+        env:
+          NEXT_DIR: ${{ env.ARTIFACT_DIR }}/image-a/.next
+          APP_ROOT: ${{ env.ARTIFACT_DIR }}/image-a
+          NEXT_DIR_A: ${{ env.ARTIFACT_DIR }}/image-a/.next
+          NEXT_DIR_B: ${{ env.ARTIFACT_DIR }}/image-b/.next
+
+  e2e:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          registry-url: https://npm.pkg.github.com
+          scope: '@oacore'
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        id: node18
+        with:
+          node-version: 18.20.8
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+      - run: npm ci --include=dev --legacy-peer-deps
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm ci --no-audit --no-fund && npx playwright install --with-deps chromium
+        working-directory: e2e
+      - name: Smoke on a parity build (host processes; the compose topology arrives with the full ci.yml)
+        run: |
+          NODE18_BIN="$(ls -d /opt/hostedtoolcache/node/18.20.8/*/bin/node | head -1)"
+          export NODE18_BIN
+          npm run build:parity -- --mode host
+          npm run e2e:up -- --run ci
+          npm run e2e -- --run ci --project chromium --project visual -g 'T-612|T-725|T-801' || rc=$?
+          npm run e2e:down -- --run ci
+          exit ${rc:-0}
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: e2e-run
+          path: ${{ env.ARTIFACT_DIR }}/runs/ci
+          retention-days: 7
