@@ -1,0 +1,16 @@
+.git
+.next
+node_modules
+.env*
+.npmrc
+docs
+test
+e2e
+scripts
+tools
+kube
+.github
+*.md
+public/design
+public/icons
+public/icons.svg

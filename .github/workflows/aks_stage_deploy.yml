@@ -47,11 +47,13 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Docker build and push
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           docker buildx build \
             --platform linux/arm64 \
             --push \
-            --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
+            --secret id=npm_token,env=NPM_TOKEN \
             --build-arg GA_TRACKING_CODE=${{ secrets.GA_TRACKING_CODE }} \
             --build-arg API_KEY=${{ secrets.API_KEY }} \
             --build-arg SENTRY_DSN=${{ secrets.SENTRY_DSN }} \

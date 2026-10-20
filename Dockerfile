@@ -1,9 +1,10 @@
-FROM node:18-alpine
+# syntax=docker/dockerfile:1
+ARG NODE_VERSION=18
+FROM node:${NODE_VERSION}-alpine
 ARG BUILD_TARGET=azure
 ARG SENTRY_DSN
 ARG NODE_ENV=production
 ARG APP_ENV=development
-ARG NPM_TOKEN
 ARG GA_TRACKING_CODE
 ARG API_KEY
 ARG ICONS_PUBLIC_PATH
@@ -16,9 +17,9 @@ ENV SENTRY_DSN=$SENTRY_DSN \
 WORKDIR /app
 COPY . .
 ARG BUILD_SCRIPT=build
-RUN printf "@oacore:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=%s\n" "$NPM_TOKEN" > .npmrc
-RUN npm ci --include=dev --legacy-peer-deps || npm install --include=dev --legacy-peer-deps
-RUN rm -f .npmrc
+RUN --mount=type=secret,id=npm_token printf '@oacore:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=%s\n' \
+    "$(cat /run/secrets/npm_token)" > .npmrc && { npm ci --include=dev --legacy-peer-deps || npm install --include=dev --legacy-peer-deps; }; \
+    rc=$?; rm -f .npmrc; exit $rc
 ENV NODE_ENV=$NODE_ENV
 ENV APP_ENV=$APP_ENV
 ENV NODE_OPTIONS="--openssl-legacy-provider"
