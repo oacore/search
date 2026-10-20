@@ -111,6 +111,7 @@ Installed: `next` 10.2.3, `react`/`react-dom` 17.0.2. Latest: `next` 16.4.2, `re
 | @playwright/test; @axe-core/playwright | -; - | 1.64.1 (Node ≥20); 4.14.0 (Node ≥22.12) | 1.64.1 exact (image `mcr.microsoft.com/playwright:v1.64.1-noble-arm64` by digest); 4.14.0 (2.1) → re-resolved at GATE-S with baseline re-capture ([40](40-test-strategy.md)) | TARGET | - |
 | @stryker-mutator/core; es-check | -; - | 10.0.0 (Node ≥22); 9.8.1 | pin at 2.7 (C2; T-015) | TARGET | Stryker vs legacy decorators: VF-08 |
 | html-validate | - | 11.16.4 (Node ^22.22/≥24.8) | 11.16.4 exact (2.3) | TARGET | T-602 raw HTML ([40](40-test-strategy.md) §4) |
+| pngjs; yaml | -; - | 7.0.0; 2.9.1 (registry queried 2026-10-20) | 7.0.0; 2.9.1 exact (2.1), `e2e/package.json` only: PNG decoder of `e2e/fixtures/pixel-compare.mjs`; HTTPRoute parser of `e2e/proxy/generate.mjs` | TARGET | - |
 | @swc/jest; @swc/core | -; - | 0.2.39; 1.16.18 (registry queried 2026-10-20) | exact at 6.7 for `test:unit:swc` ([40](40-test-strategy.md) §2.1), re-resolved then | TARGET | - |
 
 CI-only binaries and actions (nginx, dnsmasq, runner base image, pinned actions): pinned by digest or SHA where used, bumped per 42 §9; target = registry latest at each gate's version cut-off Tr (GATE-x.1, GATE-x.7).
