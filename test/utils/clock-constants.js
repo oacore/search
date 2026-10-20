@@ -1,4 +1,5 @@
-// Clock constants shared by test/setup/env-clock.js and test/utils/clock.js (40 §5).
+// Clock constants shared by test/setup/env-clock.js and test/utils/clock.js (40
+// §5).
 const FIXED_NOW = Date.parse('2026-01-15T12:00:00Z')
 
 const ALL_FAKEABLE = [

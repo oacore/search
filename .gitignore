@@ -14,3 +14,8 @@ public/icons.svg
 !data/.gitkeep
 !data/languages.json
 data/*
+
+# test harness (40 §2, 42 §7): build-derived baselines are committed; run outputs never are
+!test/baseline/build/
+test-results/
+out/

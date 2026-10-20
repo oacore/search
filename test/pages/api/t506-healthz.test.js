@@ -1,4 +1,5 @@
-// T-506 (41 F, R-020): /api/healthz answers 200 {"status":"ok"} without touching the upstream API.
+// T-506 (41 F, R-020): /api/healthz answers 200 {"status":"ok"} without
+// touching the upstream API.
 const handler = require('../../../pages/api/healthz').default
 
 const mockRes = () => {

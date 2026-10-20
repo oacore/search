@@ -1,8 +1,10 @@
-// T-301 (41 D, R-018): useDebouncedEffect, findings/03 §4: synchronous first run, 250 ms trailing
-// coalesce with the latest closure, unmount cancels. No StrictMode case (41 Corr, 40 §7 rule 5).
+// T-301 (41 D, R-018): useDebouncedEffect, findings/03 §4: synchronous first
+// run, 250 ms trailing coalesce with the latest closure, unmount cancels. No
+// StrictMode case (41 Corr, 40 §7 rule 5).
 const { renderHook } = require('../../utils/render')
 const { useFakeTimers, restoreClock } = require('../../utils/clock')
-const useDebouncedEffect = require('../../../hooks/use-debounced-effect').default
+const useDebouncedEffect =
+  require('../../../hooks/use-debounced-effect').default
 
 describe('T-301 @P0 useDebouncedEffect', () => {
   beforeEach(() => useFakeTimers())
@@ -10,7 +12,10 @@ describe('T-301 @P0 useDebouncedEffect', () => {
 
   test('T-301 @P0 first run is synchronous, changes coalesce after 250 ms, unmount cancels', () => {
     const calls = []
-    const { rerender, unmount } = renderHook(({ q }) => useDebouncedEffect(() => calls.push(q), [q]), { initialProps: { q: 'a' } })
+    const { rerender, unmount } = renderHook(
+      ({ q }) => useDebouncedEffect(() => calls.push(q), [q]),
+      { initialProps: { q: 'a' } }
+    )
     // mount: called once, synchronously, with the first closure
     expect(calls).toEqual(['a'])
 
@@ -38,7 +43,11 @@ describe('T-301 @P0 useDebouncedEffect', () => {
 
   test('T-301 @P0 a delay change re-arms the timer with the new delay', () => {
     const calls = []
-    const { rerender } = renderHook(({ q, delay }) => useDebouncedEffect(() => calls.push(`${q}@${delay}`), [q], delay), { initialProps: { q: 'a', delay: 250 } })
+    const { rerender } = renderHook(
+      ({ q, delay }) =>
+        useDebouncedEffect(() => calls.push(`${q}@${delay}`), [q], delay),
+      { initialProps: { q: 'a', delay: 250 } }
+    )
     expect(calls).toEqual(['a@250'])
     rerender({ q: 'a', delay: 500 })
     jest.advanceTimersByTime(499)

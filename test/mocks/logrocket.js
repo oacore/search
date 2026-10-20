@@ -1,4 +1,5 @@
-// logrocket factory spy (40 §2.1): the real SDK would reach the real project (review:00 X10.15).
+// logrocket factory spy (40 §2.1): the real SDK would reach the real project
+// (review:00 X10.15).
 const LogRocket = {
   init: jest.fn(),
   identify: jest.fn(),

@@ -1,4 +1,5 @@
-// react-ga4 factory spy (40 §2.1). Tests that need the real module use jest.requireActual('react-ga4').
+// react-ga4 factory spy (40 §2.1). Tests that need the real module use
+// jest.requireActual('react-ga4').
 const ReactGA = {
   initialize: jest.fn(),
   send: jest.fn(),
@@ -10,4 +11,8 @@ const ReactGA = {
   isInitialized: false,
 }
 
-module.exports = { __esModule: true, default: ReactGA, ReactGAImplementation: function ReactGAImplementation() {} }
+module.exports = {
+  __esModule: true,
+  default: ReactGA,
+  ReactGAImplementation: function ReactGAImplementation() {},
+}

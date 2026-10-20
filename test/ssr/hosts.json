@@ -1,0 +1,4 @@
+{
+  "description": "Names the SSR stub serves over HTTPS with certificates from its test CA (40 §2.2). Empty until the first golden run (2.3), the discovery run that seeds it; an unlisted name fails the run.",
+  "hosts": []
+}

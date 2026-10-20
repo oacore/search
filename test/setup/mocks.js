@@ -1,6 +1,7 @@
-// setupFilesAfterEnv of the node and dom projects (40 §2.1): factory spies for the third-party SDKs,
-// the map stub, and the router-mock reset. A test that needs a real module calls jest.requireActual,
-// or jest.unmock('<name>') at the top of its file.
+// setupFilesAfterEnv of the node and dom projects (40 §2.1): factory spies for
+// the third-party SDKs, the map stub, and the router-mock reset. A test that
+// needs a real module calls jest.requireActual, or jest.unmock('<name>') at the
+// top of its file.
 jest.mock('react-ga4', () => require('../mocks/react-ga4'))
 jest.mock('logrocket', () => require('../mocks/logrocket'))
 jest.mock('logrocket-react', () => require('../mocks/logrocket-react'))
