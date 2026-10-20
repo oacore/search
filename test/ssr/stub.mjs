@@ -28,7 +28,8 @@ const HERE = path.dirname(fileURLToPath(import.meta.url))
 const HOSTS_FILE = path.join(HERE, 'hosts.json')
 const SENTRY = /(^|\.)sentry\.io$/
 
-export const loadHosts = () => JSON.parse(fs.readFileSync(HOSTS_FILE, 'utf8')).hosts
+export const loadHosts = () =>
+  JSON.parse(fs.readFileSync(HOSTS_FILE, 'utf8')).hosts
 
 const readBody = (req) =>
   new Promise((resolve, reject) => {
@@ -63,7 +64,12 @@ export async function startStub(options = {}) {
   const resolver = createResolver({ linkOrigin })
   const ca = mintCa()
   const leaves = new Map(names.map((n) => [n, mintLeaf(ca, [n])]))
-  const contexts = new Map([...leaves].map(([n, l]) => [n, tls.createSecureContext({ key: l.keyPem, cert: l.pem })]))
+  const contexts = new Map(
+    [...leaves].map(([n, l]) => [
+      n,
+      tls.createSecureContext({ key: l.keyPem, cert: l.pem }),
+    ])
+  )
   if (runDir) {
     fs.mkdirSync(runDir, { recursive: true })
     fs.writeFileSync(path.join(runDir, 'ca.pem'), ca.pem)
@@ -75,21 +81,28 @@ export async function startStub(options = {}) {
   let records = []
   let problems = []
   let rules = []
+  let ruleSeq = 0
   const marks = new Map()
 
   const problem = (p) => {
     const entry = { seq: ++seq, ts: new Date().toISOString(), ...p }
     problems.push(entry)
-    if (problemFile) fs.appendFileSync(problemFile, `${JSON.stringify(entry)}\n`)
+    if (problemFile)
+      fs.appendFileSync(problemFile, `${JSON.stringify(entry)}\n`)
   }
 
   const handle = (listener) => async (req, res) => {
     const body = await readBody(req)
-    const forwardedHost = listener === 'http' ? req.headers['x-p2-forwarded-host'] : undefined
+    const forwardedHost =
+      listener === 'http' ? req.headers['x-p2-forwarded-host'] : undefined
     const sni = listener === 'https' ? req.socket.servername || null : null
     let absoluteUrl
-    if (listener === 'http' && forwardedHost) absoluteUrl = `${req.headers['x-p2-forwarded-proto'] || 'https'}://${forwardedHost}${req.url}`
-    else if (listener === 'http') absoluteUrl = `https://${internalHost}${req.url}`
+    if (listener === 'http' && forwardedHost)
+      absoluteUrl = `${
+        req.headers['x-p2-forwarded-proto'] || 'https'
+      }://${forwardedHost}${req.url}`
+    else if (listener === 'http')
+      absoluteUrl = `https://${internalHost}${req.url}`
     else absoluteUrl = `https://${sni || req.headers.host}${req.url}`
     const urlHost = new URL(absoluteUrl).hostname
     const headers = []
@@ -111,22 +124,57 @@ export async function startStub(options = {}) {
       headers,
       bodySha256: crypto.createHash('sha256').update(body).digest('hex'),
       bodyLength: body.length,
-      ...(body.length ? (isUtf8(body) ? { bodyText: body.toString('utf8') } : { bodyBase64: body.toString('base64') }) : {}),
+      ...(body.length
+        ? isUtf8(body)
+          ? { bodyText: body.toString('utf8') }
+          : { bodyBase64: body.toString('base64') }
+        : {}),
     }
 
+    // a failure rule answers before the resolver (so it never records an unmatched problem)
+    const rule = rules.find(
+      (r) =>
+        (!r.method || r.method === req.method) &&
+        (!r.urlPrefix || absoluteUrl.startsWith(r.urlPrefix)) &&
+        (!r.urlRegex || new RegExp(r.urlRegex).test(absoluteUrl))
+    )
     let answer
-    if (forwardedHost && !names.includes(urlHost) && urlHost !== internalHost) {
+    if (rule && rule.fail === 'neterror')
+      answer = { networkError: true, rule: `rule:${rule.id}` }
+    else if (rule && rule.fail)
+      answer = {
+        status: rule.fail.status || 500,
+        headers: [
+          ['content-type', rule.fail.contentType || 'application/json'],
+        ],
+        body: Buffer.from(
+          rule.fail.body ?? '{"message":"Internal Server Error"}'
+        ),
+        rule: `rule:${rule.id}`,
+      }
+    else if (
+      forwardedHost &&
+      !names.includes(urlHost) &&
+      urlHost !== internalHost
+    ) {
       problem({ kind: 'unknown-host', host: urlHost, url: absoluteUrl })
-      answer = { status: 502, headers: [['content-type', 'text/plain']], body: Buffer.from(`unknown host ${urlHost}\n`), rule: 'unknown-host' }
+      answer = {
+        status: 502,
+        headers: [['content-type', 'text/plain']],
+        body: Buffer.from(`unknown host ${urlHost}\n`),
+        rule: 'unknown-host',
+      }
     } else if (SENTRY.test(urlHost)) {
-      answer = { status: 200, headers: [['content-type', 'application/json']], body: Buffer.from('{}'), rule: 'sentry' }
+      answer = {
+        status: 200,
+        headers: [['content-type', 'application/json']],
+        body: Buffer.from('{}'),
+        rule: 'sentry',
+      }
     } else {
       answer = resolver.resolve(req.method, absoluteUrl, body)
       if (answer.unmatched) problem({ kind: 'unmatched', ...answer.unmatched })
     }
-    const rule = rules.find((r) => (!r.method || r.method === req.method) && (!r.urlPrefix || absoluteUrl.startsWith(r.urlPrefix)) && (!r.urlRegex || new RegExp(r.urlRegex).test(absoluteUrl)))
-    if (rule && rule.fail === 'neterror') answer = { networkError: true, rule: `rule:${rule.id}` }
-    else if (rule && rule.fail) answer = { status: rule.fail.status || 500, headers: [['content-type', rule.fail.contentType || 'application/json']], body: Buffer.from(rule.fail.body ?? '{"message":"Internal Server Error"}'), rule: `rule:${rule.id}` }
     rec.status = answer.networkError ? 0 : answer.status
     rec.rule = answer.rule || (answer.fixture ? 'fixture' : null)
     rec.fixture = answer.fixture ? answer.fixture.scenario : null
@@ -171,7 +219,14 @@ export async function startStub(options = {}) {
     const u = new URL(req.url, 'http://control')
     const body = await readBody(req)
     const payload = body.length ? JSON.parse(body.toString('utf8')) : {}
-    if (u.pathname === '/health') return json(res, 200, { ok: true, seq, names, records: records.length, problems: problems.length })
+    if (u.pathname === '/health')
+      return json(res, 200, {
+        ok: true,
+        seq,
+        names,
+        records: records.length,
+        problems: problems.length,
+      })
     if (u.pathname === '/reset' && req.method === 'POST') {
       records = []
       problems = []
@@ -180,15 +235,22 @@ export async function startStub(options = {}) {
       resolver.reload()
       return json(res, 200, { ok: true, seq })
     }
-    if (u.pathname === '/reload' && req.method === 'POST') return json(res, 200, { problems: resolver.reload(), size: resolver.size() })
+    if (u.pathname === '/reload' && req.method === 'POST')
+      return json(res, 200, {
+        problems: resolver.reload(),
+        size: resolver.size(),
+      })
     if (u.pathname === '/rules' && req.method === 'POST') {
-      const r = { id: `r${rules.length + 1}`, ...payload }
+      ruleSeq += 1
+      const r = { id: `r${ruleSeq}`, ...payload }
       rules.push(r)
       return json(res, 200, r)
     }
     if (u.pathname === '/rules' && req.method === 'DELETE') {
-      rules = []
-      return json(res, 200, { ok: true })
+      // ?id=<rule id> removes one rule, no id removes all
+      const id = u.searchParams.get('id')
+      rules = id ? rules.filter((r) => r.id !== id) : []
+      return json(res, 200, { ok: true, rules: rules.length })
     }
     if (u.pathname === '/mark' && req.method === 'POST') {
       const m = { name: payload.name || `m${marks.size + 1}`, seq }
@@ -196,24 +258,47 @@ export async function startStub(options = {}) {
       return json(res, 200, m)
     }
     if (u.pathname === '/collect') {
-      const since = Number(u.searchParams.get('since') ?? (marks.get(u.searchParams.get('mark')) || 0))
-      const until = u.searchParams.has('until') ? Number(u.searchParams.get('until')) : Infinity
-      return json(res, 200, { seq, records: records.filter((r) => r.seq > since && r.seq <= until), problems: problems.filter((p) => p.seq > since && p.seq <= until) })
+      const since = Number(
+        u.searchParams.get('since') ??
+          (marks.get(u.searchParams.get('mark')) || 0)
+      )
+      const until = u.searchParams.has('until')
+        ? Number(u.searchParams.get('until'))
+        : Infinity
+      return json(res, 200, {
+        seq,
+        records: records.filter((r) => r.seq > since && r.seq <= until),
+        problems: problems.filter((p) => p.seq > since && p.seq <= until),
+      })
     }
     if (u.pathname === '/records') return json(res, 200, records)
     if (u.pathname === '/problems') return json(res, 200, problems)
     return json(res, 404, { error: 'unknown control endpoint' })
   })
 
-  const listen = (server, port) => new Promise((resolve, reject) => server.once('error', reject).listen(port, host, () => resolve(server.address().port)))
-  const ports = { http: await listen(httpServer, httpPort), https: await listen(httpsServer, httpsPort), control: await listen(control, controlPort) }
+  const listen = (server, port) =>
+    new Promise((resolve, reject) =>
+      server
+        .once('error', reject)
+        .listen(port, host, () => resolve(server.address().port))
+    )
+  const ports = {
+    http: await listen(httpServer, httpPort),
+    https: await listen(httpsServer, httpsPort),
+    control: await listen(control, controlPort),
+  }
   return {
     ports,
     ca,
     names,
     records: () => records,
     problems: () => problems,
-    close: () => Promise.all([httpServer, httpsServer, control].map((s) => new Promise((r) => s.close(() => r())))),
+    close: () =>
+      Promise.all(
+        [httpServer, httpsServer, control].map(
+          (s) => new Promise((r) => s.close(() => r()))
+        )
+      ),
   }
 }
 
@@ -223,7 +308,13 @@ const request = (mod, opts, body) =>
     const req = mod.request(opts, (res) => {
       const chunks = []
       res.on('data', (c) => chunks.push(c))
-      res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, body: Buffer.concat(chunks).toString('utf8') }))
+      res.on('end', () =>
+        resolve({
+          status: res.statusCode,
+          headers: res.headers,
+          body: Buffer.concat(chunks).toString('utf8'),
+        })
+      )
     })
     req.on('error', reject)
     if (body) req.write(body)
@@ -238,58 +329,205 @@ export async function selfCheck() {
   try {
     const { ports, ca } = stub
     // Internal_API path: wire Host as sent (the app's Host override is dropped by native fetch, Q-022)
-    const r1 = await request(http, { host: '127.0.0.1', port: ports.http, path: '/internal/harness-probe?t=undefined', headers: { Host: 'api.core.ac.uk', Authorization: 'Bearer test-key' } })
+    const r1 = await request(http, {
+      host: '127.0.0.1',
+      port: ports.http,
+      path: '/internal/harness-probe?t=undefined',
+      headers: { Host: 'api.core.ac.uk', Authorization: 'Bearer test-key' },
+    })
     const rec1 = stub.records().at(-1)
-    ok('internal request recorded with wire Host and raw URL', rec1 && rec1.wireHost === 'api.core.ac.uk' && rec1.rawUrl === '/internal/harness-probe?t=undefined' && rec1.url === 'https://api.core.ac.uk/internal/harness-probe?t=undefined', rec1)
-    ok('headers recorded in order', rec1 && rec1.headers[0][0] === 'Host' && rec1.headers[1][0] === 'Authorization', rec1 && rec1.headers)
-    ok('unmatched request answered 502 naming the triple', r1.status === 502 && JSON.parse(r1.body).url === 'https://api.core.ac.uk/internal/harness-probe?t=undefined' && stub.problems().some((p) => p.kind === 'unmatched'), r1.body)
+    ok(
+      'internal request recorded with wire Host and raw URL',
+      rec1 &&
+        rec1.wireHost === 'api.core.ac.uk' &&
+        rec1.rawUrl === '/internal/harness-probe?t=undefined' &&
+        rec1.url ===
+          'https://api.core.ac.uk/internal/harness-probe?t=undefined',
+      rec1
+    )
+    ok(
+      'headers recorded in order',
+      rec1 &&
+        rec1.headers[0][0] === 'Host' &&
+        rec1.headers[1][0] === 'Authorization',
+      rec1 && rec1.headers
+    )
+    ok(
+      'unmatched request answered 502 naming the triple',
+      r1.status === 502 &&
+        JSON.parse(r1.body).url ===
+          'https://api.core.ac.uk/internal/harness-probe?t=undefined' &&
+        stub.problems().some((p) => p.kind === 'unmatched'),
+      r1.body
+    )
     const body = '{"q":"__status500"}'
-    const r2 = await request(http, { host: '127.0.0.1', port: ports.http, method: 'POST', path: '/v3/search/works?t=undefined', headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) } }, body)
+    const r2 = await request(
+      http,
+      {
+        host: '127.0.0.1',
+        port: ports.http,
+        method: 'POST',
+        path: '/v3/search/works?t=undefined',
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': Buffer.byteLength(body),
+        },
+      },
+      body
+    )
     const rec2 = stub.records().at(-1)
-    ok('body bytes and sha256 recorded; rules answer', r2.status === 500 && rec2.bodyText === body && rec2.bodySha256 === crypto.createHash('sha256').update(body).digest('hex'), rec2)
+    ok(
+      'body bytes and sha256 recorded; rules answer',
+      r2.status === 500 &&
+        rec2.bodyText === body &&
+        rec2.bodySha256 ===
+          crypto.createHash('sha256').update(body).digest('hex'),
+      rec2
+    )
     // every listed name over TLS with a certificate the test CA signed
     for (const name of stub.names) {
-      const r = await request(https, { host: '127.0.0.1', port: ports.https, servername: name, ca: ca.pem, path: '/probe', headers: { Host: name } })
+      const r = await request(https, {
+        host: '127.0.0.1',
+        port: ports.https,
+        servername: name,
+        ca: ca.pem,
+        path: '/probe',
+        headers: { Host: name },
+      })
       const rec = stub.records().at(-1)
-      ok(`TLS name ${name} reaches the stub with wire Host ${name}`, rec && rec.sni === name && rec.wireHost === name && [200, 502].includes(r.status), { status: r.status, sni: rec && rec.sni })
+      ok(
+        `TLS name ${name} reaches the stub with wire Host ${name}`,
+        rec &&
+          rec.sni === name &&
+          rec.wireHost === name &&
+          [200, 502].includes(r.status),
+        { status: r.status, sni: rec && rec.sni }
+      )
     }
     // a Sentry envelope is counted and answered 200
     const env = '{"event_id":"0"}\n{"type":"event"}\n{}'
-    const rs = await request(https, { host: '127.0.0.1', port: ports.https, servername: 'o0.ingest.sentry.io', ca: ca.pem, method: 'POST', path: '/api/0/envelope/', headers: { Host: 'o0.ingest.sentry.io', 'Content-Length': Buffer.byteLength(env) } }, env)
-    ok('Sentry ingest counted and answered 200', rs.status === 200 && stub.records().filter((r) => r.url === 'https://o0.ingest.sentry.io/api/0/envelope/' && r.method === 'POST').length === 1, rs.status)
+    const rs = await request(
+      https,
+      {
+        host: '127.0.0.1',
+        port: ports.https,
+        servername: 'o0.ingest.sentry.io',
+        ca: ca.pem,
+        method: 'POST',
+        path: '/api/0/envelope/',
+        headers: {
+          'Host': 'o0.ingest.sentry.io',
+          'Content-Length': Buffer.byteLength(env),
+        },
+      },
+      env
+    )
+    ok(
+      'Sentry ingest counted and answered 200',
+      rs.status === 200 &&
+        stub
+          .records()
+          .filter(
+            (r) =>
+              r.url === 'https://o0.ingest.sentry.io/api/0/envelope/' &&
+              r.method === 'POST'
+          ).length === 1,
+      rs.status
+    )
     // an unknown host fails (TLS handshake refused, problem recorded)
     let failed = false
     try {
-      await request(https, { host: '127.0.0.1', port: ports.https, servername: 'unlisted.p2.test', ca: ca.pem, path: '/' })
+      await request(https, {
+        host: '127.0.0.1',
+        port: ports.https,
+        servername: 'unlisted.p2.test',
+        ca: ca.pem,
+        path: '/',
+      })
     } catch {
       failed = true
     }
-    ok('unknown TLS host fails and is recorded', failed && stub.problems().some((p) => p.kind === 'unknown-host' && p.host === 'unlisted.p2.test'), stub.problems())
+    ok(
+      'unknown TLS host fails and is recorded',
+      failed &&
+        stub
+          .problems()
+          .some(
+            (p) => p.kind === 'unknown-host' && p.host === 'unlisted.p2.test'
+          ),
+      stub.problems()
+    )
     // host-mode forwarding of an unlisted host is a problem too
-    const rf = await request(http, { host: '127.0.0.1', port: ports.http, path: '/x', headers: { 'x-p2-forwarded-host': 'unlisted2.p2.test' } })
-    ok('unknown forwarded host fails and is recorded', rf.status === 502 && stub.problems().some((p) => p.host === 'unlisted2.p2.test'), rf.status)
+    const rf = await request(http, {
+      host: '127.0.0.1',
+      port: ports.http,
+      path: '/x',
+      headers: { 'x-p2-forwarded-host': 'unlisted2.p2.test' },
+    })
+    ok(
+      'unknown forwarded host fails and is recorded',
+      rf.status === 502 &&
+        stub.problems().some((p) => p.host === 'unlisted2.p2.test'),
+      rf.status
+    )
     // control API: latency and failure rules, mark/collect
-    const ctl = (method, p, payload) => request(http, { host: '127.0.0.1', port: ports.control, method, path: p, headers: { 'content-type': 'application/json' } }, payload ? JSON.stringify(payload) : undefined).then((r) => JSON.parse(r.body))
+    const ctl = (method, p, payload) =>
+      request(
+        http,
+        {
+          host: '127.0.0.1',
+          port: ports.control,
+          method,
+          path: p,
+          headers: { 'content-type': 'application/json' },
+        },
+        payload ? JSON.stringify(payload) : undefined
+      ).then((r) => JSON.parse(r.body))
     const mark = await ctl('POST', '/mark', { name: 'w1' })
-    await ctl('POST', '/rules', { urlPrefix: 'https://api.core.ac.uk/slow', latencyMs: 300 })
+    await ctl('POST', '/rules', {
+      urlPrefix: 'https://api.core.ac.uk/slow',
+      latencyMs: 300,
+    })
     const t0 = Date.now()
     await request(http, { host: '127.0.0.1', port: ports.http, path: '/slow' })
     ok('per-route latency', Date.now() - t0 >= 290, Date.now() - t0)
-    await ctl('POST', '/rules', { urlPrefix: 'https://api.core.ac.uk/broken', fail: { status: 503, body: '{"message":"x"}' } })
-    const rb = await request(http, { host: '127.0.0.1', port: ports.http, path: '/broken' })
+    await ctl('POST', '/rules', {
+      urlPrefix: 'https://api.core.ac.uk/broken',
+      fail: { status: 503, body: '{"message":"x"}' },
+    })
+    const rb = await request(http, {
+      host: '127.0.0.1',
+      port: ports.http,
+      path: '/broken',
+    })
     ok('per-route failure', rb.status === 503, rb.status)
-    await ctl('POST', '/rules', { urlPrefix: 'https://api.core.ac.uk/dead', fail: 'neterror' })
+    await ctl('POST', '/rules', {
+      urlPrefix: 'https://api.core.ac.uk/dead',
+      fail: 'neterror',
+    })
     let dead = false
     try {
-      await request(http, { host: '127.0.0.1', port: ports.http, path: '/dead' })
+      await request(http, {
+        host: '127.0.0.1',
+        port: ports.http,
+        path: '/dead',
+      })
     } catch {
       dead = true
     }
     ok('per-route network error', dead, null)
     const win = await ctl('GET', `/collect?since=${mark.seq}`)
-    ok('mark/collect window', win.records.length === 3 && win.records.every((r) => r.seq > mark.seq), win.records.map((r) => r.rawUrl))
+    ok(
+      'mark/collect window',
+      win.records.length === 3 && win.records.every((r) => r.seq > mark.seq),
+      win.records.map((r) => r.rawUrl)
+    )
     const reset = await ctl('POST', '/reset')
-    ok('reset clears records, problems and rules', reset.ok && stub.records().length === 0 && stub.problems().length === 0, null)
+    ok(
+      'reset clears records, problems and rules',
+      reset.ok && stub.records().length === 0 && stub.problems().length === 0,
+      null
+    )
   } finally {
     await stub.close()
   }
@@ -304,8 +542,11 @@ async function main(argv) {
   if (argv.includes('--self-check')) {
     const rows = await selfCheck()
     const bad = rows.filter((r) => !r.ok)
-    for (const r of bad) console.log(`FAIL ${r.name} ${JSON.stringify(r.detail)}`)
-    console.log(`ssr stub self-check: ${rows.length - bad.length}/${rows.length} ok`)
+    for (const r of bad)
+      console.log(`FAIL ${r.name} ${JSON.stringify(r.detail)}`)
+    console.log(
+      `ssr stub self-check: ${rows.length - bad.length}/${rows.length} ok`
+    )
     process.exit(bad.length ? 1 : 0)
   }
   const stub = await startStub({
@@ -317,10 +558,13 @@ async function main(argv) {
     internalHost: opt('--internal-host', 'api.core.ac.uk'),
     linkOrigin: opt('--link-origin', null),
   })
-  console.log(`stub: http :${stub.ports.http} https :${stub.ports.https} control :${stub.ports.control}; ${stub.names.length} TLS names`)
+  console.log(
+    `stub: http :${stub.ports.http} https :${stub.ports.https} control :${stub.ports.control}; ${stub.names.length} TLS names`
+  )
   const stop = () => stub.close().then(() => process.exit(0))
   process.on('SIGTERM', stop)
   process.on('SIGINT', stop)
 }
 
-if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || '')) main(process.argv.slice(2))
+if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || ''))
+  main(process.argv.slice(2))
