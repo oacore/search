@@ -14,3 +14,25 @@ settings:
     node:
       paths: ['.']
       extensions: ['.js', '.jsx']
+
+# Test harness (40 §7 rule 7): Jest and Node globals, test-only devDependency imports, and the patterns the
+# harness relies on (require inside jest.isolateModules, loops in table tests); production code is unchanged
+overrides:
+  - files: ['test/**/*.js', 'test/**/*.jsx', 'e2e/**/*.js', 'jest.config.js']
+    env:
+      jest: true
+      node: true
+    rules:
+      import/no-extraneous-dependencies: off
+      global-require: off
+      import/no-dynamic-require: off
+      no-restricted-syntax: off
+      no-plusplus: off
+      no-bitwise: off
+      max-len:
+        - error
+        - code: 80
+          ignoreStrings: true
+          ignoreTemplateLiterals: true
+          ignoreRegExpLiterals: true
+          ignoreUrls: true
