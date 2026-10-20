@@ -55,6 +55,7 @@ module.exports = {
       displayName: 'static',
       testEnvironment: 'node',
       testMatch: ['<rootDir>/test/static/**/*.test.js'],
+      setupFilesAfterEnv: ['<rootDir>/test/setup/mocks.js'],
     },
   ],
 }
