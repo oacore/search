@@ -66,6 +66,9 @@ NPM_TOKEN="$(node -e '
   let t = get("_authToken")
   if (!t && get("_auth")) t = Buffer.from(get("_auth"), "base64").toString("utf8").split(":").slice(1).join(":")
   if (!t && get("_password")) t = Buffer.from(get("_password"), "base64").toString("utf8")
+  // setup-node writes _authToken=${NODE_AUTH_TOKEN}: npm expands it from the environment, so do we
+  const ref = t.match(/^\$\{(\w+)\}$/)
+  if (ref) t = process.env[ref[1]] || ""
   process.stdout.write(t)
 ')"
 export NPM_TOKEN
