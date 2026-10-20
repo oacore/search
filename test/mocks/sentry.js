@@ -1,4 +1,5 @@
-// @sentry/node and @sentry/browser factory spies (40 §2.1); one fresh object per mocked module.
+// @sentry/node and @sentry/browser factory spies (40 §2.1); one fresh object
+// per mocked module.
 const create = () => {
   const scope = {
     setTag: jest.fn(),
@@ -26,9 +27,19 @@ const create = () => {
     addBreadcrumb: jest.fn(),
     flush: jest.fn(() => Promise.resolve(true)),
     close: jest.fn(() => Promise.resolve(true)),
-    Severity: { Fatal: 'fatal', Error: 'error', Warning: 'warning', Log: 'log', Info: 'info', Debug: 'debug' },
+    Severity: {
+      Fatal: 'fatal',
+      Error: 'error',
+      Warning: 'warning',
+      Log: 'log',
+      Info: 'info',
+      Debug: 'debug',
+    },
     Integrations: {},
-    Handlers: { requestHandler: jest.fn(() => (req, res, next) => next()), errorHandler: jest.fn(() => (err, req, res, next) => next(err)) },
+    Handlers: {
+      requestHandler: jest.fn(() => (req, res, next) => next()),
+      errorHandler: jest.fn(() => (err, req, res, next) => next(err)),
+    },
     __scope: scope,
   }
   return { __esModule: true, default: Sentry, ...Sentry }

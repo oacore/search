@@ -34,7 +34,10 @@ export const CS_OPS_1_YAML = `
   backendRefs: [{name: core-frontend-search, port: 80}]
 `
 
-const read = (env) => YAML.parse(fs.readFileSync(path.join(REPO, 'kube', env, 'httproute.yaml'), 'utf8'))
+const read = (env) =>
+  YAML.parse(
+    fs.readFileSync(path.join(REPO, 'kube', env, 'httproute.yaml'), 'utf8')
+  )
 
 // prod and stage may differ only in metadata.namespace and spec.hostnames
 export function compareEnvs(prod = read('prod'), stage = read('stage')) {
@@ -45,7 +48,17 @@ export function compareEnvs(prod = read('prod'), stage = read('stage')) {
     return d
   }
   const same = JSON.stringify(strip(prod)) === JSON.stringify(strip(stage))
-  return { same, prod: { namespace: prod.metadata.namespace, hostnames: prod.spec.hostnames }, stage: { namespace: stage.metadata.namespace, hostnames: stage.spec.hostnames } }
+  return {
+    same,
+    prod: {
+      namespace: prod.metadata.namespace,
+      hostnames: prod.spec.hostnames,
+    },
+    stage: {
+      namespace: stage.metadata.namespace,
+      hostnames: stage.spec.hostnames,
+    },
+  }
 }
 
 const seconds = (s) => (s == null ? null : Number(String(s).replace(/s$/, '')))
@@ -55,23 +68,44 @@ export function routeTable({ overlay = null, doc = read('prod') } = {}) {
   let rules = doc.spec.rules.slice()
   if (overlay === 'cs-ops-1') {
     const extra = YAML.parse(CS_OPS_1_YAML)
-    const i = rules.findIndex((r) => r.matches.some((m) => m.path && m.path.value === '/static/search'))
+    const i = rules.findIndex((r) =>
+      r.matches.some((m) => m.path && m.path.value === '/static/search')
+    )
     rules = [...rules.slice(0, i), ...extra, ...rules.slice(i)]
   } else if (overlay) throw new Error(`unknown overlay ${overlay}`)
   const entries = []
   rules.forEach((rule, ruleIndex) => {
     const rewrite = (rule.filters || []).find((f) => f.type === 'URLRewrite')
-    const replace = rewrite && rewrite.urlRewrite.path && rewrite.urlRewrite.path.type === 'ReplacePrefixMatch' ? rewrite.urlRewrite.path.replacePrefixMatch : null
+    const replace =
+      rewrite &&
+      rewrite.urlRewrite.path &&
+      rewrite.urlRewrite.path.type === 'ReplacePrefixMatch'
+        ? rewrite.urlRewrite.path.replacePrefixMatch
+        : null
     for (const m of rule.matches) {
-      if (!m.path || m.path.type !== 'PathPrefix') throw new Error(`unsupported match ${JSON.stringify(m)}`)
-      const prefix = m.path.value.length > 1 ? m.path.value.replace(/\/$/, '') : m.path.value
-      entries.push({ rule: ruleIndex, prefix, replacePrefixMatch: replace, backendRequestTimeout: seconds(rule.timeouts && rule.timeouts.backendRequest), requestTimeout: seconds(rule.timeouts && rule.timeouts.request), backend: rule.backendRefs.map((b) => `${b.name}:${b.port}`) })
+      if (!m.path || m.path.type !== 'PathPrefix')
+        throw new Error(`unsupported match ${JSON.stringify(m)}`)
+      const prefix =
+        m.path.value.length > 1 ? m.path.value.replace(/\/$/, '') : m.path.value
+      entries.push({
+        rule: ruleIndex,
+        prefix,
+        replacePrefixMatch: replace,
+        backendRequestTimeout: seconds(
+          rule.timeouts && rule.timeouts.backendRequest
+        ),
+        requestTimeout: seconds(rule.timeouts && rule.timeouts.request),
+        backend: rule.backendRefs.map((b) => `${b.name}:${b.port}`),
+      })
     }
   })
   // longest prefix first (ties keep rule order)
   entries.sort((a, b) => b.prefix.length - a.prefix.length || a.rule - b.rule)
   const table = { source: 'kube/prod/httproute.yaml', overlay, entries }
-  table.sha256 = crypto.createHash('sha256').update(JSON.stringify(entries)).digest('hex')
+  table.sha256 = crypto
+    .createHash('sha256')
+    .update(JSON.stringify(entries))
+    .digest('hex')
   return table
 }
 
@@ -81,33 +115,65 @@ export function routeFor(table, target) {
   const rawPath = q < 0 ? target : target.slice(0, q)
   const query = q < 0 ? '' : target.slice(q)
   for (const e of table.entries) {
-    const matches = e.prefix === '/' || rawPath === e.prefix || rawPath.startsWith(`${e.prefix}/`)
+    const matches =
+      e.prefix === '/' ||
+      rawPath === e.prefix ||
+      rawPath.startsWith(`${e.prefix}/`)
     if (!matches) continue
-    if (e.replacePrefixMatch == null) return { route: e.prefix, upstream: target, timeout: e.backendRequestTimeout }
+    if (e.replacePrefixMatch == null)
+      return {
+        route: e.prefix,
+        upstream: target,
+        timeout: e.backendRequestTimeout,
+      }
     const rest = rawPath.slice(e.prefix.length)
     const R = e.replacePrefixMatch
-    const upstreamPath = R.endsWith('/') && rest.startsWith('/') ? R + rest.slice(1) : R + rest
-    return { route: e.prefix, upstream: (upstreamPath || '/') + query, timeout: e.backendRequestTimeout }
+    const upstreamPath =
+      R.endsWith('/') && rest.startsWith('/') ? R + rest.slice(1) : R + rest
+    return {
+      route: e.prefix,
+      upstream: (upstreamPath || '/') + query,
+      timeout: e.backendRequestTimeout,
+    }
   }
   return { route: 'other', upstream: null }
 }
 
 const reEscape = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
-export function nginxConfig(table, { app = 'app:8080', gatewayPort = 8080, allowPort = 8081, accessLog = '/dev/stdout' } = {}) {
+export function nginxConfig(
+  table,
+  {
+    app = 'app:8080',
+    gatewayPort = 8080,
+    allowPort = 8081,
+    accessLog = '/dev/stdout',
+  } = {}
+) {
   const lines = []
   const routeMap = []
   const uriMap = []
   table.entries.forEach((e, i) => {
     const P = reEscape(e.prefix)
     routeMap.push(`    "~^${P}(?:[/?]|$)" "${e.prefix}";`)
-    if (e.replacePrefixMatch == null) uriMap.push(`    "~^${P}(?:[/?]|$)" "$request_uri";`)
-    else if (e.replacePrefixMatch.endsWith('/')) uriMap.push(`    "~^${P}(?:/(?<p2a${i}>[^?]*))?(?<p2b${i}>\\?.*)?$" "${e.replacePrefixMatch}$p2a${i}$p2b${i}";`)
-    else uriMap.push(`    "~^${P}(?<p2a${i}>/[^?]*)?(?<p2b${i}>\\?.*)?$" "${e.replacePrefixMatch}$p2a${i}$p2b${i}";`)
+    if (e.replacePrefixMatch == null)
+      uriMap.push(`    "~^${P}(?:[/?]|$)" "$request_uri";`)
+    else if (e.replacePrefixMatch.endsWith('/'))
+      uriMap.push(
+        `    "~^${P}(?:/(?<p2a${i}>[^?]*))?(?<p2b${i}>\\?.*)?$" "${e.replacePrefixMatch}$p2a${i}$p2b${i}";`
+      )
+    else
+      uriMap.push(
+        `    "~^${P}(?<p2a${i}>/[^?]*)?(?<p2b${i}>\\?.*)?$" "${e.replacePrefixMatch}$p2a${i}$p2b${i}";`
+      )
   })
-  const timeout = Math.max(...table.entries.map((e) => e.backendRequestTimeout || 30))
+  const timeout = Math.max(
+    ...table.entries.map((e) => e.backendRequestTimeout || 30)
+  )
   lines.push(
-    `# generated by e2e/proxy/generate.mjs from ${table.source}${table.overlay ? ` + overlay ${table.overlay}` : ''}; route table sha256 ${table.sha256}`,
+    `# generated by e2e/proxy/generate.mjs from ${table.source}${
+      table.overlay ? ` + overlay ${table.overlay}` : ''
+    }; route table sha256 ${table.sha256}`,
     'worker_processes 1;',
     'error_log /dev/stderr warn;',
     'pid /tmp/nginx.pid;',
@@ -126,8 +192,14 @@ export function nginxConfig(table, { app = 'app:8080', gatewayPort = 8080, allow
     ...uriMap,
     '    default "";',
     '  }',
-    `  map $http_${DEBUG_HEADER.replace(/-/g, '_')} $p2_dbg_uri { "1" $p2_uri; default ""; }`,
-    `  map $http_${DEBUG_HEADER.replace(/-/g, '_')} $p2_dbg_route { "1" $p2_route; default ""; }`,
+    `  map $http_${DEBUG_HEADER.replace(
+      /-/g,
+      '_'
+    )} $p2_dbg_uri { "1" $p2_uri; default ""; }`,
+    `  map $http_${DEBUG_HEADER.replace(
+      /-/g,
+      '_'
+    )} $p2_dbg_route { "1" $p2_route; default ""; }`,
     `  upstream p2_app { server ${app}; keepalive 16; }`,
     '  server {',
     `    listen ${gatewayPort};`,
@@ -180,8 +252,16 @@ export const ACCEPTANCE = [
   ['/static/search', '/static/search', '/'],
   ['/static/search/', '/static/search', '/'],
   ['/static/search/icons.svg', '/static/search', '/icons.svg'],
-  ['/static/search/_next/static/chunks/x.js', '/static/search', '/_next/static/chunks/x.js'],
-  ['/static/search/_next/image?url=%2Fx.png&w=64&q=75', '/static/search', '/_next/image?url=%2Fx.png&w=64&q=75'],
+  [
+    '/static/search/_next/static/chunks/x.js',
+    '/static/search',
+    '/_next/static/chunks/x.js',
+  ],
+  [
+    '/static/search/_next/image?url=%2Fx.png&w=64&q=75',
+    '/static/search',
+    '/_next/image?url=%2Fx.png&w=64&q=75',
+  ],
   ['/static/searchx', 'other', null],
   ['/display', '/display', '/outputs'],
   ['/display/', '/display', '/outputs/'],
@@ -197,7 +277,11 @@ export const ACCEPTANCE = [
   ['/data-providers/?q=100%25', '/data-providers', '/data-providers/?q=100%25'],
   ['/_next/static/chunks/x.js', 'other', null],
   ['/_next/data/b/works/1.json', 'other', null],
-  ['/search/_next/data/b/works/1001.json?id=1001', '/search', '/search/_next/data/b/works/1001.json?id=1001'],
+  [
+    '/search/_next/data/b/works/1001.json?id=1001',
+    '/search',
+    '/search/_next/data/b/works/1001.json?id=1001',
+  ],
   ['/', 'other', null],
   ['/api/healthz/', 'other', null],
   ['/error-card/', 'other', null],
@@ -205,7 +289,11 @@ export const ACCEPTANCE = [
   ['/404', 'other', null],
 ]
 export const ACCEPTANCE_CS_OPS_1 = [
-  ['/search/_next/data/b/works/1001.json?id=1001', '/search/_next/data', '/_next/data/b/works/1001.json?id=1001'],
+  [
+    '/search/_next/data/b/works/1001.json?id=1001',
+    '/search/_next/data',
+    '/_next/data/b/works/1001.json?id=1001',
+  ],
   ['/search/_next/data', '/search/_next/data', '/_next/data'],
   ['/search/_next/datax', '/search', '/search/_next/datax'],
   ['/search/?q=x', '/search', '/search/?q=x'],
@@ -221,35 +309,80 @@ export function selfTest() {
   const cmp = compareEnvs()
   ok('prod and stage differ only in namespace and hostnames', cmp.same, cmp)
   const t = routeTable()
-  ok('rules flattened (6 prefixes)', t.entries.length === 6, t.entries.map((e) => e.prefix))
-  ok('backend timeout 30 s on every rule', t.entries.every((e) => e.backendRequestTimeout === 30), null)
+  ok(
+    'rules flattened (6 prefixes)',
+    t.entries.length === 6,
+    t.entries.map((e) => e.prefix)
+  )
+  ok(
+    'backend timeout 30 s on every rule',
+    t.entries.every((e) => e.backendRequestTimeout === 30),
+    null
+  )
   for (const [target, route, upstream] of ACCEPTANCE) {
     const r = routeFor(t, target)
     ok(`route ${target}`, r.route === route && r.upstream === upstream, r)
   }
   const long = routeFor(t, longUrl())
-  ok('long URL routed unchanged', long.route === '/search' && long.upstream === longUrl(), null)
+  ok(
+    'long URL routed unchanged',
+    long.route === '/search' && long.upstream === longUrl(),
+    null
+  )
   const o = routeTable({ overlay: 'cs-ops-1' })
-  ok('overlay adds one prefix', o.entries.length === 7 && o.sha256 !== t.sha256, null)
+  ok(
+    'overlay adds one prefix',
+    o.entries.length === 7 && o.sha256 !== t.sha256,
+    null
+  )
   for (const [target, route, upstream] of ACCEPTANCE_CS_OPS_1) {
     const r = routeFor(o, target)
-    ok(`overlay route ${target}`, r.route === route && r.upstream === upstream, r)
+    ok(
+      `overlay route ${target}`,
+      r.route === route && r.upstream === upstream,
+      r
+    )
   }
   // the host-mode proxy serves the same algorithm
   for (const [target] of [...ACCEPTANCE, ...ACCEPTANCE_CS_OPS_1]) {
-    for (const table of [t, o]) ok(`node-proxy agrees on ${target}${table.overlay ? ' (overlay)' : ''}`, JSON.stringify(nodeRouteFor(table, target)) === JSON.stringify(routeFor(table, target)), null)
+    for (const table of [t, o])
+      ok(
+        `node-proxy agrees on ${target}${table.overlay ? ' (overlay)' : ''}`,
+        JSON.stringify(nodeRouteFor(table, target)) ===
+          JSON.stringify(routeFor(table, target)),
+        null
+      )
   }
   const conf = nginxConfig(t)
-  ok('nginx: merge_slashes off on both servers', (conf.match(/merge_slashes off;/g) || []).length === 2, null)
-  ok('nginx: raw request_uri routing', /map \$request_uri \$p2_route/.test(conf) && /proxy_pass http:\/\/p2_app\$p2_uri;/.test(conf), null)
+  ok(
+    'nginx: merge_slashes off on both servers',
+    (conf.match(/merge_slashes off;/g) || []).length === 2,
+    null
+  )
+  ok(
+    'nginx: raw request_uri routing',
+    /map \$request_uri \$p2_route/.test(conf) &&
+      /proxy_pass http:\/\/p2_app\$p2_uri;/.test(conf),
+    null
+  )
   ok('nginx: 30 s backend timeout', /proxy_read_timeout 30s;/.test(conf), null)
-  ok('nginx: other service 404', /return 404 "other service\\n";/.test(conf), null)
+  ok(
+    'nginx: other service 404',
+    /return 404 "other service\\n";/.test(conf),
+    null
+  )
   // the nginx regexes agree with routeFor on the acceptance table
   const rx = [...conf.matchAll(/^ {4}"~(\^[^"]+)" "([^"]+)";$/gm)]
-  const routeRegexes = rx.slice(0, t.entries.length).map((m) => [new RegExp(m[1]), m[2]])
+  const routeRegexes = rx
+    .slice(0, t.entries.length)
+    .map((m) => [new RegExp(m[1]), m[2]])
   for (const [target, route] of ACCEPTANCE) {
     const hit = routeRegexes.find(([re]) => re.test(target))
-    ok(`nginx route regex ${target}`, (hit ? hit[1] : 'other') === route, hit && hit[1])
+    ok(
+      `nginx route regex ${target}`,
+      (hit ? hit[1] : 'other') === route,
+      hit && hit[1]
+    )
   }
   return out
 }
@@ -262,25 +395,38 @@ function main(argv) {
   if (argv.includes('--self-test')) {
     const rows = selfTest()
     const bad = rows.filter((r) => !r.ok)
-    for (const r of bad) console.log(`FAIL ${r.name} ${JSON.stringify(r.detail)}`)
-    console.log(`proxy generator self-test: ${rows.length - bad.length}/${rows.length} ok`)
+    for (const r of bad)
+      console.log(`FAIL ${r.name} ${JSON.stringify(r.detail)}`)
+    console.log(
+      `proxy generator self-test: ${rows.length - bad.length}/${rows.length} ok`
+    )
     process.exit(bad.length ? 1 : 0)
   }
   const cmp = compareEnvs()
   if (!cmp.same) {
-    console.error('kube/prod and kube/stage httproute.yaml differ outside metadata.namespace and spec.hostnames')
+    console.error(
+      'kube/prod and kube/stage httproute.yaml differ outside metadata.namespace and spec.hostnames'
+    )
     process.exit(1)
   }
   const table = routeTable({ overlay: opt('--overlay', null) })
-  const conf = nginxConfig(table, { app: opt('--app', 'app:8080'), gatewayPort: Number(opt('--listen-gateway', 8080)), allowPort: Number(opt('--listen-allow', 8081)) })
+  const conf = nginxConfig(table, {
+    app: opt('--app', 'app:8080'),
+    gatewayPort: Number(opt('--listen-gateway', 8080)),
+    allowPort: Number(opt('--listen-allow', 8081)),
+  })
   const out = opt('--out', null)
   if (out) {
     fs.mkdirSync(out, { recursive: true })
     fs.writeFileSync(path.join(out, 'nginx.conf'), conf)
-    fs.writeFileSync(path.join(out, 'routes.json'), `${JSON.stringify(table, null, 1)}\n`)
+    fs.writeFileSync(
+      path.join(out, 'routes.json'),
+      `${JSON.stringify(table, null, 1)}\n`
+    )
   }
   if (argv.includes('--json')) console.log(JSON.stringify(table, null, 1))
   else if (!out) process.stdout.write(conf)
 }
 
-if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || '')) main(process.argv.slice(2))
+if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || ''))
+  main(process.argv.slice(2))

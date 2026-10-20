@@ -1,6 +1,7 @@
-// next/router mock (40 §2.1): one mutable singleton, used as the default export (`Router`, store/filters.js:2,
-// store/search.js:2) and as the useRouter() result. Its members are a superset of the installed
-// next/router singleton (T-012 c3). Reset in beforeEach by test/setup/mocks.js; tests change it with
+// next/router mock (40 §2.1): one mutable singleton, used as the default export
+// (`Router`, store/filters.js:2, store/search.js:2) and as the useRouter()
+// result. Its members are a superset of the installed next/router singleton
+// (T-012 c3). Reset in beforeEach by test/setup/mocks.js; tests change it with
 // `setRouter({...})` and read calls from the jest.fn members.
 const React = require('react')
 
@@ -63,8 +64,11 @@ reset()
 
 const useRouter = () => router
 const withRouter = (Component) => {
-  const WithRouter = (props) => React.createElement(Component, { router, ...props })
-  WithRouter.displayName = `withRouter(${Component.displayName || Component.name || 'Component'})`
+  const WithRouter = (props) =>
+    React.createElement(Component, { router, ...props })
+  WithRouter.displayName = `withRouter(${
+    Component.displayName || Component.name || 'Component'
+  })`
   return WithRouter
 }
 const createRouter = () => router
@@ -85,7 +89,8 @@ module.exports = {
   router,
   setRouter,
   resetRouter: reset,
-  // RouterContext of Next 10.2.3 (40 §2.1); 11-12: next/dist/shared/lib/router-context,
-  // 13.5-16: next/dist/shared/lib/router-context.shared-runtime
+  // RouterContext of Next 10.2.3 (40 §2.1); 11-12:
+  // next/dist/shared/lib/router-context, 13.5-16:
+  // next/dist/shared/lib/router-context.shared-runtime
   ROUTER_CONTEXT_PATH: 'next/dist/next-server/lib/router-context',
 }

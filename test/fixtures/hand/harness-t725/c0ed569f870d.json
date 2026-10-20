@@ -1,44 +1,37 @@
 {
- "schema": 1,
- "scenario": "harness-t725",
- "request": {
-  "method": "GET",
-  "url": "https://api.core.ac.uk/internal/members",
-  "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
- },
- "response": {
-  "status": 200,
-  "headers": [
-   [
-    "content-type",
-    "application/json"
-   ]
-  ],
-  "body": {
-   "encoding": "json",
-   "data": [
-    {
-     "organisation_id": 9001,
-     "billing_plan_id": 1,
-     "billing_type": "supporting",
-     "organisation_name": "Synthetic Supporting University",
-     "repo_id": [
-      86
-     ],
-     "country_code": "GB",
-     "billing_start_date": "2025-01-01 00:00:00",
-     "billing_end_date": "2027-01-01 00:00:00",
-     "description": "synthetic member",
-     "activated": 1
+  "schema": 1,
+  "scenario": "harness-t725",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/internal/members",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [["content-type", "application/json"]],
+    "body": {
+      "encoding": "json",
+      "data": [
+        {
+          "organisation_id": 9001,
+          "billing_plan_id": 1,
+          "billing_type": "supporting",
+          "organisation_name": "Synthetic Supporting University",
+          "repo_id": [86],
+          "country_code": "GB",
+          "billing_start_date": "2025-01-01 00:00:00",
+          "billing_end_date": "2027-01-01 00:00:00",
+          "description": "synthetic member",
+          "activated": 1
+        }
+      ]
     }
-   ]
+  },
+  "source": {
+    "kind": "hand",
+    "from": null,
+    "patch": null,
+    "recordedAt": null,
+    "note": "T-725 calibration until the 2.2 recordings: one eligible synthetic member"
   }
- },
- "source": {
-  "kind": "hand",
-  "from": null,
-  "patch": null,
-  "recordedAt": null,
-  "note": "T-725 calibration until the 2.2 recordings: one eligible synthetic member"
- }
 }

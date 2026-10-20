@@ -1,35 +1,30 @@
 {
- "schema": 1,
- "scenario": "harness-t725",
- "request": {
-  "method": "POST",
-  "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
-  "bodySha256": "ccaae3e4f31d2280adbaf3f4da82a240a585abf58e248bb77535b766a6ec0744",
-  "bodyText": "{\"q\":\"harnessdoi\",\"offset\":0,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}"
- },
- "response": {
-  "status": 200,
-  "headers": [
-   [
-    "content-type",
-    "application/json"
-   ]
-  ],
-  "body": {
-   "encoding": "json",
-   "data": {
-    "totalHits": 0,
-    "limit": 10,
-    "offset": 0,
-    "results": []
-   }
+  "schema": 1,
+  "scenario": "harness-t725",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+    "bodySha256": "ccaae3e4f31d2280adbaf3f4da82a240a585abf58e248bb77535b766a6ec0744",
+    "bodyText": "{\"q\":\"harnessdoi\",\"offset\":0,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}"
+  },
+  "response": {
+    "status": 200,
+    "headers": [["content-type", "application/json"]],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "totalHits": 0,
+        "limit": 10,
+        "offset": 0,
+        "results": []
+      }
+    }
+  },
+  "source": {
+    "kind": "hand",
+    "from": null,
+    "patch": null,
+    "recordedAt": null,
+    "note": "T-725 calibration until the 2.2 recordings: a search without results (the header search bar still mounts)"
   }
- },
- "source": {
-  "kind": "hand",
-  "from": null,
-  "patch": null,
-  "recordedAt": null,
-  "note": "T-725 calibration until the 2.2 recordings: a search without results (the header search bar still mounts)"
- }
 }

@@ -13,8 +13,31 @@ export const COOKIE_STATES = ['absent', 'essential', 'essential+analytics']
 // port offsets from E2E_PORT_BASE = 21000 + 20 x slot (manifest §5.4)
 export const PORT_BASE = 21000
 export const PORT_STRIDE = 20
-export const PORT_OFFSETS = { gateway: 0, allow: 1, app: 2, stubHttp: 3, stubHttps: 4, stubControl: 5 }
+export const PORT_OFFSETS = {
+  gateway: 0,
+  allow: 1,
+  app: 2,
+  stubHttp: 3,
+  stubHttps: 4,
+  stubControl: 5,
+}
 
-if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || '') && process.argv.includes('--json')) {
-  console.log(JSON.stringify({ RETRIES, FORBID_ONLY, WORKERS, TIMEZONE_ID, LOCALE, FIXED_TIME, COOKIE_STATES, PORT_BASE, PORT_STRIDE, PORT_OFFSETS }))
+if (
+  fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || '') &&
+  process.argv.includes('--json')
+) {
+  console.log(
+    JSON.stringify({
+      RETRIES,
+      FORBID_ONLY,
+      WORKERS,
+      TIMEZONE_ID,
+      LOCALE,
+      FIXED_TIME,
+      COOKIE_STATES,
+      PORT_BASE,
+      PORT_STRIDE,
+      PORT_OFFSETS,
+    })
+  )
 }

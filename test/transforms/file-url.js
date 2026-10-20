@@ -1,4 +1,5 @@
-// Images imported by app code resolve to a URL string, as next-images emits (never an object).
+// Images imported by app code resolve to a URL string, as next-images emits
+// (never an object).
 const path = require('path')
 
 module.exports = {

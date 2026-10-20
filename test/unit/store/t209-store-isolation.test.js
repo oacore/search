@@ -1,8 +1,10 @@
-// T-209 (41 C, R-004, R-018, R-073): store isolation in its own file, node project, jest.isolateModules
-// (store/index.jsx computes isServer and calls enableStaticRendering at load, 40 §7 rule 6).
-// client = `window` defined while the store modules load. React's scheduler (loaded through
-// mobx-react-lite -> react-dom) then picks MessageChannel, whose port would keep the node process alive;
-// hiding MessageChannel during the load makes it use its timer branch instead.
+// T-209 (41 C, R-004, R-018, R-073): store isolation in its own file, node
+// project, jest.isolateModules (store/index.jsx computes isServer and calls
+// enableStaticRendering at load, 40 §7 rule 6). client = `window` defined while
+// the store modules load. React's scheduler (loaded through mobx-react-lite ->
+// react-dom) then picks MessageChannel, whose port would keep the node process
+// alive; hiding MessageChannel during the load makes it use its timer branch
+// instead.
 const loadStore = ({ client = false } = {}) => {
   const savedChannel = global.MessageChannel
   if (client) {
@@ -24,8 +26,18 @@ const loadStore = ({ client = false } = {}) => {
 }
 
 const providers = [
-  { id: 1, name: 'Alpha Repository', urlHomepage: 'https://alpha.example/', aliases: [] },
-  { id: 2, name: 'Beta Archive', urlHomepage: 'https://beta.example/', aliases: [] },
+  {
+    id: 1,
+    name: 'Alpha Repository',
+    urlHomepage: 'https://alpha.example/',
+    aliases: [],
+  },
+  {
+    id: 2,
+    name: 'Beta Archive',
+    urlHomepage: 'https://beta.example/',
+    aliases: [],
+  },
 ]
 
 describe('T-209 @P0 store isolation', () => {
@@ -38,8 +50,12 @@ describe('T-209 @P0 store isolation', () => {
     expect(b.statistics).toEqual({ totalArticlesCount: 2 })
     // two interleaved "requests" with different /data-providers params
     await Promise.all([
-      Promise.resolve().then(() => a.extend({ dataProviders: { data: providers, params: { q: 'alpha' } } })),
-      Promise.resolve().then(() => b.extend({ dataProviders: { data: providers, params: { q: 'beta' } } })),
+      Promise.resolve().then(() =>
+        a.extend({ dataProviders: { data: providers, params: { q: 'alpha' } } })
+      ),
+      Promise.resolve().then(() =>
+        b.extend({ dataProviders: { data: providers, params: { q: 'beta' } } })
+      ),
     ])
     expect(a.dataProviders.params.q).toBe('alpha')
     expect(b.dataProviders.params.q).toBe('beta')

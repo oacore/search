@@ -17,9 +17,14 @@ import path from 'node:path'
 import fs from 'node:fs'
 
 // ---------- special functions ----------
-const LANCZOS = [676.5203681218851, -1259.1392167224028, 771.32342877765313, -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7]
+const LANCZOS = [
+  676.5203681218851, -1259.1392167224028, 771.32342877765313,
+  -176.61502916214059, 12.507343278686905, -0.13857109526572012,
+  9.9843695780195716e-6, 1.5056327351493116e-7,
+]
 export function lgamma(z) {
-  if (z < 0.5) return Math.log(Math.PI / Math.abs(Math.sin(Math.PI * z))) - lgamma(1 - z)
+  if (z < 0.5)
+    return Math.log(Math.PI / Math.abs(Math.sin(Math.PI * z))) - lgamma(1 - z)
   z -= 1
   let a = 0.99999999999980993
   const t = z + 7.5
@@ -65,7 +70,13 @@ function betacf(x, a, b) {
 export function regIncBeta(x, a, b) {
   if (x <= 0) return 0
   if (x >= 1) return 1
-  const bt = Math.exp(lgamma(a + b) - lgamma(a) - lgamma(b) + a * Math.log(x) + b * Math.log(1 - x))
+  const bt = Math.exp(
+    lgamma(a + b) -
+      lgamma(a) -
+      lgamma(b) +
+      a * Math.log(x) +
+      b * Math.log(1 - x)
+  )
   if (x < (a + 1) / (a + b + 2)) return (bt * betacf(x, a, b)) / a
   return 1 - (bt * betacf(1 - x, b, a)) / b
 }
@@ -159,7 +170,15 @@ export function power({ phi = 1, x0, preDays, postDays, m = 1.05 }) {
 
 // ---------- C6-prod row 1 ----------
 // z = (ln r - ln ratio) / sqrt(phi (1/x0 + 1/x1)), r = (x1/n1)/(x0/n0); breach when z > 2.326
-export function rateRatioZ({ x0, n0, x1, n1, phi = 1, ratio = 1.25, crit = 2.326 }) {
+export function rateRatioZ({
+  x0,
+  n0,
+  x1,
+  n1,
+  phi = 1,
+  ratio = 1.25,
+  crit = 2.326,
+}) {
   const r = x1 / n1 / (x0 / n0)
   const z = (Math.log(r) - Math.log(ratio)) / Math.sqrt(phi * (1 / x0 + 1 / x1))
   return { r, z, breach: z > crit }
@@ -185,7 +204,14 @@ export function quantile(sorted, q) {
   return sorted[lo] + (h - lo) * (sorted[hi] - sorted[lo])
 }
 // U = 97.5th percentile of rate_post / rate_pre over `draws` resamples of whole days
-export function bootstrapU({ pre, post, draws = 10000, seed = 1, q = 0.975, m = 1.05 }) {
+export function bootstrapU({
+  pre,
+  post,
+  draws = 10000,
+  seed = 1,
+  q = 0.975,
+  m = 1.05,
+}) {
   const rnd = mulberry32(seed)
   const rate = (days) => {
     let x = 0
@@ -209,31 +235,137 @@ export function bootstrapU({ pre, post, draws = 10000, seed = 1, q = 0.975, m = 
 
 // deterministic synthetic series of the T-012 bootstrap known answer (no randomness in the data)
 export function syntheticSeries() {
-  const day = (i, base) => ({ x: base + ((i * 37) % 23), n: 10000 + ((i * 101) % 997) })
-  return { pre: Array.from({ length: 28 }, (_, i) => day(i, 350)), post: Array.from({ length: 14 }, (_, i) => day(i + 28, 345)) }
+  const day = (i, base) => ({
+    x: base + ((i * 37) % 23),
+    n: 10000 + ((i * 101) % 997),
+  })
+  return {
+    pre: Array.from({ length: 28 }, (_, i) => day(i, 350)),
+    post: Array.from({ length: 14 }, (_, i) => day(i + 28, 345)),
+  }
 }
 
 // ---------- known answers (T-012 c7) ----------
 export const KNOWN_ANSWERS = [
-  { id: 'cp-59-59', fn: () => clopperPearsonLower(59, 59), expect: 0.950492390111773, tol: 1e-9, note: '55 C1: 0.05^(1/59) = 0.9505' },
-  { id: 'cp-58-58', fn: () => clopperPearsonLower(58, 58), expect: 0.9496606616695799, tol: 1e-9, note: '55 C1: 0.9497 at 58' },
-  { id: 'cp-57-59', fn: () => clopperPearsonLower(57, 59), expect: 0.897110837290046, tol: 1e-7, note: 'exact binomial tail bisection' },
-  { id: 'cp-50-59', fn: () => clopperPearsonLower(50, 59), expect: 0.7489027545182299, tol: 1e-7, note: 'exact binomial tail bisection' },
-  { id: 'binom-c6ni-a', fn: () => conditionalBinomialP({ x0: 1000, n0: 100000, x1: 900, n1: 100000, m: 1.05 }).p, expect: 0.00042657909305371047, tol: 1e-9, note: '55 C6-NI exact conditional binomial, exact rational sum' },
-  { id: 'binom-c6ni-b', fn: () => conditionalBinomialP({ x0: 1000, n0: 100000, x1: 1000, n1: 100000, m: 1.05 }).p, expect: 0.14260184057442965, tol: 1e-8, note: 'same, ratio 1.0' },
-  { id: 'binom-c6ni-pi0', fn: () => conditionalBinomialP({ x0: 1000, n0: 100000, x1: 900, n1: 100000, m: 1.05 }).pi0, expect: 0.5121951219512195, tol: 1e-12, note: 'pi0 = m n1/(m n1 + n0)' },
-  { id: 'power-9892', fn: () => power({ phi: 1, x0: 9892, preDays: 28, postDays: 14, m: 1.05 }).power, expect: 0.8000077399143981, tol: 1e-6, note: '55 C6-NI power = 0.80' },
-  { id: 'z-row1', fn: () => rateRatioZ({ x0: 800, n0: 400000, x1: 300, n1: 100000, phi: 1 }).z, expect: 2.6930678716129157, tol: 1e-9, note: '55 C6-prod row 1, r = 1.5 > 1.25 at z > 2.326' },
-  { id: 'z-row1-breach', fn: () => (rateRatioZ({ x0: 800, n0: 400000, x1: 300, n1: 100000, phi: 1 }).breach ? 1 : 0), expect: 1, tol: 0, note: 'breach flag' },
-  { id: 'normcdf-1.96', fn: () => normCdf(1.96), expect: 0.9750021048517795, tol: 1e-12, note: 'Phi(1.96)' },
-  { id: 'bootstrap-synthetic', fn: () => bootstrapU({ ...syntheticSeries(), draws: 10000, seed: 20261020 }).U, expect: null, tol: 1e-12, note: 'seeded day bootstrap on syntheticSeries(), U pinned in T-012' },
+  {
+    id: 'cp-59-59',
+    fn: () => clopperPearsonLower(59, 59),
+    expect: 0.950492390111773,
+    tol: 1e-9,
+    note: '55 C1: 0.05^(1/59) = 0.9505',
+  },
+  {
+    id: 'cp-58-58',
+    fn: () => clopperPearsonLower(58, 58),
+    expect: 0.9496606616695799,
+    tol: 1e-9,
+    note: '55 C1: 0.9497 at 58',
+  },
+  {
+    id: 'cp-57-59',
+    fn: () => clopperPearsonLower(57, 59),
+    expect: 0.897110837290046,
+    tol: 1e-7,
+    note: 'exact binomial tail bisection',
+  },
+  {
+    id: 'cp-50-59',
+    fn: () => clopperPearsonLower(50, 59),
+    expect: 0.7489027545182299,
+    tol: 1e-7,
+    note: 'exact binomial tail bisection',
+  },
+  {
+    id: 'binom-c6ni-a',
+    fn: () =>
+      conditionalBinomialP({
+        x0: 1000,
+        n0: 100000,
+        x1: 900,
+        n1: 100000,
+        m: 1.05,
+      }).p,
+    expect: 0.00042657909305371047,
+    tol: 1e-9,
+    note: '55 C6-NI exact conditional binomial, exact rational sum',
+  },
+  {
+    id: 'binom-c6ni-b',
+    fn: () =>
+      conditionalBinomialP({
+        x0: 1000,
+        n0: 100000,
+        x1: 1000,
+        n1: 100000,
+        m: 1.05,
+      }).p,
+    expect: 0.14260184057442965,
+    tol: 1e-8,
+    note: 'same, ratio 1.0',
+  },
+  {
+    id: 'binom-c6ni-pi0',
+    fn: () =>
+      conditionalBinomialP({
+        x0: 1000,
+        n0: 100000,
+        x1: 900,
+        n1: 100000,
+        m: 1.05,
+      }).pi0,
+    expect: 0.5121951219512195,
+    tol: 1e-12,
+    note: 'pi0 = m n1/(m n1 + n0)',
+  },
+  {
+    id: 'power-9892',
+    fn: () =>
+      power({ phi: 1, x0: 9892, preDays: 28, postDays: 14, m: 1.05 }).power,
+    expect: 0.8000077399143981,
+    tol: 1e-6,
+    note: '55 C6-NI power = 0.80',
+  },
+  {
+    id: 'z-row1',
+    fn: () =>
+      rateRatioZ({ x0: 800, n0: 400000, x1: 300, n1: 100000, phi: 1 }).z,
+    expect: 2.6930678716129157,
+    tol: 1e-9,
+    note: '55 C6-prod row 1, r = 1.5 > 1.25 at z > 2.326',
+  },
+  {
+    id: 'z-row1-breach',
+    fn: () =>
+      rateRatioZ({ x0: 800, n0: 400000, x1: 300, n1: 100000, phi: 1 }).breach
+        ? 1
+        : 0,
+    expect: 1,
+    tol: 0,
+    note: 'breach flag',
+  },
+  {
+    id: 'normcdf-1.96',
+    fn: () => normCdf(1.96),
+    expect: 0.9750021048517795,
+    tol: 1e-12,
+    note: 'Phi(1.96)',
+  },
+  {
+    id: 'bootstrap-synthetic',
+    fn: () =>
+      bootstrapU({ ...syntheticSeries(), draws: 10000, seed: 20261020 }).U,
+    expect: null,
+    tol: 1e-12,
+    note: 'seeded day bootstrap on syntheticSeries(), U pinned in T-012',
+  },
 ]
 
 export function selfTest(pins = {}) {
   return KNOWN_ANSWERS.map((k) => {
     const got = k.fn()
     const expect = k.expect ?? pins[k.id] ?? null
-    const ok = expect === null ? Number.isFinite(got) : Math.abs(got - expect) <= k.tol
+    const ok =
+      expect === null ? Number.isFinite(got) : Math.abs(got - expect) <= k.tol
     return { id: k.id, got, expect, ok, note: k.note }
   })
 }
@@ -250,20 +382,59 @@ function main(argv) {
   if (cmd === '--self-test' || argv.includes('--self-test')) {
     const rows = selfTest()
     if (argv.includes('--json')) console.log(JSON.stringify(rows, null, 1))
-    else for (const r of rows) console.log(`${r.ok ? 'ok  ' : 'FAIL'} ${r.id} got ${r.got} expect ${r.expect} (${r.note})`)
+    else
+      for (const r of rows)
+        console.log(
+          `${r.ok ? 'ok  ' : 'FAIL'} ${r.id} got ${r.got} expect ${r.expect} (${
+            r.note
+          })`
+        )
     process.exit(rows.every((r) => r.ok) ? 0 : 1)
-  } else if (cmd === 'cp') out = { L: clopperPearsonLower(num('--x'), num('--n'), num('--alpha', 0.05)) }
-  else if (cmd === 'binom') out = conditionalBinomialP({ x0: num('--x0'), n0: num('--n0'), x1: num('--x1'), n1: num('--n1'), m: num('--m', 1.05) })
-  else if (cmd === 'power') out = power({ phi: num('--phi', 1), x0: num('--x0'), preDays: num('--pre-days'), postDays: num('--post-days'), m: num('--m', 1.05) })
-  else if (cmd === 'z') out = rateRatioZ({ x0: num('--x0'), n0: num('--n0'), x1: num('--x1'), n1: num('--n1'), phi: num('--phi', 1), ratio: num('--ratio', 1.25) })
+  } else if (cmd === 'cp')
+    out = {
+      L: clopperPearsonLower(num('--x'), num('--n'), num('--alpha', 0.05)),
+    }
+  else if (cmd === 'binom')
+    out = conditionalBinomialP({
+      x0: num('--x0'),
+      n0: num('--n0'),
+      x1: num('--x1'),
+      n1: num('--n1'),
+      m: num('--m', 1.05),
+    })
+  else if (cmd === 'power')
+    out = power({
+      phi: num('--phi', 1),
+      x0: num('--x0'),
+      preDays: num('--pre-days'),
+      postDays: num('--post-days'),
+      m: num('--m', 1.05),
+    })
+  else if (cmd === 'z')
+    out = rateRatioZ({
+      x0: num('--x0'),
+      n0: num('--n0'),
+      x1: num('--x1'),
+      n1: num('--n1'),
+      phi: num('--phi', 1),
+      ratio: num('--ratio', 1.25),
+    })
   else if (cmd === 'bootstrap') {
     const series = JSON.parse(fs.readFileSync(opt('--file'), 'utf8'))
-    out = bootstrapU({ ...series, seed: num('--seed', 1), draws: num('--draws', 10000), m: num('--m', 1.05) })
+    out = bootstrapU({
+      ...series,
+      seed: num('--seed', 1),
+      draws: num('--draws', 10000),
+      m: num('--m', 1.05),
+    })
   } else {
-    console.error('usage: gate-stats.mjs --self-test | cp | binom | power | z | bootstrap (see header)')
+    console.error(
+      'usage: gate-stats.mjs --self-test | cp | binom | power | z | bootstrap (see header)'
+    )
     process.exit(2)
   }
   console.log(JSON.stringify(out))
 }
 
-if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || '')) main(process.argv.slice(2))
+if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || ''))
+  main(process.argv.slice(2))

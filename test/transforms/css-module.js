@@ -1,12 +1,17 @@
-// CSS-module transform (40 §2.1): parse the module with postcss and export its local names the way
-// css-loader does with `exportLocalsConvention: 'camelCase'` (next.config.js:75): the original name and,
-// when it differs, its camelCase form, both mapping to the original name. Unknown keys are undefined
-// (a plain object, never a proxy). It cannot see the build-time no-op behind R-001 (T-605, T-003, T-801 do).
+// CSS-module transform (40 §2.1): parse the module with postcss and export its
+// local names the way css-loader does with `exportLocalsConvention:
+// 'camelCase'` (next.config.js:75): the original name and, when it differs, its
+// camelCase form, both mapping to the original name. Unknown keys are undefined
+// (a plain object, never a proxy). It cannot see the build-time no-op behind
+// R-001 (T-605, T-003, T-801 do).
 const crypto = require('crypto')
+
 const postcss = require('postcss')
 
-// camelcase 6.2, as bundled in next/dist/compiled/css-loader (used by its camelCase convention)
-const preserveCamelCase = (string, locale) => {
+// camelcase 6.2, as bundled in next/dist/compiled/css-loader (used by its
+// camelCase convention)
+const preserveCamelCase = (input, locale) => {
+  let string = input
   let isLastCharLower = false
   let isLastCharUpper = false
   let isLastLastCharUpper = false
@@ -18,22 +23,32 @@ const preserveCamelCase = (string, locale) => {
       isLastLastCharUpper = isLastCharUpper
       isLastCharUpper = true
       i++
-    } else if (isLastCharUpper && isLastLastCharUpper && /[\p{Ll}]/u.test(character)) {
+    } else if (
+      isLastCharUpper &&
+      isLastLastCharUpper &&
+      /[\p{Ll}]/u.test(character)
+    ) {
       string = `${string.slice(0, i - 1)}-${string.slice(i - 1)}`
       isLastLastCharUpper = isLastCharUpper
       isLastCharUpper = false
       isLastCharLower = true
     } else {
-      isLastCharLower = character.toLocaleLowerCase(locale) === character && character.toLocaleUpperCase(locale) !== character
+      isLastCharLower =
+        character.toLocaleLowerCase(locale) === character &&
+        character.toLocaleUpperCase(locale) !== character
       isLastLastCharUpper = isLastCharUpper
-      isLastCharUpper = character.toLocaleUpperCase(locale) === character && character.toLocaleLowerCase(locale) !== character
+      isLastCharUpper =
+        character.toLocaleUpperCase(locale) === character &&
+        character.toLocaleLowerCase(locale) !== character
     }
   }
   return string
 }
 const postProcess = (input, locale) =>
   input
-    .replace(/[_.\- ]+([\p{Alpha}\p{N}_]|$)/gu, (_, identifier) => identifier.toLocaleUpperCase(locale))
+    .replace(/[_.\- ]+([\p{Alpha}\p{N}_]|$)/gu, (_, identifier) =>
+      identifier.toLocaleUpperCase(locale)
+    )
     .replace(/\d+([\p{Alpha}\p{N}_]|$)/gu, (m) => m.toLocaleUpperCase(locale))
 
 const camelCase = (input) => {
@@ -45,7 +60,8 @@ const camelCase = (input) => {
   return postProcess(s)
 }
 
-// local class names and keyframes of a CSS module (`:global(...)` and `:global` blocks excluded)
+// local class names and keyframes of a CSS module (`:global(...)` and `:global`
+// blocks excluded)
 const localNames = (css, from) => {
   const names = []
   const add = (n) => {
@@ -53,16 +69,27 @@ const localNames = (css, from) => {
   }
   const root = postcss.parse(css, { from })
   root.walkRules((rule) => {
-    if (rule.parent && rule.parent.type === 'atrule' && /keyframes$/i.test(rule.parent.name)) return
+    if (
+      rule.parent &&
+      rule.parent.type === 'atrule' &&
+      /keyframes$/i.test(rule.parent.name)
+    )
+      return
     for (const selector of rule.selectors) {
       // drop :global(...) groups and everything after a bare :global
-      const local = selector.replace(/:global\((?:[^()]|\([^()]*\))*\)/g, ' ').replace(/:global\b[\s\S]*$/, ' ')
-      for (const m of local.matchAll(/\.(-?[_a-zA-Z -￿][_a-zA-Z0-9 -￿-]*)/g)) add(m[1])
+      const local = selector
+        .replace(/:global\((?:[^()]|\([^()]*\))*\)/g, ' ')
+        .replace(/:global\b[\s\S]*$/, ' ')
+      for (const m of local.matchAll(
+        /\.(-?[_a-zA-Z\u00A0-\uFFFF][_a-zA-Z0-9\u00A0-\uFFFF-]*)/g
+      ))
+        add(m[1])
     }
   })
   root.walkAtRules(/keyframes$/i, (at) => {
     const name = at.params.trim()
-    if (name && !/^:global/.test(name)) add(name.replace(/^:local\((.*)\)$/, '$1'))
+    if (name && !/^:global/.test(name))
+      add(name.replace(/^:local\((.*)\)$/, '$1'))
   })
   return names
 }
@@ -79,10 +106,20 @@ const exportsFor = (css, from) => {
 
 module.exports = {
   process(sourceText, sourcePath) {
-    return { code: `module.exports = ${JSON.stringify(exportsFor(sourceText, sourcePath))};` }
+    return {
+      code: `module.exports = ${JSON.stringify(
+        exportsFor(sourceText, sourcePath)
+      )};`,
+    }
   },
   getCacheKey(sourceText, sourcePath) {
-    return crypto.createHash('sha256').update('css-module-v1\0').update(sourcePath).update('\0').update(sourceText).digest('hex')
+    return crypto
+      .createHash('sha256')
+      .update('css-module-v1\0')
+      .update(sourcePath)
+      .update('\0')
+      .update(sourceText)
+      .digest('hex')
   },
   // exported for T-012
   camelCase,

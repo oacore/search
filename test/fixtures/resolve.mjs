@@ -8,6 +8,20 @@ const require = createRequire(import.meta.url)
 const core = require('./resolve.cjs')
 
 export const FIXTURES_ROOT = path.dirname(fileURLToPath(import.meta.url))
-export const { SCHEMA, EMPTY_SHA256, keyOf, bodySha256, sha256, toBuffer, servableHeaders, decodeBody, solidPng, TILE_PNG, MAGIC, rewriteLinks } = core
-export const createResolver = (options = {}) => core.createResolver({ root: FIXTURES_ROOT, ...options })
+export const {
+  SCHEMA,
+  EMPTY_SHA256,
+  keyOf,
+  bodySha256,
+  sha256,
+  toBuffer,
+  servableHeaders,
+  decodeBody,
+  solidPng,
+  TILE_PNG,
+  MAGIC,
+  rewriteLinks,
+} = core
+export const createResolver = (options = {}) =>
+  core.createResolver({ root: FIXTURES_ROOT, ...options })
 export default createResolver

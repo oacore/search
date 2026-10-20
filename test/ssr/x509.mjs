@@ -12,7 +12,9 @@ const len = (n) => {
   return Buffer.from([0x80 | bytes.length, ...bytes])
 }
 const tlv = (tag, ...parts) => {
-  const body = Buffer.concat(parts.map((p) => (Buffer.isBuffer(p) ? p : Buffer.from(p))))
+  const body = Buffer.concat(
+    parts.map((p) => (Buffer.isBuffer(p) ? p : Buffer.from(p)))
+  )
   return Buffer.concat([Buffer.from([tag]), len(body.length), body])
 }
 const seq = (...p) => tlv(0x30, ...p)
@@ -53,26 +55,62 @@ const time = (d) => {
   // UTCTime for 1950..2049, GeneralizedTime otherwise
   const pad = (x) => String(x).padStart(2, '0')
   const y = d.getUTCFullYear()
-  const rest = `${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}Z`
-  return y < 2050 ? tlv(0x17, Buffer.from(`${String(y).slice(2)}${rest}`)) : tlv(0x18, Buffer.from(`${y}${rest}`))
+  const rest = `${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}${pad(
+    d.getUTCHours()
+  )}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}Z`
+  return y < 2050
+    ? tlv(0x17, Buffer.from(`${String(y).slice(2)}${rest}`))
+    : tlv(0x18, Buffer.from(`${y}${rest}`))
 }
-const name = (cn) => seq(set(seq(oid('2.5.4.3'), utf8(cn))), set(seq(oid('2.5.4.10'), utf8('search parity harness (test only)'))))
-const ext = (id, critical, value) => seq(oid(id), ...(critical ? [bool(true)] : []), octet(value))
+const name = (cn) =>
+  seq(
+    set(seq(oid('2.5.4.3'), utf8(cn))),
+    set(seq(oid('2.5.4.10'), utf8('search parity harness (test only)')))
+  )
+const ext = (id, critical, value) =>
+  seq(oid(id), ...(critical ? [bool(true)] : []), octet(value))
 const ECDSA_SHA256 = seq(oid('1.2.840.10045.4.3.2'))
 
 const keyId = (spki) => crypto.createHash('sha1').update(spki).digest()
 
-function build({ subject, issuer, publicKey, signingKey, serial, notBefore, notAfter, extensions }) {
+function build({
+  subject,
+  issuer,
+  publicKey,
+  signingKey,
+  serial,
+  notBefore,
+  notAfter,
+  extensions,
+}) {
   const spki = publicKey.export({ type: 'spki', format: 'der' })
-  const tbs = seq(explicit(0, intN(2)), int(serial), ECDSA_SHA256, issuer, seq(time(notBefore), time(notAfter)), subject, spki, explicit(3, seq(...extensions)))
+  const tbs = seq(
+    explicit(0, intN(2)),
+    int(serial),
+    ECDSA_SHA256,
+    issuer,
+    seq(time(notBefore), time(notAfter)),
+    subject,
+    spki,
+    explicit(3, seq(...extensions))
+  )
   const sig = crypto.sign('sha256', tbs, signingKey)
   const der = seq(tbs, ECDSA_SHA256, bitString(sig))
-  const pem = `-----BEGIN CERTIFICATE-----\n${der.toString('base64').match(/.{1,64}/g).join('\n')}\n-----END CERTIFICATE-----\n`
+  const pem = `-----BEGIN CERTIFICATE-----\n${der
+    .toString('base64')
+    .match(/.{1,64}/g)
+    .join('\n')}\n-----END CERTIFICATE-----\n`
   return { der, pem }
 }
 
-export function mintCa({ commonName = 'search parity harness test CA', days = 30, now = new Date() } = {}) {
-  const { publicKey, privateKey } = crypto.generateKeyPairSync('ec', { namedCurve: 'prime256v1' })
+export function mintCa({
+  commonName = 'search parity harness test CA',
+  days = 30,
+  now = new Date(),
+} = {}) {
+  const { publicKey, privateKey } = crypto.generateKeyPairSync('ec', {
+    namedCurve: 'prime256v1',
+  })
   const spki = publicKey.export({ type: 'spki', format: 'der' })
   const subject = name(commonName)
   const notBefore = new Date(now.getTime() - 3600 * 1000)
@@ -91,11 +129,20 @@ export function mintCa({ commonName = 'search parity harness test CA', days = 30
       ext('2.5.29.14', false, octet(keyId(spki))), // subjectKeyIdentifier
     ],
   })
-  return { ...cert, subject, privateKey, publicKey, keyId: keyId(spki), keyPem: privateKey.export({ type: 'pkcs8', format: 'pem' }) }
+  return {
+    ...cert,
+    subject,
+    privateKey,
+    publicKey,
+    keyId: keyId(spki),
+    keyPem: privateKey.export({ type: 'pkcs8', format: 'pem' }),
+  }
 }
 
 export function mintLeaf(ca, names, { days = 30, now = new Date() } = {}) {
-  const { publicKey, privateKey } = crypto.generateKeyPairSync('ec', { namedCurve: 'prime256v1' })
+  const { publicKey, privateKey } = crypto.generateKeyPairSync('ec', {
+    namedCurve: 'prime256v1',
+  })
   const spki = publicKey.export({ type: 'spki', format: 'der' })
   const san = seq(...names.map((n) => tlv(0x82, Buffer.from(n, 'ascii')))) // dNSName [2] IA5String
   const notBefore = new Date(now.getTime() - 3600 * 1000)
@@ -117,5 +164,8 @@ export function mintLeaf(ca, names, { days = 30, now = new Date() } = {}) {
       ext('2.5.29.35', false, seq(tlv(0x80, ca.keyId))), // authorityKeyIdentifier keyIdentifier [0]
     ],
   })
-  return { ...cert, keyPem: privateKey.export({ type: 'pkcs8', format: 'pem' }) }
+  return {
+    ...cert,
+    keyPem: privateKey.export({ type: 'pkcs8', format: 'pem' }),
+  }
 }
