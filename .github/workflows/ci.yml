@@ -49,6 +49,8 @@ jobs:
       - run: npm ci --no-audit --no-fund
         working-directory: e2e
       - run: npm run test:harness
+      - name: Browser targets equal the committed copy (CS-W0-10)
+        run: npx browserslist | diff - test/static/fixtures/browserslist.txt
 
   image:
     runs-on: ubuntu-24.04-arm
