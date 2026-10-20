@@ -10,7 +10,7 @@
 //     the parity build env and NODE_OPTIONS=--openssl-legacy-provider, then the Dockerfile's post-build copies.
 //
 // Usage: node scripts/build-parity.mjs [--mode host|docker] [--ref HEAD] [--variant default|nodsn|harness]
-//                                      [--force] [--json] [--key-only]
+//                                      [--install link|ci] [--suffix <tag>] [--force] [--json] [--key-only]
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
@@ -18,9 +18,18 @@ import crypto from 'node:crypto'
 import { execFileSync, spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
-export const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-export const ARTIFACT_DIR = path.resolve(process.env.ARTIFACT_DIR || path.join(REPO, '..', 'search-upgrade-artifacts'))
-const git = (...a) => execFileSync('git', ['-C', REPO, ...a], { encoding: 'utf8', maxBuffer: 1 << 28 })
+export const REPO = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '..'
+)
+export const ARTIFACT_DIR = path.resolve(
+  process.env.ARTIFACT_DIR || path.join(REPO, '..', 'search-upgrade-artifacts')
+)
+const git = (...a) =>
+  execFileSync('git', ['-C', REPO, ...a], {
+    encoding: 'utf8',
+    maxBuffer: 1 << 28,
+  })
 
 // parity build values (42 §2, 40 §2.4); nodsn = empty DSN (I-07)
 export const PARITY_ENV = {
@@ -30,49 +39,110 @@ export const PARITY_ENV = {
   GA_TRACKING_CODE: 'G-TEST000000',
   SENTRY_DSN: 'https://public@o0.ingest.sentry.io/0',
 }
-export const variantEnv = (variant) => (variant === 'nodsn' ? { ...PARITY_ENV, SENTRY_DSN: '' } : { ...PARITY_ENV })
+export const variantEnv = (variant) =>
+  variant === 'nodsn' ? { ...PARITY_ENV, SENTRY_DSN: '' } : { ...PARITY_ENV }
 
 // <PI> = -- . ':!docs' ':!test' ':!e2e' ':!scripts' ':!tools' ':!*.md' (01 §4)
-export const inRuntimeTree = (p) => !/^(docs|test|e2e|scripts|tools)\//.test(p) && !p.endsWith('.md')
+export const inRuntimeTree = (p) =>
+  !/^(docs|test|e2e|scripts|tools)\//.test(p) && !p.endsWith('.md')
 
-export function runtimeKey(ref = 'HEAD', variant = 'default', mode = 'host') {
+export const SNAPSHOT_DIR = path.join(REPO, 'test', 'fixtures', 'data-snapshot')
+export function snapshotHash() {
+  if (!fs.existsSync(SNAPSHOT_DIR)) return null
+  const files = fs
+    .readdirSync(SNAPSHOT_DIR)
+    .filter((f) => fs.statSync(path.join(SNAPSHOT_DIR, f)).isFile())
+    .sort()
+  if (!files.length) return null
+  const h = crypto.createHash('sha256')
+  for (const f of files)
+    h.update(
+      `${f}\0${crypto
+        .createHash('sha256')
+        .update(fs.readFileSync(path.join(SNAPSHOT_DIR, f)))
+        .digest('hex')}\n`
+    )
+  return h.digest('hex')
+}
+
+export function runtimeKey(
+  ref = 'HEAD',
+  variant = 'default',
+  mode = 'host',
+  install = 'link'
+) {
   const commit = git('rev-parse', `${ref}^{commit}`).trim()
   const lines = git('ls-tree', '-r', '--full-tree', commit)
     .split('\n')
     .filter(Boolean)
     .filter((l) => inRuntimeTree(l.split('\t')[1]))
-  let snapshot = null
-  try {
-    snapshot = execFileSync('git', ['-C', REPO, 'rev-parse', `${commit}:test/fixtures/data-snapshot`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim()
-  } catch {
-    snapshot = null
-  }
+  // the frozen data snapshot (42 §1): committed, or local and git-excluded (owner decision on I-11);
+  // keyed by the sha256 of its files so a regenerated snapshot is a new build
+  const snapshot = snapshotHash()
   let harnessPages = null
   if (variant === 'harness') {
     try {
-      harnessPages = execFileSync('git', ['-C', REPO, 'rev-parse', `${commit}:test/harness-pages`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim()
+      harnessPages = execFileSync(
+        'git',
+        ['-C', REPO, 'rev-parse', `${commit}:test/harness-pages`],
+        { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }
+      ).trim()
     } catch {
       harnessPages = null
     }
   }
-  const runtimeTree = crypto.createHash('sha256').update(lines.join('\n')).digest('hex')
+  const runtimeTree = crypto
+    .createHash('sha256')
+    .update(lines.join('\n'))
+    .digest('hex')
   const key = crypto
     .createHash('sha256')
-    .update(JSON.stringify({ runtimeTree, snapshot, harnessPages, variant, mode, env: variantEnv(variant), recipe: 'parity-v1' }))
+    .update(
+      JSON.stringify({
+        runtimeTree,
+        snapshot,
+        harnessPages,
+        variant,
+        mode,
+        install,
+        env: variantEnv(variant),
+        recipe: 'parity-v1',
+      })
+    )
     .digest('hex')
     .slice(0, 16)
-  return { commit, runtimeTree, snapshot, harnessPages, variant, mode, key }
+  return {
+    commit,
+    runtimeTree,
+    snapshot,
+    harnessPages,
+    variant,
+    mode,
+    install,
+    key,
+  }
 }
 
 export const node18 = () => {
   if (process.env.NODE18_BIN) return process.env.NODE18_BIN
-  const p = path.join(process.env.NVM_DIR || path.join(os.homedir(), '.nvm'), 'versions', 'node', 'v18.20.8', 'bin', 'node')
-  if (!fs.existsSync(p)) throw new Error(`Node 18.20.8 not found at ${p}; set NODE18_BIN`)
+  const p = path.join(
+    process.env.NVM_DIR || path.join(os.homedir(), '.nvm'),
+    'versions',
+    'node',
+    'v18.20.8',
+    'bin',
+    'node'
+  )
+  if (!fs.existsSync(p))
+    throw new Error(`Node 18.20.8 not found at ${p}; set NODE18_BIN`)
   return p
 }
 
 const imagesFile = path.join(ARTIFACT_DIR, 'images.json')
-export const readImages = () => (fs.existsSync(imagesFile) ? JSON.parse(fs.readFileSync(imagesFile, 'utf8')) : { builds: {} })
+export const readImages = () =>
+  fs.existsSync(imagesFile)
+    ? JSON.parse(fs.readFileSync(imagesFile, 'utf8'))
+    : { builds: {} }
 const writeImages = (data) => {
   fs.mkdirSync(ARTIFACT_DIR, { recursive: true })
   const tmp = `${imagesFile}.${process.pid}.tmp`
@@ -121,23 +191,45 @@ function linkNodeModules(dir) {
     if (e.name === '@oacore') {
       fs.mkdirSync(path.join(dst, '@oacore'))
       for (const s of fs.readdirSync(path.join(src, '@oacore'))) {
-        if (s === 'design') fs.cpSync(path.join(src, '@oacore', s), path.join(dst, '@oacore', s), { recursive: true, verbatimSymlinks: true })
-        else fs.symlinkSync(path.join(src, '@oacore', s), path.join(dst, '@oacore', s))
+        if (s === 'design')
+          fs.cpSync(
+            path.join(src, '@oacore', s),
+            path.join(dst, '@oacore', s),
+            { recursive: true, verbatimSymlinks: true }
+          )
+        else
+          fs.symlinkSync(
+            path.join(src, '@oacore', s),
+            path.join(dst, '@oacore', s)
+          )
       }
     } else if (e.name === '.bin') {
       fs.mkdirSync(path.join(dst, '.bin'))
       for (const b of fs.readdirSync(path.join(src, '.bin'))) {
         const from = path.join(src, '.bin', b)
         const st = fs.lstatSync(from)
-        if (st.isSymbolicLink()) fs.symlinkSync(fs.readlinkSync(from), path.join(dst, '.bin', b))
+        if (st.isSymbolicLink())
+          fs.symlinkSync(fs.readlinkSync(from), path.join(dst, '.bin', b))
         else fs.copyFileSync(from, path.join(dst, '.bin', b))
       }
-    } else if (e.name !== '.cache') fs.symlinkSync(path.join(src, e.name), path.join(dst, e.name))
+    } else if (e.name !== '.cache')
+      fs.symlinkSync(path.join(src, e.name), path.join(dst, e.name))
   }
 }
 
-export async function hostBuild({ ref = 'HEAD', variant = 'default', force = false, log = console.error } = {}) {
-  const k = runtimeKey(ref, variant, 'host')
+// install: 'link' = the repo node_modules linked (fast; test runs) | 'ci' = `npm ci --include=dev
+// --legacy-peer-deps` of the ref's own lock on Node 18.20.8, as the Dockerfile does (inertness proof, T-006,
+// T-014 in local mode)
+export async function hostBuild({
+  ref = 'HEAD',
+  variant = 'default',
+  force = false,
+  install = 'link',
+  suffix = '',
+  log = console.error,
+} = {}) {
+  const k = runtimeKey(ref, variant, 'host', install)
+  if (suffix) k.key = `${k.key}-${suffix}`
   const dir = path.join(ARTIFACT_DIR, 'builds', k.key)
   const meta = path.join(dir, 'build.json')
   if (!force && fs.existsSync(meta)) {
@@ -147,22 +239,79 @@ export async function hostBuild({ ref = 'HEAD', variant = 'default', force = fal
   return withBuildSlot(async () => {
     fs.rmSync(dir, { recursive: true, force: true })
     fs.mkdirSync(dir, { recursive: true })
-    const tar = spawnSync('sh', ['-c', `git -C "${REPO}" archive --format=tar ${k.commit} | tar -x -C "${dir}"`], { stdio: 'inherit' })
+    const tar = spawnSync(
+      'sh',
+      [
+        '-c',
+        `git -C "${REPO}" archive --format=tar ${k.commit} | tar -x -C "${dir}"`,
+      ],
+      { stdio: 'inherit' }
+    )
     if (tar.status !== 0) throw new Error('git archive failed')
     if (k.snapshot) {
-      const snap = path.join(REPO, 'test', 'fixtures', 'data-snapshot')
-      for (const f of fs.readdirSync(snap)) fs.copyFileSync(path.join(snap, f), path.join(dir, 'data', f))
+      // parity data = the frozen snapshot (42 §2: cp -a <snapshot>/. <ctx>/data/)
+      for (const f of fs.readdirSync(SNAPSHOT_DIR))
+        if (fs.statSync(path.join(SNAPSHOT_DIR, f)).isFile())
+          fs.copyFileSync(path.join(SNAPSHOT_DIR, f), path.join(dir, 'data', f))
     }
     if (variant === 'harness') {
       const src = path.join(dir, 'test', 'harness-pages')
-      if (!fs.existsSync(src)) throw new Error('harness variant: test/harness-pages/ is absent at this ref')
-      fs.cpSync(src, path.join(dir, 'pages', '__du-harness'), { recursive: true })
+      if (!fs.existsSync(src))
+        throw new Error(
+          'harness variant: test/harness-pages/ is absent at this ref'
+        )
+      fs.cpSync(src, path.join(dir, 'pages', '__du-harness'), {
+        recursive: true,
+      })
     }
     // the image never contains test/, e2e/, docs/ ... (.dockerignore, 42 §2)
-    for (const d of ['docs', 'test', 'e2e', 'scripts', 'tools', 'kube', '.github']) fs.rmSync(path.join(dir, d), { recursive: true, force: true })
-    linkNodeModules(dir)
+    for (const d of [
+      'docs',
+      'test',
+      'e2e',
+      'scripts',
+      'tools',
+      'kube',
+      '.github',
+    ])
+      fs.rmSync(path.join(dir, d), { recursive: true, force: true })
     const env18 = variantEnv(variant)
     const bin = node18()
+    if (install === 'ci') {
+      // Dockerfile: the ENV of :10-15 is set while npm ci runs; NODE_ENV only afterwards
+      const ciEnv = {
+        PATH: `${path.dirname(bin)}:${process.env.PATH}`,
+        HOME: process.env.HOME,
+        TMPDIR: process.env.TMPDIR || os.tmpdir(),
+        SENTRY_DSN: env18.SENTRY_DSN,
+        GA_TRACKING_CODE: env18.GA_TRACKING_CODE,
+        API_KEY: env18.API_KEY,
+        ICONS_PUBLIC_PATH: '',
+        BUILD_TARGET: 'azure',
+        APP_ENV: env18.APP_ENV,
+      }
+      const out = fs.openSync(path.join(dir, 'install.log'), 'w')
+      const r = spawnSync(
+        'npm',
+        [
+          'ci',
+          '--include=dev',
+          '--legacy-peer-deps',
+          '--no-audit',
+          '--no-fund',
+          '--prefer-offline',
+        ],
+        { cwd: dir, env: ciEnv, stdio: ['ignore', out, out] }
+      )
+      fs.closeSync(out)
+      if (r.status !== 0)
+        throw new Error(
+          `npm ci failed (exit ${r.status}, no fallback); see ${path.join(
+            dir,
+            'install.log'
+          )}`
+        )
+    } else linkNodeModules(dir)
     const env = {
       PATH: `${path.dirname(bin)}:${process.env.PATH}`,
       HOME: process.env.HOME,
@@ -179,38 +328,72 @@ export async function hostBuild({ ref = 'HEAD', variant = 'default', force = fal
       NEXT_TELEMETRY_DISABLED: '1',
     }
     const started = Date.now()
-    log(`host build ${k.key}: npm run ${env18.BUILD_SCRIPT} on Node ${execFileSync(bin, ['-v'], { encoding: 'utf8' }).trim()} in ${dir}`)
+    log(
+      `host build ${k.key}: npm run ${
+        env18.BUILD_SCRIPT
+      } on Node ${execFileSync(bin, ['-v'], {
+        encoding: 'utf8',
+      }).trim()} in ${dir}`
+    )
     // Dockerfile RUN line: npm run ${BUILD_SCRIPT} && the three public/ copies
     const cmd = `npm run ${env18.BUILD_SCRIPT} && cp public/design/icons.svg public/icons.svg && mkdir -p public/images && cp -r public/static/images/* public/images/`
     const out = fs.openSync(path.join(dir, 'build.log'), 'w')
-    const r = spawnSync('sh', ['-c', cmd], { cwd: dir, env, stdio: ['ignore', out, out] })
+    const r = spawnSync('sh', ['-c', cmd], {
+      cwd: dir,
+      env,
+      stdio: ['ignore', out, out],
+    })
     fs.closeSync(out)
-    if (r.status !== 0) throw new Error(`host build failed (exit ${r.status}); see ${path.join(dir, 'build.log')}`)
+    if (r.status !== 0)
+      throw new Error(
+        `host build failed (exit ${r.status}); see ${path.join(
+          dir,
+          'build.log'
+        )}`
+      )
     const result = {
       ...k,
       dir,
-      buildId: fs.readFileSync(path.join(dir, '.next', 'BUILD_ID'), 'utf8').trim(),
+      buildId: fs
+        .readFileSync(path.join(dir, '.next', 'BUILD_ID'), 'utf8')
+        .trim(),
       node: execFileSync(bin, ['-v'], { encoding: 'utf8' }).trim(),
-      buildEnv: { ...env18, BUILD_TARGET: 'azure', NODE_ENV: 'production', NODE_OPTIONS: '--openssl-legacy-provider' },
+      buildEnv: {
+        ...env18,
+        BUILD_TARGET: 'azure',
+        NODE_ENV: 'production',
+        NODE_OPTIONS: '--openssl-legacy-provider',
+      },
       builtAt: new Date().toISOString(),
       durationS: Math.round((Date.now() - started) / 1000),
       evidence: false,
+      install,
     }
     fs.writeFileSync(meta, `${JSON.stringify(result, null, 1)}\n`)
     const images = readImages()
     images.builds[k.key] = result
     writeImages(images)
-    log(`host build ${k.key} done in ${result.durationS}s, buildId ${result.buildId}`)
+    log(
+      `host build ${k.key} done in ${result.durationS}s, buildId ${result.buildId}`
+    )
     return result
   })
 }
 
-export async function dockerBuild({ ref = 'HEAD', variant = 'default', force = false, log = console.error } = {}) {
+export async function dockerBuild({
+  ref = 'HEAD',
+  variant = 'default',
+  force = false,
+  log = console.error,
+} = {}) {
   const k = runtimeKey(ref, variant, 'docker')
   const images = readImages()
   const prev = images.builds[k.key]
   if (!force && prev && prev.imageId) {
-    const ok = spawnSync('docker', ['image', 'inspect', prev.imageId], { stdio: 'ignore' }).status === 0
+    const ok =
+      spawnSync('docker', ['image', 'inspect', prev.imageId], {
+        stdio: 'ignore',
+      }).status === 0
     if (ok) {
       log(`reusing image ${prev.tag} ${prev.imageId}`)
       return prev
@@ -218,21 +401,47 @@ export async function dockerBuild({ ref = 'HEAD', variant = 'default', force = f
   }
   const tag = `search-parity:${k.key}`
   const mode = variant === 'harness' ? 'harness' : 'parity'
-  const args = [path.join(REPO, 'scripts', 'build-image.sh'), mode, k.commit, tag, ...(variant === 'nodsn' ? ['--variant', 'nodsn'] : [])]
-  const r = spawnSync('bash', args, { stdio: 'inherit', env: { ...process.env, ARTIFACT_DIR } })
-  if (r.status !== 0) throw new Error(`build-image.sh failed (exit ${r.status})`)
-  const imageId = execFileSync('docker', ['image', 'inspect', '--format', '{{.Id}}', tag], { encoding: 'utf8' }).trim()
-  const result = { ...k, tag, imageId, builtAt: new Date().toISOString(), evidence: true }
+  const args = [
+    path.join(REPO, 'scripts', 'build-image.sh'),
+    mode,
+    k.commit,
+    tag,
+    ...(variant === 'nodsn' ? ['--variant', 'nodsn'] : []),
+  ]
+  const r = spawnSync('bash', args, {
+    stdio: 'inherit',
+    env: { ...process.env, ARTIFACT_DIR },
+  })
+  if (r.status !== 0)
+    throw new Error(`build-image.sh failed (exit ${r.status})`)
+  const imageId = execFileSync(
+    'docker',
+    ['image', 'inspect', '--format', '{{.Id}}', tag],
+    { encoding: 'utf8' }
+  ).trim()
+  const result = {
+    ...k,
+    tag,
+    imageId,
+    builtAt: new Date().toISOString(),
+    evidence: true,
+  }
   images.builds[k.key] = result
   writeImages(images)
   return result
 }
 
-export function findBuild({ ref = 'HEAD', variant = 'default', mode = 'host' } = {}) {
-  const k = runtimeKey(ref, variant, mode)
+export function findBuild({
+  ref = 'HEAD',
+  variant = 'default',
+  mode = 'host',
+  install = 'link',
+} = {}) {
+  const k = runtimeKey(ref, variant, mode, install)
   const b = readImages().builds[k.key]
   if (!b) return null
-  if (mode === 'host' && !fs.existsSync(path.join(b.dir, '.next', 'BUILD_ID'))) return null
+  if (mode === 'host' && !fs.existsSync(path.join(b.dir, '.next', 'BUILD_ID')))
+    return null
   return b
 }
 
@@ -244,12 +453,19 @@ async function main(argv) {
   const mode = opt('--mode', process.env.E2E_MODE || 'host')
   const ref = opt('--ref', 'HEAD')
   const variant = opt('--variant', 'default')
+  const install = opt('--install', 'link')
   if (argv.includes('--key-only')) {
-    console.log(JSON.stringify(runtimeKey(ref, variant, mode)))
+    console.log(JSON.stringify(runtimeKey(ref, variant, mode, install)))
     return
   }
   const fn = mode === 'docker' ? dockerBuild : hostBuild
-  const res = await fn({ ref, variant, force: argv.includes('--force') })
+  const res = await fn({
+    ref,
+    variant,
+    install,
+    suffix: opt('--suffix', ''),
+    force: argv.includes('--force'),
+  })
   if (argv.includes('--json')) console.log(JSON.stringify(res, null, 1))
 }
 
