@@ -9,7 +9,7 @@
 //
 // CLI (`npm run fixtures:scrub-check`):
 //   node scripts/fixtures-scrub.mjs --self-test
-//   node scripts/fixtures-scrub.mjs [--root test/fixtures] [--env-file .env.fixtures] [--json]
+//   node scripts/fixtures-scrub.mjs [--root test/fixtures] [--key-file .env.fixtures] [--json]
 //                                   [--write-sums] [--sums-only] [--no-sums]
 //   Fails (exit 1) when a committed file under test/fixtures/** (except data-snapshot/, I-11) holds an e-mail
 //   pattern, `Bearer `, an Authorization header or credential field, a phone number written as `tel:`, or the
@@ -474,7 +474,7 @@ async function main() {
     console.log(`SHA256SUMS written: ${listSummedFiles(root).length} files`)
     return
   }
-  const key = readApiKey(opt('--env-file', path.join(REPO, '.env.fixtures')))
+  const key = readApiKey(opt('--key-file', path.join(REPO, '.env.fixtures')))
   const result = {
     root: rel(REPO, root) || '.',
     scanned: 0,
