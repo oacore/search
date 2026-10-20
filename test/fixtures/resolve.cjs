@@ -2,7 +2,7 @@
 // page.route and the SSR stub. CommonJS so that Jest (CJS) can load it; test/fixtures/resolve.mjs is the
 // ESM entry for the stub and Playwright.
 //
-// Fixture file: test/fixtures/api/<scenario>/<sha12>.json
+// Fixture file: test/fixtures/{api,hand}/<scenario>/<sha12>.json
 //   { schema: 1, scenario,
 //     request:  { method, url (absolute, raw query incl. `?t=undefined`), bodySha256, bodyText? },
 //     response: { status, headers: [[name, value], ...] (recorded order), body: { encoding: utf8|base64|json, data } },
@@ -111,10 +111,14 @@ const walk = (dir) =>
     ? fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(dir, e.name)) : e.name.endsWith('.json') ? [path.join(dir, e.name)] : []))
     : []
 
-const loadFixtures = (apiDir) => {
+// recorded/derived fixtures live in api/ (written by the recorder only), hand-written ones in hand/
+const FIXTURE_DIRS = ['api', 'hand']
+
+const loadFixtures = (root) => {
   const byKey = new Map()
   const problems = []
-  for (const file of walk(apiDir)) {
+  const apiDir = root
+  for (const file of FIXTURE_DIRS.flatMap((d) => walk(path.join(root, d)))) {
     let rec
     try {
       rec = JSON.parse(fs.readFileSync(file, 'utf8'))
@@ -155,8 +159,7 @@ const isJson = (headers) => headers.some(([n, v]) => String(n).toLowerCase() ===
 
 const createResolver = (options = {}) => {
   const root = options.root || process.env.FIXTURES_ROOT || path.resolve(process.cwd(), 'test', 'fixtures')
-  const apiDir = path.join(root, 'api')
-  let state = loadFixtures(apiDir)
+  let state = loadFixtures(root)
   const linkOrigin = options.linkOrigin || null
 
   const fromRecord = (rec) => {
@@ -219,7 +222,7 @@ const createResolver = (options = {}) => {
     root,
     resolve,
     reload: () => {
-      state = loadFixtures(apiDir)
+      state = loadFixtures(root)
       return state.problems
     },
     problems: () => state.problems,
@@ -228,4 +231,4 @@ const createResolver = (options = {}) => {
   }
 }
 
-module.exports = { SCHEMA, EMPTY_SHA256, keyOf, bodySha256, sha256, toBuffer, servableHeaders, decodeBody, solidPng, TILE_PNG, MAGIC, rewriteLinks, createResolver }
+module.exports = { FIXTURE_DIRS, SCHEMA, EMPTY_SHA256, keyOf, bodySha256, sha256, toBuffer, servableHeaders, decodeBody, solidPng, TILE_PNG, MAGIC, rewriteLinks, createResolver }
