@@ -25,8 +25,8 @@ export const REPO = path.resolve(
 export const ARTIFACT_DIR = path.resolve(
   process.env.ARTIFACT_DIR || path.join(REPO, '..', 'search-upgrade-artifacts')
 )
-const git = (...a) =>
-  execFileSync('git', ['-C', REPO, ...a], {
+const gitIn = (dir, ...a) =>
+  execFileSync('git', ['-C', dir, ...a], {
     encoding: 'utf8',
     maxBuffer: 1 << 28,
   })
@@ -65,12 +65,15 @@ export function snapshotHash() {
   return h.digest('hex')
 }
 
+// gitDir: the repository holding <ref> (the fault runner builds faulted trees from throwaway repositories)
 export function runtimeKey(
   ref = 'HEAD',
   variant = 'default',
   mode = 'host',
-  install = 'link'
+  install = 'link',
+  gitDir = REPO
 ) {
+  const git = (...a) => gitIn(gitDir, ...a)
   const commit = git('rev-parse', `${ref}^{commit}`).trim()
   const lines = git('ls-tree', '-r', '--full-tree', commit)
     .split('\n')
@@ -84,7 +87,7 @@ export function runtimeKey(
     try {
       harnessPages = execFileSync(
         'git',
-        ['-C', REPO, 'rev-parse', `${commit}:test/harness-pages`],
+        ['-C', gitDir, 'rev-parse', `${commit}:test/harness-pages`],
         { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }
       ).trim()
     } catch {
@@ -226,9 +229,10 @@ export async function hostBuild({
   force = false,
   install = 'link',
   suffix = '',
+  gitDir = REPO,
   log = console.error,
 } = {}) {
-  const k = runtimeKey(ref, variant, 'host', install)
+  const k = runtimeKey(ref, variant, 'host', install, gitDir)
   if (suffix) k.key = `${k.key}-${suffix}`
   const dir = path.join(ARTIFACT_DIR, 'builds', k.key)
   const meta = path.join(dir, 'build.json')
@@ -243,7 +247,7 @@ export async function hostBuild({
       'sh',
       [
         '-c',
-        `git -C "${REPO}" archive --format=tar ${k.commit} | tar -x -C "${dir}"`,
+        `git -C "${gitDir}" archive --format=tar ${k.commit} | tar -x -C "${dir}"`,
       ],
       { stdio: 'inherit' }
     )
