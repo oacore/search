@@ -885,7 +885,9 @@ async function test(argv, opt) {
   }
   if (argv.includes('--visual') && !pw.includes('--project'))
     pw.push('--project', 'visual')
-  if (record) pw.push('--project', 'record', '--update-snapshots')
+  // record mode writes the baselines of the projects that compare them (visual, chromium), never of a
+  // separate project whose snapshot names would differ
+  if (record) pw.push('--update-snapshots')
   const env = {
     ...process.env,
     ARTIFACT_DIR,
