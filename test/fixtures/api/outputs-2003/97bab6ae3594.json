@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "scenario": "outputs-2003",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/outputs/2003",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:33:07 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "acceptedDate": "",
+        "authors": [
+          { "name": "Mikko Rajavuori" },
+          { "name": "Annalisa Savaresi" },
+          { "name": "Harro van Asselt" }
+        ],
+        "contributors": [],
+        "createdDate": "2023-10-24T02:00:00+01:00",
+        "dataProvider": {
+          "id": 4786,
+          "name": "Crossref",
+          "url": "https://api.core.ac.uk/v3/data-providers/4786",
+          "logo": "https://api.core.ac.uk/data-providers/4786/logo"
+        },
+        "depositedDate": "2023-08-18T02:00:00+01:00",
+        "documentType": "",
+        "versions": [],
+        "doi": "10.1111/rego.12518",
+        "downloadUrl": "",
+        "fullText": "",
+        "id": 2003,
+        "identifiers": { "doi": "10.1111/rego.12518", "oai": null },
+        "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+        "language": null,
+        "publishedDate": null,
+        "publisher": "Wiley",
+        "references": [],
+        "sourceFulltextUrls": [],
+        "updatedDate": null,
+        "yearPublished": "2023",
+        "links": [
+          { "type": "display", "url": "https://core.ac.uk/outputs/580296804" }
+        ],
+        "abstract": "",
+        "tags": [],
+        "fulltextStatus": "disabled",
+        "subjects": [],
+        "oai": "",
+        "deleted": "ALLOWED",
+        "disabled": false,
+        "journals": [],
+        "repositories": [],
+        "repositoryDocument": {
+          "id": 580296804,
+          "depositedDate": "",
+          "publishedDate": "",
+          "updatedDate": "",
+          "acceptedDate": "",
+          "createdDate": ""
+        },
+        "urls": [],
+        "lastUpdate": "2026-04-04T09:44:15+01:00",
+        "setSpecs": [],
+        "license": "http://creativecommons.org/licenses/by/4.0/",
+        "orcids": [],
+        "sdg": []
+      }
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/outputs/580296804",
+    "patch": [{ "op": "replace", "path": "/id", "value": 2003 }],
+    "recordedAt": "2026-10-20T15:33:07.591Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

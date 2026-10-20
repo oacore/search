@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "scenario": "e10-report",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/internal/outputs/update",
+    "bodySha256": "b86b890c0cb7d2e154d47710db0615d54483833f8f000ccbdb40c1c907619dca",
+    "bodyText": "{\"outputId\":2001,\"name\":\"Test Reporter\",\"email\":\"reporter@localhost\",\"message\":\"report-ok\",\"updateOption\":\"takeDownFullText\",\"role\":\"author\"}"
+  },
+  "response": {
+    "status": 201,
+    "headers": [["content-type", "application/json"]],
+    "body": { "encoding": "json", "data": { "message": "Report accepted" } }
+  },
+  "source": {
+    "kind": "hand",
+    "from": null,
+    "patch": null,
+    "recordedAt": null,
+    "note": "canonical body for output 2001"
+  }
+}

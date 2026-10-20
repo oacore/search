@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "scenario": "e16-claim-form",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/internal/data-providers",
+    "bodySha256": "bd29d6faf8c9c305c47521cb14179a9006abfad06d1d271c996f6d5999ac53e1",
+    "bodyText": "{\"uri\":\"https://broken.example.org/\"}"
+  },
+  "response": {
+    "status": 500,
+    "headers": [["content-type", "application/json"]],
+    "body": {
+      "encoding": "json",
+      "data": { "message": "Internal Server Error" }
+    }
+  },
+  "source": { "kind": "hand", "from": null, "patch": null, "recordedAt": null }
+}

@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "scenario": "search-csv",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/search/works",
+    "bodySha256": "1dc6e4b945d381938a4290a03a7aef191e4c4c094d5ad44b417a318bbfd21ea2",
+    "bodyText": "{\"q\":\"climate\",\"accept\":\"text/csv\",\"limit\":1000}"
+  },
+  "response": {
+    "status": 400,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:47:52 GMT"],
+      ["Content-Type", "text/html; charset=UTF-8"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "message": "Your search limit is too large and not supported, \n                please use a smaller limit."
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T15:47:52.683Z",
+    "scrubbed": { "headersDropped": 4 },
+    "note": "the live API rejects limit 1000 (400 \"search limit is too large\"): \"All the results (up to 1,000)\" fails today"
+  }
+}

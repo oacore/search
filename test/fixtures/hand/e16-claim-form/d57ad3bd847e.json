@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "scenario": "e16-claim-form",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/internal/data-providers",
+    "bodySha256": "c249b7c714768d3db17ec39772892e5b9ada14abc0603c99d1d9216627786240",
+    "bodyText": "{\"uri\":\"https://duplicate-text.example.org/\"}"
+  },
+  "response": {
+    "status": 409,
+    "headers": [["content-type", "application/json"]],
+    "body": {
+      "encoding": "json",
+      "data": { "message": "Data provider already exists" }
+    }
+  },
+  "source": {
+    "kind": "hand",
+    "from": null,
+    "patch": null,
+    "recordedAt": null,
+    "note": "Q-038: a 409 whose message is not JSON makes JSON.parse throw during render"
+  }
+}

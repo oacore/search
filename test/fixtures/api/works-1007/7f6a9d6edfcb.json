@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "scenario": "works-1007",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/recommend",
+    "bodySha256": "c88cdc2817d1125fb1298e2b83c0f68a6bbbb1224eea49cf3f8bb573f39a60cb",
+    "bodyText": "{\"identifier\":\"core:1007\",\"limit\":5,\"resultType\":\"work\"}"
+  },
+  "response": {
+    "status": 404,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:32:51 GMT"],
+      ["Content-Type", "text/html; charset=UTF-8"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"],
+      ["Content-Encoding", "gzip"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "message": "HTTP/2 404  returned for \"https://upstream.invalid/recommend?oai=core%3A143022523&countLimit=5&identifier=core%3A143022523&resultType=work&\"."
+      }
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "POST https://api.core.ac.uk/v3/recommend",
+    "patch": null,
+    "recordedAt": "2026-10-20T15:32:51.943Z",
+    "scrubbed": { "internalHosts": 1, "headersDropped": 4 },
+    "note": "the live recommender upstream answered 404 for every identifier tried (11 probes, 2026-10-20); the app shows its \"unable to process\" state"
+  }
+}

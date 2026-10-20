@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "scenario": "provider-86",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/internal/data-providers/86/account",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:30:42 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["allow", "GET"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": [
+        { "id": 31, "enabled": true },
+        { "id": 36, "enabled": true },
+        { "id": 38, "enabled": true },
+        { "id": 143, "enabled": true },
+        { "id": 250, "enabled": true },
+        { "id": 360, "enabled": false },
+        { "id": 471, "enabled": true },
+        { "id": 516, "enabled": true },
+        { "id": 584, "enabled": true },
+        { "id": 838, "enabled": false },
+        { "id": 870, "enabled": true },
+        { "id": 878, "enabled": true },
+        { "id": 1075, "enabled": true },
+        { "id": 1076, "enabled": true }
+      ]
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T13:30:42.942Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

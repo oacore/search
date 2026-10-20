@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "scenario": "works-1003",
+  "request": {
+    "method": "GET",
+    "url": "https://doi.org/10.5194/asr-12-171-2015",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:38:35 GMT"],
+      ["Content-Type", "text/x-bibliography"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["vary", "Accept"],
+      ["access-control-expose-headers", "Link"],
+      [
+        "access-control-allow-headers",
+        "X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language, Accept-Ranges, Cache-Control"
+      ],
+      ["access-control-allow-origin", "*"],
+      ["server", "Jetty(9.4.40.v20210413)"],
+      ["x-rate-limit-limit", "5"],
+      ["x-rate-limit-interval", "1s"],
+      ["x-concurrency-limit", "1"],
+      ["x-api-pool", "public-single"],
+      ["permissions-policy", "interest-cohort=()"],
+      ["strict-transport-security", "max-age=31536000;"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "Kaspar, F., Helmschrot, J., Mhanda, A., Butale, M., de Clercq, W., Kanyanga, J. K., Neto, F. O. S., Kruger, S., Castro Matsheka, M., Muche, G., Hillmann, T., Josenhans, K., Posada, R., Riede, J., Seely, M., Ribeiro, C., Kenabatho, P., Vogt, R., & Jürgens, N. (2015). The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa. Advances in Science and Research, 12(1), 171–177. https://doi.org/10.5194/asr-12-171-2015\n"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T15:38:35.456Z"
+  }
+}

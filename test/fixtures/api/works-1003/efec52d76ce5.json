@@ -1,0 +1,280 @@
+{
+  "schema": 1,
+  "scenario": "works-1003",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/1003/outputs",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:33:22 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": [
+        {
+          "acceptedDate": "",
+          "authors": [
+            { "name": "Kaspar, F." },
+            { "name": "Helmschrot, J." },
+            { "name": "Mhanda, A." },
+            { "name": "Butale, M." },
+            { "name": "de Clercq, W." },
+            { "name": "Kanyanga, J. K." },
+            { "name": "Neto, F. O. S." },
+            { "name": "Kruger, S." },
+            { "name": "Castro Matsheka, M." },
+            { "name": "Muche, G." },
+            { "name": "Hillmann, T." },
+            { "name": "Josenhans, K." },
+            { "name": "Posada, R." },
+            { "name": "Riede, J." },
+            { "name": "Seely, M." },
+            { "name": "Ribeiro, C." },
+            { "name": "Kenabatho, P." },
+            { "name": "Vogt, R." },
+            { "name": "J`urgens, N." }
+          ],
+          "contributors": [],
+          "createdDate": "2015-12-31T10:59:02+00:00",
+          "dataProvider": {
+            "id": 405,
+            "name": "edoc",
+            "url": "https://api.core.ac.uk/v3/data-providers/405",
+            "logo": "https://api.core.ac.uk/data-providers/405/logo"
+          },
+          "depositedDate": "2015-11-06T00:00:00+00:00",
+          "documentType": "",
+          "versions": [{ "version": "review" }],
+          "doi": "10.5194/asr-12-171-2015",
+          "downloadUrl": "https://core.ac.uk/download/33302804.pdf",
+          "fullText": "",
+          "id": 33302804,
+          "identifiers": {
+            "doi": "10.5194/asr-12-171-2015",
+            "oai": "oai:edoc.unibas.ch:38987"
+          },
+          "title": "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa",
+          "language": { "code": "en", "name": "English" },
+          "publishedDate": "2015-01-01T00:00:00+00:00",
+          "publisher": "Copernicus-Ges.",
+          "references": [],
+          "sourceFulltextUrls": [
+            "https://edoc.unibas.ch/38987/1/asr-12-171-2015.pdf"
+          ],
+          "updatedDate": null,
+          "yearPublished": "2015",
+          "links": [
+            {
+              "type": "download",
+              "url": "https://core.ac.uk/download/33302804.pdf"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/33302804" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/33302804/medium"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/33302804/large"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/33302804" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/33302804/medium"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/33302804/large"
+            },
+            { "type": "display", "url": "https://core.ac.uk/outputs/33302804" }
+          ],
+          "abstract": "A major task of the newly established \"Southern African Science Service Centre for Climate Change and Adaptive Land Management\" (SASSCAL; www.sasscal.org) and its partners is to provide science-based environmental information and knowledge which includes the provision of consistent and reliable climate data for Southern Africa. Hence, SASSCAL, in close cooperation with the national weather authorities of Angola, Botswana, Germany and Zambia as well as partner institutions in Namibia and South Africa, supports the extension of the regional meteorological observation network and the improvement of the climate archives at national level. With the ongoing rehabilitation of existing weather stations and the new installation of fully automated weather stations (AWS), altogether 105 AWS currently provide a set of climate variables at 15, 30 and 60 min intervals respectively. These records are made available through the SASSCAL WeatherNet, an online platform providing near-real time data as well as various statistics and graphics, all in open access. This effort is complemented by the harmonization and improvement of climate data management concepts at the national weather authorities, capacity building activities and an extension of the data bases with historical climate data which are still available from different sources. These activities are performed through cooperation between regional and German institutions and will provide important information for climate service related activities",
+          "tags": ["Article", "PeerReviewed"],
+          "fulltextStatus": "enabled",
+          "subjects": ["Article", "PeerReviewed"],
+          "oai": "oai:edoc.unibas.ch:38987",
+          "deleted": "ALLOWED",
+          "disabled": false,
+          "journals": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "id": 33302804,
+            "depositedDate": "",
+            "publishedDate": "2015-01-01T00:00:00+00:00",
+            "updatedDate": "",
+            "acceptedDate": "",
+            "createdDate": ""
+          },
+          "urls": [
+            {
+              "url": "https://edoc.unibas.ch/38987/1/asr-12-171-2015.pdf",
+              "type": "fulltext"
+            }
+          ],
+          "lastUpdate": "2026-03-21T13:44:51+00:00",
+          "setSpecs": [],
+          "license": "info:eu-repo/semantics/openAccess",
+          "orcids": [],
+          "sdg": []
+        },
+        {
+          "acceptedDate": "",
+          "authors": [
+            { "name": "F. Kaspar" },
+            { "name": "J. Helmschrot" },
+            { "name": "A. Mhanda" },
+            { "name": "M. Butale" },
+            { "name": "W. de Clercq" },
+            { "name": "J. K. Kanyanga" },
+            { "name": "F. O. S. Neto" },
+            { "name": "S. Kruger" },
+            { "name": "M. Castro Matsheka" },
+            { "name": "G. Muche" },
+            { "name": "T. Hillmann" },
+            { "name": "K. Josenhans" },
+            { "name": "R. Posada" },
+            { "name": "J. Riede" },
+            { "name": "M. Seely" },
+            { "name": "C. Ribeiro" },
+            { "name": "P. Kenabatho" },
+            { "name": "R. Vogt" },
+            { "name": "N. Jürgens" }
+          ],
+          "contributors": [],
+          "createdDate": "2025-08-28T16:29:05+01:00",
+          "dataProvider": {
+            "id": 645,
+            "name": "Directory of Open Access Journals",
+            "url": "https://api.core.ac.uk/v3/data-providers/645",
+            "logo": "https://api.core.ac.uk/data-providers/645/logo"
+          },
+          "depositedDate": "2017-12-11T00:00:00+00:00",
+          "documentType": ["research article"],
+          "versions": [],
+          "doi": "10.5194/asr-12-171-2015",
+          "downloadUrl": "",
+          "fullText": "",
+          "id": 89912079,
+          "identifiers": {
+            "doi": "10.5194/asr-12-171-2015",
+            "oai": "oai:doaj.org/article:8b74ba855add4a3985bffa344b0dde5f"
+          },
+          "title": "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa",
+          "language": null,
+          "publishedDate": null,
+          "publisher": "Copernicus Publications",
+          "references": [],
+          "sourceFulltextUrls": [
+            "https://doaj.org/article/8b74ba855add4a3985bffa344b0dde5f"
+          ],
+          "updatedDate": null,
+          "yearPublished": "2015",
+          "links": [
+            { "type": "display", "url": "https://core.ac.uk/outputs/89912079" }
+          ],
+          "abstract": "A major task of the newly established \"Southern African Science Service\nCentre for Climate Change and Adaptive Land Management\" (SASSCAL;\nwww.sasscal.org) and its partners is to provide science-based\nenvironmental information and knowledge which includes the provision of\nconsistent and reliable climate data for Southern Africa. Hence, SASSCAL, in\nclose cooperation with the national weather authorities of Angola, Botswana,\nGermany and Zambia as well as partner institutions in Namibia and South\nAfrica, supports the extension of the regional meteorological observation\nnetwork and the improvement of the climate archives at national level. With\nthe ongoing rehabilitation of existing weather stations and the new\ninstallation of fully automated weather stations (AWS), altogether 105 AWS\ncurrently provide a set of climate variables at 15, 30 and 60 min intervals\nrespectively. These records are made available through the SASSCAL\nWeatherNet, an online platform providing near-real time data as well as\nvarious statistics and graphics, all in open access. This effort is\ncomplemented by the harmonization and improvement of climate data management\nconcepts at the national weather authorities, capacity building activities\nand an extension of the data bases with historical climate data which are\nstill available from different sources. These activities are performed\nthrough cooperation between regional and German institutions and will provide\nimportant information for climate service related activities",
+          "tags": ["article"],
+          "fulltextStatus": "disabled",
+          "subjects": ["article"],
+          "oai": "oai:doaj.org/article:8b74ba855add4a3985bffa344b0dde5f",
+          "deleted": "ALLOWED",
+          "disabled": false,
+          "journals": [{ "title": null, "identifiers": [] }],
+          "repositories": [],
+          "repositoryDocument": {
+            "id": 89912079,
+            "depositedDate": "",
+            "publishedDate": "",
+            "updatedDate": "",
+            "acceptedDate": "",
+            "createdDate": ""
+          },
+          "urls": [
+            {
+              "url": "https://doaj.org/article/8b74ba855add4a3985bffa344b0dde5f",
+              "type": "fulltext"
+            }
+          ],
+          "lastUpdate": "2026-03-26T02:25:45+00:00",
+          "setSpecs": [],
+          "license": "",
+          "orcids": [],
+          "sdg": []
+        },
+        {
+          "acceptedDate": "",
+          "authors": [],
+          "contributors": [],
+          "createdDate": "2021-01-26T00:00:00+00:00",
+          "dataProvider": {
+            "id": 4786,
+            "name": "Crossref",
+            "url": "https://api.core.ac.uk/v3/data-providers/4786",
+            "logo": "https://api.core.ac.uk/data-providers/4786/logo"
+          },
+          "depositedDate": "2020-01-03T03:20:38+00:00",
+          "documentType": "",
+          "versions": [],
+          "doi": "",
+          "downloadUrl": "",
+          "fullText": "",
+          "id": 284128277,
+          "identifiers": { "doi": null, "oai": null },
+          "title": "",
+          "language": null,
+          "publishedDate": null,
+          "publisher": "Copernicus GmbH",
+          "references": [],
+          "sourceFulltextUrls": [],
+          "updatedDate": null,
+          "yearPublished": "",
+          "links": [
+            { "type": "display", "url": "https://core.ac.uk/outputs/284128277" }
+          ],
+          "abstract": "",
+          "tags": [],
+          "fulltextStatus": "disabled",
+          "subjects": [],
+          "oai": "",
+          "deleted": "ALLOWED",
+          "disabled": false,
+          "journals": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "id": 284128277,
+            "depositedDate": "",
+            "publishedDate": "",
+            "updatedDate": "",
+            "acceptedDate": "",
+            "createdDate": ""
+          },
+          "urls": [],
+          "lastUpdate": "2026-03-28T11:53:17+00:00",
+          "setSpecs": [],
+          "license": "",
+          "orcids": [],
+          "sdg": []
+        }
+      ]
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/works/19828865/outputs",
+    "patch": null,
+    "recordedAt": "2026-10-20T13:33:22.509Z",
+    "scrubbed": { "fullText": 1, "headersDropped": 4 }
+  }
+}

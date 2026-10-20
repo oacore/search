@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "scenario": "members",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/internal/members",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:26:16 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["allow", "GET"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": [
+        {
+          "organisation_id": 945,
+          "billing_plan_id": 531,
+          "billing_type": "sustaining",
+          "organisation_name": "Open University (ORO)",
+          "repo_id": 86,
+          "country_code": "GB",
+          "billing_start_date": "2023-11-24 11:53:29",
+          "billing_end_date": "2023-11-24 11:53:29",
+          "description": "Activated by manual request",
+          "activated": 1
+        }
+      ]
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/internal/members?scenario=full",
+    "patch": [{ "op": "select", "path": "", "where": { "repo_id": 86 } }],
+    "recordedAt": "2026-10-20T13:26:16.801Z",
+    "note": "the member of provider 86 only (billing_type sustaining)"
+  }
+}

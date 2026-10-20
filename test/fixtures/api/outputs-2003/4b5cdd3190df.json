@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "scenario": "outputs-2003",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/data-providers/4786",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:33:08 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "id": 4786,
+        "openDoarId": 0,
+        "name": "Crossref",
+        "email": "",
+        "uri": "https://oai.crossref.org/oai/",
+        "oaiPmhUrl": "https://oai.crossref.org/oai/",
+        "homepageUrl": "https://crossref.org",
+        "source": "dit",
+        "software": "Crossref",
+        "metadataFormat": "cr_unixsd",
+        "createdDate": "2018-10-05T16:02:12+01:00",
+        "location": { "countryCode": "", "latitude": 0, "longitude": 0 },
+        "logo": null,
+        "type": "REPOSITORY",
+        "stats": null,
+        "rorId": "https://ror.org/02twcfp32",
+        "institutionName": "Crossref",
+        "aliases": [],
+        "otherIdentifiers": []
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T15:33:08.834Z",
+    "scrubbed": { "contactFields": 1, "headersDropped": 4 }
+  }
+}

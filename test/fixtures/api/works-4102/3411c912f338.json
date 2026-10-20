@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "works-4102",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/4102?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 410,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:29:58 GMT"],
+      ["Content-Type", "text/plain; charset=UTF-8"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"],
+      ["Content-Encoding", "gzip"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "Work with identifier 4102 has been disabled."
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/works/4040?t=undefined",
+    "patch": null,
+    "recordedAt": "2026-10-20T13:29:58.176Z",
+    "overrides": ["status", "setHeaders", "body"],
+    "note": "no live 410 body was reachable in a bounded probe (VF-03): derived from the live 404 answer"
+  }
+}

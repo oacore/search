@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "scenario": "works-1003",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/1003?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:32:56 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "acceptedDate": "",
+        "arxivId": null,
+        "authors": [
+          { "name": "F. Kaspar" },
+          { "name": "M. Butale" },
+          { "name": "de Clercq, W." },
+          { "name": "T. Hillmann" },
+          { "name": "Kruger, S." },
+          { "name": "Castro Matsheka, M." },
+          { "name": "Helmschrot, J." },
+          { "name": "W. de Clercq" },
+          { "name": "Seely, M." },
+          { "name": "R. Posada" },
+          { "name": "Hillmann, T." },
+          { "name": "F. O. S. Neto" },
+          { "name": "Kaspar, F." },
+          { "name": "J. K. Kanyanga" },
+          { "name": "M. Seely" },
+          { "name": "Mhanda, A." },
+          { "name": "Josenhans, K." },
+          { "name": "J`urgens, N." },
+          { "name": "Ribeiro, C." },
+          { "name": "C. Ribeiro" },
+          { "name": "Neto, F. O. S." },
+          { "name": "G. Muche" },
+          { "name": "Riede, J." },
+          { "name": "R. Vogt" },
+          { "name": "Vogt, R." },
+          { "name": "Butale, M." },
+          { "name": "J. Helmschrot" },
+          { "name": "Posada, R." },
+          { "name": "S. Kruger" },
+          { "name": "Muche, G." }
+        ],
+        "citationCount": 0,
+        "contributors": [],
+        "outputs": [
+          "https://api.core.ac.uk/v3/outputs/33302804",
+          "https://api.core.ac.uk/v3/outputs/89912079",
+          "https://api.core.ac.uk/v3/outputs/284128277"
+        ],
+        "createdDate": "2015-12-31T10:59:02+00:00",
+        "dataProviders": [
+          {
+            "id": 4786,
+            "name": "Crossref",
+            "url": "https://api.core.ac.uk/v3/data-providers/4786",
+            "logo": "https://api.core.ac.uk/data-providers/4786/logo"
+          },
+          {
+            "id": 405,
+            "name": "edoc",
+            "url": "https://api.core.ac.uk/v3/data-providers/405",
+            "logo": "https://api.core.ac.uk/data-providers/405/logo"
+          },
+          {
+            "id": 645,
+            "name": "Directory of Open Access Journals",
+            "url": "https://api.core.ac.uk/v3/data-providers/645",
+            "logo": "https://api.core.ac.uk/data-providers/645/logo"
+          }
+        ],
+        "depositedDate": "2015-11-06T00:00:00+00:00",
+        "abstract": "A major task of the newly established \"Southern African Science Service Centre for Climate Change and Adaptive Land Management\" (SASSCAL; www.sasscal.org) and its partners is to provide science-based environmental information and knowledge which includes the provision of consistent and reliable climate data for Southern Africa. Hence, SASSCAL, in close cooperation with the national weather authorities of Angola, Botswana, Germany and Zambia as well as partner institutions in Namibia and South Africa, supports the extension of the regional meteorological observation network and the improvement of the climate archives at national level. With the ongoing rehabilitation of existing weather stations and the new installation of fully automated weather stations (AWS), altogether 105 AWS currently provide a set of climate variables at 15, 30 and 60 min intervals respectively. These records are made available through the SASSCAL WeatherNet, an online platform providing near-real time data as well as various statistics and graphics, all in open access. This effort is complemented by the harmonization and improvement of climate data management concepts at the national weather authorities, capacity building activities and an extension of the data bases with historical climate data which are still available from different sources. These activities are performed through cooperation between regional and German institutions and will provide important information for climate service related activities",
+        "documentType": null,
+        "doi": "10.5194/asr-12-171-2015",
+        "downloadUrl": "https://core.ac.uk/download/33302804.pdf",
+        "fieldOfStudy": "Article",
+        "fullText": "",
+        "id": 1003,
+        "identifiers": [
+          { "identifier": "33302804", "type": "core_id" },
+          { "identifier": "10.5194/asr-12-171-2015", "type": "doi" },
+          { "identifier": "oai:edoc.unibas.ch:38987", "type": "oai_id" },
+          { "identifier": "89912079", "type": "core_id" },
+          {
+            "identifier": "oai:doaj.org/article:8b74ba855add4a3985bffa344b0dde5f",
+            "type": "oai_id"
+          },
+          { "identifier": "284128277", "type": "core_id" },
+          { "identifier": "oai:edoc.unibas.ch:38987", "type": "oai" },
+          {
+            "identifier": "oai:doaj.org/article:8b74ba855add4a3985bffa344b0dde5f",
+            "type": "oai"
+          }
+        ],
+        "title": "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa",
+        "language": { "code": "en", "name": "English" },
+        "magId": null,
+        "oaiIds": [
+          "oai:edoc.unibas.ch:38987",
+          "oai:doaj.org/article:8b74ba855add4a3985bffa344b0dde5f"
+        ],
+        "publishedDate": "2015-01-01T00:00:00+00:00",
+        "publisher": "Copernicus-Ges.",
+        "pubmedId": null,
+        "references": [
+          {
+            "id": "19708831",
+            "title": "176 F. Kaspar et al.: The SASSCAL contribution to climate observation in",
+            "authors": [],
+            "date": "2015",
+            "doi": null,
+            "raw": "www.adv-sci-res.net/12/171/2015/ Adv. Sci. Res., 12, 171–177, 2015 176 F. Kaspar et al.: The SASSCAL contribution to climate observation in Southern Africa Becker, A., Finger, P., Meyer-Christoffer, A., Rudolf, B., Schamm, K., Schneider, U., and Ziese, M.: A description of the global land-surface precipitation data products of the Global Precipitation Climatology Centre with sample applications including centennial (trend) analysis from 1901–present, Earth Syst."
+          },
+          {
+            "id": "19708832",
+            "title": "Climate Data Management Systems: status of implementation in developing countries,",
+            "authors": [],
+            "date": "2011",
+            "doi": null,
+            "raw": "Stuber, D., Mhanda, A., and Lefebvre, C.: Climate Data Management Systems: status of implementation in developing countries, Clim. Res., 47, 13–20, doi:10.3354/cr00961, 2011."
+          },
+          {
+            "id": "19708833",
+            "title": "Data rescue of national and international meteorological observations at Deutscher Wetterdienst,",
+            "authors": [],
+            "date": "2015",
+            "doi": null,
+            "raw": "Kaspar, F., Tinz, B., Mächel, H., and Gates, L.: Data rescue of national and international meteorological observations at Deutscher Wetterdienst, Adv. Sci. Res., 12, 57–61, doi:10.5194/asr-12-57-2015, 2015."
+          },
+          {
+            "id": "19708834",
+            "title": "Guidelines on Climate Data Rescue, World Meteorological Organization,",
+            "authors": [],
+            "date": "2004",
+            "doi": null,
+            "raw": "Tan, L. S., Burto, S., Crouthamel, R., van Engelen, A., Hutchinson, R., Nicodemus, L., Peterson, T. C., and Rahimzadeh, F.: Guidelines on Climate Data Rescue, World Meteorological Organization, WMO-TD No. 1210, 2004."
+          },
+          {
+            "id": "19708835",
+            "title": "Impacts, Adaptation, and Vulnerability. Contribution of Working Group II to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change,",
+            "authors": [],
+            "date": "2014",
+            "doi": null,
+            "raw": "IPCC: Climate Change 2014: Impacts, Adaptation, and Vulnerability. Contribution of Working Group II to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change, Cambridge University Press, Cambridge, UK and New York, NY, USA, 2014."
+          },
+          {
+            "id": "19708836",
+            "title": "Integrated SASSCAL research to assess and secure current and future water resources",
+            "authors": [],
+            "date": "2015",
+            "doi": null,
+            "raw": "Helmschrot, J. and Jürgens, N.: Integrated SASSCAL research to assess and secure current and future water resources in Southern Africa. Hydrological Sciences and Water Security: Past, Present and Future, Proc. IAHS, 366, 168–169, doi:10.5194/piahs-366-168-2015, 2015."
+          },
+          {
+            "id": "19708837",
+            "title": "World Meteorological Organization (WMO): Annex to the Implementation Plan of the Global Framework for Climate Services – Capacity Development,",
+            "authors": [],
+            "date": "2014",
+            "doi": null,
+            "raw": "World Meteorological Organization (WMO): Annex to the Implementation Plan of the Global Framework for Climate Services – Capacity Development, Geneva, Switzerland, 2014a."
+          },
+          {
+            "id": "19708838",
+            "title": "World Meteorological Organization (WMO): Annex to the Implementation Plan of the Global Framework for Climate Services – Observing and Monitoring Component,",
+            "authors": [],
+            "date": "2014",
+            "doi": null,
+            "raw": "World Meteorological Organization (WMO): Annex to the Implementation Plan of the Global Framework for Climate Services – Observing and Monitoring Component, Geneva, Switzerland, 2014b."
+          }
+        ],
+        "sourceFulltextUrls": [
+          "https://core.ac.uk/download/33302804.pdf",
+          "http://www.adv-sci-res.net/12/171/2015/asr-12-171-2015.pdf"
+        ],
+        "updatedDate": "",
+        "yearPublished": 2015,
+        "journals": [{ "title": null, "identifiers": [] }],
+        "links": [
+          {
+            "type": "download",
+            "url": "https://core.ac.uk/download/33302804.pdf"
+          },
+          { "type": "reader", "url": "https://core.ac.uk/reader/33302804" },
+          {
+            "type": "thumbnail_m",
+            "url": "https://core.ac.uk/image/33302804/large"
+          },
+          {
+            "type": "thumbnail_l",
+            "url": "https://core.ac.uk/image/33302804/large"
+          },
+          { "type": "display", "url": "https://core.ac.uk/works/19828865" }
+        ]
+      }
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/works/19828865?t=undefined",
+    "patch": [
+      { "op": "replace", "path": "/id", "value": 1003 },
+      {
+        "op": "select",
+        "path": "/authors",
+        "indexes": [
+          0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+          20, 21, 22, 23, 24, 25, 26, 27, 28, 29
+        ]
+      }
+    ],
+    "recordedAt": "2026-10-20T15:32:56.885Z",
+    "scrubbed": { "fullText": 1, "headersDropped": 4 }
+  }
+}

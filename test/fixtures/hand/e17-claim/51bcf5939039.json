@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "scenario": "e17-claim",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/internal/data-providers/86/claim",
+    "bodySha256": "6cdb6e364132a1dbf8f13e55143f2517ea125565aebcd1ea479a494e7988b1bf",
+    "bodyText": "{\"name\":\"Test Claimant\",\"email\":\"claimant@localhost\",\"rationale\":\"claim-fail\",\"repositoryHasAccount\":true}"
+  },
+  "response": {
+    "status": 500,
+    "headers": [["content-type", "application/json"]],
+    "body": {
+      "encoding": "json",
+      "data": { "message": "Internal Server Error" }
+    }
+  },
+  "source": { "kind": "hand", "from": null, "patch": null, "recordedAt": null }
+}

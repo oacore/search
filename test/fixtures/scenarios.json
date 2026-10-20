@@ -1,0 +1,1743 @@
+{
+  "schema": 1,
+  "generatedFrom": "test/fixtures/record-plan.json",
+  "note": "Resolver key = sha256(\"METHOD url bodySha256\")[0..12]; Authorization is never stored or matched. Routes are the page paths that request the fixtures.",
+  "names": {
+    "Works 1001": "works-1001",
+    "Works 1002": "works-1002",
+    "Works 1003": "works-1003",
+    "Works 1004": "works-1004",
+    "Works 1005": "works-1005",
+    "Works 4100": "works-4100",
+    "Works 4040": "works-4040",
+    "Works 5000": "works-5000",
+    "W-410-json": "works-4101",
+    "W-410-text": "works-4102",
+    "W-emptydate": "works-6948813",
+    "W-nodp": "works-4200",
+    "Outputs 2001": "outputs-2001",
+    "Outputs 2002": "outputs-2002",
+    "Outputs 2003": "outputs-2003",
+    "Outputs 2004": "outputs-2004",
+    "O-yearstring": "outputs-2101",
+    "O-nofulltext": ["outputs-2102", "outputs-2103"],
+    "Search climate": "search-climate",
+    "Search zzzzqqq": "search-zzzzqqq",
+    "Search x": "search-x",
+    "Provider 86": "provider-86",
+    "Provider 4835": "provider-4835",
+    "Provider 8": "provider-8",
+    "Provider 503": "provider-503",
+    "Provider 999999999": "provider-999999999",
+    "Q-074a": "q074a",
+    "Q-074b": "q074b",
+    "Q-074c": "q074c",
+    "Q-074d": "q074d",
+    "Q-074e": "q074e",
+    "Works 1007": "works-1007",
+    "Outputs 2006": "outputs-2006"
+  },
+  "picks": {
+    "dataProvidersQueries": {
+      "note": "terms for /data-providers/?q= over the data snapshot (provider map), matching name, normalised name, homepage, institution, aliases and ROR id like store/data-providers.js",
+      "disjoint": [
+        { "q": "aberystwyth", "ids": [4835] },
+        { "q": "birkbeck", "ids": [24390, 8] }
+      ],
+      "withTrProvider": {
+        "q": "eylul",
+        "ids": [3354, 1343, 22303, 22202],
+        "trIds": [3354, 1343, 22303],
+        "note": "results show the country of TR providers (R-031, V14); 289 TR providers exist"
+      }
+    },
+    "claimRow4": {
+      "id": 3354,
+      "name": "9 Eylül University",
+      "countryCode": "TR",
+      "inMembers": false,
+      "inMap": true
+    },
+    "claimRows": {
+      "1": {
+        "id": 86,
+        "e18": "recorded: provider-86 /account answer, 14 accounts",
+        "source": "fixture provider-86"
+      },
+      "2": {
+        "id": 4835,
+        "e18": "[] by override (recorded answer lists 3 accounts); billing \"starting\" keeps the \"Access Repository Dashboard\" text without accounts",
+        "source": "override of provider-4835"
+      },
+      "3": {
+        "id": 86,
+        "e18": "[] by override",
+        "source": "override of provider-86"
+      },
+      "4": {
+        "id": 3354,
+        "name": "9 Eylül University",
+        "e18": "200 [] derived from the recorded 404 answer of the live API (its data member); the live answer is 404 {message, data: []} and the app swallows it",
+        "source": "fixture provider-3354",
+        "note": "non-member provider of the map (not in data/.members.json), country TR"
+      },
+      "5": {
+        "id": 86,
+        "e18": "401 or 500 by override",
+        "source": "override of provider-86"
+      },
+      "note": "Claim rows of 41 §2.6 (V36, T-412, T-734, Q-087). Rows 2, 3 and 5 reuse a provider whose recorded /account answer differs from the row: the test overrides E18 (stub rule { urlPrefix, fail: { status, body, contentType } } or page.route / MSW) instead of a second fixture, because a fixture is keyed by method + URL + body."
+    },
+    "dois": {
+      "d1001": "10.1111/rego.12518",
+      "d1002": "10.7910/dvn/hcydpq",
+      "d1003": "10.5194/asr-12-171-2015",
+      "d2001": "10.1186/1756-0500-5-503"
+    }
+  },
+  "notes": [
+    "E8 (similar works): every page scenario answers 200 with a derived list (success shape assumed equal to the search results for works and to the E5 output objects for outputs), because the live recommender upstream answered 404 for every identifier tried (11 probes on 2026-10-20) and a 404 makes the browser log a resource error on every works and outputs page. The real 404 recordings are kept in works-1007 and outputs-2006 (the \"unable to process\" state, V12).",
+    "E9 (doi.org citations): the app sends two requests per DOI that differ only in the Accept header (apa, bibtex). The resolver keys on method, URL and body, so both map to one fixture holding the apa answer; the bibtex answers are kept in the raw recordings only.",
+    "E19 formap is a subset (50 of the 15,803 rows); the Jest and parity builds read data/ or the data snapshot, not this answer.",
+    "Mutating calls (E10, E16, E17) are hand fixtures with canonical request bodies listed in each file (test data only, no e-mail address: the scrub check rejects the pattern). A test that types other values answers through a handler, rule or its own `kind: \"hand\"` entry in test/fixtures/requests/<pkg-id>.json.",
+    "E21/E22 logos: the live endpoint answers a PNG for a provider id; scenario logos holds the live answer for provider 86 and copies of it for the other member providers that appear on the recorded pages (and the live 404 for .../undefined/logo). Map tiles and core.ac.uk/image PNGs and the empty gtag script come from the resolver rules.",
+    "The members fixture at the canonical URL is the one-eligible-member list (provider 86); the full list is served at ?scenario=full for T-113 only. It supersedes the harness calibration fixture hand/harness-t725/c0ed569f870d.json (same key, I-29): the resolver reads api/ first and reports one conflicting-fixtures problem until the harness removes the old file.",
+    "No live 410 body was reachable (works 1-8, outputs 1-12, 18 provider ids and three disabled-flag searches all answered 200/404/200-empty): works-4100/4101/4102 and outputs-4100 are derived from the live 404 answer with status 410 and three body types (VF-03).",
+    "Provider answers are scrubbed: the `email` contact field is blank; nothing else of a provider object is personal data."
+  ],
+  "scenarios": {
+    "search-climate": {
+      "description": "Search q=climate (>100 hits): pages 1-5, page 1000, recency sort, a facet toggle, a year filter, a refined q containing climate (Q-092), with the E2 body of each state; Clear all = the base E2 twice (Q-092)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "fixtures": [
+        {
+          "id": "search-climate.e1.p1",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "32cc9926a567f20017daac2400b213de8cc15707788191a5c0300dd8c00c95a3",
+          "bodyText": "{\"q\":\"climate\",\"offset\":0,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "d4ff6fa34cfd",
+          "file": "api/search-climate/d4ff6fa34cfd.json"
+        },
+        {
+          "id": "search-climate.e1.p2",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "89227bf21190fe6eed21a7888b0411a93475ceaa0a58736480f4016c7f8e24e1",
+          "bodyText": "{\"q\":\"climate\",\"offset\":10,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "3a42dfe8e101",
+          "file": "api/search-climate/3a42dfe8e101.json"
+        },
+        {
+          "id": "search-climate.e1.p3",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "d95d8b3ae76e1af650b63a86ff3e85a9300c5b044708984df17ba0ee0bb679d1",
+          "bodyText": "{\"q\":\"climate\",\"offset\":20,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "e9866be692a3",
+          "file": "api/search-climate/e9866be692a3.json"
+        },
+        {
+          "id": "search-climate.e1.p4",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "720df000b9fe45816990e7a4b9e78d43ec8f015727c5adf17936a748ecfe797a",
+          "bodyText": "{\"q\":\"climate\",\"offset\":30,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "eb1beb5801d4",
+          "file": "api/search-climate/eb1beb5801d4.json"
+        },
+        {
+          "id": "search-climate.e1.p5",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "27769e752356c52d6c7f6278f6f12ba39233d5bd762e4c9f2e0a9c4df5226a17",
+          "bodyText": "{\"q\":\"climate\",\"offset\":40,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "a927e4222000",
+          "file": "api/search-climate/a927e4222000.json"
+        },
+        {
+          "id": "search-climate.e1.p1000",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "9d72730064f449e3e7c18004996161ff36114c20a04a8c4fb0ee8384f4b2fbfb",
+          "bodyText": "{\"q\":\"climate\",\"offset\":9990,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "5827273d3fb8",
+          "file": "api/search-climate/5827273d3fb8.json"
+        },
+        {
+          "id": "search-climate.e1.recency",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "01abfffea87b6425e81143ef59a2ba9588742f3f898616af9fbf1d2a2415c29c",
+          "bodyText": "{\"q\":\"climate\",\"offset\":0,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"recency\"}",
+          "key": "182b5da66ecc",
+          "file": "api/search-climate/182b5da66ecc.json"
+        },
+        {
+          "id": "search-climate.e1.facet",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "396c77ff37f31f50f4aa494d8429f6cce2238d24ac36157d22890f98cc2237e8",
+          "bodyText": "{\"q\":\"climate AND documentType:\\\"thesis\\\"\",\"offset\":0,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "8dc461aedf95",
+          "file": "api/search-climate/8dc461aedf95.json"
+        },
+        {
+          "id": "search-climate.e1.year",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "dc3d8183adcb456535a41f589afd11446c470c041da745af7b16074fdfb00395",
+          "bodyText": "{\"q\":\"climate AND (yearPublished>=2014 AND yearPublished<=2020)\",\"offset\":0,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "e17f4183084e",
+          "file": "api/search-climate/e17f4183084e.json"
+        },
+        {
+          "id": "search-climate.e1.refined",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "c89d872740c79b7efe0aa1a515519b4b46c23187282972153299bf2def99ac2b",
+          "bodyText": "{\"q\":\"climate change\",\"offset\":0,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "b8b53fd70415",
+          "file": "api/search-climate/b8b53fd70415.json"
+        },
+        {
+          "id": "search-climate.e2.base",
+          "endpoint": "E2",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+          "bodySha256": "adb8dc7603c4c60d1566a8ba547f67c833e85dc376799ff8c4d18403af99042f",
+          "bodyText": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate\"}",
+          "key": "1e5986956e67",
+          "file": "api/search-climate/1e5986956e67.json"
+        },
+        {
+          "id": "search-climate.e2.facet",
+          "endpoint": "E2",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+          "bodySha256": "7333abe2282fb5a1412c6cfdcc3a764c0409fc0295ef1fe1b1cc1344cd2a2b99",
+          "bodyText": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate AND documentType:\\\"thesis\\\"\"}",
+          "key": "a2d92bf681b0",
+          "file": "api/search-climate/a2d92bf681b0.json"
+        },
+        {
+          "id": "search-climate.e2.year",
+          "endpoint": "E2",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+          "bodySha256": "61c15bad7c5a570b1bf94eb9466706ccaff1b3d8d69ac6c9101d52d71e5ca5cb",
+          "bodyText": "{\"aggregations\":[\"fieldsOfStudy\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate AND (yearPublished>=2014 AND yearPublished<=2020)\"}",
+          "key": "2ba47e54331f",
+          "file": "api/search-climate/2ba47e54331f.json"
+        },
+        {
+          "id": "search-climate.e2.refined",
+          "endpoint": "E2",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+          "bodySha256": "5a0a0e0fa5bf4b2f91c2b7bb47b676db30b178bd1927c37c04aa4b1ab519108a",
+          "bodyText": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate change\"}",
+          "key": "18f01f91fcb7",
+          "file": "api/search-climate/18f01f91fcb7.json"
+        }
+      ]
+    },
+    "search-zzzzqqq": {
+      "description": "Search q=zzzzqqq: 0 results (QueryError), with its E2",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "fixtures": [
+        {
+          "id": "search-zzzzqqq.e1",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "bf2455d0e86c178c169d79ff8240f43b25573900798eff50b3cd826c60721e39",
+          "bodyText": "{\"q\":\"zzzzqqq\",\"offset\":0,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "1b2f00f1bb00",
+          "file": "api/search-zzzzqqq/1b2f00f1bb00.json"
+        },
+        {
+          "id": "search-zzzzqqq.e2",
+          "endpoint": "E2",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+          "bodySha256": "7ba04c7e3e0ed70a7808e81f177584e27a134abc868d2361e4a31b087a9a3079",
+          "bodyText": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"zzzzqqq\"}",
+          "key": "6f95d6b92800",
+          "file": "api/search-zzzzqqq/6f95d6b92800.json"
+        }
+      ]
+    },
+    "search-x-page0": {
+      "description": "/search/?q=x&page=0 (T-601): offset -1 reaches the API; page=abc and page=1001 make no E1 call",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "fixtures": [
+        {
+          "id": "search-x-page0.e1",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "c94e2b6806efbc6469097bfe4ed8c3387579b5e99bdb4105708f14dcf294ea5a",
+          "bodyText": "{\"q\":\"x\",\"offset\":-1,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "bc86b9e7e6eb",
+          "file": "api/search-x-page0/bc86b9e7e6eb.json"
+        }
+      ]
+    },
+    "search-csv": {
+      "description": "E3 CSV download of q=climate (browser): the modal offers limit 10 (current page, the default), 100 (top 100) and 1000 (store/search.js, download-results.jsx)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "fixtures": [
+        {
+          "id": "search-csv.e3",
+          "endpoint": "E3",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works",
+          "bodySha256": "aecaf401174f5a72302bd0bc119d0c8a4ef15fcd6f68041b0db4b1e40cbdf92a",
+          "bodyText": "{\"q\":\"climate\",\"accept\":\"text/csv\",\"limit\":10}",
+          "key": "9f90a69d6221",
+          "file": "api/search-csv/9f90a69d6221.json"
+        },
+        {
+          "id": "search-csv.e3.100",
+          "endpoint": "E3",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works",
+          "bodySha256": "24d2241d567351be95842dd35c384a1fe1088b9de5a628909306f79be27171eb",
+          "bodyText": "{\"q\":\"climate\",\"accept\":\"text/csv\",\"limit\":100}",
+          "key": "8f98b9f64c1d",
+          "file": "api/search-csv/8f98b9f64c1d.json"
+        },
+        {
+          "id": "search-csv.e3.1000",
+          "endpoint": "E3",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works",
+          "bodySha256": "1dc6e4b945d381938a4290a03a7aef191e4c4c094d5ad44b417a318bbfd21ea2",
+          "bodyText": "{\"q\":\"climate\",\"accept\":\"text/csv\",\"limit\":1000}",
+          "key": "1004a7c51c7d",
+          "file": "api/search-csv/1004a7c51c7d.json"
+        }
+      ]
+    },
+    "members": {
+      "description": "E15 /members: one eligible member (billing_type not starting, organisation without test/demo) for every page test at the canonical URL; the full list (scrubbed) at the same URL with ?scenario=full for T-113 only",
+      "licence": "Public member list of the CORE API (internal/members); organisation names and plan types only, no contact fields",
+      "fixtures": [
+        {
+          "id": "members.full",
+          "endpoint": "E15",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internal/members?scenario=full",
+          "key": "fad4a58caaea",
+          "file": "api/members/fad4a58caaea.json"
+        },
+        {
+          "id": "members.one",
+          "endpoint": "E15",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internal/members",
+          "key": "c0ed569f870d",
+          "file": "api/members/c0ed569f870d.json"
+        }
+      ]
+    },
+    "e19-client-nav": {
+      "description": "E19: the three internal GETs a client navigation to a page without getServerSideProps makes in the browser (Q-011); members shares the E15 fixture; formap is a subset of the recorded list",
+      "licence": "Public provider statistics and provider map of the CORE API (internal/*); contact e-mails blanked",
+      "fixtures": [
+        {
+          "id": "e19.statistics",
+          "endpoint": "E19",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internal/statistics",
+          "key": "dbfd2bf3ac12",
+          "file": "api/e19-client-nav/dbfd2bf3ac12.json"
+        },
+        {
+          "id": "e19.formap",
+          "endpoint": "E19",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internal/repositories/formap",
+          "key": "2ec925d7f24b",
+          "file": "api/e19-client-nav/2ec925d7f24b.json"
+        }
+      ]
+    },
+    "works-1001": {
+      "description": "Work 1001: full - 6 authors, DOI, abstract, PDF, 3 outputs that all carry a DOI (Q-074)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "realId": 143022523,
+      "route": "/works/1001/",
+      "fixtures": [
+        {
+          "id": "works-1001.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1001?t=undefined",
+          "key": "8977e392b013",
+          "file": "api/works-1001/8977e392b013.json"
+        },
+        {
+          "id": "works-1001.e5",
+          "endpoint": "E5",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1001/outputs",
+          "key": "db091460e8ac",
+          "file": "api/works-1001/db091460e8ac.json"
+        },
+        {
+          "id": "works-1001.e4.t-odd",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1001?t=a&b=c%20d",
+          "key": "df109af1ccd4",
+          "file": "api/works-1001/df109af1ccd4.json"
+        },
+        {
+          "id": "works-1001.e9.apa",
+          "endpoint": "E9",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://doi.org/10.1111/rego.12518",
+          "key": "b78370a51f42",
+          "file": "api/works-1001/b78370a51f42.json"
+        },
+        {
+          "id": "works-1001.e9.bibtex",
+          "endpoint": "E9",
+          "kind": "same-key",
+          "method": "GET",
+          "url": "https://doi.org/10.1111/rego.12518",
+          "key": "b78370a51f42",
+          "file": "api/works-1001/b78370a51f42.json"
+        },
+        {
+          "id": "works-1001.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "4665bbf883eb4af094240f11a4510f59341730e367a68b9f2ffab2548c3db04a",
+          "bodyText": "{\"identifier\":\"core:1001\",\"limit\":5,\"resultType\":\"work\"}",
+          "key": "56e63b258afb",
+          "file": "api/works-1001/56e63b258afb.json"
+        }
+      ]
+    },
+    "works-1002": {
+      "description": "Work 1002: minimal - 1 author, no PDF, empty publishedDate and null yearPublished, one output",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "realId": 169849048,
+      "route": "/works/1002/",
+      "fixtures": [
+        {
+          "id": "works-1002.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1002?t=undefined",
+          "key": "410122affd05",
+          "file": "api/works-1002/410122affd05.json"
+        },
+        {
+          "id": "works-1002.e5",
+          "endpoint": "E5",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1002/outputs",
+          "key": "c376e5390c8b",
+          "file": "api/works-1002/c376e5390c8b.json"
+        },
+        {
+          "id": "works-1002.e9.apa",
+          "endpoint": "E9",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://doi.org/10.7910/dvn/hcydpq",
+          "key": "1a66cbb89a64",
+          "file": "api/works-1002/1a66cbb89a64.json"
+        },
+        {
+          "id": "works-1002.e9.bibtex",
+          "endpoint": "E9",
+          "kind": "same-key",
+          "method": "GET",
+          "url": "https://doi.org/10.7910/dvn/hcydpq",
+          "key": "1a66cbb89a64",
+          "file": "api/works-1002/1a66cbb89a64.json"
+        },
+        {
+          "id": "works-1002.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "c6d05b1f3de6ff01169d00975dab0582bed9d18753b742515c615046db9d873e",
+          "bodyText": "{\"identifier\":\"core:1002\",\"limit\":5,\"resultType\":\"work\"}",
+          "key": "0fa3164a3cac",
+          "file": "api/works-1002/0fa3164a3cac.json"
+        }
+      ]
+    },
+    "works-1003": {
+      "description": "Work 1003: 30 authors (first 30 of the 38 of the record), 3 outputs",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "realId": 19828865,
+      "route": "/works/1003/",
+      "fixtures": [
+        {
+          "id": "works-1003.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1003?t=undefined",
+          "key": "de81798b353b",
+          "file": "api/works-1003/de81798b353b.json"
+        },
+        {
+          "id": "works-1003.e5",
+          "endpoint": "E5",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1003/outputs",
+          "key": "efec52d76ce5",
+          "file": "api/works-1003/efec52d76ce5.json"
+        },
+        {
+          "id": "works-1003.e9.apa",
+          "endpoint": "E9",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://doi.org/10.5194/asr-12-171-2015",
+          "key": "109c76b2d7f6",
+          "file": "api/works-1003/109c76b2d7f6.json"
+        },
+        {
+          "id": "works-1003.e9.bibtex",
+          "endpoint": "E9",
+          "kind": "same-key",
+          "method": "GET",
+          "url": "https://doi.org/10.5194/asr-12-171-2015",
+          "key": "109c76b2d7f6",
+          "file": "api/works-1003/109c76b2d7f6.json"
+        },
+        {
+          "id": "works-1003.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "1adcecec4b3d6d28d4d113f63d0277fe16b317a06632b15d1e30df786ac282ed",
+          "bodyText": "{\"identifier\":\"core:1003\",\"limit\":5,\"resultType\":\"work\"}",
+          "key": "ad9336b42109",
+          "file": "api/works-1003/ad9336b42109.json"
+        }
+      ]
+    },
+    "works-1004": {
+      "description": "Work 1004: unicode and a </script> payload in title and abstract (S-4; open it only in a sandboxed context)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms); derived from works-1001",
+      "derivedFrom": "works-1001",
+      "route": "/works/1004/",
+      "fixtures": [
+        {
+          "id": "works-1004.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1004?t=undefined",
+          "key": "5714cc06f10f",
+          "file": "api/works-1004/5714cc06f10f.json"
+        },
+        {
+          "id": "works-1004.e5",
+          "endpoint": "E5",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1004/outputs",
+          "key": "eed15279dd73",
+          "file": "api/works-1004/eed15279dd73.json"
+        },
+        {
+          "id": "works-1004.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "75e0871a368d3c024522751139f973ac76eb85425906a8ff463a859da1b9e41d",
+          "bodyText": "{\"identifier\":\"core:1004\",\"limit\":5,\"resultType\":\"work\"}",
+          "key": "f7e748b9a2bf",
+          "file": "api/works-1004/f7e748b9a2bf.json"
+        }
+      ]
+    },
+    "works-1005": {
+      "description": "Work 1005: 300-character title with $x^2$ and a literal **x** (Q-097)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms); derived from works-1001",
+      "derivedFrom": "works-1001",
+      "route": "/works/1005/",
+      "fixtures": [
+        {
+          "id": "works-1005.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1005?t=undefined",
+          "key": "29f5e9ccc458",
+          "file": "api/works-1005/29f5e9ccc458.json"
+        },
+        {
+          "id": "works-1005.e5",
+          "endpoint": "E5",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1005/outputs",
+          "key": "53dbda5716cc",
+          "file": "api/works-1005/53dbda5716cc.json"
+        },
+        {
+          "id": "works-1005.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "1373a1ebda776a3b30bb4e66edfb5fadbff6c1a0deaecc1b440a97c3ed7e6145",
+          "bodyText": "{\"identifier\":\"core:1005\",\"limit\":5,\"resultType\":\"work\"}",
+          "key": "a7cf4b82459c",
+          "file": "api/works-1005/a7cf4b82459c.json"
+        }
+      ]
+    },
+    "works-4200": {
+      "description": "W-nodp (id 4200): dataProviders [] (Q-073 b; SSR 500)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms); derived from works-1002",
+      "derivedFrom": "works-1002",
+      "route": "/works/4200/",
+      "alias": "W-nodp",
+      "fixtures": [
+        {
+          "id": "works-4200.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/4200?t=undefined",
+          "key": "66cb7d1626c1",
+          "file": "api/works-4200/66cb7d1626c1.json"
+        },
+        {
+          "id": "works-4200.e5",
+          "endpoint": "E5",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/4200/outputs",
+          "key": "a5e628530230",
+          "file": "api/works-4200/a5e628530230.json"
+        }
+      ]
+    },
+    "works-6948813": {
+      "description": "W-emptydate: live work 6948813, publishedDate \"\" with numeric yearPublished 2001, no DOI (Q-073 a; SSR 500)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "alias": "W-emptydate",
+      "route": "/works/6948813/",
+      "fixtures": [
+        {
+          "id": "works-6948813.e4",
+          "endpoint": "E4",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/6948813?t=undefined",
+          "key": "906e79323580",
+          "file": "api/works-6948813/906e79323580.json"
+        },
+        {
+          "id": "works-6948813.e5",
+          "endpoint": "E5",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/6948813/outputs",
+          "key": "5696fbeebfc5",
+          "file": "api/works-6948813/5696fbeebfc5.json"
+        }
+      ]
+    },
+    "works-4040": {
+      "description": "Work API 404 (id 4040): the live 404 answer (content type text/html with a JSON text)",
+      "licence": "CORE API error message",
+      "route": "/works/4040/",
+      "fixtures": [
+        {
+          "id": "works-4040.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/4040?t=undefined",
+          "key": "5ee91be9065d",
+          "file": "api/works-4040/5ee91be9065d.json"
+        }
+      ]
+    },
+    "works-4100": {
+      "description": "Work API 410 (id 4100): status 410 with the shape of the live error answers (text/html, JSON text)",
+      "licence": "derived from works-4040 (no live 410 was reachable, VF-03)",
+      "alias": "4100",
+      "route": "/works/4100/",
+      "fixtures": [
+        {
+          "id": "works-4100.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/4100?t=undefined",
+          "key": "738944b6772c",
+          "file": "api/works-4100/738944b6772c.json"
+        }
+      ]
+    },
+    "works-4101": {
+      "description": "W-410-json (id 4101): 410 with an application/json object body (Q-001)",
+      "licence": "derived from works-4040 (no live 410 was reachable, VF-03)",
+      "alias": "W-410-json",
+      "route": "/works/4101/",
+      "fixtures": [
+        {
+          "id": "works-4101.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/4101?t=undefined",
+          "key": "1506b148f9df",
+          "file": "api/works-4101/1506b148f9df.json"
+        }
+      ]
+    },
+    "works-4102": {
+      "description": "W-410-text (id 4102): 410 with a text/plain body (Q-001)",
+      "licence": "derived from works-4040 (no live 410 was reachable, VF-03)",
+      "alias": "W-410-text",
+      "route": "/works/4102/",
+      "fixtures": [
+        {
+          "id": "works-4102.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/4102?t=undefined",
+          "key": "3411c912f338",
+          "file": "api/works-4102/3411c912f338.json"
+        }
+      ]
+    },
+    "works-5000": {
+      "description": "Work API 500 (id 5000): the real 500 answer the API gave during recording",
+      "licence": "CORE API error message",
+      "route": "/works/5000/",
+      "fixtures": [
+        {
+          "id": "works-5000.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/5000?t=undefined",
+          "key": "100075f46859",
+          "file": "api/works-5000/100075f46859.json"
+        }
+      ]
+    },
+    "outputs-2001": {
+      "description": "Output 2001: provider 86 (Open Research Online), DOI, PDF, reader link, publishedDate 2012-01-01 with yearPublished \"2012\" (live)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "realId": 571618880,
+      "route": "/outputs/2001/",
+      "fixtures": [
+        {
+          "id": "outputs-2001.e6",
+          "endpoint": "E6",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/2001",
+          "key": "437233f61694",
+          "file": "api/outputs-2001/437233f61694.json"
+        },
+        {
+          "id": "outputs-2001.e7",
+          "endpoint": "E7",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/86",
+          "key": "e133e20d8cba",
+          "file": "api/outputs-2001/e133e20d8cba.json"
+        },
+        {
+          "id": "outputs-2001.e9.apa",
+          "endpoint": "E9",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://doi.org/10.1186/1756-0500-5-503",
+          "key": "c771cad0909f",
+          "file": "api/outputs-2001/c771cad0909f.json"
+        },
+        {
+          "id": "outputs-2001.e9.bibtex",
+          "endpoint": "E9",
+          "kind": "same-key",
+          "method": "GET",
+          "url": "https://doi.org/10.1186/1756-0500-5-503",
+          "key": "c771cad0909f",
+          "file": "api/outputs-2001/c771cad0909f.json"
+        },
+        {
+          "id": "outputs-2001.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "497a9e9b908f1714937b7b3b53e529cb0d854f7b7a540cd8c71b9060a47f5b0b",
+          "bodyText": "{\"identifier\":\"core:2001\",\"limit\":5}",
+          "key": "e9a5da1c4fc9",
+          "file": "api/outputs-2001/e9a5da1c4fc9.json"
+        }
+      ]
+    },
+    "outputs-2002": {
+      "description": "Output 2002: the provider GET fails (E7 answers 404): \"Data provider has been disabled\"",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms); derived from outputs-2001",
+      "route": "/outputs/2002/",
+      "fixtures": [
+        {
+          "id": "outputs-2002.e6",
+          "endpoint": "E6",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/2002",
+          "key": "a69b71f2d5e0",
+          "file": "api/outputs-2002/a69b71f2d5e0.json"
+        },
+        {
+          "id": "outputs-2002.e7",
+          "endpoint": "E7",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/999999999",
+          "key": "1af84740b661",
+          "file": "api/outputs-2002/1af84740b661.json"
+        },
+        {
+          "id": "outputs-2002.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "501a50e235320786370001ae74a62559da9a31c809ab5c20c108e5a138383040",
+          "bodyText": "{\"identifier\":\"core:2002\",\"limit\":5}",
+          "key": "1351ae2bf4b4",
+          "file": "api/outputs-2002/1351ae2bf4b4.json"
+        }
+      ]
+    },
+    "outputs-2003": {
+      "description": "Output 2003: fulltextStatus \"disabled\" (live output of provider 4786, Crossref), links hold only the display link",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "realId": 580296804,
+      "route": "/outputs/2003/",
+      "fixtures": [
+        {
+          "id": "outputs-2003.e6",
+          "endpoint": "E6",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/2003",
+          "key": "97bab6ae3594",
+          "file": "api/outputs-2003/97bab6ae3594.json"
+        },
+        {
+          "id": "outputs-2003.e7",
+          "endpoint": "E7",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/4786",
+          "key": "4b5cdd3190df",
+          "file": "api/outputs-2003/4b5cdd3190df.json"
+        },
+        {
+          "id": "outputs-2003.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "d08eff53a986f5e54da59732f2198ce369d23190149924317241051ccbda2638",
+          "bodyText": "{\"identifier\":\"core:2003\",\"limit\":5}",
+          "key": "019b1e3605ff",
+          "file": "api/outputs-2003/019b1e3605ff.json"
+        }
+      ]
+    },
+    "outputs-2004": {
+      "description": "Output 2004: no reader link (reader entries removed from links)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms); derived from outputs-2001",
+      "route": "/outputs/2004/",
+      "fixtures": [
+        {
+          "id": "outputs-2004.e6",
+          "endpoint": "E6",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/2004",
+          "key": "e3f52f61e1d0",
+          "file": "api/outputs-2004/e3f52f61e1d0.json"
+        },
+        {
+          "id": "outputs-2004.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "c54f4fa350c0d2a4988a998402937a411e61f8f33f30390d2df9aa9a8afd5272",
+          "bodyText": "{\"identifier\":\"core:2004\",\"limit\":5}",
+          "key": "6e7c27d57697",
+          "file": "api/outputs-2004/6e7c27d57697.json"
+        }
+      ]
+    },
+    "outputs-2101": {
+      "description": "O-yearstring (id 2101): publishedDate null, yearPublished \"2001\"",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms); derived from outputs-2001",
+      "alias": "O-yearstring",
+      "route": "/outputs/2101/",
+      "fixtures": [
+        {
+          "id": "outputs-2101.e6",
+          "endpoint": "E6",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/2101",
+          "key": "d8600f3084ea",
+          "file": "api/outputs-2101/d8600f3084ea.json"
+        },
+        {
+          "id": "outputs-2101.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "e8c628e24ec11ce838a00956e29da3341f67eaeae25ba5b4d04a1024f27fde0e",
+          "bodyText": "{\"identifier\":\"core:2101\",\"limit\":5}",
+          "key": "b3fceb877e4b",
+          "file": "api/outputs-2101/b3fceb877e4b.json"
+        }
+      ]
+    },
+    "outputs-2102": {
+      "description": "O-nofulltext (id 2102): no download link, sourceFulltextUrls null (Q-073 c; SSR 500)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms); derived from outputs-2001",
+      "alias": "O-nofulltext",
+      "route": "/outputs/2102/",
+      "fixtures": [
+        {
+          "id": "outputs-2102.e6",
+          "endpoint": "E6",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/2102",
+          "key": "7958563b414e",
+          "file": "api/outputs-2102/7958563b414e.json"
+        }
+      ]
+    },
+    "outputs-2103": {
+      "description": "O-nofulltext (id 2103): no download link, sourceFulltextUrls absent (Q-073 c; SSR 500)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms); derived from outputs-2001",
+      "alias": "O-nofulltext",
+      "route": "/outputs/2103/",
+      "fixtures": [
+        {
+          "id": "outputs-2103.e6",
+          "endpoint": "E6",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/2103",
+          "key": "003e5a09bdb0",
+          "file": "api/outputs-2103/003e5a09bdb0.json"
+        }
+      ]
+    },
+    "outputs-4040": {
+      "description": "Output API 404 (id 4040): the live 404 answer",
+      "licence": "CORE API error message",
+      "route": "/outputs/4040/",
+      "fixtures": [
+        {
+          "id": "outputs-4040.e6",
+          "endpoint": "E6",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/4040",
+          "key": "ffdfee3c8a44",
+          "file": "api/outputs-4040/ffdfee3c8a44.json"
+        }
+      ]
+    },
+    "outputs-4100": {
+      "description": "Output API 410 (id 4100): \"The article with ID 4100 has been disabled\"",
+      "licence": "derived from outputs-4040 (no live 410 was reachable, VF-03)",
+      "route": "/outputs/4100/",
+      "fixtures": [
+        {
+          "id": "outputs-4100.e6",
+          "endpoint": "E6",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/4100",
+          "key": "f15e68de6086",
+          "file": "api/outputs-4100/f15e68de6086.json"
+        }
+      ]
+    },
+    "outputs-5000": {
+      "description": "Output API 500 (id 5000): the real 500 answer kept from the recording",
+      "licence": "CORE API error message",
+      "route": "/outputs/5000/",
+      "fixtures": [
+        {
+          "id": "outputs-5000.e6",
+          "endpoint": "E6",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/5000",
+          "key": "50e73e7abc4d",
+          "file": "api/outputs-5000/50e73e7abc4d.json"
+        }
+      ]
+    },
+    "provider-86": {
+      "description": "Provider 86: supporting member, base64 JPEG logo",
+      "licence": "Public provider metadata of the CORE API; contact e-mail blanked",
+      "route": "/data-providers/86/",
+      "fixtures": [
+        {
+          "id": "provider-86.e11",
+          "endpoint": "E11",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/86?t=undefined",
+          "key": "2af3a6a9acfb",
+          "file": "api/provider-86/2af3a6a9acfb.json"
+        },
+        {
+          "id": "provider-86.e12",
+          "endpoint": "E12",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/86/stats",
+          "key": "bd7c716029fb",
+          "file": "api/provider-86/bd7c716029fb.json"
+        },
+        {
+          "id": "provider-86.e13",
+          "endpoint": "E13",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/86/outputs?q=&offset=0&limit=10&sort=recency",
+          "key": "8ddc62730951",
+          "file": "api/provider-86/8ddc62730951.json"
+        },
+        {
+          "id": "provider-86.e18",
+          "endpoint": "E18",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internal/data-providers/86/account",
+          "key": "15c39f5c103d",
+          "file": "api/provider-86/15c39f5c103d.json"
+        }
+      ]
+    },
+    "provider-4835": {
+      "description": "Provider 4835: starting member, base64 PNG logo",
+      "licence": "Public provider metadata of the CORE API; contact e-mail blanked",
+      "route": "/data-providers/4835/",
+      "fixtures": [
+        {
+          "id": "provider-4835.e11",
+          "endpoint": "E11",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/4835?t=undefined",
+          "key": "ccc152a51ac7",
+          "file": "api/provider-4835/ccc152a51ac7.json"
+        },
+        {
+          "id": "provider-4835.e12",
+          "endpoint": "E12",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/4835/stats",
+          "key": "339136de7f18",
+          "file": "api/provider-4835/339136de7f18.json"
+        },
+        {
+          "id": "provider-4835.e13",
+          "endpoint": "E13",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/4835/outputs?q=&offset=0&limit=10&sort=recency",
+          "key": "943772897580",
+          "file": "api/provider-4835/943772897580.json"
+        },
+        {
+          "id": "provider-4835.e18",
+          "endpoint": "E18",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internal/data-providers/4835/account",
+          "key": "3459fbff252a",
+          "file": "api/provider-4835/3459fbff252a.json"
+        }
+      ]
+    },
+    "provider-8": {
+      "description": "Provider 8: multi-repository member (repo_id [8, 503]), base64 logo",
+      "licence": "Public provider metadata of the CORE API; contact e-mail blanked",
+      "route": "/data-providers/8/",
+      "fixtures": [
+        {
+          "id": "provider-8.e11",
+          "endpoint": "E11",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/8?t=undefined",
+          "key": "e1891ae5dc78",
+          "file": "api/provider-8/e1891ae5dc78.json"
+        },
+        {
+          "id": "provider-8.e12",
+          "endpoint": "E12",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/8/stats",
+          "key": "0b4a68a4a7da",
+          "file": "api/provider-8/0b4a68a4a7da.json"
+        },
+        {
+          "id": "provider-8.e13",
+          "endpoint": "E13",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/8/outputs?q=&offset=0&limit=10&sort=recency",
+          "key": "afee67027023",
+          "file": "api/provider-8/afee67027023.json"
+        },
+        {
+          "id": "provider-8.e18",
+          "endpoint": "E18",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internal/data-providers/8/account",
+          "key": "f0a65072b625",
+          "file": "api/provider-8/f0a65072b625.json"
+        }
+      ]
+    },
+    "provider-503": {
+      "description": "Provider 503: second repository of member 8; not in the provider map (the page answers 404), E11 exists",
+      "licence": "Public provider metadata of the CORE API; contact e-mail blanked",
+      "route": "/data-providers/503/",
+      "fixtures": [
+        {
+          "id": "provider-503.e11",
+          "endpoint": "E11",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/503?t=undefined",
+          "key": "52917f98b1a6",
+          "file": "api/provider-503/52917f98b1a6.json"
+        },
+        {
+          "id": "provider-503.e12",
+          "endpoint": "E12",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/503/stats",
+          "key": "791dab09b9dc",
+          "file": "api/provider-503/791dab09b9dc.json"
+        },
+        {
+          "id": "provider-503.e13",
+          "endpoint": "E13",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/503/outputs?q=&offset=0&limit=10&sort=recency",
+          "key": "c4424c69eb7f",
+          "file": "api/provider-503/c4424c69eb7f.json"
+        },
+        {
+          "id": "provider-503.e18",
+          "endpoint": "E18",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internal/data-providers/503/account",
+          "key": "73c9dd360b6b",
+          "file": "api/provider-503/73c9dd360b6b.json"
+        }
+      ]
+    },
+    "provider-3354": {
+      "description": "Provider 3354: claim row 4: non-member provider of the map (\"9 Eylul University\", TR)",
+      "licence": "Public provider metadata of the CORE API; contact e-mail blanked",
+      "route": "/data-providers/3354/",
+      "fixtures": [
+        {
+          "id": "provider-3354.e11",
+          "endpoint": "E11",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/3354?t=undefined",
+          "key": "755426efdeef",
+          "file": "api/provider-3354/755426efdeef.json"
+        },
+        {
+          "id": "provider-3354.e12",
+          "endpoint": "E12",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/3354/stats",
+          "key": "903dc0e60ec0",
+          "file": "api/provider-3354/903dc0e60ec0.json"
+        },
+        {
+          "id": "provider-3354.e13",
+          "endpoint": "E13",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/3354/outputs?q=&offset=0&limit=10&sort=recency",
+          "key": "8f17eea391bb",
+          "file": "api/provider-3354/8f17eea391bb.json"
+        },
+        {
+          "id": "provider-3354.e18",
+          "endpoint": "E18",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internal/data-providers/3354/account",
+          "key": "c1a5d634c46d",
+          "file": "api/provider-3354/c1a5d634c46d.json"
+        }
+      ]
+    },
+    "provider-999999999": {
+      "description": "Provider 999999999: not in the provider map (404 before any API call); the API itself answers 404",
+      "licence": "CORE API error message",
+      "route": "/data-providers/999999999/",
+      "fixtures": [
+        {
+          "id": "provider-999999999.e11",
+          "endpoint": "E11",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/999999999?t=undefined",
+          "key": "d3c3e690a83e",
+          "file": "api/provider-999999999/d3c3e690a83e.json"
+        }
+      ]
+    },
+    "provider-0x56": {
+      "description": "T-601: /data-providers/0x56/ (the app reads +\"0x56\" = 86 against the map and sends the raw id upstream)",
+      "licence": "CORE API answer",
+      "route": "/data-providers/0x56/",
+      "fixtures": [
+        {
+          "id": "provider-0x56.e11",
+          "endpoint": "E11",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/0x56?t=undefined",
+          "key": "296f25953441",
+          "file": "api/provider-0x56/296f25953441.json"
+        }
+      ]
+    },
+    "q090-null-logo": {
+      "description": "E14 on {API_URL}null and {API_URL}undefined (Q-090): a member provider whose logo is null or absent",
+      "licence": "CORE API error message",
+      "fixtures": [
+        {
+          "id": "q090.e14.null",
+          "endpoint": "E14",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internalnull",
+          "key": "36cdad335a87",
+          "file": "api/q090-null-logo/36cdad335a87.json"
+        },
+        {
+          "id": "q090.e14.undefined",
+          "endpoint": "E14",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internalundefined",
+          "key": "f35f454b4722",
+          "file": "api/q090-null-logo/f35f454b4722.json"
+        }
+      ]
+    },
+    "search-x": {
+      "description": "Search q=x page 1 (T-601 route list) with its E2 body",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "fixtures": [
+        {
+          "id": "search-x.e1",
+          "endpoint": "E1",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "1b986efb5084adb3b945ed0fb59f8621fddd2bfd2049b0f4ebccd11d93f11665",
+          "bodyText": "{\"q\":\"x\",\"offset\":0,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "cf9981eba6e6",
+          "file": "api/search-x/cf9981eba6e6.json"
+        },
+        {
+          "id": "search-x.e2",
+          "endpoint": "E2",
+          "kind": "recorded",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+          "bodySha256": "60bb7ff803808289d6db82f9ed47ea28ad920bfd961aa6d40cd121c4e920ef66",
+          "bodyText": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"x\"}",
+          "key": "dae146cdcc0d",
+          "file": "api/search-x/dae146cdcc0d.json"
+        }
+      ]
+    },
+    "q074a": {
+      "description": "Q-074a: work 7401 whose first output has doi null (derived from work 1001; the live outputs carry \"\" or a DOI, never null)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "route": "/works/7401/",
+      "fixtures": [
+        {
+          "id": "q074a.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/7401?t=undefined",
+          "key": "88ee851e6359",
+          "file": "api/q074a/88ee851e6359.json"
+        },
+        {
+          "id": "q074a.e5",
+          "endpoint": "E5",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/7401/outputs",
+          "key": "1eb34161fc40",
+          "file": "api/q074a/1eb34161fc40.json"
+        },
+        {
+          "id": "q074a.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "a5624c20e5849266405a596d219c9c2c216c14c6196e07b7c85aae2138d12e4d",
+          "bodyText": "{\"identifier\":\"core:7401\",\"limit\":5,\"resultType\":\"work\"}",
+          "key": "c14fd45865e3",
+          "file": "api/q074a/c14fd45865e3.json"
+        }
+      ]
+    },
+    "q074b": {
+      "description": "Q-074b: work 7402 with its own DOI and four outputs carrying four distinct other DOIs (derived from work 1001; ExpandableList goes from 0 to 5 children)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "route": "/works/7402/",
+      "fixtures": [
+        {
+          "id": "q074b.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/7402?t=undefined",
+          "key": "aa1eb71c7d54",
+          "file": "api/q074b/aa1eb71c7d54.json"
+        },
+        {
+          "id": "q074b.e5",
+          "endpoint": "E5",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/7402/outputs",
+          "key": "904c96794b8d",
+          "file": "api/q074b/904c96794b8d.json"
+        },
+        {
+          "id": "q074b.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "52bebc2247656c92762ca498d3177ee59d5399ccdc8846c42326ae578dcc2abc",
+          "bodyText": "{\"identifier\":\"core:7402\",\"limit\":5,\"resultType\":\"work\"}",
+          "key": "ddb1252ea90a",
+          "file": "api/q074b/ddb1252ea90a.json"
+        }
+      ]
+    },
+    "q074c": {
+      "description": "Q-074c: output 7403 whose provider (E7) has no location (derived from output 2001; the provider answer is provider 86 without `location`, served at its own URL)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "route": "/outputs/7403/",
+      "fixtures": [
+        {
+          "id": "q074c.e6",
+          "endpoint": "E6",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/7403",
+          "key": "a37ff1a87963",
+          "file": "api/q074c/a37ff1a87963.json"
+        },
+        {
+          "id": "q074c.e7",
+          "endpoint": "E7",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/74030",
+          "key": "7affb1698749",
+          "file": "api/q074c/7affb1698749.json"
+        },
+        {
+          "id": "q074c.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "2601bd443364bf033944e038e55e991746a9efde196baabc12e1d32fa0cfa442",
+          "bodyText": "{\"identifier\":\"core:7403\",\"limit\":5}",
+          "key": "69882abe6d2d",
+          "file": "api/q074c/69882abe6d2d.json"
+        }
+      ]
+    },
+    "q074d": {
+      "description": "Q-074d: work 7404 whose first similar work has dataProviders [] (derived from work 1001 and its E8 answer)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "route": "/works/7404/",
+      "fixtures": [
+        {
+          "id": "q074d.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/7404?t=undefined",
+          "key": "b4b17e44881c",
+          "file": "api/q074d/b4b17e44881c.json"
+        },
+        {
+          "id": "q074d.e5",
+          "endpoint": "E5",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/7404/outputs",
+          "key": "2beeb7b52ffa",
+          "file": "api/q074d/2beeb7b52ffa.json"
+        },
+        {
+          "id": "q074d.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "5f6fe26b4692d07417f86fa52d37652f5548ea7490d773c2e9d4ec9e68969603",
+          "bodyText": "{\"identifier\":\"core:7404\",\"limit\":5,\"resultType\":\"work\"}",
+          "key": "6e7dda26ec08",
+          "file": "api/q074d/6e7dda26ec08.json"
+        }
+      ]
+    },
+    "q074e": {
+      "description": "Q-074e: search q=q074e with an empty year aggregation (derived from the climate page 1 and base aggregation; opening the year facet throws)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "route": "/search/?q=q074e",
+      "fixtures": [
+        {
+          "id": "q074e.e1",
+          "endpoint": "E1",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "bodySha256": "a0c649169c4467d8a8c5f58c59b4fa254cfefe8f3ce5e74a243bad8b80749bdc",
+          "bodyText": "{\"q\":\"q074e\",\"offset\":0,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}",
+          "key": "438cae34c429",
+          "file": "api/q074e/438cae34c429.json"
+        },
+        {
+          "id": "q074e.e2",
+          "endpoint": "E2",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+          "bodySha256": "a8c947a2c9a4c61b9e094f6aa451bd351a1b0082c91a70dde98cde72c5a41972",
+          "bodyText": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"q074e\"}",
+          "key": "34615979c51c",
+          "file": "api/q074e/34615979c51c.json"
+        }
+      ]
+    },
+    "logos": {
+      "description": "E21 / E22: the browser GET api.core.ac.uk/data-providers/<id>/logo without credentials (member dropdowns and member result cards; an unknown provider id answers like the live endpoint)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "fixtures": [
+        {
+          "id": "logos.86",
+          "endpoint": "E21",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/data-providers/86/logo",
+          "key": "8946f26beab0",
+          "file": "api/logos/8946f26beab0.json"
+        },
+        {
+          "id": "logos.undefined",
+          "endpoint": "E22",
+          "kind": "recorded",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/data-providers/undefined/logo",
+          "key": "b2e1e231591c",
+          "file": "api/logos/b2e1e231591c.json"
+        },
+        {
+          "id": "logos.53",
+          "endpoint": "E22",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/data-providers/53/logo",
+          "key": "972e1ffb3e22",
+          "file": "api/logos/972e1ffb3e22.json"
+        },
+        {
+          "id": "logos.197",
+          "endpoint": "E22",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/data-providers/197/logo",
+          "key": "2c7fd5fe1865",
+          "file": "api/logos/2c7fd5fe1865.json"
+        },
+        {
+          "id": "logos.2313",
+          "endpoint": "E22",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/data-providers/2313/logo",
+          "key": "06d460ae369d",
+          "file": "api/logos/06d460ae369d.json"
+        }
+      ]
+    },
+    "e10-report": {
+      "description": "E10 report submit: POST /internal/outputs/update; the body is the store/report.js object {outputId, name, email, message, updateOption, role}; the message text selects the answer (report-ok 201, report-fail 500)",
+      "licence": "Hand-written test data (mutating calls are never recorded); no real person, address or organisation",
+      "fixtures": [
+        {
+          "id": "e10.201",
+          "endpoint": "E10",
+          "kind": "hand",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/internal/outputs/update",
+          "bodySha256": "b86b890c0cb7d2e154d47710db0615d54483833f8f000ccbdb40c1c907619dca",
+          "bodyText": "{\"outputId\":2001,\"name\":\"Test Reporter\",\"email\":\"reporter@localhost\",\"message\":\"report-ok\",\"updateOption\":\"takeDownFullText\",\"role\":\"author\"}",
+          "key": "d51e4c6783cf",
+          "file": "hand/e10-report/d51e4c6783cf.json"
+        },
+        {
+          "id": "e10.500",
+          "endpoint": "E10",
+          "kind": "hand",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/internal/outputs/update",
+          "bodySha256": "0d84be545e08d9fbaacded384fcbf44c56a051bd321ea7ece457acb488f74cab",
+          "bodyText": "{\"outputId\":2001,\"name\":\"Test Reporter\",\"email\":\"reporter@localhost\",\"message\":\"report-fail\",\"updateOption\":\"takeDownFullText\",\"role\":\"author\"}",
+          "key": "4fa96157f4b2",
+          "file": "hand/e10-report/4fa96157f4b2.json"
+        }
+      ]
+    },
+    "e16-claim-form": {
+      "description": "E16 claim form: POST /internal/data-providers, string body {\"uri\": <typed value>} (Q-019); the typed URL selects the answer: created.example.org 201, duplicate.example.org 409 JSON message, duplicate-text.example.org 409 non-JSON message (Q-038), broken.example.org 500",
+      "licence": "Hand-written test data (mutating calls are never recorded); no real person, address or organisation",
+      "fixtures": [
+        {
+          "id": "e16.201",
+          "endpoint": "E16",
+          "kind": "hand",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/internal/data-providers",
+          "bodySha256": "b14b9cc79d1d4535564ae4c7bcba8f078368e5846197adb9c6b84adf3dcdc5ae",
+          "bodyText": "{\"uri\":\"https://created.example.org/\"}",
+          "key": "ac61de0ca082",
+          "file": "hand/e16-claim-form/ac61de0ca082.json"
+        },
+        {
+          "id": "e16.409json",
+          "endpoint": "E16",
+          "kind": "hand",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/internal/data-providers",
+          "bodySha256": "1cbbbcb8ea242b33ea8874c4dce89e1ea5ab69e77598906fb88bd9493851ee7e",
+          "bodyText": "{\"uri\":\"https://duplicate.example.org/\"}",
+          "key": "90da38f9b620",
+          "file": "hand/e16-claim-form/90da38f9b620.json"
+        },
+        {
+          "id": "e16.409text",
+          "endpoint": "E16",
+          "kind": "hand",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/internal/data-providers",
+          "bodySha256": "c249b7c714768d3db17ec39772892e5b9ada14abc0603c99d1d9216627786240",
+          "bodyText": "{\"uri\":\"https://duplicate-text.example.org/\"}",
+          "key": "d57ad3bd847e",
+          "file": "hand/e16-claim-form/d57ad3bd847e.json"
+        },
+        {
+          "id": "e16.500",
+          "endpoint": "E16",
+          "kind": "hand",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/internal/data-providers",
+          "bodySha256": "bd29d6faf8c9c305c47521cb14179a9006abfad06d1d271c996f6d5999ac53e1",
+          "bodyText": "{\"uri\":\"https://broken.example.org/\"}",
+          "key": "e88e527ad562",
+          "file": "hand/e16-claim-form/e88e527ad562.json"
+        }
+      ]
+    },
+    "e17-claim": {
+      "description": "E17 claim of provider 86: POST /internal/data-providers/86/claim, body {name, email, rationale, repositoryHasAccount}; the rationale text selects the answer (claim-ok 201, claim-fail 500)",
+      "licence": "Hand-written test data (mutating calls are never recorded); no real person, address or organisation",
+      "fixtures": [
+        {
+          "id": "e17.201",
+          "endpoint": "E17",
+          "kind": "hand",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/internal/data-providers/86/claim",
+          "bodySha256": "3dc07e159dcaedbe18f394eb2864a87e59b0cdea6fdd936e1566ca72cb6e1bbb",
+          "bodyText": "{\"name\":\"Test Claimant\",\"email\":\"claimant@localhost\",\"rationale\":\"claim-ok\",\"repositoryHasAccount\":true}",
+          "key": "671ef9d1b569",
+          "file": "hand/e17-claim/671ef9d1b569.json"
+        },
+        {
+          "id": "e17.500",
+          "endpoint": "E17",
+          "kind": "hand",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/internal/data-providers/86/claim",
+          "bodySha256": "6cdb6e364132a1dbf8f13e55143f2517ea125565aebcd1ea479a494e7988b1bf",
+          "bodyText": "{\"name\":\"Test Claimant\",\"email\":\"claimant@localhost\",\"rationale\":\"claim-fail\",\"repositoryHasAccount\":true}",
+          "key": "51bcf5939039",
+          "file": "hand/e17-claim/51bcf5939039.json"
+        }
+      ]
+    },
+    "works-1007": {
+      "description": "Work 1007: copy of work 1001 whose similar works (E8) answer the live 404 of the recommender (the page shows \"unable to process this request\", V12; one console resource error)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "route": "/works/1007/",
+      "fixtures": [
+        {
+          "id": "works-1007.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "c88cdc2817d1125fb1298e2b83c0f68a6bbbb1224eea49cf3f8bb573f39a60cb",
+          "bodyText": "{\"identifier\":\"core:1007\",\"limit\":5,\"resultType\":\"work\"}",
+          "key": "7f6a9d6edfcb",
+          "file": "api/works-1007/7f6a9d6edfcb.json"
+        },
+        {
+          "id": "works-1007.e4",
+          "endpoint": "E4",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1007?t=undefined",
+          "key": "e1025a4d70d7",
+          "file": "api/works-1007/e1025a4d70d7.json"
+        },
+        {
+          "id": "works-1007.e5",
+          "endpoint": "E5",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1007/outputs",
+          "key": "1a198f700413",
+          "file": "api/works-1007/1a198f700413.json"
+        }
+      ]
+    },
+    "outputs-2006": {
+      "description": "Output 2006: copy of output 2001 whose similar outputs (E8) answer the live 404 of the recommender (V12)",
+      "licence": "Public scholarly metadata of records served by the CORE API (api.core.ac.uk); full texts are blanked; CORE terms of use for API data apply (https://core.ac.uk/terms)",
+      "route": "/outputs/2006/",
+      "fixtures": [
+        {
+          "id": "outputs-2006.e8",
+          "endpoint": "E8",
+          "kind": "derived",
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/recommend",
+          "bodySha256": "83ac1e1406acbf61a1bfc47824ecc5bb04bbaaa5098fe7961ffe27c1cf082778",
+          "bodyText": "{\"identifier\":\"core:2006\",\"limit\":5}",
+          "key": "4ee9d7672282",
+          "file": "api/outputs-2006/4ee9d7672282.json"
+        },
+        {
+          "id": "outputs-2006.e6",
+          "endpoint": "E6",
+          "kind": "derived",
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/2006",
+          "key": "9abbc61c83af",
+          "file": "api/outputs-2006/9abbc61c83af.json"
+        }
+      ]
+    }
+  }
+}

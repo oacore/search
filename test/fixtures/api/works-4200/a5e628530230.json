@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "scenario": "works-4200",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/4200/outputs",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:33:17 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "[{\"acceptedDate\":\"\",\"authors\":[{\"name\":\"Climate Watch\"}],\"contributors\":[\"Climate Watch\"],\"createdDate\":\"2021-12-01T07:59:41+00:00\",\"dataProvider\":{\"id\":1546,\"name\":\"Harvard Dataverse\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/1546\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/1546\\/logo\"},\"depositedDate\":\"2021-12-01T07:59:41+00:00\",\"documentType\":[],\"versions\":[],\"doi\":\"10.7910\\/DVN\\/HCYDPQ\",\"downloadUrl\":\"\",\"fullText\":\"\",\"id\":638647848,\"identifiers\":{\"doi\":\"10.7910\\/DVN\\/HCYDPQ\",\"oai\":\"doi:10.7910\\/DVN\\/HCYDPQ\"},\"title\":\"NDC-SDG Linkages\",\"language\":null,\"publishedDate\":null,\"publisher\":\"Harvard Dataverse\",\"references\":[],\"sourceFulltextUrls\":[\"https:\\/\\/doi.org\\/10.7910\\/DVN\\/HCYDPQ\"],\"updatedDate\":null,\"yearPublished\":\"\",\"links\":[{\"type\":\"display\",\"url\":\"https:\\/\\/core.ac.uk\\/outputs\\/638647848\"}],\"abstract\":\"The NDC-SDG linkage analysis is a comprehensive study, which examines the degree of alignment between the (I)NDCs and the 169 targets of the 2030 Sustainable Development Agenda. Climate action texts were extracted from the NDCs and aligned with relevant targets. The study was carried by WRI to support joint implementation of both the Paris Agreement and the 2030 Agenda.\\n\\nhttps:\\/\\/www.climatewatchdata.org\\/data-explorer\\/emission-pathways?emission-pathways-categories=All%20Selected\\u0026emission-pathways-indicators=All%20Selected\\u0026emission-pathways-locations=All%20Selected\\u0026emission-pathways-models=All%20Selected\\u0026emission-pathways-scenarios=All%20Selected\\u0026emission-pathways-subcategories=All%20Selected\\u0026page=\",\"tags\":[\"Earth and Environmental Sciences\",\"Nationally Determined Contributions; Sustainable Development Goals\"],\"fulltextStatus\":\"disabled\",\"subjects\":[\"Earth and Environmental Sciences\",\"Nationally Determined Contributions; Sustainable Development Goals\"],\"oai\":\"doi:10.7910\\/DVN\\/HCYDPQ\",\"deleted\":\"ALLOWED\",\"disabled\":false,\"journals\":[],\"repositories\":[],\"repositoryDocument\":{\"id\":638647848,\"depositedDate\":\"\",\"publishedDate\":\"\",\"updatedDate\":\"\",\"acceptedDate\":\"\",\"createdDate\":\"\"},\"urls\":[{\"url\":\"https:\\/\\/doi.org\\/10.7910\\/DVN\\/HCYDPQ\",\"type\":\"fulltext\"}],\"lastUpdate\":\"2026-04-05T21:40:36+01:00\",\"setSpecs\":[],\"license\":\"\",\"orcids\":[],\"sdg\":[]}]"
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/works/1002/outputs",
+    "patch": null,
+    "recordedAt": "2026-10-20T13:33:17.059Z"
+  }
+}

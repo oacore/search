@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "scenario": "works-4040",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/4040?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 404,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:29:58 GMT"],
+      ["Content-Type", "text/html; charset=UTF-8"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"],
+      ["Content-Encoding", "gzip"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": { "message": "Work with identifier 4040 not found." }
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/works/999999999999?t=undefined",
+    "patch": [
+      {
+        "op": "replace",
+        "path": "/message",
+        "value": "Work with identifier 4040 not found."
+      }
+    ],
+    "recordedAt": "2026-10-20T13:29:58.176Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "scenario": "works-5000",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/5000?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 500,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:29:42 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "{\"message\":\"The HTTP status code \\u00220\\u0022 is not valid.\"}"
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/works/143022523?t=undefined",
+    "patch": null,
+    "recordedAt": "2026-10-20T13:29:42.975Z",
+    "scrubbed": { "headersDropped": 4 },
+    "note": "a real transient 500 of GET /v3/works/<id>, kept from the recording"
+  }
+}
