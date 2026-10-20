@@ -153,16 +153,29 @@ export function compareLocks(oldLock, newLock, newPkg) {
         } is not a version of the old lock`,
       })
   }
-  // root entry: only devDependencies may change
+  // root entry: devDependencies may change; a dependency may change its spec only (CS-W0-1 pins
+  // "latest" to the resolved version), never be added or removed: resolution is checked by every entry
+  // above and by npm ls (c2)
   const or = { ...(op[''] || {}) }
   const nr = { ...(np[''] || {}) }
   delete or.devDependencies
   delete nr.devDependencies
-  if (JSON.stringify(or) !== JSON.stringify(nr))
+  const specChanges = []
+  const od = or.dependencies || {}
+  const nd = nr.dependencies || {}
+  for (const k of Object.keys(od))
+    if (k in nd && od[k] !== nd[k])
+      specChanges.push({ name: k, from: od[k], to: nd[k] })
+  const sameNames =
+    JSON.stringify(Object.keys(od).sort()) ===
+    JSON.stringify(Object.keys(nd).sort())
+  delete or.dependencies
+  delete nr.dependencies
+  if (JSON.stringify(or) !== JSON.stringify(nr) || !sameNames)
     v.push({
       check: 'c1',
       path: '',
-      msg: 'root lock entry changed outside devDependencies',
+      msg: 'root lock entry changed outside devDependencies and dependency specs',
     })
   if (oldLock.lockfileVersion !== newLock.lockfileVersion)
     v.push({
@@ -202,6 +215,7 @@ export function compareLocks(oldLock, newLock, newPkg) {
       v.push({ check: 'c4', msg: `${k} is a new root lock entry` })
   return {
     violations: v,
+    specChanges,
     moved,
     overrides: pins,
     oldEntries: Object.keys(op).length - 1,
