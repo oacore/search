@@ -677,6 +677,11 @@ async function up(argv, opt) {
       )
   }
   const mode = opt('--mode', process.env.E2E_MODE || 'host')
+  // docker mode is for a future CI only (owner: local mode in this run); it never starts by accident
+  if (mode === 'docker' && process.env.P2_DOCKER_MODE !== 'enabled')
+    throw new Error(
+      'docker mode is disabled (local mode only); set P2_DOCKER_MODE=enabled in CI'
+    )
   const { slot, ports } = await allocate(run)
   const dir = runDir(run)
   fs.rmSync(dir, { recursive: true, force: true })
