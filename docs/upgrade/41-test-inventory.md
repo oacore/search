@@ -136,7 +136,7 @@ Transitions: 03 §5.1, 06 §7.2.
 
 | ID | P | Target | Cases | Risks | Wave |
 |---|---|---|---|---|---|
-| T-601 | P0 | Route/status matrix | findings/02 §4.1 URLs ± slash, with queries: status, `Location`, marker; plus `/search/?q=x&page=0`, `&page=abc`, `&page=1001`, `/works/1001/?t=a%26b%3Dc%20d`, `/works/1001/?t=a&t=b`, `/data-providers/0x56/`, each with its T-607 upstream URL = B0 (Q-013, Q-016, Q-035). Corr: expected values per Q-001, Q-002, Q-005, Q-073, Q-098 and review:ui-flows §1; 500 fixtures W-410-*, W-emptydate, W-nodp, O-nofulltext; local-only pages via the allow-all proxy; `.map` 200 (S-9) | R-005, R-020, R-045, R-085 | all |
+| T-601 | P0 | Route/status matrix | findings/02 §4.1 URLs ± slash, with queries: status, `Location`, marker; plus `/search/?q=x&page=0`, `&page=abc`, `&page=1001`, `/works/1001/?t=a%26b%3Dc%20d`, `/works/1001/?t=a&t=b`, `/data-providers/0x56/`, `/data-providers/?q=100%25` (500: Q-028, Q-073 (d)), each with its T-607 upstream URL = B0 (Q-013, Q-016, Q-035). Corr: expected values per Q-001, Q-002, Q-005, Q-073, Q-098 and review:ui-flows §1; 500 fixtures W-410-*, W-emptydate, W-nodp, O-nofulltext; local-only pages via the allow-all proxy; `.map` 200 (S-9) | R-005, R-020, R-045, R-085 | all |
 | T-602 | P0 | SSR head | 07 §7.1 on works 1001–1005, outputs 2001–2004, O-yearstring, search, providers, errors. Corr: raw `<title>` bytes (DOM parser, JS off, comments kept); app-owned tags in order, set per page type (Q-053); 40 §1 normalisations; html-validate pinned; 1004 pins `window.__PWN` (S-4, preserved: OD-36) | R-003, R-005, R-042, R-069, R-078 | all |
 | T-603 | P0 | Headers | Values per class (HTML, `_next/data`, `public/`, `_next/static`, `.map`, `icons.svg`, 308, 404, 500, healthz), origin and proxy, for GET, HEAD, conditional GET and `Accept-Encoding: br, gzip` (42 §8) = `e2e/http/contract.baseline.json`; deltas only as AD rows (OD-39); CSP on every class; inline-script count (S-6) | R-026, R-083 | W2b, W4c, W4d, W6a, W6c, W7a, W7c, 6.8 |
 | T-604 | P0 | `_next/data` via prefix | `/search/_next/data/<id>/works/1001.json` with and without CS-OPS-1: `application/json` + `pageProps`; `__N_REDIRECT`; `{notFound:true}`; stale buildId → 404 + hard-nav fallback; root `/_next/data` → other service | R-002, R-068 | W4b–W4d, W6c, W7a, W7c |
@@ -144,7 +144,7 @@ Transitions: 03 §5.1, 06 §7.2.
 | T-606 | P1 | SSR resilience | Failing stubs → render < 30 s; Q-004; LogRocket import safe | R-055, R-062 | W2b, W4a, W4c |
 | T-607 | P0 | In-cluster wire headers | Every run `Internal_API=http://stub`, `Internal_API_HOST=api.core.ac.uk`; stub records each SSR call's Host, Authorization, Accept, Content-Type, UA, Accept-Encoding, `sentry-trace`/`baggage` = baseline (Q-022) | R-016, R-028, R-076 | W4a, W4e, 6.3, 6.8, 6.10 |
 | T-608 | P0 | Crash semantics | Preload throws async: prod-shaped DSN → exit 1 within ~3 s; no DSN → survives; `unhandledRejection` → survives + 1 event | R-040, R-055 | W2a, W4b, W6c, W7c, 6.8 |
-| T-609 | P0 | Concurrency | 200 interleaved SSR requests (2 queries, works 1001/1002), random latency: each response holds only its data; every 6.x PR | R-004, R-018, R-073 | all |
+| T-609 | P0 | Concurrency | 200 interleaved SSR requests (2 queries, works 1001/1002), random latency: each response holds only its data; every 6.x PR; `/data-providers/?q=<a>` and `?q=<b>` (two snapshot terms with disjoint results) in the same mix: each SSR result list holds only its own `q` (the server store's only per-request state, `pages/data-providers/index.jsx:34`; R-004) | R-004, R-018, R-073 | all |
 | T-610 | P0 | Props, server output | `__NEXT_DATA__.props` and `_next/data` JSON deep-equal; no `svc.cluster.local`, `Bearer `, stack in HTML; stdout/stderr census (allow Next 13.5/16 listeners); 0 server Sentry events | R-003, R-028, R-040, R-073 | all |
 | T-611 | P1 | Size budgets | Raw + gzip per route ±5 % (`/data-providers/` 7,104,305 / 1,003,968 B); RSS after the P0 sweep ≤ +10 % | R-048 | W4b–W7c, 6.x, 7.x |
 | T-612 | P0 | Gateway proxy | Generated from `kube/{prod,stage}/httproute.yaml` (differ only in namespace, hostname); table: `/searchx`, `/static/search`, `/display`, `/display/1/`, `//works/1`, `%2F`, unicode, `a+b`, long URL, `/_next/…`, `/static/search/_next/image` (routed to the app as today, OD-41; S-10 status as today, a change caused by a Next bump alone only via an owner-signed `delta` AD row, 42 §8) | R-020, R-068, R-072 | all, YAML PRs |
@@ -154,7 +154,7 @@ Transitions: 03 §5.1, 06 §7.2.
 | ID | P | Target | Cases | Risks | Wave |
 |---|---|---|---|---|---|
 | T-701 | P0 | Console/hydration gate | T-601 200-routes (incl. `/display/<id>/`) x 3 TZ x 3 cookie states: `pageerror`, `console.error`, window `error` outside the T-728 pinned-diff tuple set (55 C7 (1); never keyed on message text) and T-741 pins = 0. Corr: React 17 prod logs no "did not match" | R-006, R-010, R-013, R-032, R-044, R-047, R-056, R-057 | all |
-| T-702 | P0 | Navigation network log | From `/search/?q=climate`: page, sort, toggle, Clear all, Back, Forward; log = §2.2; 1 `document`; client navs hit `/search/_next/data/` 200; `window.__marker` survives; result click = full nav; 0 pageerrors. History log (init script; also in T-704, T-707, T-722): `pushState`/`replaceState` (method, URL, state keys), `history.scrollRestoration`, `scrollY` after each Back and Forward = B0; window events: after settle, `visibilitychange` hidden→visible, window `blur`→`focus` and `context.setOffline(true)`→`false`: request log, DOM and URL = B0 (SWR revalidation, 70 §3.4) | R-002, R-028, R-029, R-055, R-068 | W4c, W4d, W6a, W6c, W7a, W7c, 6.3–6.5 |
+| T-702 | P0 | Navigation network log | From `/search/?q=climate`: page, sort, toggle, Clear all, Back, Forward; log = §2.2; 1 `document`; client navs hit `/search/_next/data/` 200; `window.__marker` survives; result click = full nav; 0 pageerrors. History log (init script; also in T-704, T-707, T-722): `pushState`/`replaceState` (method, URL, state keys), `history.scrollRestoration`, `scrollY` after each Back and Forward = B0; window events: after settle, `visibilitychange` hidden→visible, window `blur`→`focus` and `context.setOffline(true)`→`false`: request log, DOM and URL = B0 (SWR revalidation, 70 §3.4); every other §2.2 action row, each from a hard load: works and output loads, client nav output A → B (Q-055), `/data-providers/{id}` load, typing a URL on `/data-providers/` (E16 per settled value: body bytes and `Content-Type`, Q-019), report submit (E10), client nav to `/outputs/update/` by `window.next.router.push` (E19 x3 from the browser, Q-011): per-action browser log = B0 | R-002, R-028, R-029, R-055, R-068 | W4c, W4d, W6a, W6c, W7a, W7c, 6.3–6.5 |
 | T-703 | P0 | J1 | | R-001, R-019 | all |
 | T-704 | P0 | J2, J21 | Q-042 | R-011, R-019, R-030 | all |
 | T-705 | P0 | J3, J21 | `setFixedTime` | R-012 | W7b, 6.1, 7.1 |
@@ -168,7 +168,7 @@ Transitions: 03 §5.1, 06 §7.2.
 | T-713 | P1 | J11 | Q-060, Q-082, Q-094 | R-037 | W7b, 6.5, 7.2 |
 | T-714 | P1 | J12, J27, J32 | Q-080, Q-084 | R-013, R-047, R-052 | W6a, W6c, 6.5, 7.2 |
 | T-715 | P1 | J13 | Q-079, Q-044, Q-043, Q-049 | R-013, R-039, R-047 | W3, W6a, W6c, 7.2 |
-| T-716 | P1 | J14 | | R-020 | all |
+| T-716 | P1 | J14 | J14 (§2.4); client nav from `/search/?q=climate` to `?q=__status500` (header search): today's hooks-order crash stays (React #300 via `console.error`, blank `#__next`; Q-047, Q-010) | R-020, R-033 | all |
 | T-717 | P2 | J15 | | — | W7b |
 | T-718 | P1 | J16 | | R-008 | W4c, W8, 6.9 |
 | T-719 | P0 | J17 analytics | Pinned `gtag.js` or `dataLayer` spy: 0 hits before consent, 1 config hit on a consented hard load, 0 on client nav (Q-071); every `dataLayer` entry deep-equal B0 per cookie state (dates normalised); Sentry via prod-shaped DSN → counting stub; LogRocket aborted, counted; per cookie state | R-026, R-041 | W2a, W2b, W4c, W5, 6.8 |
@@ -292,7 +292,7 @@ findings/07 §5 (V1–V20) corrected by review:ui-flows §2.1; V21–V39: its §
 | V11 | Cite, Report, OAI modals | P0 | M | Header in shot |
 | V12 | Similar loading, error | P0 | M | |
 | V13 | `/outputs/update/` states | P0 | M | |
-| V14 | `/data-providers/` default, no results + form, suggestions | P0 | M | |
+| V14 | `/data-providers/` default, no results + form, suggestions | P0 | M | + a `?q=` state whose results show a `TR` provider's country name (R-031 is 1L; the default view shows no country, its first rows have no location; term picked at 2.2) |
 | V15 | `/data-providers/<id>/` | P0 | M | Claim states → V36, output error → V35 |
 | V16 | 404, `/error-card/`, "Uh-oh" ± referer | P0 | M | `/error-card/` via allow-all (Q-005) |
 | V17 | Header, footer | P0 | M | Split into V21–V25 |
@@ -378,7 +378,7 @@ Recording and scrubbing: 40 §6; storage: 42 §7.
 | Name | Shape |
 |---|---|
 | Works 1001 / 1002 / 1003 | full (3 authors, DOI, abstract, PDF; every output has a DOI) / minimal / 30 authors |
-| Works 1004 / 1005 | unicode + `</script>` (S-4; sandboxed context only) / 300-char title + `$x^2$` |
+| Works 1004 / 1005 | unicode + `</script>` (S-4; sandboxed context only) / 300-char title + `$x^2$` + a literal `**x**` (Q-097) |
 | Works 4100 / 4040 / 5000 | API 410 / 404 / 500 |
 | W-410-json, W-410-text | 410 with a JSON-object / text body (Q-001) |
 | W-emptydate | `publishedDate:""`, `yearPublished:2001` (live work 6948813) (Q-073); the forced-500 fixture |
@@ -387,7 +387,7 @@ Recording and scrubbing: 40 §6; storage: 42 §7.
 | O-yearstring | `publishedDate:null`, `yearPublished:"2001"` |
 | O-nofulltext | no download link; `sourceFulltextUrls` null and absent (Q-073) |
 | Search `q` | `climate` (>100 hits), `zzzzqqq` (0), `__status500`, `__neterror`, `__nodataproviders` (Q-015) |
-| Providers | 86 supporting, base64 logo; 4835 starting; 8, 503 multi-repo; 999999999 not in formap |
+| Providers | 86 supporting, base64 logo; 4835 starting; 8, 503 multi-repo; 999999999 not in formap; a `/data-providers/?q=` term whose results include a `TR` provider (R-031) |
 | `/members` | one member for page tests; full list only in T-113 |
 | Q-074a–e | output `doi:null`; work DOI + ≥4 output DOIs; provider without `location`; similar `dataProviders:[]`; empty/out-of-range year aggregation |
 | Claim rows 1–5 | 86 + accounts `[{…}]`; 4835 + `[]`; 86 + `[]`; a non-member formap provider (picked at 2.2) + `[]`; 86 + accounts 401/500 |
@@ -430,7 +430,7 @@ Replaces the traceability matrix (review:00 X40.35). **C1** (55): **BR** = repro
 | R-030 | H | T-703, T-704 | T-105, T-210, T-403 | BR: copy, not alias, suggestions |
 | R-031 | H | T-801 (1L) | T-108 | BR: 7.14.0 country data |
 | R-032 | H | T-701, T-724 | T-004, T-018 | BR: second React copy |
-| R-033 | H | T-701, T-702 | T-001, T-401 | BR: hooks above the early return |
+| R-033 | H | T-701, T-702, T-716 | T-001, T-401 | BR: hooks above the early return |
 | R-034 | M | — (dev only) | — | OUT |
 | R-035, R-036 | M | T-901 | — | OUT |
 | R-037 | M | T-713 | T-411 | UO |
@@ -483,4 +483,4 @@ Replaces the traceability matrix (review:00 X40.35). **C1** (55): **BR** = repro
 
 ## 4. Counts
 
-Active tests: **P0 84, P1 62, P2 4 = 150** (P0: 76 plain, 8 P0@x; P1: 50 plain, 12 P1@x); "every plain P0 row" = the 76. Per layer (P0/P1/P2): A 14/4/0, B 12/8/0, C 7/5/0, D 4/2/1, E 9/11/0, F 5/1/0, G 10/2/0, H 19/20/2, I 2/4/0, J 2/5/1. Excludes T-708, T-111, T-112. 2026-10-20: 37 new; T-004, T-006, T-607 P1 → P0; T-724 P2 → P1 (RG-5, 70 §4); T-905 P2 → P1 (55 C6); also T-115, T-409, T-413, T-711, T-712 P1 → P1@2.7 and T-211 P2 → P1@2.7 (sole pins of Q-021, Q-038, Q-055, Q-056, Q-077; only tests of J9, J10, E3); T-414 P2 → P1@2.7 (sole pin of Q-058 c1, c3, c4). Every gate runs all tiers (§0).
+Active tests: **P0 84, P1 62, P2 4 = 150** (P0: 76 plain, 8 P0@x; P1: 50 plain, 12 P1@x); "every plain P0 row" = the 76. Per layer (P0/P1/P2): A 14/4/0, B 12/8/0, C 7/5/0, D 4/2/1, E 9/11/0, F 5/1/0, G 10/2/0, H 19/20/2, I 2/4/0, J 2/5/1. Excludes T-708, T-111, T-112. 2026-10-20: 37 new; T-004, T-006, T-607 P1 → P0; T-724 P2 → P1 (RG-5, 70 §4); T-905 P2 → P1 (55 C6); also T-115, T-409, T-413, T-711, T-712 P1 → P1@2.7 and T-211 P2 → P1@2.7 (sole pins of Q-021, Q-038, Q-055, Q-056, Q-077; only tests of J9, J10, E3); T-414 P2 → P1@2.7 (sole pin of Q-058 c1, c3, c4). 2026-10-20, phase-2 detector review: clauses added to T-601 (Q-028 needs a G-layer pin, 30 §1 rule 6), T-609 (R-004), T-702 (R-028 string body, Q-011), T-716 (R-033, now in §3); V14 and the fixture rows 1005 and Providers extended (R-031, Q-097). Every gate runs all tiers (§0).
