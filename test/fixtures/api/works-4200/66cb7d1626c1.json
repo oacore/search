@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "scenario": "works-4200",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/4200?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:32:53 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "acceptedDate": "",
+        "arxivId": null,
+        "authors": [{ "name": "Climate Watch" }],
+        "citationCount": 0,
+        "contributors": ["Climate Watch"],
+        "outputs": ["https://api.core.ac.uk/v3/outputs/638647848"],
+        "createdDate": "2021-12-01T07:59:41+00:00",
+        "dataProviders": [],
+        "depositedDate": "2021-12-01T07:59:41+00:00",
+        "abstract": "The NDC-SDG linkage analysis is a comprehensive study, which examines the degree of alignment between the (I)NDCs and the 169 targets of the 2030 Sustainable Development Agenda. Climate action texts were extracted from the NDCs and aligned with relevant targets. The study was carried by WRI to support joint implementation of both the Paris Agreement and the 2030 Agenda.\n\nhttps://www.climatewatchdata.org/data-explorer/emission-pathways?emission-pathways-categories=All%20Selected&emission-pathways-indicators=All%20Selected&emission-pathways-locations=All%20Selected&emission-pathways-models=All%20Selected&emission-pathways-scenarios=All%20Selected&emission-pathways-subcategories=All%20Selected&page=",
+        "documentType": null,
+        "doi": "10.7910/dvn/hcydpq",
+        "downloadUrl": "",
+        "fieldOfStudy": "Earth and Environmental Sciences",
+        "fullText": "",
+        "id": 4200,
+        "identifiers": [
+          { "identifier": "638647848", "type": "core_id" },
+          { "identifier": "10.7910/dvn/hcydpq", "type": "doi" },
+          { "identifier": "doi:10.7910/dvn/hcydpq", "type": "oai_id" },
+          { "identifier": "doi:10.7910/dvn/hcydpq", "type": "doi" }
+        ],
+        "title": "NDC-SDG Linkages",
+        "language": null,
+        "magId": null,
+        "oaiIds": ["doi:10.7910/dvn/hcydpq"],
+        "publishedDate": "",
+        "publisher": "Harvard Dataverse",
+        "pubmedId": null,
+        "references": [],
+        "sourceFulltextUrls": [],
+        "updatedDate": "",
+        "yearPublished": null,
+        "journals": [],
+        "links": [
+          { "type": "display", "url": "https://core.ac.uk/works/169849048" }
+        ]
+      }
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/works/1002?t=undefined",
+    "patch": [
+      { "op": "replace", "path": "/id", "value": 4200 },
+      { "op": "replace", "path": "/dataProviders", "value": [] }
+    ],
+    "recordedAt": "2026-10-20T15:32:53.792Z"
+  }
+}

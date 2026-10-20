@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "provider-3354",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/data-providers/3354?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:33:30 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "{\"id\":3354,\"openDoarId\":0,\"name\":\"9 Eyl\\u00fcl University\",\"email\":null,\"uri\":\"http:\\/\\/deu.mitosweb.com\\/services_oai2\\/\",\"oaiPmhUrl\":\"http:\\/\\/deu.mitosweb.com\\/services_oai2\\/\",\"homepageUrl\":\"http:\\/\\/deu.mitosweb.com\",\"source\":\"oai\",\"software\":null,\"metadataFormat\":\"oai_dc\",\"createdDate\":\"2017-08-31T14:55:09+01:00\",\"location\":{\"countryCode\":\"\",\"latitude\":0,\"longitude\":0},\"logo\":null,\"type\":\"REPOSITORY\",\"stats\":null,\"rorId\":null,\"institutionName\":null,\"aliases\":[],\"otherIdentifiers\":[]}"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T15:33:30.491Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "scenario": "provider-3354",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/internal/data-providers/3354/account",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:33:35 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["allow", "GET"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": { "encoding": "json", "data": [] }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/internal/data-providers/3354/account",
+    "patch": [{ "op": "replace", "path": "", "value": [] }],
+    "recordedAt": "2026-10-20T15:33:35.963Z",
+    "scrubbed": { "headersDropped": 4 },
+    "note": "the live answer of a provider without a user account is 404 {\"message\":\"DataProvider do not have user account\",\"data\":[]}; the fixture answers 200 [] (the data member of that body), because a 404 puts a resource error into the browser console of every load (claim row 4: a non-member provider with no accounts)"
+  }
+}

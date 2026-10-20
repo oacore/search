@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "scenario": "provider-999999999",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/data-providers/999999999?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 404,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:30:39 GMT"],
+      ["Content-Type", "text/html; charset=UTF-8"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"],
+      ["Content-Encoding", "gzip"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "message": "Data-provider with identifier 999999999 not found."
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T13:30:38.993Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

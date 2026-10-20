@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "scenario": "works-1002",
+  "request": {
+    "method": "GET",
+    "url": "https://doi.org/10.7910/dvn/hcydpq",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:38:31 GMT"],
+      ["Content-Type", "text/x-bibliography; charset=utf-8"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Status", "200 OK"],
+      ["cache-control", "no-cache"],
+      ["vary", "Accept, Accept-Encoding, Origin"],
+      ["content-encoding", "gzip"],
+      ["referrer-policy", "strict-origin-when-cross-origin"],
+      ["x-permitted-cross-domain-policies", "none"],
+      ["x-xss-protection", "0"],
+      ["x-request-id", "0a5c3143-c59b-4259-a5cc-d177bfc383b6"],
+      ["x-runtime", "0.228124"],
+      ["x-frame-options", "SAMEORIGIN"],
+      ["x-content-type-options", "nosniff"],
+      ["X-Powered-By", "Phusion Passenger(R) 6.1.2"],
+      ["Server", "nginx/1.24.0 + Phusion Passenger(R) 6.1.2"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "Climate Watch. (2021). <i>NDC-SDG Linkages</i> (Version 1.0) [Data set]. Harvard Dataverse. https://doi.org/10.7910/DVN/HCYDPQ"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T15:38:31.836Z"
+  }
+}

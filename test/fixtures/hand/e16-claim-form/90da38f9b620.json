@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "scenario": "e16-claim-form",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/internal/data-providers",
+    "bodySha256": "1cbbbcb8ea242b33ea8874c4dce89e1ea5ab69e77598906fb88bd9493851ee7e",
+    "bodyText": "{\"uri\":\"https://duplicate.example.org/\"}"
+  },
+  "response": {
+    "status": 409,
+    "headers": [["content-type", "application/json"]],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "message": "{\"existingDataProviders\":[{\"id\":86,\"name\":\"Open Research Online (Open)\"}]}"
+      }
+    }
+  },
+  "source": {
+    "kind": "hand",
+    "from": null,
+    "patch": null,
+    "recordedAt": null,
+    "note": "duplicated: generate-form-message.jsx JSON.parses data.message"
+  }
+}

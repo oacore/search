@@ -1,0 +1,777 @@
+{
+  "schema": 1,
+  "scenario": "e19-client-nav",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/internal/repositories/formap",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:40:20 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["allow", "GET"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": [
+        {
+          "id": 22159,
+          "openDoarId": null,
+          "name": "Akademik Platform Helal Yaşam Dergisi",
+          "urlHomepage": "https://dergipark.org.tr/api/public/oai/apjhls/",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2474,
+          "openDoarId": null,
+          "name": "Kultury Wschodniosłowiańskie - Oblicza i Dialog",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2477,
+          "openDoarId": null,
+          "name": "Poznańskie Spotkania Językoznawcze",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2478,
+          "openDoarId": null,
+          "name": "Poznańskie Studia Polonistyczne. Seria Językoznawcza",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2479,
+          "openDoarId": null,
+          "name": "Poznańskie Studia Polonistyczne. Seria Literacka",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2480,
+          "openDoarId": null,
+          "name": "Poznańskie Studia Slawistyczne",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2481,
+          "openDoarId": null,
+          "name": "Poznańskie Studia Teologiczne",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2483,
+          "openDoarId": null,
+          "name": "Przegląd Politologiczny",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2485,
+          "openDoarId": null,
+          "name": "Przegląd Strategiczny",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2487,
+          "openDoarId": null,
+          "name": "Refleksje. Pismo naukowe studentów i doktorantów WNPiD UAM",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2489,
+          "openDoarId": null,
+          "name": "Rozwój Regionalny i Polityka Regionalna",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2490,
+          "openDoarId": null,
+          "name": "Ruch Prawniczy, Ekonomiczny i Socjologiczny",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2500,
+          "openDoarId": null,
+          "name": "Środkowoeuropejskie Studia Polityczne",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2501,
+          "openDoarId": null,
+          "name": "Teologia i Moralność",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2504,
+          "openDoarId": null,
+          "name": "Zeszyty Naukowe Centrum Badań im. Edyty Stein",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 27571,
+          "openDoarId": null,
+          "name": "EUCHEMBIOJ Reviews",
+          "urlHomepage": "https://euchembiojreviews.com/index.php/pub/oai",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 22578,
+          "openDoarId": null,
+          "name": "Fitrah: Journal of Islamic Education",
+          "urlHomepage": "https://jurnal.staisumatera-medan.ac.id/index.php/fitrah/oai",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 22680,
+          "openDoarId": null,
+          "name": "International Journal of Advances in Health Sciences (IJHS)",
+          "urlHomepage": "https://www.ijhsonline.com/index.php/IJHS/oai",
+          "email": "",
+          "rorId": null,
+          "institutionName": " International Journal of Advances in Health Sciences (IJHS) ",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 22122,
+          "openDoarId": null,
+          "name": "Jurnal Manajemen Bisnis Dan Organisasi",
+          "urlHomepage": "https://jurnal-cahayapatriot.org/index.php/jmbo/oai",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 25820,
+          "openDoarId": null,
+          "name": "Jurnal Teknik Sipil",
+          "urlHomepage": "https://ojs.unsulbar.ac.id/index.php/jutsi/oai",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2473,
+          "openDoarId": null,
+          "name": "Kultura-Społeczeństwo-Edukacja",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 23816,
+          "openDoarId": null,
+          "name": "Kultura: Jurnal Ilmu Hukum, Sosial, dan Humaniora",
+          "urlHomepage": "https://jurnal.researchideas.org/index.php/kultura/oai",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 22619,
+          "openDoarId": null,
+          "name": "Malaysian Journal of Medical and Biological Research",
+          "urlHomepage": "https://mjmbr.my/index.php/mjmbr/oai",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 2475,
+          "openDoarId": null,
+          "name": "Nauka i Szkolnictwo Wyższe",
+          "urlHomepage": "http://pressto.amu.edu.pl",
+          "email": "",
+          "rorId": null,
+          "institutionName": "",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 25543,
+          "openDoarId": null,
+          "name": "Revista Crítica con Ciencia",
+          "urlHomepage": "https://uptvallesdeltuy.com/ojs/index.php/revista_criticaconciencia/oai",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 22722,
+          "openDoarId": null,
+          "name": "UCA | Portal de Libros",
+          "urlHomepage": "https://omp.uca.edu.ar/index.php/uca/oai",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 22023,
+          "openDoarId": null,
+          "name": "المجلة الافريقية للعلوم السياسية",
+          "urlHomepage": "https://www.maspolitiques.com/ojs/index.php/ajps/oai",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 8905,
+          "openDoarId": null,
+          "name": "'Anil Islam: Jurnal Kebudayaan dan Ilmu Keislaman",
+          "urlHomepage": "http://jurnal.instika.ac.id",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 10474,
+          "openDoarId": null,
+          "name": "\"Digital National Library \"\"Filip Višnjić\"\" Bijeljina\"",
+          "urlHomepage": "http://digital.bibliotekabijeljina.rs.ba",
+          "dataProviderLocation": {
+            "countryCode": "BA",
+            "latitude": 0,
+            "longitude": 0,
+            "countryName": "Bosnia & Herzegovina"
+          },
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 27458,
+          "openDoarId": null,
+          "name": "“Is’hoqxon Ibrat Followers” journal",
+          "urlHomepage": "https://ibratprint.uz/index.php/ibratizdoshlari/oai",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 5468,
+          "openDoarId": 2712,
+          "name": "“Lituanistika”,  International Research Database",
+          "urlHomepage": null,
+          "dataProviderLocation": {
+            "countryCode": "LT",
+            "latitude": 54.6902,
+            "longitude": 25.2246,
+            "countryName": "Lithuania"
+          },
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 23143,
+          "openDoarId": null,
+          "name": "(U.P.) Diliman Journals Online  (University of the Philippines)",
+          "urlHomepage": "https://journals.upd.edu.ph/index.php/index/oai",
+          "dataProviderLocation": {
+            "countryCode": "PH",
+            "latitude": 0,
+            "longitude": 0,
+            "countryName": "Philippines"
+          },
+          "email": "",
+          "rorId": null,
+          "institutionName": "(U.P.) Diliman Journals Online  (University of the Philippines)",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 13702,
+          "openDoarId": null,
+          "name": "[i2] Innovación e Investigación en Arquitectura y Territorio (E-Journal)",
+          "urlHomepage": "https://i2.ua.es",
+          "dataProviderLocation": {
+            "countryCode": "ES",
+            "latitude": 0,
+            "longitude": 0,
+            "countryName": "Spain"
+          },
+          "email": "",
+          "rorId": null,
+          "institutionName": "[i2] Innovación e Investigación en Arquitectura y Territorio (E-Journal)",
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 24598,
+          "openDoarId": null,
+          "name": "[Stacks], the Idaho Digital Repository",
+          "urlHomepage": "https://idahodocs.contentdm.oclc.org/digital",
+          "dataProviderLocation": {
+            "countryCode": "US",
+            "latitude": 0,
+            "longitude": 0,
+            "countryName": "United States"
+          },
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 10328,
+          "openDoarId": null,
+          "name": "@naktisis",
+          "urlHomepage": "https://anaktisis.uowm.gr",
+          "dataProviderLocation": {
+            "countryCode": "GR",
+            "latitude": 0,
+            "longitude": 0,
+            "countryName": "Greece"
+          },
+          "email": null,
+          "rorId": "https://ror.org/05yk4sz92",
+          "institutionName": "Western Macedonia University Of Applied Science",
+          "otherIdentifiers": {
+            "GRID": { "preferred": "grid.466187.a", "all": "grid.466187.a" }
+          },
+          "aliases": []
+        },
+        {
+          "id": 2792,
+          "openDoarId": null,
+          "name": "@RCHIVESIC",
+          "urlHomepage": "http://archivesic.ccsd.cnrs.fr",
+          "dataProviderLocation": {
+            "countryCode": "FR",
+            "latitude": 0,
+            "longitude": 0,
+            "countryName": "France"
+          },
+          "email": null,
+          "rorId": "https://ror.org/049qgqg40",
+          "institutionName": "Délégation Provence et Corse",
+          "otherIdentifiers": {
+            "GRID": { "preferred": "grid.428531.9", "all": "grid.428531.9" },
+            "ISNI": { "all": "0000 0004 0520 8708" },
+            "Wikidata": { "all": "Q30287180" }
+          },
+          "aliases": ["DR12"]
+        },
+        {
+          "id": 25497,
+          "openDoarId": null,
+          "name": "#Proforis PHSG",
+          "urlHomepage": "https://proforis.phsg.ch",
+          "dataProviderLocation": {
+            "countryCode": "CH",
+            "latitude": 0,
+            "longitude": 0,
+            "countryName": "Switzerland"
+          },
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 726,
+          "openDoarId": null,
+          "name": "<intR>²Dok",
+          "urlHomepage": "http://intr2dok.vifa-recht.de",
+          "dataProviderLocation": {
+            "countryCode": "DE",
+            "latitude": 52.52,
+            "longitude": 13.405,
+            "countryName": "Germany"
+          },
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 11807,
+          "openDoarId": null,
+          "name": "027.7 Zeitschrift für Bibliothekskultur / Journal for Library Culture",
+          "urlHomepage": "https://0277.ch",
+          "dataProviderLocation": {
+            "countryCode": "CH",
+            "latitude": 0,
+            "longitude": 0,
+            "countryName": "Switzerland"
+          },
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 12780,
+          "openDoarId": null,
+          "name": "1000 tirés-à-part Salomon Reinach (Maison de l'Orient et de la Méditerranée)",
+          "urlHomepage": "https://www.tpsalomonreinach.mom.fr",
+          "dataProviderLocation": {
+            "countryCode": "FR",
+            "latitude": 45.749683,
+            "longitude": 4.836202,
+            "countryName": "France"
+          },
+          "email": null,
+          "rorId": "https://ror.org/03rth4p18",
+          "institutionName": "Lumière University Lyon 2",
+          "otherIdentifiers": {
+            "GRID": { "preferred": "grid.72960.3a", "all": "grid.72960.3a" },
+            "ISNI": { "all": "0000 0001 2188 0906" },
+            "FundRef": { "preferred": 501100011079, "all": "501100011079" },
+            "Wikidata": { "all": "Q4041" }
+          },
+          "aliases": ["fr: Université Lumière Lyon 2"]
+        },
+        {
+          "id": 3354,
+          "openDoarId": null,
+          "name": "9 Eylül University",
+          "urlHomepage": "http://deu.mitosweb.com",
+          "dataProviderLocation": {
+            "countryCode": "TR",
+            "latitude": 0,
+            "longitude": 0,
+            "countryName": "Türkiye"
+          },
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 4835,
+          "openDoarId": null,
+          "name": "Aberystwyth Research Portal",
+          "urlHomepage": "https://research.aber.ac.uk/portal/",
+          "dataProviderLocation": {
+            "countryCode": "GB",
+            "latitude": 0,
+            "longitude": 0,
+            "countryName": "United Kingdom"
+          },
+          "email": "",
+          "rorId": "https://ror.org/015m2p889",
+          "institutionName": "Aberystwyth University",
+          "otherIdentifiers": {
+            "GRID": { "preferred": "grid.493538.0", "all": "grid.493538.0" },
+            "ISNI": { "all": "0000 0001 2222 015X" },
+            "Wikidata": { "all": "Q6039940" }
+          },
+          "aliases": ["IBERS"]
+        },
+        {
+          "id": 713,
+          "openDoarId": 3099,
+          "name": "Analysis and Policy Observatory (APO)",
+          "urlHomepage": "https://apo.org.au",
+          "dataProviderLocation": {
+            "countryCode": "AU",
+            "latitude": -37.82221,
+            "longitude": 145.0328,
+            "countryName": "Australia"
+          },
+          "email": "",
+          "rorId": "https://ror.org/036s3gz19",
+          "institutionName": "Analysis & Policy Observatory",
+          "otherIdentifiers": {
+            "GRID": { "preferred": "grid.482043.9", "all": "grid.482043.9" },
+            "ISNI": {
+              "preferred": "0000 0004 9249 772X",
+              "all": "0000 0004 9249 772X"
+            },
+            "Wikidata": { "all": "Q17022254" }
+          },
+          "aliases": ["Australian Policy Online", "APO"]
+        },
+        {
+          "id": 24390,
+          "openDoarId": null,
+          "name": "BiRD - Birkbeck Research Data",
+          "urlHomepage": "https://researchdata.bbk.ac.uk",
+          "dataProviderLocation": {
+            "countryCode": "GB",
+            "latitude": 0,
+            "longitude": 0,
+            "countryName": "United Kingdom"
+          },
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 8,
+          "openDoarId": 30,
+          "name": "Birkbeck Institutional Research Online",
+          "urlHomepage": "https://eprints.bbk.ac.uk",
+          "dataProviderLocation": {
+            "countryCode": "GB",
+            "latitude": 51.521515,
+            "longitude": -0.129308,
+            "countryName": "United Kingdom"
+          },
+          "email": "",
+          "rorId": "https://ror.org/02mb95055",
+          "institutionName": "Birkbeck, University of London",
+          "otherIdentifiers": {
+            "GRID": { "preferred": "grid.88379.3d", "all": "grid.88379.3d" },
+            "ISNI": { "all": "0000 0001 2324 0507" },
+            "FundRef": { "preferred": 501100021082, "all": "501100021082" },
+            "Wikidata": { "all": "Q375606" }
+          },
+          "aliases": [
+            "Birkbeck College",
+            "cy: Birkbeck, Prifysgol Llundain",
+            "BBK"
+          ]
+        },
+        {
+          "id": 1343,
+          "openDoarId": null,
+          "name": "Dokuz Eylul University Research Information System",
+          "urlHomepage": "https://avesis.deu.edu.tr",
+          "dataProviderLocation": {
+            "countryCode": "TR",
+            "latitude": 38,
+            "longitude": 27,
+            "countryName": "Türkiye"
+          },
+          "email": "",
+          "rorId": "https://ror.org/00dbd8b73",
+          "institutionName": "Dokuz Eylül University",
+          "otherIdentifiers": {
+            "GRID": { "preferred": "grid.21200.31", "all": "grid.21200.31" },
+            "ISNI": { "all": "0000 0001 2183 9022" },
+            "FundRef": { "all": "501100005771" },
+            "Wikidata": { "all": "Q1235258" }
+          },
+          "aliases": [
+            "Dokuz Eylül Üniversitesi",
+            "tr: Dokuz Eylül Üniversitesi",
+            "DEÜ"
+          ]
+        },
+        {
+          "id": 22303,
+          "openDoarId": null,
+          "name": "DSpace at Dokuz Eylul University",
+          "urlHomepage": "https://acikerisim.deu.edu.tr/oai/request",
+          "dataProviderLocation": {
+            "countryCode": "TR",
+            "latitude": 0,
+            "longitude": 0,
+            "countryName": "Türkiye"
+          },
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 22202,
+          "openDoarId": null,
+          "name": "EKSEN Dokuz Eylül University Journal",
+          "urlHomepage": "https://dergipark.org.tr/en/pub/eksen",
+          "email": null,
+          "rorId": null,
+          "institutionName": null,
+          "otherIdentifiers": null,
+          "aliases": []
+        },
+        {
+          "id": 86,
+          "openDoarId": null,
+          "name": "Open Research Online (The Open University)",
+          "urlHomepage": null,
+          "dataProviderLocation": {
+            "countryCode": "GB",
+            "latitude": 52.0333,
+            "longitude": -0.7,
+            "countryName": "United Kingdom"
+          },
+          "email": "",
+          "rorId": "https://ror.org/05mzfcs16",
+          "institutionName": "The Open University",
+          "otherIdentifiers": {
+            "GRID": { "preferred": "grid.484309.2", "all": "grid.484309.2" },
+            "ISNI": { "all": "0000 0004 0420 8087" },
+            "Wikidata": { "all": "Q33122028" }
+          },
+          "aliases": [
+            "VA MidSouth Healthcare Network",
+            "Lexington VA Health Care System",
+            "Louisville VA Medical Center",
+            "Memphis VA Medical Center",
+            "Mountain Home VA Healthcare System",
+            "VA Tennessee Valley Healthcare System",
+            "Veterans Health Administration",
+            "VISN 9"
+          ]
+        },
+        {
+          "id": 2313,
+          "openDoarId": null,
+          "name": "UNT (University of North Texas) Digital Library",
+          "urlHomepage": "http://digital.library.unt.edu",
+          "dataProviderLocation": {
+            "countryCode": "US",
+            "latitude": 33.2148,
+            "longitude": -97.1331,
+            "countryName": "United States"
+          },
+          "email": "",
+          "rorId": "https://ror.org/00v97ad02",
+          "institutionName": "University of North Texas",
+          "otherIdentifiers": {
+            "ISNI": { "preferred": null, "all": ["0000 0001 1008 957X"] },
+            "FundRef": { "preferred": null, "all": ["100008973"] },
+            "OrgRef": { "preferred": null, "all": ["179976"] },
+            "Wikidata": { "preferred": null, "all": ["Q860527"] },
+            "GRID": { "preferred": "grid.266869.5", "all": "grid.266869.5" }
+          },
+          "aliases": ["Universidad del Norte de Texas", "UNT"]
+        }
+      ]
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/internal/repositories/formap",
+    "patch": [
+      {
+        "op": "select",
+        "path": "",
+        "indexes": [
+          0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+          20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36,
+          37, 38, 39, 43, 56, 542, 1356, 1357, 2738, 2777, 3283, 9305, 15159
+        ]
+      }
+    ],
+    "recordedAt": "2026-10-20T13:40:21.281Z",
+    "scrubbed": { "emails": 1, "contactFields": 656, "headersDropped": 4 },
+    "note": "the first 40 rows and the rows of the providers used by the scenarios (50 of 15803); E19 answers are not used by the tests beyond their count"
+  }
+}

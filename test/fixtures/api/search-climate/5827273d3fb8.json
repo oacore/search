@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "scenario": "search-climate",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+    "bodySha256": "9d72730064f449e3e7c18004996161ff36114c20a04a8c4fb0ee8384f4b2fbfb",
+    "bodyText": "{\"q\":\"climate\",\"offset\":9990,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}"
+  },
+  "response": {
+    "status": 400,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:40:51 GMT"],
+      ["Content-Type", "text/html; charset=UTF-8"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "message": "Your search offset is too large and not supported, \n                please use a smaller offset."
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T13:40:51.661Z",
+    "scrubbed": { "headersDropped": 4 },
+    "note": "page 1000: the API answer to offset 9990 as recorded"
+  }
+}

@@ -1,0 +1,750 @@
+{
+  "schema": 1,
+  "scenario": "provider-86",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/data-providers/86/outputs?q=&offset=0&limit=10&sort=recency",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:29:53 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "totalHits": 66686,
+        "limit": 10,
+        "offset": 0,
+        "results": [
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Wortham, Leah" },
+              { "name": "McFaul, Hugh" },
+              { "name": "Mukwevho, Tribe" }
+            ],
+            "contributors": ["Stege, Ulrich", "Bloch, Frank S."],
+            "createdDate": "2025-10-24T07:23:50+01:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2025-10-14T14:05:54+01:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 672884869,
+            "identifiers": { "doi": null, "oai": "oai:oro.open.ac.uk:106629" },
+            "title": "Clinical Scholarship’s Contribution to the Global Clinical Movement: Progress Made and More to Do",
+            "language": null,
+            "publishedDate": "2027-01-30T00:00:00+00:00",
+            "publisher": "Oxford University Press (In Press)",
+            "references": [],
+            "sourceFulltextUrls": [],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/672884869"
+              }
+            ],
+            "abstract": "This chapter investigates the areas of focus of clinical legal scholarship since 2011",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:106629",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 672884869,
+              "depositedDate": "",
+              "publishedDate": "2027-01-30T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [],
+            "lastUpdate": "2026-08-31T16:36:36+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Benatti, Francesca" }],
+            "contributors": [
+              "Mahlberg, Michaela",
+              "Brookes, Gavin",
+              "Curry, Niall"
+            ],
+            "createdDate": "2026-07-27T11:21:25+01:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2026-07-21T11:45:06+01:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 750693293,
+            "identifiers": { "doi": null, "oai": "oai:oro.open.ac.uk:110533" },
+            "title": "Digital humanities",
+            "language": null,
+            "publishedDate": "2027-01-01T00:00:00+00:00",
+            "publisher": "Bloomsbury Academic (In Press)",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://oro.open.ac.uk/110533/1/Chapter%2027_Benatti_rev_02.docx"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/750693293"
+              }
+            ],
+            "abstract": "The methodologies of Digital Humanities (DH) are acquiring an ever greater relevance to the study of the history of reading, for example through the collation of historical reading experiences in databases. The UK Reading Experience Database (UK-RED; Eliot, 1996). is one of the longest-running Digital Humanities projects in the United Kingdom, having collected in 20 years about 40,000 curated testimonies of reading dated between 1450 and 1945. As a corpus, UK-RED provides opportunities for both macro- and micro-scale research, combining corpus approaches with close reading and comparison of individual testimonies of reading (Crone and Halsey, 2012). This chapter will investigate how corpus linguistics approaches can be applied to the analysis of Digital Humanities resources such as UK-RED. It will examine the project’s data as a corpus, searching for language patterns in accounts of experiences of reading and examining the reading testimonies across the five-century span of the project. The application of corpus methods allows the interrogation of reading practices on a scale impossible with human means alone. The interpretation and critique of the results of these analyses can in turn stimulate new questions and signal paths for further investigations, such as those of the recent READ-IT project on contemporary digital reading practices",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:110533",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 750693293,
+              "depositedDate": "",
+              "publishedDate": "2027-01-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://oro.open.ac.uk/110533/1/Chapter%2027_Benatti_rev_02.docx",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T16:38:57+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Horsley, Karen" }],
+            "contributors": ["Gaywood, Donna", "Koutoulas, Jennifer"],
+            "createdDate": "2026-02-13T21:31:51+00:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2026-02-12T09:28:10+00:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 701292755,
+            "identifiers": { "doi": null, "oai": "oai:oro.open.ac.uk:108536" },
+            "title": "Picture This: A new sociocultural ‘layered listening framework’ that promotes participation through documentary photography, with young children whose families have migrated to the UK.",
+            "language": null,
+            "publishedDate": "2027-01-01T00:00:00+00:00",
+            "publisher": "Bloomsbury Publishing (In Press)",
+            "references": [],
+            "sourceFulltextUrls": [],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/701292755"
+              }
+            ],
+            "abstract": "High quality, equitable early childhood education and care (ECEC) is significant for the participation of children whose families have migrated to the UK. The rich lived experiences, perspectives and funds of knowledge of newly arrived children are largely invisible and there is an increased risk of social exclusion as a consequence. Drawing upon the findings of a three-year study using child-led photography and photo story books to explore three- to four-year-old children’s funds of knowledge, this chapter offers an original theoretical and pedagogic ‘layered listening framework’ (LLF) that blurs sociocultural theory and visual theories for deep listening with young children. This novel conceptualisation, comprising intuitive and wise photography; ambiguity; photographing democratically and ‘elastic spaces’ suggests an expanded guide for understanding how children as ‘photographer-authors’ co-create diverse perspectives about their lived experiences as pedagogical possibilities. Further research into photography is recommended for researchers and practitioners to develop ‘elastic spaces’ of ongoing dialogue and alternative ways of seeing in culturally responsive ECEC and beyond. Such possibilities have the potential for challenging deficit perspectives of diversity by building democratic relationships of trust and reciprocity, with and for strong, resilient communities with hearts as well as minds",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:108536",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 701292755,
+              "depositedDate": "",
+              "publishedDate": "2027-01-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [],
+            "lastUpdate": "2026-08-31T16:38:27+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Brown, Richard Danson" }],
+            "contributors": ["Bates, Catherine"],
+            "createdDate": "2025-03-31T09:36:31+01:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2025-03-24T11:30:08+00:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 648213547,
+            "identifiers": { "doi": null, "oai": "oai:oro.open.ac.uk:103417" },
+            "title": "Edmund Spenser: <i>The Faerie Queene</i>",
+            "language": null,
+            "publishedDate": "2027-01-01T00:00:00+00:00",
+            "publisher": "Routledge [In press]",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://oro.open.ac.uk/103417/1/CHAPTER%2032%20-%20Edmund%20Spenser%2C%20FQ%20-%20Brown%20-%20edited.docx"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/648213547"
+              }
+            ],
+            "abstract": "",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:103417",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 648213547,
+              "depositedDate": "",
+              "publishedDate": "2027-01-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://oro.open.ac.uk/103417/1/CHAPTER%2032%20-%20Edmund%20Spenser%2C%20FQ%20-%20Brown%20-%20edited.docx",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T16:35:05+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Hendry, Helen" },
+              { "name": "Drew, Sheila" },
+              { "name": "Teria Ng'asike, John" }
+            ],
+            "contributors": ["Wood, Lesley", "Koen, Mariette"],
+            "createdDate": "2026-08-31T16:39:09+01:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2026-08-24T11:17:04+01:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "10.4324/9781003609957-2",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 753685737,
+            "identifiers": {
+              "doi": "10.4324/9781003609957-2",
+              "oai": "oai:oro.open.ac.uk:111727"
+            },
+            "title": "Building Sustainable Professional Development for ECE Practitioners in Low Resource Contexts",
+            "language": null,
+            "publishedDate": "2027-01-01T00:00:00+00:00",
+            "publisher": "Routledge",
+            "references": [],
+            "sourceFulltextUrls": ["http://dx.doi.org/10.4324/9781003609957-2"],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/753685737"
+              }
+            ],
+            "abstract": "Unprecedented expansion of early childhood education (ECE) in low- and middle-income countries requires trained practitioners to provide quality learning opportunities for children. However, in Sub-Saharan Africa, only 64% of practitioners have been trained to the minimum national standard and access to training is variable. This chapter presents a model for designing accessible professional development using collaborative research, based on the process of co-creating “Skills for Early Education and Development” (SEED), with ECE practitioners in South Africa and Kenya. Drawing on a mixed method, comparative study of 272 ECE practitioners in South Africa and Kenya, and collaborative stakeholder workshops, practitioners’ priority training needs, motivations, and access to training were established, leading to co-created, skills-focused training. This participatory approach encourages practitioner “buy in,” by responding to their needs and priorities, and co-creating contextual examples, and offers a sustainable way to develop key skills for high-quality ECE practice with limited resources",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:111727",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 753685737,
+              "depositedDate": "",
+              "publishedDate": "2027-01-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "http://dx.doi.org/10.4324/9781003609957-2",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T16:39:42+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Newall, Diana" },
+              { "name": "Pooke, Grant" },
+              { "name": "Wainwright, Leon" }
+            ],
+            "contributors": [
+              "Newall, Diana",
+              "Pooke, Grant",
+              "Wainwright, Leon"
+            ],
+            "createdDate": "2026-08-31T16:39:10+01:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2026-08-25T14:00:36+01:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 753685748,
+            "identifiers": { "doi": null, "oai": "oai:oro.open.ac.uk:111742" },
+            "title": "Introduction to The Routledge Companion to Global Art Histories",
+            "language": null,
+            "publishedDate": "2027-01-01T00:00:00+00:00",
+            "publisher": "Routledge, Taylor and Francis (In Press)",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://oro.open.ac.uk/111742/2/111742.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/753685748"
+              }
+            ],
+            "abstract": "This co-authored introduction to the Routledge Companion to Global Art Histories argues that global art histories cannot be secured through wider geographical coverage alone. They depend upon the methods and infrastructures through which art historical knowledge is produced, authorised, taught and circulated. Drawing on the editors’ experience of publishing, research, pedagogy and curatorial practice, it reconstructs the project’s intellectual provenance while distinguishing the volume from a prescriptive programme and from any simple identification of the ‘global’ with the ‘decolonial’.\n\n\n\nThe Introduction examines how pedagogy, archives, classification, markets, political authority, ecology, restitution and repatriation determine which histories become legible, and on what terms. A curatorial project in Malaysia provides a concrete test of these questions, showing how decolonial ambitions encounter uneven cultural infrastructures, differentiated histories and competing expectations of representation. Across these examples, the argument shifts attention from inclusion by addition to the conditions that make some histories visible while constraining or excluding others.\n\n\n\nThe four sections organise this enquiry through knowledge production and pedagogy; identity, voice and agency; place, geography and ecology; and memory, trauma and geopolitics. Together, they treat hegemony as a broader problem of institutional and political power rather than presenting Eurocentrism as a single explanatory cause. The Coda then confronts the economic and political conditions affecting Art History in the twenty-first century. The Introduction thus establishes the volume as a collection of situated and sometimes divergent arguments, connected by close attention to how global art histories are made and sustaine",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:111742",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 753685748,
+              "depositedDate": "",
+              "publishedDate": "2027-01-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://oro.open.ac.uk/111742/2/111742.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T16:39:42+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Hayden, Tara S." },
+              { "name": "Barrett, Thomas J." },
+              { "name": "Anand, Mahesh" },
+              { "name": "Whitehouse, Martin J." },
+              { "name": "Jeon, Heejin" },
+              { "name": "Zhao, Xuchao" },
+              { "name": "Mechem, Marc E." },
+              { "name": "Osinski, Gordon R." },
+              { "name": "Franchi, Ian. A." }
+            ],
+            "contributors": [],
+            "createdDate": "2026-03-04T19:48:08+00:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2026-02-23T09:30:10+00:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "10.1144/gslspecpub2025-70",
+            "downloadUrl": "https://core.ac.uk/download/710737070.pdf",
+            "fullText": "",
+            "id": 710737070,
+            "identifiers": {
+              "doi": "10.1144/gslspecpub2025-70",
+              "oai": "oai:oro.open.ac.uk:108726"
+            },
+            "title": "Petrography, geochronology, and volatile inventory of lunar meteorite Northwest Africa 12593",
+            "language": null,
+            "publishedDate": null,
+            "publisher": "Geological Society of London",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://oro.open.ac.uk/108726/1/108726.pdf",
+              "http://dx.doi.org/10.1144/gslspecpub2025-70"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/710737070.pdf"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/710737070"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/710737070/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/710737070/large"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/710737070"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/710737070/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/710737070/large"
+              },
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/710737070"
+              }
+            ],
+            "abstract": "The petrography and geochemistry of Northwest Africa (NWA) 12593 reveals association with the ferroan anorthosite and magnesian suites, as well as highlands-type clasts that are compositionally distinct from Apollo highlands material, re-affirming previous observations of increased compositional diversity in lunar crustal rocks outside of the Apollo sampled region. A large number of apatite grains were identified in lunar meteorite NWA 12593, in texturally pristine condition and associated with lithic clasts and the impact melt matrix. Chlorine and hydrogen isotope compositions obtained on apatite in NWA 12593 (δ 37 Cl = + 11.3 ‰ to + 53.1 ‰; δD = − 368 ‰ to + 1030 ‰) are significantly greater than in Apollo samples and basaltic lunar meteorites, with a broad range of volatile abundances spanning two orders of magnitude (Cl = 1053-12337 ppm; H2O = 143-4486 ppm). These volatile signatures reveal new insights into the distribution and isotopic heterogeneity of highly volatile elements in areas of the lunar surface not sampled previously and indicate that the lunar interior may have been equally heterogenous throughout its evolution. The variety of impact melt and lithic material in this sample implies a complex impact history that can contribute to future lunar exploration (e.g., Artemis III) surface activity goals of determining the lunar record of Inner Solar System impact history and volatile distribution throughout the lunar surface and interior",
+            "tags": [],
+            "fulltextStatus": "enabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:108726",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 710737070,
+              "depositedDate": "",
+              "publishedDate": "",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://oro.open.ac.uk/108726/1/108726.pdf",
+                "type": "fulltext"
+              },
+              {
+                "url": "http://dx.doi.org/10.1144/gslspecpub2025-70",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T16:38:28+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Chappell, Sophie-Grace" }],
+            "contributors": ["Caprioglio Panizza, Silvia"],
+            "createdDate": "2026-08-31T16:39:09+01:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2026-08-24T11:13:59+01:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "10.4324/9781003544333-5",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 753685736,
+            "identifiers": {
+              "doi": "10.4324/9781003544333-5",
+              "oai": "oai:oro.open.ac.uk:111726"
+            },
+            "title": "The Innocence You Have Fought For",
+            "language": null,
+            "publishedDate": "2027-01-01T00:00:00+00:00",
+            "publisher": "Routledge",
+            "references": [],
+            "sourceFulltextUrls": ["http://dx.doi.org/10.4324/9781003544333-5"],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/753685736"
+              }
+            ],
+            "abstract": "To learn is to come to know; to learn morally is to come to have moral knowledge. Few philosophers doubt the general possibility of learning, but it is controversial whether there is even such a thing as moral learning or moral knowledge. Among those (such as me) who affirm that there is such a thing, my thesis in this chapter must seem even more controversial. It is that innocence is a good thing; that there is a kind of innocence that can be learned, and indeed taught; and that learning innocence is an essential part of moral learning. This sounds paradoxical because innocence seems close-allied with ignorance. Innocence seems to involve not so much knowledge as the absence of knowledge; not so much learning as not-learning, perhaps indeed un-learning; not moral progress, but its cessation or even reversal. Nonetheless, I say that innocence – whether or not we should actually count it as a virtue – is an attribute of character that often deserves our admiration and emulation. And that innocence is a rather neglected thick ethical concept (perhaps in fact two concepts) that is worth retrieving, because it is often among the right concepts to deploy when we are trying to articulate what exactly is good in some case of excellence in action. For there are things that it is good not to know; there are habits of mind that it is better not to learn, or even to un-learn; and there are thoughts that it is the mark of virtue not to have. So I offer up my ‘Innocence’, and hope not to get repaid in scorn",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:111726",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 753685736,
+              "depositedDate": "",
+              "publishedDate": "2027-01-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "http://dx.doi.org/10.4324/9781003544333-5",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T16:39:42+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [],
+            "contributors": [
+              "Wainwright, Leon",
+              "Newall, Diana",
+              "Pooke, Grant"
+            ],
+            "createdDate": "2026-07-27T11:21:26+01:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2026-07-21T11:40:45+01:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 750693368,
+            "identifiers": { "doi": null, "oai": "oai:oro.open.ac.uk:110762" },
+            "title": "The Routledge Companion to Global Art Histories",
+            "language": null,
+            "publishedDate": "2027-02-10T00:00:00+00:00",
+            "publisher": "Routledge (In Press)",
+            "references": [],
+            "sourceFulltextUrls": [],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/750693368"
+              }
+            ],
+            "abstract": "The Routledge Companion to Global Art Histories explores contemporary global art histories, theories and practices through diverse local, national and transnational perspectives which challenge traditional narratives and embrace cultural plurality.This Companion features twenty original essays from leading international scholars, organised into four thematic sections: methodologies and pedagogies, identity and agency, place and ecologies, memory and geopolitics. Each section includes an introduction to guide readers through key concepts. The book provides practical frameworks for understanding how power, location and cultural difference shape art histories, enhanced with case studies from the Caribbean, India, China, the Netherlands, the Middle East, Africa, Oceania and other regions, demonstrating how local perspectives reshape global art history narratives. This volume will be an indispensable reference for scholars and advanced students of art history, visual culture, museum studies and postcolonial studies. It is particularly useful for teachers developing decolonised curricula and scholars studying contemporary art, global modernisms, cultural geography and transnational art practices. Museum professionals, curators and practitioners engaged with questions of representation, identity and institutional critique will also find this Companion useful for understanding and implementing global perspectives within their work",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:110762",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 750693368,
+              "depositedDate": "",
+              "publishedDate": "2027-02-10T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [],
+            "lastUpdate": "2026-08-31T16:39:06+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Sims, R. C." },
+              { "name": "Bose, M." },
+              { "name": "Guan, Y." },
+              { "name": "Suttle, M.D." },
+              { "name": "Genge, M. J." },
+              { "name": "Wittmann, A." },
+              { "name": "Joseph, R." }
+            ],
+            "contributors": [],
+            "createdDate": "2026-07-27T11:21:27+01:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2026-07-13T16:00:10+01:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "10.1144/gslspecpub2025-80",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 750693466,
+            "identifiers": {
+              "doi": "10.1144/gslspecpub2025-80",
+              "oai": "oai:oro.open.ac.uk:110881"
+            },
+            "title": "Oxygen Isotopes of Anhydrous Minerals within Micrometeorites Show Connections to Volatile-Rich Parent Bodies",
+            "language": null,
+            "publishedDate": null,
+            "publisher": null,
+            "references": [],
+            "sourceFulltextUrls": [
+              "http://dx.doi.org/10.1144/gslspecpub2025-80",
+              "https://oro.open.ac.uk/110881/1/110881.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/750693466"
+              }
+            ],
+            "abstract": "Chondritic materials retain isotopic signatures of protoplanetary disk gas and provide insights into disk chemistry and evolution during planet formation. We present mineralogy and oxygen isotope compositions of Antarctic micrometeorites (MMs) from the 1994 Cap Prud'homme collection, analysed by electron probe micro-analysis and nanoscale secondary ion mass spectrometry. Mineralogical and isotopic data link CP94-050 MMs to the carbonaceous chondrites (CCs), representing water-rich asteroidal and cometary materials. Olivine and pyroxene grains exhibit O isotopes that overlap with silicate inclusions in ordinary and carbonaceous chondrites. A majority of the minerals have values consistent with Type I and Type II chondrules (Δ 17 O ≈ -5 ‰ to +5 ‰), with the lowest Δ 17 O value being -30.5 ‰ (Particle #60), which is consistent with formation in the earliest, 16 O-rich disk reservoir. Particle #60 has the strongest affinities to olivine in CR chondrites, while particle #22 with an 16 O-rich composition has no definitive link to known chondrite types. Together, these results show that MMs sample a mixture of mostly hydrated outer-disk materials and, less abundant, refractory inner-disk silicates. The MMs in CP94-050 preserve primitive isotopic reservoirs despite post-accretionary alteration and offer critical constraints on the oxygen isotope reservoirs in the protoplanetary disk",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:110881",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 750693466,
+              "depositedDate": "",
+              "publishedDate": "",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "http://dx.doi.org/10.1144/gslspecpub2025-80",
+                "type": "fulltext"
+              },
+              {
+                "url": "https://oro.open.ac.uk/110881/1/110881.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T16:39:53+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          }
+        ],
+        "tooks": [],
+        "searchId": null
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T13:29:53.499Z",
+    "scrubbed": { "fullText": 1, "headersDropped": 4 }
+  }
+}

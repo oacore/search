@@ -1,0 +1,408 @@
+{
+  "schema": 1,
+  "scenario": "q074b",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/7402/outputs",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:29:51 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": [
+        {
+          "acceptedDate": "",
+          "authors": [
+            { "name": "Rajavuori, Mikko" },
+            { "name": "Savaresi, Annalisa" },
+            { "name": "van Asselt, Harro" }
+          ],
+          "contributors": [],
+          "createdDate": "2023-05-25T01:01:55+01:00",
+          "dataProvider": {
+            "id": 10883,
+            "name": "Stirling Online Research Repository (RIOXX)",
+            "url": "https://api.core.ac.uk/v3/data-providers/10883",
+            "logo": "https://api.core.ac.uk/data-providers/10883/logo"
+          },
+          "depositedDate": "2023-05-25T01:01:55+01:00",
+          "documentType": [],
+          "versions": [],
+          "doi": "10.1111/q074b.1",
+          "downloadUrl": "https://core.ac.uk/download/566708785.pdf",
+          "fullText": "",
+          "id": 566708785,
+          "identifiers": {
+            "doi": "10.1111/rego.12518",
+            "oai": "oai:dspace.stir.ac.uk:1893/35102"
+          },
+          "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+          "language": null,
+          "publishedDate": "2023-03-14T00:00:00+00:00",
+          "publisher": "Wiley",
+          "references": [],
+          "sourceFulltextUrls": [
+            "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf",
+            "https://doi.org/10.1111/rego.12518"
+          ],
+          "updatedDate": null,
+          "yearPublished": "2023",
+          "links": [
+            {
+              "type": "download",
+              "url": "https://core.ac.uk/download/566708785.pdf"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/566708785" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/566708785/medium"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/566708785/large"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/566708785" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/566708785/medium"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/566708785/large"
+            },
+            { "type": "display", "url": "https://core.ac.uk/outputs/566708785" }
+          ],
+          "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+          "tags": [
+            "climate change litigation",
+            "corporate accountability",
+            "corporate sustainability",
+            "due diligence",
+            "human rights"
+          ],
+          "fulltextStatus": "enabled",
+          "subjects": [
+            "climate change litigation",
+            "corporate accountability",
+            "corporate sustainability",
+            "due diligence",
+            "human rights"
+          ],
+          "oai": "oai:dspace.stir.ac.uk:1893/35102",
+          "deleted": "ALLOWED",
+          "disabled": false,
+          "journals": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "id": 566708785,
+            "depositedDate": "",
+            "publishedDate": "2023-03-14T00:00:00+00:00",
+            "updatedDate": "",
+            "acceptedDate": "",
+            "createdDate": ""
+          },
+          "urls": [
+            {
+              "url": "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf",
+              "type": "fulltext"
+            },
+            { "url": "https://doi.org/10.1111/rego.12518", "type": "fulltext" }
+          ],
+          "lastUpdate": "2026-04-03T22:11:27+01:00",
+          "setSpecs": [],
+          "license": "http://creativecommons.org/licenses/by/4.0/",
+          "orcids": [],
+          "sdg": []
+        },
+        {
+          "acceptedDate": "",
+          "authors": [
+            { "name": "Rajavuori, Mikko" },
+            { "name": "Savaresi, Annalisa" },
+            { "name": "van Asselt, Harro" }
+          ],
+          "contributors": [
+            "European Commission (Horizon Europe)",
+            "Academy of Finland",
+            "Academy of Finland",
+            "University of Turku",
+            "Law",
+            "University of Eastern Finland",
+            "0000-0002-4255-3696"
+          ],
+          "createdDate": "2023-05-25T01:01:55+01:00",
+          "dataProvider": {
+            "id": 107,
+            "name": "Stirling Online Research Repository",
+            "url": "https://api.core.ac.uk/v3/data-providers/107",
+            "logo": "https://api.core.ac.uk/data-providers/107/logo"
+          },
+          "depositedDate": "2023-05-25T01:01:55+01:00",
+          "documentType": "",
+          "versions": [{ "version": null }],
+          "doi": "10.1111/q074b.2",
+          "downloadUrl": "https://core.ac.uk/download/567714872.pdf",
+          "fullText": "",
+          "id": 567714872,
+          "identifiers": {
+            "doi": "10.1111/rego.12518",
+            "oai": "oai:dspace.stir.ac.uk:1893/35102"
+          },
+          "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+          "language": null,
+          "publishedDate": "2023-03-14T00:00:00+00:00",
+          "publisher": "Wiley",
+          "references": [],
+          "sourceFulltextUrls": [
+            "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf",
+            "http://hdl.handle.net/1893/35102"
+          ],
+          "updatedDate": null,
+          "yearPublished": "2023",
+          "links": [
+            {
+              "type": "download",
+              "url": "https://core.ac.uk/download/567714872.pdf"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/567714872" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/567714872/medium"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/567714872/large"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/567714872" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/567714872/medium"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/567714872/large"
+            },
+            { "type": "display", "url": "https://core.ac.uk/outputs/567714872" }
+          ],
+          "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+          "tags": ["Journal Article", "VoR - Version of Record"],
+          "fulltextStatus": "enabled",
+          "subjects": ["Journal Article", "VoR - Version of Record"],
+          "oai": "oai:dspace.stir.ac.uk:1893/35102",
+          "deleted": "ALLOWED",
+          "disabled": false,
+          "journals": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "id": 567714872,
+            "depositedDate": "",
+            "publishedDate": "2023-03-14T00:00:00+00:00",
+            "updatedDate": "",
+            "acceptedDate": "",
+            "createdDate": ""
+          },
+          "urls": [
+            {
+              "url": "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf",
+              "type": "fulltext"
+            },
+            { "url": "http://hdl.handle.net/1893/35102", "type": "fulltext" }
+          ],
+          "lastUpdate": "2026-04-03T22:47:39+01:00",
+          "setSpecs": [],
+          "license": "http://creativecommons.org/licenses/by/4.0/",
+          "orcids": [],
+          "sdg": []
+        },
+        {
+          "acceptedDate": "",
+          "authors": [
+            { "name": "Mikko Rajavuori" },
+            { "name": "Annalisa Savaresi" },
+            { "name": "Harro van Asselt" }
+          ],
+          "contributors": [],
+          "createdDate": "2023-10-24T02:00:00+01:00",
+          "dataProvider": {
+            "id": 4786,
+            "name": "Crossref",
+            "url": "https://api.core.ac.uk/v3/data-providers/4786",
+            "logo": "https://api.core.ac.uk/data-providers/4786/logo"
+          },
+          "depositedDate": "2023-08-18T02:00:00+01:00",
+          "documentType": "",
+          "versions": [],
+          "doi": "10.1111/q074b.3",
+          "downloadUrl": "",
+          "fullText": "",
+          "id": 580296804,
+          "identifiers": { "doi": "10.1111/rego.12518", "oai": null },
+          "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+          "language": null,
+          "publishedDate": null,
+          "publisher": "Wiley",
+          "references": [],
+          "sourceFulltextUrls": [],
+          "updatedDate": null,
+          "yearPublished": "2023",
+          "links": [
+            { "type": "display", "url": "https://core.ac.uk/outputs/580296804" }
+          ],
+          "abstract": "",
+          "tags": [],
+          "fulltextStatus": "disabled",
+          "subjects": [],
+          "oai": "",
+          "deleted": "ALLOWED",
+          "disabled": false,
+          "journals": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "id": 580296804,
+            "depositedDate": "",
+            "publishedDate": "",
+            "updatedDate": "",
+            "acceptedDate": "",
+            "createdDate": ""
+          },
+          "urls": [],
+          "lastUpdate": "2026-04-04T09:44:15+01:00",
+          "setSpecs": [],
+          "license": "http://creativecommons.org/licenses/by/4.0/",
+          "orcids": [],
+          "sdg": []
+        },
+        {
+          "acceptedDate": "",
+          "authors": [
+            { "name": "Rajavuori, Mikko" },
+            { "name": "Savaresi, Annalisa" },
+            { "name": "van Asselt, Harro" }
+          ],
+          "contributors": [],
+          "createdDate": "2023-05-25T01:01:55+01:00",
+          "dataProvider": {
+            "id": 10883,
+            "name": "Stirling Online Research Repository (RIOXX)",
+            "url": "https://api.core.ac.uk/v3/data-providers/10883",
+            "logo": "https://api.core.ac.uk/data-providers/10883/logo"
+          },
+          "depositedDate": "2023-05-25T01:01:55+01:00",
+          "documentType": [],
+          "versions": [],
+          "doi": "10.1111/q074b.4",
+          "downloadUrl": "https://core.ac.uk/download/566708785.pdf",
+          "fullText": "",
+          "id": 7402003,
+          "identifiers": {
+            "doi": "10.1111/rego.12518",
+            "oai": "oai:dspace.stir.ac.uk:1893/35102"
+          },
+          "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+          "language": null,
+          "publishedDate": "2023-03-14T00:00:00+00:00",
+          "publisher": "Wiley",
+          "references": [],
+          "sourceFulltextUrls": [
+            "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf",
+            "https://doi.org/10.1111/rego.12518"
+          ],
+          "updatedDate": null,
+          "yearPublished": "2023",
+          "links": [
+            {
+              "type": "download",
+              "url": "https://core.ac.uk/download/566708785.pdf"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/566708785" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/566708785/medium"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/566708785/large"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/566708785" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/566708785/medium"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/566708785/large"
+            },
+            { "type": "display", "url": "https://core.ac.uk/outputs/566708785" }
+          ],
+          "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+          "tags": [
+            "climate change litigation",
+            "corporate accountability",
+            "corporate sustainability",
+            "due diligence",
+            "human rights"
+          ],
+          "fulltextStatus": "enabled",
+          "subjects": [
+            "climate change litigation",
+            "corporate accountability",
+            "corporate sustainability",
+            "due diligence",
+            "human rights"
+          ],
+          "oai": "oai:dspace.stir.ac.uk:1893/35102",
+          "deleted": "ALLOWED",
+          "disabled": false,
+          "journals": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "id": 566708785,
+            "depositedDate": "",
+            "publishedDate": "2023-03-14T00:00:00+00:00",
+            "updatedDate": "",
+            "acceptedDate": "",
+            "createdDate": ""
+          },
+          "urls": [
+            {
+              "url": "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf",
+              "type": "fulltext"
+            },
+            { "url": "https://doi.org/10.1111/rego.12518", "type": "fulltext" }
+          ],
+          "lastUpdate": "2026-04-03T22:11:27+01:00",
+          "setSpecs": [],
+          "license": "http://creativecommons.org/licenses/by/4.0/",
+          "orcids": [],
+          "sdg": []
+        }
+      ]
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/works/1001/outputs",
+    "patch": [
+      { "op": "copy", "from": "/0", "path": "/3" },
+      { "op": "replace", "path": "/3/id", "value": 7402003 },
+      { "op": "replace", "path": "/0/doi", "value": "10.1111/q074b.1" },
+      { "op": "replace", "path": "/1/doi", "value": "10.1111/q074b.2" },
+      { "op": "replace", "path": "/2/doi", "value": "10.1111/q074b.3" },
+      { "op": "replace", "path": "/3/doi", "value": "10.1111/q074b.4" }
+    ],
+    "recordedAt": "2026-10-20T13:29:51.468Z"
+  }
+}

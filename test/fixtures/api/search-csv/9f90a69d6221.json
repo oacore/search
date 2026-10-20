@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "scenario": "search-csv",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/search/works",
+    "bodySha256": "aecaf401174f5a72302bd0bc119d0c8a4ef15fcd6f68041b0db4b1e40cbdf92a",
+    "bodyText": "{\"q\":\"climate\",\"accept\":\"text/csv\",\"limit\":10}"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:32:01 GMT"],
+      ["Content-Type", "text/csv; charset=UTF-8"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      [
+        "content-disposition",
+        "attachment; filename=works_climate_2026-10-20.csv"
+      ],
+      ["content-transfer-encoding", "binary"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "\"workID\",\"oaiID\",\"doi\",\"title\",\"authors\",\"createdDate\"\n19211324,oai:apo.org.au:56783,,\"Climate change 2015: growing risks, critical choices\",\"Climate Council\",2016-01-05\n62704171,info:ark/67531/metadc950216,,\"Climate and Airborne Pollutants\",\"Climate Change Science Program (U.S.)\",2018-09-05\n19212910,oai:apo.org.au:53961,,\"Thirsty country: climate change and drought in Australia\",\"Climate Council\",2016-01-05\n18872441,oai:www.ideals.illinois.edu:2142/94330,,\"Midwestern Regional Climate Center\",\"Midwestern Regional Climate Center\",2018-07-06\n17489114,oai:alma.01uoml_inst:11388526260002976,,\"Seasonal Climate Forecasts and Risk Management Among Georgia Farmers\",\"Paz, J\",2016-08-19\n19213079,oai:apo.org.au:53879,,\"Going for zero: state decarbonisation strategies for prosperity in a zero-emission world\",\"Climate Institute\",2016-01-05\n153927213,ir.library.oregonstate.edu:gt54kw197,,\"Sixth Oregon climate assessment\",\"Oregon Climate Change Research Institute\",2025-09-11\n385302858,ir.library.oregonstate.edu:gt54kw197,,\"Sixth Oregon climate assessment\",\"Oregon Climate Change Research Institute\",2024-01-03\n366588237,ir.library.oregonstate.edu:gt54kw197,,\"Sixth Oregon climate assessment\",\"Oregon Climate Change Research Institute\",2024-01-03\n164917271,ir.library.oregonstate.edu:6w924m823,,\"Seventh Oregon climate assessment\",\"Oregon Climate Change Research Institute\",2025-09-11\n"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T15:32:01.235Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

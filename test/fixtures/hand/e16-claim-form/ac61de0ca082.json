@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "scenario": "e16-claim-form",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/internal/data-providers",
+    "bodySha256": "b14b9cc79d1d4535564ae4c7bcba8f078368e5846197adb9c6b84adf3dcdc5ae",
+    "bodyText": "{\"uri\":\"https://created.example.org/\"}"
+  },
+  "response": {
+    "status": 201,
+    "headers": [["content-type", "application/json"]],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "id": 990001,
+        "name": "Example Repository",
+        "email": "",
+        "uri": "https://created.example.org/"
+      }
+    }
+  },
+  "source": {
+    "kind": "hand",
+    "from": null,
+    "patch": null,
+    "recordedAt": null,
+    "note": "created: the form shows created.name and a mailto link of created.email (blank here: fixtures hold no e-mail addresses)"
+  }
+}

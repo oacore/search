@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "scenario": "outputs-4100",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/outputs/4100",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 410,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:29:59 GMT"],
+      ["Content-Type", "text/html; charset=UTF-8"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"],
+      ["Content-Encoding", "gzip"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": { "message": "Output with identifier 4100 has been disabled." }
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/outputs/4040",
+    "patch": [
+      {
+        "op": "replace",
+        "path": "/message",
+        "value": "Output with identifier 4100 has been disabled."
+      }
+    ],
+    "recordedAt": "2026-10-20T13:29:59.973Z",
+    "overrides": ["status"],
+    "note": "no live 410 body was reachable in a bounded probe (VF-03): derived from the live 404 answer"
+  }
+}

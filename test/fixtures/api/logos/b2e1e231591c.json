@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "logos",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/data-providers/undefined/logo",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 404,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:38:40 GMT"],
+      ["Content-Type", "text/html; charset=UTF-8"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"],
+      ["Content-Encoding", "gzip"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "{\"message\":\"No route found for \\u0022GET https:\\/\\/api.core.ac.uk\\/data-providers\\/undefined\\/logo\\u0022\"}"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T15:38:40.065Z",
+    "scrubbed": { "headersDropped": 4 },
+    "note": "a result card whose provider is missing from the provider map has no id: the app requests .../undefined/logo"
+  }
+}

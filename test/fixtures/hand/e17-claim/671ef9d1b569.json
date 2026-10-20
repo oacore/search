@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "scenario": "e17-claim",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/internal/data-providers/86/claim",
+    "bodySha256": "3dc07e159dcaedbe18f394eb2864a87e59b0cdea6fdd936e1566ca72cb6e1bbb",
+    "bodyText": "{\"name\":\"Test Claimant\",\"email\":\"claimant@localhost\",\"rationale\":\"claim-ok\",\"repositoryHasAccount\":true}"
+  },
+  "response": {
+    "status": 201,
+    "headers": [["content-type", "application/json"]],
+    "body": {
+      "encoding": "json",
+      "data": { "message": "Claim request accepted" }
+    }
+  },
+  "source": { "kind": "hand", "from": null, "patch": null, "recordedAt": null }
+}

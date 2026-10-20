@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "scenario": "search-zzzzqqq",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+    "bodySha256": "7ba04c7e3e0ed70a7808e81f177584e27a134abc868d2361e4a31b087a9a3079",
+    "bodyText": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"zzzzqqq\"}"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:31:54 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "aggregations": {
+          "fieldsOfStudy": [],
+          "yearPublished": [],
+          "documentType": [],
+          "authors": [],
+          "language": [],
+          "publisher": []
+        }
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T15:31:54.576Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}
