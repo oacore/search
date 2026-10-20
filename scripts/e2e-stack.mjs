@@ -599,6 +599,7 @@ async function superviseDocker(opts) {
       P2_RUN_DIR: dir,
       P2_REPO: REPO,
       E2E_PORT_BASE: String(ports.base),
+      P2_NET: `172.30.${slot}`,
       P2_PORT_GATEWAY: String(ports.gateway),
       P2_PORT_ALLOW: String(ports.allow),
       P2_PORT_APP: String(ports.app),
