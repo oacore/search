@@ -1,0 +1,16 @@
+{
+  "description": "node_modules packages that ship ESM only and must be transformed by babel-jest (40 §2.1); names or scope/* prefixes",
+  "packages": [
+    "msw",
+    "@mswjs/*",
+    "@open-draft/*",
+    "rettime",
+    "until-async",
+    "@inquirer/*",
+    "fast-wrap-ansi",
+    "fast-string-width",
+    "fast-string-truncated-width",
+    "tagged-tag",
+    "type-fest"
+  ]
+}
