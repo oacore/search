@@ -15,13 +15,14 @@ ENV SENTRY_DSN=$SENTRY_DSN \
     APP_ENV=$APP_ENV
 WORKDIR /app
 COPY . .
+ARG BUILD_SCRIPT=build
 RUN printf "@oacore:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=%s\n" "$NPM_TOKEN" > .npmrc
 RUN npm ci --include=dev --legacy-peer-deps || npm install --include=dev --legacy-peer-deps
 RUN rm -f .npmrc
 ENV NODE_ENV=$NODE_ENV
 ENV APP_ENV=$APP_ENV
 ENV NODE_OPTIONS="--openssl-legacy-provider"
-RUN npm run build && \
+RUN npm run ${BUILD_SCRIPT} && \
     cp public/design/icons.svg public/icons.svg && \
     mkdir -p public/images && \
     cp -r public/static/images/* public/images/
