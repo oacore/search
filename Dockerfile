@@ -15,11 +15,12 @@ ENV SENTRY_DSN=$SENTRY_DSN \
     BUILD_TARGET=$BUILD_TARGET \
     APP_ENV=$APP_ENV
 WORKDIR /app
-COPY . .
-ARG BUILD_SCRIPT=build
+COPY package.json package-lock.json design.config.js ./
 RUN --mount=type=secret,id=npm_token printf '@oacore:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=%s\n' \
     "$(cat /run/secrets/npm_token)" > .npmrc && { npm ci --include=dev --legacy-peer-deps || npm install --include=dev --legacy-peer-deps; }; \
     rc=$?; rm -f .npmrc; exit $rc
+COPY . .
+ARG BUILD_SCRIPT=build
 ENV NODE_ENV=$NODE_ENV
 ENV APP_ENV=$APP_ENV
 ENV NODE_OPTIONS="--openssl-legacy-provider"
