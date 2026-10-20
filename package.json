@@ -108,6 +108,10 @@
     "lint:json": "prettier --ignore-path .gitignore --check '**/*.json'",
     "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",
     "lint:css": "stylelint --ignore-path .gitignore '**/*.css'",
-    "lint": "run-p lint:*"
+    "lint": "run-p lint:*",
+    "test:unit": "TZ=UTC jest --selectProjects node dom",
+    "test:static": "TZ=UTC jest --selectProjects static",
+    "test:harness": "TZ=UTC jest -t T-012 && node e2e/proxy/generate.mjs --self-test && node test/ssr/stub.mjs --self-check",
+    "docs:check": "node tools/check-docs.mjs docs/upgrade --repo . --tests test,e2e"
   }
 }
