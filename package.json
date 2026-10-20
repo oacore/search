@@ -112,6 +112,14 @@
     "test:unit": "TZ=UTC jest --selectProjects node dom",
     "test:static": "TZ=UTC jest --selectProjects static",
     "test:harness": "TZ=UTC jest -t T-012 && node e2e/proxy/generate.mjs --self-test && node test/ssr/stub.mjs --self-check",
-    "docs:check": "node tools/check-docs.mjs docs/upgrade --repo . --tests test,e2e"
+    "docs:check": "node tools/check-docs.mjs docs/upgrade --repo . --tests test,e2e",
+    "build:parity": "node scripts/build-parity.mjs",
+    "e2e:up": "node scripts/e2e-stack.mjs up",
+    "e2e": "node scripts/e2e-stack.mjs test",
+    "e2e:down": "node scripts/e2e-stack.mjs down",
+    "e2e:status": "node scripts/e2e-stack.mjs status",
+    "e2e:gc": "node scripts/e2e-stack.mjs gc",
+    "e2e:visual": "node scripts/e2e-stack.mjs test --visual",
+    "e2e:record": "node scripts/e2e-stack.mjs test --record"
   }
 }
