@@ -120,6 +120,7 @@
     "e2e:status": "node scripts/e2e-stack.mjs status",
     "e2e:gc": "node scripts/e2e-stack.mjs gc",
     "e2e:visual": "node scripts/e2e-stack.mjs test --visual",
-    "e2e:record": "node scripts/e2e-stack.mjs test --record"
+    "e2e:record": "node scripts/e2e-stack.mjs test --record",
+    "test:image": "bash test/ops/t901.sh"
   }
 }
