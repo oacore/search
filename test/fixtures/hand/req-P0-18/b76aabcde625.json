@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "scenario": "req-P0-18",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/internal/outputs/update",
+    "bodySha256": "650f3f47e6392698dc823a2a7b5b599fbbdedd9becbd1000d8b81df91ee9a3ea",
+    "bodyText": "{\"outputId\":2001,\"name\":\"Test Reporter\",\"email\":\"reporter@localhost\",\"message\":\"report-ok\",\"updateOption\":\"takeDownFullText\",\"role\":\"repositoryManager\"}"
+  },
+  "response": {
+    "status": 201,
+    "headers": [["content-type", "application/json"]],
+    "body": { "encoding": "json", "data": { "message": "Report accepted" } }
+  },
+  "source": {
+    "kind": "hand",
+    "from": null,
+    "patch": null,
+    "recordedAt": null,
+    "note": "V11: the report form of output 2001 submitted as a repository manager (the success modal then shows the dashboard text); the author answer is the e10-report fixture"
+  }
+}
