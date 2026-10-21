@@ -1,0 +1,367 @@
+{
+  "link": "provisional-2.3",
+  "reference": {
+    "test": "T-607",
+    "mode": "host",
+    "commit": "d95a089a315c0cc90b509afa1cbb9048f50132a6",
+    "build": "494fc5127f9f9461",
+    "variant": "default",
+    "proxyOverlay": null
+  },
+  "named": [
+    "host",
+    "authorization",
+    "accept",
+    "content-type",
+    "user-agent",
+    "accept-encoding",
+    "sentry-trace",
+    "baggage"
+  ],
+  "normalised": {
+    "host (Internal_API)": "<Internal_API host>",
+    "host (host-mode redirect)": "<redirected>",
+    "API key in a value": "<API_KEY>",
+    "order": "records of one page sorted by method, URL, body sha256, headers"
+  },
+  "pages": [
+    {
+      "target": "/search/?q=climate",
+      "status": 200,
+      "records": [
+        {
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internal/members",
+          "listener": "http",
+          "redirected": false,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<Internal_API host>"],
+            ["connection", "keep-alive"],
+            ["Accept", "application/json"],
+            ["Authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "POST",
+          "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+          "listener": "http",
+          "redirected": false,
+          "bodySha256": "32cc9926a567f20017daac2400b213de8cc15707788191a5c0300dd8c00c95a3",
+          "headers": [
+            ["host", "<Internal_API host>"],
+            ["connection", "keep-alive"],
+            ["Accept", "application/json"],
+            ["Authorization", "Bearer <API_KEY>"],
+            ["Content-Type", "application/json"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"],
+            ["content-length", "79"]
+          ]
+        }
+      ]
+    },
+    {
+      "target": "/works/1001/",
+      "status": 200,
+      "records": [
+        {
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1001/outputs",
+          "listener": "http",
+          "redirected": false,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<Internal_API host>"],
+            ["connection", "keep-alive"],
+            ["Accept", "application/json"],
+            ["Authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1001?t=undefined",
+          "listener": "http",
+          "redirected": false,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<Internal_API host>"],
+            ["connection", "keep-alive"],
+            ["Accept", "application/json"],
+            ["Authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "GET",
+          "url": "https://doi.org/10.1111/rego.12518",
+          "listener": "http",
+          "redirected": true,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<redirected>"],
+            ["connection", "keep-alive"],
+            ["accept", "text/x-bibliography; style=apa; locale=en-GB"],
+            ["authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "GET",
+          "url": "https://doi.org/10.1111/rego.12518",
+          "listener": "http",
+          "redirected": true,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<redirected>"],
+            ["connection", "keep-alive"],
+            ["accept", "text/x-bibliography; style=bibtex; locale=en-GB"],
+            ["authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        }
+      ]
+    },
+    {
+      "target": "/outputs/2001/",
+      "status": 200,
+      "records": [
+        {
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/86",
+          "listener": "http",
+          "redirected": false,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<Internal_API host>"],
+            ["connection", "keep-alive"],
+            ["Accept", "application/json"],
+            ["Authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/outputs/2001",
+          "listener": "http",
+          "redirected": false,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<Internal_API host>"],
+            ["connection", "keep-alive"],
+            ["Accept", "application/json"],
+            ["Authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "GET",
+          "url": "https://doi.org/10.1186/1756-0500-5-503",
+          "listener": "http",
+          "redirected": true,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<redirected>"],
+            ["connection", "keep-alive"],
+            ["accept", "text/x-bibliography; style=apa; locale=en-GB"],
+            ["authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "GET",
+          "url": "https://doi.org/10.1186/1756-0500-5-503",
+          "listener": "http",
+          "redirected": true,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<redirected>"],
+            ["connection", "keep-alive"],
+            ["accept", "text/x-bibliography; style=bibtex; locale=en-GB"],
+            ["authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        }
+      ]
+    },
+    {
+      "target": "/data-providers/86/",
+      "status": 200,
+      "records": [
+        {
+          "method": "GET",
+          "url": "https://api.core.ac.uk/internal/data-providers/86/account",
+          "listener": "http",
+          "redirected": false,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<Internal_API host>"],
+            ["connection", "keep-alive"],
+            ["Accept", "application/json"],
+            ["Authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/86/outputs?q=&offset=0&limit=10&sort=recency",
+          "listener": "http",
+          "redirected": false,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<Internal_API host>"],
+            ["connection", "keep-alive"],
+            ["Accept", "application/json"],
+            ["Authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/86/stats",
+          "listener": "http",
+          "redirected": false,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<Internal_API host>"],
+            ["connection", "keep-alive"],
+            ["Accept", "application/json"],
+            ["Authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/data-providers/86?t=undefined",
+          "listener": "http",
+          "redirected": false,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<Internal_API host>"],
+            ["connection", "keep-alive"],
+            ["Accept", "application/json"],
+            ["Authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        }
+      ]
+    },
+    {
+      "target": "/search/_next/data/{buildId}/works/1001.json",
+      "status": 200,
+      "records": [
+        {
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1001/outputs",
+          "listener": "http",
+          "redirected": false,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<Internal_API host>"],
+            ["connection", "keep-alive"],
+            ["Accept", "application/json"],
+            ["Authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "GET",
+          "url": "https://api.core.ac.uk/v3/works/1001?t=undefined",
+          "listener": "http",
+          "redirected": false,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<Internal_API host>"],
+            ["connection", "keep-alive"],
+            ["Accept", "application/json"],
+            ["Authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "GET",
+          "url": "https://doi.org/10.1111/rego.12518",
+          "listener": "http",
+          "redirected": true,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<redirected>"],
+            ["connection", "keep-alive"],
+            ["accept", "text/x-bibliography; style=apa; locale=en-GB"],
+            ["authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        },
+        {
+          "method": "GET",
+          "url": "https://doi.org/10.1111/rego.12518",
+          "listener": "http",
+          "redirected": true,
+          "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "headers": [
+            ["host", "<redirected>"],
+            ["connection", "keep-alive"],
+            ["accept", "text/x-bibliography; style=bibtex; locale=en-GB"],
+            ["authorization", "Bearer <API_KEY>"],
+            ["accept-language", "*"],
+            ["sec-fetch-mode", "cors"],
+            ["user-agent", "node"],
+            ["accept-encoding", "gzip, deflate"]
+          ]
+        }
+      ]
+    }
+  ]
+}
