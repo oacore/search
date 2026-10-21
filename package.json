@@ -113,6 +113,7 @@
     "lint:json": "prettier --ignore-path .gitignore --check '**/*.json'",
     "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",
     "lint:css": "stylelint --ignore-path .gitignore '**/*.css'",
+    "lint:parity": "node scripts/lint-parity.mjs",
     "lint": "run-p lint:*",
     "test:unit": "TZ=UTC jest --selectProjects node dom",
     "test:static": "TZ=UTC jest --selectProjects static",

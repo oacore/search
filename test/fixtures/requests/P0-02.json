@@ -1,0 +1,5 @@
+{
+  "package": "P0-02",
+  "note": "T-001, T-002 and T-016 scan source files, the installed design package and the build's chunks; they read no API answer and send no request, so this list is empty.",
+  "requests": []
+}
