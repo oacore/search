@@ -92,7 +92,7 @@ Review labels (`X10.1`, `OQ-3`, `NE-02`) are cited, never redefined.
 | ER-05 | 04, 05, 07 | CSS patch lines | `next.config.js:45-77`, return `:55` | 20 CS-W0b-2 |
 | ER-06 | 05 | CSS import `_app.jsx:14` | `pages/_app.jsx:15-19` | 60 §8 |
 | ER-07 | 01, 05 | 69 files / 102 lines | 101 imports, 68 files | 60 §3 |
-| ER-08 | 05, 02 | 27 files, 178 selectors | 26 files, 177 classes; 221/430 reads | 10 R-001 |
+| ER-08 | 05, 02 | 27 files, 178 selectors | 26 files, 177 classes; 363 `styles.x` member reads, 202 of them camelCase-only, 24 dangling (Q-099; 221/430 are grep tokens) | 10 R-001 |
 | ER-09 | 03 §7 | fix quirks before React 18 | only proven ESCALATES (OD-09) | 30 §E |
 | ER-10 | 01 §7.2 | react-hook-form | antd `Form` (D3) | 80 §4 |
 | ER-11 | 01 | `cssnano` unused | used; W8 decides | 20 W8 |
