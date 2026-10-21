@@ -1,4 +1,4 @@
 {
-  "description": "Names the SSR stub serves over HTTPS with certificates from its test CA (40 §2.2). o0.ingest.sentry.io is the host of the test DSN the parity build inlines (42 §2, 40 §2.4); every other name is added by the first golden run (2.3), the discovery run. An unlisted name fails the run.",
-  "hosts": ["o0.ingest.sentry.io"]
+  "description": "Names the SSR stub serves over HTTPS with certificates from its test CA (40 §2.2). o0.ingest.sentry.io is the host of the test DSN the parity build inlines (42 §2, 40 §2.4); doi.org answers the server-side citation requests of the works and outputs pages (E9) from the recorded fixtures; every other name is added by the first golden run (2.3), the discovery run. An unlisted name fails the run.",
+  "hosts": ["o0.ingest.sentry.io", "doi.org"]
 }
