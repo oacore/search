@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e4",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/1005?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:42:24 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "{\"acceptedDate\":\"\",\"arxivId\":null,\"authors\":[{\"name\":\"Brimley, C. S.\"}],\"citationCount\":0,\"contributors\":[\"BioStor\"],\"outputs\":[\"https:\\/\\/api.core.ac.uk\\/v3\\/outputs\\/20220053\",\"https:\\/\\/api.core.ac.uk\\/v3\\/outputs\\/357077493\"],\"createdDate\":\"2013-08-27T16:38:16+01:00\",\"dataProviders\":[{\"id\":4786,\"name\":\"Crossref\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/4786\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/4786\\/logo\"},{\"id\":180,\"name\":\"Biodiversity Heritage Library OAI Repository\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/180\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/180\\/logo\"}],\"depositedDate\":\"2013-08-27T01:00:00+01:00\",\"abstract\":\"Volume: 11Start Page: 332End Page: 33\",\"documentType\":null,\"doi\":\"10.2307\\/4068625\",\"downloadUrl\":\"\",\"fieldOfStudy\":\"Article\",\"fullText\":\"\",\"id\":1005,\"identifiers\":[{\"identifier\":\"20220053\",\"type\":\"core_id\"},{\"identifier\":\"10.2307\\/4068625\",\"type\":\"doi\"},{\"identifier\":\"oai:biodiversitylibrary.org:part\\/88651\",\"type\":\"oai_id\"},{\"identifier\":\"357077493\",\"type\":\"core_id\"},{\"identifier\":\"oai:biodiversitylibrary.org:part\\/88651\",\"type\":\"oai\"}],\"title\":\"Notes from Raleigh, N C\",\"language\":null,\"magId\":null,\"oaiIds\":[\"oai:biodiversitylibrary.org:part\\/88651\"],\"publishedDate\":\"1894-01-01T00:00:00+00:00\",\"publisher\":\"Washington, D.C, American Ornithologists\\\\u27 Union, etc, 1884-\",\"pubmedId\":null,\"references\":[],\"sourceFulltextUrls\":[],\"updatedDate\":\"\",\"yearPublished\":1894,\"journals\":[],\"links\":[{\"type\":\"display\",\"url\":\"https:\\/\\/core.ac.uk\\/works\\/1005\"}]}"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:42:24.269Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e5",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/4100/outputs",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:46:33 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "[{\"acceptedDate\":\"\",\"authors\":[{\"name\":\"Gonyea, William J.\"},{\"name\":\"Hunt, B P\"}],\"contributors\":[\"BioStor\"],\"createdDate\":\"2013-08-27T17:20:37+01:00\",\"dataProvider\":{\"id\":180,\"name\":\"Biodiversity Heritage Library OAI Repository\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/180\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/180\\/logo\"},\"depositedDate\":\"2013-08-27T01:00:00+01:00\",\"documentType\":[\"research article\",\"text\"],\"versions\":[],\"doi\":\"\",\"downloadUrl\":\"\",\"fullText\":\"\",\"id\":20222989,\"identifiers\":{\"doi\":null,\"oai\":\"oai:biodiversitylibrary.org:part\\/91588\"},\"title\":\"ORGANIC MATTER IN FRESH WATERS OF SOUTH FLORIDA\",\"language\":null,\"publishedDate\":\"1969-01-01T01:00:00+01:00\",\"publisher\":\"Gainesville, Florida Academy of Sciences,\",\"references\":[],\"sourceFulltextUrls\":[\"https:\\/\\/www.biodiversitylibrary.org\\/part\\/91588\"],\"updatedDate\":null,\"yearPublished\":\"1969\",\"links\":[{\"type\":\"display\",\"url\":\"https:\\/\\/core.ac.uk\\/outputs\\/20222989\"}],\"abstract\":\"Volume: 32Start Page: 171End Page: 18\",\"tags\":[\"Article\",\"text\"],\"fulltextStatus\":\"disabled\",\"subjects\":[\"Article\",\"text\"],\"oai\":\"oai:biodiversitylibrary.org:part\\/91588\",\"deleted\":\"ALLOWED\",\"disabled\":false,\"journals\":[],\"repositories\":[],\"repositoryDocument\":{\"id\":20222989,\"depositedDate\":\"\",\"publishedDate\":\"1969-01-01T01:00:00+01:00\",\"updatedDate\":\"\",\"acceptedDate\":\"\",\"createdDate\":\"\"},\"urls\":[{\"url\":\"https:\\/\\/www.biodiversitylibrary.org\\/part\\/91588\",\"type\":\"fulltext\"}],\"lastUpdate\":\"2026-03-21T05:41:24+00:00\",\"setSpecs\":[],\"license\":\"http:\\/\\/creativecommons.org\\/licenses\\/by-nc-sa\\/3.0\\/\",\"orcids\":[],\"sdg\":[]}]"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:46:33.101Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e4",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/4101?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:42:36 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "{\"acceptedDate\":\"\",\"arxivId\":null,\"authors\":[{\"name\":\"Hentges, James Franklin,\"},{\"name\":\"Dunn, T A\"}],\"citationCount\":0,\"contributors\":[\"BioStor\"],\"outputs\":[\"https:\\/\\/api.core.ac.uk\\/v3\\/outputs\\/20222961\"],\"createdDate\":\"2013-08-27T03:21:14+01:00\",\"dataProviders\":[{\"id\":180,\"name\":\"Biodiversity Heritage Library OAI Repository\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/180\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/180\\/logo\"}],\"depositedDate\":\"2013-08-27T01:00:00+01:00\",\"abstract\":\"Volume: 31Start Page: 150End Page: 16\",\"documentType\":null,\"doi\":null,\"downloadUrl\":\"\",\"fieldOfStudy\":\"Article\",\"fullText\":\"\",\"id\":4101,\"identifiers\":[{\"identifier\":\"20222961\",\"type\":\"core_id\"},{\"identifier\":\"oai:biodiversitylibrary.org:part\\/91560\",\"type\":\"oai_id\"},{\"identifier\":\"oai:biodiversitylibrary.org:part\\/91560\",\"type\":\"oai\"}],\"title\":\"OYSTER SHELL AS ROUGHAGE REPLACEMENT IN CATTLE DIETS BERMUDA GRASS-M COQUINE SHELL COTTON-D SEED\",\"language\":null,\"magId\":null,\"oaiIds\":[\"oai:biodiversitylibrary.org:part\\/91560\"],\"publishedDate\":\"1968-01-01T00:00:00+00:00\",\"publisher\":\"Gainesville, Florida Academy of Sciences,\",\"pubmedId\":null,\"references\":[],\"sourceFulltextUrls\":[],\"updatedDate\":\"\",\"yearPublished\":1968,\"journals\":[],\"links\":[{\"type\":\"display\",\"url\":\"https:\\/\\/core.ac.uk\\/works\\/4101\"}]}"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:42:36.339Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

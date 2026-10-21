@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e5",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/7404/outputs",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:46:49 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "[{\"acceptedDate\":\"\",\"authors\":[{\"name\":\"Raffles, Thomas Stamford,\"},{\"name\":\"Home, Everard,\"}],\"contributors\":[\"BioStor\"],\"createdDate\":\"2017-01-03T14:05:18+00:00\",\"dataProvider\":{\"id\":180,\"name\":\"Biodiversity Heritage Library OAI Repository\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/180\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/180\\/logo\"},\"depositedDate\":\"2017-01-03T00:00:00+00:00\",\"documentType\":[\"research article\",\"text\"],\"versions\":[],\"doi\":\"10.1111\\/j.1095-8339.1821.tb00064.x\",\"downloadUrl\":\"\",\"fullText\":\"\",\"id\":20160346,\"identifiers\":{\"doi\":\"10.1111\\/j.1095-8339.1821.tb00064.x\",\"oai\":\"oai:biodiversitylibrary.org:part\\/28938\"},\"title\":\"XVII. Descriptive Catalogue of a Zoological Collection, made on account of the Honourable East India Company, in the Island of Sumatra and its Vicinity, under the Direction of Sir Thomas Stamford Raffles, Lieutenant-Governor of Tort Marlborough; with additional Notices illustrative of the Natural History of those Countries\",\"language\":null,\"publishedDate\":\"1820-12-31T23:58:45-00:01\",\"publisher\":\"London, [The Society], 1791-1875,\",\"references\":[],\"sourceFulltextUrls\":[\"https:\\/\\/www.biodiversitylibrary.org\\/part\\/28938\"],\"updatedDate\":null,\"yearPublished\":\"1821\",\"links\":[{\"type\":\"display\",\"url\":\"https:\\/\\/core.ac.uk\\/outputs\\/20160346\"}],\"abstract\":\"Volume: 13Start Page: 239End Page: 27\",\"tags\":[\"Article\",\"text\"],\"fulltextStatus\":\"disabled\",\"subjects\":[\"Article\",\"text\"],\"oai\":\"oai:biodiversitylibrary.org:part\\/28938\",\"deleted\":\"ALLOWED\",\"disabled\":false,\"journals\":[],\"repositories\":[],\"repositoryDocument\":{\"id\":20160346,\"depositedDate\":\"\",\"publishedDate\":\"1820-12-31T23:58:45-00:01\",\"updatedDate\":\"\",\"acceptedDate\":\"\",\"createdDate\":\"\"},\"urls\":[{\"url\":\"https:\\/\\/www.biodiversitylibrary.org\\/part\\/28938\",\"type\":\"fulltext\"}],\"lastUpdate\":\"2026-03-21T05:38:19+00:00\",\"setSpecs\":[],\"license\":\"Public domain.  The BHL considers that this work is no longer under copyright protection.\",\"orcids\":[],\"sdg\":[]},{\"acceptedDate\":\"\",\"authors\":[{\"name\":\"Raffles, Thomas Stamford,\"}],\"contributors\":[\"BioStor\"],\"createdDate\":\"2016-12-30T23:29:53+00:00\",\"dataProvider\":{\"id\":180,\"name\":\"Biodiversity Heritage Library OAI Repository\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/180\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/180\\/logo\"},\"depositedDate\":\"2016-12-30T00:00:00+00:00\",\"documentType\":[\"research article\",\"text\"],\"versions\":[],\"doi\":\"10.1111\\/j.1095-8339.1821.tb00064.x\",\"downloadUrl\":\"\",\"fullText\":\"\",\"id\":20225891,\"identifiers\":{\"doi\":\"10.1111\\/j.1095-8339.1821.tb00064.x\",\"oai\":\"oai:biodiversitylibrary.org:part\\/94495\"},\"title\":\"XVII. Descriptive Catalogue of a Zoological Collection, made on account of the Honourable East India Company, in the Island of Sumatra and its Vicinity, under the Direction of Sir Thomas Stamford Raffles, Lieutenant-Governor of Fort Marlborough; with addi\",\"language\":null,\"publishedDate\":\"1820-12-31T23:58:45-00:01\",\"publisher\":\"London, [The Society], 1791-1875,\",\"references\":[],\"sourceFulltextUrls\":[\"https:\\/\\/www.biodiversitylibrary.org\\/part\\/94495\"],\"updatedDate\":null,\"yearPublished\":\"1821\",\"links\":[{\"type\":\"display\",\"url\":\"https:\\/\\/core.ac.uk\\/outputs\\/20225891\"}],\"abstract\":\"Volume: 13Start Page: 239End Page: 27\",\"tags\":[\"Article\",\"text\"],\"fulltextStatus\":\"disabled\",\"subjects\":[\"Article\",\"text\"],\"oai\":\"oai:biodiversitylibrary.org:part\\/94495\",\"deleted\":\"ALLOWED\",\"disabled\":false,\"journals\":[],\"repositories\":[],\"repositoryDocument\":{\"id\":20225891,\"depositedDate\":\"\",\"publishedDate\":\"1820-12-31T23:58:45-00:01\",\"updatedDate\":\"\",\"acceptedDate\":\"\",\"createdDate\":\"\"},\"urls\":[{\"url\":\"https:\\/\\/www.biodiversitylibrary.org\\/part\\/94495\",\"type\":\"fulltext\"}],\"lastUpdate\":\"2026-03-21T05:41:33+00:00\",\"setSpecs\":[],\"license\":\"Public domain.  The BHL considers that this work is no longer under copyright protection.\",\"orcids\":[],\"sdg\":[]}]"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:46:49.749Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

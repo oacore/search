@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "name": "pilot",
+  "kind": "pilot",
+  "urls": 77,
+  "recordedThrough": {
+    "build": "1fb7e5b548c5ae8c",
+    "buildId": "fSewvhR0z-w12QYCnFd3s",
+    "commit": "689fec94a2a194dcf90b40d3a02dd81cac112e75",
+    "ref": "p2-local/golden",
+    "mode": "host (local mode, owner notes §1)"
+  },
+  "recordedAt": "2026-10-21T08:54:20.505Z",
+  "rounds": [
+    {
+      "round": 1,
+      "urls": 77,
+      "ssr": { "200": 38, "308": 10, "404": 21, "500": 8 },
+      "unmatched": 26,
+      "recorded": 26,
+      "skipped": 0,
+      "live": 26,
+      "failed": 0
+    },
+    {
+      "round": 2,
+      "urls": 77,
+      "ssr": { "200": 38, "308": 10, "404": 21, "500": 8 },
+      "unmatched": 6,
+      "recorded": 0,
+      "skipped": 0,
+      "live": 0,
+      "failed": 0
+    },
+    {
+      "round": 1,
+      "urls": 77,
+      "ssr": { "200": 41, "308": 10, "404": 25, "500": 1 },
+      "unmatched": 37,
+      "recorded": 37,
+      "skipped": 0,
+      "live": 37,
+      "failed": 0
+    },
+    {
+      "round": 2,
+      "urls": 77,
+      "ssr": { "200": 41, "308": 10, "404": 25, "500": 1 },
+      "unmatched": 24,
+      "recorded": 24,
+      "skipped": 0,
+      "live": 24,
+      "failed": 0
+    },
+    {
+      "round": 3,
+      "urls": 77,
+      "ssr": { "200": 44, "308": 10, "404": 21, "500": 2 },
+      "unmatched": 15,
+      "recorded": 15,
+      "skipped": 0,
+      "live": 15,
+      "failed": 0
+    },
+    {
+      "round": 4,
+      "urls": 77,
+      "ssr": { "200": 44, "308": 10, "404": 21, "500": 2 },
+      "unmatched": 0,
+      "recorded": 0,
+      "skipped": 0,
+      "live": 0,
+      "failed": 0
+    }
+  ],
+  "responses": 102,
+  "browserResponses": 33,
+  "harEntries": 33,
+  "histogram": {
+    "E1": { "200": 4, "500": 1 },
+    "E11": { "200": 4, "404": 1 },
+    "E12": { "200": 4 },
+    "E13": { "200": 4 },
+    "E18": { "200": 3, "404": 1 },
+    "E2": { "200": 3 },
+    "E21": { "200": 1 },
+    "E4": { "200": 16 },
+    "E5": { "200": 15, "500": 1 },
+    "E6": { "200": 6, "404": 7 },
+    "E7": { "200": 1 },
+    "E8": { "404": 25 },
+    "E9": { "200": 5 }
+  },
+  "neverRecorded": ["E10", "E15", "E16", "E17", "E19"],
+  "unservable": [],
+  "live": {
+    "ledgerRequests": 102,
+    "thisRun": { "requests": 0, "cached": 0, "statuses": {}, "n429": 0 }
+  },
+  "acceptance": {
+    "recorded401": 0,
+    "recorded403": 0,
+    "recorded429": 0,
+    "ledger401": 0,
+    "ledger403": 0,
+    "ledger429": 0,
+    "direct": { "n": 50, "seed": 20261021, "equalClass": 50, "mismatches": [] },
+    "ok": true
+  },
+  "directSeed": 20261021
+}

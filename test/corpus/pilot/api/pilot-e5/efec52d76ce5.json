@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e5",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/1003/outputs",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:46:23 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "[{\"acceptedDate\":\"\",\"authors\":[{\"name\":\"Dyar, Harrison G.\"},{\"name\":\"Knab, Frederick,\"}],\"contributors\":[\"BioStor\"],\"createdDate\":\"2013-08-27T11:36:27+01:00\",\"dataProvider\":{\"id\":180,\"name\":\"Biodiversity Heritage Library OAI Repository\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/180\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/180\\/logo\"},\"depositedDate\":\"2013-08-27T01:00:00+01:00\",\"documentType\":[\"research article\",\"text\"],\"versions\":[],\"doi\":\"\",\"downloadUrl\":\"\",\"fullText\":\"\",\"id\":20215348,\"identifiers\":{\"doi\":null,\"oai\":\"oai:biodiversitylibrary.org:part\\/83946\"},\"title\":\"Descriptions of Some American Mosquitoes\",\"language\":null,\"publishedDate\":\"1907-01-01T00:00:00+00:00\",\"publisher\":\"Lawrence, Kan Allen Press [etc.]\",\"references\":[],\"sourceFulltextUrls\":[\"https:\\/\\/www.biodiversitylibrary.org\\/part\\/83946\"],\"updatedDate\":null,\"yearPublished\":\"1907\",\"links\":[{\"type\":\"display\",\"url\":\"https:\\/\\/core.ac.uk\\/outputs\\/20215348\"}],\"abstract\":\"Volume: 15Start Page: 9End Page: 1\",\"tags\":[\"Article\",\"text\"],\"fulltextStatus\":\"disabled\",\"subjects\":[\"Article\",\"text\"],\"oai\":\"oai:biodiversitylibrary.org:part\\/83946\",\"deleted\":\"ALLOWED\",\"disabled\":false,\"journals\":[],\"repositories\":[],\"repositoryDocument\":{\"id\":20215348,\"depositedDate\":\"\",\"publishedDate\":\"1907-01-01T00:00:00+00:00\",\"updatedDate\":\"\",\"acceptedDate\":\"\",\"createdDate\":\"\"},\"urls\":[{\"url\":\"https:\\/\\/www.biodiversitylibrary.org\\/part\\/83946\",\"type\":\"fulltext\"}],\"lastUpdate\":\"2026-03-21T05:41:03+00:00\",\"setSpecs\":[],\"license\":\"NOT_IN_COPYRIGHT\",\"orcids\":[],\"sdg\":[]}]"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:46:23.212Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}
