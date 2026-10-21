@@ -56,7 +56,7 @@ Placement (T-011): no `*.test.*` under `pages/` (each file there is a route; a t
 - **Other hosts** (doi.org E9, logo hosts E14, Sentry ingest): the app sits on an egress-denied network behind a logging catch-all resolver (dnsmasq `address=/#/<stub IP>`, `log-queries`); the stub serves HTTPS with certificates minted at start from a test CA for each name in `test/ssr/hosts.json`; the app gets `NODE_EXTRA_CA_CERTS` (env only). An unlisted name fails the run; the first golden run (2.3), with an empty list, is the discovery run that seeds it.
 - **Not in-process MSW:** it sees app-set headers, not the wire (native fetch drops the `Host` override, Q-022, review:test-strategy V10; UA and `Accept-Encoding` are invisible; review:00 X40.6). Wire capture surfaces R-016 and R-076.
 - `test/ssr/fetchlog.cjs` (`--require`) logs what app code hands to `fetch` (app-set vs runtime-added headers) for triage only.
-- **Self-check** (`test:harness`): each listed name reaches the stub with the expected wire Host; a forced server error with the test DSN yields one Sentry request; an unknown host fails. If TLS interception fails in the 2.1 spike, redirect non-Internal_API hosts with the review `preload-fetch` prototype and note it in STATUS.
+- **Self-check** (`test:harness`): each listed name reaches the stub with the expected wire Host; a forced server error with the test DSN yields its Sentry requests (an unhandled rejection at 10.2.3: two, one from the `@sentry/node` integration and one from `pages/_app.jsx:21-23`, as T-608 c3 pins); an unknown host fails. If TLS interception fails in the 2.1 spike, redirect non-Internal_API hosts with the review `preload-fetch` prototype and note it in STATUS.
 
 ### 2.3 Gateway-equivalent proxy
 
