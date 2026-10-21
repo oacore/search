@@ -1,0 +1,38 @@
+{
+  "note": "P0-06 (T-402 c5): the E22 logo answers for the three providers of the logo card of work 17489114 (search climate, page 1). No live request: each entry is a copy of the recorded provider 86 logo served under the other provider id. Every other request of the package is answered by fixtures that exist (aggregations, outputs/2001, hand e10-report, logos 2313).",
+  "requests": [
+    {
+      "id": "p0-06.logo.708",
+      "kind": "derive",
+      "endpoint": "E22",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/86/logo"
+      },
+      "serve": { "url": "https://api.core.ac.uk/data-providers/708/logo" },
+      "note": "T-402 c5, first provider of work 17489114"
+    },
+    {
+      "id": "p0-06.logo.679",
+      "kind": "derive",
+      "endpoint": "E22",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/86/logo"
+      },
+      "serve": { "url": "https://api.core.ac.uk/data-providers/679/logo" },
+      "note": "T-402 c5, second provider of work 17489114"
+    },
+    {
+      "id": "p0-06.logo.14567",
+      "kind": "derive",
+      "endpoint": "E22",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/86/logo"
+      },
+      "serve": { "url": "https://api.core.ac.uk/data-providers/14567/logo" },
+      "note": "T-402 c5, third provider of work 17489114"
+    }
+  ]
+}
