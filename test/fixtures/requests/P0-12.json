@@ -1,0 +1,23 @@
+{
+  "package": "P0-12",
+  "note": "P0-12 (T-701, T-728, T-730, T-741). One derived answer, no live request: the Q-093 provider page needs a region code whose name differs between the server ICU (Node 18.20.8, ICU 74) and the browser (Chromium 156). Every other request of the package is answered by fixtures that exist (scenarios search-climate, search-x, search-x-page0, search-zzzzqqq, members, logos, e19-client-nav, works-*, outputs-*, provider-*, q074a-e, req-P0-09).",
+  "requests": [
+    {
+      "id": "p0-12.e11.provider-86-hk",
+      "kind": "derive",
+      "endpoint": "E11",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/data-providers/86?t=undefined"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/data-providers/86?t=q093-hk"
+      },
+      "patch": [
+        { "op": "test", "path": "/location/countryCode", "value": "GB" },
+        { "op": "replace", "path": "/location/countryCode", "value": "HK" }
+      ],
+      "note": "T-728 (Q-093): /data-providers/86/?t=q093-hk renders \"is based in\" + Intl.DisplayNames('HK') (templates/data-provider/index.jsx:24-38, 185-186): the server prints \"Hong Kong SAR China\", Chromium 156 prints \"Hong Kong\""
+    }
+  ]
+}
