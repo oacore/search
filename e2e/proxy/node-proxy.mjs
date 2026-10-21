@@ -75,6 +75,10 @@ export function startProxy({
           : `${headers[name]}, ${req.rawHeaders[i + 1]}`
     }
     const started = Date.now()
+    // One connection per upstream request. The app closes idle sockets after 5 s, and a pooled one that is
+    // reused at that moment fails with ECONNRESET (502); nginx hides this by retrying an idempotent request
+    // (proxy_next_upstream). Connection: close keeps the socket out of the pool.
+    headers.Connection = 'close'
     const up = http.request({
       host: appUrl.hostname,
       port: appUrl.port,
@@ -108,6 +112,11 @@ export function startProxy({
       logLine(
         `${req.method} ${req.url} ${status} upstream="${upstream}" error=${e.message}`
       )
+    })
+    // a client that goes away before its request body ended must not leave the upstream request open
+    // (it would end 30 s later as a misleading "504 backend timeout")
+    req.on('close', () => {
+      if (!req.complete) up.destroy()
     })
     req.pipe(up)
   }

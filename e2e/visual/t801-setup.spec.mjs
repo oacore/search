@@ -3,6 +3,7 @@
 // a non-zero box. The page states V1-V39 (c1) and V28 (c4) are written by their packages.
 import fs from 'node:fs'
 import { test, expect } from '../fixtures/guard.mjs'
+import { CHROMIUM_CAPTURE_ARGS } from '../fixtures/constants.mjs'
 import { comparePngs, COMPARATOR } from '../fixtures/pixel-compare.mjs'
 import { SCREENSHOT_OPTIONS } from '../fixtures/pixel-exact.mjs'
 import { visualReady, spriteCheck, useBox } from '../fixtures/visual-ready.mjs'
@@ -42,6 +43,7 @@ test.describe('T-801 @P0 visual setup', () => {
 
   test('T-801 c3 @P0 animations off, document.fonts ready, reduced motion, header inside the capture', async ({
     page,
+    browserName,
   }) => {
     await page.goto('/search/?q=harnessdoi')
     await visualReady(page)
@@ -49,6 +51,11 @@ test.describe('T-801 @P0 visual setup', () => {
       animations: 'disabled',
       caret: 'hide',
     })
+    // Chromium rasterises every tile in full (partial raster makes captures of one page differ by a level)
+    if (browserName === 'chromium')
+      expect(test.info().project.use.launchOptions.args).toEqual(
+        CHROMIUM_CAPTURE_ARGS
+      )
     expect(await page.evaluate(() => document.fonts.status)).toBe('loaded')
     expect(
       await page.evaluate(
@@ -80,12 +87,10 @@ test.describe('T-801 @P0 visual setup', () => {
           (png.data[o] << 16) | (png.data[o + 1] << 8) | png.data[o + 2]
         )
       }
-    test
-      .info()
-      .annotations.push({
-        type: 'diff-pixels',
-        description: `n/a header-colours ${colours.size}`,
-      })
+    test.info().annotations.push({
+      type: 'diff-pixels',
+      description: `n/a header-colours ${colours.size}`,
+    })
     expect(colours.size).toBeGreaterThan(1)
     expect(png.width).toBe(1440)
   })

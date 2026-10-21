@@ -10,6 +10,11 @@ export const TIMEZONE_ID = 'UTC'
 export const LOCALE = 'en-GB'
 export const FIXED_TIME = '2026-01-15T12:00:00Z'
 export const COOKIE_STATES = ['absent', 'essential', 'essential+analytics']
+// Chromium capture setting of the visual and record projects: rasterise every tile in full. With partial
+// raster Chromium re-rasters only the dirty part of a tile and anti-aliases a rounded corner one level
+// differently, at random, so two full-page captures of one unchanged page can differ (P0-18-1). T-012 c5
+// pins the flag, T-801 c3 asserts it on the project.
+export const CHROMIUM_CAPTURE_ARGS = ['--disable-partial-raster']
 // port offsets from E2E_PORT_BASE = 21000 + 20 x slot (manifest §5.4)
 export const PORT_BASE = 21000
 export const PORT_STRIDE = 20
@@ -35,6 +40,7 @@ if (
       LOCALE,
       FIXED_TIME,
       COOKIE_STATES,
+      CHROMIUM_CAPTURE_ARGS,
       PORT_BASE,
       PORT_STRIDE,
       PORT_OFFSETS,

@@ -10,7 +10,7 @@
 // sha12 = keyOf(method, url, body). Match = method + exact URL + body sha256; Authorization is never stored
 // nor matched. The directory is scanned (no shared index), so packages never edit a common file.
 // Order of answers: magic-query rules (__status500, __neterror, __nodataproviders) > exact fixture >
-// static rules (tiles and core.ac.uk/image PNG, empty gtag script) > 502 naming the triple.
+// static rules (tiles and core.ac.uk/image and /images PNG, empty gtag script) > 502 naming the triple.
 const crypto = require('crypto')
 const fs = require('fs')
 const path = require('path')
@@ -117,7 +117,8 @@ const STATIC_RULES = [
   {
     name: 'core-image',
     test: (u) =>
-      u.hostname === 'core.ac.uk' && u.pathname.startsWith('/image/'),
+      u.hostname === 'core.ac.uk' &&
+      (u.pathname.startsWith('/image/') || u.pathname.startsWith('/images/')),
     answer: () => ({
       status: 200,
       headers: [

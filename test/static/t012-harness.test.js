@@ -94,13 +94,20 @@ describe('T-012 harness constants and comparator', () => {
     expect(cfg).toMatch(/forbidOnly: FORBID_ONLY/)
     expect(cfg.match(/retries\s*:/g)).toHaveLength(1)
     expect(cfg).not.toMatch(/\bmask\b|maxDiffPixel|threshold/)
+    // capture setting: Chromium rasterises every tile in full in the pixel
+    // projects
+    expect(constants.CHROMIUM_CAPTURE_ARGS).toEqual([
+      '--disable-partial-raster',
+    ])
+    expect(cfg).toMatch(/launchOptions: \{ args: CHROMIUM_CAPTURE_ARGS \}/)
+    expect(cfg.match(/\.\.\.capture,/g)).toHaveLength(2)
     if (Number(process.versions.node.split('.')[0]) >= 20) {
       // the resolved config (needs @playwright/test, Node >= 20)
       const out = node(
         [
           '--input-type=module',
           '-e',
-          "const c = (await import('./playwright.config.mjs')).default; console.log(JSON.stringify({ retries: c.retries, forbidOnly: c.forbidOnly, projectRetries: c.projects.map((p) => p.retries ?? null), tz: c.use.timezoneId, locale: c.use.locale }))",
+          "const c = (await import('./playwright.config.mjs')).default; const args = (n) => (c.projects.find((p) => p.name === n)?.use.launchOptions?.args ?? null); console.log(JSON.stringify({ retries: c.retries, forbidOnly: c.forbidOnly, projectRetries: c.projects.map((p) => p.retries ?? null), tz: c.use.timezoneId, locale: c.use.locale, visualArgs: args('visual'), chromiumArgs: args('chromium') }))",
         ],
         { env: { ...process.env, E2E_CONFIG_PROBE: '1' } }
       )
@@ -111,6 +118,8 @@ describe('T-012 harness constants and comparator', () => {
           forbidOnly: true,
           tz: 'UTC',
           locale: 'en-GB',
+          visualArgs: ['--disable-partial-raster'],
+          chromiumArgs: null,
         })
       )
       expect(

@@ -8,7 +8,9 @@
 // Browser hosts (40 §2.4):
 //   the stack (proxy, allow-all proxy)                       -> network
 //   api.core.ac.uk/** (incl. E22), doi.org/**                -> fixture resolver
-//   *.tile.openstreetmap.org, core.ac.uk/image/**            -> fixed 256 px PNG (resolver rules)
+//   *.tile.openstreetmap.org, core.ac.uk/image/**, core.ac.uk/images/** -> fixed 256 px PNG (resolver rules)
+//   <stack origin>/image/**  (result thumbnails: the resolver rewrites core.ac.uk links to the proxy origin,
+//                             where no gateway route serves them)       -> the same PNG as core.ac.uk/image/**
 //   www.googletagmanager.com/gtag/js*                        -> empty script + dataLayer init-script spy
 //   other google*, *.logrocket.com, *.lgrckt-in.com, *.logr-in.com, *.cloudflareinsights.com -> abort, count
 //   o0.ingest.sentry.io, sentry.io                           -> count, 200
@@ -77,7 +79,8 @@ export const classify = (u, stackOrigins) => {
   if (RESOLVER_HOSTS.has(u.hostname)) return 'resolver'
   if (
     /(^|\.)tile\.openstreetmap\.org$/.test(u.hostname) ||
-    (u.hostname === 'core.ac.uk' && u.pathname.startsWith('/image/'))
+    (u.hostname === 'core.ac.uk' &&
+      (u.pathname.startsWith('/image/') || u.pathname.startsWith('/images/')))
   )
     return 'resolver'
   if (
@@ -131,7 +134,12 @@ const initScript = ({ mutationLog }) => {
     })
   )
   let dl = []
+  // `window.dataLayer = window.dataLayer || []` hands the wrapped array back to the setter: wrap each array
+  // once, or every entry is recorded once per wrapper
+  const wrapped = new WeakSet()
   const wrap = (arr) => {
+    if (wrapped.has(arr)) return arr
+    wrapped.add(arr)
     const push = arr.push
     arr.push = function spyPush(...items) {
       for (const it of items) {
@@ -264,6 +272,18 @@ export async function guardContext(
   await context.addInitScript(initScript, { mutationLog })
   const cookies = cookiesFor(cookieState, baseURL || env.baseURL)
   if (cookies.length) await context.addCookies(cookies)
+  // result thumbnails: the resolver rewrites https://core.ac.uk links to the proxy origin (40 §2.4), where no
+  // gateway route serves /image/**; they are answered like core.ac.uk/image/** (the fixed PNG)
+  await context.route(
+    (url) => stackOrigins.has(url.origin) && url.pathname.startsWith('/image/'),
+    (route) => {
+      const u = new URL(route.request().url())
+      const r = resolver.resolve('GET', `https://core.ac.uk${u.pathname}`)
+      const headers = {}
+      for (const [n, v] of r.headers) headers[n.toLowerCase()] = v
+      return route.fulfill({ status: r.status, headers, body: r.body })
+    }
+  )
   await context.route(
     (url) =>
       classify(url, stackOrigins) !== 'stack' &&

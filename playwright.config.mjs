@@ -14,6 +14,7 @@ import {
   WORKERS,
   TIMEZONE_ID,
   LOCALE,
+  CHROMIUM_CAPTURE_ARGS,
 } from './e2e/fixtures/constants.mjs'
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url))
@@ -45,6 +46,8 @@ const BROWSER_TIERS = ['http', 'journeys', 'a11y'].map(
   (d) => `**/${d}/**/*.spec.mjs`
 )
 const shared = { timezoneId: TIMEZONE_ID, locale: LOCALE }
+// pixel captures: Chromium rasterises every tile in full (see constants.mjs)
+const capture = { launchOptions: { args: CHROMIUM_CAPTURE_ARGS } }
 
 const projects = [
   {
@@ -64,7 +67,12 @@ const projects = [
   {
     name: 'visual',
     testMatch: ['**/visual/**/*.spec.mjs'],
-    use: { ...devices['Desktop Chrome'], ...shared, reducedMotion: 'reduce' },
+    use: {
+      ...devices['Desktop Chrome'],
+      ...shared,
+      ...capture,
+      reducedMotion: 'reduce',
+    },
   },
 ]
 if (IN_RUNNER)
@@ -92,7 +100,12 @@ if (process.env.RECORD === '1')
   projects.push({
     name: 'record',
     testMatch: ['**/{http,journeys,visual}/**/*.spec.mjs'],
-    use: { ...devices['Desktop Chrome'], ...shared, reducedMotion: 'reduce' },
+    use: {
+      ...devices['Desktop Chrome'],
+      ...shared,
+      ...capture,
+      reducedMotion: 'reduce',
+    },
   })
 
 export default defineConfig({

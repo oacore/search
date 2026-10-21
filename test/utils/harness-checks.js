@@ -134,6 +134,19 @@ const registerProjectChecks = (project) => {
       expect(mock.default.prefetch).not.toHaveBeenCalled()
     })
 
+    test(`T-012 c3 @P0 the js-file-download spy is callable through require and import interop (${project})`, () => {
+      // api/search.js: `const FileDownload = require('js-file-download')`,
+      // then `FileDownload(data, name)`
+      const required = require('js-file-download')
+      expect(typeof required).toBe('function')
+      expect(jest.isMockFunction(required)).toBe(true)
+      required.mockClear()
+      required('data', 'results.csv')
+      expect(required).toHaveBeenCalledWith('data', 'results.csv')
+      // `import FileDownload from 'js-file-download'` (Babel) reads `.default`
+      expect(required.default).toBe(required)
+    })
+
     test(`T-012 c4 @P0 RouterContext path map matches the installed Next (${project})`, () => {
       const { version } = require('next/package.json')
       const p = routerContextPathFor(version)
