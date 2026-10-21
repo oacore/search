@@ -17,11 +17,15 @@
 #                          its slot, so no two captures share one); every capture first deletes the capture set
 #                          from the working tree (scripts/baseline-tools.mjs clear), so each one writes every file
 #                          anew; outputs copied to <out>/c1..cN; then `diff -r c1 c2 && diff -r c1 c3`
-#                 extract  test/baseline/build/ from the golden build (T-003, T-004, T-005, T-007, T-010 inputs)
+#                 extract  the build-derived references (T-003, T-004, T-005, T-010; T-007 from 2.7): the INPUTS of
+#                          test/static/adapters/index.js copied to <out>/baseline-build (kept local: committed under
+#                          test/baseline/build/ the linters would read them, G25-2), then STATIC_RECORD=1 re-derives
+#                          test/static/adapters/recorded/*.json from the golden build
 #   recapture   tool re-capture (42 §9): the same captures of the chain-head reference --ref
 #   rebaseline  product re-baseline (42 §9, D15): --before <ref> --after <ref>; builds and 3 captures of each;
 #               before c1 must equal the committed baselines, after c1 vs before c1 is reported (never run
 #               locally so far: no D15 change exists)
+# The stability proof (42 §6 item 5) is scripts/baseline-stability.sh (one compare run per call).
 #
 # Options: --ref <ref>  --before <ref> --after <ref>  --captures <n> (3)  --out <dir> ($ARTIFACT_DIR/capture
 #          for golden, $ARTIFACT_DIR/capture-<mode> otherwise)  --steps "<build accept capture extract>"
@@ -151,7 +155,12 @@ do_accept() { # golden acceptance (42 §4)
 record() { # <run id> <playwright args...>
   local id="$1"
   shift
-  node scripts/e2e-stack.mjs test --run "$id" --record "$@" >>"$log" 2>&1
+  # e2e:record refuses a stack whose build is not p2-local/golden unless --provisional (a rebaseline's before/after
+  # builds): those captures carry link provisional-2.3 in the JSON baselines until e2e-stack takes a --link option
+  # (G25 change request)
+  local extra=()
+  [ "$mode" = rebaseline ] && extra=(--provisional)
+  node scripts/e2e-stack.mjs test --run "$id" --record ${extra[@]+"${extra[@]}"} "$@" >>"$log" 2>&1
 }
 up() { # <run id> <ref> [extra up args]
   local id="$1" r="$2"
@@ -200,8 +209,13 @@ case "$mode" in
     if [ "$mode" = golden ] && has accept; then do_accept || fail=1; fi
     if has capture; then capture_set "$ref" "$out" || fail=1; fi
     if [ "$mode" = golden ] && has extract; then
-      node scripts/baseline-tools.mjs extract --build "$(build_dir "$ref" default)" --to "$repo/test/baseline/build" >>"$log" 2>&1
-      rc=$?; result "{\"step\":\"extract\",\"rc\":$rc}"; note "== extract rc=$rc"; [ $rc = 0 ] || fail=1
+      b="$(build_dir "$ref" default)"
+      node scripts/baseline-tools.mjs extract --build "$b" --to "$out/baseline-build" >>"$log" 2>&1
+      rc=$?
+      STATIC_RECORD=1 NEXT_DIR="$b/.next" APP_ROOT="$b" TZ=UTC PATH="$(dirname "$node18"):$PATH" npx jest --selectProjects static \
+        --runTestsByPath test/static/t003-built-css.test.js test/static/t004-bundles.test.js test/static/t005-static-assets.test.js \
+        test/static/t010-routes-manifest.test.js >>"$log" 2>&1 || rc=1
+      result "{\"step\":\"extract\",\"rc\":$rc}"; note "== extract + references rc=$rc"; [ $rc = 0 ] || fail=1
     fi
     ;;
   rebaseline)

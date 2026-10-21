@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e5",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/1002/outputs",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:46:21 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "[{\"acceptedDate\":\"\",\"authors\":[{\"name\":\"Murphy, Robert Cushman,\"}],\"contributors\":[\"BioStor\"],\"createdDate\":\"2013-08-26T17:05:13+01:00\",\"dataProvider\":{\"id\":180,\"name\":\"Biodiversity Heritage Library OAI Repository\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/180\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/180\\/logo\"},\"depositedDate\":\"2013-08-26T01:00:00+01:00\",\"documentType\":[\"research article\",\"text\"],\"versions\":[],\"doi\":\"10.2307\\/4072006\",\"downloadUrl\":\"\",\"fullText\":\"\",\"id\":20218186,\"identifiers\":{\"doi\":\"10.2307\\/4072006\",\"oai\":\"oai:biodiversitylibrary.org:part\\/86784\"},\"title\":\"Observations on Birds of the South Atlantic\",\"language\":null,\"publishedDate\":\"1914-01-01T00:00:00+00:00\",\"publisher\":\"Washington, D.C, American Ornithologists\\\\u27 Union, etc, 1884-\",\"references\":[],\"sourceFulltextUrls\":[\"https:\\/\\/www.biodiversitylibrary.org\\/part\\/86784\"],\"updatedDate\":null,\"yearPublished\":\"1914\",\"links\":[{\"type\":\"display\",\"url\":\"https:\\/\\/core.ac.uk\\/outputs\\/20218186\"}],\"abstract\":\"Volume: 31Start Page: 439End Page: 45\",\"tags\":[\"Article\",\"text\"],\"fulltextStatus\":\"disabled\",\"subjects\":[\"Article\",\"text\"],\"oai\":\"oai:biodiversitylibrary.org:part\\/86784\",\"deleted\":\"ALLOWED\",\"disabled\":false,\"journals\":[],\"repositories\":[],\"repositoryDocument\":{\"id\":20218186,\"depositedDate\":\"\",\"publishedDate\":\"1914-01-01T00:00:00+00:00\",\"updatedDate\":\"\",\"acceptedDate\":\"\",\"createdDate\":\"\"},\"urls\":[{\"url\":\"https:\\/\\/www.biodiversitylibrary.org\\/part\\/86784\",\"type\":\"fulltext\"}],\"lastUpdate\":\"2026-03-21T05:41:11+00:00\",\"setSpecs\":[],\"license\":\"Public domain. The BHL considers that this work is no longer under copyright protection.\",\"orcids\":[],\"sdg\":[]},{\"acceptedDate\":\"\",\"authors\":[],\"contributors\":[],\"createdDate\":\"2019-02-27T00:00:00+00:00\",\"dataProvider\":{\"id\":4786,\"name\":\"Crossref\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/4786\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/4786\\/logo\"},\"depositedDate\":\"2019-02-27T00:00:00+00:00\",\"documentType\":\"\",\"versions\":[],\"doi\":\"\",\"downloadUrl\":\"\",\"fullText\":\"\",\"id\":357073313,\"identifiers\":{\"doi\":null,\"oai\":null},\"title\":\"\",\"language\":null,\"publishedDate\":null,\"publisher\":\"Oxford University Press (OUP)\",\"references\":[],\"sourceFulltextUrls\":[],\"updatedDate\":null,\"yearPublished\":\"\",\"links\":[{\"type\":\"display\",\"url\":\"https:\\/\\/core.ac.uk\\/outputs\\/357073313\"}],\"abstract\":\"\",\"tags\":[],\"fulltextStatus\":\"disabled\",\"subjects\":[],\"oai\":\"\",\"deleted\":\"ALLOWED\",\"disabled\":false,\"journals\":[],\"repositories\":[],\"repositoryDocument\":{\"id\":357073313,\"depositedDate\":\"\",\"publishedDate\":\"\",\"updatedDate\":\"\",\"acceptedDate\":\"\",\"createdDate\":\"\"},\"urls\":[],\"lastUpdate\":\"2026-03-30T05:11:31+01:00\",\"setSpecs\":[],\"license\":\"\",\"orcids\":[],\"sdg\":[]}]"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:46:21.437Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

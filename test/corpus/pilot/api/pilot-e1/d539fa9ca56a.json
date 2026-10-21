@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e1",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+    "bodySha256": "8e6bc3997afdf2cbd724e26c55dc4d2b3c06a7d21b1c643443eb0d3b8f5eac60",
+    "bodyText": "{\"q\":\"journals074saccharomyces\",\"offset\":0,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:31:53 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "totalHits": 0,
+        "limit": 10,
+        "offset": 0,
+        "results": [],
+        "searchId": "6a15c84b6faf764840541c35185d4554"
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:31:53.355Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

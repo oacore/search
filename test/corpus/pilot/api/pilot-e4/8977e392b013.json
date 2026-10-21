@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e4",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/1001?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:42:16 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "{\"acceptedDate\":\"\",\"arxivId\":null,\"authors\":[{\"name\":\"Cooke, Wells W.\"}],\"citationCount\":0,\"contributors\":[\"BioStor\"],\"outputs\":[\"https:\\/\\/api.core.ac.uk\\/v3\\/outputs\\/20218190\",\"https:\\/\\/api.core.ac.uk\\/v3\\/outputs\\/357073318\"],\"createdDate\":\"2013-08-27T03:19:21+01:00\",\"dataProviders\":[{\"id\":4786,\"name\":\"Crossref\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/4786\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/4786\\/logo\"},{\"id\":180,\"name\":\"Biodiversity Heritage Library OAI Repository\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/180\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/180\\/logo\"}],\"depositedDate\":\"2013-08-27T01:00:00+01:00\",\"abstract\":\"Volume: 31Start Page: 473End Page: 49\",\"documentType\":null,\"doi\":\"10.2307\\/4072010\",\"downloadUrl\":\"\",\"fieldOfStudy\":\"Article\",\"fullText\":\"\",\"id\":1001,\"identifiers\":[{\"identifier\":\"20218190\",\"type\":\"core_id\"},{\"identifier\":\"10.2307\\/4072010\",\"type\":\"doi\"},{\"identifier\":\"oai:biodiversitylibrary.org:part\\/86788\",\"type\":\"oai_id\"},{\"identifier\":\"357073318\",\"type\":\"core_id\"},{\"identifier\":\"oai:biodiversitylibrary.org:part\\/86788\",\"type\":\"oai\"}],\"title\":\"Some Winter Birds of Oklahoma\",\"language\":null,\"magId\":null,\"oaiIds\":[\"oai:biodiversitylibrary.org:part\\/86788\"],\"publishedDate\":\"1914-01-01T00:00:00+00:00\",\"publisher\":\"Washington, D.C, American Ornithologists\\\\u27 Union, etc, 1884-\",\"pubmedId\":null,\"references\":[],\"sourceFulltextUrls\":[],\"updatedDate\":\"\",\"yearPublished\":1914,\"journals\":[],\"links\":[{\"type\":\"display\",\"url\":\"https:\\/\\/core.ac.uk\\/works\\/1001\"}]}"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:42:16.401Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

@@ -214,15 +214,18 @@ export function buildDigest(dir) {
   const next = path.join(dir, '.next')
   const id = fs.readFileSync(path.join(next, 'BUILD_ID'), 'utf8').trim()
   const norm = (s) => s.split(id).join('<BUILD_ID>')
-  const lines = []
+  const stable = []
   const raw = []
   const files = walk(next, next, (rel) => rel === 'cache' || rel === 'trace')
   for (const rel of files) {
     const buf = fs.readFileSync(path.join(next, rel))
     raw.push(`${rel}\0${sha256(buf)}`)
+    // static/ and server/ with the buildId normalised: what T-014 (a) compares (scripts/next-diff.mjs), so two
+    // builds of one tree share it; the top-level manifests carry per-build values (prerender preview keys)
+    if (!/^(static|server)\//.test(rel)) continue
     const s = buf.toString('latin1')
     const nb = s.includes(id) ? Buffer.from(norm(s), 'latin1') : buf
-    lines.push(`${norm(rel)}\0${sha256(nb)}`)
+    stable.push(`${norm(rel)}\0${sha256(nb)}`)
   }
   const pub = walk(path.join(dir, 'public')).map(
     (rel) => `${rel}\0${sha256(fs.readFileSync(path.join(dir, 'public', rel)))}`
@@ -230,12 +233,12 @@ export function buildDigest(dir) {
   return {
     buildId: id,
     nextFiles: files.length,
-    next: sha256(lines.sort(byCodePoint).join('\n')),
+    next: sha256(stable.sort(byCodePoint).join('\n')),
     nextRaw: sha256(raw.sort(byCodePoint).join('\n')),
     publicFiles: pub.length,
     public: sha256(pub.join('\n')),
     method:
-      'sha256 over sorted "<path>\\0<sha256>" lines; .next without cache/ and trace, buildId replaced in paths and contents (next); raw bytes (nextRaw)',
+      'sha256 over sorted "<path>\\0<sha256>" lines; next = .next/static + .next/server with the buildId replaced in paths and contents (stable across builds of one tree, T-014 (a)); nextRaw = every .next file except cache/ and trace, raw bytes (this build only)',
   }
 }
 
@@ -458,13 +461,18 @@ function extract() {
     ...walk(path.join(dir, 'public')).map((f) => `public/${f}`),
   ]
   const picked = candidates.filter((f) => res.some((re) => re.test(f)))
+  // the absolute paths of this machine a build could carry: the repo, the artefact directory, the home and
+  // temp directories and their real paths (macOS links /tmp and /var into /private)
   const local = [
-    REPO,
-    ARTIFACT_DIR,
-    os.homedir(),
-    os.tmpdir(),
-    '/private/tmp/',
-    '/Users/',
+    ...new Set(
+      [REPO, ARTIFACT_DIR, os.homedir(), os.tmpdir()].flatMap((p) => {
+        try {
+          return [p, fs.realpathSync(p)]
+        } catch {
+          return [p]
+        }
+      })
+    ),
   ]
   const leaks = []
   fs.rmSync(to, { recursive: true, force: true })
@@ -487,6 +495,23 @@ function extract() {
     )
     process.exit(1)
   }
+  // provenance of the reference (test/static/adapters/reference.js reads build.json of an APP_ROOT): the
+  // build record without its local directory
+  const rec = readJson(path.join(dir, 'build.json'), null)
+  if (rec)
+    writeJsonPretty(path.join(to, 'build.json'), {
+      link: opt('--link', 'B0-local'),
+      commit: rec.commit,
+      key: rec.key,
+      variant: rec.variant,
+      mode: rec.mode || 'host',
+      install: rec.install,
+      node: rec.node,
+      buildId: rec.buildId,
+      builtAt: rec.builtAt,
+      inputs:
+        'the INPUTS of test/static/adapters/index.js; .next stored as next/ (git-ignored name)',
+    })
   const kib = duKiB(to)
   writeJson(path.join(ARTIFACT_DIR, 'golden', 'extract.json'), {
     from: path.relative(ARTIFACT_DIR, dir),
@@ -568,18 +593,53 @@ async function env() {
   )
   writeJsonPretty(npmLsOut, npmLs)
   const pw = createRequire(path.join(REPO, 'e2e', 'package.json'))
+  // version of an installed package (its package.json, read from the file: exports maps may hide it)
   const pkgVersion = (req, name) => {
     try {
       return req(`${name}/package.json`).version
     } catch {
+      try {
+        const main = req.resolve(name)
+        let d = path.dirname(main)
+        while (d !== path.dirname(d)) {
+          const f = path.join(d, 'package.json')
+          if (fs.existsSync(f) && readJson(f).name === name)
+            return readJson(f).version
+          d = path.dirname(d)
+        }
+      } catch {
+        // not installed
+      }
       return null
     }
   }
   let chromium = null
+  let chromiumFonts = null
   try {
     const { chromium: c } = pw('@playwright/test')
     const b = await c.launch()
     chromium = b.version()
+    // the families the capture browser renders (macOS Chromium does not use fontconfig): a family is
+    // available when text set in it measures differently from both generic fallbacks
+    const page = await b.newPage()
+    chromiumFonts = await page.evaluate((families) => {
+      const ctx = document.createElement('canvas').getContext('2d')
+      const w = (font) => {
+        ctx.font = font
+        return ctx.measureText('mmmmmmmmmmlli WQ@ 0123456789').width
+      }
+      const out = {}
+      for (const f of families) {
+        if (['sans-serif', 'monospace'].includes(f)) {
+          out[f] = 'generic'
+          continue
+        }
+        const a = w(`32px "${f}", monospace`) !== w('32px monospace')
+        const b2 = w(`32px "${f}", serif`) !== w('32px serif')
+        out[f] = a && b2 ? 'available' : 'not available'
+      }
+      return out
+    }, FONT_FAMILIES)
     await b.close()
   } catch (e) {
     chromium = `unavailable: ${e.message.split('\n')[0]}`
@@ -606,6 +666,10 @@ async function env() {
       what: 'fc-match per family of the design font stacks (type.css), on the capture host',
       fontconfig: run('fc-match', ['--version']) || null,
       families: fc,
+      chromium: {
+        what: 'availability of each family to the capture Chromium (text width vs both generic fallbacks); on macOS Chromium resolves fonts through CoreText, not fontconfig',
+        families: chromiumFonts,
+      },
     },
     browserslist: {
       output: browserslist ? browserslist.split('\n') : null,

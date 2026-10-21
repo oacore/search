@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e8",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/recommend",
+    "bodySha256": "c88cdc2817d1125fb1298e2b83c0f68a6bbbb1224eea49cf3f8bb573f39a60cb",
+    "bodyText": "{\"identifier\":\"core:1007\",\"limit\":5,\"resultType\":\"work\"}"
+  },
+  "response": {
+    "status": 404,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:32:08 GMT"],
+      ["Content-Type", "text/html; charset=UTF-8"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"],
+      ["Content-Encoding", "gzip"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "message": "HTTP/2 404  returned for \"https://upstream.invalid/recommend?oai=core%3A1007&countLimit=5&identifier=core%3A1007&resultType=work&\"."
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:32:08.026Z",
+    "scrubbed": { "internalHosts": 1, "headersDropped": 4 }
+  }
+}

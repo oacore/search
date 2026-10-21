@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e5",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/6948813/outputs",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:46:43 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": [
+        {
+          "acceptedDate": "",
+          "authors": [{ "name": "Edgerton, Keith" }],
+          "contributors": [],
+          "createdDate": "2012-08-15T17:27:37+01:00",
+          "dataProvider": {
+            "id": 179,
+            "name": "DigitalCommons@University of Nebraska",
+            "url": "https://api.core.ac.uk/v3/data-providers/179",
+            "logo": "https://api.core.ac.uk/data-providers/179/logo"
+          },
+          "depositedDate": "2012-08-15T01:00:00+01:00",
+          "documentType": ["text"],
+          "versions": [],
+          "doi": "",
+          "downloadUrl": "https://core.ac.uk/download/17267283.pdf",
+          "fullText": "",
+          "id": 17267283,
+          "identifiers": {
+            "doi": null,
+            "oai": "oai:digitalcommons.unl.edu:greatplainsquarterly-3218"
+          },
+          "title": "Review of \\u3ci\\u3eThe American West: A New Interpretive History\\u3c/i\\u3e By Robert V. Hine and John Mack\nFaragher",
+          "language": { "code": "en", "name": "English" },
+          "publishedDate": null,
+          "publisher": "DigitalCommons@University of Nebraska - Lincoln",
+          "references": [],
+          "sourceFulltextUrls": [
+            "https://digitalcommons.unl.edu/greatplainsquarterly/2218",
+            "https://digitalcommons.unl.edu/context/greatplainsquarterly/article/3218/viewcontent/BR_Edgerton.pdf"
+          ],
+          "updatedDate": null,
+          "yearPublished": "2001",
+          "links": [
+            {
+              "type": "download",
+              "url": "https://core.ac.uk/download/17267283.pdf"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/17267283" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/17267283/medium"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/17267283/large"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/17267283" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/17267283/medium"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/17267283/large"
+            },
+            { "type": "display", "url": "https://core.ac.uk/outputs/17267283" }
+          ],
+          "abstract": "This is flat out the best, most inclusive, least partisan textbook on Western American history available to contemporary professionals and the general public. Lack of a suitable, comprehensive, apolemical text has long constrained teachers of Western US history; this one is something of an anomaly too: a textbook that is actually compelling to read.\nThe book is a substantial revision of Hine\\u27s 1984 The American West: An Interpretative History, second edition. It is comprehensive and capacious in its sweep-incorporating a great deal of important new scholarship on gender, the environment, ethnicity, and Native Americans-generous in detail, replete with superb photos, maps, and images, and, most refreshingly, judicious and circumspect in its inclusion of the strident historiographical debates with which the field has been encumbered in the recent past. Unlike other Western texts, Frederick Jackson Turner is neither invisible nor a straw man appearing again and again to be taken to the mat. In The American West he is historically contextualized, his famous interpretation about the scope of Western US history properly explicated and analyzed briefly; then the narrative moves forward. This reviewer can only say  Hallelujah. \nFaragher and Hine have organized most of the story chronologically, and most of the story is familiar. Collisions of cultures-European with Native American, European with European, American with Native American-comprise most of the early narrative. Throughout the remainder the authors synthesize and incorporate recent scholarship emphasizing the long-term significance of these collisions, the central place the Western American environment holds in the history of the region, and the inclusion of many more ethnic and women\\u27s voices in their recounting the nation\\u27s movement westward. The fur trade, Manifest Destiny, dispossession of Native people, the enormous penumbra cast by the federal government over its public lands are all retold with new shadings, from new angles, and freshly and clearly explicated. Thematic concluding chapters cover Hollywood\\u27s mythmaking and bring the history of the West up to the dawn of the twenty-first century. Compact bibliographies conclude each of the sixteen chapters.\nReaders will find extensive material covering the history of the Great Plains region, though no discrete chapter appears on the vast area per se. But the heart of this book is the nineteenth-century movement of people into the West, land policies, the continuing impact on Native peoples, the vicissitudes of homesteading, environmental exploitation, and community-building-all familiar themes to Great Plains Quarterly readers. Ultimately there is virtually nothing in the book over which to cavil. The American West is likely to become the standard in the field for many years",
+          "tags": ["text"],
+          "fulltextStatus": "enabled",
+          "subjects": ["text"],
+          "oai": "oai:digitalcommons.unl.edu:greatplainsquarterly-3218",
+          "deleted": "ALLOWED",
+          "disabled": false,
+          "journals": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "id": 17267283,
+            "depositedDate": "",
+            "publishedDate": "",
+            "updatedDate": "",
+            "acceptedDate": "",
+            "createdDate": ""
+          },
+          "urls": [
+            {
+              "url": "https://digitalcommons.unl.edu/greatplainsquarterly/2218",
+              "type": "fulltext"
+            },
+            {
+              "url": "https://digitalcommons.unl.edu/context/greatplainsquarterly/article/3218/viewcontent/BR_Edgerton.pdf",
+              "type": "fulltext"
+            }
+          ],
+          "lastUpdate": "2026-03-21T04:11:49+00:00",
+          "setSpecs": [],
+          "license": "",
+          "orcids": [],
+          "sdg": []
+        }
+      ]
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:46:43.509Z",
+    "scrubbed": { "fullText": 1, "headersDropped": 4 }
+  }
+}

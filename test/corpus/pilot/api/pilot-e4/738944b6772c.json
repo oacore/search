@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e4",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/4100?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:42:33 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "{\"acceptedDate\":\"\",\"arxivId\":null,\"authors\":[{\"name\":\"Gonyea, William J.\"},{\"name\":\"Hunt, B P\"}],\"citationCount\":0,\"contributors\":[\"BioStor\"],\"outputs\":[\"https:\\/\\/api.core.ac.uk\\/v3\\/outputs\\/20222989\"],\"createdDate\":\"2013-08-27T17:20:37+01:00\",\"dataProviders\":[{\"id\":180,\"name\":\"Biodiversity Heritage Library OAI Repository\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/180\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/180\\/logo\"}],\"depositedDate\":\"2013-08-27T01:00:00+01:00\",\"abstract\":\"Volume: 32Start Page: 171End Page: 18\",\"documentType\":null,\"doi\":null,\"downloadUrl\":\"\",\"fieldOfStudy\":\"Article\",\"fullText\":\"\",\"id\":4100,\"identifiers\":[{\"identifier\":\"20222989\",\"type\":\"core_id\"},{\"identifier\":\"oai:biodiversitylibrary.org:part\\/91588\",\"type\":\"oai_id\"},{\"identifier\":\"oai:biodiversitylibrary.org:part\\/91588\",\"type\":\"oai\"}],\"title\":\"ORGANIC MATTER IN FRESH WATERS OF SOUTH FLORIDA\",\"language\":null,\"magId\":null,\"oaiIds\":[\"oai:biodiversitylibrary.org:part\\/91588\"],\"publishedDate\":\"1969-01-01T01:00:00+01:00\",\"publisher\":\"Gainesville, Florida Academy of Sciences,\",\"pubmedId\":null,\"references\":[],\"sourceFulltextUrls\":[],\"updatedDate\":\"\",\"yearPublished\":1969,\"journals\":[],\"links\":[{\"type\":\"display\",\"url\":\"https:\\/\\/core.ac.uk\\/works\\/4100\"}]}"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:42:33.273Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

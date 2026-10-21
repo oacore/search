@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e1",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+    "bodySha256": "c031c949630a50d1c0d57a3991609ff2f95ee36715c9f5cdf2c86a69cfdf685d",
+    "bodyText": "{\"q\":\"each\",\"offset\":-1,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}"
+  },
+  "response": {
+    "status": 500,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:31:57 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "{\"message\":\"The HTTP status code \\u00220\\u0022 is not valid.\"}"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:31:57.737Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

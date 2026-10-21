@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e4",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/1003?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:42:20 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "{\"acceptedDate\":\"\",\"arxivId\":null,\"authors\":[{\"name\":\"Knab, Frederick,\"},{\"name\":\"Dyar, Harrison G.\"}],\"citationCount\":0,\"contributors\":[\"BioStor\"],\"outputs\":[\"https:\\/\\/api.core.ac.uk\\/v3\\/outputs\\/20215348\"],\"createdDate\":\"2013-08-27T11:36:27+01:00\",\"dataProviders\":[{\"id\":180,\"name\":\"Biodiversity Heritage Library OAI Repository\",\"url\":\"https:\\/\\/api.core.ac.uk\\/v3\\/data-providers\\/180\",\"logo\":\"https:\\/\\/api.core.ac.uk\\/data-providers\\/180\\/logo\"}],\"depositedDate\":\"2013-08-27T01:00:00+01:00\",\"abstract\":\"Volume: 15Start Page: 9End Page: 1\",\"documentType\":null,\"doi\":null,\"downloadUrl\":\"\",\"fieldOfStudy\":\"Article\",\"fullText\":\"\",\"id\":1003,\"identifiers\":[{\"identifier\":\"20215348\",\"type\":\"core_id\"},{\"identifier\":\"oai:biodiversitylibrary.org:part\\/83946\",\"type\":\"oai_id\"},{\"identifier\":\"oai:biodiversitylibrary.org:part\\/83946\",\"type\":\"oai\"}],\"title\":\"Descriptions of Some American Mosquitoes\",\"language\":null,\"magId\":null,\"oaiIds\":[\"oai:biodiversitylibrary.org:part\\/83946\"],\"publishedDate\":\"1907-01-01T00:00:00+00:00\",\"publisher\":\"Lawrence, Kan Allen Press [etc.]\",\"pubmedId\":null,\"references\":[],\"sourceFulltextUrls\":[],\"updatedDate\":\"\",\"yearPublished\":1907,\"journals\":[],\"links\":[{\"type\":\"display\",\"url\":\"https:\\/\\/core.ac.uk\\/works\\/1003\"}]}"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:42:20.066Z",
+    "scrubbed": { "headersDropped": 4 }
+  }
+}

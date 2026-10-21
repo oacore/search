@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "name": "pilot",
+  "rules": [
+    "paths and ids kept as logged (encoding included)",
+    "parameter names and order kept; structural values kept (page, limit, offset, sort, t, purely numeric or hexadecimal values)",
+    "free text: AND/OR/NOT, field prefixes, quotes, brackets, punctuation, whitespace, encoding, token count and script kept",
+    "each free-text word replaced by a seeded word of the same script from the work titles of the committed fixtures (case shape kept); numbers of more than 4 digits replaced by seeded digits",
+    "an exact URL sent by >= min-clients distinct clients in the window is kept as logged",
+    "T-612 edge URLs (synthetic test targets) kept as they are",
+    "no IP, user-agent, referrer, cookie or timestamp field written: the list holds url and stratum only"
+  ],
+  "seed": 20261021,
+  "minClients": 10,
+  "wordPool": {
+    "source": "titles in test/fixtures/api/** (committed 2.2 fixtures)",
+    "words": { "Latin": 4588, "Han": 2 }
+  },
+  "counts": {
+    "rawUrls": 77,
+    "urls": 77,
+    "termsReplaced": 9,
+    "numbersReplaced": 0,
+    "operators": 0,
+    "fieldPrefixes": 0,
+    "opaque": 0,
+    "fallbackWords": 0,
+    "byScript": { "Latin": 9 },
+    "params": { "q": 8, "page": 1 },
+    "keptExact": 0,
+    "edge": 33,
+    "changed": 8
+  },
+  "grep": {
+    "files": 105,
+    "hits": {
+      "ipv4": 0,
+      "ipv6": 0,
+      "email": 0,
+      "bearer": 0,
+      "github-token": 0,
+      "npm-token": 0,
+      "authorization": 0,
+      "cookie": 0,
+      "apiKey": 0
+    },
+    "where": [],
+    "clean": true
+  },
+  "signedOffBy": null,
+  "signature": "DEFERRED: the owner signs the scrub report in the corpus PR (42 §7)",
+  "scannedAt": "after recording"
+}

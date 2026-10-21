@@ -130,6 +130,11 @@
     "e2e:gc": "node scripts/e2e-stack.mjs gc",
     "e2e:visual": "node scripts/e2e-stack.mjs test --visual",
     "e2e:record": "node scripts/e2e-stack.mjs test --record",
+    "corpus": "node scripts/corpus.mjs",
+    "corpus:build": "node scripts/corpus-build.mjs",
+    "corpus:sanitise": "node scripts/corpus-sanitise.mjs",
+    "corpus:record": "node scripts/corpus-record.mjs",
+    "soak": "node scripts/soak.mjs",
     "test:image": "bash test/ops/t901.sh"
   }
 }

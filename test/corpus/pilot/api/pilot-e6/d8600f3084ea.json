@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e6",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/outputs/2101",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:41:54 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "acceptedDate": "",
+        "authors": [
+          { "name": "Jarratt, T. A. W." },
+          { "name": "Eckert, Claudia" },
+          { "name": "Weeks, R." },
+          { "name": "Clarkson, P. J." }
+        ],
+        "contributors": [],
+        "createdDate": "2012-06-26T19:44:29+01:00",
+        "dataProvider": {
+          "id": 86,
+          "name": "Open Research Online (Open)",
+          "url": "https://api.core.ac.uk/v3/data-providers/86",
+          "logo": "https://api.core.ac.uk/data-providers/86/logo"
+        },
+        "depositedDate": "2009-03-05T00:00:00+00:00",
+        "documentType": "",
+        "versions": [],
+        "doi": "",
+        "downloadUrl": "https://core.ac.uk/download/2101.pdf",
+        "fullText": "",
+        "id": 2101,
+        "identifiers": { "doi": null, "oai": "oai:oro.open.ac.uk:13233" },
+        "title": "Environmental legislation as a driver of design",
+        "language": { "code": "en", "name": "English" },
+        "publishedDate": "2003-01-01T00:00:00+00:00",
+        "publisher": null,
+        "references": [],
+        "sourceFulltextUrls": ["https://oro.open.ac.uk/13233/1/13233.pdf"],
+        "updatedDate": null,
+        "yearPublished": "2003",
+        "links": [
+          { "type": "download", "url": "https://core.ac.uk/download/2101.pdf" },
+          { "type": "reader", "url": "https://core.ac.uk/reader/2101" },
+          {
+            "type": "thumbnail_m",
+            "url": "https://core.ac.uk/image/2101/medium"
+          },
+          {
+            "type": "thumbnail_l",
+            "url": "https://core.ac.uk/image/2101/large"
+          },
+          { "type": "reader", "url": "https://core.ac.uk/reader/2101" },
+          {
+            "type": "thumbnail_m",
+            "url": "https://core.ac.uk/image/2101/medium"
+          },
+          {
+            "type": "thumbnail_l",
+            "url": "https://core.ac.uk/image/2101/large"
+          },
+          { "type": "display", "url": "https://core.ac.uk/outputs/2101" }
+        ],
+        "abstract": "",
+        "tags": [],
+        "fulltextStatus": "enabled",
+        "subjects": [],
+        "oai": "oai:oro.open.ac.uk:13233",
+        "deleted": "ALLOWED",
+        "disabled": false,
+        "journals": [],
+        "repositories": [],
+        "repositoryDocument": {
+          "id": 2101,
+          "depositedDate": "",
+          "publishedDate": "2003-01-01T00:00:00+00:00",
+          "updatedDate": "",
+          "acceptedDate": "",
+          "createdDate": ""
+        },
+        "urls": [
+          {
+            "url": "https://oro.open.ac.uk/13233/1/13233.pdf",
+            "type": "fulltext"
+          }
+        ],
+        "lastUpdate": "2026-09-14T13:07:48+01:00",
+        "setSpecs": [],
+        "license": "",
+        "orcids": [],
+        "sdg": []
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:41:54.505Z",
+    "scrubbed": { "fullText": 1, "headersDropped": 4 }
+  }
+}

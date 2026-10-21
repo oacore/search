@@ -2,7 +2,7 @@
 #   golden      build the golden image from the golden tag (build-image.sh parity <G> B0, plus the nodsn and
 #               harness variants), accept it (T-006, T-013, T-901, no token in `docker history`), capture the
 #               record mode of T-6xx, T-7xx, T-8xx three times from fresh stacks, `diff -r c1 c2 && diff -r c1 c3`,
-#               extract test/baseline/build/ from the image, and open the B0 link PR with the captures
+#               re-derive the build-artefact references from the image, and open the B0 link PR with the captures
 #   recapture   tool re-capture of the chain-head reference (3 byte-identical captures), link PR
 #   rebaseline  product re-baseline (D15): parity images of `before` and `after`, 3 captures each
 # scripts/baseline-capture.sh runs the same steps on a workstation (local mode: host builds and stacks).
@@ -102,7 +102,8 @@ jobs:
           node -e '
             const a = JSON.parse(require("fs").readFileSync(process.argv[1], "utf8"))
             const b = JSON.parse(require("fs").readFileSync(process.argv[2], "utf8"))
-            const strip = (o) => JSON.stringify(o, (k, v) => (k === "overridden" ? undefined : v))
+            // the <base'> record (test/baseline/base-npm-ls-omit-dev.json) has the build directory as <BUILD>
+            const strip = (o) => JSON.stringify(o, (k, v) => (k === "overridden" ? undefined : v)).split("/app/node_modules").join("<BUILD>/node_modules")
             if (strip(a) !== strip(b)) { console.error("T-013: image npm ls differs from the <base> record"); process.exit(1) }
           ' "$ARTIFACT_DIR/golden-npm-ls.json" test/baseline/base-npm-ls-omit-dev.json
           if docker history --no-trunc "$img" | grep -E '_authToken|npm_token=|NPM_TOKEN=[^ ]'; then
@@ -117,9 +118,14 @@ jobs:
             recapture) bash scripts/baseline-capture.sh recapture --ref '${{ steps.refs.outputs.ref }}' --steps capture ;;
             rebaseline) bash scripts/baseline-capture.sh rebaseline --before '${{ steps.refs.outputs.before }}' --after '${{ steps.refs.outputs.after }}' --steps capture ;;
           esac
-      - name: Build-derived baselines from the image (golden)
+      - name: Build-derived references from the image (golden; T-003, T-004, T-005, T-010)
         if: inputs.mode == 'golden'
-        run: node scripts/baseline-tools.mjs extract --build "$ARTIFACT_DIR/golden-image" --to test/baseline/build
+        run: |
+          set -euo pipefail
+          node scripts/baseline-tools.mjs extract --build "$ARTIFACT_DIR/golden-image" --to "$ARTIFACT_DIR/baseline-build"
+          STATIC_RECORD=1 NEXT_DIR="$ARTIFACT_DIR/golden-image/.next" APP_ROOT="$ARTIFACT_DIR/golden-image" \
+            npx jest --selectProjects static --runTestsByPath test/static/t003-built-css.test.js \
+            test/static/t004-bundles.test.js test/static/t005-static-assets.test.js test/static/t010-routes-manifest.test.js
       - name: Ledger files of the link
         run: |
           set -euo pipefail
@@ -142,7 +148,7 @@ jobs:
           set -euo pipefail
           branch="baseline/${{ inputs.link }}"
           git switch -c "$branch"
-          git add test/baseline e2e
+          git add test/baseline test/static/adapters/recorded e2e
           git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com \
             commit -m "Record the ${{ inputs.link }} baselines (${{ inputs.mode }}, 42 §6)"
           git push origin "$branch"

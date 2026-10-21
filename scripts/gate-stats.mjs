@@ -11,6 +11,15 @@
 //   node scripts/gate-stats.mjs z --x0 .. --n0 .. --x1 .. --n1 .. [--phi 1] [--ratio 1.25]
 //   node scripts/gate-stats.mjs bootstrap --file <series.json> [--seed 1] [--draws 10000] [--m 1.05]
 //     series.json = {pre: [{x, n}, ...], post: [{x, n}, ...]} (one entry per day)
+//   C6-NI (added at 2.5 on top of the core above; printed only, 55 C6-NI):
+//   node scripts/gate-stats.mjs signals --file test/signals/<tag>.json [--post-days 14]
+//     loads and validates an export (daily counts and rates, SHA-256 group keys, never message text) and prints
+//     per signal its window, x, n, phi and the power of the next window
+//   node scripts/gate-stats.mjs ni --pre test/signals/<tag>.json --post test/signals/<tag>.json --signal <name>
+//                                  [--m 1.05] [--seed 1] [--draws 10000] [--replicates 10000] [--inner 500]
+//     day-level bootstrap U, the size check at the margin with the fitted phi (simulated replicate windows; if the
+//     size exceeds 0.025 the simulated critical quantile replaces the 97.5th percentile), the exact conditional
+//     binomial p (cross-check) and the power, all printed
 
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
@@ -245,6 +254,279 @@ export function syntheticSeries() {
   }
 }
 
+// ---------- C6-NI: signals exports (test/signals/<tag>.json, 55 C6-NI, 42 §7) ----------
+// {schema: 1, tag, exportedAt, window: {from, to}, sources: {<source>: {retentionDays, unavailable?: 'VF-nn'}},
+//  signals: {<name>: {unit, source, days: [{date, x, n}], unavailable?}}, errorGroups: [{key: <sha256 hex>,
+//  days: [{date, count}]}], p95: {<prefix>: [{date, ms}]}, rss: [{date, pod, mib}], restarts: [{date, reason,
+//  exitCode, count}], cpuPer1000: [{date, s}], excludedDays: [{date, reason, signedBy}]}
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/
+const HEX64 = /^[0-9a-f]{64}$/
+export function validateSignals(doc) {
+  const problems = []
+  if (!doc || doc.schema !== 1) problems.push('schema must be 1')
+  if (!doc || typeof doc.tag !== 'string') problems.push('tag missing')
+  const sig = (doc && doc.signals) || {}
+  for (const [name, v] of Object.entries(sig)) {
+    if (v.unavailable) continue
+    if (!Array.isArray(v.days) || !v.days.length)
+      problems.push(`${name}: no days`)
+    for (const d of v.days || []) {
+      if (!ISO_DATE.test(d.date)) problems.push(`${name}: bad date ${d.date}`)
+      if (
+        !(Number.isFinite(d.x) && d.x >= 0 && Number.isFinite(d.n) && d.n > 0)
+      )
+        problems.push(`${name} ${d.date}: x, n must be numbers (x >= 0, n > 0)`)
+    }
+    const dates = (v.days || []).map((d) => d.date)
+    if (new Set(dates).size !== dates.length)
+      problems.push(`${name}: duplicate dates`)
+  }
+  // error groups carry hashed keys only: message text never enters an export
+  for (const g of (doc && doc.errorGroups) || [])
+    if (!HEX64.test(String(g.key)))
+      problems.push(
+        `errorGroups: key ${String(g.key).slice(
+          0,
+          20
+        )} is not a SHA-256 hex digest`
+      )
+  const text = JSON.stringify(doc || {})
+  if (/[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+\.[A-Za-z]{2,}/.test(text))
+    problems.push('an e-mail pattern is in the export')
+  return problems
+}
+export function loadSignals(file) {
+  const doc = JSON.parse(fs.readFileSync(file, 'utf8'))
+  const problems = validateSignals(doc)
+  if (problems.length)
+    throw new Error(`${file}: ${problems.slice(0, 5).join('; ')}`)
+  const excluded = new Set((doc.excludedDays || []).map((d) => d.date))
+  const series = {}
+  for (const [name, v] of Object.entries(doc.signals || {}))
+    series[name] = v.unavailable
+      ? { unavailable: v.unavailable }
+      : {
+          unit: v.unit,
+          source: v.source,
+          days: v.days
+            .filter((d) => !excluded.has(d.date))
+            .sort((a, b) => (a.date < b.date ? -1 : 1))
+            .map((d) => ({ date: d.date, x: d.x, n: d.n })),
+        }
+  return { doc, series, excluded: [...excluded].sort() }
+}
+// phi = variance / mean of the daily counts (sample variance, n - 1)
+export function phiOf(days) {
+  const xs = days.map((d) => d.x)
+  if (xs.length < 2) return 1
+  const mean = xs.reduce((a, b) => a + b, 0) / xs.length
+  const v = xs.reduce((a, b) => a + (b - mean) ** 2, 0) / (xs.length - 1)
+  return mean > 0 ? v / mean : 1
+}
+// power with units: x1hat = x0 n1 / n0 (55 C6-NI Power)
+export function powerUnits({ phi = 1, x0, n0, n1, m = 1.05 }) {
+  const x1hat = (x0 * n1) / n0
+  const se = Math.sqrt(phi * (1 / x0 + 1 / x1hat))
+  return { x1hat, se, power: normCdf(Math.log(m) / se - 1.96) }
+}
+// seeded samplers for the size simulation: Poisson (Knuth below 30, else a rounded normal with the Poisson
+// variance) and Gamma (Marsaglia-Tsang); a quasi-Poisson day count = Poisson(Gamma(mu/(phi-1), phi-1)) when phi > 1
+function normal(rnd) {
+  let u = 0
+  while (u === 0) u = rnd()
+  return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * rnd())
+}
+function poisson(mu, rnd) {
+  if (mu <= 0) return 0
+  if (mu < 30) {
+    const L = Math.exp(-mu)
+    let k = 0
+    let p = 1
+    do {
+      k++
+      p *= rnd()
+    } while (p > L)
+    return k - 1
+  }
+  return Math.max(0, Math.round(mu + Math.sqrt(mu) * normal(rnd)))
+}
+function gamma(shape, scale, rnd) {
+  if (shape < 1)
+    return gamma(shape + 1, scale, rnd) * Math.pow(rnd(), 1 / shape)
+  const d = shape - 1 / 3
+  const c = 1 / Math.sqrt(9 * d)
+  for (;;) {
+    let x
+    let v
+    do {
+      x = normal(rnd)
+      v = 1 + c * x
+    } while (v <= 0)
+    v = v * v * v
+    const u = rnd()
+    if (
+      u < 1 - 0.0331 * x ** 4 ||
+      Math.log(u) < 0.5 * x * x + d * (1 - v + Math.log(v))
+    )
+      return d * v * scale
+  }
+}
+const dayCount = (mu, phi, rnd) =>
+  phi > 1 ? poisson(gamma(mu / (phi - 1), phi - 1, rnd), rnd) : poisson(mu, rnd)
+// the size of the bootstrap test at the margin: replicate windows with the observed day units, pre rate r0 and
+// post rate m r0, counts quasi-Poisson with the fitted phi; size = share of replicates declared non-inferior
+// (U < m). Inner bootstrap draws per replicate: `inner` (the observed test uses `draws`).
+export function sizeCheck({
+  pre,
+  post,
+  m = 1.05,
+  phi = 1,
+  replicates = 10000,
+  inner = 500,
+  seed = 1,
+  q = 0.975,
+}) {
+  const rnd = mulberry32(seed)
+  const r0 = pre.reduce((a, d) => a + d.x, 0) / pre.reduce((a, d) => a + d.n, 0)
+  const qs = [0.975, 0.98, 0.985, 0.99, 0.9925, 0.995, 0.9975, 0.999]
+  const below = new Array(qs.length).fill(0)
+  const sorted = new Float64Array(inner)
+  for (let r = 0; r < replicates; r++) {
+    const sp = pre.map((d) => ({ x: dayCount(r0 * d.n, phi, rnd), n: d.n }))
+    const so = post.map((d) => ({
+      x: dayCount(m * r0 * d.n, phi, rnd),
+      n: d.n,
+    }))
+    for (let i = 0; i < inner; i++) {
+      let x0 = 0
+      let n0 = 0
+      for (let k = 0; k < sp.length; k++) {
+        const d = sp[Math.floor(rnd() * sp.length)]
+        x0 += d.x
+        n0 += d.n
+      }
+      let x1 = 0
+      let n1 = 0
+      for (let k = 0; k < so.length; k++) {
+        const d = so[Math.floor(rnd() * so.length)]
+        x1 += d.x
+        n1 += d.n
+      }
+      sorted[i] = x0 > 0 ? x1 / n1 / (x0 / n0) : Infinity
+    }
+    sorted.sort()
+    qs.forEach((qq, j) => {
+      if (quantile(sorted, qq) < m) below[j]++
+    })
+  }
+  const size = below[qs.indexOf(q)] / replicates
+  const critical = qs.find((qq, j) => below[j] / replicates <= 0.025) || null
+  return {
+    size,
+    exceeds: size > 0.025,
+    criticalQuantile: size > 0.025 ? critical : q,
+    sizes: Object.fromEntries(qs.map((qq, j) => [qq, below[j] / replicates])),
+    replicates,
+    inner,
+    seed,
+    phi,
+  }
+}
+// the printed C6-NI statement of one signal: bootstrap U, size check, binomial cross-check, power
+export function niTest({
+  pre,
+  post,
+  m = 1.05,
+  seed = 1,
+  draws = 10000,
+  replicates = 10000,
+  inner = 500,
+}) {
+  const phi = phiOf(pre)
+  const x0 = pre.reduce((a, d) => a + d.x, 0)
+  const n0 = pre.reduce((a, d) => a + d.n, 0)
+  const x1 = post.reduce((a, d) => a + d.x, 0)
+  const n1 = post.reduce((a, d) => a + d.n, 0)
+  const boot = bootstrapU({ pre, post, draws, seed, m })
+  const size = sizeCheck({
+    pre,
+    post,
+    m,
+    phi,
+    replicates,
+    inner,
+    seed: seed + 1,
+  })
+  let U = boot.U
+  let Ucritical = null
+  if (size.exceeds && size.criticalQuantile) {
+    // the simulated critical quantile replaces the 97.5th percentile (55 C6-NI Size check)
+    Ucritical = bootstrapU({
+      pre,
+      post,
+      draws,
+      seed,
+      m,
+      q: size.criticalQuantile,
+    }).U
+    U = Ucritical
+  }
+  const binom = conditionalBinomialP({ x0, n0, x1, n1, m })
+  const pw = powerUnits({ phi: Math.max(1, phi), x0, n0, n1, m })
+  return {
+    m,
+    x0,
+    n0,
+    x1,
+    n1,
+    preDays: pre.length,
+    postDays: post.length,
+    phi,
+    U97_5: boot.U,
+    U,
+    Ucritical,
+    nonInferior: U < m,
+    size,
+    binomial: { p: binom.p, pi0: binom.pi0, nonInferior: binom.nonInferior },
+    power: pw.power,
+    informative: pw.power >= 0.8,
+    draws,
+    seed,
+    printedOnly: true,
+  }
+}
+// deterministic synthetic exports of the C6-NI known answers: a pre window of 28 days, a post window of 14
+export function syntheticExport(
+  tag,
+  { days = 28, base = 350, start = '2026-09-01', ratio = 1 } = {}
+) {
+  const t0 = Date.parse(`${start}T00:00:00Z`)
+  return {
+    schema: 1,
+    tag,
+    exportedAt: `${start}T00:00:00Z`,
+    window: {
+      from: start,
+      to: new Date(t0 + (days - 1) * 86400000).toISOString().slice(0, 10),
+    },
+    sources: { gateway: { retentionDays: 30 } },
+    signals: {
+      gateway5xx: {
+        unit: 'request',
+        source: 'gateway',
+        days: Array.from({ length: days }, (_, i) => ({
+          date: new Date(t0 + i * 86400000).toISOString().slice(0, 10),
+          x: Math.round((base + ((i * 37) % 23)) * ratio),
+          n: 10000 + ((i * 101) % 997),
+        })),
+      },
+    },
+    errorGroups: [
+      { key: '0'.repeat(63) + '1', days: [{ date: start, count: 3 }] },
+    ],
+  }
+}
+
 // ---------- known answers (T-012 c7) ----------
 export const KNOWN_ANSWERS = [
   {
@@ -360,14 +642,130 @@ export const KNOWN_ANSWERS = [
   },
 ]
 
+// C6-NI known answers (2.5); the lead adds them to T-012 (pins of the seeded values below)
+export const NI_KNOWN_ANSWERS = [
+  {
+    id: 'ni-phi',
+    fn: () => phiOf([{ x: 10 }, { x: 12 }, { x: 8 }, { x: 10 }]),
+    expect: 8 / 30,
+    tol: 1e-12,
+    note: 'phi = sample variance / mean of 10, 12, 8, 10 = (8/3)/10',
+  },
+  {
+    id: 'ni-power-units',
+    fn: () => powerUnits({ phi: 1, x0: 9892, n0: 28, n1: 14, m: 1.05 }).power,
+    expect: 0.8000077399143981,
+    tol: 1e-9,
+    note: 'units form of 55 C6-NI power (x1hat = x0 n1/n0) = the 0.80 row',
+  },
+  {
+    id: 'ni-loader-rejects-text',
+    fn: () => {
+      const bad = syntheticExport('bad')
+      bad.errorGroups = [{ key: 'TypeError: x is undefined', days: [] }]
+      return validateSignals(bad).length > 0 ? 1 : 0
+    },
+    expect: 1,
+    tol: 0,
+    note: 'an error-group key that is not a SHA-256 digest (message text) is refused',
+  },
+  {
+    id: 'ni-loader-accepts',
+    fn: () => validateSignals(syntheticExport('2.0')).length,
+    expect: 0,
+    tol: 0,
+    note: 'a well-formed export validates',
+  },
+  {
+    id: 'ni-size-phi1',
+    fn: () => {
+      const pre = syntheticExport('pre').signals.gateway5xx.days
+      const post = syntheticExport('post', { days: 14, start: '2026-10-01' })
+        .signals.gateway5xx.days
+      return sizeCheck({
+        pre,
+        post,
+        m: 1.05,
+        phi: 1,
+        replicates: 2000,
+        inner: 400,
+        seed: 20261021,
+      }).size
+    },
+    expect: null,
+    range: [0, 0.06],
+    tol: 0,
+    note: 'size at the margin, phi 1, seeded (2,000 replicates x 400 draws): near 0.025; value pinned in T-012',
+  },
+  {
+    id: 'ni-test-equal-windows',
+    fn: () => {
+      const pre = syntheticExport('pre').signals.gateway5xx.days
+      const post = syntheticExport('post', { days: 14, start: '2026-10-01' })
+        .signals.gateway5xx.days
+      return niTest({
+        pre,
+        post,
+        m: 1.05,
+        seed: 20261021,
+        draws: 10000,
+        replicates: 500,
+        inner: 200,
+      }).U97_5
+    },
+    expect: null,
+    range: [0.98, 1.05],
+    tol: 0,
+    note: 'bootstrap U of two windows at ratio ~1: below the margin 1.05; value pinned in T-012',
+  },
+  {
+    id: 'ni-test-worse-window',
+    fn: () => {
+      const pre = syntheticExport('pre').signals.gateway5xx.days
+      const post = syntheticExport('post', {
+        days: 14,
+        start: '2026-10-01',
+        ratio: 1.2,
+      }).signals.gateway5xx.days
+      return niTest({
+        pre,
+        post,
+        m: 1.05,
+        seed: 20261021,
+        draws: 10000,
+        replicates: 200,
+        inner: 200,
+      }).nonInferior
+        ? 1
+        : 0
+    },
+    expect: 0,
+    tol: 0,
+    note: 'a post window 20% worse is not non-inferior',
+  },
+]
+
 export function selfTest(pins = {}) {
-  return KNOWN_ANSWERS.map((k) => {
+  const ni = NI_KNOWN_ANSWERS.map((k) => {
     const got = k.fn()
     const expect = k.expect ?? pins[k.id] ?? null
     const ok =
-      expect === null ? Number.isFinite(got) : Math.abs(got - expect) <= k.tol
+      expect === null
+        ? Number.isFinite(got) &&
+          (!k.range || (got >= k.range[0] && got <= k.range[1]))
+        : Math.abs(got - expect) <= k.tol
     return { id: k.id, got, expect, ok, note: k.note }
   })
+  return [
+    ...KNOWN_ANSWERS.map((k) => {
+      const got = k.fn()
+      const expect = k.expect ?? pins[k.id] ?? null
+      const ok =
+        expect === null ? Number.isFinite(got) : Math.abs(got - expect) <= k.tol
+      return { id: k.id, got, expect, ok, note: k.note }
+    }),
+    ...ni,
+  ]
 }
 
 // ---------- CLI ----------
@@ -427,9 +825,59 @@ function main(argv) {
       draws: num('--draws', 10000),
       m: num('--m', 1.05),
     })
+  } else if (cmd === 'signals') {
+    const { doc, series, excluded } = loadSignals(opt('--file'))
+    const postDays = num('--post-days', 14)
+    out = {
+      tag: doc.tag,
+      window: doc.window,
+      excludedDays: excluded,
+      signals: Object.fromEntries(
+        Object.entries(series).map(([name, s]) => {
+          if (s.unavailable) return [name, { unavailable: s.unavailable }]
+          const x0 = s.days.reduce((a, d) => a + d.x, 0)
+          const n0 = s.days.reduce((a, d) => a + d.n, 0)
+          const phi = phiOf(s.days)
+          const pw = powerUnits({
+            phi: Math.max(1, phi),
+            x0,
+            n0,
+            n1: (n0 * postDays) / s.days.length,
+          })
+          return [
+            name,
+            {
+              days: s.days.length,
+              x0,
+              n0,
+              rate: x0 / n0,
+              phi,
+              powerNextWindow: pw.power,
+              informative: pw.power >= 0.8,
+            },
+          ]
+        })
+      ),
+    }
+  } else if (cmd === 'ni') {
+    const pre = loadSignals(opt('--pre')).series[opt('--signal')]
+    const post = loadSignals(opt('--post')).series[opt('--signal')]
+    if (!pre || !post || pre.unavailable || post.unavailable)
+      throw new Error(
+        `signal ${opt('--signal')} is missing or unavailable in an export`
+      )
+    out = niTest({
+      pre: pre.days,
+      post: post.days,
+      m: num('--m', 1.05),
+      seed: num('--seed', 1),
+      draws: num('--draws', 10000),
+      replicates: num('--replicates', 10000),
+      inner: num('--inner', 500),
+    })
   } else {
     console.error(
-      'usage: gate-stats.mjs --self-test | cp | binom | power | z | bootstrap (see header)'
+      'usage: gate-stats.mjs --self-test | cp | binom | power | z | bootstrap | signals | ni (see header)'
     )
     process.exit(2)
   }

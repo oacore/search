@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "scenario": "pilot-e6",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/outputs/4040",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 08:42:00 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "acceptedDate": "",
+        "authors": [{ "name": "O'Halloran, Kieran" }],
+        "contributors": [],
+        "createdDate": "2012-06-26T19:51:02+01:00",
+        "dataProvider": {
+          "id": 86,
+          "name": "Open Research Online (Open)",
+          "url": "https://api.core.ac.uk/v3/data-providers/86",
+          "logo": "https://api.core.ac.uk/data-providers/86/logo"
+        },
+        "depositedDate": "2011-01-31T00:00:00+00:00",
+        "documentType": "",
+        "versions": [],
+        "doi": "",
+        "downloadUrl": "https://core.ac.uk/download/4040.pdf",
+        "fullText": "",
+        "id": 4040,
+        "identifiers": { "doi": null, "oai": "oai:oro.open.ac.uk:27175" },
+        "title": "Critical reading of a text through its electronic supplement",
+        "language": { "code": "en", "name": "English" },
+        "publishedDate": "2010-10-15T01:00:00+01:00",
+        "publisher": null,
+        "references": [],
+        "sourceFulltextUrls": [
+          "https://oro.open.ac.uk/27175/1/DCE1022_ohalloran_2010_Oct_15th.pdf"
+        ],
+        "updatedDate": null,
+        "yearPublished": "2010",
+        "links": [
+          { "type": "download", "url": "https://core.ac.uk/download/4040.pdf" },
+          { "type": "reader", "url": "https://core.ac.uk/reader/4040" },
+          {
+            "type": "thumbnail_m",
+            "url": "https://core.ac.uk/image/4040/medium"
+          },
+          {
+            "type": "thumbnail_l",
+            "url": "https://core.ac.uk/image/4040/large"
+          },
+          { "type": "reader", "url": "https://core.ac.uk/reader/4040" },
+          {
+            "type": "thumbnail_m",
+            "url": "https://core.ac.uk/image/4040/medium"
+          },
+          {
+            "type": "thumbnail_l",
+            "url": "https://core.ac.uk/image/4040/large"
+          },
+          { "type": "display", "url": "https://core.ac.uk/outputs/4040" }
+        ],
+        "abstract": "A by-product of new social media platforms is an abundant textual record of engagements – billions of words across the world-wide-web in, for example, discussion forums, blogs and wiki discussion tabs.  Many of these engagements consist of commentary on a particular text and can thus be regarded as supplements to these texts.  The larger purpose of this article is to flag the utility value of this electronic supplementarity for critical reading by highlighting how it can reveal particular meanings that the text being responded to can reasonably be said to marginalise and / or repress.  Given the potentially very large size of social media textual product, knowing how to explore these supplements with electronic text analysis software is essential.\n\n\n\nTo illustrate the above, I focus on how the content of online discussion forums, explored through electronic text analysis software, can be used to assist critical reading of the texts which initiate them.  The paper takes its theoretical orientations from the textual intervention work of Rob Pope together with themes in the work of the philosopher, Jacques Derrida",
+        "tags": [],
+        "fulltextStatus": "enabled",
+        "subjects": [],
+        "oai": "oai:oro.open.ac.uk:27175",
+        "deleted": "ALLOWED",
+        "disabled": false,
+        "journals": [],
+        "repositories": [],
+        "repositoryDocument": {
+          "id": 4040,
+          "depositedDate": "",
+          "publishedDate": "2010-10-15T01:00:00+01:00",
+          "updatedDate": "",
+          "acceptedDate": "",
+          "createdDate": ""
+        },
+        "urls": [
+          {
+            "url": "https://oro.open.ac.uk/27175/1/DCE1022_ohalloran_2010_Oct_15th.pdf",
+            "type": "fulltext"
+          }
+        ],
+        "lastUpdate": "2026-09-14T13:13:27+01:00",
+        "setSpecs": [],
+        "license": "",
+        "orcids": [],
+        "sdg": []
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T08:42:00.511Z",
+    "scrubbed": { "fullText": 1, "headersDropped": 4 }
+  }
+}
