@@ -1,0 +1,1622 @@
+[
+  {
+    "ruleId": "element-required-attributes",
+    "severity": 2,
+    "selector": "html",
+    "message": "<html> is missing required \"lang\" attribute"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > meta[name=viewport]",
+    "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "head > meta[charset=utf-8]",
+    "message": "Attribute \"charSet\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > meta[charset=utf-8]",
+    "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > link[rel=icon][sizes=64x64][type=image/png]",
+    "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > link[rel=icon][sizes=128x128][type=image/png]",
+    "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > link[rel=icon][sizes=256x256][type=image/png]",
+    "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > link[rel=icon][sizes=512x512][type=image/png]",
+    "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > link[rel=icon][sizes=any][type=image/svg+xml]",
+    "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
+  },
+  {
+    "ruleId": "valid-id",
+    "severity": 2,
+    "selector": "#__next",
+    "message": "element id \"__next\" must begin with a letter"
+  },
+  {
+    "ruleId": "unique-landmark",
+    "severity": 2,
+    "selector": "#header-nav",
+    "message": "Landmarks must have a non-empty and unique accessible name (aria-label or aria-labelledby)"
+  },
+  {
+    "ruleId": "no-implicit-button-type",
+    "severity": 2,
+    "selector": "#services-title",
+    "message": "<button> is missing recommended \"type\" attribute"
+  },
+  {
+    "ruleId": "no-redundant-role",
+    "severity": 2,
+    "selector": "#services-title",
+    "message": "Redundant role \"button\" on <button>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(1) > ul > li:nth-child(1) > a > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "no-implicit-button-type",
+    "severity": 2,
+    "selector": "#communities-title",
+    "message": "<button> is missing recommended \"type\" attribute"
+  },
+  {
+    "ruleId": "no-redundant-role",
+    "severity": 2,
+    "selector": "#communities-title",
+    "message": "Redundant role \"button\" on <button>"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(2) > ul > li > ul > a:nth-child(1)",
+    "message": "<a> element is not permitted as content under <ul>"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(2) > ul > li > ul > a:nth-child(2)",
+    "message": "<a> element is not permitted as content under <ul>"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(2) > ul > li > ul > a:nth-child(3)",
+    "message": "<a> element is not permitted as content under <ul>"
+  },
+  {
+    "ruleId": "no-implicit-button-type",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(3) > button",
+    "message": "<button> is missing recommended \"type\" attribute"
+  },
+  {
+    "ruleId": "no-redundant-role",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(3) > button",
+    "message": "Redundant role \"button\" on <button>"
+  },
+  {
+    "ruleId": "no-dup-id",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(3) > ul > li:nth-child(1) > h3",
+    "message": "Duplicate ID \"about-title\""
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(1) > header > div:nth-child(1) > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "text-content",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2) > button",
+    "message": "<button> must have accessible text"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#select-data-providers-outputs-select",
+    "message": "Attribute \"autoComplete\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#select-data-providers-outputs-select",
+    "message": "Expected omitted end tag <input> instead of self-closing element <input/>"
+  },
+  {
+    "ruleId": "prefer-native-element",
+    "severity": 2,
+    "selector": "#suggestion-results-data-providers-outputs-select",
+    "message": "Prefer to use the native <select> element"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-672884869",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > header > h3",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(1) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(2) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(3) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(2) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(3) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(3) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(4) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(4) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > figure > a > img",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > figure > a > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > div:nth-child(4)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693293",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693293",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > header > h3",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > dl > div:nth-child(1) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > dl > div:nth-child(1) > dd > ol > li > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > dl > div:nth-child(2) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > dl > div:nth-child(3) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > dl > div:nth-child(3) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > dl > div:nth-child(4) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > dl > div:nth-child(4) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > figure > a > img",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > figure > a > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > div:nth-child(4)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-701292755",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-701292755",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > header > h3",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > dl > div:nth-child(1) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > dl > div:nth-child(1) > dd > ol > li > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > dl > div:nth-child(2) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > dl > div:nth-child(3) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > dl > div:nth-child(3) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > dl > div:nth-child(4) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > dl > div:nth-child(4) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > figure > a > img",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > figure > a > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > div:nth-child(4)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-648213547",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-648213547",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > header > h3",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > dl > div:nth-child(1) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > dl > div:nth-child(1) > dd > ol > li > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > dl > div:nth-child(2) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > dl > div:nth-child(3) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > dl > div:nth-child(3) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > dl > div:nth-child(4) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > dl > div:nth-child(4) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > figure > a > img",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > figure > a > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > div:nth-child(4)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685737",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > header > h3",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(1) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(2) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(3) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(2) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(3) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(3) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(4) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(4) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > figure > a > img",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > figure > a > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > div:nth-child(4)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685748",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > header > h3",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(1) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(2) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(3) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(2) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(3) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(3) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(4) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(4) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > figure > a > img",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > figure > a > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > div:nth-child(4)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-710737070",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > header > h3",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(1) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(2) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "no-implicit-button-type",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(3) > button",
+    "message": "<button> is missing recommended \"type\" attribute"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(4)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(4)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(4)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(4) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(5)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(5)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(5)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(5) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(6)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(6)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(6)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(6) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(7)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(7)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(7)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(7) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(8)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(8)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(8)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(8) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(9)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(9)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(9)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(9) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(10)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(10)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(10)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(10) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(2) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(3) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(3) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(4) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(4) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > figure > a > img",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > figure > a > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > div:nth-child(4)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685736",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685736",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > header > h3",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > dl > div:nth-child(1) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > dl > div:nth-child(1) > dd > ol > li > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > dl > div:nth-child(2) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > dl > div:nth-child(3) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > dl > div:nth-child(3) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > dl > div:nth-child(4) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > dl > div:nth-child(4) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > figure > a > img",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > figure > a > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > div:nth-child(4)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693368",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693368",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693368 > header > h3",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-750693368 > dl > div:nth-child(1) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-750693368 > dl > div:nth-child(2) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-750693368 > dl > div:nth-child(3) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693368 > dl > div:nth-child(3) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-750693368 > dl > div:nth-child(4) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693368 > dl > div:nth-child(4) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693368 > figure > a > img",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693368 > figure > a > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693368 > div:nth-child(4)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693466",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > header > h3",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(1) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(2) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "no-implicit-button-type",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(3) > button",
+    "message": "<button> is missing recommended \"type\" attribute"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(4)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(4)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(4)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(4) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(5)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(5)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(5)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(5) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(6)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(6)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(6)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(6) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(7)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(7)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(7)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(7) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(8)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attribute-boolean-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(8)",
+    "message": "Attribute \"itemscope\" should omit value"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(8)",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(8) > a > span",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(2) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(3) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(3) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(4) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(4) > dd",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > figure > a > img",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > figure > a > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > div:nth-child(4)",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "no-redundant-role",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(1) > nav",
+    "message": "Redundant role \"navigation\" on <nav>"
+  },
+  {
+    "ruleId": "no-implicit-button-type",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(3) > button",
+    "message": "<button> is missing recommended \"type\" attribute"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#footer > div:nth-child(1) > menu > div:nth-child(1)",
+    "message": "<div> element is not permitted as content under <menu>"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#footer > div:nth-child(1) > menu > div:nth-child(2)",
+    "message": "<div> element is not permitted as content under <menu>"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#footer > div:nth-child(1) > menu > div:nth-child(3)",
+    "message": "<div> element is not permitted as content under <menu>"
+  }
+]

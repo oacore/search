@@ -1,0 +1,201 @@
+{
+  "path": "/outputs/2004/",
+  "status": 200,
+  "location": null,
+  "contentType": "text/html; charset=utf-8",
+  "titleRaw": "Novel approach for deriving genome wide SNP analysis data from archived blood spots - CORE",
+  "htmlAttrs": {},
+  "head": {
+    "seo": [
+      {
+        "tag": "title",
+        "attrs": {},
+        "childNodes": [
+          {
+            "type": "text",
+            "data": "Novel approach for deriving genome wide SNP analysis data from archived blood spots - CORE"
+          }
+        ],
+        "text": "Novel approach for deriving genome wide SNP analysis data from archived blood spots - CORE"
+      },
+      {
+        "tag": "meta",
+        "attrs": {
+          "content": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+          "name": "citation_title"
+        }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Fowler, Katie E.", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Reitter, Chris P", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Walling, Grant A", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Griffin, Darren K", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "2012/1/01", "name": "citation_publication_date" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Fowler, Katie E.", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Reitter, Chris P", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Walling, Grant A", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Griffin, Darren K", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": {
+          "content": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+          "name": "DC.title"
+        }
+      },
+      {
+        "tag": "meta",
+        "attrs": {
+          "content": "Background\n\nThe ability to transport and store DNA at room temperature in low volumes has the advantage of optimising cost, time and storage space. Blood spots on adapted filter papers are popular for this, with FTA (Flinders Technology Associates) Whatman™ technology being one of the most recent. Plant material, plasmids, viral particles, bacteria and animal blood have been stored and transported successfully using this technology, however the method of porcine DNA extraction from FTA Whatman™ cards is a relatively new approach, allowing nucleic acids to be ready for downstream applications such as PCR, whole genome amplification, sequencing and subsequent application to single nucleotide polymorphism microarrays has hitherto been under-explored.\n\n\n\nFindings\n\nDNA was extracted from FTA Whatman™ cards (following adaptations of the manufacturer’s instructions), whole genome amplified and subsequently analysed to validate the integrity of the DNA for downstream SNP analysis. DNA was successfully extracted from 288/288 samples and amplified by WGA. Allele dropout post WGA, was observed in less than 2% of samples and there was no clear evidence of amplification bias nor contamination. Acceptable call rates on porcine SNP chips were also achieved using DNA extracted and amplified in this way.\n\n\n\nConclusions\n\nDNA extracted from FTA Whatman cards is of a high enough quality and quantity following whole genomic amplification to perform meaningful SNP chip studies",
+          "name": "DCTERMS.abstract"
+        }
+      },
+      {
+        "tag": "meta",
+        "attrs": {
+          "content": "oai:oro.open.ac.uk:90496",
+          "name": "DC.identifier"
+        }
+      },
+      {
+        "tag": "script",
+        "attrs": { "type": "application/ld+json" },
+        "jsonld": {
+          "@context": "http://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": { "@id": "https://core.ac.uk", "name": "CORE" }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://core.ac.uk/reader/2004",
+                    "name": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+                    "image": "https://core.ac.uk/image/2004/large"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "item": {
+                    "@id": "https://core.ac.uk/search?q=repositories.id:(86)",
+                    "name": "Open Research Online (The Open University)"
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "ScholarlyArticle",
+              "@id": "https://core.ac.uk/reader/2004",
+              "headline": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+              "abstract": "Background\n\nThe ability to transport and store DNA at room temperature in low volumes has the advantage of optimising cost, time and storage space. Blood spots on adapted filter papers are popular for this, with FTA (Flinders Technology Associates) Whatman™ technology being one of the most recent. Plant material, plasmids, viral particles, bacteria and animal blood have been stored and transported successfully using this technology, however the method of porcine DNA extraction from FTA Whatman™ cards is a relatively new approach, allowing nucleic acids to be ready for downstream applications such as PCR, whole genome amplification, sequencing and subsequent application to single nucleotide polymorphism microarrays has hitherto been under-explored.\n\n\n\nFindings\n\nDNA was extracted from FTA Whatman™ cards (following adaptations of the manufacturer’s instructions), whole genome amplified and subsequently analysed to validate the integrity of the DNA for downstream SNP analysis. DNA was successfully extracted from 288/288 samples and amplified by WGA. Allele dropout post WGA, was observed in less than 2% of samples and there was no clear evidence of amplification bias nor contamination. Acceptable call rates on porcine SNP chips were also achieved using DNA extracted and amplified in this way.\n\n\n\nConclusions\n\nDNA extracted from FTA Whatman cards is of a high enough quality and quantity following whole genomic amplification to perform meaningful SNP chip studies",
+              "name": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+              "author": [
+                { "@type": "Person", "name": { "name": "Fowler, Katie E." } },
+                { "@type": "Person", "name": { "name": "Reitter, Chris P" } },
+                { "@type": "Person", "name": { "name": "Walling, Grant A" } },
+                { "@type": "Person", "name": { "name": "Griffin, Darren K" } }
+              ],
+              "datePublished": "2012-01-01T00:00:00+00:00",
+              "isAccessibleForFree": true,
+              "provider": {
+                "@type": "Organization",
+                "name": "Open Research Online (The Open University)"
+              },
+              "image": "https://core.ac.uk/image/2004/large",
+              "publisher": { "@type": "Organization", "name": "" }
+            }
+          ]
+        }
+      }
+    ],
+    "favicons": [
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-64px.png",
+          "rel": "icon",
+          "sizes": "64x64",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-128px.png",
+          "rel": "icon",
+          "sizes": "128x128",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-256px.png",
+          "rel": "icon",
+          "sizes": "256x256",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-512px.png",
+          "rel": "icon",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon.svg",
+          "rel": "icon",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      }
+    ],
+    "frame": [
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
+      {
+        "tag": "meta",
+        "attrs": { "content": "width=device-width", "name": "viewport" }
+      }
+    ],
+    "other": []
+  },
+  "bodyLead": { "seo": [], "favicons": [], "frame": [], "other": [] },
+  "bodyLeadText": []
+}

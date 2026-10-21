@@ -1,0 +1,411 @@
+{
+  "path": "/works/1003/",
+  "ssrNames": [
+    "meta[name=viewport]",
+    "meta[charset]",
+    "link[icon 64x64]",
+    "link[icon 128x128]",
+    "link[icon 256x256]",
+    "link[icon 512x512]",
+    "link[icon any]",
+    "title",
+    "meta[name=citation_title]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_author]",
+    "meta[name=citation_publication_date]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.creator]",
+    "meta[name=DC.title]",
+    "meta[name=DCTERMS.abstract]",
+    "script[application/ld+json]"
+  ],
+  "htmlAttrs": {},
+  "head": [
+    {
+      "tag": "meta",
+      "attrs": { "content": "width=device-width", "name": "viewport" }
+    },
+    { "tag": "meta", "attrs": { "charset": "utf-8" } },
+    {
+      "tag": "link",
+      "attrs": {
+        "href": "https://core.ac.uk/favicon/favicon-64px.png",
+        "rel": "icon",
+        "sizes": "64x64",
+        "type": "image/png"
+      }
+    },
+    {
+      "tag": "link",
+      "attrs": {
+        "href": "https://core.ac.uk/favicon/favicon-128px.png",
+        "rel": "icon",
+        "sizes": "128x128",
+        "type": "image/png"
+      }
+    },
+    {
+      "tag": "link",
+      "attrs": {
+        "href": "https://core.ac.uk/favicon/favicon-256px.png",
+        "rel": "icon",
+        "sizes": "256x256",
+        "type": "image/png"
+      }
+    },
+    {
+      "tag": "link",
+      "attrs": {
+        "href": "https://core.ac.uk/favicon/favicon-512px.png",
+        "rel": "icon",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    },
+    {
+      "tag": "link",
+      "attrs": {
+        "href": "https://core.ac.uk/favicon/favicon.svg",
+        "rel": "icon",
+        "sizes": "any",
+        "type": "image/svg+xml"
+      }
+    },
+    {
+      "tag": "title",
+      "attrs": {},
+      "text": "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa - CORE"
+    },
+    {
+      "tag": "meta",
+      "attrs": {
+        "content": "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa",
+        "name": "citation_title"
+      }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "F. Kaspar", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "M. Butale", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "de Clercq, W.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "T. Hillmann", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Kruger, S.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Castro Matsheka, M.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Helmschrot, J.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "W. de Clercq", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Seely, M.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "R. Posada", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Hillmann, T.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "F. O. S. Neto", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Kaspar, F.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "J. K. Kanyanga", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "M. Seely", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Mhanda, A.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Josenhans, K.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "J`urgens, N.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Ribeiro, C.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "C. Ribeiro", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Neto, F. O. S.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "G. Muche", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Riede, J.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "R. Vogt", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Vogt, R.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Butale, M.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "J. Helmschrot", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Posada, R.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "S. Kruger", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Muche, G.", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "2015/1/01", "name": "citation_publication_date" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "F. Kaspar", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "M. Butale", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "de Clercq, W.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "T. Hillmann", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Kruger, S.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Castro Matsheka, M.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Helmschrot, J.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "W. de Clercq", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Seely, M.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "R. Posada", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Hillmann, T.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "F. O. S. Neto", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Kaspar, F.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "J. K. Kanyanga", "name": "DC.creator" }
+    },
+    { "tag": "meta", "attrs": { "content": "M. Seely", "name": "DC.creator" } },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Mhanda, A.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Josenhans, K.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "J`urgens, N.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Ribeiro, C.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "C. Ribeiro", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Neto, F. O. S.", "name": "DC.creator" }
+    },
+    { "tag": "meta", "attrs": { "content": "G. Muche", "name": "DC.creator" } },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Riede, J.", "name": "DC.creator" }
+    },
+    { "tag": "meta", "attrs": { "content": "R. Vogt", "name": "DC.creator" } },
+    {
+      "tag": "meta",
+      "attrs": { "content": "width=device-width", "name": "viewport" }
+    },
+    { "tag": "meta", "attrs": { "charset": "utf-8" } },
+    {
+      "tag": "link",
+      "attrs": {
+        "href": "https://core.ac.uk/favicon/favicon-64px.png",
+        "rel": "icon",
+        "sizes": "64x64",
+        "type": "image/png"
+      }
+    },
+    {
+      "tag": "link",
+      "attrs": {
+        "href": "https://core.ac.uk/favicon/favicon-128px.png",
+        "rel": "icon",
+        "sizes": "128x128",
+        "type": "image/png"
+      }
+    },
+    {
+      "tag": "link",
+      "attrs": {
+        "href": "https://core.ac.uk/favicon/favicon-256px.png",
+        "rel": "icon",
+        "sizes": "256x256",
+        "type": "image/png"
+      }
+    },
+    {
+      "tag": "link",
+      "attrs": {
+        "href": "https://core.ac.uk/favicon/favicon-512px.png",
+        "rel": "icon",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    },
+    {
+      "tag": "link",
+      "attrs": {
+        "href": "https://core.ac.uk/favicon/favicon.svg",
+        "rel": "icon",
+        "sizes": "any",
+        "type": "image/svg+xml"
+      }
+    },
+    {
+      "tag": "script",
+      "attrs": {
+        "async": "",
+        "src": "https://cdn.lgrckt-in.com/logger-1.min.js"
+      }
+    }
+  ]
+}

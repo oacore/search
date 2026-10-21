@@ -1,0 +1,209 @@
+{
+  "path": "/works/1005/",
+  "status": 200,
+  "location": null,
+  "contentType": "text/html; charset=utf-8",
+  "titleRaw": "Long title with $x^2$ and a literal **x** that must not become bold, repeated to reach three hundred characters: climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate l - CORE",
+  "htmlAttrs": {},
+  "head": {
+    "seo": [
+      {
+        "tag": "title",
+        "attrs": {},
+        "childNodes": [
+          {
+            "type": "text",
+            "data": "Long title with $x^2$ and a literal **x** that must not become bold, repeated to reach three hundred characters: climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate l - CORE"
+          }
+        ],
+        "text": "Long title with $x^2$ and a literal **x** that must not become bold, repeated to reach three hundred characters: climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate l - CORE"
+      },
+      {
+        "tag": "meta",
+        "attrs": {
+          "content": "Long title with $x^2$ and a literal **x** that must not become bold, repeated to reach three hundred characters: climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate l",
+          "name": "citation_title"
+        }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Annalisa Savaresi", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Mikko Rajavuori", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Rajavuori, Mikko", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Harro van Asselt", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "van Asselt, Harro", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Savaresi, Annalisa", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "2023/3/14", "name": "citation_publication_date" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Annalisa Savaresi", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Mikko Rajavuori", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Rajavuori, Mikko", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Harro van Asselt", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "van Asselt, Harro", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Savaresi, Annalisa", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": {
+          "content": "Long title with $x^2$ and a literal **x** that must not become bold, repeated to reach three hundred characters: climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate l",
+          "name": "DC.title"
+        }
+      },
+      {
+        "tag": "meta",
+        "attrs": {
+          "content": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+          "name": "DCTERMS.abstract"
+        }
+      },
+      {
+        "tag": "script",
+        "attrs": { "type": "application/ld+json" },
+        "jsonld": {
+          "@context": "http://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": { "@id": "https://core.ac.uk", "name": "CORE" }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://core.ac.uk/reader/1005",
+                    "name": "Long title with $x^2$ and a literal **x** that must not become bold, repeated to reach three hundred characters: climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate l",
+                    "image": "https://core.ac.uk/image/1005/large"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "item": {
+                    "@id": "https://core.ac.uk/search?q=repositories.id:(4786)",
+                    "name": "Crossref"
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "ScholarlyArticle",
+              "@id": "https://core.ac.uk/reader/1005",
+              "headline": "Long title with $x^2$ and a literal **x** that must not become bold, repeated to reach three hundred charac...",
+              "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+              "name": "Long title with $x^2$ and a literal **x** that must not become bold, repeated to reach three hundred characters: climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate l",
+              "author": [
+                { "@type": "Person", "name": { "name": "Annalisa Savaresi" } },
+                { "@type": "Person", "name": { "name": "Mikko Rajavuori" } },
+                { "@type": "Person", "name": { "name": "Rajavuori, Mikko" } },
+                { "@type": "Person", "name": { "name": "Harro van Asselt" } },
+                { "@type": "Person", "name": { "name": "van Asselt, Harro" } },
+                { "@type": "Person", "name": { "name": "Savaresi, Annalisa" } }
+              ],
+              "datePublished": "2023-03-14T00:00:00+00:00",
+              "isAccessibleForFree": true,
+              "provider": { "@type": "Organization", "name": "Crossref" },
+              "image": "https://core.ac.uk/image/1005/large",
+              "publisher": { "@type": "Organization", "name": "Wiley" }
+            }
+          ]
+        }
+      }
+    ],
+    "favicons": [
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-64px.png",
+          "rel": "icon",
+          "sizes": "64x64",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-128px.png",
+          "rel": "icon",
+          "sizes": "128x128",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-256px.png",
+          "rel": "icon",
+          "sizes": "256x256",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-512px.png",
+          "rel": "icon",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon.svg",
+          "rel": "icon",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      }
+    ],
+    "frame": [
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
+      {
+        "tag": "meta",
+        "attrs": { "content": "width=device-width", "name": "viewport" }
+      }
+    ],
+    "other": []
+  },
+  "bodyLead": { "seo": [], "favicons": [], "frame": [], "other": [] },
+  "bodyLeadText": []
+}
