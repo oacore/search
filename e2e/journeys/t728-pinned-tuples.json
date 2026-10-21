@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "description": "T-728 pinned diff (41 T-728 c2; 40 §4 item 2; 55 C7 (1)): per React/Next version, the hydration events allowed on the T-601 routes x fixtures x TZ x cookie state x engine matrix, one entry per tuple; T-701's allow-list on React 18/19. Keyed on the tuple only, never on message text. React 17.0 production reports no hydration event (it patches text and children silently: Q-050, Q-051, Q-072, Q-075, Q-093), so its set is empty; W6a records the React 18.3 set, W7b the React 19 set; an entry leaves only with a signed ESCALATES fix (OD-40). A new or changed entry fails T-701/T-728, so does a pinned entry that no longer occurs.",
+  "tuple": [
+    "route",
+    "fixture",
+    "tz",
+    "cookieState",
+    "engine",
+    "errorCode",
+    "firstMismatchPath"
+  ],
+  "versions": {
+    "react-17.0+next-10.2": {
+      "recorded": "2026-10-20 (2.3): React 17.0.2 production, Next 10.2.3; empty by observation on Chromium over the T-728 matrix (WebKit and Firefox: runner only, DEFERRED in local mode)",
+      "entries": []
+    }
+  }
+}

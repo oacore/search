@@ -1,0 +1,2771 @@
+{
+  "link": "provisional-2.3",
+  "reference": {
+    "test": "T-603",
+    "mode": "host",
+    "commit": "09d41933e7276b13c68d15906a9e74de8e2ade44",
+    "build": "4fc8dd1800ace9ec",
+    "variant": "default",
+    "proxyOverlay": null
+  },
+  "rules": {
+    "ignored": ["date"],
+    "presenceOnly": ["etag", "content-length", "last-modified"],
+    "neverCovered": [":status", "location"],
+    "ledger": "test/baseline/ACCEPTED-DIFFS.yml"
+  },
+  "routes": [
+    {
+      "id": "html-gssp@origin.GET",
+      "route": "html-gssp",
+      "class": "HTML",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/?q=climate",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "cache-control": [
+            "private, no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        },
+        "inlineScripts": 0
+      }
+    },
+    {
+      "id": "html-gssp@origin.HEAD",
+      "route": "html-gssp",
+      "class": "HTML",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/?q=climate",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "cache-control": [
+            "private, no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "html-gssp@origin.conditional",
+      "route": "html-gssp",
+      "class": "HTML",
+      "via": "origin",
+      "listener": "app",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/search/?q=climate",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "html-gssp@origin.br-gzip",
+      "route": "html-gssp",
+      "class": "HTML",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/search/?q=climate",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "cache-control": [
+            "private, no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "html-gssp@proxy.GET",
+      "route": "html-gssp",
+      "class": "HTML",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/?q=climate",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "cache-control": [
+            "private, no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        },
+        "inlineScripts": 0
+      }
+    },
+    {
+      "id": "html-gssp@proxy.HEAD",
+      "route": "html-gssp",
+      "class": "HTML",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/?q=climate",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "cache-control": [
+            "private, no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "html-gssp@proxy.conditional",
+      "route": "html-gssp",
+      "class": "HTML",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/search/?q=climate",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "html-gssp@proxy.br-gzip",
+      "route": "html-gssp",
+      "class": "HTML",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/search/?q=climate",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "cache-control": [
+            "private, no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "html-gip@origin.GET",
+      "route": "html-gip",
+      "class": "HTML",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/outputs/update/",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        },
+        "inlineScripts": 0
+      }
+    },
+    {
+      "id": "html-gip@origin.HEAD",
+      "route": "html-gip",
+      "class": "HTML",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/outputs/update/",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "html-gip@origin.conditional",
+      "route": "html-gip",
+      "class": "HTML",
+      "via": "origin",
+      "listener": "app",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/outputs/update/",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "html-gip@origin.br-gzip",
+      "route": "html-gip",
+      "class": "HTML",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/outputs/update/",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "html-gip@proxy.GET",
+      "route": "html-gip",
+      "class": "HTML",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/outputs/update/",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        },
+        "inlineScripts": 0
+      }
+    },
+    {
+      "id": "html-gip@proxy.HEAD",
+      "route": "html-gip",
+      "class": "HTML",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/outputs/update/",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "html-gip@proxy.conditional",
+      "route": "html-gip",
+      "class": "HTML",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/outputs/update/",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "html-gip@proxy.br-gzip",
+      "route": "html-gip",
+      "class": "HTML",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/outputs/update/",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "next-data@origin.GET",
+      "route": "next-data",
+      "class": "_next/data",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/_next/data/{buildId}/search.json?q=climate",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "etag": ["<present>"],
+          "content-type": ["application/json"],
+          "content-length": ["<present>"],
+          "cache-control": [
+            "private, no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "next-data@origin.HEAD",
+      "route": "next-data",
+      "class": "_next/data",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/_next/data/{buildId}/search.json?q=climate",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "etag": ["<present>"],
+          "content-type": ["application/json"],
+          "content-length": ["<present>"],
+          "cache-control": [
+            "private, no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "next-data@origin.conditional",
+      "route": "next-data",
+      "class": "_next/data",
+      "via": "origin",
+      "listener": "app",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/search/_next/data/{buildId}/search.json?q=climate",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "next-data@origin.br-gzip",
+      "route": "next-data",
+      "class": "_next/data",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/search/_next/data/{buildId}/search.json?q=climate",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "etag": ["<present>"],
+          "content-type": ["application/json"],
+          "cache-control": [
+            "private, no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "next-data@proxy.GET",
+      "route": "next-data",
+      "class": "_next/data",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/_next/data/{buildId}/search.json?q=climate",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "etag": ["<present>"],
+          "content-type": ["application/json"],
+          "content-length": ["<present>"],
+          "cache-control": [
+            "private, no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "next-data@proxy.HEAD",
+      "route": "next-data",
+      "class": "_next/data",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/_next/data/{buildId}/search.json?q=climate",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "etag": ["<present>"],
+          "content-type": ["application/json"],
+          "content-length": ["<present>"],
+          "cache-control": [
+            "private, no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "next-data@proxy.conditional",
+      "route": "next-data",
+      "class": "_next/data",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/search/_next/data/{buildId}/search.json?q=climate",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "next-data@proxy.br-gzip",
+      "route": "next-data",
+      "class": "_next/data",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/search/_next/data/{buildId}/search.json?q=climate",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "etag": ["<present>"],
+          "content-type": ["application/json"],
+          "cache-control": [
+            "private, no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "public@origin.GET",
+      "route": "public",
+      "class": "public/",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/static/images/oai.svg",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["image/svg+xml"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "public@origin.HEAD",
+      "route": "public",
+      "class": "public/",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/static/images/oai.svg",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["image/svg+xml"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "public@origin.conditional",
+      "route": "public",
+      "class": "public/",
+      "via": "origin",
+      "listener": "app",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/static/images/oai.svg",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "public@origin.br-gzip",
+      "route": "public",
+      "class": "public/",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/static/images/oai.svg",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["image/svg+xml"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "public@proxy.GET",
+      "route": "public",
+      "class": "public/",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/static/search/static/images/oai.svg",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["image/svg+xml"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "public@proxy.HEAD",
+      "route": "public",
+      "class": "public/",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/static/search/static/images/oai.svg",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["image/svg+xml"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "public@proxy.conditional",
+      "route": "public",
+      "class": "public/",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/static/search/static/images/oai.svg",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "public@proxy.br-gzip",
+      "route": "public",
+      "class": "public/",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/static/search/static/images/oai.svg",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["image/svg+xml"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "next-static@origin.GET",
+      "route": "next-static",
+      "class": "_next/static",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/_next/static/chunks/{framework}",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["application/javascript; charset=UTF-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "next-static@origin.HEAD",
+      "route": "next-static",
+      "class": "_next/static",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/_next/static/chunks/{framework}",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["application/javascript; charset=UTF-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "next-static@origin.conditional",
+      "route": "next-static",
+      "class": "_next/static",
+      "via": "origin",
+      "listener": "app",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/_next/static/chunks/{framework}",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "next-static@origin.br-gzip",
+      "route": "next-static",
+      "class": "_next/static",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/_next/static/chunks/{framework}",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["application/javascript; charset=UTF-8"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "next-static@proxy.GET",
+      "route": "next-static",
+      "class": "_next/static",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/static/search/_next/static/chunks/{framework}",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["application/javascript; charset=UTF-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "next-static@proxy.HEAD",
+      "route": "next-static",
+      "class": "_next/static",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/static/search/_next/static/chunks/{framework}",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["application/javascript; charset=UTF-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "next-static@proxy.conditional",
+      "route": "next-static",
+      "class": "_next/static",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/static/search/_next/static/chunks/{framework}",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "next-static@proxy.br-gzip",
+      "route": "next-static",
+      "class": "_next/static",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/static/search/_next/static/chunks/{framework}",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["application/javascript; charset=UTF-8"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "map@origin.GET",
+      "route": "map",
+      "class": ".map",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/_next/static/chunks/{framework}.map",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["application/json; charset=UTF-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "map@origin.HEAD",
+      "route": "map",
+      "class": ".map",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/_next/static/chunks/{framework}.map",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["application/json; charset=UTF-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "map@origin.conditional",
+      "route": "map",
+      "class": ".map",
+      "via": "origin",
+      "listener": "app",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/_next/static/chunks/{framework}.map",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "map@origin.br-gzip",
+      "route": "map",
+      "class": ".map",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/_next/static/chunks/{framework}.map",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["application/json; charset=UTF-8"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "map@proxy.GET",
+      "route": "map",
+      "class": ".map",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/static/search/_next/static/chunks/{framework}.map",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["application/json; charset=UTF-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "map@proxy.HEAD",
+      "route": "map",
+      "class": ".map",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/static/search/_next/static/chunks/{framework}.map",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["application/json; charset=UTF-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "map@proxy.conditional",
+      "route": "map",
+      "class": ".map",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/static/search/_next/static/chunks/{framework}.map",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "map@proxy.br-gzip",
+      "route": "map",
+      "class": ".map",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/static/search/_next/static/chunks/{framework}.map",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["public, max-age=31536000, immutable"],
+          "accept-ranges": ["bytes"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["application/json; charset=UTF-8"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "icons-svg@origin.GET",
+      "route": "icons-svg",
+      "class": "icons.svg",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/icons.svg",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["image/svg+xml"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "icons-svg@origin.HEAD",
+      "route": "icons-svg",
+      "class": "icons.svg",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/icons.svg",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["image/svg+xml"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "icons-svg@origin.conditional",
+      "route": "icons-svg",
+      "class": "icons.svg",
+      "via": "origin",
+      "listener": "app",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/icons.svg",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "icons-svg@origin.br-gzip",
+      "route": "icons-svg",
+      "class": "icons.svg",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/icons.svg",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["image/svg+xml"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "icons-svg@proxy.GET",
+      "route": "icons-svg",
+      "class": "icons.svg",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/static/search/icons.svg",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["image/svg+xml"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "icons-svg@proxy.HEAD",
+      "route": "icons-svg",
+      "class": "icons.svg",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/static/search/icons.svg",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["image/svg+xml"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "icons-svg@proxy.conditional",
+      "route": "icons-svg",
+      "class": "icons.svg",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/static/search/icons.svg",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "icons-svg@proxy.br-gzip",
+      "route": "icons-svg",
+      "class": "icons.svg",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/static/search/icons.svg",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "accept-ranges": ["bytes"],
+          "cache-control": ["public, max-age=0"],
+          "last-modified": ["<present>"],
+          "etag": ["<present>"],
+          "content-type": ["image/svg+xml"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "308-slash@origin.GET",
+      "route": "308-slash",
+      "class": "308",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search?q=x",
+      "expect": {
+        "status": 308,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "location": ["/search/?q=x"],
+          "refresh": ["0;url=/search/?q=x"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "308-slash@origin.HEAD",
+      "route": "308-slash",
+      "class": "308",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search?q=x",
+      "expect": {
+        "status": 308,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "location": ["/search/?q=x"],
+          "refresh": ["0;url=/search/?q=x"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "308-slash@origin.br-gzip",
+      "route": "308-slash",
+      "class": "308",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/search?q=x",
+      "expect": {
+        "status": 308,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "location": ["/search/?q=x"],
+          "refresh": ["0;url=/search/?q=x"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "308-slash@proxy.GET",
+      "route": "308-slash",
+      "class": "308",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search?q=x",
+      "expect": {
+        "status": 308,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "location": ["/search/?q=x"],
+          "refresh": ["0;url=/search/?q=x"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "308-slash@proxy.HEAD",
+      "route": "308-slash",
+      "class": "308",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search?q=x",
+      "expect": {
+        "status": 308,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "location": ["/search/?q=x"],
+          "refresh": ["0;url=/search/?q=x"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "308-slash@proxy.br-gzip",
+      "route": "308-slash",
+      "class": "308",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/search?q=x",
+      "expect": {
+        "status": 308,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "location": ["/search/?q=x"],
+          "refresh": ["0;url=/search/?q=x"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "308-gssp@origin.GET",
+      "route": "308-gssp",
+      "class": "308",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/",
+      "expect": {
+        "status": 308,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "refresh": ["0;url=/"],
+          "location": ["/"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "308-gssp@origin.HEAD",
+      "route": "308-gssp",
+      "class": "308",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/",
+      "expect": {
+        "status": 308,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "refresh": ["0;url=/"],
+          "location": ["/"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "308-gssp@origin.br-gzip",
+      "route": "308-gssp",
+      "class": "308",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/search/",
+      "expect": {
+        "status": 308,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "refresh": ["0;url=/"],
+          "location": ["/"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "308-gssp@proxy.GET",
+      "route": "308-gssp",
+      "class": "308",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/",
+      "expect": {
+        "status": 308,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "refresh": ["0;url=/"],
+          "location": ["/"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "308-gssp@proxy.HEAD",
+      "route": "308-gssp",
+      "class": "308",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/",
+      "expect": {
+        "status": 308,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "refresh": ["0;url=/"],
+          "location": ["/"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "308-gssp@proxy.br-gzip",
+      "route": "308-gssp",
+      "class": "308",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/search/",
+      "expect": {
+        "status": 308,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "refresh": ["0;url=/"],
+          "location": ["/"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "404-page@origin.GET",
+      "route": "404-page",
+      "class": "404",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/nope/",
+      "expect": {
+        "status": 404,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        },
+        "inlineScripts": 0
+      }
+    },
+    {
+      "id": "404-page@origin.HEAD",
+      "route": "404-page",
+      "class": "404",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/nope/",
+      "expect": {
+        "status": 404,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "404-page@origin.conditional",
+      "route": "404-page",
+      "class": "404",
+      "via": "origin",
+      "listener": "app",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/search/nope/",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "404-page@origin.br-gzip",
+      "route": "404-page",
+      "class": "404",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/search/nope/",
+      "expect": {
+        "status": 404,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "404-page@proxy.GET",
+      "route": "404-page",
+      "class": "404",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/nope/",
+      "expect": {
+        "status": 404,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        },
+        "inlineScripts": 0
+      }
+    },
+    {
+      "id": "404-page@proxy.HEAD",
+      "route": "404-page",
+      "class": "404",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/search/nope/",
+      "expect": {
+        "status": 404,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "404-page@proxy.conditional",
+      "route": "404-page",
+      "class": "404",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/search/nope/",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "404-page@proxy.br-gzip",
+      "route": "404-page",
+      "class": "404",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/search/nope/",
+      "expect": {
+        "status": 404,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "404-notfound@origin.GET",
+      "route": "404-notfound",
+      "class": "404",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/data-providers/999999999/",
+      "expect": {
+        "status": 404,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["no-cache, no-store, max-age=0, must-revalidate"],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        },
+        "inlineScripts": 0
+      }
+    },
+    {
+      "id": "404-notfound@origin.HEAD",
+      "route": "404-notfound",
+      "class": "404",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/data-providers/999999999/",
+      "expect": {
+        "status": 404,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["no-cache, no-store, max-age=0, must-revalidate"],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "404-notfound@origin.conditional",
+      "route": "404-notfound",
+      "class": "404",
+      "via": "origin",
+      "listener": "app",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/data-providers/999999999/",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["no-cache, no-store, max-age=0, must-revalidate"],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "404-notfound@origin.br-gzip",
+      "route": "404-notfound",
+      "class": "404",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/data-providers/999999999/",
+      "expect": {
+        "status": 404,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["no-cache, no-store, max-age=0, must-revalidate"],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "404-notfound@proxy.GET",
+      "route": "404-notfound",
+      "class": "404",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/data-providers/999999999/",
+      "expect": {
+        "status": 404,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["no-cache, no-store, max-age=0, must-revalidate"],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        },
+        "inlineScripts": 0
+      }
+    },
+    {
+      "id": "404-notfound@proxy.HEAD",
+      "route": "404-notfound",
+      "class": "404",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/data-providers/999999999/",
+      "expect": {
+        "status": 404,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["no-cache, no-store, max-age=0, must-revalidate"],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "404-notfound@proxy.conditional",
+      "route": "404-notfound",
+      "class": "404",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/data-providers/999999999/",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["no-cache, no-store, max-age=0, must-revalidate"],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "404-notfound@proxy.br-gzip",
+      "route": "404-notfound",
+      "class": "404",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/data-providers/999999999/",
+      "expect": {
+        "status": 404,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "cache-control": ["no-cache, no-store, max-age=0, must-revalidate"],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "500@origin.GET",
+      "route": "500",
+      "class": "500",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/works/6948813/",
+      "expect": {
+        "status": 500,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        },
+        "inlineScripts": 0
+      }
+    },
+    {
+      "id": "500@origin.HEAD",
+      "route": "500",
+      "class": "500",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/works/6948813/",
+      "expect": {
+        "status": 500,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "500@origin.conditional",
+      "route": "500",
+      "class": "500",
+      "via": "origin",
+      "listener": "app",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/works/6948813/",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "500@origin.br-gzip",
+      "route": "500",
+      "class": "500",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/works/6948813/",
+      "expect": {
+        "status": 500,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "500@proxy.GET",
+      "route": "500",
+      "class": "500",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/works/6948813/",
+      "expect": {
+        "status": 500,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        },
+        "inlineScripts": 0
+      }
+    },
+    {
+      "id": "500@proxy.HEAD",
+      "route": "500",
+      "class": "500",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/works/6948813/",
+      "expect": {
+        "status": 500,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "500@proxy.conditional",
+      "route": "500",
+      "class": "500",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/works/6948813/",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "500@proxy.br-gzip",
+      "route": "500",
+      "class": "500",
+      "via": "proxy",
+      "listener": "gateway",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/works/6948813/",
+      "expect": {
+        "status": 500,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "x-powered-by": ["Next.js"],
+          "etag": ["<present>"],
+          "content-type": ["text/html; charset=utf-8"],
+          "vary": ["Accept-Encoding"],
+          "content-encoding": ["gzip"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"],
+          "transfer-encoding": ["chunked"]
+        }
+      }
+    },
+    {
+      "id": "healthz@origin.GET",
+      "route": "healthz",
+      "class": "healthz",
+      "via": "origin",
+      "listener": "app",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/api/healthz/",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "content-type": ["application/json; charset=utf-8"],
+          "etag": ["<present>"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "healthz@origin.HEAD",
+      "route": "healthz",
+      "class": "healthz",
+      "via": "origin",
+      "listener": "app",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/api/healthz/",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "content-type": ["application/json; charset=utf-8"],
+          "etag": ["<present>"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "healthz@origin.conditional",
+      "route": "healthz",
+      "class": "healthz",
+      "via": "origin",
+      "listener": "app",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/api/healthz/",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "content-type": ["application/json; charset=utf-8"],
+          "etag": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "healthz@origin.br-gzip",
+      "route": "healthz",
+      "class": "healthz",
+      "via": "origin",
+      "listener": "app",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/api/healthz/",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "content-type": ["application/json; charset=utf-8"],
+          "etag": ["<present>"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "healthz@proxy.GET",
+      "route": "healthz",
+      "class": "healthz",
+      "via": "proxy",
+      "listener": "allow-all",
+      "case": "GET",
+      "method": "GET",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/api/healthz/",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "content-type": ["application/json; charset=utf-8"],
+          "etag": ["<present>"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "healthz@proxy.HEAD",
+      "route": "healthz",
+      "class": "healthz",
+      "via": "proxy",
+      "listener": "allow-all",
+      "case": "HEAD",
+      "method": "HEAD",
+      "request-headers": { "connection": "keep-alive" },
+      "url": "/api/healthz/",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "content-type": ["application/json; charset=utf-8"],
+          "etag": ["<present>"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "healthz@proxy.conditional",
+      "route": "healthz",
+      "class": "healthz",
+      "via": "proxy",
+      "listener": "allow-all",
+      "case": "conditional",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "if-none-match": "<etag of the GET>"
+      },
+      "url": "/api/healthz/",
+      "expect": {
+        "status": 304,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "content-type": ["application/json; charset=utf-8"],
+          "etag": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    },
+    {
+      "id": "healthz@proxy.br-gzip",
+      "route": "healthz",
+      "class": "healthz",
+      "via": "proxy",
+      "listener": "allow-all",
+      "case": "br-gzip",
+      "method": "GET",
+      "request-headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "br, gzip"
+      },
+      "url": "/api/healthz/",
+      "expect": {
+        "status": 200,
+        "headers": {
+          "content-security-policy": [
+            "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+          ],
+          "content-type": ["application/json; charset=utf-8"],
+          "etag": ["<present>"],
+          "content-length": ["<present>"],
+          "vary": ["Accept-Encoding"],
+          "connection": ["keep-alive"],
+          "keep-alive": ["timeout=5"]
+        }
+      }
+    }
+  ]
+}

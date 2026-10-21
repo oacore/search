@@ -1,0 +1,34 @@
+# T-728 outputs-4040 /outputs/4040/ Asia/Tokyo absent (dom format 2)
+## nested anchors (Q-072): no-JS 0, hydrated 0
+## no-JS -> settled hydrated DOM
+@@ -21 +21 @@
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2] <div class="styles-item-1WhX8 styles-search-bar-item-dB35D styles-search-bar-item-icon-28R_6">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1] <button class="button-button-3fr3r button-text-2Jjil styles-search-bar-item-icon-button-fqoOL">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1]/svg[1] <svg aria-label="Search icon" class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
+@@ -263 +267 @@
++ html[1]/body[1]/div[1]/div[2] <div class="cookies-popup-2NSSr" id="cookies-popup">
++ html[1]/body[1]/div[1]/div[2]/div[1] <div class="cookies-popup-body-1VEen">
++ html[1]/body[1]/div[1]/div[2]/div[1]/p[1] <p>
++ html[1]/body[1]/div[1]/div[2]/div[1]/p[1] "We use cookies to improve our website."
++ html[1]/body[1]/div[1]/div[2]/div[1]/a[1] <a class="cookies-popup-link-o-JpP" href="/cookies">
++ html[1]/body[1]/div[1]/div[2]/div[1]/a[1] "Learn more"
++ html[1]/body[1]/div[1]/div[2]/div[2] <div class="cookies-popup-actions-qIUXY">
++ html[1]/body[1]/div[1]/div[2]/div[2]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM cookies-popup-button-17h9a" id="essential_cookies_allowed">
++ html[1]/body[1]/div[1]/div[2]/div[2]/button[1] "Essential cookies only"
++ html[1]/body[1]/div[1]/div[2]/div[2]/button[2] <button class="button-button-3fr3r button-contained-pmIp- cookies-popup-button-17h9a" id="essential_cookies_allowed,analytics_cookies_allowed">
++ html[1]/body[1]/div[1]/div[2]/div[2]/button[2] "I agree"
+@@ -282 +297 @@
++ html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
++ html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
+## MutationObserver (from the first Next chunk script)
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/article[1]/section[1]/div[1]/a[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/article[1]/section[1]/div[1]/a[2] @class
+1 childList html[1]/body[1] +[next-route-announcer]
+1 childList html[1]/body[1]/div[1] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/header[1] +[div]
+1 childList html[1]/body[1]/next-route-announcer[1] +[p]
+## overflow 0, armed true

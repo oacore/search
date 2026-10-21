@@ -1,0 +1,103 @@
+{
+  "steps": [
+    {
+      "step": "type aberystwyth + Enter",
+      "url": "/data-providers/?q=aberystwyth&size=10",
+      "title": "Data providers search",
+      "headerInput": "aberystwyth",
+      "stats": "Showing 1-1 of 1",
+      "addForm": false,
+      "addedEntries": 1,
+      "requests": []
+    },
+    {
+      "step": "type birkbeck + Enter",
+      "url": "/data-providers/?q=birkbeck&size=10",
+      "title": "Data providers search",
+      "headerInput": "birkbeck",
+      "stats": "Showing 1-2 of 2",
+      "addForm": false,
+      "addedEntries": 2,
+      "requests": []
+    },
+    {
+      "step": "Back",
+      "url": "/data-providers/?q=aberystwyth&size=10",
+      "title": "Data providers search",
+      "headerInput": "birkbeck",
+      "stats": "Showing 1-1 of 1",
+      "addForm": false,
+      "addedEntries": 2,
+      "requests": []
+    },
+    {
+      "step": "Back",
+      "url": "/data-providers/?q=&size=10",
+      "title": "Data providers search",
+      "headerInput": "birkbeck",
+      "stats": "Showing 1-10 of 15,672",
+      "addForm": false,
+      "addedEntries": 2,
+      "requests": []
+    },
+    {
+      "step": "Forward",
+      "url": "/data-providers/?q=aberystwyth&size=10",
+      "title": "Data providers search",
+      "headerInput": "birkbeck",
+      "stats": "Showing 1-1 of 1",
+      "addForm": false,
+      "addedEntries": 2,
+      "requests": []
+    }
+  ],
+  "history": [
+    {
+      "method": "replaceState",
+      "url": "<origin>/data-providers/",
+      "stateKeys": "__N,as,idx,options,url"
+    },
+    {
+      "method": "replaceState",
+      "url": "<origin>/data-providers/?q=&size=10",
+      "stateKeys": "__N,as,idx,options,url"
+    },
+    {
+      "method": "pushState",
+      "url": "<origin>/data-providers/?q=aberystwyth&size=10",
+      "stateKeys": "__N,as,idx,options,url"
+    },
+    {
+      "method": "pushState",
+      "url": "<origin>/data-providers/?q=birkbeck&size=10",
+      "stateKeys": "__N,as,idx,options,url"
+    },
+    {
+      "method": "popstate",
+      "url": "<origin>/data-providers/?q=aberystwyth&size=10"
+    },
+    {
+      "method": "replaceState",
+      "url": "<origin>/data-providers/?q=aberystwyth&size=10",
+      "stateKeys": "__N,as,idx,options,url"
+    },
+    {
+      "method": "popstate",
+      "url": "<origin>/data-providers/?q=&size=10"
+    },
+    {
+      "method": "replaceState",
+      "url": "<origin>/data-providers/?q=&size=10",
+      "stateKeys": "__N,as,idx,options,url"
+    },
+    {
+      "method": "popstate",
+      "url": "<origin>/data-providers/?q=aberystwyth&size=10"
+    },
+    {
+      "method": "replaceState",
+      "url": "<origin>/data-providers/?q=aberystwyth&size=10",
+      "stateKeys": "__N,as,idx,options,url"
+    }
+  ]
+}

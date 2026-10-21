@@ -1,0 +1,170 @@
+[
+  {
+    "ruleId": "element-required-attributes",
+    "severity": 2,
+    "selector": "html",
+    "message": "<html> is missing required \"lang\" attribute"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > meta[name=viewport]",
+    "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "head > meta[charset=utf-8]",
+    "message": "Attribute \"charSet\" should be lowercase"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > meta[charset=utf-8]",
+    "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > link[rel=icon][sizes=64x64][type=image/png]",
+    "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > link[rel=icon][sizes=128x128][type=image/png]",
+    "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > link[rel=icon][sizes=256x256][type=image/png]",
+    "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > link[rel=icon][sizes=512x512][type=image/png]",
+    "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > link[rel=icon][sizes=any][type=image/svg+xml]",
+    "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
+  },
+  {
+    "ruleId": "valid-id",
+    "severity": 2,
+    "selector": "#__next",
+    "message": "element id \"__next\" must begin with a letter"
+  },
+  {
+    "ruleId": "no-implicit-button-type",
+    "severity": 2,
+    "selector": "#services-title",
+    "message": "<button> is missing recommended \"type\" attribute"
+  },
+  {
+    "ruleId": "no-redundant-role",
+    "severity": 2,
+    "selector": "#services-title",
+    "message": "Redundant role \"button\" on <button>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(1) > ul > li:nth-child(1) > a > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "no-implicit-button-type",
+    "severity": 2,
+    "selector": "#communities-title",
+    "message": "<button> is missing recommended \"type\" attribute"
+  },
+  {
+    "ruleId": "no-redundant-role",
+    "severity": 2,
+    "selector": "#communities-title",
+    "message": "Redundant role \"button\" on <button>"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(2) > ul > li > ul > a:nth-child(1)",
+    "message": "<a> element is not permitted as content under <ul>"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(2) > ul > li > ul > a:nth-child(2)",
+    "message": "<a> element is not permitted as content under <ul>"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(2) > ul > li > ul > a:nth-child(3)",
+    "message": "<a> element is not permitted as content under <ul>"
+  },
+  {
+    "ruleId": "no-implicit-button-type",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(3) > button",
+    "message": "<button> is missing recommended \"type\" attribute"
+  },
+  {
+    "ruleId": "no-redundant-role",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(3) > button",
+    "message": "Redundant role \"button\" on <button>"
+  },
+  {
+    "ruleId": "no-dup-id",
+    "severity": 2,
+    "selector": "#header-nav > div:nth-child(3) > ul > li:nth-child(1) > h3",
+    "message": "Duplicate ID \"about-title\""
+  },
+  {
+    "ruleId": "no-inline-style",
+    "severity": 2,
+    "selector": "#__next > div > main > div",
+    "message": "Inline style is not allowed"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div > style",
+    "message": "<style> element is not permitted as content under <div>"
+  },
+  {
+    "ruleId": "no-inline-style",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div > div",
+    "message": "Inline style is not allowed"
+  },
+  {
+    "ruleId": "no-inline-style",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div > div > h2",
+    "message": "Inline style is not allowed"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#footer > div:nth-child(1) > menu > div:nth-child(1)",
+    "message": "<div> element is not permitted as content under <menu>"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#footer > div:nth-child(1) > menu > div:nth-child(2)",
+    "message": "<div> element is not permitted as content under <menu>"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#footer > div:nth-child(1) > menu > div:nth-child(3)",
+    "message": "<div> element is not permitted as content under <menu>"
+  }
+]

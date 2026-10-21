@@ -1,0 +1,77 @@
+{
+  "history": [
+    {
+      "method": "replaceState",
+      "url": "<origin>/search/?q=climate",
+      "stateKeys": "__N,as,idx,options,url",
+      "scrollRestoration": "auto",
+      "scrollY": 0
+    },
+    {
+      "method": "pushState",
+      "url": "<origin>/search/?q=climate&page=2",
+      "stateKeys": "__N,as,idx,options,url",
+      "scrollRestoration": "auto",
+      "scrollY": 2136
+    },
+    {
+      "method": "pushState",
+      "url": "<origin>/search/?q=climate&page=1&sort=recent",
+      "stateKeys": "__N,as,idx,options,url",
+      "scrollRestoration": "auto",
+      "scrollY": 0
+    },
+    {
+      "method": "pushState",
+      "url": "<origin>/search/?q=climate+AND+documentType%3A%22thesis%22&page=1&sort=recent",
+      "stateKeys": "__N,as,idx,options,url",
+      "scrollRestoration": "auto",
+      "scrollY": 0
+    },
+    {
+      "method": "pushState",
+      "url": "<origin>/search/?q=climate&page=1&sort=recent",
+      "stateKeys": "__N,as,idx,options,url",
+      "scrollRestoration": "auto",
+      "scrollY": 0
+    },
+    {
+      "method": "popstate",
+      "url": "<origin>/search/?q=climate+AND+documentType%3A%22thesis%22&page=1&sort=recent",
+      "scrollRestoration": "auto",
+      "scrollY": 0
+    },
+    {
+      "method": "replaceState",
+      "url": "<origin>/search/?q=climate+AND+documentType%3A%22thesis%22&page=1&sort=recent",
+      "stateKeys": "__N,as,idx,options,url",
+      "scrollRestoration": "auto",
+      "scrollY": 0
+    },
+    {
+      "method": "popstate",
+      "url": "<origin>/search/?q=climate&page=1&sort=recent",
+      "scrollRestoration": "auto",
+      "scrollY": 0
+    },
+    {
+      "method": "replaceState",
+      "url": "<origin>/search/?q=climate&page=1&sort=recent",
+      "stateKeys": "__N,as,idx,options,url",
+      "scrollRestoration": "auto",
+      "scrollY": 0
+    }
+  ],
+  "backForward": [
+    {
+      "action": "back",
+      "scrollY": 0,
+      "scrollRestoration": "auto"
+    },
+    {
+      "action": "forward",
+      "scrollY": 0,
+      "scrollRestoration": "auto"
+    }
+  ]
+}

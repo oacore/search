@@ -1,0 +1,849 @@
+<body>
+  <div id="__next">
+    <div class="styles_container">
+      <header class="styles-container-2d0MF styles-container-1KefU styles_header" id="header">
+        <div class="styles-item-1WhX8 styles-logo-container-261sh">
+          <a class="styles-logo-link-3SQhe" href="https://core.ac.uk/">
+            <span class="logo-logo-wCAGq styles-logo-3C3lk">
+              <svg aria-label="CORE" class="icon-icon-35iz- logo-logo-icon-1JnTB" height="24" role="img" width="18">
+                <use href="/static/search/icons.svg#core-symbol">
+              "CORE"
+            <div class="styles-separator-3Hkfn">
+            <div class="styles-peace-1CGQO">
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "CO"
+                "nnecting"
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "RE"
+                "positories"
+        <div class="styles-item-1WhX8 styles-toggle-container-3kw9N">
+          <button aria-controls="header-nav" aria-expanded="false" aria-label="Toggle navigation" class="button-button-3fr3r button-text-2Jjil styles-toggle-button-3MDvL" type="button">
+            <svg aria-hidden="true" aria-label="Menu icon" class="icon-icon-35iz-" height="24" role="img" width="24">
+              <use href="/static/search/icons.svg#menu">
+        <nav class="styles-item-1WhX8 styles-nav-1DaTS" id="header-nav">
+          <div class="styles-menu-2MrzW styles-services-menu-3Y6g_">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="services-title" role="button">
+              "Services"
+            <ul aria-labelledby="services-title" class="styles-menu-list-2qL0f">
+              <li class="styles-item-34TYT styles-services-overview-item-9AF_0">
+                <a class="styles-item-link--QpIs" href="/services">
+                  <img alt="" src=<len=34345 sha256=a0b9ceaf15f270fe "data:image/svg+xml,<svg viewBox=\"0 0 12953 10812"...>>
+                  <span class="styles-services-overview-item-label-2qM2Y">
+                    "Services overview"
+                  <span class="styles-services-overview-item-description-1SQ-o">
+                    "Explore all CORE services"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="access-to-raw-data-title">
+                  "Access to raw data"
+                <ul aria-labelledby="access-to-raw-data-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/api">
+                      "API"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/dataset">
+                      "Dataset"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fastsync">
+                      "FastSync"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="content-discovery-title">
+                  "Content discovery"
+                <ul aria-labelledby="content-discovery-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/recommender">
+                      "Recommender"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/discovery">
+                      "Discovery"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="oai-resolver-title">
+                  "OAI identifiers"
+                <ul aria-labelledby="oai-resolver-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/documentation/oai-resolver">
+                      "OAI Resolver"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="managing-content-title">
+                  "Managing content"
+                <ul aria-labelledby="managing-content-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/repository-dashboard">
+                      "Dashboard"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fair-certification">
+                      "FAIR Certification"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="contracts-title">
+                  "Bespoke contracts"
+                <ul aria-labelledby="contracts-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/consultancy">
+                      "Consultancy services"
+          <div class="styles-menu-2MrzW styles-communities-menu-3a1Ao">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="communities-title" role="button">
+              "Support us"
+            <ul aria-labelledby="communities-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T styles-support-menu-36qjb">
+                <h3 class="styles-group-title-1v3Na" id="membership-title">
+                  "Support us"
+                <ul aria-labelledby="membership-title" class="styles-group-list-37aX1">
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/membership">
+                    <span>
+                      "Membership"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/sponsorship">
+                    <span>
+                      "Sponsorship"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/governance/research">
+                    <span>
+                      "Research partnership"
+          <div class="styles-menu-2MrzW styles-about-menu-3ZQZB">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="about-title" role="button">
+              "About"
+            <ul aria-labelledby="about-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="about-title">
+                  "About"
+                <ul aria-labelledby="about-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about">
+                      "About us"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#mission">
+                      "Our mission"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#team">
+                      "Team"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="//blog.core.ac.uk">
+                      "Blog"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/faq">
+                      "FAQs"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#contact">
+                      "Contact us"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="community-title">
+                  "Community governance"
+                <ul aria-labelledby="community-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance">
+                      "Governance"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/advisory">
+                      "Advisory Board"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/supporters">
+                      "Board of supporters"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/research">
+                      "Research network"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="innovations-title">
+                  "Innovations"
+                <ul aria-labelledby="innovations-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about/research-outputs">
+                      "Our research"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/innovations/labs">
+                      "Labs"
+      <main class="styles_main">
+        <div>
+          <div class="styles_container">
+            <button class="button-button-3fr3r button-text-2Jjil styles_button styles_toggle-button" type="button">
+              "Filters"
+            <ul class="styles_bar">
+          <div class="styles_container styles_layout styles_search">
+            <div class="styles_main">
+              <div class="styles_header">
+                <p>
+                  "1,956,781"
+                  <!--" "-->
+                  " research outputs found"
+                <div class="styles_action-buttons">
+                  <div>
+                    <button class="button-button-3fr3r button-text-2Jjil styles_action-button" type="button">
+                      <svg class="icon-icon-35iz- styles_action-icon" height="24" role="img" width="24">
+                        <use href="/static/search/icons.svg#download">
+                  <div>
+                    <button class="button-button-3fr3r button-text-2Jjil styles_action-button" type="button">
+                      <svg class="icon-icon-35iz- styles_action-icon" height="24" role="img" width="24">
+                        <use href="/static/search/icons.svg#share-variant">
+                <span class="styles_solid">
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey styles_search-results" id="work-search-output-19211324" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/19211324/?t=fafad9968b7cd268c5fd64342bf88a26-19211324&search=q=climate">
+                      <span>
+                        "Climate change 2015: growing risks, critical choices"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-19211324-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-19211324-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Climate Council)&t=fafad9968b7cd268c5fd64342bf88a26-19211324">
+                            <span itemprop="name">
+                              "Climate Council"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-19211324-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-19211324-venue-title">
+                      "Climate Council"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-19211324-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-19211324-publication-date-title" itemprop="datePublished">
+                      "2015"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-19211324-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-19211324-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a href="<stack>/download/30671329.pdf">
+                    <img alt="" itemprop="image" loading="lazy" src="<stack>/image/30671329/large">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "Full text link"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=882 sha256=ee8adc8e507f9fc7 "This latest Climate Council report provides an u"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/713?t=fafad9968b7cd268c5fd64342bf88a26-19211324">
+                      <span itemprop="name">
+                        "Analysis and Policy Observatory (APO)"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey styles-container-recommended-2a9gS styles_search-results" id="work-search-output-62704171" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <div class="styles-text-upper-header-3Z0Zx">
+                  "Recommended from our members"
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/62704171/?t=fafad9968b7cd268c5fd64342bf88a26-62704171&search=q=climate">
+                      <span>
+                        "Climate and Airborne Pollutants"
+                  <div class="group-group-2Ka5T">
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-62704171-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-62704171-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Climate Change Science Program (U.S.))&t=fafad9968b7cd268c5fd64342bf88a26-62704171">
+                            <span itemprop="name">
+                              "Climate Change Science Program (U.S.)"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-62704171-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-62704171-venue-title">
+                      "Climate Change Science Program (U.S.)"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-62704171-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-62704171-publication-date-title" itemprop="datePublished">
+                      "2008"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-62704171-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-62704171-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a href="<stack>/download/216240794.pdf">
+                    <img alt="" itemprop="image" loading="lazy" src="<stack>/image/216240794/large">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "Full text link"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    "Pamphlet describing climate projections based on emission scenarios for long-lived and short-lived radiatively active gases and aerosols"
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/2313?t=fafad9968b7cd268c5fd64342bf88a26-62704171">
+                      <span itemprop="name">
+                        "UNT (University of North Texas) Digital Library"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey styles_search-results" id="work-search-output-19212910" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/19212910/?t=fafad9968b7cd268c5fd64342bf88a26-19212910&search=q=climate">
+                      <span>
+                        "Thirsty country: climate change and drought in Australia"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-19212910-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-19212910-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Climate Council)&t=fafad9968b7cd268c5fd64342bf88a26-19212910">
+                            <span itemprop="name">
+                              "Climate Council"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-19212910-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-19212910-venue-title">
+                      "Climate Council"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-19212910-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-19212910-publication-date-title" itemprop="datePublished">
+                      "2015"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-19212910-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-19212910-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a href="<stack>/download/30672389.pdf">
+                    <img alt="" itemprop="image" loading="lazy" src="<stack>/image/30672389/large">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "Full text link"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=1172 sha256=1a0c29a91b8bc934 "This report argues that climate change is likely"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/713?t=fafad9968b7cd268c5fd64342bf88a26-19212910">
+                      <span itemprop="name">
+                        "Analysis and Policy Observatory (APO)"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey styles_search-results" id="work-search-output-18872441" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/18872441/?t=fafad9968b7cd268c5fd64342bf88a26-18872441&search=q=climate">
+                      <span>
+                        "Midwestern Regional Climate Center"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-18872441-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-18872441-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Midwestern Regional Climate Center)&t=fafad9968b7cd268c5fd64342bf88a26-18872441">
+                            <span itemprop="name">
+                              "Midwestern Regional Climate Center"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-18872441-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-18872441-venue-title">
+                      "Midwestern Regional Climate Center"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-18872441-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-18872441-publication-date-title" itemprop="datePublished">
+                      "01/01/2001"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-18872441-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-18872441-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a href="<stack>/download/158316893.pdf">
+                    <img alt="" itemprop="image" loading="lazy" src="<stack>/image/158316893/large">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "Full text link"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=709 sha256=a261557a0adc1ebc "Made available in DSpace on 2016-11-14T22:36:27Z"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/198?t=fafad9968b7cd268c5fd64342bf88a26-18872441">
+                      <span itemprop="name">
+                        "Illinois Digital Environment for Access to Learning and Scholarship Repository"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey styles_search-results" id="work-search-output-17489114" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/17489114/?t=fafad9968b7cd268c5fd64342bf88a26-17489114&search=q=climate">
+                      <span>
+                        "Seasonal Climate Forecasts and Risk Management Among Georgia Farmers"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-17489114-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-17489114-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li aria-setsize="14" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Hoogenhoom, G.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Hoogenhoom  G."
+                        <li aria-setsize="14" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Broad, K.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Broad  K."
+                        <li aria-setsize="14" class="expandable-list-show-more-2ndlc">
+                          <button class="button-button-3fr3r button-text-2Jjil" title="Show more">
+                            "+"
+                            <!--" "-->
+                            "12"
+                            <!--" "-->
+                            " more"
+                        <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Breuer, N.E)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Breuer  N.E"
+                        <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Paz, J.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Paz  J."
+                        <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Ingram, K.T)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Ingram  K.T"
+                        <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Roncoli, C.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Roncoli  C."
+                        <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Ingram, K.T.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Ingram  K.T."
+                        <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Crane, T.A)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Crane  T.A"
+                        <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Breuer, N.E.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Breuer  N.E."
+                        <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Crane, T.A.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Crane  T.A."
+                        <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Broad, K)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Broad  K"
+                        <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Roncoli, C)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Roncoli  C"
+                        <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Hoogenhoom, G)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Hoogenhoom  G"
+                        <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Paz, J)&t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                            <span itemprop="name">
+                              "Paz  J"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-17489114-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-17489114-venue-title">
+                      "Southeast Climate Consortium"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-17489114-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-17489114-publication-date-title" itemprop="datePublished">
+                      "01/01/2008"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-17489114-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-17489114-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a href="<stack>/download/29255347.pdf">
+                    <img alt="" itemprop="image" loading="lazy" src="<stack>/image/29255347/large">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "Full text link"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=1548 sha256=eb4e678488e58074 "Recent increases in the scientific robustness of"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/679?t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                      <span itemprop="name">
+                        "Wageningen University & Research Publications"
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/14567?t=fafad9968b7cd268c5fd64342bf88a26-17489114">
+                      <span itemprop="name">
+                        "University of Miami: Scholarship@Miami"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey styles_search-results" id="work-search-output-19213079" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/19213079/?t=fafad9968b7cd268c5fd64342bf88a26-19213079&search=q=climate">
+                      <span>
+                        "Going for zero: state decarbonisation strategies for prosperity in a zero-emission world"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-19213079-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-19213079-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Climate Institute)&t=fafad9968b7cd268c5fd64342bf88a26-19213079">
+                            <span itemprop="name">
+                              "Climate Institute"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-19213079-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-19213079-venue-title">
+                      "Climate Institute"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-19213079-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-19213079-publication-date-title" itemprop="datePublished">
+                      "2015"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-19213079-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-19213079-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a href="<stack>/download/30672404.pdf">
+                    <img alt="" itemprop="image" loading="lazy" src="<stack>/image/30672404/large">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "Full text link"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=2153 sha256=2149212b3a9f60d8 "This paper explains why states should have a dec"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/713?t=fafad9968b7cd268c5fd64342bf88a26-19213079">
+                      <span itemprop="name">
+                        "Analysis and Policy Observatory (APO)"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles-container-recommended-2a9gS styles_search-results" id="work-search-output-153927213" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <div class="styles-text-upper-header-3Z0Zx">
+                  "Recommended from our members"
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/153927213/?t=fafad9968b7cd268c5fd64342bf88a26-153927213&search=q=climate">
+                      <span>
+                        "Sixth Oregon climate assessment"
+                  <div class="group-group-2Ka5T">
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-153927213-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-153927213-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Fleishman, Erica)&t=fafad9968b7cd268c5fd64342bf88a26-153927213">
+                            <span itemprop="name">
+                              "Fleishman  Erica"
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Oregon Climate Change Research Institute)&t=fafad9968b7cd268c5fd64342bf88a26-153927213">
+                            <span itemprop="name">
+                              "Oregon Climate Change Research Institute"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-153927213-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-153927213-venue-title">
+                      "Corvallis, Oregon : Oregon Climate Change Research Institute, Oregon State University"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-153927213-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-153927213-publication-date-title" itemprop="datePublished">
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-153927213-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-153927213-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/153927213/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=676 sha256=310e7dfb2179e765 "Consistent with its charge under Oregon House Bi"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/197?t=fafad9968b7cd268c5fd64342bf88a26-153927213">
+                      <span itemprop="name">
+                        "ScholarsArchive@OSU"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles-container-recommended-2a9gS styles_search-results" id="work-search-output-385302858" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <div class="styles-text-upper-header-3Z0Zx">
+                  "Recommended from our members"
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/385302858/?t=fafad9968b7cd268c5fd64342bf88a26-385302858&search=q=climate">
+                      <span>
+                        "Sixth Oregon climate assessment"
+                  <div class="group-group-2Ka5T">
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-385302858-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-385302858-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Fleishman, Erica)&t=fafad9968b7cd268c5fd64342bf88a26-385302858">
+                            <span itemprop="name">
+                              "Fleishman  Erica"
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Oregon Climate Change Research Institute)&t=fafad9968b7cd268c5fd64342bf88a26-385302858">
+                            <span itemprop="name">
+                              "Oregon Climate Change Research Institute"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-385302858-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-385302858-venue-title">
+                      "Corvallis, Oregon : Oregon Climate Change Research Institute, Oregon State University"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-385302858-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-385302858-publication-date-title" itemprop="datePublished">
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-385302858-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-385302858-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/385302858/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=676 sha256=310e7dfb2179e765 "Consistent with its charge under Oregon House Bi"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/197?t=fafad9968b7cd268c5fd64342bf88a26-385302858">
+                      <span itemprop="name">
+                        "ScholarsArchive@OSU"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles-container-recommended-2a9gS styles_search-results" id="work-search-output-366588237" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <div class="styles-text-upper-header-3Z0Zx">
+                  "Recommended from our members"
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/366588237/?t=fafad9968b7cd268c5fd64342bf88a26-366588237&search=q=climate">
+                      <span>
+                        "Sixth Oregon climate assessment"
+                  <div class="group-group-2Ka5T">
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-366588237-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-366588237-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Fleishman, Erica)&t=fafad9968b7cd268c5fd64342bf88a26-366588237">
+                            <span itemprop="name">
+                              "Fleishman  Erica"
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Oregon Climate Change Research Institute)&t=fafad9968b7cd268c5fd64342bf88a26-366588237">
+                            <span itemprop="name">
+                              "Oregon Climate Change Research Institute"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-366588237-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-366588237-venue-title">
+                      "Corvallis, Oregon : Oregon Climate Change Research Institute, Oregon State University"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-366588237-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-366588237-publication-date-title" itemprop="datePublished">
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-366588237-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-366588237-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/366588237/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=676 sha256=310e7dfb2179e765 "Consistent with its charge under Oregon House Bi"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/197?t=fafad9968b7cd268c5fd64342bf88a26-366588237">
+                      <span itemprop="name">
+                        "ScholarsArchive@OSU"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles-container-recommended-2a9gS styles_search-results" id="work-search-output-164917271" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <div class="styles-text-upper-header-3Z0Zx">
+                  "Recommended from our members"
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/164917271/?t=fafad9968b7cd268c5fd64342bf88a26-164917271&search=q=climate">
+                      <span>
+                        "Seventh Oregon climate assessment"
+                  <div class="group-group-2Ka5T">
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-164917271-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-164917271-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Fleishman, Erica)&t=fafad9968b7cd268c5fd64342bf88a26-164917271">
+                            <span itemprop="name">
+                              "Fleishman  Erica"
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Oregon Climate Change Research Institute)&t=fafad9968b7cd268c5fd64342bf88a26-164917271">
+                            <span itemprop="name">
+                              "Oregon Climate Change Research Institute"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-164917271-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-164917271-venue-title">
+                      "Corvallis, Oregon : Oregon Climate Change Research Institute, Oregon State University"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-164917271-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-164917271-publication-date-title" itemprop="datePublished">
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-164917271-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-164917271-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/164917271/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=553 sha256=f491ce6ba6793398 "Consistent with its charge under Oregon House Bi"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/197?t=fafad9968b7cd268c5fd64342bf88a26-164917271">
+                      <span itemprop="name">
+                        "ScholarsArchive@OSU"
+              <ul class="styles_pagination">
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item styles_pagination-item-disabled" disabled="">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-left">
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item styles_pagination-item-active">
+                    "1"
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    "2"
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    "3"
+                <li class="styles_pagination-dots">
+                  "…"
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    "last"
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-right">
+            <div class="styles_sidebar" tag="aside">
+              <a class="styles_logo" href="https://core.ac.uk/data-providers/86" rel="noopener noreferrer" target="_blank">
+                <div class="styles_member-info">
+                  <span class="styles_member-badge">
+                    "CORE membership"
+                  <div class="styles_member-body">
+                    <div class="styles_repository-logo-wrap">
+                      <img alt="Open University (ORO)" class="styles_repository-logo" src="https://api.core.ac.uk/data-providers/86/logo">
+                    <div class="styles_member-meta">
+                      <p class="styles_member-billing-type">
+                        "Sustaining"
+                        <!--" "-->
+                        " member"
+                      <p class="styles_organisation-name">
+                        "Open University (ORO)"
+              <a class="styles_logo" href="https://www.core.ac.uk" rel="noopener noreferrer" target="_blank">
+                <img alt="core" class="styles_sidebar-image" src="/static/search/_next/static/images/CoreB-ed256ea8a1c9661ee748e8203dc4296b.png">
+      <footer class="footer-footer-7joNV" id="footer">
+        <div class="footer-container-1XrUr">
+          <div class="footer-section-logos-1_Ejr">
+            <div class="footer-logos-28CCb">
+              <a href="https://core.ac.uk">
+                <svg aria-label="core logo" class="icon-icon-35iz- footer-footer-main-logo-1jMdX" height="24" role="img" width="24">
+                  <use href="/static/search/icons.svg#coreLogo">
+            <p>
+              "CORE (COnnecting REpositories) is a not-for-profit service supported by"
+              <!--" "-->
+              " "
+              <a href="https://core.ac.uk/governance/supporters#membership-list">
+                <span>
+                  "CORE Members."
+          <menu class="footer-menu-2JIRS">
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Product"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/services">
+                    "Services"
+                <li class="footer-item-1F33t">
+                  <a href="/membership">
+                    "Membership"
+                <li class="footer-item-1F33t">
+                  <a href="/sponsorship">
+                    "Sponsorship"
+                <li class="footer-item-1F33t">
+                  <a href="/innovations/labs">
+                    "Labs"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Organisation"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/about">
+                    "About us"
+                <li class="footer-item-1F33t">
+                  <a href="/about#our-mission">
+                    "Governance"
+                <li class="footer-item-1F33t">
+                  <a href="/about#team">
+                    "Team"
+                <li class="footer-item-1F33t">
+                  <a href="/benefits">
+                    "Data providers"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Support"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/terms">
+                    "Terms"
+                <li class="footer-item-1F33t">
+                  <a href="/faq">
+                    "FAQs"
+                <li class="footer-item-1F33t">
+                  <a href="https://blog.core.ac.uk/">
+                    "Blog"
+                <li class="footer-item-1F33t">
+                  <a href="/about#contact">
+                    "Contact us"
+          <div class="footer-section-card-3esBH">
+            <div class="footer-card-1yZdd">
+              <div>
+                <h6 class="footer-card-title-3Uaog">
+                  "Writing about CORE?"
+                <p class="footer-card-desc-30YMW">
+                  "Discover our"
+                  <!--" "-->
+                  " "
+                  <a href="/about/research-outputs">
+                    "research outputs"
+                  " and cite our work."
+                " "
+              <svg aria-label="writing" class="icon-icon-35iz- footer-card-img-o-6kR" height="24" role="img" width="24">
+                <use href="/static/search/icons.svg#writing">
+            <div class="footer-contact-wrapper-17ZHP">
+              <span class="footer-contact-2b5lt">
+                "Follow us:"
+              <div class="footer-footer-icons-2NPaF">
+                <a href="https://twitter.com/oacore" target="_blank">
+                  <svg aria-label="twitter" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#twitter">
+                <a href="https://www.linkedin.com/company/coreoa" target="_blank">
+                  <svg aria-label="linkedin" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#linkedin">
+                <a href="https://github.com/oacore" target="_blank">
+                  <svg aria-label="github" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#github">
+        <div class="footer-bottom-3E5D_">
+          <a class="footer-bottom-link-PaLMR" href="/accessibility">
+            "Accessibility"
+          <a class="footer-bottom-link-PaLMR" href="/cookies">
+            "Cookies"
+          <a class="footer-bottom-link-PaLMR" href="/privacy">
+            "Privacy"
+  <script next-owned="__NEXT_DATA__">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">

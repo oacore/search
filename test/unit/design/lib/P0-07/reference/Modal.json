@@ -1,0 +1,281 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-06",
+  "name": "Modal",
+  "states": {
+    "auto-close": {
+      "dom": [
+        "<div>",
+        "<div id=\"modal-root\">",
+        "  <div class=\"modal-overlay-root-HYDcG\">",
+        "    <div data-focus-guard=\"true\" tabindex=\"0\" style=\"width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;\">",
+        "    <div data-focus-lock-disabled=\"false\">",
+        "      <div class=\"modal-overlay-1Ki3X\" aria-label=\"Demo modal\">",
+        "        <div role=\"dialog\" class=\"modal-modal-210sN\" aria-label=\"Demo modal\">",
+        "          <button class=\"button-button-3fr3r button-text-2Jjil modal-close-button-1qkbz\" aria-label=\"Close\">",
+        "            <svg class=\"icon-icon-35iz-\" role=\"img\" width=\"24\" height=\"24\">",
+        "              <use href=\"/static/search/icons.svg#window-close\">",
+        "          <h1 class=\"modal-title-2gcDL\">",
+        "            \"Demo One\"",
+        "          <p class=\"modal-content-3Y4Xs\">",
+        "            \"Closes on overlay click or Esc.\"",
+        "          <footer class=\"modal-footer-3rxbf\">",
+        "            <button class=\"button-button-3fr3r button-contained-pmIp-\">",
+        "              \"Close me!\"",
+        "    <div data-focus-guard=\"true\" tabindex=\"0\" style=\"width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;\">"
+      ],
+      "mount": {
+        "v": [
+          "1:div>0:div>1:div>0:div>0:div>0:button:valid",
+          "1:div>0:div>1:div>0:div>0:div>3:footer>0:button:valid"
+        ],
+        "f": "1:div>0:div>1:div>0:div>0:div>0:button"
+      },
+      "nodes": [
+        "1:div",
+        "1:div>0:div",
+        "1:div>0:div>0:div",
+        "1:div>0:div>1:div",
+        "1:div>0:div>1:div>0:div",
+        "1:div>0:div>1:div>0:div>0:div",
+        "1:div>0:div>1:div>0:div>0:div>0:button",
+        "1:div>0:div>1:div>0:div>0:div>0:button>0:svg",
+        "1:div>0:div>1:div>0:div>0:div>0:button>0:svg>0:use",
+        "1:div>0:div>1:div>0:div>0:div>1:h1",
+        "1:div>0:div>1:div>0:div>0:div>2:p",
+        "1:div>0:div>1:div>0:div>0:div>3:footer",
+        "1:div>0:div>1:div>0:div>0:div>3:footer>0:button",
+        "1:div>0:div>2:div"
+      ],
+      "interactions": {
+        "quiet": [],
+        "active": {
+          "1:div": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["onClose(event:click)"] },
+            "Esc": { "c": ["onClose(event:keydown)"] }
+          },
+          "1:div>0:div": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["onClose(event:click)"] },
+            "Esc": { "c": ["onClose(event:keydown)"] }
+          },
+          "1:div>0:div>0:div": {
+            "click,dblclick,focus,ArrowDown": {
+              "f": "1:div>0:div>1:div>0:div>0:div>3:footer>0:button"
+            },
+            "Enter,Space": {
+              "f": "1:div>0:div>1:div>0:div>0:div>3:footer>0:button",
+              "c": ["footer(event:click)"]
+            },
+            "Esc": {
+              "f": "1:div>0:div>1:div>0:div>0:div>3:footer>0:button",
+              "c": ["onClose(event:keydown)"]
+            }
+          },
+          "1:div>0:div>1:div": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["onClose(event:click)"] },
+            "Esc": { "c": ["onClose(event:keydown)"] }
+          },
+          "1:div>0:div>1:div>0:div": {
+            "click": { "f": "body", "c": ["onClose(event:click)"] },
+            "dblclick": {
+              "f": "body",
+              "c": ["onClose(event:click)", "onClose(event:click)"]
+            },
+            "Enter,Space": { "c": ["onClose(event:click)"] },
+            "Esc": { "c": ["onClose(event:keydown)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["onClose(event:click)"] },
+            "Esc": { "c": ["onClose(event:keydown)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div>0:button": {
+            "click,Enter,Space": { "c": ["onClose(event:click)"] },
+            "dblclick": {
+              "c": ["onClose(event:click)", "onClose(event:click)"]
+            },
+            "Esc": { "c": ["onClose(event:keydown)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div>0:button>0:svg": {
+            "click,Enter,Space": { "c": ["onClose(event:click)"] },
+            "dblclick": {
+              "c": ["onClose(event:click)", "onClose(event:click)"]
+            },
+            "Esc": { "c": ["onClose(event:keydown)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div>0:button>0:svg>0:use": {
+            "click,Enter,Space": { "c": ["onClose(event:click)"] },
+            "dblclick": {
+              "c": ["onClose(event:click)", "onClose(event:click)"]
+            },
+            "Esc": { "c": ["onClose(event:keydown)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div>1:h1": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["onClose(event:click)"] },
+            "Esc": { "c": ["onClose(event:keydown)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div>2:p": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["onClose(event:click)"] },
+            "Esc": { "c": ["onClose(event:keydown)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div>3:footer": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["onClose(event:click)"] },
+            "Esc": { "c": ["onClose(event:keydown)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div>3:footer>0:button": {
+            "click,Enter,Space": {
+              "f": "1:div>0:div>1:div>0:div>0:div>3:footer>0:button",
+              "c": ["footer(event:click)"]
+            },
+            "dblclick": {
+              "f": "1:div>0:div>1:div>0:div>0:div>3:footer>0:button",
+              "c": ["footer(event:click)", "footer(event:click)"]
+            },
+            "focus,ArrowDown": {
+              "f": "1:div>0:div>1:div>0:div>0:div>3:footer>0:button"
+            },
+            "Esc": {
+              "f": "1:div>0:div>1:div>0:div>0:div>3:footer>0:button",
+              "c": ["onClose(event:keydown)"]
+            }
+          },
+          "1:div>0:div>2:div": {
+            "Enter,Space": { "c": ["onClose(event:click)"] },
+            "Esc": { "c": ["onClose(event:keydown)"] }
+          }
+        }
+      }
+    },
+    "hide-manually": {
+      "dom": [
+        "<div>",
+        "<div id=\"modal-root\">",
+        "  <div class=\"modal-overlay-root-HYDcG\">",
+        "    <div data-focus-guard=\"true\" tabindex=\"0\" style=\"width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;\">",
+        "    <div data-focus-lock-disabled=\"false\">",
+        "      <div class=\"modal-overlay-1Ki3X\" aria-labelledby=\"du-modal-title\">",
+        "        <div role=\"dialog\" class=\"modal-modal-210sN\" aria-labelledby=\"du-modal-title\">",
+        "          <h1 class=\"modal-title-2gcDL\" id=\"du-modal-title\">",
+        "            \"Demo Two\"",
+        "          <div class=\"modal-content-3Y4Xs\">",
+        "            <p>",
+        "              \"Hidden only by the button.\"",
+        "          <footer class=\"modal-footer-3rxbf\">",
+        "            <button class=\"button-button-3fr3r button-contained-pmIp-\">",
+        "              \"Close me!\"",
+        "    <div data-focus-guard=\"true\" tabindex=\"0\" style=\"width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;\">"
+      ],
+      "mount": {
+        "v": ["1:div>0:div>1:div>0:div>0:div>2:footer>0:button:valid"],
+        "f": "1:div>0:div>1:div>0:div>0:div>2:footer>0:button"
+      },
+      "nodes": [
+        "1:div",
+        "1:div>0:div",
+        "1:div>0:div>0:div",
+        "1:div>0:div>1:div",
+        "1:div>0:div>1:div>0:div",
+        "1:div>0:div>1:div>0:div>0:div",
+        "1:div>0:div>1:div>0:div>0:div>0:h1",
+        "1:div>0:div>1:div>0:div>0:div>1:div",
+        "1:div>0:div>1:div>0:div>0:div>1:div>0:p",
+        "1:div>0:div>1:div>0:div>0:div>2:footer",
+        "1:div>0:div>1:div>0:div>0:div>2:footer>0:button",
+        "1:div>0:div>2:div"
+      ],
+      "interactions": {
+        "quiet": [],
+        "active": {
+          "1:div": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["footer(event:click)"] }
+          },
+          "1:div>0:div": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["footer(event:click)"] }
+          },
+          "1:div>0:div>0:div": {
+            "Enter,Space": { "c": ["footer(event:click)"] }
+          },
+          "1:div>0:div>1:div": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["footer(event:click)"] }
+          },
+          "1:div>0:div>1:div>0:div": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["footer(event:click)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["footer(event:click)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div>0:h1": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["footer(event:click)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div>1:div": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["footer(event:click)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div>1:div>0:p": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["footer(event:click)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div>2:footer": {
+            "click,dblclick": { "f": "body" },
+            "Enter,Space": { "c": ["footer(event:click)"] }
+          },
+          "1:div>0:div>1:div>0:div>0:div>2:footer>0:button": {
+            "click,Enter,Space": { "c": ["footer(event:click)"] },
+            "dblclick": { "c": ["footer(event:click)", "footer(event:click)"] }
+          },
+          "1:div>0:div>2:div": {
+            "Enter,Space": { "c": ["footer(event:click)"] }
+          }
+        }
+      }
+    }
+  },
+  "overlay": {
+    "kind": "modal",
+    "state": "auto-close",
+    "open": "-",
+    "openDom": [
+      "<div>",
+      "<div id=\"modal-root\">",
+      "  <div class=\"modal-overlay-root-HYDcG\">",
+      "    <div data-focus-guard=\"true\" tabindex=\"0\" style=\"width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;\">",
+      "    <div data-focus-lock-disabled=\"false\">",
+      "      <div class=\"modal-overlay-1Ki3X\" aria-label=\"Demo modal\">",
+      "        <div role=\"dialog\" class=\"modal-modal-210sN\" aria-label=\"Demo modal\">",
+      "          <button class=\"button-button-3fr3r button-text-2Jjil modal-close-button-1qkbz\" aria-label=\"Close\">",
+      "            <svg class=\"icon-icon-35iz-\" role=\"img\" width=\"24\" height=\"24\">",
+      "              <use href=\"/static/search/icons.svg#window-close\">",
+      "          <h1 class=\"modal-title-2gcDL\">",
+      "            \"Demo One\"",
+      "          <p class=\"modal-content-3Y4Xs\">",
+      "            \"Closes on overlay click or Esc.\"",
+      "          <footer class=\"modal-footer-3rxbf\">",
+      "            <button class=\"button-button-3fr3r button-contained-pmIp-\">",
+      "              \"Close me!\"",
+      "    <div data-focus-guard=\"true\" tabindex=\"0\" style=\"width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;\">"
+    ],
+    "blur": "-",
+    "scroll-100": "-",
+    "resize+1": "-",
+    "resize-1": "-"
+  }
+}

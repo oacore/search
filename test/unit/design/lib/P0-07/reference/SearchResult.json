@@ -1,0 +1,1545 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-16",
+  "name": "SearchResult",
+  "states": {
+    "loading": {
+      "dom": [
+        "<div>",
+        "  <div class=\"card-container-11P0y card-elevated-1Clhn styles-container-2Sli1 styles-full-text-missing-itR-a\" id=\"work-du-result-1\" itemscope=\"\" itemtype=\"https://schema.org/ScholarlyArticle\" aria-busy=\"true\">",
+        "    <header class=\"styles-header-13tcI\">",
+        "      <h3 class=\"styles-title-1k6Ib\" itemprop=\"name\">",
+        "      <div class=\"group-group-2Ka5T\">",
+        "    <dl class=\"metadata-list-list-3uNb8 styles-metadata-list-34iT8\">",
+        "      <div class=\"metadata-list-group-1lOSg\">",
+        "        <dt id=\"du-result-1-author-title\">",
+        "          \"Author\"",
+        "        <dd aria-labelledby=\"du-result-1-author-title\">",
+        "          <ol class=\"expandable-list-list-2znM0\" aria-label=\"Author\">",
+        "      <div class=\"metadata-list-group-1lOSg metadata-list-empty-1hpLJ\">",
+        "        <dt id=\"du-result-1-venue-title\">",
+        "          \"Publication venue\"",
+        "        <dd aria-labelledby=\"du-result-1-venue-title\">",
+        "      <div class=\"metadata-list-group-1lOSg metadata-list-empty-1hpLJ\">",
+        "        <dt id=\"du-result-1-publication-date-title\">",
+        "          \"Publication date\"",
+        "        <dd aria-labelledby=\"du-result-1-publication-date-title\" itemprop=\"datePublished\">",
+        "      <div class=\"metadata-list-group-1lOSg metadata-list-empty-1hpLJ\">",
+        "        <dt id=\"du-result-1-field-title\">",
+        "          \"Field of study\"",
+        "        <dd aria-labelledby=\"du-result-1-field-title\" itemprop=\"about\">",
+        "    <figure class=\"styles-thumbnail-1xurx\">",
+        "      <a>",
+        "        <img itemprop=\"image\" alt=\"\" loading=\"lazy\">",
+        "        <span class=\"styles-thumbnail-caption-2Qdvz\">",
+        "    <div class=\"styles-content-35LN7\" itemprop=\"abstract\">",
+        "      <span>",
+        "    <div class=\"styles-footnote-2WLsl\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": [
+        "0:div>0:div",
+        "0:div>0:div>0:header",
+        "0:div>0:div>0:header>0:h3",
+        "0:div>0:div>0:header>1:div",
+        "0:div>0:div>1:dl",
+        "0:div>0:div>1:dl>0:div",
+        "0:div>0:div>1:dl>0:div>0:dt",
+        "0:div>0:div>1:dl>0:div>1:dd",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol",
+        "0:div>0:div>1:dl>1:div",
+        "0:div>0:div>1:dl>1:div>0:dt",
+        "0:div>0:div>1:dl>1:div>1:dd",
+        "0:div>0:div>1:dl>2:div",
+        "0:div>0:div>1:dl>2:div>0:dt",
+        "0:div>0:div>1:dl>2:div>1:dd",
+        "0:div>0:div>1:dl>3:div",
+        "0:div>0:div>1:dl>3:div>0:dt",
+        "0:div>0:div>1:dl>3:div>1:dd",
+        "0:div>0:div>2:figure",
+        "0:div>0:div>2:figure>0:a",
+        "0:div>0:div>2:figure>0:a>0:img",
+        "0:div>0:div>2:figure>0:a>1:span",
+        "0:div>0:div>3:div",
+        "0:div>0:div>3:div>0:span",
+        "0:div>0:div>4:div"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:div",
+          "0:div>0:div>0:header",
+          "0:div>0:div>0:header>0:h3",
+          "0:div>0:div>0:header>1:div",
+          "0:div>0:div>1:dl",
+          "0:div>0:div>1:dl>0:div",
+          "0:div>0:div>1:dl>0:div>0:dt",
+          "0:div>0:div>1:dl>0:div>1:dd",
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol",
+          "0:div>0:div>1:dl>1:div",
+          "0:div>0:div>1:dl>1:div>0:dt",
+          "0:div>0:div>1:dl>1:div>1:dd",
+          "0:div>0:div>1:dl>2:div",
+          "0:div>0:div>1:dl>2:div>0:dt",
+          "0:div>0:div>1:dl>2:div>1:dd",
+          "0:div>0:div>1:dl>3:div",
+          "0:div>0:div>1:dl>3:div>0:dt",
+          "0:div>0:div>1:dl>3:div>1:dd",
+          "0:div>0:div>2:figure",
+          "0:div>0:div>2:figure>0:a",
+          "0:div>0:div>2:figure>0:a>0:img",
+          "0:div>0:div>2:figure>0:a>1:span",
+          "0:div>0:div>3:div",
+          "0:div>0:div>3:div>0:span",
+          "0:div>0:div>4:div"
+        ],
+        "active": {}
+      }
+    },
+    "regular": {
+      "dom": [
+        "<div>",
+        "  <div class=\"card-container-11P0y card-elevated-1Clhn styles-container-2Sli1 styles-full-text-hosted-Zi-vo\" id=\"work-du-result-2\" itemscope=\"\" itemtype=\"https://schema.org/ScholarlyArticle\">",
+        "    <header class=\"styles-header-13tcI\">",
+        "      <h3 class=\"styles-title-1k6Ib\" itemprop=\"name\">",
+        "        <a href=\"//core.ac.uk/display/82984538\">",
+        "          <span>",
+        "            \"Towards effective research recommender systems for repositories\"",
+        "      <div class=\"group-group-2Ka5T\">",
+        "        <div class=\"data-provider-sm-6ZNTy data-provider-circle-1YXHk\">",
+        "          <img src=\"https://api.core.ac.uk/data-providers/86/logo\" alt=\"Open Research Online\" class=\"data-provider-image-2JFrU\">",
+        "        <div class=\"data-provider-sm-6ZNTy data-provider-circle-1YXHk\">",
+        "          <img src=\"https://api.core.ac.uk/data-providers/2313/logo\" alt=\"Aberdeen University Research Archive\" class=\"data-provider-image-2JFrU\">",
+        "    <dl class=\"metadata-list-list-3uNb8 styles-metadata-list-34iT8\">",
+        "      <div class=\"metadata-list-group-1lOSg\">",
+        "        <dt id=\"du-result-2-author-title\">",
+        "          \"Author\"",
+        "        <dd aria-labelledby=\"du-result-2-author-title\">",
+        "          <ol class=\"expandable-list-list-2znM0\" aria-label=\"Author\">",
+        "            <li itemprop=\"author\" itemscope=\"\" itemtype=\"https://schema.org/Person\" aria-setsize=\"5\">",
+        "              <a href=\"/search?q=author:(Knoth, Petr)\" class=\"styles-link-ezM5z\">",
+        "                <span itemprop=\"name\">",
+        "                  \"Knoth  Petr\"",
+        "            <li itemprop=\"author\" itemscope=\"\" itemtype=\"https://schema.org/Person\" aria-setsize=\"5\">",
+        "              <a href=\"/search?q=author:(Anastasiou, Lucas)\" class=\"styles-link-ezM5z\">",
+        "                <span itemprop=\"name\">",
+        "                  \"Anastasiou  Lucas\"",
+        "            <li aria-setsize=\"5\" class=\"expandable-list-show-more-2ndlc\">",
+        "              <button class=\"button-button-3fr3r button-text-2Jjil\" title=\"Show more\">",
+        "                \"+\"",
+        "                \"3\"",
+        "                \" more\"",
+        "            <li itemprop=\"author\" itemscope=\"\" itemtype=\"https://schema.org/Person\" aria-setsize=\"5\" class=\"expandable-list-hide-2DCLG\">",
+        "              <a href=\"/search?q=author:(Charalampous, Aristotelis)\" class=\"styles-link-ezM5z\">",
+        "                <span itemprop=\"name\">",
+        "                  \"Charalampous  Aristotelis\"",
+        "            <li itemprop=\"author\" itemscope=\"\" itemtype=\"https://schema.org/Person\" aria-setsize=\"5\" class=\"expandable-list-hide-2DCLG\">",
+        "              <a href=\"/search?q=author:(Cancellieri, Matteo)\" class=\"styles-link-ezM5z\">",
+        "                <span itemprop=\"name\">",
+        "                  \"Cancellieri  Matteo\"",
+        "            <li itemprop=\"author\" itemscope=\"\" itemtype=\"https://schema.org/Person\" aria-setsize=\"5\" class=\"expandable-list-hide-2DCLG\">",
+        "              <a href=\"/search?q=author:(Pearce, Samuel)\" class=\"styles-link-ezM5z\">",
+        "                <span itemprop=\"name\">",
+        "                  \"Pearce  Samuel\"",
+        "      <div class=\"metadata-list-group-1lOSg\">",
+        "        <dt id=\"du-result-2-venue-title\">",
+        "          \"Publication venue\"",
+        "        <dd aria-labelledby=\"du-result-2-venue-title\">",
+        "          \"Open Repositories 2017\"",
+        "      <div class=\"metadata-list-group-1lOSg\">",
+        "        <dt id=\"du-result-2-publication-date-title\">",
+        "          \"Publication date\"",
+        "        <dd aria-labelledby=\"du-result-2-publication-date-title\" itemprop=\"datePublished\">",
+        "          \"2017\"",
+        "      <div class=\"metadata-list-group-1lOSg\">",
+        "        <dt id=\"du-result-2-field-title\">",
+        "          \"Field of study\"",
+        "        <dd aria-labelledby=\"du-result-2-field-title\" itemprop=\"about\">",
+        "          \"Computer science\"",
+        "    <figure class=\"styles-thumbnail-1xurx\">",
+        "      <a href=\"//core.ac.uk/reader/82984538\">",
+        "        <img src=\"//core.ac.uk/image/82984538/medium\" itemprop=\"image\" alt=\"\" loading=\"lazy\">",
+        "        <span class=\"styles-thumbnail-caption-2Qdvz\">",
+        "          \"Get PDF\"",
+        "    <div class=\"styles-content-35LN7\" itemprop=\"abstract\">",
+        "      <span>",
+        "        \"In this paper, we argue why and how the integration of recommender systems for research can enhance repositories.\"",
+        "    <div class=\"styles-footnote-2WLsl\">",
+        "      <div itemprop=\"publisher\" itemscope=\"\" itemtype=\"https://schema.org/Organization\" class=\"styles-data-provider-DvgWY\">",
+        "        <a href=\"/data-providers/86\" class=\"styles-repository-link-xUkbI\">",
+        "          <span itemprop=\"name\">",
+        "            \"Open Research Online\"",
+        "      <div itemprop=\"publisher\" itemscope=\"\" itemtype=\"https://schema.org/Organization\" class=\"styles-data-provider-DvgWY\">",
+        "        <a href=\"/data-providers/2313\" class=\"styles-repository-link-xUkbI\">",
+        "          <span itemprop=\"name\">",
+        "            \"Aberdeen University Research Archive\""
+      ],
+      "mount": {
+        "n": [
+          "GET https://api.core.ac.uk/data-providers/86/logo credentials=same-origin",
+          "GET https://api.core.ac.uk/data-providers/2313/logo credentials=same-origin"
+        ],
+        "v": ["0:div>0:div>1:dl>0:div>1:dd>0:ol>2:li>0:button:valid"],
+        "f": "body"
+      },
+      "nodes": [
+        "0:div>0:div",
+        "0:div>0:div>0:header",
+        "0:div>0:div>0:header>0:h3",
+        "0:div>0:div>0:header>0:h3>0:a",
+        "0:div>0:div>0:header>0:h3>0:a>0:span",
+        "0:div>0:div>0:header>1:div",
+        "0:div>0:div>0:header>1:div>0:div",
+        "0:div>0:div>0:header>1:div>0:div>0:img",
+        "0:div>0:div>0:header>1:div>1:div",
+        "0:div>0:div>0:header>1:div>1:div>0:img",
+        "0:div>0:div>1:dl",
+        "0:div>0:div>1:dl>0:div",
+        "0:div>0:div>1:dl>0:div>0:dt",
+        "0:div>0:div>1:dl>0:div>1:dd",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a>0:span",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>1:li",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>1:li>0:a",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>1:li>0:a>0:span",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>2:li",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>2:li>0:button",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li>0:a",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li>0:a>0:span",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li>0:a",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li>0:a>0:span",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li>0:a",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li>0:a>0:span",
+        "0:div>0:div>1:dl>1:div",
+        "0:div>0:div>1:dl>1:div>0:dt",
+        "0:div>0:div>1:dl>1:div>1:dd",
+        "0:div>0:div>1:dl>2:div",
+        "0:div>0:div>1:dl>2:div>0:dt",
+        "0:div>0:div>1:dl>2:div>1:dd",
+        "0:div>0:div>1:dl>3:div",
+        "0:div>0:div>1:dl>3:div>0:dt",
+        "0:div>0:div>1:dl>3:div>1:dd",
+        "0:div>0:div>2:figure",
+        "0:div>0:div>2:figure>0:a",
+        "0:div>0:div>2:figure>0:a>0:img",
+        "0:div>0:div>2:figure>0:a>1:span",
+        "0:div>0:div>3:div",
+        "0:div>0:div>3:div>0:span",
+        "0:div>0:div>4:div",
+        "0:div>0:div>4:div>0:div",
+        "0:div>0:div>4:div>0:div>0:a",
+        "0:div>0:div>4:div>0:div>0:a>0:span",
+        "0:div>0:div>4:div>1:div",
+        "0:div>0:div>4:div>1:div>0:a",
+        "0:div>0:div>4:div>1:div>0:a>0:span"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:div",
+          "0:div>0:div>0:header",
+          "0:div>0:div>0:header>0:h3",
+          "0:div>0:div>0:header>1:div",
+          "0:div>0:div>0:header>1:div>0:div",
+          "0:div>0:div>0:header>1:div>0:div>0:img",
+          "0:div>0:div>0:header>1:div>1:div",
+          "0:div>0:div>0:header>1:div>1:div>0:img",
+          "0:div>0:div>1:dl",
+          "0:div>0:div>1:dl>0:div",
+          "0:div>0:div>1:dl>0:div>0:dt",
+          "0:div>0:div>1:dl>0:div>1:dd",
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol",
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li",
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>1:li",
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>2:li",
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li",
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li",
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li",
+          "0:div>0:div>1:dl>1:div",
+          "0:div>0:div>1:dl>1:div>0:dt",
+          "0:div>0:div>1:dl>1:div>1:dd",
+          "0:div>0:div>1:dl>2:div",
+          "0:div>0:div>1:dl>2:div>0:dt",
+          "0:div>0:div>1:dl>2:div>1:dd",
+          "0:div>0:div>1:dl>3:div",
+          "0:div>0:div>1:dl>3:div>0:dt",
+          "0:div>0:div>1:dl>3:div>1:dd",
+          "0:div>0:div>2:figure",
+          "0:div>0:div>3:div",
+          "0:div>0:div>3:div>0:span",
+          "0:div>0:div>4:div",
+          "0:div>0:div>4:div>0:div",
+          "0:div>0:div>4:div>1:div"
+        ],
+        "active": {
+          "0:div>0:div>0:header>0:h3>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>0:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>0:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>0:header>0:h3>0:a"
+            }
+          },
+          "0:div>0:div>0:header>0:h3>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>0:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>0:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Knoth,%20Petr)"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Knoth,%20Petr)",
+                "navigate http://localhost/search?q=author:(Knoth,%20Petr)"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a"
+            }
+          },
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Knoth,%20Petr)"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Knoth,%20Petr)",
+                "navigate http://localhost/search?q=author:(Knoth,%20Petr)"
+              ]
+            }
+          },
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>1:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>1:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Anastasiou,%20Lucas)"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>1:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Anastasiou,%20Lucas)",
+                "navigate http://localhost/search?q=author:(Anastasiou,%20Lucas)"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>1:li>0:a"
+            }
+          },
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>1:li>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>1:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Anastasiou,%20Lucas)"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>1:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Anastasiou,%20Lucas)",
+                "navigate http://localhost/search?q=author:(Anastasiou,%20Lucas)"
+              ]
+            }
+          },
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>2:li>0:button": {
+            "click,focus,Space,Esc,ArrowDown": {
+              "m": [
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>2:li>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>2:li class=\"expandable-list-show-more-2ndlc expandable-list-hide-2DCLG\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li class=\"\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li class=\"\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li class=\"\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol class=\"expandable-list-list-2znM0\""
+              ],
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li>0:a"
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>2:li>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>2:li class=\"expandable-list-show-more-2ndlc expandable-list-hide-2DCLG\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li class=\"\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li class=\"\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li class=\"\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol class=\"expandable-list-list-2znM0\""
+              ],
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>2:li>0:button"
+            },
+            "Enter": {
+              "m": [
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>2:li>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>2:li class=\"expandable-list-show-more-2ndlc expandable-list-hide-2DCLG\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li class=\"\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li class=\"\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li class=\"\"",
+                "attr 0:div>0:div>1:dl>0:div>1:dd>0:ol class=\"expandable-list-list-2znM0\""
+              ],
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)"
+              ]
+            }
+          },
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)",
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li>0:a"
+            }
+          },
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)",
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)"
+              ]
+            }
+          },
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Cancellieri,%20Matteo)"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Cancellieri,%20Matteo)",
+                "navigate http://localhost/search?q=author:(Cancellieri,%20Matteo)"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li>0:a"
+            }
+          },
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Cancellieri,%20Matteo)"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>4:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Cancellieri,%20Matteo)",
+                "navigate http://localhost/search?q=author:(Cancellieri,%20Matteo)"
+              ]
+            }
+          },
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Pearce,%20Samuel)"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Pearce,%20Samuel)",
+                "navigate http://localhost/search?q=author:(Pearce,%20Samuel)"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li>0:a"
+            }
+          },
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Pearce,%20Samuel)"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>5:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Pearce,%20Samuel)",
+                "navigate http://localhost/search?q=author:(Pearce,%20Samuel)"
+              ]
+            }
+          },
+          "0:div>0:div>2:figure>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>2:figure>0:a",
+              "nav": ["navigate http://core.ac.uk/reader/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:figure>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/reader/82984538",
+                "navigate http://core.ac.uk/reader/82984538"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:div>2:figure>0:a" }
+          },
+          "0:div>0:div>2:figure>0:a>0:img": {
+            "click": {
+              "f": "0:div>0:div>2:figure>0:a",
+              "nav": ["navigate http://core.ac.uk/reader/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:figure>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/reader/82984538",
+                "navigate http://core.ac.uk/reader/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>2:figure>0:a>1:span": {
+            "click": {
+              "f": "0:div>0:div>2:figure>0:a",
+              "nav": ["navigate http://core.ac.uk/reader/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:figure>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/reader/82984538",
+                "navigate http://core.ac.uk/reader/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>4:div>0:div>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>4:div>0:div>0:a",
+              "nav": ["navigate http://localhost/data-providers/86"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>4:div>0:div>0:a",
+              "nav": [
+                "navigate http://localhost/data-providers/86",
+                "navigate http://localhost/data-providers/86"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:div>4:div>0:div>0:a" }
+          },
+          "0:div>0:div>4:div>0:div>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>4:div>0:div>0:a",
+              "nav": ["navigate http://localhost/data-providers/86"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>4:div>0:div>0:a",
+              "nav": [
+                "navigate http://localhost/data-providers/86",
+                "navigate http://localhost/data-providers/86"
+              ]
+            }
+          },
+          "0:div>0:div>4:div>1:div>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>4:div>1:div>0:a",
+              "nav": ["navigate http://localhost/data-providers/2313"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>4:div>1:div>0:a",
+              "nav": [
+                "navigate http://localhost/data-providers/2313",
+                "navigate http://localhost/data-providers/2313"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:div>4:div>1:div>0:a" }
+          },
+          "0:div>0:div>4:div>1:div>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>4:div>1:div>0:a",
+              "nav": ["navigate http://localhost/data-providers/2313"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>4:div>1:div>0:a",
+              "nav": [
+                "navigate http://localhost/data-providers/2313",
+                "navigate http://localhost/data-providers/2313"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "redirect-recommended-no-logo": {
+      "dom": [
+        "<div>",
+        "  <div class=\"card-container-11P0y card-elevated-1Clhn styles-container-2Sli1 styles-full-text-linked-1RAey styles-container-recommended-2a9gS\" id=\"work-du-result-3\" itemscope=\"\" itemtype=\"https://schema.org/ScholarlyArticle\">",
+        "    <div class=\"styles-text-upper-header-3Z0Zx\">",
+        "      \"Recommended from our members\"",
+        "    <header class=\"styles-header-13tcI\">",
+        "      <h3 class=\"styles-title-1k6Ib\" itemprop=\"name\">",
+        "        <a href=\"//core.ac.uk/display/82984538\">",
+        "          <span>",
+        "            \"Title \"",
+        "            <span>",
+        "              <span class=\"katex\">",
+        "                <span class=\"katex-mathml\">",
+        "                  <math xmlns=\"http://www.w3.org/1998/Math/MathML\">",
+        "                    <semantics>",
+        "                      <mrow>",
+        "                        <msup>",
+        "                          <mi>",
+        "                            \"x\"",
+        "                          <mn>",
+        "                            \"2\"",
+        "                      <annotation encoding=\"application/x-tex\">",
+        "                        \"x^2\"",
+        "                <span class=\"katex-html\" aria-hidden=\"true\">",
+        "                  <span class=\"base\">",
+        "                    <span class=\"strut\" style=\"height:0.8141em;\">",
+        "                    <span class=\"mord\">",
+        "                      <span class=\"mord mathnormal\">",
+        "                        \"x\"",
+        "                      <span class=\"msupsub\">",
+        "                        <span class=\"vlist-t\">",
+        "                          <span class=\"vlist-r\">",
+        "                            <span class=\"vlist\" style=\"height:0.8141em;\">",
+        "                              <span style=\"top:-3.063em;margin-right:0.05em;\">",
+        "                                <span class=\"pstrut\" style=\"height:2.7em;\">",
+        "                                <span class=\"sizing reset-size6 size3 mtight\">",
+        "                                  <span class=\"mord mtight\">",
+        "                                    \"2\"",
+        "            \" **x**\"",
+        "    <dl class=\"metadata-list-list-3uNb8 styles-metadata-list-34iT8\">",
+        "      <div class=\"metadata-list-group-1lOSg\">",
+        "        <dt id=\"du-result-3-author-title\">",
+        "          \"Author\"",
+        "        <dd aria-labelledby=\"du-result-3-author-title\">",
+        "          <ol class=\"expandable-list-list-2znM0\" aria-label=\"Author\">",
+        "            <li itemprop=\"author\" itemscope=\"\" itemtype=\"https://schema.org/Person\" aria-setsize=\"5\">",
+        "              <a href=\"/search?q=author:(Knoth, Petr)&t=s1-82984538\" class=\"styles-link-ezM5z\">",
+        "                <span itemprop=\"name\">",
+        "                  \"Knoth  Petr\"",
+        "            <li itemprop=\"author\" itemscope=\"\" itemtype=\"https://schema.org/Person\" aria-setsize=\"5\">",
+        "              <a href=\"/search?q=author:(Anastasiou, Lucas)&t=s1-82984538\" class=\"styles-link-ezM5z\">",
+        "                <span itemprop=\"name\">",
+        "                  \"Anastasiou  Lucas\"",
+        "            <li aria-setsize=\"5\" class=\"expandable-list-show-more-2ndlc\">",
+        "              <button class=\"button-button-3fr3r button-text-2Jjil\" title=\"Show more\">",
+        "                \"+\"",
+        "                \"3\"",
+        "                \" more\"",
+        "            <li itemprop=\"author\" itemscope=\"\" itemtype=\"https://schema.org/Person\" aria-setsize=\"5\" class=\"expandable-list-hide-2DCLG\">",
+        "              <a href=\"/search?q=author:(Charalampous, Aristotelis)&t=s1-82984538\" class=\"styles-link-ezM5z\">",
+        "                <span itemprop=\"name\">",
+        "                  \"Charalampous  Aristotelis\"",
+        "            <li itemprop=\"author\" itemscope=\"\" itemtype=\"https://schema.org/Person\" aria-setsize=\"5\" class=\"expandable-list-hide-2DCLG\">",
+        "              <a href=\"/search?q=author:(Cancellieri, Matteo)&t=s1-82984538\" class=\"styles-link-ezM5z\">",
+        "                <span itemprop=\"name\">",
+        "                  \"Cancellieri  Matteo\"",
+        "            <li itemprop=\"author\" itemscope=\"\" itemtype=\"https://schema.org/Person\" aria-setsize=\"5\" class=\"expandable-list-hide-2DCLG\">",
+        "              <a href=\"/search?q=author:(Pearce, Samuel)&t=s1-82984538\" class=\"styles-link-ezM5z\">",
+        "                <span itemprop=\"name\">",
+        "                  \"Pearce  Samuel\"",
+        "      <div class=\"metadata-list-group-1lOSg\">",
+        "        <dt id=\"du-result-3-venue-title\">",
+        "          \"Publication venue\"",
+        "        <dd aria-labelledby=\"du-result-3-venue-title\">",
+        "          \"Open Repositories 2017\"",
+        "      <div class=\"metadata-list-group-1lOSg\">",
+        "        <dt id=\"du-result-3-publication-date-title\">",
+        "          \"Publication date\"",
+        "        <dd aria-labelledby=\"du-result-3-publication-date-title\" itemprop=\"datePublished\">",
+        "          \"2017\"",
+        "      <div class=\"metadata-list-group-1lOSg\">",
+        "        <dt id=\"du-result-3-field-title\">",
+        "          \"Field of study\"",
+        "        <dd aria-labelledby=\"du-result-3-field-title\" itemprop=\"about\">",
+        "          \"Computer science\"",
+        "    <figure class=\"styles-thumbnail-1xurx\">",
+        "      <a href=\"https://example.org/paper.pdf\">",
+        "        <img src=\"//core.ac.uk/image/82984538/medium\" itemprop=\"image\" alt=\"\" loading=\"lazy\">",
+        "        <span class=\"styles-thumbnail-caption-2Qdvz\">",
+        "          \"Full text link\"",
+        "    <div class=\"styles-content-35LN7\" itemprop=\"abstract\">",
+        "      <span>",
+        "        \"Abstract text\"",
+        "    <div class=\"styles-footnote-2WLsl\">",
+        "      <div itemprop=\"publisher\" itemscope=\"\" itemtype=\"https://schema.org/Organization\" class=\"styles-data-provider-DvgWY\">",
+        "        <a href=\"/data-providers/86?t=s1-82984538\" class=\"styles-repository-link-xUkbI\">",
+        "          <span itemprop=\"name\">",
+        "            \"Open Research Online\"",
+        "      <div itemprop=\"publisher\" itemscope=\"\" itemtype=\"https://schema.org/Organization\" class=\"styles-data-provider-DvgWY\">",
+        "        <a href=\"/data-providers/2313?t=s1-82984538\" class=\"styles-repository-link-xUkbI\">",
+        "          <span itemprop=\"name\">",
+        "            \"Aberdeen University Research Archive\""
+      ],
+      "mount": {
+        "v": ["0:div>0:div>2:dl>0:div>1:dd>0:ol>2:li>0:button:valid"],
+        "f": "body"
+      },
+      "nodes": [
+        "0:div>0:div",
+        "0:div>0:div>0:div",
+        "0:div>0:div>1:header",
+        "0:div>0:div>1:header>0:h3",
+        "0:div>0:div>1:header>0:h3>0:a",
+        "0:div>0:div>1:header>0:h3>0:a>0:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math>0:semantics",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:msup",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:msup>0:mi",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:msup>1:mn",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math>0:semantics>1:annotation",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>0:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>0:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>0:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>1:span",
+        "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>1:span>0:span",
+        "0:div>0:div>2:dl",
+        "0:div>0:div>2:dl>0:div",
+        "0:div>0:div>2:dl>0:div>0:dt",
+        "0:div>0:div>2:dl>0:div>1:dd",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>0:li",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>0:li>0:a",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>0:li>0:a>0:span",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>1:li",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>1:li>0:a",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>1:li>0:a>0:span",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>2:li",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>2:li>0:button",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li>0:a",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li>0:a>0:span",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li>0:a",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li>0:a>0:span",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li>0:a",
+        "0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li>0:a>0:span",
+        "0:div>0:div>2:dl>1:div",
+        "0:div>0:div>2:dl>1:div>0:dt",
+        "0:div>0:div>2:dl>1:div>1:dd",
+        "0:div>0:div>2:dl>2:div",
+        "0:div>0:div>2:dl>2:div>0:dt",
+        "0:div>0:div>2:dl>2:div>1:dd",
+        "0:div>0:div>2:dl>3:div",
+        "0:div>0:div>2:dl>3:div>0:dt",
+        "0:div>0:div>2:dl>3:div>1:dd",
+        "0:div>0:div>3:figure",
+        "0:div>0:div>3:figure>0:a",
+        "0:div>0:div>3:figure>0:a>0:img",
+        "0:div>0:div>3:figure>0:a>1:span",
+        "0:div>0:div>4:div",
+        "0:div>0:div>4:div>0:span",
+        "0:div>0:div>5:div",
+        "0:div>0:div>5:div>0:div",
+        "0:div>0:div>5:div>0:div>0:a",
+        "0:div>0:div>5:div>0:div>0:a>0:span",
+        "0:div>0:div>5:div>1:div",
+        "0:div>0:div>5:div>1:div>0:a",
+        "0:div>0:div>5:div>1:div>0:a>0:span"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:div",
+          "0:div>0:div>0:div",
+          "0:div>0:div>1:header",
+          "0:div>0:div>1:header>0:h3",
+          "0:div>0:div>2:dl",
+          "0:div>0:div>2:dl>0:div",
+          "0:div>0:div>2:dl>0:div>0:dt",
+          "0:div>0:div>2:dl>0:div>1:dd",
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol",
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>0:li",
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>1:li",
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>2:li",
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li",
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li",
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li",
+          "0:div>0:div>2:dl>1:div",
+          "0:div>0:div>2:dl>1:div>0:dt",
+          "0:div>0:div>2:dl>1:div>1:dd",
+          "0:div>0:div>2:dl>2:div",
+          "0:div>0:div>2:dl>2:div>0:dt",
+          "0:div>0:div>2:dl>2:div>1:dd",
+          "0:div>0:div>2:dl>3:div",
+          "0:div>0:div>2:dl>3:div>0:dt",
+          "0:div>0:div>2:dl>3:div>1:dd",
+          "0:div>0:div>3:figure",
+          "0:div>0:div>4:div",
+          "0:div>0:div>4:div>0:span",
+          "0:div>0:div>5:div",
+          "0:div>0:div>5:div>0:div",
+          "0:div>0:div>5:div>1:div"
+        ],
+        "active": {
+          "0:div>0:div>1:header>0:h3>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>1:header>0:h3>0:a"
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math>0:semantics": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:msup": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:msup>0:mi": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:msup>1:mn": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>0:span>0:math>0:semantics>1:annotation": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>1:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>1:header>0:h3>0:a>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>1:span>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": ["navigate http://core.ac.uk/display/82984538"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:header>0:h3>0:a",
+              "nav": [
+                "navigate http://core.ac.uk/display/82984538",
+                "navigate http://core.ac.uk/display/82984538"
+              ]
+            }
+          },
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>0:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Knoth,%20Petr)&t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Knoth,%20Petr)&t=s1-82984538",
+                "navigate http://localhost/search?q=author:(Knoth,%20Petr)&t=s1-82984538"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>0:li>0:a"
+            }
+          },
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>0:li>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Knoth,%20Petr)&t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Knoth,%20Petr)&t=s1-82984538",
+                "navigate http://localhost/search?q=author:(Knoth,%20Petr)&t=s1-82984538"
+              ]
+            }
+          },
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>1:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>1:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Anastasiou,%20Lucas)&t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>1:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Anastasiou,%20Lucas)&t=s1-82984538",
+                "navigate http://localhost/search?q=author:(Anastasiou,%20Lucas)&t=s1-82984538"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>1:li>0:a"
+            }
+          },
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>1:li>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>1:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Anastasiou,%20Lucas)&t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>1:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Anastasiou,%20Lucas)&t=s1-82984538",
+                "navigate http://localhost/search?q=author:(Anastasiou,%20Lucas)&t=s1-82984538"
+              ]
+            }
+          },
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>2:li>0:button": {
+            "click,focus,Space,Esc,ArrowDown": {
+              "m": [
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>2:li>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>2:li class=\"expandable-list-show-more-2ndlc expandable-list-hide-2DCLG\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li class=\"\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li class=\"\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li class=\"\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol class=\"expandable-list-list-2znM0\""
+              ],
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li>0:a"
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>2:li>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>2:li class=\"expandable-list-show-more-2ndlc expandable-list-hide-2DCLG\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li class=\"\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li class=\"\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li class=\"\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol class=\"expandable-list-list-2znM0\""
+              ],
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>2:li>0:button"
+            },
+            "Enter": {
+              "m": [
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>2:li>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>2:li class=\"expandable-list-show-more-2ndlc expandable-list-hide-2DCLG\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li class=\"\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li class=\"\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li class=\"\"",
+                "attr 0:div>0:div>2:dl>0:div>1:dd>0:ol class=\"expandable-list-list-2znM0\""
+              ],
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)&t=s1-82984538"
+              ]
+            }
+          },
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)&t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)&t=s1-82984538",
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)&t=s1-82984538"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li>0:a"
+            }
+          },
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)&t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)&t=s1-82984538",
+                "navigate http://localhost/search?q=author:(Charalampous,%20Aristotelis)&t=s1-82984538"
+              ]
+            }
+          },
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Cancellieri,%20Matteo)&t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Cancellieri,%20Matteo)&t=s1-82984538",
+                "navigate http://localhost/search?q=author:(Cancellieri,%20Matteo)&t=s1-82984538"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li>0:a"
+            }
+          },
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Cancellieri,%20Matteo)&t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>4:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Cancellieri,%20Matteo)&t=s1-82984538",
+                "navigate http://localhost/search?q=author:(Cancellieri,%20Matteo)&t=s1-82984538"
+              ]
+            }
+          },
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Pearce,%20Samuel)&t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Pearce,%20Samuel)&t=s1-82984538",
+                "navigate http://localhost/search?q=author:(Pearce,%20Samuel)&t=s1-82984538"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li>0:a"
+            }
+          },
+          "0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Pearce,%20Samuel)&t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>2:dl>0:div>1:dd>0:ol>5:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Pearce,%20Samuel)&t=s1-82984538",
+                "navigate http://localhost/search?q=author:(Pearce,%20Samuel)&t=s1-82984538"
+              ]
+            }
+          },
+          "0:div>0:div>3:figure>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>3:figure>0:a",
+              "nav": ["navigate https://example.org/paper.pdf"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>3:figure>0:a",
+              "nav": [
+                "navigate https://example.org/paper.pdf",
+                "navigate https://example.org/paper.pdf"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:div>3:figure>0:a" }
+          },
+          "0:div>0:div>3:figure>0:a>0:img": {
+            "click": {
+              "f": "0:div>0:div>3:figure>0:a",
+              "nav": ["navigate https://example.org/paper.pdf"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>3:figure>0:a",
+              "nav": [
+                "navigate https://example.org/paper.pdf",
+                "navigate https://example.org/paper.pdf"
+              ]
+            }
+          },
+          "0:div>0:div>3:figure>0:a>1:span": {
+            "click": {
+              "f": "0:div>0:div>3:figure>0:a",
+              "nav": ["navigate https://example.org/paper.pdf"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>3:figure>0:a",
+              "nav": [
+                "navigate https://example.org/paper.pdf",
+                "navigate https://example.org/paper.pdf"
+              ]
+            }
+          },
+          "0:div>0:div>5:div>0:div>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>5:div>0:div>0:a",
+              "nav": [
+                "navigate http://localhost/data-providers/86?t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>5:div>0:div>0:a",
+              "nav": [
+                "navigate http://localhost/data-providers/86?t=s1-82984538",
+                "navigate http://localhost/data-providers/86?t=s1-82984538"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:div>5:div>0:div>0:a" }
+          },
+          "0:div>0:div>5:div>0:div>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>5:div>0:div>0:a",
+              "nav": [
+                "navigate http://localhost/data-providers/86?t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>5:div>0:div>0:a",
+              "nav": [
+                "navigate http://localhost/data-providers/86?t=s1-82984538",
+                "navigate http://localhost/data-providers/86?t=s1-82984538"
+              ]
+            }
+          },
+          "0:div>0:div>5:div>1:div>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>5:div>1:div>0:a",
+              "nav": [
+                "navigate http://localhost/data-providers/2313?t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>5:div>1:div>0:a",
+              "nav": [
+                "navigate http://localhost/data-providers/2313?t=s1-82984538",
+                "navigate http://localhost/data-providers/2313?t=s1-82984538"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:div>5:div>1:div>0:a" }
+          },
+          "0:div>0:div>5:div>1:div>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>5:div>1:div>0:a",
+              "nav": [
+                "navigate http://localhost/data-providers/2313?t=s1-82984538"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>5:div>1:div>0:a",
+              "nav": [
+                "navigate http://localhost/data-providers/2313?t=s1-82984538",
+                "navigate http://localhost/data-providers/2313?t=s1-82984538"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "metadata-only": {
+      "dom": [
+        "<div>",
+        "  <div class=\"card-container-11P0y card-elevated-1Clhn styles-container-2Sli1 styles-full-text-missing-itR-a\" id=\"work-du-result-4\" itemscope=\"\" itemtype=\"https://schema.org/ScholarlyArticle\">",
+        "    <header class=\"styles-header-13tcI\">",
+        "      <h3 class=\"styles-title-1k6Ib\" itemprop=\"name\">",
+        "        \"Metadata only\"",
+        "      <div class=\"group-group-2Ka5T\">",
+        "    <dl class=\"metadata-list-list-3uNb8 styles-metadata-list-34iT8\">",
+        "      <div class=\"metadata-list-group-1lOSg\">",
+        "        <dt id=\"du-result-4-author-title\">",
+        "          \"Author\"",
+        "        <dd aria-labelledby=\"du-result-4-author-title\">",
+        "          <ol class=\"expandable-list-list-2znM0\" aria-label=\"Author\">",
+        "            <li itemprop=\"author\" itemscope=\"\" itemtype=\"https://schema.org/Person\">",
+        "              <a href=\"/search?q=author:(Doe, Jane)\" class=\"styles-link-ezM5z\">",
+        "                <span itemprop=\"name\">",
+        "                  \"Doe  Jane\"",
+        "      <div class=\"metadata-list-group-1lOSg metadata-list-empty-1hpLJ\">",
+        "        <dt id=\"du-result-4-venue-title\">",
+        "          \"Publication venue\"",
+        "        <dd aria-labelledby=\"du-result-4-venue-title\">",
+        "      <div class=\"metadata-list-group-1lOSg metadata-list-empty-1hpLJ\">",
+        "        <dt id=\"du-result-4-publication-date-title\">",
+        "          \"Publication date\"",
+        "        <dd aria-labelledby=\"du-result-4-publication-date-title\" itemprop=\"datePublished\">",
+        "      <div class=\"metadata-list-group-1lOSg metadata-list-empty-1hpLJ\">",
+        "        <dt id=\"du-result-4-field-title\">",
+        "          \"Field of study\"",
+        "        <dd aria-labelledby=\"du-result-4-field-title\" itemprop=\"about\">",
+        "    <figure class=\"styles-thumbnail-1xurx\">",
+        "      <a>",
+        "        <img itemprop=\"image\" alt=\"\" loading=\"lazy\">",
+        "        <span class=\"styles-thumbnail-caption-2Qdvz\">",
+        "          \"No full text\"",
+        "    <div class=\"styles-content-35LN7\" itemprop=\"abstract\">",
+        "      <span>",
+        "    <div class=\"styles-footnote-2WLsl\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": [
+        "0:div>0:div",
+        "0:div>0:div>0:header",
+        "0:div>0:div>0:header>0:h3",
+        "0:div>0:div>0:header>1:div",
+        "0:div>0:div>1:dl",
+        "0:div>0:div>1:dl>0:div",
+        "0:div>0:div>1:dl>0:div>0:dt",
+        "0:div>0:div>1:dl>0:div>1:dd",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a",
+        "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a>0:span",
+        "0:div>0:div>1:dl>1:div",
+        "0:div>0:div>1:dl>1:div>0:dt",
+        "0:div>0:div>1:dl>1:div>1:dd",
+        "0:div>0:div>1:dl>2:div",
+        "0:div>0:div>1:dl>2:div>0:dt",
+        "0:div>0:div>1:dl>2:div>1:dd",
+        "0:div>0:div>1:dl>3:div",
+        "0:div>0:div>1:dl>3:div>0:dt",
+        "0:div>0:div>1:dl>3:div>1:dd",
+        "0:div>0:div>2:figure",
+        "0:div>0:div>2:figure>0:a",
+        "0:div>0:div>2:figure>0:a>0:img",
+        "0:div>0:div>2:figure>0:a>1:span",
+        "0:div>0:div>3:div",
+        "0:div>0:div>3:div>0:span",
+        "0:div>0:div>4:div"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:div",
+          "0:div>0:div>0:header",
+          "0:div>0:div>0:header>0:h3",
+          "0:div>0:div>0:header>1:div",
+          "0:div>0:div>1:dl",
+          "0:div>0:div>1:dl>0:div",
+          "0:div>0:div>1:dl>0:div>0:dt",
+          "0:div>0:div>1:dl>0:div>1:dd",
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol",
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li",
+          "0:div>0:div>1:dl>1:div",
+          "0:div>0:div>1:dl>1:div>0:dt",
+          "0:div>0:div>1:dl>1:div>1:dd",
+          "0:div>0:div>1:dl>2:div",
+          "0:div>0:div>1:dl>2:div>0:dt",
+          "0:div>0:div>1:dl>2:div>1:dd",
+          "0:div>0:div>1:dl>3:div",
+          "0:div>0:div>1:dl>3:div>0:dt",
+          "0:div>0:div>1:dl>3:div>1:dd",
+          "0:div>0:div>2:figure",
+          "0:div>0:div>2:figure>0:a",
+          "0:div>0:div>2:figure>0:a>0:img",
+          "0:div>0:div>2:figure>0:a>1:span",
+          "0:div>0:div>3:div",
+          "0:div>0:div>3:div>0:span",
+          "0:div>0:div>4:div"
+        ],
+        "active": {
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a",
+              "nav": ["navigate http://localhost/search?q=author:(Doe,%20Jane)"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Doe,%20Jane)",
+                "navigate http://localhost/search?q=author:(Doe,%20Jane)"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a"
+            }
+          },
+          "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a",
+              "nav": ["navigate http://localhost/search?q=author:(Doe,%20Jane)"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>1:dl>0:div>1:dd>0:ol>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/search?q=author:(Doe,%20Jane)",
+                "navigate http://localhost/search?q=author:(Doe,%20Jane)"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "overlay": null
+}

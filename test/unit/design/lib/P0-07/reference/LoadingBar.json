@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-14",
+  "name": "LoadingBar",
+  "states": {
+    "default": {
+      "dom": ["<div>", "  <div class=\"loading-bar-loading-bar-2YaxI\">"],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:div"],
+      "interactions": { "quiet": ["0:div>0:div"], "active": {} }
+    },
+    "fixed-tag": {
+      "dom": [
+        "<div>",
+        "  <span class=\"loading-bar-loading-bar-2YaxI loading-bar-fixed-DHfYx extra\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:span"],
+      "interactions": { "quiet": ["0:div>0:span"], "active": {} }
+    }
+  },
+  "overlay": null
+}

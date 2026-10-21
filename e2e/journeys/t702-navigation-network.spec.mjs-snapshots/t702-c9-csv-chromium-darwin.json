@@ -1,0 +1,18 @@
+{
+  "requests": [
+    {
+      "kind": "api",
+      "method": "POST",
+      "url": "https://api.core.ac.uk/v3/search/works",
+      "resourceType": "fetch",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "Bearer test-key",
+        "content-type": "application/json"
+      },
+      "body": "{\"q\":\"climate\",\"accept\":\"text/csv\",\"limit\":10}",
+      "status": 200
+    }
+  ],
+  "thirdParty": {}
+}

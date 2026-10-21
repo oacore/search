@@ -1,0 +1,175 @@
+{
+  "path": "/works/1004/",
+  "status": 200,
+  "location": null,
+  "contentType": "text/html; charset=utf-8",
+  "titleRaw": "Ünïcödé – 日本語 – &lt;/script&gt;&lt;script&gt;window.__PWN=1&lt;/script&gt; – mandatory due diligence - CORE",
+  "htmlAttrs": {},
+  "head": {
+    "seo": [
+      {
+        "tag": "title",
+        "attrs": {},
+        "childNodes": [
+          {
+            "type": "text",
+            "data": "Ünïcödé – 日本語 – </script><script>window.__PWN=1</script> – mandatory due diligence - CORE"
+          }
+        ],
+        "text": "Ünïcödé – 日本語 – </script><script>window.__PWN=1</script> – mandatory due diligence - CORE"
+      },
+      {
+        "tag": "meta",
+        "attrs": {
+          "content": "Ünïcödé – 日本語 – </script><script>window.__PWN=1</script> – mandatory due diligence",
+          "name": "citation_title"
+        }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Annalisa Savaresi", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Mikko Rajavuori", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Rajavuori, Mikko", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Harro van Asselt", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "van Asselt, Harro", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Savaresi, Annalisa", "name": "citation_author" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "2023/3/14", "name": "citation_publication_date" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Annalisa Savaresi", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Mikko Rajavuori", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Rajavuori, Mikko", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Harro van Asselt", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "van Asselt, Harro", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": { "content": "Savaresi, Annalisa", "name": "DC.creator" }
+      },
+      {
+        "tag": "meta",
+        "attrs": {
+          "content": "Ünïcödé – 日本語 – </script><script>window.__PWN=1</script> – mandatory due diligence",
+          "name": "DC.title"
+        }
+      },
+      {
+        "tag": "meta",
+        "attrs": {
+          "content": "Abstract with </script><script>window.__PWN=1</script> inside and unicode: ñ ü ß – 日本語",
+          "name": "DCTERMS.abstract"
+        }
+      },
+      {
+        "tag": "script",
+        "attrs": { "type": "application/ld+json" },
+        "jsonldUnparseable": {
+          "text": "{\"@context\":\"http://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"item\":{\"@id\":\"https://core.ac.uk\",\"name\":\"CORE\"}},{\"@type\":\"ListItem\",\"position\":2,\"item\":{\"@id\":\"https://core.ac.uk/reader/1004\",\"name\":\"Ünïcödé – 日本語 – ",
+          "error": "SyntaxError"
+        }
+      }
+    ],
+    "favicons": [
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-64px.png",
+          "rel": "icon",
+          "sizes": "64x64",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-128px.png",
+          "rel": "icon",
+          "sizes": "128x128",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-256px.png",
+          "rel": "icon",
+          "sizes": "256x256",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-512px.png",
+          "rel": "icon",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon.svg",
+          "rel": "icon",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      }
+    ],
+    "frame": [
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
+      {
+        "tag": "meta",
+        "attrs": { "content": "width=device-width", "name": "viewport" }
+      }
+    ],
+    "other": [{ "tag": "script", "attrs": {}, "text": "window.__PWN=1" }]
+  },
+  "bodyLead": {
+    "seo": [],
+    "favicons": [],
+    "frame": [],
+    "other": [
+      { "tag": "script", "attrs": {}, "text": "window.__PWN=1" },
+      { "tag": "script", "attrs": {}, "text": "window.__PWN=1" },
+      { "tag": "script", "attrs": {}, "text": "window.__PWN=1" }
+    ]
+  },
+  "bodyLeadText": [
+    "– mandatory due diligence\",\"image\":\"https://core.ac.uk/image/1004/large\"}},{\"@type\":\"ListItem\",\"position\":3,\"item\":{\"@id\":\"https://core.ac.uk/search?q=repositories.id:(4786)\",\"name\":\"Crossref\"}}]},{\"@type\":\"ScholarlyArticle\",\"@id\":\"https://core.ac.uk/reader/1004\",\"headline\":\"Ünïcödé – 日本語 – ",
+    " – mandatory due diligence\",\"abstract\":\"Abstract with ",
+    " inside and unicode: ñ ü ß – 日本語\",\"name\":\"Ünïcödé – 日本語 – ",
+    " – mandatory due diligence\",\"author\":[{\"@type\":\"Person\",\"name\":{\"name\":\"Annalisa Savaresi\"}},{\"@type\":\"Person\",\"name\":{\"name\":\"Mikko Rajavuori\"}},{\"@type\":\"Person\",\"name\":{\"name\":\"Rajavuori, Mikko\"}},{\"@type\":\"Person\",\"name\":{\"name\":\"Harro van Asselt\"}},{\"@type\":\"Person\",\"name\":{\"name\":\"van Asselt, Harro\"}},{\"@type\":\"Person\",\"name\":{\"name\":\"Savaresi, Annalisa\"}}],\"datePublished\":\"2023-03-14T00:00:00+00:00\",\"isAccessibleForFree\":true,\"provider\":{\"@type\":\"Organization\",\"name\":\"Crossref\"},\"image\":\"https://core.ac.uk/image/1004/large\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"Wiley\"}}]}"
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "start": {
+    "history": [
+      {
+        "method": "replaceState",
+        "url": "<origin>/search/?q=climate&page=2&sort=recent",
+        "stateKeys": "__N,as,idx,options,url"
+      }
+    ],
+    "addedEntries": 0,
+    "scrollY": 0,
+    "scrollRestoration": "auto"
+  },
+  "work": {
+    "history": [
+      {
+        "method": "replaceState",
+        "url": "<origin>/works/80231700/?t=acf43df7361f31ccae19b8c76873eccb-80231700&search=q=climate&page=2&sort=recent",
+        "stateKeys": "__N,as,idx,options,url"
+      }
+    ],
+    "addedEntries": 0
+  },
+  "back": {
+    "history": [
+      {
+        "method": "replaceState",
+        "url": "<origin>/search/?q=climate&page=2&sort=recent",
+        "stateKeys": "__N,as,idx,options,url"
+      }
+    ],
+    "addedEntries": 0,
+    "scrollY": 0,
+    "scrollRestoration": "auto"
+  },
+  "requests": {
+    "start": [
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/86/logo",
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate\"}",
+        "status": 200
+      },
+      {
+        "kind": "document",
+        "method": "GET",
+        "url": "/search/?q=climate&page=2&sort=recent",
+        "body": null,
+        "status": 200
+      }
+    ],
+    "work": [
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/2313/logo",
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/2313/logo",
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": "{\"identifier\":\"core:80231700\",\"limit\":5,\"resultType\":\"work\"}",
+        "status": 200
+      },
+      {
+        "kind": "document",
+        "method": "GET",
+        "url": "/works/80231700/?t=acf43df7361f31ccae19b8c76873eccb-80231700&search=q=climate&page=2&sort=recent",
+        "body": null,
+        "status": 200
+      }
+    ],
+    "back": [
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/86/logo",
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate\"}",
+        "status": 200
+      },
+      {
+        "kind": "document",
+        "method": "GET",
+        "url": "/search/?q=climate&page=2&sort=recent",
+        "body": null,
+        "status": 200
+      }
+    ]
+  }
+}

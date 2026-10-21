@@ -1,0 +1,37 @@
+{
+  "reportUrl": {
+    "requests": [
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/outputs/2001",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "application/json",
+          "authorization": "Bearer test-key"
+        },
+        "body": null,
+        "status": 200
+      }
+    ],
+    "thirdParty": {}
+  },
+  "submit": {
+    "requests": [
+      {
+        "kind": "api",
+        "method": "POST",
+        "url": "https://api.core.ac.uk/internal/outputs/update",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "application/json",
+          "authorization": "Bearer test-key",
+          "content-type": "application/json"
+        },
+        "body": "{\"outputId\":2001,\"name\":\"Test Reporter\",\"email\":\"reporter@localhost\",\"message\":\"report-ok\",\"updateOption\":\"takeDownFullText\",\"role\":\"author\"}",
+        "status": 201
+      }
+    ],
+    "thirdParty": {}
+  }
+}

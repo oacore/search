@@ -1,0 +1,306 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-20",
+  "name": "MathMarkdown",
+  "states": {
+    "text": {
+      "dom": ["<div>", "  <span>", "    \"Plain text title\""],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:span"],
+      "interactions": { "quiet": ["0:div>0:span"], "active": {} }
+    },
+    "inline-block-literal": {
+      "dom": [
+        "<div>",
+        "  <span>",
+        "    \"Inline \"",
+        "    <span>",
+        "      <span class=\"katex\">",
+        "        <span class=\"katex-mathml\">",
+        "          <math xmlns=\"http://www.w3.org/1998/Math/MathML\">",
+        "            <semantics>",
+        "              <mrow>",
+        "                <msup>",
+        "                  <mi>",
+        "                    \"x\"",
+        "                  <mn>",
+        "                    \"2\"",
+        "              <annotation encoding=\"application/x-tex\">",
+        "                \"x^2\"",
+        "        <span class=\"katex-html\" aria-hidden=\"true\">",
+        "          <span class=\"base\">",
+        "            <span class=\"strut\" style=\"height:0.8141em;\">",
+        "            <span class=\"mord\">",
+        "              <span class=\"mord mathnormal\">",
+        "                \"x\"",
+        "              <span class=\"msupsub\">",
+        "                <span class=\"vlist-t\">",
+        "                  <span class=\"vlist-r\">",
+        "                    <span class=\"vlist\" style=\"height:0.8141em;\">",
+        "                      <span style=\"top:-3.063em;margin-right:0.05em;\">",
+        "                        <span class=\"pstrut\" style=\"height:2.7em;\">",
+        "                        <span class=\"sizing reset-size6 size3 mtight\">",
+        "                          <span class=\"mord mtight\">",
+        "                            \"2\"",
+        "    \" and block \"",
+        "    <span>",
+        "      <span class=\"katex-display\">",
+        "        <span class=\"katex\">",
+        "          <span class=\"katex-mathml\">",
+        "            <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\">",
+        "              <semantics>",
+        "                <mrow>",
+        "                  <mfrac>",
+        "                    <mn>",
+        "                      \"1\"",
+        "                    <mn>",
+        "                      \"2\"",
+        "                <annotation encoding=\"application/x-tex\">",
+        "                  \"\\\\frac{1}{2}\"",
+        "          <span class=\"katex-html\" aria-hidden=\"true\">",
+        "            <span class=\"base\">",
+        "              <span class=\"strut\" style=\"height:2.0074em;vertical-align:-0.686em;\">",
+        "              <span class=\"mord\">",
+        "                <span class=\"mopen nulldelimiter\">",
+        "                <span class=\"mfrac\">",
+        "                  <span class=\"vlist-t vlist-t2\">",
+        "                    <span class=\"vlist-r\">",
+        "                      <span class=\"vlist\" style=\"height:1.3214em;\">",
+        "                        <span style=\"top:-2.314em;\">",
+        "                          <span class=\"pstrut\" style=\"height:3em;\">",
+        "                          <span class=\"mord\">",
+        "                            <span class=\"mord\">",
+        "                              \"2\"",
+        "                        <span style=\"top:-3.23em;\">",
+        "                          <span class=\"pstrut\" style=\"height:3em;\">",
+        "                          <span class=\"frac-line\" style=\"border-bottom-width:0.04em;\">",
+        "                        <span style=\"top:-3.677em;\">",
+        "                          <span class=\"pstrut\" style=\"height:3em;\">",
+        "                          <span class=\"mord\">",
+        "                            <span class=\"mord\">",
+        "                              \"1\"",
+        "                      <span class=\"vlist-s\">",
+        "                        \"​\"",
+        "                    <span class=\"vlist-r\">",
+        "                      <span class=\"vlist\" style=\"height:0.686em;\">",
+        "                        <span>",
+        "                <span class=\"mclose nulldelimiter\">",
+        "    \" and **x** stays\""
+      ],
+      "mount": { "f": "body" },
+      "nodes": [
+        "0:div>0:span",
+        "0:div>0:span>0:span",
+        "0:div>0:span>0:span>0:span",
+        "0:div>0:span>0:span>0:span>0:span",
+        "0:div>0:span>0:span>0:span>0:span>0:math",
+        "0:div>0:span>0:span>0:span>0:span>0:math>0:semantics",
+        "0:div>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow",
+        "0:div>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:msup",
+        "0:div>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:msup>0:mi",
+        "0:div>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:msup>1:mn",
+        "0:div>0:span>0:span>0:span>0:span>0:math>0:semantics>1:annotation",
+        "0:div>0:span>0:span>0:span>1:span",
+        "0:div>0:span>0:span>0:span>1:span>0:span",
+        "0:div>0:span>0:span>0:span>1:span>0:span>0:span",
+        "0:div>0:span>0:span>0:span>1:span>0:span>1:span",
+        "0:div>0:span>0:span>0:span>1:span>0:span>1:span>0:span",
+        "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span",
+        "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span",
+        "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span",
+        "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span",
+        "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span",
+        "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>0:span",
+        "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>1:span",
+        "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>1:span>0:span",
+        "0:div>0:span>1:span",
+        "0:div>0:span>1:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>0:span>0:math",
+        "0:div>0:span>1:span>0:span>0:span>0:span>0:math>0:semantics",
+        "0:div>0:span>1:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow",
+        "0:div>0:span>1:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:mfrac",
+        "0:div>0:span>1:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:mfrac>0:mn",
+        "0:div>0:span>1:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:mfrac>1:mn",
+        "0:div>0:span>1:span>0:span>0:span>0:span>0:math>0:semantics>1:annotation",
+        "0:div>0:span>1:span>0:span>0:span>1:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>1:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>1:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>1:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>1:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>1:span>1:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>2:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>2:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>2:span>1:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>2:span>1:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>1:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>1:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>1:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>1:span>0:span>0:span",
+        "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>2:span"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:span",
+          "0:div>0:span>0:span",
+          "0:div>0:span>0:span>0:span",
+          "0:div>0:span>0:span>0:span>0:span",
+          "0:div>0:span>0:span>0:span>1:span",
+          "0:div>0:span>0:span>0:span>1:span>0:span",
+          "0:div>0:span>0:span>0:span>1:span>0:span>0:span",
+          "0:div>0:span>0:span>0:span>1:span>0:span>1:span",
+          "0:div>0:span>0:span>0:span>1:span>0:span>1:span>0:span",
+          "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span",
+          "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span",
+          "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span",
+          "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span",
+          "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span",
+          "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>0:span",
+          "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>1:span",
+          "0:div>0:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>1:span>0:span",
+          "0:div>0:span>1:span",
+          "0:div>0:span>1:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>1:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>0:span>1:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>1:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>1:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>1:span>1:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>2:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>2:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>2:span>1:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>0:span>2:span>1:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>0:span>1:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>1:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>1:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>1:span>0:span>1:span>0:span>0:span",
+          "0:div>0:span>1:span>0:span>0:span>1:span>0:span>1:span>2:span"
+        ],
+        "active": {
+          "0:div>0:span>0:span>0:span>0:span>0:math": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>0:span>0:span>0:span>0:math>0:semantics": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:msup": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:msup>0:mi": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:msup>1:mn": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>0:span>0:span>0:span>0:math>0:semantics>1:annotation": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>1:span>0:span>0:span>0:span>0:math": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>1:span>0:span>0:span>0:span>0:math>0:semantics": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>1:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>1:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:mfrac": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>1:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:mfrac>0:mn": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>1:span>0:span>0:span>0:span>0:math>0:semantics>0:mrow>0:mfrac>1:mn": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          },
+          "0:div>0:span>1:span>0:span>0:span>0:span>0:math>0:semantics>1:annotation": {
+            "click,dblclick,hover": {
+              "e": "TypeError: Array.prototype.forEach called on null or undefined"
+            }
+          }
+        }
+      }
+    },
+    "break-line": {
+      "dom": [
+        "<div>",
+        "  <span>",
+        "    \"First\"",
+        "    <br>",
+        "    \"Second\""
+      ],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:span", "0:div>0:span>0:br"],
+      "interactions": {
+        "quiet": ["0:div>0:span", "0:div>0:span>0:br"],
+        "active": {}
+      }
+    },
+    "no-children": {
+      "dom": ["<div>", "  <span>"],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:span"],
+      "interactions": { "quiet": ["0:div>0:span"], "active": {} }
+    }
+  },
+  "overlay": null
+}

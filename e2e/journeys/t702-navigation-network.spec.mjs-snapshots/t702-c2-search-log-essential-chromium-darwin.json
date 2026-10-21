@@ -1,0 +1,399 @@
+[
+  {
+    "action": "load",
+    "requests": [
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "image",
+        "headers": {
+          "accept": "image/jxl,image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/2313/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/2313/logo",
+        "resourceType": "image",
+        "headers": {
+          "accept": "image/jxl,image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/86/logo",
+        "resourceType": "image",
+        "headers": {
+          "accept": "image/jxl,image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "application/json",
+          "authorization": "Bearer test-key",
+          "content-type": "application/json"
+        },
+        "body": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate\"}",
+        "status": 200
+      },
+      {
+        "kind": "document",
+        "method": "GET",
+        "url": "<origin>/search/?q=climate",
+        "resourceType": "document",
+        "headers": {
+          "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/jxl,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+        },
+        "body": null,
+        "status": 200
+      }
+    ],
+    "thirdParty": {
+      "cdn.lgrckt-in.com": 1
+    }
+  },
+  {
+    "action": "page",
+    "requests": [
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/197/logo",
+        "resourceType": "image",
+        "headers": {
+          "accept": "image/jxl,image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+        },
+        "body": null,
+        "status": 200
+      },
+      {
+        "kind": "next-data",
+        "method": "GET",
+        "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate&page=2",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      }
+    ],
+    "thirdParty": {}
+  },
+  {
+    "action": "sort",
+    "requests": [
+      {
+        "kind": "next-data",
+        "method": "GET",
+        "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate&page=1&sort=recent",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      }
+    ],
+    "thirdParty": {}
+  },
+  {
+    "action": "toggle",
+    "requests": [
+      {
+        "kind": "api",
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "application/json",
+          "authorization": "Bearer test-key",
+          "content-type": "application/json"
+        },
+        "body": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate AND documentType:\\\"thesis\\\"\"}",
+        "status": 200
+      },
+      {
+        "kind": "next-data",
+        "method": "GET",
+        "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate+AND+documentType%3A%22thesis%22&page=1&sort=recent",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      }
+    ],
+    "thirdParty": {}
+  },
+  {
+    "action": "clear",
+    "requests": [
+      {
+        "kind": "api",
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "application/json",
+          "authorization": "Bearer test-key",
+          "content-type": "application/json"
+        },
+        "body": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate\"}",
+        "status": 200
+      },
+      {
+        "kind": "api",
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "application/json",
+          "authorization": "Bearer test-key",
+          "content-type": "application/json"
+        },
+        "body": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate\"}",
+        "status": 200
+      },
+      {
+        "kind": "next-data",
+        "method": "GET",
+        "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate&page=1&sort=recent",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      }
+    ],
+    "thirdParty": {}
+  },
+  {
+    "action": "back",
+    "requests": [
+      {
+        "kind": "api",
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "application/json",
+          "authorization": "Bearer test-key",
+          "content-type": "application/json"
+        },
+        "body": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate AND documentType:\\\"thesis\\\"\"}",
+        "status": 200
+      },
+      {
+        "kind": "next-data",
+        "method": "GET",
+        "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate+AND+documentType%3A%22thesis%22&page=1&sort=recent",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      }
+    ],
+    "thirdParty": {}
+  },
+  {
+    "action": "forward",
+    "requests": [
+      {
+        "kind": "api",
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "application/json",
+          "authorization": "Bearer test-key",
+          "content-type": "application/json"
+        },
+        "body": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate\"}",
+        "status": 200
+      },
+      {
+        "kind": "next-data",
+        "method": "GET",
+        "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate&page=1&sort=recent",
+        "resourceType": "fetch",
+        "headers": {
+          "accept": "*/*"
+        },
+        "body": null,
+        "status": 200
+      }
+    ],
+    "thirdParty": {}
+  }
+]

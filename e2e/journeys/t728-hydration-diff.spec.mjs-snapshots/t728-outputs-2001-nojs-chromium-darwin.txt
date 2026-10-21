@@ -1,0 +1,419 @@
+<body>
+  <div id="__next">
+    <div class="styles_container">
+      <header class="styles-container-2d0MF styles-container-1KefU" id="header">
+        <div class="styles-item-1WhX8 styles-logo-container-261sh">
+          <a class="styles-logo-link-3SQhe" href="https://core.ac.uk/">
+            <span class="logo-logo-wCAGq styles-logo-3C3lk">
+              <svg aria-label="CORE" class="icon-icon-35iz- logo-logo-icon-1JnTB" height="24" role="img" width="18">
+                <use href="/static/search/icons.svg#core-symbol">
+              "CORE"
+            <div class="styles-separator-3Hkfn">
+            <div class="styles-peace-1CGQO">
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "CO"
+                "nnecting"
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "RE"
+                "positories"
+        <div class="styles-item-1WhX8 styles-toggle-container-3kw9N">
+          <button aria-controls="header-nav" aria-expanded="false" aria-label="Toggle navigation" class="button-button-3fr3r button-text-2Jjil styles-toggle-button-3MDvL" type="button">
+            <svg aria-hidden="true" aria-label="Menu icon" class="icon-icon-35iz-" height="24" role="img" width="24">
+              <use href="/static/search/icons.svg#menu">
+        <nav class="styles-item-1WhX8 styles-nav-1DaTS" id="header-nav">
+          <div class="styles-menu-2MrzW styles-services-menu-3Y6g_">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="services-title" role="button">
+              "Services"
+            <ul aria-labelledby="services-title" class="styles-menu-list-2qL0f">
+              <li class="styles-item-34TYT styles-services-overview-item-9AF_0">
+                <a class="styles-item-link--QpIs" href="/services">
+                  <img alt="" src=<len=34345 sha256=a0b9ceaf15f270fe "data:image/svg+xml,<svg viewBox=\"0 0 12953 10812"...>>
+                  <span class="styles-services-overview-item-label-2qM2Y">
+                    "Services overview"
+                  <span class="styles-services-overview-item-description-1SQ-o">
+                    "Explore all CORE services"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="access-to-raw-data-title">
+                  "Access to raw data"
+                <ul aria-labelledby="access-to-raw-data-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/api">
+                      "API"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/dataset">
+                      "Dataset"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fastsync">
+                      "FastSync"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="content-discovery-title">
+                  "Content discovery"
+                <ul aria-labelledby="content-discovery-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/recommender">
+                      "Recommender"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/discovery">
+                      "Discovery"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="oai-resolver-title">
+                  "OAI identifiers"
+                <ul aria-labelledby="oai-resolver-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/documentation/oai-resolver">
+                      "OAI Resolver"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="managing-content-title">
+                  "Managing content"
+                <ul aria-labelledby="managing-content-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/repository-dashboard">
+                      "Dashboard"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fair-certification">
+                      "FAIR Certification"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="contracts-title">
+                  "Bespoke contracts"
+                <ul aria-labelledby="contracts-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/consultancy">
+                      "Consultancy services"
+          <div class="styles-menu-2MrzW styles-communities-menu-3a1Ao">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="communities-title" role="button">
+              "Support us"
+            <ul aria-labelledby="communities-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T styles-support-menu-36qjb">
+                <h3 class="styles-group-title-1v3Na" id="membership-title">
+                  "Support us"
+                <ul aria-labelledby="membership-title" class="styles-group-list-37aX1">
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/membership">
+                    <span>
+                      "Membership"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/sponsorship">
+                    <span>
+                      "Sponsorship"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/governance/research">
+                    <span>
+                      "Research partnership"
+          <div class="styles-menu-2MrzW styles-about-menu-3ZQZB">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="about-title" role="button">
+              "About"
+            <ul aria-labelledby="about-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="about-title">
+                  "About"
+                <ul aria-labelledby="about-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about">
+                      "About us"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#mission">
+                      "Our mission"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#team">
+                      "Team"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="//blog.core.ac.uk">
+                      "Blog"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/faq">
+                      "FAQs"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#contact">
+                      "Contact us"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="community-title">
+                  "Community governance"
+                <ul aria-labelledby="community-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance">
+                      "Governance"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/advisory">
+                      "Advisory Board"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/supporters">
+                      "Board of supporters"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/research">
+                      "Research network"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="innovations-title">
+                  "Innovations"
+                <ul aria-labelledby="innovations-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about/research-outputs">
+                      "Our research"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/innovations/labs">
+                      "Labs"
+      <main class="styles_main">
+        <div class="styles_container styles_output-container">
+          <div class="styles_main">
+            <div class="styles_background">
+              <div class="styles_navigation-trail">
+                <a href="https://core.ac.uk/search/?ts/2001/" rel="noreferrer" target="_blank">
+                  "Search results"
+                <span class="styles_separator">
+                  ">"
+                <a href="#">
+                  "Research output from "
+                  <!--" "-->
+                  "Open Research Online (The Open University)"
+              <div class="styles_info">
+                <div class="styles_oai">
+                  <img alt="oai" src="/static/search/static/images/oai.svg">
+                  <a href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
+                    "oai:oro.open.ac.uk:90496"
+              <h1>
+                <span>
+                  "Novel approach for deriving genome wide SNP analysis data from archived blood spots"
+              <dl class="metadata-list-list-3uNb8 styles_metadata">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="metadata-authors-title">
+                    "Authors"
+                  <dd aria-labelledby="metadata-authors-title">
+                    <ol class="expandable-list-list-2znM0">
+                      <li id="author" itemprop="author" itemtype="https://schema.org/Person">
+                        <a class="styles_author-link" href="https://core.ac.uk/search?q=authors:(Fowler, Katie E.)">
+                          "Katie E. Fowler"
+                      <li id="author" itemprop="author" itemtype="https://schema.org/Person">
+                        <a class="styles_author-link" href="https://core.ac.uk/search?q=authors:(Reitter, Chris P)">
+                          "Chris P Reitter"
+                      <li id="author" itemprop="author" itemtype="https://schema.org/Person">
+                        <a class="styles_author-link" href="https://core.ac.uk/search?q=authors:(Walling, Grant A)">
+                          "Grant A Walling"
+                      <li id="author" itemprop="author" itemtype="https://schema.org/Person">
+                        <a class="styles_author-link" href="https://core.ac.uk/search?q=authors:(Griffin, Darren K)">
+                          "Darren K Griffin"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="metadata-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="metadata-publication-date-title">
+                    "1 January 2012"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="metadata-publisher-title">
+                    "Publisher"
+                  <dd aria-labelledby="metadata-publisher-title">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="doi-title">
+                    "Doi"
+                  <dd aria-labelledby="doi-title">
+                    <ol class="expandable-list-list-2znM0">
+              <div class="styles_buttons">
+                <button aria-pressed="false" class="button-button-3fr3r button-contained-pmIp- citation_cite-button">
+                  <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#format-quote-open">
+                  <span class="citation_cite-btn">
+                    "Cite"
+            <div class="styles_container-main">
+              <section class="styles_abstract" id="abstract">
+                <h2>
+                  "Abstract"
+                <span>
+                  <len=1479 sha256=6b9274694b4adae4 "Background\n\nThe ability to transport and store D"...>
+              <div>
+                <ul class="styles_keywords-list">
+              <section>
+                <h2>
+                  "Similar works"
+          <div class="styles_sidebar styles_container-sidebar">
+            <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2001">
+              <h2 class="thumbnail-card_title" id="full-text-thumbnail-2001-title">
+                "Full text"
+            <div>
+              <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2001">
+              <div class="thumbnail-card_button-container">
+                <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2001">
+                <a class="button-button-3fr3r button-contained-pmIp-" href="<stack>/reader/571618880">
+                  "Open in the Core reader"
+                  <!--" "-->
+                  " "
+                  <svg class="icon-icon-35iz- thumbnail-card_icon" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#open-in-new">
+              <div class="thumbnail-card_download-container">
+                <a class="button-button-3fr3r button-outlined-3dJXM thumbnail-card_download" download="" target="_blank">
+                  "Download PDF"
+            <div class="thumbnail-card_body" id="full-text-thumbnail-2001-body">
+              <div class="">
+                <div class="styles_header">
+                  <div class="styles_content">
+                    <div class="styles_header-wrapper">
+                      <div class="styles_item-wrapper">
+                        <div class="data-provider-md-1r-YM data-provider-circle-1YXHk">
+                          <svg class="icon-icon-35iz- data-provider-image-2JFrU" height="24" role="img" width="24">
+                            <use href="/static/search/icons.svg#office-building">
+                        <div class="styles_inner-wrapper">
+                          <h3 class="card-title-2rvi9 styles_title">
+                            "Open Research Online (The Open University)"
+                        <img alt="redirect" class="styles_redirect-img" src=<len=666 sha256=2efe7dd1c0c348ee "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cD"...>>
+                    <span class="card-description-3Qppz styles_subtitle">
+                      <a href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
+                        <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
+                          "Go to the repository landing page"
+                      <div>
+                        <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
+                          "Download from data provider"
+                <div>
+                  <span class="card-description-3Qppz card-dropdown_identifier">
+                    <div class="card-dropdown_inner-identifier">
+                      <img alt="oai" class="card-dropdown_oai-logo" src="/static/search/static/images/oai.svg">
+                      <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
+                        "oai:oro.open.ac.uk:90496"
+                    <div>
+                      <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
+                        <use href="/static/search/icons.svg#content-copy">
+                  <span class="card-description-3Qppz card-dropdown_date">
+                    "Last time updated on "
+                    <!--" "-->
+                    "10/07/2023"
+                  <a class="card-dropdown_member-highlight" href="https://core.ac.uk/membership">
+                    "Provided by our "
+                    <!--" "-->
+                    "Sustaining"
+                    <!--" "-->
+                    " "
+                    <!--" "-->
+                    "member"
+            <div class="card-container-11P0y card-outlined-1ScI1 styles_card">
+              <div class="styles_container styles_map">
+              <p>
+                "This paper was published in"
+                <!--" "-->
+                " "
+                <a href="//core.ac.uk/data-providers/86" rel="noreferrer" target="_blank">
+                  <b>
+                    "Open Research Online (The Open University)"
+                "."
+            <div class="card-container-11P0y card-outlined-1ScI1 styles_report-card">
+              <h1 class="card-title-2rvi9 styles_report-card-text">
+                "Having an issue?"
+              <p class="card-description-3Qppz styles_report-card-text">
+                "Is data on this page outdated, violates copyrights or anything else? Report the problem now and we will take corresponding actions after reviewing your request."
+              <div class="card-footer-1UaTv styles_report-card-footer">
+                <button class="button-button-3fr3r button-text-2Jjil">
+                  "Report"
+            <div class="styles_license-wrapper">
+              "Licence: "
+              <span class="styles_license-type">
+                "http://creativecommons.org/licenses/by/4.0"
+      <footer class="footer-footer-7joNV" id="footer">
+        <div class="footer-container-1XrUr">
+          <div class="footer-section-logos-1_Ejr">
+            <div class="footer-logos-28CCb">
+              <a href="https://core.ac.uk">
+                <svg aria-label="core logo" class="icon-icon-35iz- footer-footer-main-logo-1jMdX" height="24" role="img" width="24">
+                  <use href="/static/search/icons.svg#coreLogo">
+            <p>
+              "CORE (COnnecting REpositories) is a not-for-profit service supported by"
+              <!--" "-->
+              " "
+              <a href="https://core.ac.uk/governance/supporters#membership-list">
+                <span>
+                  "CORE Members."
+          <menu class="footer-menu-2JIRS">
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Product"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/services">
+                    "Services"
+                <li class="footer-item-1F33t">
+                  <a href="/membership">
+                    "Membership"
+                <li class="footer-item-1F33t">
+                  <a href="/sponsorship">
+                    "Sponsorship"
+                <li class="footer-item-1F33t">
+                  <a href="/innovations/labs">
+                    "Labs"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Organisation"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/about">
+                    "About us"
+                <li class="footer-item-1F33t">
+                  <a href="/about#our-mission">
+                    "Governance"
+                <li class="footer-item-1F33t">
+                  <a href="/about#team">
+                    "Team"
+                <li class="footer-item-1F33t">
+                  <a href="/benefits">
+                    "Data providers"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Support"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/terms">
+                    "Terms"
+                <li class="footer-item-1F33t">
+                  <a href="/faq">
+                    "FAQs"
+                <li class="footer-item-1F33t">
+                  <a href="https://blog.core.ac.uk/">
+                    "Blog"
+                <li class="footer-item-1F33t">
+                  <a href="/about#contact">
+                    "Contact us"
+          <div class="footer-section-card-3esBH">
+            <div class="footer-card-1yZdd">
+              <div>
+                <h6 class="footer-card-title-3Uaog">
+                  "Writing about CORE?"
+                <p class="footer-card-desc-30YMW">
+                  "Discover our"
+                  <!--" "-->
+                  " "
+                  <a href="/about/research-outputs">
+                    "research outputs"
+                  " and cite our work."
+                " "
+              <svg aria-label="writing" class="icon-icon-35iz- footer-card-img-o-6kR" height="24" role="img" width="24">
+                <use href="/static/search/icons.svg#writing">
+            <div class="footer-contact-wrapper-17ZHP">
+              <span class="footer-contact-2b5lt">
+                "Follow us:"
+              <div class="footer-footer-icons-2NPaF">
+                <a href="https://twitter.com/oacore" target="_blank">
+                  <svg aria-label="twitter" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#twitter">
+                <a href="https://www.linkedin.com/company/coreoa" target="_blank">
+                  <svg aria-label="linkedin" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#linkedin">
+                <a href="https://github.com/oacore" target="_blank">
+                  <svg aria-label="github" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#github">
+        <div class="footer-bottom-3E5D_">
+          <a class="footer-bottom-link-PaLMR" href="/accessibility">
+            "Accessibility"
+          <a class="footer-bottom-link-PaLMR" href="/cookies">
+            "Cookies"
+          <a class="footer-bottom-link-PaLMR" href="/privacy">
+            "Privacy"
+  <script next-owned="__NEXT_DATA__">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">

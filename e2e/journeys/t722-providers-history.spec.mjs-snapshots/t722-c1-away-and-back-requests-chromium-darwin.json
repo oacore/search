@@ -1,0 +1,42 @@
+{
+  "awayRequests": [
+    [
+      "api",
+      "GET",
+      "https://api.core.ac.uk/internal/data-providers/8/account",
+      200
+    ],
+    [
+      "api",
+      "GET",
+      "https://api.core.ac.uk/internal/data-providers/8/account",
+      200
+    ],
+    [
+      "api",
+      "GET",
+      "https://api.core.ac.uk/internal/data-providers/8/account",
+      200
+    ],
+    [
+      "next-data",
+      "GET",
+      "/search/_next/data/<buildId>/data-providers/8.json?id=8",
+      200
+    ]
+  ],
+  "backRequests": [
+    [
+      "api",
+      "GET",
+      "https://api.core.ac.uk/internal/data-providers/8/account",
+      200
+    ],
+    [
+      "next-data",
+      "GET",
+      "/search/_next/data/<buildId>/data-providers.json",
+      200
+    ]
+  ]
+}

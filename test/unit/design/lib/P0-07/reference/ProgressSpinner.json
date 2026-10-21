@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-21",
+  "name": "ProgressSpinner",
+  "states": {
+    "indeterminate": {
+      "dom": [
+        "<div>",
+        "  <svg class=\"styles-spinner-3zm_K styles-indeterminate-24wOy\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">",
+        "    <circle stroke-width=\"2\" stroke-linecap=\"butt\" cx=\"12\" cy=\"12\" r=\"9\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:svg", "0:div>0:svg>0:circle"],
+      "interactions": {
+        "quiet": ["0:div>0:svg", "0:div>0:svg>0:circle"],
+        "active": {}
+      }
+    },
+    "determinate": {
+      "dom": [
+        "<div>",
+        "  <svg class=\"styles-spinner-3zm_K\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">",
+        "    <circle stroke-width=\"2\" stroke-linecap=\"butt\" stroke-dasharray=\"29 28\" cx=\"12\" cy=\"12\" r=\"9\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:svg", "0:div>0:svg>0:circle"],
+      "interactions": {
+        "quiet": ["0:div>0:svg", "0:div>0:svg>0:circle"],
+        "active": {}
+      }
+    },
+    "value-of-max": {
+      "dom": [
+        "<div>",
+        "  <svg class=\"styles-spinner-3zm_K extra\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">",
+        "    <circle stroke-width=\"2\" stroke-linecap=\"butt\" stroke-dasharray=\"29 28\" cx=\"12\" cy=\"12\" r=\"9\">",
+        "    <title>",
+        "      \"Loading\""
+      ],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:svg", "0:div>0:svg>0:circle", "0:div>0:svg>1:title"],
+      "interactions": {
+        "quiet": ["0:div>0:svg", "0:div>0:svg>0:circle", "0:div>0:svg>1:title"],
+        "active": {}
+      }
+    }
+  },
+  "overlay": null
+}

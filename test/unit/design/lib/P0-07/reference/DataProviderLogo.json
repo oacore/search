@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-13",
+  "name": "DataProviderLogo",
+  "states": {
+    "sizes": {
+      "dom": [
+        "<div>",
+        "  <div>",
+        "    <div class=\"data-provider-sm-6ZNTy data-provider-circle-1YXHk\">",
+        "      <img src=\"/logo-1.png\" alt=\"Logo sm\" class=\"data-provider-image-2JFrU\">",
+        "    <div class=\"data-provider-md-1r-YM data-provider-circle-1YXHk\">",
+        "      <img src=\"/logo-1.png\" alt=\"Logo md\" class=\"data-provider-image-2JFrU\">",
+        "    <div class=\"data-provider-lg-1dRNT data-provider-circle-1YXHk\">",
+        "      <img src=\"/logo-1.png\" alt=\"Logo lg\" class=\"data-provider-image-2JFrU\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": [
+        "0:div>0:div",
+        "0:div>0:div>0:div",
+        "0:div>0:div>0:div>0:img",
+        "0:div>0:div>1:div",
+        "0:div>0:div>1:div>0:img",
+        "0:div>0:div>2:div",
+        "0:div>0:div>2:div>0:img"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:div",
+          "0:div>0:div>0:div",
+          "0:div>0:div>0:div>0:img",
+          "0:div>0:div>1:div",
+          "0:div>0:div>1:div>0:img",
+          "0:div>0:div>2:div",
+          "0:div>0:div>2:div>0:img"
+        ],
+        "active": {}
+      }
+    },
+    "default-icon": {
+      "dom": [
+        "<div>",
+        "  <div class=\"data-provider-md-1r-YM data-provider-circle-1YXHk\">",
+        "    <svg class=\"icon-icon-35iz- data-provider-image-2JFrU\" role=\"img\" width=\"24\" height=\"24\">",
+        "      <use href=\"/static/search/icons.svg#office-building\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:div", "0:div>0:div>0:svg", "0:div>0:div>0:svg>0:use"],
+      "interactions": {
+        "quiet": [
+          "0:div>0:div",
+          "0:div>0:div>0:svg",
+          "0:div>0:div>0:svg>0:use"
+        ],
+        "active": {}
+      }
+    },
+    "no-default": {
+      "dom": [
+        "<div>",
+        "  <span class=\"data-provider-md-1r-YM data-provider-hidden-AS7Ey\">",
+        "    <svg class=\"icon-icon-35iz- data-provider-image-2JFrU\" role=\"img\" width=\"24\" height=\"24\">",
+        "      <use href=\"/static/search/icons.svg#office-building\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": [
+        "0:div>0:span",
+        "0:div>0:span>0:svg",
+        "0:div>0:span>0:svg>0:use"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:span",
+          "0:div>0:span>0:svg",
+          "0:div>0:span>0:svg>0:use"
+        ],
+        "active": {}
+      }
+    }
+  },
+  "overlay": null
+}

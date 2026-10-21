@@ -1,0 +1,860 @@
+<body>
+  <div id="__next">
+    <div class="styles_container">
+      <header class="styles-container-2d0MF styles-container-1KefU" id="header">
+        <div class="styles-item-1WhX8 styles-logo-container-261sh">
+          <a class="styles-logo-link-3SQhe" href="https://core.ac.uk/">
+            <span class="logo-logo-wCAGq styles-logo-3C3lk">
+              <svg aria-label="CORE" class="icon-icon-35iz- logo-logo-icon-1JnTB" height="24" role="img" width="18">
+                <use href="/static/search/icons.svg#core-symbol">
+              "CORE"
+            <div class="styles-separator-3Hkfn">
+            <div class="styles-peace-1CGQO">
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "CO"
+                "nnecting"
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "RE"
+                "positories"
+        <div class="styles-item-1WhX8 styles-toggle-container-3kw9N">
+          <button aria-controls="header-nav" aria-expanded="false" aria-label="Toggle navigation" class="button-button-3fr3r button-text-2Jjil styles-toggle-button-3MDvL" type="button">
+            <svg aria-hidden="true" aria-label="Menu icon" class="icon-icon-35iz-" height="24" role="img" width="24">
+              <use href="/static/search/icons.svg#menu">
+        <nav class="styles-item-1WhX8 styles-nav-1DaTS" id="header-nav">
+          <div class="styles-menu-2MrzW styles-services-menu-3Y6g_">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="services-title" role="button">
+              "Services"
+            <ul aria-labelledby="services-title" class="styles-menu-list-2qL0f">
+              <li class="styles-item-34TYT styles-services-overview-item-9AF_0">
+                <a class="styles-item-link--QpIs" href="/services">
+                  <img alt="" src=<len=34345 sha256=a0b9ceaf15f270fe "data:image/svg+xml,<svg viewBox=\"0 0 12953 10812"...>>
+                  <span class="styles-services-overview-item-label-2qM2Y">
+                    "Services overview"
+                  <span class="styles-services-overview-item-description-1SQ-o">
+                    "Explore all CORE services"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="access-to-raw-data-title">
+                  "Access to raw data"
+                <ul aria-labelledby="access-to-raw-data-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/api">
+                      "API"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/dataset">
+                      "Dataset"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fastsync">
+                      "FastSync"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="content-discovery-title">
+                  "Content discovery"
+                <ul aria-labelledby="content-discovery-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/recommender">
+                      "Recommender"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/discovery">
+                      "Discovery"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="oai-resolver-title">
+                  "OAI identifiers"
+                <ul aria-labelledby="oai-resolver-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/documentation/oai-resolver">
+                      "OAI Resolver"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="managing-content-title">
+                  "Managing content"
+                <ul aria-labelledby="managing-content-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/repository-dashboard">
+                      "Dashboard"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fair-certification">
+                      "FAIR Certification"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="contracts-title">
+                  "Bespoke contracts"
+                <ul aria-labelledby="contracts-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/consultancy">
+                      "Consultancy services"
+          <div class="styles-menu-2MrzW styles-communities-menu-3a1Ao">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="communities-title" role="button">
+              "Support us"
+            <ul aria-labelledby="communities-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T styles-support-menu-36qjb">
+                <h3 class="styles-group-title-1v3Na" id="membership-title">
+                  "Support us"
+                <ul aria-labelledby="membership-title" class="styles-group-list-37aX1">
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/membership">
+                    <span>
+                      "Membership"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/sponsorship">
+                    <span>
+                      "Sponsorship"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/governance/research">
+                    <span>
+                      "Research partnership"
+          <div class="styles-menu-2MrzW styles-about-menu-3ZQZB">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="about-title" role="button">
+              "About"
+            <ul aria-labelledby="about-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="about-title">
+                  "About"
+                <ul aria-labelledby="about-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about">
+                      "About us"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#mission">
+                      "Our mission"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#team">
+                      "Team"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="//blog.core.ac.uk">
+                      "Blog"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/faq">
+                      "FAQs"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#contact">
+                      "Contact us"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="community-title">
+                  "Community governance"
+                <ul aria-labelledby="community-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance">
+                      "Governance"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/advisory">
+                      "Advisory Board"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/supporters">
+                      "Board of supporters"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/research">
+                      "Research network"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="innovations-title">
+                  "Innovations"
+                <ul aria-labelledby="innovations-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about/research-outputs">
+                      "Our research"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/innovations/labs">
+                      "Labs"
+      <main class="styles_main">
+        <div class="styles_container styles_layout">
+          <div class="styles_main">
+            <header class="styles_header">
+              <div class="data-provider-lg-1dRNT data-provider-circle-1YXHk">
+                <img alt="Open Research Online (The Open University)" class="data-provider-image-2JFrU" src=<len=3750 sha256=b628fd9900da7064 "data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAAM"...>>
+              <div>
+                <h1 class="styles_header-info-title">
+                  "The Open University"
+                <span class="styles_sub-header-info">
+                  "Open Research Online (The Open University)"
+                <h5 class="styles_header-info-caption undefined">
+                  <a class="undefined" href="https://core.ac.uk/membership" rel="noreferrer" target="_blank">
+                    "Not a member yet"
+            <div class="select-select-wrapper-3xVb5 styles_search">
+              <div aria-live="assertive" class="sr-only">
+              <div class="styles-group-NqOA7">
+                <span class="styles-addon-fHX-H styles-prepend-3yZWC select-prepend-icon-2D41_">
+                  <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#magnify">
+                <span class="styles-addon-fHX-H styles-append-2Bs2q select-append-icon-3UXMK">
+                  <button class="button-button-3fr3r button-text-2Jjil select-clear-out-button-1XORg" type="button">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#window-close">
+                <input :checked="false" :value="" aria-autocomplete="both" aria-controls="suggestion-results-data-providers-outputs-select" aria-expanded="false" aria-owns="suggestion-results" autocomplete="off" class="styles-control-12Pze" id="select-data-providers-outputs-select" placeholder="Search over 66686 research outputs in Open Research Online (The Open University)" role="combobox" type="text" value="">
+                <label class="styles-label-3Zc32" for="select-data-providers-outputs-select">
+                  "Search"
+              <ul class="select-select-menu-EjIta" id="suggestion-results-data-providers-outputs-select" role="listbox">
+            <div class="styles_sort-wrapper">
+              <span class="styles_search-total">
+                "66686"
+                <!--" "-->
+                " research outputs found"
+              <div class="sort_sort styles_sort">
+                <div class="sort_sort-box" role="presentation">
+                  <span>
+                    "Sort by"
+                    <!--" "-->
+                    " "
+                    <span class="sort_active-item">
+                  <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#menu-down">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-672884869" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/672884869">
+                    <span>
+                      "Clinical Scholarship’s Contribution to the Global Clinical Movement: Progress Made and More to Do"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-672884869-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-672884869-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Wortham, Leah)">
+                          <span itemprop="name">
+                            "Wortham  Leah"
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(McFaul, Hugh)">
+                          <span itemprop="name">
+                            "McFaul  Hugh"
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Mukwevho, Tribe)">
+                          <span itemprop="name">
+                            "Mukwevho  Tribe"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-672884869-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-672884869-venue-title">
+                    "Oxford University Press (In Press)"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-672884869-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-672884869-publication-date-title" itemprop="datePublished">
+                    "30/01/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-672884869-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-672884869-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/672884869/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  "This chapter investigates the areas of focus of clinical legal scholarship since 2011"
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-750693293" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/750693293">
+                    <span>
+                      "Digital humanities"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-750693293-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-750693293-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Benatti, Francesca)">
+                          <span itemprop="name">
+                            "Benatti  Francesca"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-750693293-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-750693293-venue-title">
+                    "Bloomsbury Academic (In Press)"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-750693293-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-750693293-publication-date-title" itemprop="datePublished">
+                    "01/01/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-750693293-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-750693293-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/750693293/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=1359 sha256=1fb1a33aa7839656 "The methodologies of Digital Humanities (DH) are"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-701292755" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/701292755">
+                    <span>
+                      "Picture This: A new sociocultural ‘layered listening framework’ that promotes participation through documentary photography, with young children whose families have migrated to the UK."
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-701292755-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-701292755-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Horsley, Karen)">
+                          <span itemprop="name">
+                            "Horsley  Karen"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-701292755-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-701292755-venue-title">
+                    "Bloomsbury Publishing (In Press)"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-701292755-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-701292755-publication-date-title" itemprop="datePublished">
+                    "01/01/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-701292755-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-701292755-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/701292755/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=1421 sha256=cee1ba1b725f32ca "High quality, equitable early childhood educatio"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-648213547" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/648213547">
+                    <span>
+                      "Edmund Spenser: <i>The Faerie Queene</i>"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-648213547-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-648213547-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Brown, Richard Danson)">
+                          <span itemprop="name">
+                            "Brown  Richard Danson"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-648213547-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-648213547-venue-title">
+                    "Routledge [In press]"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-648213547-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-648213547-publication-date-title" itemprop="datePublished">
+                    "01/01/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-648213547-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-648213547-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/648213547/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-753685737" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/753685737">
+                    <span>
+                      "Building Sustainable Professional Development for ECE Practitioners in Low Resource Contexts"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-753685737-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-753685737-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Hendry, Helen)">
+                          <span itemprop="name">
+                            "Hendry  Helen"
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Drew, Sheila)">
+                          <span itemprop="name">
+                            "Drew  Sheila"
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Teria Ng'asike, John)">
+                          <span itemprop="name">
+                            "Teria Ng'asike  John"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-753685737-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-753685737-venue-title">
+                    "Routledge"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-753685737-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-753685737-publication-date-title" itemprop="datePublished">
+                    "01/01/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-753685737-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-753685737-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/753685737/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=1103 sha256=d69e5e8e3726f9db "Unprecedented expansion of early childhood educa"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-753685748" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/753685748">
+                    <span>
+                      "Introduction to The Routledge Companion to Global Art Histories"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-753685748-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-753685748-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Newall, Diana)">
+                          <span itemprop="name">
+                            "Newall  Diana"
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Pooke, Grant)">
+                          <span itemprop="name">
+                            "Pooke  Grant"
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Wainwright, Leon)">
+                          <span itemprop="name">
+                            "Wainwright  Leon"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-753685748-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-753685748-venue-title">
+                    "Routledge, Taylor and Francis (In Press)"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-753685748-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-753685748-publication-date-title" itemprop="datePublished">
+                    "01/01/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-753685748-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-753685748-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/753685748/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=1823 sha256=1244e937b9e94150 "This co-authored introduction to the Routledge C"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey styles_search-results" id="work-search-output-710737070" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/710737070">
+                    <span>
+                      "Petrography, geochronology, and volatile inventory of lunar meteorite Northwest Africa 12593"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-710737070-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-710737070-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li aria-setsize="9" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Hayden, Tara S.)">
+                          <span itemprop="name">
+                            "Hayden  Tara S."
+                      <li aria-setsize="9" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Barrett, Thomas J.)">
+                          <span itemprop="name">
+                            "Barrett  Thomas J."
+                      <li aria-setsize="9" class="expandable-list-show-more-2ndlc">
+                        <button class="button-button-3fr3r button-text-2Jjil" title="Show more">
+                          "+"
+                          <!--" "-->
+                          "7"
+                          <!--" "-->
+                          " more"
+                      <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Anand, Mahesh)">
+                          <span itemprop="name">
+                            "Anand  Mahesh"
+                      <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Whitehouse, Martin J.)">
+                          <span itemprop="name">
+                            "Whitehouse  Martin J."
+                      <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Jeon, Heejin)">
+                          <span itemprop="name">
+                            "Jeon  Heejin"
+                      <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Zhao, Xuchao)">
+                          <span itemprop="name">
+                            "Zhao  Xuchao"
+                      <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Mechem, Marc E.)">
+                          <span itemprop="name">
+                            "Mechem  Marc E."
+                      <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Osinski, Gordon R.)">
+                          <span itemprop="name">
+                            "Osinski  Gordon R."
+                      <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Franchi, Ian. A.)">
+                          <span itemprop="name">
+                            "Franchi  Ian. A."
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-710737070-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-710737070-venue-title">
+                    "Geological Society of London"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-710737070-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-710737070-publication-date-title" itemprop="datePublished">
+                    "2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-710737070-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-710737070-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a href="<stack>/download/710737070.pdf">
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/710737070/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "Full text link"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=1471 sha256=5d5c19c8e1287531 "The petrography and geochemistry of Northwest Af"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-753685736" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/753685736">
+                    <span>
+                      "The Innocence You Have Fought For"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-753685736-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-753685736-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Chappell, Sophie-Grace)">
+                          <span itemprop="name">
+                            "Chappell  Sophie-Grace"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-753685736-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-753685736-venue-title">
+                    "Routledge"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-753685736-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-753685736-publication-date-title" itemprop="datePublished">
+                    "01/01/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-753685736-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-753685736-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/753685736/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=1519 sha256=7bcbbfaf857ac19c "To learn is to come to know; to learn morally is"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-750693368" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/750693368">
+                    <span>
+                      "The Routledge Companion to Global Art Histories"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-750693368-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-750693368-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-750693368-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-750693368-venue-title">
+                    "Routledge (In Press)"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-750693368-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-750693368-publication-date-title" itemprop="datePublished">
+                    "10/02/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-750693368-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-750693368-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/750693368/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=1446 sha256=cbee30d0b0663406 "The Routledge Companion to Global Art Histories "...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-750693466" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/750693466">
+                    <span>
+                      "Oxygen Isotopes of Anhydrous Minerals within Micrometeorites Show Connections to Volatile-Rich Parent Bodies"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-750693466-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-750693466-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li aria-setsize="7" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Sims, R. C.)">
+                          <span itemprop="name">
+                            "Sims  R. C."
+                      <li aria-setsize="7" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Bose, M.)">
+                          <span itemprop="name">
+                            "Bose  M."
+                      <li aria-setsize="7" class="expandable-list-show-more-2ndlc">
+                        <button class="button-button-3fr3r button-text-2Jjil" title="Show more">
+                          "+"
+                          <!--" "-->
+                          "5"
+                          <!--" "-->
+                          " more"
+                      <li aria-setsize="7" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Guan, Y.)">
+                          <span itemprop="name">
+                            "Guan  Y."
+                      <li aria-setsize="7" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Suttle, M.D.)">
+                          <span itemprop="name">
+                            "Suttle  M.D."
+                      <li aria-setsize="7" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Genge, M. J.)">
+                          <span itemprop="name">
+                            "Genge  M. J."
+                      <li aria-setsize="7" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Wittmann, A.)">
+                          <span itemprop="name">
+                            "Wittmann  A."
+                      <li aria-setsize="7" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Joseph, R.)">
+                          <span itemprop="name">
+                            "Joseph  R."
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-750693466-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-750693466-venue-title">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-750693466-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-750693466-publication-date-title" itemprop="datePublished">
+                    "2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-750693466-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-750693466-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/750693466/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=1397 sha256=752f81757a9d06d5 "Chondritic materials retain isotopic signatures "...>
+              <div class="styles-footnote-2WLsl">
+            <nav aria-label="Pagination Navigation" class="styles_pagination" role="navigation">
+              <div>
+                <span class="styles_result-stats styles_result-stats">
+                  "Showing "
+                  <!--" "-->
+                  "1"
+                  <!--" "-->
+                  "-"
+                  <!--" "-->
+                  "10"
+                  <!--" "-->
+                  " of "
+                  <!--" "-->
+                  "66,686"
+              <div class="styles_arrow-pagination">
+                <div>
+                  <a aria-disabled="true" aria-label="First" class="button-button-3fr3r button-text-2Jjil styles_arrow styles_disabled" href="/data-providers/86/?offset=0" title="Navigate to the first page">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-double-left">
+                  <a aria-disabled="true" aria-label="Previous" class="button-button-3fr3r button-text-2Jjil styles_arrow styles_disabled" href="/data-providers/86/?offset=0" title="Navigate to the previous page">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-left">
+                  <a aria-disabled="false" aria-label="Next" class="button-button-3fr3r button-text-2Jjil styles_arrow" href="/data-providers/86/?offset=10" title="Navigate to the next page">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-right">
+                  <a aria-disabled="false" aria-label="Last" class="button-button-3fr3r button-text-2Jjil styles_arrow" href="/data-providers/86/?offset=66680" title="Navigate to the last page">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-double-right">
+          <div class="styles_sidebar" tag="aside">
+            <div class="card-container-11P0y card-elevated-1Clhn styles_meta">
+              <div class="styles_boxes">
+                <div class="styles_box-item">
+                  <h1 class="card-title-2rvi9 styles_count">
+                    "26,415"
+                  <span class="styles_caption">
+                    "full texts"
+                <div class="styles_box-item">
+                  <h1 class="card-title-2rvi9 styles_count">
+                    "66,689"
+                  <span class="styles_caption">
+                    "metadata records"
+              <div class="styles_update-date">
+                "Updated in last 30 days."
+            <figure class="card-container-11P0y card-elevated-1Clhn styles_card styles_map-card">
+              <div class="styles_container styles_map">
+              <figcaption class="styles_map-caption">
+                "Open Research Online (The Open University)"
+                <!--" "-->
+                " is based in "
+                <!--" "-->
+                "United Kingdom"
+            <div class="card-container-11P0y card-elevated-1Clhn styles_claim-card styles_card">
+              <div class="styles_card-title">
+                "Access Repository Dashboard"
+              <div>
+                "Do you manage Open Research Online? Become a"
+                <!--" "-->
+                " "
+                <a href="https://core.ac.uk/membership" rel="noreferrer" target="_blank">
+                  "CORE Member"
+                " "
+                <!--" "-->
+                "to access insider analytics, issue reports and manage access to outputs from your repository in the"
+                <!--" "-->
+                " "
+                <a href="https://core.ac.uk/services/repository-dashboard" rel="noreferrer" target="_blank">
+                  "CORE Repository Dashboard!"
+                " "
+                <!--" "-->
+                "👇"
+              <div class="styles_claim-card-actions">
+                <button class="button-button-3fr3r button-contained-pmIp- styles_claim-card-action">
+                  "Become a member"
+      <footer class="footer-footer-7joNV" id="footer">
+        <div class="footer-container-1XrUr">
+          <div class="footer-section-logos-1_Ejr">
+            <div class="footer-logos-28CCb">
+              <a href="https://core.ac.uk">
+                <svg aria-label="core logo" class="icon-icon-35iz- footer-footer-main-logo-1jMdX" height="24" role="img" width="24">
+                  <use href="/static/search/icons.svg#coreLogo">
+            <p>
+              "CORE (COnnecting REpositories) is a not-for-profit service supported by"
+              <!--" "-->
+              " "
+              <a href="https://core.ac.uk/governance/supporters#membership-list">
+                <span>
+                  "CORE Members."
+          <menu class="footer-menu-2JIRS">
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Product"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/services">
+                    "Services"
+                <li class="footer-item-1F33t">
+                  <a href="/membership">
+                    "Membership"
+                <li class="footer-item-1F33t">
+                  <a href="/sponsorship">
+                    "Sponsorship"
+                <li class="footer-item-1F33t">
+                  <a href="/innovations/labs">
+                    "Labs"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Organisation"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/about">
+                    "About us"
+                <li class="footer-item-1F33t">
+                  <a href="/about#our-mission">
+                    "Governance"
+                <li class="footer-item-1F33t">
+                  <a href="/about#team">
+                    "Team"
+                <li class="footer-item-1F33t">
+                  <a href="/benefits">
+                    "Data providers"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Support"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/terms">
+                    "Terms"
+                <li class="footer-item-1F33t">
+                  <a href="/faq">
+                    "FAQs"
+                <li class="footer-item-1F33t">
+                  <a href="https://blog.core.ac.uk/">
+                    "Blog"
+                <li class="footer-item-1F33t">
+                  <a href="/about#contact">
+                    "Contact us"
+          <div class="footer-section-card-3esBH">
+            <div class="footer-card-1yZdd">
+              <div>
+                <h6 class="footer-card-title-3Uaog">
+                  "Writing about CORE?"
+                <p class="footer-card-desc-30YMW">
+                  "Discover our"
+                  <!--" "-->
+                  " "
+                  <a href="/about/research-outputs">
+                    "research outputs"
+                  " and cite our work."
+                " "
+              <svg aria-label="writing" class="icon-icon-35iz- footer-card-img-o-6kR" height="24" role="img" width="24">
+                <use href="/static/search/icons.svg#writing">
+            <div class="footer-contact-wrapper-17ZHP">
+              <span class="footer-contact-2b5lt">
+                "Follow us:"
+              <div class="footer-footer-icons-2NPaF">
+                <a href="https://twitter.com/oacore" target="_blank">
+                  <svg aria-label="twitter" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#twitter">
+                <a href="https://www.linkedin.com/company/coreoa" target="_blank">
+                  <svg aria-label="linkedin" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#linkedin">
+                <a href="https://github.com/oacore" target="_blank">
+                  <svg aria-label="github" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#github">
+        <div class="footer-bottom-3E5D_">
+          <a class="footer-bottom-link-PaLMR" href="/accessibility">
+            "Accessibility"
+          <a class="footer-bottom-link-PaLMR" href="/cookies">
+            "Cookies"
+          <a class="footer-bottom-link-PaLMR" href="/privacy">
+            "Privacy"
+  <script next-owned="__NEXT_DATA__">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">

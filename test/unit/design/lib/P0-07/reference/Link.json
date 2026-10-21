@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-05",
+  "name": "Link",
+  "states": {
+    "internal": {
+      "dom": ["<div>", "  <a href=\"/\">", "    \"Go to homepage\""],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:a"],
+      "interactions": {
+        "quiet": [],
+        "active": {
+          "0:div>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:a",
+              "nav": ["navigate http://localhost/"]
+            },
+            "dblclick": {
+              "f": "0:div>0:a",
+              "nav": [
+                "navigate http://localhost/",
+                "navigate http://localhost/"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:a" }
+          }
+        }
+      }
+    },
+    "external": {
+      "dom": [
+        "<div>",
+        "  <a href=\"https://www.ref.ac.uk/guidance.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">",
+        "    \"REF Audit Guidance\"",
+        "    <svg class=\"icon-icon-35iz- link-icon-_QgXo\" role=\"img\" width=\"24\" height=\"24\" aria-hidden=\"true\">",
+        "      <use href=\"/static/search/icons.svg#open-in-new\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:a", "0:div>0:a>0:svg", "0:div>0:a>0:svg>0:use"],
+      "interactions": {
+        "quiet": [],
+        "active": {
+          "0:div>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:a",
+              "nav": [
+                "navigate https://www.ref.ac.uk/guidance.pdf target=_blank"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:a",
+              "nav": [
+                "navigate https://www.ref.ac.uk/guidance.pdf target=_blank",
+                "navigate https://www.ref.ac.uk/guidance.pdf target=_blank"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:a" }
+          },
+          "0:div>0:a>0:svg": {
+            "click": {
+              "f": "0:div>0:a",
+              "nav": [
+                "navigate https://www.ref.ac.uk/guidance.pdf target=_blank"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:a",
+              "nav": [
+                "navigate https://www.ref.ac.uk/guidance.pdf target=_blank",
+                "navigate https://www.ref.ac.uk/guidance.pdf target=_blank"
+              ]
+            }
+          },
+          "0:div>0:a>0:svg>0:use": {
+            "click": {
+              "f": "0:div>0:a",
+              "nav": [
+                "navigate https://www.ref.ac.uk/guidance.pdf target=_blank"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:a",
+              "nav": [
+                "navigate https://www.ref.ac.uk/guidance.pdf target=_blank",
+                "navigate https://www.ref.ac.uk/guidance.pdf target=_blank"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "external-no-icon": {
+      "dom": [
+        "<div>",
+        "  <a href=\"https://core.ac.uk/\" target=\"_blank\" rel=\"noopener noreferrer\">",
+        "    \"CORE\""
+      ],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:a"],
+      "interactions": {
+        "quiet": [],
+        "active": {
+          "0:div>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:a",
+              "nav": ["navigate https://core.ac.uk/ target=_blank"]
+            },
+            "dblclick": {
+              "f": "0:div>0:a",
+              "nav": [
+                "navigate https://core.ac.uk/ target=_blank",
+                "navigate https://core.ac.uk/ target=_blank"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:a" }
+          }
+        }
+      }
+    },
+    "no-href": {
+      "dom": ["<div>", "  <a class=\"x\">", "    \"No href\""],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:a"],
+      "interactions": { "quiet": ["0:div>0:a"], "active": {} }
+    }
+  },
+  "overlay": null
+}

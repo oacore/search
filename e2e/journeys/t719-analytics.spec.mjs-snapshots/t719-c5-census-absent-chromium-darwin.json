@@ -1,0 +1,28 @@
+{
+  "counts": {
+    "gtag": 0,
+    "google": 0,
+    "logrocket": 1,
+    "sentry": 0,
+    "cloudflare": 0
+  },
+  "aborted": { "cdn.lgrckt-in.com": 1 },
+  "requests": {
+    "gtag": [],
+    "google": [],
+    "logrocket": ["GET https://cdn.lgrckt-in.com/logger-1.min.js"],
+    "sentry": [],
+    "cloudflare": []
+  },
+  "dataLayer": [],
+  "cookies": [],
+  "storage": { "local": [], "session": [] },
+  "messages": [
+    ["GA", 0],
+    ["Send command doesn't exist: search", 3],
+    [
+      "LogRocket: script could not load. Check that you have a valid network connection.",
+      1
+    ]
+  ]
+}

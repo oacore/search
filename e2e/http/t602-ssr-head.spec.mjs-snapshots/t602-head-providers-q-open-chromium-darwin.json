@@ -1,0 +1,197 @@
+{
+  "path": "/data-providers/?q=open",
+  "status": 200,
+  "location": null,
+  "contentType": "text/html; charset=utf-8",
+  "titleRaw": "Data providers search",
+  "htmlAttrs": {},
+  "head": {
+    "seo": [
+      {
+        "tag": "title",
+        "attrs": {},
+        "childNodes": [{ "type": "text", "data": "Data providers search" }],
+        "text": "Data providers search"
+      },
+      {
+        "tag": "meta",
+        "attrs": {
+          "content": "Search over 15672 repositories and journals around the world",
+          "name": "description"
+        }
+      },
+      {
+        "tag": "script",
+        "attrs": { "type": "application/ld+json" },
+        "jsonld": {
+          "@context": "http://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": { "@id": "https://core.ac.uk", "name": "CORE" }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://core.ac.uk/data-providers/search",
+                    "name": "Data providers search"
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "SearchResultsPage",
+              "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 0,
+                    "item": {
+                      "@id": "https://core.ac.uk/search?q=repositories.id:(15522)",
+                      "name": "1M Homes Initiative"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                      "@id": "https://core.ac.uk/search?q=repositories.id:(11479)",
+                      "name": "A.O. Kovalevsky Institute of Marine Biological Research Open access repository"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                      "@id": "https://core.ac.uk/search?q=repositories.id:(13932)",
+                      "name": "Åbo Akademi: Open Journal Systems"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                      "@id": "https://core.ac.uk/search?q=repositories.id:(14643)",
+                      "name": "Academy of Science of South Africa (ASSAf): Open Journal Systems"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "item": {
+                      "@id": "https://core.ac.uk/search?q=repositories.id:(24801)",
+                      "name": "Acadia University Open Journals System"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "item": {
+                      "@id": "https://core.ac.uk/search?q=repositories.id:(9170)",
+                      "name": "Acıbadem Üniversitesi Açık Erişim Sistemi"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 6,
+                    "item": {
+                      "@id": "https://core.ac.uk/search?q=repositories.id:(305)",
+                      "name": "ACUBO (Archivio Aperto di Ateneo)"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 7,
+                    "item": {
+                      "@id": "https://core.ac.uk/search?q=repositories.id:(26061)",
+                      "name": "Addis Ababa Science and Technology University’s Open Access (OA) journal"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 8,
+                    "item": {
+                      "@id": "https://core.ac.uk/search?q=repositories.id:(22564)",
+                      "name": "AESOP Eprints"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 9,
+                    "item": {
+                      "@id": "https://core.ac.uk/search?q=repositories.id:(21810)",
+                      "name": "Agrosavia - Corporación colombiana de investigación agropecuaria"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "favicons": [
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-64px.png",
+          "rel": "icon",
+          "sizes": "64x64",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-128px.png",
+          "rel": "icon",
+          "sizes": "128x128",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-256px.png",
+          "rel": "icon",
+          "sizes": "256x256",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-512px.png",
+          "rel": "icon",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon.svg",
+          "rel": "icon",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      }
+    ],
+    "frame": [
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
+      {
+        "tag": "meta",
+        "attrs": { "content": "width=device-width", "name": "viewport" }
+      }
+    ],
+    "other": []
+  },
+  "bodyLead": { "seo": [], "favicons": [], "frame": [], "other": [] },
+  "bodyLeadText": []
+}

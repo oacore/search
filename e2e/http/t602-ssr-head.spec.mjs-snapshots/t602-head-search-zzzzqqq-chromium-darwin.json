@@ -1,0 +1,80 @@
+{
+  "path": "/search/?q=zzzzqqq",
+  "status": 200,
+  "location": null,
+  "contentType": "text/html; charset=utf-8",
+  "titleRaw": "CORE – Aggregating the world’s open access research papers",
+  "htmlAttrs": {},
+  "head": {
+    "seo": [
+      {
+        "tag": "title",
+        "attrs": {},
+        "childNodes": [
+          {
+            "type": "text",
+            "data": "CORE – Aggregating the world’s open access research papers"
+          }
+        ],
+        "text": "CORE – Aggregating the world’s open access research papers"
+      }
+    ],
+    "favicons": [
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-64px.png",
+          "rel": "icon",
+          "sizes": "64x64",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-128px.png",
+          "rel": "icon",
+          "sizes": "128x128",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-256px.png",
+          "rel": "icon",
+          "sizes": "256x256",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon-512px.png",
+          "rel": "icon",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "href": "https://core.ac.uk/favicon/favicon.svg",
+          "rel": "icon",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      }
+    ],
+    "frame": [
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
+      {
+        "tag": "meta",
+        "attrs": { "content": "width=device-width", "name": "viewport" }
+      }
+    ],
+    "other": []
+  },
+  "bodyLead": { "seo": [], "favicons": [], "frame": [], "other": [] },
+  "bodyLeadText": []
+}

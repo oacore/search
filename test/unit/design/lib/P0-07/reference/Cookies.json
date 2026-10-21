@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-17",
+  "name": "Cookies",
+  "states": {
+    "popup-no-cookie": {
+      "dom": [
+        "<div>",
+        "  <div class=\"cookies-popup-2NSSr\" id=\"cookies-popup\">",
+        "    <div class=\"cookies-popup-body-1VEen\">",
+        "      <p>",
+        "        \"We use cookies to improve our website.\"",
+        "      <a href=\"/cookies\" class=\"cookies-popup-link-o-JpP\">",
+        "        \"Learn more\"",
+        "    <div class=\"cookies-popup-actions-qIUXY\">",
+        "      <button class=\"button-button-3fr3r button-outlined-3dJXM cookies-popup-button-17h9a\" id=\"essential_cookies_allowed\">",
+        "        \"Essential cookies only\"",
+        "      <button class=\"button-button-3fr3r button-contained-pmIp- cookies-popup-button-17h9a\" id=\"essential_cookies_allowed,analytics_cookies_allowed\">",
+        "        \"I agree\""
+      ],
+      "mount": {
+        "v": [
+          "0:div>0:div>1:div>0:button:valid",
+          "0:div>0:div>1:div>1:button:valid"
+        ],
+        "f": "body"
+      },
+      "nodes": [
+        "0:div>0:div",
+        "0:div>0:div>0:div",
+        "0:div>0:div>0:div>0:p",
+        "0:div>0:div>0:div>1:a",
+        "0:div>0:div>1:div",
+        "0:div>0:div>1:div>0:button",
+        "0:div>0:div>1:div>1:button"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:div",
+          "0:div>0:div>0:div",
+          "0:div>0:div>0:div>0:p",
+          "0:div>0:div>1:div"
+        ],
+        "active": {
+          "0:div>0:div>0:div>1:a": {
+            "click,Enter": {
+              "f": "0:div>0:div>0:div>1:a",
+              "nav": ["navigate http://localhost/cookies"]
+            },
+            "dblclick": {
+              "f": "0:div>0:div>0:div>1:a",
+              "nav": [
+                "navigate http://localhost/cookies",
+                "navigate http://localhost/cookies"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:div>0:div>1:a" }
+          },
+          "0:div>0:div>1:div>0:button": {
+            "click,dblclick,Enter,Space": {
+              "m": ["child 0:div -[div#cookies-popup.cookies-popup-2NSSr]"],
+              "v": [],
+              "k": "essential_cookies_allowed=true"
+            },
+            "focus,Esc,ArrowDown": { "f": "0:div>0:div>1:div>0:button" }
+          },
+          "0:div>0:div>1:div>1:button": {
+            "click,dblclick,Enter,Space": {
+              "m": ["child 0:div -[div#cookies-popup.cookies-popup-2NSSr]"],
+              "v": [],
+              "k": "essential_cookies_allowed=true; analytics_cookies_allowed=true"
+            },
+            "focus,Esc,ArrowDown": { "f": "0:div>0:div>1:div>1:button" }
+          }
+        }
+      }
+    },
+    "essential-set": {
+      "dom": ["<div>"],
+      "mount": { "k": "essential_cookies_allowed=true", "f": "body" },
+      "nodes": [],
+      "interactions": { "quiet": [], "active": {} }
+    }
+  },
+  "overlay": null
+}

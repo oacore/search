@@ -1,0 +1,1084 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-19",
+  "name": "Histoslider",
+  "states": {
+    "styleguide": {
+      "dom": [
+        "<div>",
+        "  <div style=\"width: 300px; padding: 20px;\" class=\"histoslider-histoslider-e1hL_\">",
+        "    <svg width=\"260\" height=\"140\" class=\"histoslider-histograms-jkdFi\">",
+        "      <g transform=\"translate(0, 140)\">",
+        "        <g transform=\"scale(1,-1)\">",
+        "          <g transform=\"translate(1 0)\">",
+        "            <rect fill=\"#E0E0E0\" width=\"84.66666666666666\" height=\"100\" rx=\"2\" ry=\"2\" x=\"0\">",
+        "            <rect fill=\"#EF8237\" style=\"cursor: pointer;\" width=\"84.66666666666666\" height=\"100\" x=\"0\" class=\"histoslider-histogram-item-2QAoA\">",
+        "          <g transform=\"translate(87.66666666666666 0)\">",
+        "            <rect fill=\"#E0E0E0\" width=\"84.66666666666666\" height=\"120\" rx=\"2\" ry=\"2\" x=\"0\">",
+        "            <rect fill=\"#EF8237\" style=\"cursor: pointer;\" width=\"84.66666666666666\" height=\"120\" x=\"0\" class=\"histoslider-histogram-item-2QAoA\">",
+        "          <g transform=\"translate(174.33333333333331 0)\">",
+        "            <rect fill=\"#E0E0E0\" width=\"84.66666666666669\" height=\"140\" rx=\"2\" ry=\"2\" x=\"0\">",
+        "            <rect fill=\"#EF8237\" style=\"cursor: pointer;\" width=\"84.66666666666669\" height=\"140\" x=\"0\" class=\"histoslider-histogram-item-2QAoA\">",
+        "    <div class=\"histoslider-range-gykSf\">",
+        "      <svg style=\"overflow: visible; margin-bottom: 0px;\" height=\"20\" width=\"260\">",
+        "        <rect height=\"4\" fill=\"#E0E0E0\" x=\"0\" y=\"10\" width=\"260\">",
+        "        <rect height=\"4\" fill=\"#b75400\" x=\"0\" y=\"10\" width=\"260\">",
+        "        <g tabindex=\"0\" transform=\"translate(0, 0)\" style=\"outline: none;\">",
+        "          <circle style=\"fill: #b75400; stroke: #b75400;\" r=\"9\" cx=\"0\" cy=\"12.5\" stroke-width=\"1\">",
+        "          <circle style=\"fill: #b75400; stroke: #b75400;\" r=\"9\" cx=\"0\" cy=\"12\" stroke-width=\"1\" class=\"histoslider-range-dots-1a0Ci\">",
+        "        <g tabindex=\"0\" transform=\"translate(260, 0)\" style=\"outline: none;\">",
+        "          <circle style=\"fill: #b75400; stroke: #b75400;\" r=\"9\" cx=\"0\" cy=\"12.5\" stroke-width=\"1\">",
+        "          <circle style=\"fill: #b75400; stroke: #b75400;\" r=\"9\" cx=\"0\" cy=\"12\" stroke-width=\"1\" class=\"histoslider-range-dots-1a0Ci\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": [
+        "0:div>0:div",
+        "0:div>0:div>0:svg",
+        "0:div>0:div>0:svg>0:g",
+        "0:div>0:div>0:svg>0:g>0:g",
+        "0:div>0:div>0:svg>0:g>0:g>0:g",
+        "0:div>0:div>0:svg>0:g>0:g>0:g>0:rect",
+        "0:div>0:div>0:svg>0:g>0:g>0:g>1:rect",
+        "0:div>0:div>0:svg>0:g>0:g>1:g",
+        "0:div>0:div>0:svg>0:g>0:g>1:g>0:rect",
+        "0:div>0:div>0:svg>0:g>0:g>1:g>1:rect",
+        "0:div>0:div>0:svg>0:g>0:g>2:g",
+        "0:div>0:div>0:svg>0:g>0:g>2:g>0:rect",
+        "0:div>0:div>0:svg>0:g>0:g>2:g>1:rect",
+        "0:div>0:div>1:div",
+        "0:div>0:div>1:div>0:svg",
+        "0:div>0:div>1:div>0:svg>0:rect",
+        "0:div>0:div>1:div>0:svg>1:rect",
+        "0:div>0:div>1:div>0:svg>2:g",
+        "0:div>0:div>1:div>0:svg>2:g>0:circle",
+        "0:div>0:div>1:div>0:svg>2:g>1:circle",
+        "0:div>0:div>1:div>0:svg>3:g",
+        "0:div>0:div>1:div>0:svg>3:g>0:circle",
+        "0:div>0:div>1:div>0:svg>3:g>1:circle"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:div",
+          "0:div>0:div>0:svg",
+          "0:div>0:div>0:svg>0:g",
+          "0:div>0:div>0:svg>0:g>0:g",
+          "0:div>0:div>0:svg>0:g>0:g>0:g",
+          "0:div>0:div>0:svg>0:g>0:g>0:g>0:rect",
+          "0:div>0:div>0:svg>0:g>0:g>1:g",
+          "0:div>0:div>0:svg>0:g>0:g>1:g>0:rect",
+          "0:div>0:div>0:svg>0:g>0:g>2:g",
+          "0:div>0:div>0:svg>0:g>0:g>2:g>0:rect",
+          "0:div>0:div>1:div"
+        ],
+        "active": {
+          "0:div>0:div>0:svg>0:g>0:g>0:g>1:rect": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\""
+              ],
+              "c": ["selectFunc([2018,2019])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\""
+              ],
+              "c": [
+                "selectFunc([2018,2019])",
+                "selectFunc([2018,2019])",
+                "selectFunc([2018,2021])"
+              ]
+            },
+            "hover": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\""
+              ]
+            }
+          },
+          "0:div>0:div>0:svg>0:g>0:g>1:g>1:rect": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\""
+              ],
+              "c": ["selectFunc([2019,2020])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\""
+              ],
+              "c": [
+                "selectFunc([2019,2020])",
+                "selectFunc([2019,2020])",
+                "selectFunc([2018,2021])"
+              ]
+            },
+            "hover": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\""
+              ]
+            }
+          },
+          "0:div>0:div>0:svg>0:g>0:g>2:g>1:rect": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\""
+              ],
+              "c": ["selectFunc([2020,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\""
+              ],
+              "c": [
+                "selectFunc([2020,2021])",
+                "selectFunc([2020,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            },
+            "hover": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\""
+              ]
+            }
+          },
+          "0:div>0:div>1:div>0:svg": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            }
+          },
+          "0:div>0:div>1:div>0:svg>0:rect": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            }
+          },
+          "0:div>0:div>1:div>0:svg>1:rect": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            }
+          },
+          "0:div>0:div>1:div>0:svg>2:g": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "f": "0:div>0:div>1:div>0:svg>2:g",
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "f": "0:div>0:div>1:div>0:svg>2:g",
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            },
+            "focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>1:div>0:svg>2:g"
+            }
+          },
+          "0:div>0:div>1:div>0:svg>2:g>0:circle": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "f": "0:div>0:div>1:div>0:svg>2:g",
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "f": "0:div>0:div>1:div>0:svg>2:g",
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            }
+          },
+          "0:div>0:div>1:div>0:svg>2:g>1:circle": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "f": "0:div>0:div>1:div>0:svg>2:g"
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "f": "0:div>0:div>1:div>0:svg>2:g",
+              "c": ["selectFunc([2018,2021])"]
+            }
+          },
+          "0:div>0:div>1:div>0:svg>3:g": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "f": "0:div>0:div>1:div>0:svg>3:g",
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "f": "0:div>0:div>1:div>0:svg>3:g",
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            },
+            "focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>1:div>0:svg>3:g"
+            }
+          },
+          "0:div>0:div>1:div>0:svg>3:g>0:circle": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "f": "0:div>0:div>1:div>0:svg>3:g",
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "f": "0:div>0:div>1:div>0:svg>3:g",
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            }
+          },
+          "0:div>0:div>1:div>0:svg>3:g>1:circle": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "f": "0:div>0:div>1:div>0:svg>3:g"
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_\""
+              ],
+              "f": "0:div>0:div>1:div>0:svg>3:g",
+              "c": ["selectFunc([2018,2021])"]
+            }
+          }
+        }
+      }
+    },
+    "app-props": {
+      "dom": [
+        "<div>",
+        "  <div style=\"width: 298px; padding: 20px;\" class=\"histoslider-histoslider-e1hL_ slider\">",
+        "    <svg width=\"258\" height=\"140\" class=\"histoslider-histograms-jkdFi\">",
+        "      <g transform=\"translate(0, 140)\">",
+        "        <g transform=\"scale(1,-1)\">",
+        "          <g transform=\"translate(1 0)\">",
+        "            <rect fill=\"#E0E0E0\" width=\"84\" height=\"100\" rx=\"2\" ry=\"2\" x=\"0\">",
+        "            <rect fill=\"#E0E0E0\" style=\"cursor: pointer;\" width=\"84\" height=\"100\" x=\"0\" class=\"histoslider-histogram-item-2QAoA\">",
+        "          <g transform=\"translate(87 0)\">",
+        "            <rect fill=\"#E0E0E0\" width=\"84\" height=\"120\" rx=\"2\" ry=\"2\" x=\"0\">",
+        "            <rect fill=\"#EF8237\" style=\"cursor: pointer;\" width=\"84\" height=\"120\" x=\"0\" class=\"histoslider-histogram-item-2QAoA\">",
+        "          <g transform=\"translate(173 0)\">",
+        "            <rect fill=\"#E0E0E0\" width=\"84\" height=\"140\" rx=\"2\" ry=\"2\" x=\"0\">",
+        "            <rect fill=\"#EF8237\" style=\"cursor: pointer;\" width=\"84\" height=\"140\" x=\"0\" class=\"histoslider-histogram-item-2QAoA\">",
+        "    <div class=\"histoslider-range-gykSf\">",
+        "      <div class=\"histoslider-label-left-2oGjf\">",
+        "        \"2019\"",
+        "      <div class=\"histoslider-label-right-1uA2E\">",
+        "        \"2020\"",
+        "      <svg style=\"overflow: visible; margin-bottom: 4rem;\" height=\"20\" width=\"258\">",
+        "        <rect height=\"4\" fill=\"#E0E0E0\" x=\"0\" y=\"10\" width=\"258\">",
+        "        <rect height=\"4\" fill=\"#b75400\" x=\"86\" y=\"10\" width=\"172\">",
+        "        <g tabindex=\"0\" transform=\"translate(86, 0)\" style=\"outline: none;\">",
+        "          <circle style=\"fill: #b75400; stroke: #b75400;\" r=\"9\" cx=\"0\" cy=\"12.5\" stroke-width=\"1\">",
+        "          <circle style=\"fill: #b75400; stroke: #b75400;\" r=\"9\" cx=\"0\" cy=\"12\" stroke-width=\"1\" class=\"histoslider-range-dots-1a0Ci\">",
+        "        <g tabindex=\"0\" transform=\"translate(258, 0)\" style=\"outline: none;\">",
+        "          <circle style=\"fill: #b75400; stroke: #b75400;\" r=\"9\" cx=\"0\" cy=\"12.5\" stroke-width=\"1\">",
+        "          <circle style=\"fill: #b75400; stroke: #b75400;\" r=\"9\" cx=\"0\" cy=\"12\" stroke-width=\"1\" class=\"histoslider-range-dots-1a0Ci\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": [
+        "0:div>0:div",
+        "0:div>0:div>0:svg",
+        "0:div>0:div>0:svg>0:g",
+        "0:div>0:div>0:svg>0:g>0:g",
+        "0:div>0:div>0:svg>0:g>0:g>0:g",
+        "0:div>0:div>0:svg>0:g>0:g>0:g>0:rect",
+        "0:div>0:div>0:svg>0:g>0:g>0:g>1:rect",
+        "0:div>0:div>0:svg>0:g>0:g>1:g",
+        "0:div>0:div>0:svg>0:g>0:g>1:g>0:rect",
+        "0:div>0:div>0:svg>0:g>0:g>1:g>1:rect",
+        "0:div>0:div>0:svg>0:g>0:g>2:g",
+        "0:div>0:div>0:svg>0:g>0:g>2:g>0:rect",
+        "0:div>0:div>0:svg>0:g>0:g>2:g>1:rect",
+        "0:div>0:div>1:div",
+        "0:div>0:div>1:div>0:div",
+        "0:div>0:div>1:div>1:div",
+        "0:div>0:div>1:div>2:svg",
+        "0:div>0:div>1:div>2:svg>0:rect",
+        "0:div>0:div>1:div>2:svg>1:rect",
+        "0:div>0:div>1:div>2:svg>2:g",
+        "0:div>0:div>1:div>2:svg>2:g>0:circle",
+        "0:div>0:div>1:div>2:svg>2:g>1:circle",
+        "0:div>0:div>1:div>2:svg>3:g",
+        "0:div>0:div>1:div>2:svg>3:g>0:circle",
+        "0:div>0:div>1:div>2:svg>3:g>1:circle"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:div",
+          "0:div>0:div>0:svg",
+          "0:div>0:div>0:svg>0:g",
+          "0:div>0:div>0:svg>0:g>0:g",
+          "0:div>0:div>0:svg>0:g>0:g>0:g",
+          "0:div>0:div>0:svg>0:g>0:g>0:g>0:rect",
+          "0:div>0:div>0:svg>0:g>0:g>1:g",
+          "0:div>0:div>0:svg>0:g>0:g>1:g>0:rect",
+          "0:div>0:div>0:svg>0:g>0:g>2:g",
+          "0:div>0:div>0:svg>0:g>0:g>2:g>0:rect",
+          "0:div>0:div>1:div",
+          "0:div>0:div>1:div>0:div",
+          "0:div>0:div>1:div>1:div"
+        ],
+        "active": {
+          "0:div>0:div>0:svg>0:g>0:g>0:g>1:rect": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "child 0:div>0:div +[div.histoslider-info-3X3gT]"
+              ],
+              "c": ["selectFunc([2018,2019])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "child 0:div>0:div +[div.histoslider-info-3X3gT]"
+              ],
+              "c": [
+                "selectFunc([2018,2019])",
+                "selectFunc([2018,2019])",
+                "selectFunc([2018,2021])"
+              ]
+            },
+            "hover": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "child 0:div>0:div +[div.histoslider-info-3X3gT]"
+              ]
+            }
+          },
+          "0:div>0:div>0:svg>0:g>0:g>1:g>1:rect": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "child 0:div>0:div +[div.histoslider-info-3X3gT]"
+              ],
+              "c": ["selectFunc([2019,2020])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "child 0:div>0:div +[div.histoslider-info-3X3gT]"
+              ],
+              "c": [
+                "selectFunc([2019,2020])",
+                "selectFunc([2019,2020])",
+                "selectFunc([2018,2021])"
+              ]
+            },
+            "hover": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "child 0:div>0:div +[div.histoslider-info-3X3gT]"
+              ]
+            }
+          },
+          "0:div>0:div>0:svg>0:g>0:g>2:g>1:rect": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "child 0:div>0:div +[div.histoslider-info-3X3gT]"
+              ],
+              "c": ["selectFunc([2020,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "child 0:div>0:div +[div.histoslider-info-3X3gT]"
+              ],
+              "c": [
+                "selectFunc([2020,2021])",
+                "selectFunc([2020,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            },
+            "hover": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "child 0:div>0:div +[div.histoslider-info-3X3gT]"
+              ]
+            }
+          },
+          "0:div>0:div>1:div>2:svg": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            }
+          },
+          "0:div>0:div>1:div>2:svg>0:rect": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            }
+          },
+          "0:div>0:div>1:div>2:svg>1:rect": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            }
+          },
+          "0:div>0:div>1:div>2:svg>2:g": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "f": "0:div>0:div>1:div>2:svg>2:g",
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "f": "0:div>0:div>1:div>2:svg>2:g",
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            },
+            "focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>1:div>2:svg>2:g"
+            }
+          },
+          "0:div>0:div>1:div>2:svg>2:g>0:circle": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "f": "0:div>0:div>1:div>2:svg>2:g",
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "f": "0:div>0:div>1:div>2:svg>2:g",
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            }
+          },
+          "0:div>0:div>1:div>2:svg>2:g>1:circle": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "f": "0:div>0:div>1:div>2:svg>2:g"
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "f": "0:div>0:div>1:div>2:svg>2:g",
+              "c": ["selectFunc([2018,2021])"]
+            }
+          },
+          "0:div>0:div>1:div>2:svg>3:g": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "f": "0:div>0:div>1:div>2:svg>3:g",
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "f": "0:div>0:div>1:div>2:svg>3:g",
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            },
+            "focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>1:div>2:svg>3:g"
+            }
+          },
+          "0:div>0:div>1:div>2:svg>3:g>0:circle": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "f": "0:div>0:div>1:div>2:svg>3:g",
+              "c": ["selectFunc([2018,2021])"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "f": "0:div>0:div>1:div>2:svg>3:g",
+              "c": [
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])",
+                "selectFunc([2018,2021])"
+              ]
+            }
+          },
+          "0:div>0:div>1:div>2:svg>3:g>1:circle": {
+            "click": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "f": "0:div>0:div>1:div>2:svg>3:g"
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>0:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>1:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div>0:svg>0:g>0:g>2:g>1:rect class=\"histoslider-histogram-item-2QAoA\"",
+                "attr 0:div>0:div class=\"histoslider-histoslider-e1hL_ slider\""
+              ],
+              "f": "0:div>0:div>1:div>2:svg>3:g",
+              "c": ["selectFunc([2018,2021])"]
+            }
+          }
+        }
+      }
+    }
+  },
+  "overlay": null
+}

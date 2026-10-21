@@ -1,0 +1,339 @@
+# T-728 data-providers-add /data-providers/?q=aberystwyth&size=10&action=ADD&dataProviderUrl=https%3A%2F%2Fcreated.example.org%2F America/Los_Angeles absent (dom format 2)
+## nested anchors (Q-072): no-JS 0, hydrated 0
+## no-JS -> settled hydrated DOM
+@@ -21 +21 @@
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2] <div class="styles-item-1WhX8 styles-search-bar-item-dB35D">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1] <div class="select-select-wrapper-3xVb5 styles-select-3ZCU1">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[1] <div aria-live="assertive" class="sr-only">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2] <div class="styles-group-NqOA7 select-pure-2Pasv">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[1] <span class="styles-addon-fHX-H styles-prepend-3yZWC select-prepend-icon-2D41_">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[2] <span class="styles-addon-fHX-H styles-append-2Bs2q select-append-icon-3UXMK">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[2]/button[1] <button class="button-button-3fr3r button-text-2Jjil select-clear-out-button-1XORg" type="button">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[2]/button[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[2]/button[1]/svg[1]/use[1] <use href="/static/search/icons.svg#window-close">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/input[1] <input :checked="false" :value="" aria-autocomplete="both" aria-controls="suggestion-results-app-bar-search" aria-expanded="true" aria-owns="suggestion-results" autocomplete="off" class="styles-control-12Pze" id="select-app-bar-search" placeholder="e.g. repository or journal name" role="combobox" type="text" value="">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1] <label class="styles-label-3Zc32" for="select-app-bar-search">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1] "Search data providers"
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1] <ul class="select-select-menu-EjIta" id="suggestion-results-app-bar-search" role="listbox">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[1] <li aria-selected="false" class="select-option-1DSs2" data-select-id="22159" id="suggestion-result-app-bar-search-22159" role="option" tabindex="-1" value="Akademik Platform Helal Yaşam Dergisi">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[1]/span[1] <span class="select-option-icon-2R8pK">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[1]/span[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[1]/span[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[1]/span[2] <span class="select-option-value-1vWUd">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[1]/span[2] "Akademik Platform Helal Yaşam Dergisi"
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[2] <li aria-selected="false" class="select-option-1DSs2" data-select-id="2474" id="suggestion-result-app-bar-search-2474" role="option" tabindex="-1" value="Kultury Wschodniosłowiańskie - Oblicza i Dialog">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[2]/span[1] <span class="select-option-icon-2R8pK">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[2]/span[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[2]/span[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[2]/span[2] <span class="select-option-value-1vWUd">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[2]/span[2] "Kultury Wschodniosłowiańskie - Oblicza i Dialog"
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[3] <li aria-selected="false" class="select-option-1DSs2" data-select-id="2477" id="suggestion-result-app-bar-search-2477" role="option" tabindex="-1" value="Poznańskie Spotkania Językoznawcze">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[3]/span[1] <span class="select-option-icon-2R8pK">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[3]/span[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[3]/span[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[3]/span[2] <span class="select-option-value-1vWUd">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[3]/span[2] "Poznańskie Spotkania Językoznawcze"
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[4] <li aria-selected="false" class="select-option-1DSs2" data-select-id="2478" id="suggestion-result-app-bar-search-2478" role="option" tabindex="-1" value="Poznańskie Studia Polonistyczne. Seria Językoznawcza">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[4]/span[1] <span class="select-option-icon-2R8pK">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[4]/span[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[4]/span[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[4]/span[2] <span class="select-option-value-1vWUd">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[4]/span[2] "Poznańskie Studia Polonistyczne. Seria Językoznawcza"
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[5] <li aria-selected="false" class="select-option-1DSs2" data-select-id="2479" id="suggestion-result-app-bar-search-2479" role="option" tabindex="-1" value="Poznańskie Studia Polonistyczne. Seria Literacka">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[5]/span[1] <span class="select-option-icon-2R8pK">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[5]/span[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[5]/span[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[5]/span[2] <span class="select-option-value-1vWUd">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[5]/span[2] "Poznańskie Studia Polonistyczne. Seria Literacka"
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[6] <li aria-selected="false" class="select-option-1DSs2" data-select-id="2480" id="suggestion-result-app-bar-search-2480" role="option" tabindex="-1" value="Poznańskie Studia Slawistyczne">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[6]/span[1] <span class="select-option-icon-2R8pK">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[6]/span[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[6]/span[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[6]/span[2] <span class="select-option-value-1vWUd">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[6]/span[2] "Poznańskie Studia Slawistyczne"
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[7] <li aria-selected="false" class="select-option-1DSs2" data-select-id="2481" id="suggestion-result-app-bar-search-2481" role="option" tabindex="-1" value="Poznańskie Studia Teologiczne">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[7]/span[1] <span class="select-option-icon-2R8pK">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[7]/span[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[7]/span[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[7]/span[2] <span class="select-option-value-1vWUd">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[7]/span[2] "Poznańskie Studia Teologiczne"
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[8] <li aria-selected="false" class="select-option-1DSs2" data-select-id="2483" id="suggestion-result-app-bar-search-2483" role="option" tabindex="-1" value="Przegląd Politologiczny">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[8]/span[1] <span class="select-option-icon-2R8pK">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[8]/span[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[8]/span[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[8]/span[2] <span class="select-option-value-1vWUd">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[8]/span[2] "Przegląd Politologiczny"
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[9] <li aria-selected="false" class="select-option-1DSs2" data-select-id="2485" id="suggestion-result-app-bar-search-2485" role="option" tabindex="-1" value="Przegląd Strategiczny">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[9]/span[1] <span class="select-option-icon-2R8pK">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[9]/span[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[9]/span[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[9]/span[2] <span class="select-option-value-1vWUd">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[9]/span[2] "Przegląd Strategiczny"
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[10] <li aria-selected="false" class="select-option-1DSs2" data-select-id="2487" id="suggestion-result-app-bar-search-2487" role="option" tabindex="-1" value="Refleksje. Pismo naukowe studentów i doktorantów WNPiD UAM">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[10]/span[1] <span class="select-option-icon-2R8pK">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[10]/span[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[10]/span[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[10]/span[2] <span class="select-option-value-1vWUd">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[10]/span[2] "Refleksje. Pismo naukowe studentów i doktorantów WNPiD UAM"
+@@ -191 +266 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1] <div class="styles-group-NqOA7 normal" id="data-provider-url">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1] <div class="styles-group-NqOA7 text-field-success-1OCQF normal" id="data-provider-url">
+@@ -193 +268 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/input[1] <input :checked="false" :value="" aria-describedby="data-provider-url-message" aria-invalid="false" class="styles-control-12Pze" id="data-provider-url-control" name="dataProviderUrl" placeholder="For example, https://oro.open.ac.uk" required="" type="url" value="">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[1]/svg[1] <svg aria-hidden="true" class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[1]/svg[1]/use[1] <use href="/static/search/icons.svg#check">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/input[1] <input :checked="false" :value="https://created.example.org/" aria-describedby="data-provider-url-message" aria-invalid="false" class="styles-control-12Pze styles-focus-29vz3" id="data-provider-url-control" name="dataProviderUrl" placeholder="For example, https://oro.open.ac.uk" required="" type="url" value="https://created.example.org/">
+@@ -195 +272 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] "It can be any resource, home page or an OAI-PMH endpoint"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] "We found "
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] "Example Repository"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] " under the entered address and added it to our data provider collection. As soon as we approve adding, we will start harvesting and sent a confirmation email to"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] " "
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2]/a[1] <a href="mailto:" title="the administrator email address">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2]/a[1] ""
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] ". Join the community and add a"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] " "
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2]/a[2] <a href="https://core.ac.uk/faq#harvested-by-CORE-snippet" title="Harvested by CORE Logo">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2]/a[2] "harvested by CORE"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] " "
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] "badge on your website."
+@@ -199 +287 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[2]/button[1] <button class="button-button-3fr3r button-contained-pmIp-" disabled="" type="submit">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[2]/button[1] <button class="button-button-3fr3r button-contained-pmIp-" type="submit">
+@@ -205 +293 @@
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] <div class="styles_map leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="map" tabindex="0">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1] <div class="leaflet-pane leaflet-tile-pane">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1] <div class="leaflet-layer" style="z-index: 1; opacity: 1;">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1] <img alt="" class="leaflet-tile leaflet-tile-loaded" src="https://c.tile.openstreetmap.org/2/1/1.png" style="width: 256px; height: 256px; transform: translate3d(59px, -58px, 0px); opacity: 1;">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2] <img alt="" class="leaflet-tile leaflet-tile-loaded" src="https://a.tile.openstreetmap.org/2/1/2.png" style="width: 256px; height: 256px; transform: translate3d(59px, 198px, 0px); opacity: 1;">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[3] <img alt="" class="leaflet-tile leaflet-tile-loaded" src="https://b.tile.openstreetmap.org/2/0/1.png" style="width: 256px; height: 256px; transform: translate3d(-197px, -58px, 0px); opacity: 1;">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[4] <img alt="" class="leaflet-tile leaflet-tile-loaded" src="https://a.tile.openstreetmap.org/2/2/1.png" style="width: 256px; height: 256px; transform: translate3d(315px, -58px, 0px); opacity: 1;">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[5] <img alt="" class="leaflet-tile leaflet-tile-loaded" src="https://c.tile.openstreetmap.org/2/0/2.png" style="width: 256px; height: 256px; transform: translate3d(-197px, 198px, 0px); opacity: 1;">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[6] <img alt="" class="leaflet-tile leaflet-tile-loaded" src="https://b.tile.openstreetmap.org/2/2/2.png" style="width: 256px; height: 256px; transform: translate3d(315px, 198px, 0px); opacity: 1;">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2] <div class="leaflet-pane leaflet-overlay-pane">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3] <div class="leaflet-pane leaflet-shadow-pane">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4] <div class="leaflet-pane leaflet-marker-pane">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/img[1] <img alt="Marker" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" role="button" src="/static/search/static/images/map/marker.svg" style="margin-left: -16px; margin-top: -32px; width: 18px; height: 18px; transform: translate3d(315px, 198px, 0px); z-index: 198;" tabindex="0">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[5] <div class="leaflet-pane leaflet-tooltip-pane">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[6] <div class="leaflet-pane leaflet-popup-pane">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[7] <div class="leaflet-proxy leaflet-zoom-animated">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2] <div class="leaflet-control-container">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1] <div class="leaflet-top leaflet-left">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1] <div class="leaflet-control-zoom leaflet-bar leaflet-control">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1] <a aria-disabled="false" aria-label="Zoom in" class="leaflet-control-zoom-in" href="#" role="button" title="Zoom in">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[1] <span aria-hidden="true">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[1] "+"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[2] <a aria-disabled="false" aria-label="Zoom out" class="leaflet-control-zoom-out" href="#" role="button" title="Zoom out">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[2]/span[1] <span aria-hidden="true">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/a[2]/span[1] "−"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2] <div class="leaflet-top leaflet-right">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3] <div class="leaflet-bottom leaflet-left">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4] <div class="leaflet-bottom leaflet-right">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1] <div class="leaflet-control-attribution leaflet-control">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/a[1] <a href="https://leafletjs.com" title="A JavaScript library for interactive maps">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/a[1]/svg[1] <svg aria-hidden="true" class="leaflet-attribution-flag" height="8" viewBox="0 0 12 8" width="12" xmlns="http://www.w3.org/2000/svg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/a[1]/svg[1]/path[1] <path d="M0 0h12v4H0z" fill="#4C7BE1">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/a[1]/svg[1]/path[2] <path d="M0 4h12v3H0z" fill="#FFD500">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/a[1]/svg[1]/path[3] <path d="M0 7h12v1H0z" fill="#E0BC00">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/a[1] " Leaflet"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1] " "
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/span[1] <span aria-hidden="true">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/span[1] "|"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1] " © "
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] <a href="https://www.openstreetmap.org/copyright">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] "OpenStreetMap"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1] " contributors"
+@@ -321 +453 @@
++ html[1]/body[1]/div[1]/div[2] <div class="cookies-popup-2NSSr" id="cookies-popup">
++ html[1]/body[1]/div[1]/div[2]/div[1] <div class="cookies-popup-body-1VEen">
++ html[1]/body[1]/div[1]/div[2]/div[1]/p[1] <p>
++ html[1]/body[1]/div[1]/div[2]/div[1]/p[1] "We use cookies to improve our website."
++ html[1]/body[1]/div[1]/div[2]/div[1]/a[1] <a class="cookies-popup-link-o-JpP" href="/cookies">
++ html[1]/body[1]/div[1]/div[2]/div[1]/a[1] "Learn more"
++ html[1]/body[1]/div[1]/div[2]/div[2] <div class="cookies-popup-actions-qIUXY">
++ html[1]/body[1]/div[1]/div[2]/div[2]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM cookies-popup-button-17h9a" id="essential_cookies_allowed">
++ html[1]/body[1]/div[1]/div[2]/div[2]/button[1] "Essential cookies only"
++ html[1]/body[1]/div[1]/div[2]/div[2]/button[2] <button class="button-button-3fr3r button-contained-pmIp- cookies-popup-button-17h9a" id="essential_cookies_allowed,analytics_cookies_allowed">
++ html[1]/body[1]/div[1]/div[2]/div[2]/button[2] "I agree"
+@@ -338 +481 @@
++ html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
++ html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
++ html[1]/body[1]/next-route-announcer[1]/p[1] "Data providers search"
++ html[1]/body[1]/script[18] <script next-owned="chunk">
+## MutationObserver (from the first Next chunk script)
+* attributes html[1]/body[1]/div[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[1]/div[1]/a[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[1]/a[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[1]/a[2]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[1]/a[3]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[1]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[1]/ul[1]/li[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[1]/ul[1]/li[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[1]/ul[1]/li[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[2]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[2]/ul[1]/li[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[2]/ul[1]/li[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[2]/ul[1]/li[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[3]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[3]/ul[1]/li[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[3]/ul[1]/li[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[3]/ul[1]/li[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/input[1] @aria-expanded
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/input[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[2]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[2]/button[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[10] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[10]/span[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[1]/span[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[2]/span[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[3]/span[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[4]/span[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[5] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[5]/span[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[6] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[6]/span[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[7] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[7]/span[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[8] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[8]/span[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[9] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1]/li[9]/span[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[3]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[3]/button[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[2]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[2]/ul[1]/li[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[2]/ul[1]/li[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[3]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[3]/ul[1]/li[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[4]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[5] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[5]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[5]/ul[1]/li[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[6] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[6]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[1]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[1]/ul[1]/li[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[1]/ul[1]/li[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[1]/ul[1]/li[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[1]/ul[1]/li[5] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[1]/ul[1]/li[6] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[2]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[2]/ul[1]/li[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[2]/ul[1]/li[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[2]/ul[1]/li[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[3]/ul[1]/li[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/ul[1]/li[3]/ul[1]/li[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/span[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/input[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/input[1] @name
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/input[1] @value
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/label[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[2]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[2]/button[1] @disabled
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[2]/button[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] @tabindex
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] @style
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1] @style
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] @style
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1] @style
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[2] @style
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[3] @style
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[4] @style
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[5] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[5] @style
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[6] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[6] @style
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/img[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/img[1] @style
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[2]/div[2]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[2]/div[2]/button[2] @class
+* attributes html[1]/body[1]/div[1]/div[2]/div[2]/button[2] @id
+1 childList html[1]/body[1] +[next-route-announcer]
+1 childList html[1]/body[1]/div[1] +[div]
+1 childList html[1]/body[1]/div[1]/div[1] +[div]
+1 childList html[1]/body[1]/div[1]/div[1] -[div]
+1 childList html[1]/body[1]/div[1]/div[1]/header[1] +[div]
+10 childList html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1] +[li]
+2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[1] +[svg]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[1] -[svg]
+8 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] +[#text]
+2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] +[a]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] -[#text]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] +[div]
+2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] +[div]
+7 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] +[img,img,img,img,img,img]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4] +[img]
+4 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1] +[a,#text,span,#text,a,#text] -[a]
+1 childList html[1]/body[1]/next-route-announcer[1] +[p]
+1 childList html[1]/body[1]/next-route-announcer[1]/p[1] +[#text]
+## overflow 0, armed true

@@ -1,0 +1,3302 @@
+[
+  {
+    "id": "search-climate",
+    "path": "/search/?q=climate",
+    "data": "/search/_next/data/<buildId>/search.json?q=climate",
+    "page": "/search",
+    "query": { "q": "climate" },
+    "bytes": 143962,
+    "sha256": "a86c392bdcdc05e0bbeb4c4294a47e6e5fc2b99e0c6271473e324aab3a56b0b9",
+    "outline": {
+      "__N_SSP": "boolean",
+      "pageProps": {
+        "data": {
+          "currentPage": "number",
+          "limit": "number",
+          "offset": "number",
+          "query": "string",
+          "results": "array(10)",
+          "searchId": "string",
+          "sort": "string",
+          "totalHits": "number"
+        },
+        "members": "array(1)"
+      },
+      "statistics": { "totalArticlesCount": "string" }
+    }
+  },
+  {
+    "id": "search-climate-p2",
+    "path": "/search/?q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26",
+    "data": "/search/_next/data/<buildId>/search.json?q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26",
+    "page": "/search",
+    "query": {
+      "q": "climate",
+      "page": "2",
+      "limit": "10",
+      "sort": "recent",
+      "t": "fafad9968b7cd268c5fd64342bf88a26"
+    },
+    "bytes": 29945,
+    "sha256": "80dad482221fda7ffba6a734ce6b863798f1e4343a3585705cd216d942c38199",
+    "outline": {
+      "__N_SSP": "boolean",
+      "pageProps": {
+        "data": {
+          "currentPage": "number",
+          "limit": "number",
+          "offset": "number",
+          "query": "string",
+          "results": "array(10)",
+          "searchId": "string",
+          "sort": "string",
+          "totalHits": "number"
+        },
+        "members": "array(1)"
+      },
+      "statistics": { "totalArticlesCount": "string" }
+    }
+  },
+  {
+    "id": "search-zzzzqqq",
+    "path": "/search/?q=zzzzqqq",
+    "data": "/search/_next/data/<buildId>/search.json?q=zzzzqqq",
+    "page": "/search",
+    "query": { "q": "zzzzqqq" },
+    "bytes": 552,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "currentPage": 1,
+          "limit": 10,
+          "offset": 0,
+          "query": "zzzzqqq",
+          "results": [],
+          "searchId": "dd329626fdec8e98a5b736d1e624fa83",
+          "sort": "relevance",
+          "totalHits": 0
+        },
+        "members": [
+          {
+            "activated": 1,
+            "billing_end_date": "2023-11-24 11:53:29",
+            "billing_plan_id": 531,
+            "billing_start_date": "2023-11-24 11:53:29",
+            "billing_type": "sustaining",
+            "country_code": "GB",
+            "description": "Activated by manual request",
+            "organisation_id": 945,
+            "organisation_name": "Open University (ORO)",
+            "repo_id": 86
+          }
+        ]
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "search-status500",
+    "path": "/search/?q=__status500",
+    "data": "/search/_next/data/<buildId>/search.json?q=__status500",
+    "page": "/search",
+    "query": { "q": "__status500" },
+    "bytes": 140,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": { "queryError": { "query": "__status500", "status": 500 } },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "search-x-page-abc",
+    "path": "/search/?q=x&page=abc",
+    "data": "/search/_next/data/<buildId>/search.json?q=x&page=abc",
+    "page": "/search",
+    "query": { "q": "x", "page": "abc" },
+    "bytes": 467,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "currentPage": null,
+          "query": "x",
+          "results": [],
+          "sort": "relevance"
+        },
+        "members": [
+          {
+            "activated": 1,
+            "billing_end_date": "2023-11-24 11:53:29",
+            "billing_plan_id": 531,
+            "billing_start_date": "2023-11-24 11:53:29",
+            "billing_type": "sustaining",
+            "country_code": "GB",
+            "description": "Activated by manual request",
+            "organisation_id": 945,
+            "organisation_name": "Open University (ORO)",
+            "repo_id": 86
+          }
+        ]
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "works-1001",
+    "path": "/works/1001/",
+    "data": "/search/_next/data/<buildId>/works/1001.json?id=1001",
+    "page": "/works/[id]",
+    "query": { "id": "1001" },
+    "bytes": 14209,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+          "acceptedDate": "",
+          "arxivId": null,
+          "authors": [
+            { "name": "Annalisa Savaresi" },
+            { "name": "Mikko Rajavuori" },
+            { "name": "Rajavuori, Mikko" },
+            { "name": "Harro van Asselt" },
+            { "name": "van Asselt, Harro" },
+            { "name": "Savaresi, Annalisa" }
+          ],
+          "citationCount": 0,
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Rajavuori, M., Savaresi, A., & van Asselt, H. (2023). Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap? Regulation &Amp; Governance, 17(4), 944–953. Portico. https://doi.org/10.1111/rego.12518\n"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Rajavuori, M., Savaresi, A., & van Asselt, H. (2023). Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap? Regulation &Amp; Governance, 17(4), 944–953. Portico. https://doi.org/10.1111/rego.12518\n"
+            }
+          ],
+          "contributors": [
+            "Academy of Finland",
+            "Law",
+            "University of Eastern Finland",
+            "European Commission (Horizon Europe)",
+            "University of Turku",
+            "0000-0002-4255-3696"
+          ],
+          "createdDate": "2023-05-25T01:01:55+01:00",
+          "dataProvider": {
+            "id": 4786,
+            "logo": "https://api.core.ac.uk/data-providers/4786/logo",
+            "name": "Crossref",
+            "url": "https://api.core.ac.uk/v3/data-providers/4786"
+          },
+          "dataProviders": [
+            {
+              "id": 4786,
+              "logo": "https://api.core.ac.uk/data-providers/4786/logo",
+              "name": "Crossref",
+              "url": "https://api.core.ac.uk/v3/data-providers/4786"
+            },
+            {
+              "id": 10883,
+              "logo": "https://api.core.ac.uk/data-providers/10883/logo",
+              "name": "Stirling Online Research Repository (RIOXX)",
+              "url": "https://api.core.ac.uk/v3/data-providers/10883"
+            },
+            {
+              "id": 107,
+              "logo": "https://api.core.ac.uk/data-providers/107/logo",
+              "name": "Stirling Online Research Repository",
+              "url": "https://api.core.ac.uk/v3/data-providers/107"
+            }
+          ],
+          "depositedDate": "2023-05-25T01:01:55+01:00",
+          "display": "<stack>/works/143022523",
+          "documentType": null,
+          "doi": "10.1111/rego.12518",
+          "download": "<stack>/download/566708785.pdf",
+          "downloadUrl": "https://core.ac.uk/download/566708785.pdf",
+          "fieldOfStudy": "climate change litigation",
+          "id": 1001,
+          "identifiers": {
+            "0": { "identifier": "566708785", "type": "core_id" },
+            "1": { "identifier": "10.1111/rego.12518", "type": "doi" },
+            "2": {
+              "identifier": "oai:dspace.stir.ac.uk:1893/35102",
+              "type": "oai_id"
+            },
+            "3": { "identifier": "567714872", "type": "core_id" },
+            "4": { "identifier": "580296804", "type": "core_id" },
+            "5": {
+              "identifier": "oai:dspace.stir.ac.uk:1893/35102",
+              "type": "oai"
+            },
+            "doi": "10.1111/rego.12518"
+          },
+          "journals": [],
+          "language": null,
+          "links": [
+            { "type": "download", "url": "<stack>/download/566708785.pdf" },
+            { "type": "reader", "url": "<stack>/reader/566708785" },
+            { "type": "thumbnail_m", "url": "<stack>/image/566708785/large" },
+            { "type": "thumbnail_l", "url": "<stack>/image/566708785/large" },
+            { "type": "display", "url": "<stack>/works/143022523" }
+          ],
+          "magId": null,
+          "mainDataProviderLink": null,
+          "oaiIds": ["oai:dspace.stir.ac.uk:1893/35102"],
+          "outputs": [
+            {
+              "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+              "acceptedDate": "",
+              "authors": [
+                { "name": "Rajavuori, Mikko" },
+                { "name": "Savaresi, Annalisa" },
+                { "name": "van Asselt, Harro" }
+              ],
+              "contributors": [],
+              "createdDate": "2023-05-25T01:01:55+01:00",
+              "dataProvider": {
+                "id": 10883,
+                "logo": null,
+                "name": "Stirling Online Research Repository (RIOXX)",
+                "url": "https://api.core.ac.uk/v3/data-providers/10883"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2023-05-25T01:01:55+01:00",
+              "disabled": false,
+              "display": "<stack>/outputs/566708785",
+              "documentType": [],
+              "doi": "10.1111/rego.12518",
+              "download": "<stack>/download/566708785.pdf",
+              "downloadUrl": "https://core.ac.uk/download/566708785.pdf",
+              "fullText": "",
+              "fulltextStatus": "enabled",
+              "id": 566708785,
+              "identifiers": {
+                "doi": "10.1111/rego.12518",
+                "oai": "oai:dspace.stir.ac.uk:1893/35102"
+              },
+              "journals": [],
+              "language": null,
+              "lastUpdate": "2026-04-03T22:11:27+01:00",
+              "license": "http://creativecommons.org/licenses/by/4.0/",
+              "links": [
+                { "type": "download", "url": "<stack>/download/566708785.pdf" },
+                { "type": "reader", "url": "<stack>/reader/566708785" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/566708785/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/566708785/large"
+                },
+                { "type": "reader", "url": "<stack>/reader/566708785" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/566708785/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/566708785/large"
+                },
+                { "type": "display", "url": "<stack>/outputs/566708785" }
+              ],
+              "oai": "oai:dspace.stir.ac.uk:1893/35102",
+              "orcids": [],
+              "publishedDate": "2023-03-14T00:00:00+00:00",
+              "publisher": "Wiley",
+              "reader": "<stack>/reader/566708785",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 566708785,
+                "publishedDate": "2023-03-14T00:00:00+00:00",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": [
+                "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf",
+                "https://doi.org/10.1111/rego.12518"
+              ],
+              "subjects": [
+                "climate change litigation",
+                "corporate accountability",
+                "corporate sustainability",
+                "due diligence",
+                "human rights"
+              ],
+              "tags": [
+                "climate change litigation",
+                "corporate accountability",
+                "corporate sustainability",
+                "due diligence",
+                "human rights"
+              ],
+              "thumbnail_l": "<stack>/image/566708785/large",
+              "thumbnail_m": "<stack>/image/566708785/medium",
+              "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+              "updatedDate": null,
+              "urls": [
+                {
+                  "type": "fulltext",
+                  "url": "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf"
+                },
+                {
+                  "type": "fulltext",
+                  "url": "https://doi.org/10.1111/rego.12518"
+                }
+              ],
+              "versions": [],
+              "yearPublished": "2023"
+            },
+            {
+              "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+              "acceptedDate": "",
+              "authors": [
+                { "name": "Rajavuori, Mikko" },
+                { "name": "Savaresi, Annalisa" },
+                { "name": "van Asselt, Harro" }
+              ],
+              "contributors": [
+                "European Commission (Horizon Europe)",
+                "Academy of Finland",
+                "Academy of Finland",
+                "University of Turku",
+                "Law",
+                "University of Eastern Finland",
+                "0000-0002-4255-3696"
+              ],
+              "createdDate": "2023-05-25T01:01:55+01:00",
+              "dataProvider": {
+                "id": 107,
+                "logo": null,
+                "name": "Stirling Online Research Repository",
+                "url": "https://api.core.ac.uk/v3/data-providers/107"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2023-05-25T01:01:55+01:00",
+              "disabled": false,
+              "display": "<stack>/outputs/567714872",
+              "documentType": "",
+              "doi": "10.1111/rego.12518",
+              "download": "<stack>/download/567714872.pdf",
+              "downloadUrl": "https://core.ac.uk/download/567714872.pdf",
+              "fullText": "",
+              "fulltextStatus": "enabled",
+              "id": 567714872,
+              "identifiers": {
+                "doi": "10.1111/rego.12518",
+                "oai": "oai:dspace.stir.ac.uk:1893/35102"
+              },
+              "journals": [],
+              "language": null,
+              "lastUpdate": "2026-04-03T22:47:39+01:00",
+              "license": "http://creativecommons.org/licenses/by/4.0/",
+              "links": [
+                { "type": "download", "url": "<stack>/download/567714872.pdf" },
+                { "type": "reader", "url": "<stack>/reader/567714872" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/567714872/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/567714872/large"
+                },
+                { "type": "reader", "url": "<stack>/reader/567714872" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/567714872/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/567714872/large"
+                },
+                { "type": "display", "url": "<stack>/outputs/567714872" }
+              ],
+              "oai": "oai:dspace.stir.ac.uk:1893/35102",
+              "orcids": [],
+              "publishedDate": "2023-03-14T00:00:00+00:00",
+              "publisher": "Wiley",
+              "reader": "<stack>/reader/567714872",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 567714872,
+                "publishedDate": "2023-03-14T00:00:00+00:00",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": [
+                "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf",
+                "http://hdl.handle.net/1893/35102"
+              ],
+              "subjects": ["Journal Article", "VoR - Version of Record"],
+              "tags": ["Journal Article", "VoR - Version of Record"],
+              "thumbnail_l": "<stack>/image/567714872/large",
+              "thumbnail_m": "<stack>/image/567714872/medium",
+              "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+              "updatedDate": null,
+              "urls": [
+                {
+                  "type": "fulltext",
+                  "url": "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf"
+                },
+                {
+                  "type": "fulltext",
+                  "url": "http://hdl.handle.net/1893/35102"
+                }
+              ],
+              "versions": [{ "version": null }],
+              "yearPublished": "2023"
+            },
+            {
+              "abstract": "",
+              "acceptedDate": "",
+              "authors": [
+                { "name": "Mikko Rajavuori" },
+                { "name": "Annalisa Savaresi" },
+                { "name": "Harro van Asselt" }
+              ],
+              "contributors": [],
+              "createdDate": "2023-10-24T02:00:00+01:00",
+              "dataProvider": {
+                "id": 4786,
+                "logo": null,
+                "name": "Crossref",
+                "url": "https://api.core.ac.uk/v3/data-providers/4786"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2023-08-18T02:00:00+01:00",
+              "disabled": false,
+              "display": "<stack>/outputs/580296804",
+              "documentType": "",
+              "doi": "10.1111/rego.12518",
+              "downloadUrl": "",
+              "fullText": "",
+              "fulltextStatus": "disabled",
+              "id": 580296804,
+              "identifiers": { "doi": "10.1111/rego.12518", "oai": null },
+              "journals": [],
+              "language": null,
+              "lastUpdate": "2026-04-04T09:44:15+01:00",
+              "license": "http://creativecommons.org/licenses/by/4.0/",
+              "links": [
+                { "type": "display", "url": "<stack>/outputs/580296804" }
+              ],
+              "oai": "",
+              "orcids": [],
+              "publishedDate": null,
+              "publisher": "Wiley",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 580296804,
+                "publishedDate": "",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": [],
+              "subjects": [],
+              "tags": [],
+              "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+              "updatedDate": null,
+              "urls": [],
+              "versions": [],
+              "yearPublished": "2023"
+            }
+          ],
+          "publishedDate": "2023-03-14T00:00:00+00:00",
+          "publisher": "Wiley",
+          "pubmedId": null,
+          "reader": "<stack>/reader/566708785",
+          "references": [],
+          "sourceFulltextUrls": "https://core.ac.uk/download/566708785.pdf",
+          "thumbnail_l": "<stack>/image/566708785/large",
+          "thumbnail_m": "<stack>/image/566708785/large",
+          "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+          "updatedDate": "",
+          "yearPublished": 2023
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "works-1002",
+    "path": "/works/1002/",
+    "data": "/search/_next/data/<buildId>/works/1002.json?id=1002",
+    "page": "/works/[id]",
+    "query": { "id": "1002" },
+    "bytes": 4639,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "The NDC-SDG linkage analysis is a comprehensive study, which examines the degree of alignment between the (I)NDCs and the 169 targets of the 2030 Sustainable Development Agenda. Climate action texts were extracted from the NDCs and aligned with relevant targets. The study was carried by WRI to support joint implementation of both the Paris Agreement and the 2030 Agenda.\n\nhttps://www.climatewatchdata.org/data-explorer/emission-pathways?emission-pathways-categories=All%20Selected&emission-pathways-indicators=All%20Selected&emission-pathways-locations=All%20Selected&emission-pathways-models=All%20Selected&emission-pathways-scenarios=All%20Selected&emission-pathways-subcategories=All%20Selected&page=",
+          "acceptedDate": "",
+          "arxivId": null,
+          "authors": [{ "name": "Climate Watch" }],
+          "citationCount": 0,
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Climate Watch. (2021). <i>NDC-SDG Linkages</i> (Version 1.0) [Data set]. Harvard Dataverse. https://doi.org/10.7910/DVN/HCYDPQ"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Climate Watch. (2021). <i>NDC-SDG Linkages</i> (Version 1.0) [Data set]. Harvard Dataverse. https://doi.org/10.7910/DVN/HCYDPQ"
+            }
+          ],
+          "contributors": ["Climate Watch"],
+          "createdDate": "2021-12-01T07:59:41+00:00",
+          "dataProvider": {
+            "id": 1546,
+            "logo": "https://api.core.ac.uk/data-providers/1546/logo",
+            "name": "Harvard Dataverse",
+            "url": "https://api.core.ac.uk/v3/data-providers/1546"
+          },
+          "dataProviders": [
+            {
+              "id": 1546,
+              "logo": "https://api.core.ac.uk/data-providers/1546/logo",
+              "name": "Harvard Dataverse",
+              "url": "https://api.core.ac.uk/v3/data-providers/1546"
+            }
+          ],
+          "depositedDate": "2021-12-01T07:59:41+00:00",
+          "display": "<stack>/works/169849048",
+          "documentType": null,
+          "doi": "10.7910/dvn/hcydpq",
+          "downloadUrl": "",
+          "fieldOfStudy": "Earth and Environmental Sciences",
+          "id": 1002,
+          "identifiers": {
+            "0": { "identifier": "638647848", "type": "core_id" },
+            "1": { "identifier": "10.7910/dvn/hcydpq", "type": "doi" },
+            "2": { "identifier": "doi:10.7910/dvn/hcydpq", "type": "oai_id" },
+            "3": { "identifier": "doi:10.7910/dvn/hcydpq", "type": "doi" },
+            "doi": "10.7910/dvn/hcydpq"
+          },
+          "journals": [],
+          "language": null,
+          "links": [{ "type": "display", "url": "<stack>/works/169849048" }],
+          "magId": null,
+          "mainDataProviderLink": null,
+          "oaiIds": ["doi:10.7910/dvn/hcydpq"],
+          "outputs": [
+            {
+              "abstract": "The NDC-SDG linkage analysis is a comprehensive study, which examines the degree of alignment between the (I)NDCs and the 169 targets of the 2030 Sustainable Development Agenda. Climate action texts were extracted from the NDCs and aligned with relevant targets. The study was carried by WRI to support joint implementation of both the Paris Agreement and the 2030 Agenda.\n\nhttps://www.climatewatchdata.org/data-explorer/emission-pathways?emission-pathways-categories=All%20Selected&emission-pathways-indicators=All%20Selected&emission-pathways-locations=All%20Selected&emission-pathways-models=All%20Selected&emission-pathways-scenarios=All%20Selected&emission-pathways-subcategories=All%20Selected&page=",
+              "acceptedDate": "",
+              "authors": [{ "name": "Climate Watch" }],
+              "contributors": ["Climate Watch"],
+              "createdDate": "2021-12-01T07:59:41+00:00",
+              "dataProvider": {
+                "id": 1546,
+                "logo": null,
+                "name": "Harvard Dataverse",
+                "url": "https://api.core.ac.uk/v3/data-providers/1546"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2021-12-01T07:59:41+00:00",
+              "disabled": false,
+              "display": "<stack>/outputs/638647848",
+              "documentType": [],
+              "doi": "10.7910/DVN/HCYDPQ",
+              "downloadUrl": "",
+              "fullText": "",
+              "fulltextStatus": "disabled",
+              "id": 638647848,
+              "identifiers": {
+                "doi": "10.7910/DVN/HCYDPQ",
+                "oai": "doi:10.7910/DVN/HCYDPQ"
+              },
+              "journals": [],
+              "language": null,
+              "lastUpdate": "2026-04-05T21:40:36+01:00",
+              "license": "",
+              "links": [
+                { "type": "display", "url": "<stack>/outputs/638647848" }
+              ],
+              "oai": "doi:10.7910/DVN/HCYDPQ",
+              "orcids": [],
+              "publishedDate": null,
+              "publisher": "Harvard Dataverse",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 638647848,
+                "publishedDate": "",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": ["https://doi.org/10.7910/DVN/HCYDPQ"],
+              "subjects": [
+                "Earth and Environmental Sciences",
+                "Nationally Determined Contributions; Sustainable Development Goals"
+              ],
+              "tags": [
+                "Earth and Environmental Sciences",
+                "Nationally Determined Contributions; Sustainable Development Goals"
+              ],
+              "title": "NDC-SDG Linkages",
+              "updatedDate": null,
+              "urls": [
+                {
+                  "type": "fulltext",
+                  "url": "https://doi.org/10.7910/DVN/HCYDPQ"
+                }
+              ],
+              "versions": [],
+              "yearPublished": ""
+            }
+          ],
+          "publishedDate": null,
+          "publisher": "Harvard Dataverse",
+          "pubmedId": null,
+          "references": [],
+          "sourceFulltextUrls": null,
+          "title": "NDC-SDG Linkages",
+          "updatedDate": "",
+          "yearPublished": null
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "works-1003",
+    "path": "/works/1003/",
+    "data": "/search/_next/data/<buildId>/works/1003.json?id=1003",
+    "page": "/works/[id]",
+    "query": { "id": "1003" },
+    "bytes": 17804,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "A major task of the newly established \"Southern African Science Service Centre for Climate Change and Adaptive Land Management\" (SASSCAL; www.sasscal.org) and its partners is to provide science-based environmental information and knowledge which includes the provision of consistent and reliable climate data for Southern Africa. Hence, SASSCAL, in close cooperation with the national weather authorities of Angola, Botswana, Germany and Zambia as well as partner institutions in Namibia and South Africa, supports the extension of the regional meteorological observation network and the improvement of the climate archives at national level. With the ongoing rehabilitation of existing weather stations and the new installation of fully automated weather stations (AWS), altogether 105 AWS currently provide a set of climate variables at 15, 30 and 60 min intervals respectively. These records are made available through the SASSCAL WeatherNet, an online platform providing near-real time data as well as various statistics and graphics, all in open access. This effort is complemented by the harmonization and improvement of climate data management concepts at the national weather authorities, capacity building activities and an extension of the data bases with historical climate data which are still available from different sources. These activities are performed through cooperation between regional and German institutions and will provide important information for climate service related activities",
+          "acceptedDate": "",
+          "arxivId": null,
+          "authors": [
+            { "name": "F. Kaspar" },
+            { "name": "M. Butale" },
+            { "name": "de Clercq, W." },
+            { "name": "T. Hillmann" },
+            { "name": "Kruger, S." },
+            { "name": "Castro Matsheka, M." },
+            { "name": "Helmschrot, J." },
+            { "name": "W. de Clercq" },
+            { "name": "Seely, M." },
+            { "name": "R. Posada" },
+            { "name": "Hillmann, T." },
+            { "name": "F. O. S. Neto" },
+            { "name": "Kaspar, F." },
+            { "name": "J. K. Kanyanga" },
+            { "name": "M. Seely" },
+            { "name": "Mhanda, A." },
+            { "name": "Josenhans, K." },
+            { "name": "J`urgens, N." },
+            { "name": "Ribeiro, C." },
+            { "name": "C. Ribeiro" },
+            { "name": "Neto, F. O. S." },
+            { "name": "G. Muche" },
+            { "name": "Riede, J." },
+            { "name": "R. Vogt" },
+            { "name": "Vogt, R." },
+            { "name": "Butale, M." },
+            { "name": "J. Helmschrot" },
+            { "name": "Posada, R." },
+            { "name": "S. Kruger" },
+            { "name": "Muche, G." }
+          ],
+          "citationCount": 0,
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Kaspar, F., Helmschrot, J., Mhanda, A., Butale, M., de Clercq, W., Kanyanga, J. K., Neto, F. O. S., Kruger, S., Castro Matsheka, M., Muche, G., Hillmann, T., Josenhans, K., Posada, R., Riede, J., Seely, M., Ribeiro, C., Kenabatho, P., Vogt, R., & Jürgens, N. (2015). The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa. Advances in Science and Research, 12(1), 171–177. https://doi.org/10.5194/asr-12-171-2015\n"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Kaspar, F., Helmschrot, J., Mhanda, A., Butale, M., de Clercq, W., Kanyanga, J. K., Neto, F. O. S., Kruger, S., Castro Matsheka, M., Muche, G., Hillmann, T., Josenhans, K., Posada, R., Riede, J., Seely, M., Ribeiro, C., Kenabatho, P., Vogt, R., & Jürgens, N. (2015). The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa. Advances in Science and Research, 12(1), 171–177. https://doi.org/10.5194/asr-12-171-2015\n"
+            }
+          ],
+          "contributors": [],
+          "createdDate": "2015-12-31T10:59:02+00:00",
+          "dataProvider": {
+            "id": 4786,
+            "logo": "https://api.core.ac.uk/data-providers/4786/logo",
+            "name": "Crossref",
+            "url": "https://api.core.ac.uk/v3/data-providers/4786"
+          },
+          "dataProviders": [
+            {
+              "id": 4786,
+              "logo": "https://api.core.ac.uk/data-providers/4786/logo",
+              "name": "Crossref",
+              "url": "https://api.core.ac.uk/v3/data-providers/4786"
+            },
+            {
+              "id": 405,
+              "logo": "https://api.core.ac.uk/data-providers/405/logo",
+              "name": "edoc",
+              "url": "https://api.core.ac.uk/v3/data-providers/405"
+            },
+            {
+              "id": 645,
+              "logo": "https://api.core.ac.uk/data-providers/645/logo",
+              "name": "Directory of Open Access Journals",
+              "url": "https://api.core.ac.uk/v3/data-providers/645"
+            }
+          ],
+          "depositedDate": "2015-11-06T00:00:00+00:00",
+          "display": "<stack>/works/19828865",
+          "documentType": null,
+          "doi": "10.5194/asr-12-171-2015",
+          "download": "<stack>/download/33302804.pdf",
+          "downloadUrl": "https://core.ac.uk/download/33302804.pdf",
+          "fieldOfStudy": "Article",
+          "id": 1003,
+          "identifiers": {
+            "0": { "identifier": "33302804", "type": "core_id" },
+            "1": { "identifier": "10.5194/asr-12-171-2015", "type": "doi" },
+            "2": { "identifier": "oai:edoc.unibas.ch:38987", "type": "oai_id" },
+            "3": { "identifier": "89912079", "type": "core_id" },
+            "4": {
+              "identifier": "oai:doaj.org/article:8b74ba855add4a3985bffa344b0dde5f",
+              "type": "oai_id"
+            },
+            "5": { "identifier": "284128277", "type": "core_id" },
+            "6": { "identifier": "oai:edoc.unibas.ch:38987", "type": "oai" },
+            "7": {
+              "identifier": "oai:doaj.org/article:8b74ba855add4a3985bffa344b0dde5f",
+              "type": "oai"
+            },
+            "doi": "10.5194/asr-12-171-2015"
+          },
+          "journals": [{ "identifiers": [], "title": null }],
+          "language": { "code": "en", "name": "English" },
+          "links": [
+            { "type": "download", "url": "<stack>/download/33302804.pdf" },
+            { "type": "reader", "url": "<stack>/reader/33302804" },
+            { "type": "thumbnail_m", "url": "<stack>/image/33302804/large" },
+            { "type": "thumbnail_l", "url": "<stack>/image/33302804/large" },
+            { "type": "display", "url": "<stack>/works/19828865" }
+          ],
+          "magId": null,
+          "mainDataProviderLink": null,
+          "oaiIds": [
+            "oai:edoc.unibas.ch:38987",
+            "oai:doaj.org/article:8b74ba855add4a3985bffa344b0dde5f"
+          ],
+          "outputs": [
+            {
+              "abstract": "A major task of the newly established \"Southern African Science Service Centre for Climate Change and Adaptive Land Management\" (SASSCAL; www.sasscal.org) and its partners is to provide science-based environmental information and knowledge which includes the provision of consistent and reliable climate data for Southern Africa. Hence, SASSCAL, in close cooperation with the national weather authorities of Angola, Botswana, Germany and Zambia as well as partner institutions in Namibia and South Africa, supports the extension of the regional meteorological observation network and the improvement of the climate archives at national level. With the ongoing rehabilitation of existing weather stations and the new installation of fully automated weather stations (AWS), altogether 105 AWS currently provide a set of climate variables at 15, 30 and 60 min intervals respectively. These records are made available through the SASSCAL WeatherNet, an online platform providing near-real time data as well as various statistics and graphics, all in open access. This effort is complemented by the harmonization and improvement of climate data management concepts at the national weather authorities, capacity building activities and an extension of the data bases with historical climate data which are still available from different sources. These activities are performed through cooperation between regional and German institutions and will provide important information for climate service related activities",
+              "acceptedDate": "",
+              "authors": [
+                { "name": "Kaspar, F." },
+                { "name": "Helmschrot, J." },
+                { "name": "Mhanda, A." },
+                { "name": "Butale, M." },
+                { "name": "de Clercq, W." },
+                { "name": "Kanyanga, J. K." },
+                { "name": "Neto, F. O. S." },
+                { "name": "Kruger, S." },
+                { "name": "Castro Matsheka, M." },
+                { "name": "Muche, G." },
+                { "name": "Hillmann, T." },
+                { "name": "Josenhans, K." },
+                { "name": "Posada, R." },
+                { "name": "Riede, J." },
+                { "name": "Seely, M." },
+                { "name": "Ribeiro, C." },
+                { "name": "Kenabatho, P." },
+                { "name": "Vogt, R." },
+                { "name": "J`urgens, N." }
+              ],
+              "contributors": [],
+              "createdDate": "2015-12-31T10:59:02+00:00",
+              "dataProvider": {
+                "id": 405,
+                "logo": null,
+                "name": "edoc",
+                "url": "https://api.core.ac.uk/v3/data-providers/405"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2015-11-06T00:00:00+00:00",
+              "disabled": false,
+              "display": "<stack>/outputs/33302804",
+              "documentType": "",
+              "doi": "10.5194/asr-12-171-2015",
+              "download": "<stack>/download/33302804.pdf",
+              "downloadUrl": "https://core.ac.uk/download/33302804.pdf",
+              "fullText": "",
+              "fulltextStatus": "enabled",
+              "id": 33302804,
+              "identifiers": {
+                "doi": "10.5194/asr-12-171-2015",
+                "oai": "oai:edoc.unibas.ch:38987"
+              },
+              "journals": [],
+              "language": { "code": "en", "name": "English" },
+              "lastUpdate": "2026-03-21T13:44:51+00:00",
+              "license": "info:eu-repo/semantics/openAccess",
+              "links": [
+                { "type": "download", "url": "<stack>/download/33302804.pdf" },
+                { "type": "reader", "url": "<stack>/reader/33302804" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/33302804/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/33302804/large"
+                },
+                { "type": "reader", "url": "<stack>/reader/33302804" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/33302804/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/33302804/large"
+                },
+                { "type": "display", "url": "<stack>/outputs/33302804" }
+              ],
+              "oai": "oai:edoc.unibas.ch:38987",
+              "orcids": [],
+              "publishedDate": "2015-01-01T00:00:00+00:00",
+              "publisher": "Copernicus-Ges.",
+              "reader": "<stack>/reader/33302804",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 33302804,
+                "publishedDate": "2015-01-01T00:00:00+00:00",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": [
+                "https://edoc.unibas.ch/38987/1/asr-12-171-2015.pdf"
+              ],
+              "subjects": ["Article", "PeerReviewed"],
+              "tags": ["Article", "PeerReviewed"],
+              "thumbnail_l": "<stack>/image/33302804/large",
+              "thumbnail_m": "<stack>/image/33302804/medium",
+              "title": "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa",
+              "updatedDate": null,
+              "urls": [
+                {
+                  "type": "fulltext",
+                  "url": "https://edoc.unibas.ch/38987/1/asr-12-171-2015.pdf"
+                }
+              ],
+              "versions": [{ "version": "review" }],
+              "yearPublished": "2015"
+            },
+            {
+              "abstract": "A major task of the newly established \"Southern African Science Service\nCentre for Climate Change and Adaptive Land Management\" (SASSCAL;\nwww.sasscal.org) and its partners is to provide science-based\nenvironmental information and knowledge which includes the provision of\nconsistent and reliable climate data for Southern Africa. Hence, SASSCAL, in\nclose cooperation with the national weather authorities of Angola, Botswana,\nGermany and Zambia as well as partner institutions in Namibia and South\nAfrica, supports the extension of the regional meteorological observation\nnetwork and the improvement of the climate archives at national level. With\nthe ongoing rehabilitation of existing weather stations and the new\ninstallation of fully automated weather stations (AWS), altogether 105 AWS\ncurrently provide a set of climate variables at 15, 30 and 60 min intervals\nrespectively. These records are made available through the SASSCAL\nWeatherNet, an online platform providing near-real time data as well as\nvarious statistics and graphics, all in open access. This effort is\ncomplemented by the harmonization and improvement of climate data management\nconcepts at the national weather authorities, capacity building activities\nand an extension of the data bases with historical climate data which are\nstill available from different sources. These activities are performed\nthrough cooperation between regional and German institutions and will provide\nimportant information for climate service related activities",
+              "acceptedDate": "",
+              "authors": [
+                { "name": "F. Kaspar" },
+                { "name": "J. Helmschrot" },
+                { "name": "A. Mhanda" },
+                { "name": "M. Butale" },
+                { "name": "W. de Clercq" },
+                { "name": "J. K. Kanyanga" },
+                { "name": "F. O. S. Neto" },
+                { "name": "S. Kruger" },
+                { "name": "M. Castro Matsheka" },
+                { "name": "G. Muche" },
+                { "name": "T. Hillmann" },
+                { "name": "K. Josenhans" },
+                { "name": "R. Posada" },
+                { "name": "J. Riede" },
+                { "name": "M. Seely" },
+                { "name": "C. Ribeiro" },
+                { "name": "P. Kenabatho" },
+                { "name": "R. Vogt" },
+                { "name": "N. Jürgens" }
+              ],
+              "contributors": [],
+              "createdDate": "2025-08-28T16:29:05+01:00",
+              "dataProvider": {
+                "id": 645,
+                "logo": null,
+                "name": "Directory of Open Access Journals",
+                "url": "https://api.core.ac.uk/v3/data-providers/645"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2017-12-11T00:00:00+00:00",
+              "disabled": false,
+              "display": "<stack>/outputs/89912079",
+              "documentType": ["research article"],
+              "doi": "10.5194/asr-12-171-2015",
+              "downloadUrl": "",
+              "fullText": "",
+              "fulltextStatus": "disabled",
+              "id": 89912079,
+              "identifiers": {
+                "doi": "10.5194/asr-12-171-2015",
+                "oai": "oai:doaj.org/article:8b74ba855add4a3985bffa344b0dde5f"
+              },
+              "journals": [{ "identifiers": [], "title": null }],
+              "language": null,
+              "lastUpdate": "2026-03-26T02:25:45+00:00",
+              "license": "",
+              "links": [
+                { "type": "display", "url": "<stack>/outputs/89912079" }
+              ],
+              "oai": "oai:doaj.org/article:8b74ba855add4a3985bffa344b0dde5f",
+              "orcids": [],
+              "publishedDate": null,
+              "publisher": "Copernicus Publications",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 89912079,
+                "publishedDate": "",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": [
+                "https://doaj.org/article/8b74ba855add4a3985bffa344b0dde5f"
+              ],
+              "subjects": ["article"],
+              "tags": ["article"],
+              "title": "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa",
+              "updatedDate": null,
+              "urls": [
+                {
+                  "type": "fulltext",
+                  "url": "https://doaj.org/article/8b74ba855add4a3985bffa344b0dde5f"
+                }
+              ],
+              "versions": [],
+              "yearPublished": "2015"
+            },
+            {
+              "abstract": "",
+              "acceptedDate": "",
+              "authors": [],
+              "contributors": [],
+              "createdDate": "2021-01-26T00:00:00+00:00",
+              "dataProvider": {
+                "id": 4786,
+                "logo": null,
+                "name": "Crossref",
+                "url": "https://api.core.ac.uk/v3/data-providers/4786"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2020-01-03T03:20:38+00:00",
+              "disabled": false,
+              "display": "<stack>/outputs/284128277",
+              "documentType": "",
+              "doi": "",
+              "downloadUrl": "",
+              "fullText": "",
+              "fulltextStatus": "disabled",
+              "id": 284128277,
+              "identifiers": { "doi": null, "oai": null },
+              "journals": [],
+              "language": null,
+              "lastUpdate": "2026-03-28T11:53:17+00:00",
+              "license": "",
+              "links": [
+                { "type": "display", "url": "<stack>/outputs/284128277" }
+              ],
+              "oai": "",
+              "orcids": [],
+              "publishedDate": null,
+              "publisher": "Copernicus GmbH",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 284128277,
+                "publishedDate": "",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": [],
+              "subjects": [],
+              "tags": [],
+              "title": "",
+              "updatedDate": null,
+              "urls": [],
+              "versions": [],
+              "yearPublished": ""
+            }
+          ],
+          "publishedDate": "2015-01-01T00:00:00+00:00",
+          "publisher": "Copernicus-Ges.",
+          "pubmedId": null,
+          "reader": "<stack>/reader/33302804",
+          "references": [
+            {
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "id": "19708831",
+              "raw": "www.adv-sci-res.net/12/171/2015/ Adv. Sci. Res., 12, 171–177, 2015 176 F. Kaspar et al.: The SASSCAL contribution to climate observation in Southern Africa Becker, A., Finger, P., Meyer-Christoffer, A., Rudolf, B., Schamm, K., Schneider, U., and Ziese, M.: A description of the global land-surface precipitation data products of the Global Precipitation Climatology Centre with sample applications including centennial (trend) analysis from 1901–present, Earth Syst.",
+              "title": "176 F. Kaspar et al.: The SASSCAL contribution to climate observation in"
+            },
+            {
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "id": "19708832",
+              "raw": "Stuber, D., Mhanda, A., and Lefebvre, C.: Climate Data Management Systems: status of implementation in developing countries, Clim. Res., 47, 13–20, doi:10.3354/cr00961, 2011.",
+              "title": "Climate Data Management Systems: status of implementation in developing countries,"
+            },
+            {
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "id": "19708833",
+              "raw": "Kaspar, F., Tinz, B., Mächel, H., and Gates, L.: Data rescue of national and international meteorological observations at Deutscher Wetterdienst, Adv. Sci. Res., 12, 57–61, doi:10.5194/asr-12-57-2015, 2015.",
+              "title": "Data rescue of national and international meteorological observations at Deutscher Wetterdienst,"
+            },
+            {
+              "authors": [],
+              "date": "2004",
+              "doi": null,
+              "id": "19708834",
+              "raw": "Tan, L. S., Burto, S., Crouthamel, R., van Engelen, A., Hutchinson, R., Nicodemus, L., Peterson, T. C., and Rahimzadeh, F.: Guidelines on Climate Data Rescue, World Meteorological Organization, WMO-TD No. 1210, 2004.",
+              "title": "Guidelines on Climate Data Rescue, World Meteorological Organization,"
+            },
+            {
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "id": "19708835",
+              "raw": "IPCC: Climate Change 2014: Impacts, Adaptation, and Vulnerability. Contribution of Working Group II to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change, Cambridge University Press, Cambridge, UK and New York, NY, USA, 2014.",
+              "title": "Impacts, Adaptation, and Vulnerability. Contribution of Working Group II to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change,"
+            },
+            {
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "id": "19708836",
+              "raw": "Helmschrot, J. and Jürgens, N.: Integrated SASSCAL research to assess and secure current and future water resources in Southern Africa. Hydrological Sciences and Water Security: Past, Present and Future, Proc. IAHS, 366, 168–169, doi:10.5194/piahs-366-168-2015, 2015.",
+              "title": "Integrated SASSCAL research to assess and secure current and future water resources"
+            },
+            {
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "id": "19708837",
+              "raw": "World Meteorological Organization (WMO): Annex to the Implementation Plan of the Global Framework for Climate Services – Capacity Development, Geneva, Switzerland, 2014a.",
+              "title": "World Meteorological Organization (WMO): Annex to the Implementation Plan of the Global Framework for Climate Services – Capacity Development,"
+            },
+            {
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "id": "19708838",
+              "raw": "World Meteorological Organization (WMO): Annex to the Implementation Plan of the Global Framework for Climate Services – Observing and Monitoring Component, Geneva, Switzerland, 2014b.",
+              "title": "World Meteorological Organization (WMO): Annex to the Implementation Plan of the Global Framework for Climate Services – Observing and Monitoring Component,"
+            }
+          ],
+          "sourceFulltextUrls": "https://core.ac.uk/download/33302804.pdf",
+          "thumbnail_l": "<stack>/image/33302804/large",
+          "thumbnail_m": "<stack>/image/33302804/large",
+          "title": "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa",
+          "updatedDate": "",
+          "yearPublished": 2015
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "works-1005",
+    "path": "/works/1005/",
+    "data": "/search/_next/data/<buildId>/works/1005.json?id=1005",
+    "page": "/works/[id]",
+    "query": { "id": "1005" },
+    "bytes": 14399,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+          "acceptedDate": "",
+          "arxivId": null,
+          "authors": [
+            { "name": "Annalisa Savaresi" },
+            { "name": "Mikko Rajavuori" },
+            { "name": "Rajavuori, Mikko" },
+            { "name": "Harro van Asselt" },
+            { "name": "van Asselt, Harro" },
+            { "name": "Savaresi, Annalisa" }
+          ],
+          "citationCount": 0,
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Rajavuori, M., Savaresi, A., & van Asselt, H. (2023). Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap? Regulation &Amp; Governance, 17(4), 944–953. Portico. https://doi.org/10.1111/rego.12518\n"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Rajavuori, M., Savaresi, A., & van Asselt, H. (2023). Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap? Regulation &Amp; Governance, 17(4), 944–953. Portico. https://doi.org/10.1111/rego.12518\n"
+            }
+          ],
+          "contributors": [
+            "Academy of Finland",
+            "Law",
+            "University of Eastern Finland",
+            "European Commission (Horizon Europe)",
+            "University of Turku",
+            "0000-0002-4255-3696"
+          ],
+          "createdDate": "2023-05-25T01:01:55+01:00",
+          "dataProvider": {
+            "id": 4786,
+            "logo": "https://api.core.ac.uk/data-providers/4786/logo",
+            "name": "Crossref",
+            "url": "https://api.core.ac.uk/v3/data-providers/4786"
+          },
+          "dataProviders": [
+            {
+              "id": 4786,
+              "logo": "https://api.core.ac.uk/data-providers/4786/logo",
+              "name": "Crossref",
+              "url": "https://api.core.ac.uk/v3/data-providers/4786"
+            },
+            {
+              "id": 10883,
+              "logo": "https://api.core.ac.uk/data-providers/10883/logo",
+              "name": "Stirling Online Research Repository (RIOXX)",
+              "url": "https://api.core.ac.uk/v3/data-providers/10883"
+            },
+            {
+              "id": 107,
+              "logo": "https://api.core.ac.uk/data-providers/107/logo",
+              "name": "Stirling Online Research Repository",
+              "url": "https://api.core.ac.uk/v3/data-providers/107"
+            }
+          ],
+          "depositedDate": "2023-05-25T01:01:55+01:00",
+          "display": "<stack>/works/143022523",
+          "documentType": null,
+          "doi": "10.1111/rego.12518",
+          "download": "<stack>/download/566708785.pdf",
+          "downloadUrl": "https://core.ac.uk/download/566708785.pdf",
+          "fieldOfStudy": "climate change litigation",
+          "id": 1005,
+          "identifiers": {
+            "0": { "identifier": "566708785", "type": "core_id" },
+            "1": { "identifier": "10.1111/rego.12518", "type": "doi" },
+            "2": {
+              "identifier": "oai:dspace.stir.ac.uk:1893/35102",
+              "type": "oai_id"
+            },
+            "3": { "identifier": "567714872", "type": "core_id" },
+            "4": { "identifier": "580296804", "type": "core_id" },
+            "5": {
+              "identifier": "oai:dspace.stir.ac.uk:1893/35102",
+              "type": "oai"
+            },
+            "doi": "10.1111/rego.12518"
+          },
+          "journals": [],
+          "language": null,
+          "links": [
+            { "type": "download", "url": "<stack>/download/566708785.pdf" },
+            { "type": "reader", "url": "<stack>/reader/566708785" },
+            { "type": "thumbnail_m", "url": "<stack>/image/566708785/large" },
+            { "type": "thumbnail_l", "url": "<stack>/image/566708785/large" },
+            { "type": "display", "url": "<stack>/works/143022523" }
+          ],
+          "magId": null,
+          "mainDataProviderLink": null,
+          "oaiIds": ["oai:dspace.stir.ac.uk:1893/35102"],
+          "outputs": [
+            {
+              "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+              "acceptedDate": "",
+              "authors": [
+                { "name": "Rajavuori, Mikko" },
+                { "name": "Savaresi, Annalisa" },
+                { "name": "van Asselt, Harro" }
+              ],
+              "contributors": [],
+              "createdDate": "2023-05-25T01:01:55+01:00",
+              "dataProvider": {
+                "id": 10883,
+                "logo": null,
+                "name": "Stirling Online Research Repository (RIOXX)",
+                "url": "https://api.core.ac.uk/v3/data-providers/10883"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2023-05-25T01:01:55+01:00",
+              "disabled": false,
+              "display": "<stack>/outputs/566708785",
+              "documentType": [],
+              "doi": "10.1111/rego.12518",
+              "download": "<stack>/download/566708785.pdf",
+              "downloadUrl": "https://core.ac.uk/download/566708785.pdf",
+              "fullText": "",
+              "fulltextStatus": "enabled",
+              "id": 566708785,
+              "identifiers": {
+                "doi": "10.1111/rego.12518",
+                "oai": "oai:dspace.stir.ac.uk:1893/35102"
+              },
+              "journals": [],
+              "language": null,
+              "lastUpdate": "2026-04-03T22:11:27+01:00",
+              "license": "http://creativecommons.org/licenses/by/4.0/",
+              "links": [
+                { "type": "download", "url": "<stack>/download/566708785.pdf" },
+                { "type": "reader", "url": "<stack>/reader/566708785" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/566708785/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/566708785/large"
+                },
+                { "type": "reader", "url": "<stack>/reader/566708785" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/566708785/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/566708785/large"
+                },
+                { "type": "display", "url": "<stack>/outputs/566708785" }
+              ],
+              "oai": "oai:dspace.stir.ac.uk:1893/35102",
+              "orcids": [],
+              "publishedDate": "2023-03-14T00:00:00+00:00",
+              "publisher": "Wiley",
+              "reader": "<stack>/reader/566708785",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 566708785,
+                "publishedDate": "2023-03-14T00:00:00+00:00",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": [
+                "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf",
+                "https://doi.org/10.1111/rego.12518"
+              ],
+              "subjects": [
+                "climate change litigation",
+                "corporate accountability",
+                "corporate sustainability",
+                "due diligence",
+                "human rights"
+              ],
+              "tags": [
+                "climate change litigation",
+                "corporate accountability",
+                "corporate sustainability",
+                "due diligence",
+                "human rights"
+              ],
+              "thumbnail_l": "<stack>/image/566708785/large",
+              "thumbnail_m": "<stack>/image/566708785/medium",
+              "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+              "updatedDate": null,
+              "urls": [
+                {
+                  "type": "fulltext",
+                  "url": "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf"
+                },
+                {
+                  "type": "fulltext",
+                  "url": "https://doi.org/10.1111/rego.12518"
+                }
+              ],
+              "versions": [],
+              "yearPublished": "2023"
+            },
+            {
+              "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+              "acceptedDate": "",
+              "authors": [
+                { "name": "Rajavuori, Mikko" },
+                { "name": "Savaresi, Annalisa" },
+                { "name": "van Asselt, Harro" }
+              ],
+              "contributors": [
+                "European Commission (Horizon Europe)",
+                "Academy of Finland",
+                "Academy of Finland",
+                "University of Turku",
+                "Law",
+                "University of Eastern Finland",
+                "0000-0002-4255-3696"
+              ],
+              "createdDate": "2023-05-25T01:01:55+01:00",
+              "dataProvider": {
+                "id": 107,
+                "logo": null,
+                "name": "Stirling Online Research Repository",
+                "url": "https://api.core.ac.uk/v3/data-providers/107"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2023-05-25T01:01:55+01:00",
+              "disabled": false,
+              "display": "<stack>/outputs/567714872",
+              "documentType": "",
+              "doi": "10.1111/rego.12518",
+              "download": "<stack>/download/567714872.pdf",
+              "downloadUrl": "https://core.ac.uk/download/567714872.pdf",
+              "fullText": "",
+              "fulltextStatus": "enabled",
+              "id": 567714872,
+              "identifiers": {
+                "doi": "10.1111/rego.12518",
+                "oai": "oai:dspace.stir.ac.uk:1893/35102"
+              },
+              "journals": [],
+              "language": null,
+              "lastUpdate": "2026-04-03T22:47:39+01:00",
+              "license": "http://creativecommons.org/licenses/by/4.0/",
+              "links": [
+                { "type": "download", "url": "<stack>/download/567714872.pdf" },
+                { "type": "reader", "url": "<stack>/reader/567714872" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/567714872/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/567714872/large"
+                },
+                { "type": "reader", "url": "<stack>/reader/567714872" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/567714872/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/567714872/large"
+                },
+                { "type": "display", "url": "<stack>/outputs/567714872" }
+              ],
+              "oai": "oai:dspace.stir.ac.uk:1893/35102",
+              "orcids": [],
+              "publishedDate": "2023-03-14T00:00:00+00:00",
+              "publisher": "Wiley",
+              "reader": "<stack>/reader/567714872",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 567714872,
+                "publishedDate": "2023-03-14T00:00:00+00:00",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": [
+                "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf",
+                "http://hdl.handle.net/1893/35102"
+              ],
+              "subjects": ["Journal Article", "VoR - Version of Record"],
+              "tags": ["Journal Article", "VoR - Version of Record"],
+              "thumbnail_l": "<stack>/image/567714872/large",
+              "thumbnail_m": "<stack>/image/567714872/medium",
+              "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+              "updatedDate": null,
+              "urls": [
+                {
+                  "type": "fulltext",
+                  "url": "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf"
+                },
+                {
+                  "type": "fulltext",
+                  "url": "http://hdl.handle.net/1893/35102"
+                }
+              ],
+              "versions": [{ "version": null }],
+              "yearPublished": "2023"
+            },
+            {
+              "abstract": "",
+              "acceptedDate": "",
+              "authors": [
+                { "name": "Mikko Rajavuori" },
+                { "name": "Annalisa Savaresi" },
+                { "name": "Harro van Asselt" }
+              ],
+              "contributors": [],
+              "createdDate": "2023-10-24T02:00:00+01:00",
+              "dataProvider": {
+                "id": 4786,
+                "logo": null,
+                "name": "Crossref",
+                "url": "https://api.core.ac.uk/v3/data-providers/4786"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2023-08-18T02:00:00+01:00",
+              "disabled": false,
+              "display": "<stack>/outputs/580296804",
+              "documentType": "",
+              "doi": "10.1111/rego.12518",
+              "downloadUrl": "",
+              "fullText": "",
+              "fulltextStatus": "disabled",
+              "id": 580296804,
+              "identifiers": { "doi": "10.1111/rego.12518", "oai": null },
+              "journals": [],
+              "language": null,
+              "lastUpdate": "2026-04-04T09:44:15+01:00",
+              "license": "http://creativecommons.org/licenses/by/4.0/",
+              "links": [
+                { "type": "display", "url": "<stack>/outputs/580296804" }
+              ],
+              "oai": "",
+              "orcids": [],
+              "publishedDate": null,
+              "publisher": "Wiley",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 580296804,
+                "publishedDate": "",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": [],
+              "subjects": [],
+              "tags": [],
+              "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+              "updatedDate": null,
+              "urls": [],
+              "versions": [],
+              "yearPublished": "2023"
+            }
+          ],
+          "publishedDate": "2023-03-14T00:00:00+00:00",
+          "publisher": "Wiley",
+          "pubmedId": null,
+          "reader": "<stack>/reader/566708785",
+          "references": [],
+          "sourceFulltextUrls": "https://core.ac.uk/download/566708785.pdf",
+          "thumbnail_l": "<stack>/image/566708785/large",
+          "thumbnail_m": "<stack>/image/566708785/large",
+          "title": "Long title with $x^2$ and a literal **x** that must not become bold, repeated to reach three hundred characters: climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate l",
+          "updatedDate": "",
+          "yearPublished": 2023
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "works-1004",
+    "path": "/works/1004/",
+    "data": "/search/_next/data/<buildId>/works/1004.json?id=1004",
+    "page": "/works/[id]",
+    "query": { "id": "1004" },
+    "bytes": 13002,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "Abstract with </script><script>window.__PWN=1</script> inside and unicode: ñ ü ß – 日本語",
+          "acceptedDate": "",
+          "arxivId": null,
+          "authors": [
+            { "name": "Annalisa Savaresi" },
+            { "name": "Mikko Rajavuori" },
+            { "name": "Rajavuori, Mikko" },
+            { "name": "Harro van Asselt" },
+            { "name": "van Asselt, Harro" },
+            { "name": "Savaresi, Annalisa" }
+          ],
+          "citationCount": 0,
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Rajavuori, M., Savaresi, A., & van Asselt, H. (2023). Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap? Regulation &Amp; Governance, 17(4), 944–953. Portico. https://doi.org/10.1111/rego.12518\n"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Rajavuori, M., Savaresi, A., & van Asselt, H. (2023). Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap? Regulation &Amp; Governance, 17(4), 944–953. Portico. https://doi.org/10.1111/rego.12518\n"
+            }
+          ],
+          "contributors": [
+            "Academy of Finland",
+            "Law",
+            "University of Eastern Finland",
+            "European Commission (Horizon Europe)",
+            "University of Turku",
+            "0000-0002-4255-3696"
+          ],
+          "createdDate": "2023-05-25T01:01:55+01:00",
+          "dataProvider": {
+            "id": 4786,
+            "logo": "https://api.core.ac.uk/data-providers/4786/logo",
+            "name": "Crossref",
+            "url": "https://api.core.ac.uk/v3/data-providers/4786"
+          },
+          "dataProviders": [
+            {
+              "id": 4786,
+              "logo": "https://api.core.ac.uk/data-providers/4786/logo",
+              "name": "Crossref",
+              "url": "https://api.core.ac.uk/v3/data-providers/4786"
+            },
+            {
+              "id": 10883,
+              "logo": "https://api.core.ac.uk/data-providers/10883/logo",
+              "name": "Stirling Online Research Repository (RIOXX)",
+              "url": "https://api.core.ac.uk/v3/data-providers/10883"
+            },
+            {
+              "id": 107,
+              "logo": "https://api.core.ac.uk/data-providers/107/logo",
+              "name": "Stirling Online Research Repository",
+              "url": "https://api.core.ac.uk/v3/data-providers/107"
+            }
+          ],
+          "depositedDate": "2023-05-25T01:01:55+01:00",
+          "display": "<stack>/works/143022523",
+          "documentType": null,
+          "doi": "10.1111/rego.12518",
+          "download": "<stack>/download/566708785.pdf",
+          "downloadUrl": "https://core.ac.uk/download/566708785.pdf",
+          "fieldOfStudy": "climate change litigation",
+          "id": 1004,
+          "identifiers": {
+            "0": { "identifier": "566708785", "type": "core_id" },
+            "1": { "identifier": "10.1111/rego.12518", "type": "doi" },
+            "2": {
+              "identifier": "oai:dspace.stir.ac.uk:1893/35102",
+              "type": "oai_id"
+            },
+            "3": { "identifier": "567714872", "type": "core_id" },
+            "4": { "identifier": "580296804", "type": "core_id" },
+            "5": {
+              "identifier": "oai:dspace.stir.ac.uk:1893/35102",
+              "type": "oai"
+            },
+            "doi": "10.1111/rego.12518"
+          },
+          "journals": [],
+          "language": null,
+          "links": [
+            { "type": "download", "url": "<stack>/download/566708785.pdf" },
+            { "type": "reader", "url": "<stack>/reader/566708785" },
+            { "type": "thumbnail_m", "url": "<stack>/image/566708785/large" },
+            { "type": "thumbnail_l", "url": "<stack>/image/566708785/large" },
+            { "type": "display", "url": "<stack>/works/143022523" }
+          ],
+          "magId": null,
+          "mainDataProviderLink": null,
+          "oaiIds": ["oai:dspace.stir.ac.uk:1893/35102"],
+          "outputs": [
+            {
+              "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+              "acceptedDate": "",
+              "authors": [
+                { "name": "Rajavuori, Mikko" },
+                { "name": "Savaresi, Annalisa" },
+                { "name": "van Asselt, Harro" }
+              ],
+              "contributors": [],
+              "createdDate": "2023-05-25T01:01:55+01:00",
+              "dataProvider": {
+                "id": 10883,
+                "logo": null,
+                "name": "Stirling Online Research Repository (RIOXX)",
+                "url": "https://api.core.ac.uk/v3/data-providers/10883"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2023-05-25T01:01:55+01:00",
+              "disabled": false,
+              "display": "<stack>/outputs/566708785",
+              "documentType": [],
+              "doi": "10.1111/rego.12518",
+              "download": "<stack>/download/566708785.pdf",
+              "downloadUrl": "https://core.ac.uk/download/566708785.pdf",
+              "fullText": "",
+              "fulltextStatus": "enabled",
+              "id": 566708785,
+              "identifiers": {
+                "doi": "10.1111/rego.12518",
+                "oai": "oai:dspace.stir.ac.uk:1893/35102"
+              },
+              "journals": [],
+              "language": null,
+              "lastUpdate": "2026-04-03T22:11:27+01:00",
+              "license": "http://creativecommons.org/licenses/by/4.0/",
+              "links": [
+                { "type": "download", "url": "<stack>/download/566708785.pdf" },
+                { "type": "reader", "url": "<stack>/reader/566708785" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/566708785/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/566708785/large"
+                },
+                { "type": "reader", "url": "<stack>/reader/566708785" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/566708785/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/566708785/large"
+                },
+                { "type": "display", "url": "<stack>/outputs/566708785" }
+              ],
+              "oai": "oai:dspace.stir.ac.uk:1893/35102",
+              "orcids": [],
+              "publishedDate": "2023-03-14T00:00:00+00:00",
+              "publisher": "Wiley",
+              "reader": "<stack>/reader/566708785",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 566708785,
+                "publishedDate": "2023-03-14T00:00:00+00:00",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": [
+                "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf",
+                "https://doi.org/10.1111/rego.12518"
+              ],
+              "subjects": [
+                "climate change litigation",
+                "corporate accountability",
+                "corporate sustainability",
+                "due diligence",
+                "human rights"
+              ],
+              "tags": [
+                "climate change litigation",
+                "corporate accountability",
+                "corporate sustainability",
+                "due diligence",
+                "human rights"
+              ],
+              "thumbnail_l": "<stack>/image/566708785/large",
+              "thumbnail_m": "<stack>/image/566708785/medium",
+              "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+              "updatedDate": null,
+              "urls": [
+                {
+                  "type": "fulltext",
+                  "url": "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf"
+                },
+                {
+                  "type": "fulltext",
+                  "url": "https://doi.org/10.1111/rego.12518"
+                }
+              ],
+              "versions": [],
+              "yearPublished": "2023"
+            },
+            {
+              "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+              "acceptedDate": "",
+              "authors": [
+                { "name": "Rajavuori, Mikko" },
+                { "name": "Savaresi, Annalisa" },
+                { "name": "van Asselt, Harro" }
+              ],
+              "contributors": [
+                "European Commission (Horizon Europe)",
+                "Academy of Finland",
+                "Academy of Finland",
+                "University of Turku",
+                "Law",
+                "University of Eastern Finland",
+                "0000-0002-4255-3696"
+              ],
+              "createdDate": "2023-05-25T01:01:55+01:00",
+              "dataProvider": {
+                "id": 107,
+                "logo": null,
+                "name": "Stirling Online Research Repository",
+                "url": "https://api.core.ac.uk/v3/data-providers/107"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2023-05-25T01:01:55+01:00",
+              "disabled": false,
+              "display": "<stack>/outputs/567714872",
+              "documentType": "",
+              "doi": "10.1111/rego.12518",
+              "download": "<stack>/download/567714872.pdf",
+              "downloadUrl": "https://core.ac.uk/download/567714872.pdf",
+              "fullText": "",
+              "fulltextStatus": "enabled",
+              "id": 567714872,
+              "identifiers": {
+                "doi": "10.1111/rego.12518",
+                "oai": "oai:dspace.stir.ac.uk:1893/35102"
+              },
+              "journals": [],
+              "language": null,
+              "lastUpdate": "2026-04-03T22:47:39+01:00",
+              "license": "http://creativecommons.org/licenses/by/4.0/",
+              "links": [
+                { "type": "download", "url": "<stack>/download/567714872.pdf" },
+                { "type": "reader", "url": "<stack>/reader/567714872" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/567714872/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/567714872/large"
+                },
+                { "type": "reader", "url": "<stack>/reader/567714872" },
+                {
+                  "type": "thumbnail_m",
+                  "url": "<stack>/image/567714872/medium"
+                },
+                {
+                  "type": "thumbnail_l",
+                  "url": "<stack>/image/567714872/large"
+                },
+                { "type": "display", "url": "<stack>/outputs/567714872" }
+              ],
+              "oai": "oai:dspace.stir.ac.uk:1893/35102",
+              "orcids": [],
+              "publishedDate": "2023-03-14T00:00:00+00:00",
+              "publisher": "Wiley",
+              "reader": "<stack>/reader/567714872",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 567714872,
+                "publishedDate": "2023-03-14T00:00:00+00:00",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": [
+                "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf",
+                "http://hdl.handle.net/1893/35102"
+              ],
+              "subjects": ["Journal Article", "VoR - Version of Record"],
+              "tags": ["Journal Article", "VoR - Version of Record"],
+              "thumbnail_l": "<stack>/image/567714872/large",
+              "thumbnail_m": "<stack>/image/567714872/medium",
+              "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+              "updatedDate": null,
+              "urls": [
+                {
+                  "type": "fulltext",
+                  "url": "http://dspace.stir.ac.uk/retrieve/6842e106-fee1-4f6f-be59-5ef0f5e17459/Regulation%20%20%20Governance%20-%202023%20-%20Rajavuori%20-%20Mandatory%20due%20diligence%20laws%20and%20climate%20change%20litigation%20%20Bridging%20the.pdf"
+                },
+                {
+                  "type": "fulltext",
+                  "url": "http://hdl.handle.net/1893/35102"
+                }
+              ],
+              "versions": [{ "version": null }],
+              "yearPublished": "2023"
+            },
+            {
+              "abstract": "",
+              "acceptedDate": "",
+              "authors": [
+                { "name": "Mikko Rajavuori" },
+                { "name": "Annalisa Savaresi" },
+                { "name": "Harro van Asselt" }
+              ],
+              "contributors": [],
+              "createdDate": "2023-10-24T02:00:00+01:00",
+              "dataProvider": {
+                "id": 4786,
+                "logo": null,
+                "name": "Crossref",
+                "url": "https://api.core.ac.uk/v3/data-providers/4786"
+              },
+              "deleted": "ALLOWED",
+              "depositedDate": "2023-08-18T02:00:00+01:00",
+              "disabled": false,
+              "display": "<stack>/outputs/580296804",
+              "documentType": "",
+              "doi": "10.1111/rego.12518",
+              "downloadUrl": "",
+              "fullText": "",
+              "fulltextStatus": "disabled",
+              "id": 580296804,
+              "identifiers": { "doi": "10.1111/rego.12518", "oai": null },
+              "journals": [],
+              "language": null,
+              "lastUpdate": "2026-04-04T09:44:15+01:00",
+              "license": "http://creativecommons.org/licenses/by/4.0/",
+              "links": [
+                { "type": "display", "url": "<stack>/outputs/580296804" }
+              ],
+              "oai": "",
+              "orcids": [],
+              "publishedDate": null,
+              "publisher": "Wiley",
+              "references": [],
+              "repositories": [],
+              "repositoryDocument": {
+                "acceptedDate": "",
+                "createdDate": "",
+                "depositedDate": "",
+                "id": 580296804,
+                "publishedDate": "",
+                "updatedDate": ""
+              },
+              "sdg": [],
+              "setSpecs": [],
+              "sourceFulltextUrls": [],
+              "subjects": [],
+              "tags": [],
+              "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+              "updatedDate": null,
+              "urls": [],
+              "versions": [],
+              "yearPublished": "2023"
+            }
+          ],
+          "publishedDate": "2023-03-14T00:00:00+00:00",
+          "publisher": "Wiley",
+          "pubmedId": null,
+          "reader": "<stack>/reader/566708785",
+          "references": [],
+          "sourceFulltextUrls": "https://core.ac.uk/download/566708785.pdf",
+          "thumbnail_l": "<stack>/image/566708785/large",
+          "thumbnail_m": "<stack>/image/566708785/large",
+          "title": "Ünïcödé – 日本語 – </script><script>window.__PWN=1</script> – mandatory due diligence",
+          "updatedDate": "",
+          "yearPublished": 2023
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "works-4040",
+    "path": "/works/4040/",
+    "data": "/search/_next/data/<buildId>/works/4040.json?id=4040",
+    "page": "/works/[id]",
+    "query": { "id": "4040" },
+    "bytes": 200,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "serverError": {
+          "code": 404,
+          "message": "The page you were looking for could not be found",
+          "prevHistoryUrl": null
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "works-5000",
+    "path": "/works/5000/",
+    "data": "/search/_next/data/<buildId>/works/5000.json?id=5000",
+    "page": "/works/[id]",
+    "query": { "id": "5000" },
+    "bytes": 200,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "serverError": {
+          "code": 500,
+          "message": "The page you were looking for could not be found",
+          "prevHistoryUrl": null
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "outputs-2001",
+    "path": "/outputs/2001/",
+    "data": "/search/_next/data/<buildId>/outputs/2001.json?id=2001",
+    "page": "/outputs/[id]",
+    "query": { "id": "2001" },
+    "bytes": 4798,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "Background\n\nThe ability to transport and store DNA at room temperature in low volumes has the advantage of optimising cost, time and storage space. Blood spots on adapted filter papers are popular for this, with FTA (Flinders Technology Associates) Whatman™ technology being one of the most recent. Plant material, plasmids, viral particles, bacteria and animal blood have been stored and transported successfully using this technology, however the method of porcine DNA extraction from FTA Whatman™ cards is a relatively new approach, allowing nucleic acids to be ready for downstream applications such as PCR, whole genome amplification, sequencing and subsequent application to single nucleotide polymorphism microarrays has hitherto been under-explored.\n\n\n\nFindings\n\nDNA was extracted from FTA Whatman™ cards (following adaptations of the manufacturer’s instructions), whole genome amplified and subsequently analysed to validate the integrity of the DNA for downstream SNP analysis. DNA was successfully extracted from 288/288 samples and amplified by WGA. Allele dropout post WGA, was observed in less than 2% of samples and there was no clear evidence of amplification bias nor contamination. Acceptable call rates on porcine SNP chips were also achieved using DNA extracted and amplified in this way.\n\n\n\nConclusions\n\nDNA extracted from FTA Whatman cards is of a high enough quality and quantity following whole genomic amplification to perform meaningful SNP chip studies",
+          "acceptedDate": "2012-09-13T01:00:00+01:00",
+          "authors": [
+            { "name": "Fowler, Katie E." },
+            { "name": "Reitter, Chris P" },
+            { "name": "Walling, Grant A" },
+            { "name": "Griffin, Darren K" }
+          ],
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            }
+          ],
+          "contributors": [],
+          "createdDate": "2023-07-10T10:25:12+01:00",
+          "dataProvider": {
+            "aliases": [],
+            "createdDate": "2011-05-05T00:00:00+01:00",
+            "email": "",
+            "homepageUrl": null,
+            "id": 86,
+            "institutionName": "Open University",
+            "location": {
+              "countryCode": "GB",
+              "latitude": 52.0333,
+              "longitude": -0.7
+            },
+            "logo": null,
+            "metadataFormat": "rioxx",
+            "name": "Open Research Online (The Open University)",
+            "oaiPmhUrl": "https://oro.open.ac.uk/cgi/oai2",
+            "openDoarId": 0,
+            "otherIdentifiers": [],
+            "rorId": "https://ror.org/05mzfcs16",
+            "software": "eprints",
+            "source": "",
+            "stats": null,
+            "type": "REPOSITORY",
+            "uri": "https://oro.open.ac.uk/cgi/oai2"
+          },
+          "deleted": "ALLOWED",
+          "depositedDate": "2023-07-03T13:41:27+01:00",
+          "disabled": false,
+          "display": "<stack>/outputs/571618880",
+          "documentType": "",
+          "doi": "10.1186/1756-0500-5-503",
+          "download": "<stack>/download/571618880.pdf",
+          "downloadUrl": "https://core.ac.uk/download/571618880.pdf",
+          "fulltextStatus": "enabled",
+          "id": 2001,
+          "identifiers": {
+            "doi": "10.1186/1756-0500-5-503",
+            "oai": "oai:oro.open.ac.uk:90496"
+          },
+          "journals": [],
+          "language": null,
+          "lastUpdate": "2026-08-31T16:26:00+01:00",
+          "license": "http://creativecommons.org/licenses/by/4.0",
+          "links": [
+            { "type": "download", "url": "<stack>/download/571618880.pdf" },
+            { "type": "reader", "url": "<stack>/reader/571618880" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "reader", "url": "<stack>/reader/571618880" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "display", "url": "<stack>/outputs/571618880" }
+          ],
+          "oai": "oai:oro.open.ac.uk:90496",
+          "orcids": [],
+          "publishedDate": "2012-01-01T00:00:00+00:00",
+          "publisher": null,
+          "reader": "<stack>/reader/571618880",
+          "references": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "acceptedDate": "",
+            "createdDate": "",
+            "depositedDate": "",
+            "id": 571618880,
+            "publishedDate": "2012-01-01T00:00:00+00:00",
+            "updatedDate": ""
+          },
+          "sdg": [],
+          "setSpecs": [],
+          "sourceFulltextUrls": [
+            [
+              "http://dx.doi.org/10.1186/1756-0500-5-503",
+              "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            ]
+          ],
+          "subjects": [],
+          "tags": [],
+          "thumbnail_l": "<stack>/image/571618880/large",
+          "thumbnail_m": "<stack>/image/571618880/medium",
+          "title": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+          "updatedDate": null,
+          "urls": [
+            {
+              "type": "fulltext",
+              "url": "http://dx.doi.org/10.1186/1756-0500-5-503"
+            },
+            {
+              "type": "fulltext",
+              "url": "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            }
+          ],
+          "versions": [],
+          "yearPublished": "2012"
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "outputs-2002",
+    "path": "/outputs/2002/",
+    "data": "/search/_next/data/<buildId>/outputs/2002.json?id=2002",
+    "page": "/outputs/[id]",
+    "query": { "id": "2002" },
+    "bytes": 161,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "serverError": {
+          "code": 404,
+          "message": "Data provider has been disabled"
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "outputs-2003",
+    "path": "/outputs/2003/",
+    "data": "/search/_next/data/<buildId>/outputs/2003.json?id=2003",
+    "page": "/outputs/[id]",
+    "query": { "id": "2003" },
+    "bytes": 2344,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "",
+          "acceptedDate": "",
+          "authors": [
+            { "name": "Mikko Rajavuori" },
+            { "name": "Annalisa Savaresi" },
+            { "name": "Harro van Asselt" }
+          ],
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Rajavuori, M., Savaresi, A., & van Asselt, H. (2023). Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap? Regulation &Amp; Governance, 17(4), 944–953. Portico. https://doi.org/10.1111/rego.12518\n"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Rajavuori, M., Savaresi, A., & van Asselt, H. (2023). Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap? Regulation &Amp; Governance, 17(4), 944–953. Portico. https://doi.org/10.1111/rego.12518\n"
+            }
+          ],
+          "contributors": [],
+          "createdDate": "2023-10-24T02:00:00+01:00",
+          "dataProvider": {
+            "aliases": [],
+            "createdDate": "2018-10-05T16:02:12+01:00",
+            "email": "",
+            "homepageUrl": "https://crossref.org",
+            "id": 4786,
+            "institutionName": "Crossref",
+            "location": { "countryCode": "", "latitude": 0, "longitude": 0 },
+            "logo": null,
+            "metadataFormat": "cr_unixsd",
+            "name": "Crossref",
+            "oaiPmhUrl": "https://oai.crossref.org/oai/",
+            "openDoarId": 0,
+            "otherIdentifiers": [],
+            "rorId": "https://ror.org/02twcfp32",
+            "software": "Crossref",
+            "source": "dit",
+            "stats": null,
+            "type": "REPOSITORY",
+            "uri": "https://oai.crossref.org/oai/"
+          },
+          "deleted": "ALLOWED",
+          "depositedDate": "2023-08-18T02:00:00+01:00",
+          "disabled": false,
+          "display": "<stack>/outputs/580296804",
+          "documentType": "",
+          "doi": "10.1111/rego.12518",
+          "downloadUrl": "",
+          "fulltextStatus": "disabled",
+          "id": 2003,
+          "identifiers": { "doi": "10.1111/rego.12518", "oai": null },
+          "journals": [],
+          "language": null,
+          "lastUpdate": "2026-04-04T09:44:15+01:00",
+          "license": "http://creativecommons.org/licenses/by/4.0/",
+          "links": [{ "type": "display", "url": "<stack>/outputs/580296804" }],
+          "oai": "",
+          "orcids": [],
+          "publishedDate": "2023",
+          "publisher": "Wiley",
+          "references": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "acceptedDate": "",
+            "createdDate": "",
+            "depositedDate": "",
+            "id": 580296804,
+            "publishedDate": "",
+            "updatedDate": ""
+          },
+          "sdg": [],
+          "setSpecs": [],
+          "sourceFulltextUrls": [],
+          "subjects": [],
+          "tags": [],
+          "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+          "updatedDate": null,
+          "urls": [],
+          "versions": [],
+          "yearPublished": "2023"
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "outputs-2004",
+    "path": "/outputs/2004/",
+    "data": "/search/_next/data/<buildId>/outputs/2004.json?id=2004",
+    "page": "/outputs/[id]",
+    "query": { "id": "2004" },
+    "bytes": 4660,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "Background\n\nThe ability to transport and store DNA at room temperature in low volumes has the advantage of optimising cost, time and storage space. Blood spots on adapted filter papers are popular for this, with FTA (Flinders Technology Associates) Whatman™ technology being one of the most recent. Plant material, plasmids, viral particles, bacteria and animal blood have been stored and transported successfully using this technology, however the method of porcine DNA extraction from FTA Whatman™ cards is a relatively new approach, allowing nucleic acids to be ready for downstream applications such as PCR, whole genome amplification, sequencing and subsequent application to single nucleotide polymorphism microarrays has hitherto been under-explored.\n\n\n\nFindings\n\nDNA was extracted from FTA Whatman™ cards (following adaptations of the manufacturer’s instructions), whole genome amplified and subsequently analysed to validate the integrity of the DNA for downstream SNP analysis. DNA was successfully extracted from 288/288 samples and amplified by WGA. Allele dropout post WGA, was observed in less than 2% of samples and there was no clear evidence of amplification bias nor contamination. Acceptable call rates on porcine SNP chips were also achieved using DNA extracted and amplified in this way.\n\n\n\nConclusions\n\nDNA extracted from FTA Whatman cards is of a high enough quality and quantity following whole genomic amplification to perform meaningful SNP chip studies",
+          "acceptedDate": "2012-09-13T01:00:00+01:00",
+          "authors": [
+            { "name": "Fowler, Katie E." },
+            { "name": "Reitter, Chris P" },
+            { "name": "Walling, Grant A" },
+            { "name": "Griffin, Darren K" }
+          ],
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            }
+          ],
+          "contributors": [],
+          "createdDate": "2023-07-10T10:25:12+01:00",
+          "dataProvider": {
+            "aliases": [],
+            "createdDate": "2011-05-05T00:00:00+01:00",
+            "email": "",
+            "homepageUrl": null,
+            "id": 86,
+            "institutionName": "Open University",
+            "location": {
+              "countryCode": "GB",
+              "latitude": 52.0333,
+              "longitude": -0.7
+            },
+            "logo": null,
+            "metadataFormat": "rioxx",
+            "name": "Open Research Online (The Open University)",
+            "oaiPmhUrl": "https://oro.open.ac.uk/cgi/oai2",
+            "openDoarId": 0,
+            "otherIdentifiers": [],
+            "rorId": "https://ror.org/05mzfcs16",
+            "software": "eprints",
+            "source": "",
+            "stats": null,
+            "type": "REPOSITORY",
+            "uri": "https://oro.open.ac.uk/cgi/oai2"
+          },
+          "deleted": "ALLOWED",
+          "depositedDate": "2023-07-03T13:41:27+01:00",
+          "disabled": false,
+          "display": "<stack>/outputs/571618880",
+          "documentType": "",
+          "doi": "10.1186/1756-0500-5-503",
+          "download": "<stack>/download/571618880.pdf",
+          "downloadUrl": "https://core.ac.uk/download/571618880.pdf",
+          "fulltextStatus": "enabled",
+          "id": 2004,
+          "identifiers": {
+            "doi": "10.1186/1756-0500-5-503",
+            "oai": "oai:oro.open.ac.uk:90496"
+          },
+          "journals": [],
+          "language": null,
+          "lastUpdate": "2026-08-31T16:26:00+01:00",
+          "license": "http://creativecommons.org/licenses/by/4.0",
+          "links": [
+            { "type": "download", "url": "<stack>/download/571618880.pdf" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "display", "url": "<stack>/outputs/571618880" }
+          ],
+          "oai": "oai:oro.open.ac.uk:90496",
+          "orcids": [],
+          "publishedDate": "2012-01-01T00:00:00+00:00",
+          "publisher": null,
+          "references": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "acceptedDate": "",
+            "createdDate": "",
+            "depositedDate": "",
+            "id": 571618880,
+            "publishedDate": "2012-01-01T00:00:00+00:00",
+            "updatedDate": ""
+          },
+          "sdg": [],
+          "setSpecs": [],
+          "sourceFulltextUrls": [
+            [
+              "http://dx.doi.org/10.1186/1756-0500-5-503",
+              "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            ]
+          ],
+          "subjects": [],
+          "tags": [],
+          "thumbnail_l": "<stack>/image/571618880/large",
+          "thumbnail_m": "<stack>/image/571618880/medium",
+          "title": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+          "updatedDate": null,
+          "urls": [
+            {
+              "type": "fulltext",
+              "url": "http://dx.doi.org/10.1186/1756-0500-5-503"
+            },
+            {
+              "type": "fulltext",
+              "url": "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            }
+          ],
+          "versions": [],
+          "yearPublished": "2012"
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "outputs-2101",
+    "path": "/outputs/2101/",
+    "data": "/search/_next/data/<buildId>/outputs/2101.json?id=2101",
+    "page": "/outputs/[id]",
+    "query": { "id": "2101" },
+    "bytes": 4777,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "Background\n\nThe ability to transport and store DNA at room temperature in low volumes has the advantage of optimising cost, time and storage space. Blood spots on adapted filter papers are popular for this, with FTA (Flinders Technology Associates) Whatman™ technology being one of the most recent. Plant material, plasmids, viral particles, bacteria and animal blood have been stored and transported successfully using this technology, however the method of porcine DNA extraction from FTA Whatman™ cards is a relatively new approach, allowing nucleic acids to be ready for downstream applications such as PCR, whole genome amplification, sequencing and subsequent application to single nucleotide polymorphism microarrays has hitherto been under-explored.\n\n\n\nFindings\n\nDNA was extracted from FTA Whatman™ cards (following adaptations of the manufacturer’s instructions), whole genome amplified and subsequently analysed to validate the integrity of the DNA for downstream SNP analysis. DNA was successfully extracted from 288/288 samples and amplified by WGA. Allele dropout post WGA, was observed in less than 2% of samples and there was no clear evidence of amplification bias nor contamination. Acceptable call rates on porcine SNP chips were also achieved using DNA extracted and amplified in this way.\n\n\n\nConclusions\n\nDNA extracted from FTA Whatman cards is of a high enough quality and quantity following whole genomic amplification to perform meaningful SNP chip studies",
+          "acceptedDate": "2012-09-13T01:00:00+01:00",
+          "authors": [
+            { "name": "Fowler, Katie E." },
+            { "name": "Reitter, Chris P" },
+            { "name": "Walling, Grant A" },
+            { "name": "Griffin, Darren K" }
+          ],
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            }
+          ],
+          "contributors": [],
+          "createdDate": "2023-07-10T10:25:12+01:00",
+          "dataProvider": {
+            "aliases": [],
+            "createdDate": "2011-05-05T00:00:00+01:00",
+            "email": "",
+            "homepageUrl": null,
+            "id": 86,
+            "institutionName": "Open University",
+            "location": {
+              "countryCode": "GB",
+              "latitude": 52.0333,
+              "longitude": -0.7
+            },
+            "logo": null,
+            "metadataFormat": "rioxx",
+            "name": "Open Research Online (The Open University)",
+            "oaiPmhUrl": "https://oro.open.ac.uk/cgi/oai2",
+            "openDoarId": 0,
+            "otherIdentifiers": [],
+            "rorId": "https://ror.org/05mzfcs16",
+            "software": "eprints",
+            "source": "",
+            "stats": null,
+            "type": "REPOSITORY",
+            "uri": "https://oro.open.ac.uk/cgi/oai2"
+          },
+          "deleted": "ALLOWED",
+          "depositedDate": "2023-07-03T13:41:27+01:00",
+          "disabled": false,
+          "display": "<stack>/outputs/571618880",
+          "documentType": "",
+          "doi": "10.1186/1756-0500-5-503",
+          "download": "<stack>/download/571618880.pdf",
+          "downloadUrl": "https://core.ac.uk/download/571618880.pdf",
+          "fulltextStatus": "enabled",
+          "id": 2101,
+          "identifiers": {
+            "doi": "10.1186/1756-0500-5-503",
+            "oai": "oai:oro.open.ac.uk:90496"
+          },
+          "journals": [],
+          "language": null,
+          "lastUpdate": "2026-08-31T16:26:00+01:00",
+          "license": "http://creativecommons.org/licenses/by/4.0",
+          "links": [
+            { "type": "download", "url": "<stack>/download/571618880.pdf" },
+            { "type": "reader", "url": "<stack>/reader/571618880" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "reader", "url": "<stack>/reader/571618880" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "display", "url": "<stack>/outputs/571618880" }
+          ],
+          "oai": "oai:oro.open.ac.uk:90496",
+          "orcids": [],
+          "publishedDate": "2001",
+          "publisher": null,
+          "reader": "<stack>/reader/571618880",
+          "references": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "acceptedDate": "",
+            "createdDate": "",
+            "depositedDate": "",
+            "id": 571618880,
+            "publishedDate": "2012-01-01T00:00:00+00:00",
+            "updatedDate": ""
+          },
+          "sdg": [],
+          "setSpecs": [],
+          "sourceFulltextUrls": [
+            [
+              "http://dx.doi.org/10.1186/1756-0500-5-503",
+              "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            ]
+          ],
+          "subjects": [],
+          "tags": [],
+          "thumbnail_l": "<stack>/image/571618880/large",
+          "thumbnail_m": "<stack>/image/571618880/medium",
+          "title": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+          "updatedDate": null,
+          "urls": [
+            {
+              "type": "fulltext",
+              "url": "http://dx.doi.org/10.1186/1756-0500-5-503"
+            },
+            {
+              "type": "fulltext",
+              "url": "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            }
+          ],
+          "versions": [],
+          "yearPublished": "2001"
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "outputs-2105",
+    "path": "/outputs/2105/",
+    "data": "/search/_next/data/<buildId>/outputs/2105.json?id=2105",
+    "page": "/outputs/[id]",
+    "query": { "id": "2105" },
+    "bytes": 4910,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "Background\n\nThe ability to transport and store DNA at room temperature in low volumes has the advantage of optimising cost, time and storage space. Blood spots on adapted filter papers are popular for this, with FTA (Flinders Technology Associates) Whatman™ technology being one of the most recent. Plant material, plasmids, viral particles, bacteria and animal blood have been stored and transported successfully using this technology, however the method of porcine DNA extraction from FTA Whatman™ cards is a relatively new approach, allowing nucleic acids to be ready for downstream applications such as PCR, whole genome amplification, sequencing and subsequent application to single nucleotide polymorphism microarrays has hitherto been under-explored.\n\n\n\nFindings\n\nDNA was extracted from FTA Whatman™ cards (following adaptations of the manufacturer’s instructions), whole genome amplified and subsequently analysed to validate the integrity of the DNA for downstream SNP analysis. DNA was successfully extracted from 288/288 samples and amplified by WGA. Allele dropout post WGA, was observed in less than 2% of samples and there was no clear evidence of amplification bias nor contamination. Acceptable call rates on porcine SNP chips were also achieved using DNA extracted and amplified in this way.\n\n\n\nConclusions\n\nDNA extracted from FTA Whatman cards is of a high enough quality and quantity following whole genomic amplification to perform meaningful SNP chip studies",
+          "acceptedDate": "2012-09-13T01:00:00+01:00",
+          "authors": [
+            { "name": "Fowler, Katie E." },
+            { "name": "Reitter, Chris P" },
+            { "name": "Walling, Grant A" },
+            { "name": "Griffin, Darren K" }
+          ],
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            }
+          ],
+          "contributors": [],
+          "createdDate": "2023-07-10T10:25:12+01:00",
+          "dataProvider": {
+            "aliases": [],
+            "createdDate": "2011-05-05T00:00:00+01:00",
+            "email": "",
+            "homepageUrl": null,
+            "id": 86,
+            "institutionName": "Open University",
+            "location": {
+              "countryCode": "GB",
+              "latitude": 52.0333,
+              "longitude": -0.7
+            },
+            "logo": null,
+            "metadataFormat": "rioxx",
+            "name": "Open Research Online (The Open University)",
+            "oaiPmhUrl": "https://oro.open.ac.uk/cgi/oai2",
+            "openDoarId": 0,
+            "otherIdentifiers": [],
+            "rorId": "https://ror.org/05mzfcs16",
+            "software": "eprints",
+            "source": "",
+            "stats": null,
+            "type": "REPOSITORY",
+            "uri": "https://oro.open.ac.uk/cgi/oai2"
+          },
+          "deleted": "ALLOWED",
+          "depositedDate": "2023-07-03T13:41:27+01:00",
+          "disabled": false,
+          "display": "<stack>/outputs/571618880",
+          "documentType": "",
+          "doi": "10.1186/1756-0500-5-503",
+          "download": "<stack>/download/571618880.pdf",
+          "downloadUrl": "https://core.ac.uk/download/571618880.pdf",
+          "fulltextStatus": "enabled",
+          "id": 2105,
+          "identifiers": {
+            "doi": "10.1186/1756-0500-5-503",
+            "oai": "oai:oro.open.ac.uk:90496"
+          },
+          "journals": [],
+          "language": null,
+          "lastUpdate": "2026-08-31T16:26:00+01:00",
+          "license": "http://creativecommons.org/licenses/by/4.0",
+          "links": [
+            { "type": "download", "url": "<stack>/download/571618880.pdf" },
+            { "type": "reader", "url": "<stack>/reader/571618880" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "reader", "url": "<stack>/reader/571618880" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "display", "url": "<stack>/outputs/571618880" }
+          ],
+          "oai": "oai:oro.open.ac.uk:90496",
+          "orcids": [],
+          "publishedDate": "2012-01-01T00:00:00+00:00",
+          "publisher": null,
+          "reader": "<stack>/reader/571618880",
+          "references": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "acceptedDate": "",
+            "createdDate": "",
+            "depositedDate": "",
+            "id": 571618880,
+            "publishedDate": "2012-01-01T00:00:00+00:00",
+            "updatedDate": ""
+          },
+          "sdg": [],
+          "setSpecs": [],
+          "sourceFulltextUrls": [
+            [
+              "http://dx.doi.org/10.1186/1756-0500-5-503",
+              "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            ]
+          ],
+          "subjects": [
+            "climate change litigation",
+            "corporate accountability",
+            "corporate sustainability",
+            "due diligence",
+            "human rights"
+          ],
+          "tags": [],
+          "thumbnail_l": "<stack>/image/571618880/large",
+          "thumbnail_m": "<stack>/image/571618880/medium",
+          "title": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+          "updatedDate": null,
+          "urls": [
+            {
+              "type": "fulltext",
+              "url": "http://dx.doi.org/10.1186/1756-0500-5-503"
+            },
+            {
+              "type": "fulltext",
+              "url": "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            }
+          ],
+          "versions": [],
+          "yearPublished": "2012"
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "outputs-2106",
+    "path": "/outputs/2106/",
+    "data": "/search/_next/data/<buildId>/outputs/2106.json?id=2106",
+    "page": "/outputs/[id]",
+    "query": { "id": "2106" },
+    "bytes": 4807,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "Background\n\nThe ability to transport and store DNA at room temperature in low volumes has the advantage of optimising cost, time and storage space. Blood spots on adapted filter papers are popular for this, with FTA (Flinders Technology Associates) Whatman™ technology being one of the most recent. Plant material, plasmids, viral particles, bacteria and animal blood have been stored and transported successfully using this technology, however the method of porcine DNA extraction from FTA Whatman™ cards is a relatively new approach, allowing nucleic acids to be ready for downstream applications such as PCR, whole genome amplification, sequencing and subsequent application to single nucleotide polymorphism microarrays has hitherto been under-explored.\n\n\n\nFindings\n\nDNA was extracted from FTA Whatman™ cards (following adaptations of the manufacturer’s instructions), whole genome amplified and subsequently analysed to validate the integrity of the DNA for downstream SNP analysis. DNA was successfully extracted from 288/288 samples and amplified by WGA. Allele dropout post WGA, was observed in less than 2% of samples and there was no clear evidence of amplification bias nor contamination. Acceptable call rates on porcine SNP chips were also achieved using DNA extracted and amplified in this way.\n\n\n\nConclusions\n\nDNA extracted from FTA Whatman cards is of a high enough quality and quantity following whole genomic amplification to perform meaningful SNP chip studies",
+          "acceptedDate": "2012-09-13T01:00:00+01:00",
+          "authors": [
+            { "name": "Fowler, Katie E." },
+            { "name": "Reitter, Chris P" },
+            { "name": "Walling, Grant A" },
+            { "name": "Griffin, Darren K" }
+          ],
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            }
+          ],
+          "contributors": [],
+          "createdDate": "2023-07-10T10:25:12+01:00",
+          "dataProvider": {
+            "aliases": [],
+            "createdDate": "2011-05-05T00:00:00+01:00",
+            "email": "",
+            "homepageUrl": null,
+            "id": 86,
+            "institutionName": "Open University",
+            "location": {
+              "countryCode": "GB",
+              "latitude": 52.0333,
+              "longitude": -0.7
+            },
+            "logo": null,
+            "metadataFormat": "rioxx",
+            "name": "Open Research Online (The Open University)",
+            "oaiPmhUrl": "https://oro.open.ac.uk/cgi/oai2",
+            "openDoarId": 0,
+            "otherIdentifiers": [],
+            "rorId": "https://ror.org/05mzfcs16",
+            "software": "eprints",
+            "source": "",
+            "stats": null,
+            "type": "REPOSITORY",
+            "uri": "https://oro.open.ac.uk/cgi/oai2"
+          },
+          "deleted": "ALLOWED",
+          "depositedDate": "2023-07-03T13:41:27+01:00",
+          "disabled": false,
+          "display": "<stack>/outputs/571618880",
+          "documentType": "",
+          "doi": "10.1186/1756-0500-5-503",
+          "download": "<stack>/download/571618880.pdf",
+          "downloadUrl": "https://core.ac.uk/download/571618880.pdf",
+          "fulltextStatus": "enabled",
+          "id": 2106,
+          "identifiers": {
+            "doi": "10.1186/1756-0500-5-503",
+            "oai": "oai:oro.open.ac.uk:90496"
+          },
+          "journals": [],
+          "language": null,
+          "lastUpdate": "2026-08-31T16:26:00+01:00",
+          "license": "http://creativecommons.org/licenses/by/4.0",
+          "links": [
+            { "type": "download", "url": "<stack>/download/571618880.pdf" },
+            { "type": "reader", "url": "<stack>/reader/571618880" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "reader", "url": "<stack>/reader/571618880" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "display", "url": "<stack>/outputs/571618880" }
+          ],
+          "oai": "oai:oro.open.ac.uk:90496",
+          "orcids": [],
+          "publishedDate": "2012-01-01T00:00:00+00:00",
+          "publisher": null,
+          "reader": "<stack>/reader/571618880",
+          "references": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "acceptedDate": "",
+            "createdDate": "",
+            "depositedDate": "",
+            "id": 571618880,
+            "publishedDate": "2012-01-01T00:00:00+00:00",
+            "updatedDate": ""
+          },
+          "sdg": [],
+          "setSpecs": [],
+          "sourceFulltextUrls": [
+            [
+              "http://dx.doi.org/10.1186/1756-0500-5-503",
+              "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            ]
+          ],
+          "subjects": ["Article"],
+          "tags": [],
+          "thumbnail_l": "<stack>/image/571618880/large",
+          "thumbnail_m": "<stack>/image/571618880/medium",
+          "title": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+          "updatedDate": null,
+          "urls": [
+            {
+              "type": "fulltext",
+              "url": "http://dx.doi.org/10.1186/1756-0500-5-503"
+            },
+            {
+              "type": "fulltext",
+              "url": "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            }
+          ],
+          "versions": [],
+          "yearPublished": "2012"
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "outputs-4100",
+    "path": "/outputs/4100/",
+    "data": "/search/_next/data/<buildId>/outputs/4100.json?id=4100",
+    "page": "/outputs/[id]",
+    "query": { "id": "4100" },
+    "bytes": 172,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "serverError": {
+          "code": 410,
+          "message": "The article with ID 4100 has been disabled"
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "outputs-2001-oai",
+    "path": "/outputs/2001/?source=oai",
+    "data": "/search/_next/data/<buildId>/outputs/2001.json?id=2001&source=oai",
+    "page": "/outputs/[id]",
+    "query": { "source": "oai", "id": "2001" },
+    "bytes": 4798,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "Background\n\nThe ability to transport and store DNA at room temperature in low volumes has the advantage of optimising cost, time and storage space. Blood spots on adapted filter papers are popular for this, with FTA (Flinders Technology Associates) Whatman™ technology being one of the most recent. Plant material, plasmids, viral particles, bacteria and animal blood have been stored and transported successfully using this technology, however the method of porcine DNA extraction from FTA Whatman™ cards is a relatively new approach, allowing nucleic acids to be ready for downstream applications such as PCR, whole genome amplification, sequencing and subsequent application to single nucleotide polymorphism microarrays has hitherto been under-explored.\n\n\n\nFindings\n\nDNA was extracted from FTA Whatman™ cards (following adaptations of the manufacturer’s instructions), whole genome amplified and subsequently analysed to validate the integrity of the DNA for downstream SNP analysis. DNA was successfully extracted from 288/288 samples and amplified by WGA. Allele dropout post WGA, was observed in less than 2% of samples and there was no clear evidence of amplification bias nor contamination. Acceptable call rates on porcine SNP chips were also achieved using DNA extracted and amplified in this way.\n\n\n\nConclusions\n\nDNA extracted from FTA Whatman cards is of a high enough quality and quantity following whole genomic amplification to perform meaningful SNP chip studies",
+          "acceptedDate": "2012-09-13T01:00:00+01:00",
+          "authors": [
+            { "name": "Fowler, Katie E." },
+            { "name": "Reitter, Chris P" },
+            { "name": "Walling, Grant A" },
+            { "name": "Griffin, Darren K" }
+          ],
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            }
+          ],
+          "contributors": [],
+          "createdDate": "2023-07-10T10:25:12+01:00",
+          "dataProvider": {
+            "aliases": [],
+            "createdDate": "2011-05-05T00:00:00+01:00",
+            "email": "",
+            "homepageUrl": null,
+            "id": 86,
+            "institutionName": "Open University",
+            "location": {
+              "countryCode": "GB",
+              "latitude": 52.0333,
+              "longitude": -0.7
+            },
+            "logo": null,
+            "metadataFormat": "rioxx",
+            "name": "Open Research Online (The Open University)",
+            "oaiPmhUrl": "https://oro.open.ac.uk/cgi/oai2",
+            "openDoarId": 0,
+            "otherIdentifiers": [],
+            "rorId": "https://ror.org/05mzfcs16",
+            "software": "eprints",
+            "source": "",
+            "stats": null,
+            "type": "REPOSITORY",
+            "uri": "https://oro.open.ac.uk/cgi/oai2"
+          },
+          "deleted": "ALLOWED",
+          "depositedDate": "2023-07-03T13:41:27+01:00",
+          "disabled": false,
+          "display": "<stack>/outputs/571618880",
+          "documentType": "",
+          "doi": "10.1186/1756-0500-5-503",
+          "download": "<stack>/download/571618880.pdf",
+          "downloadUrl": "https://core.ac.uk/download/571618880.pdf",
+          "fulltextStatus": "enabled",
+          "id": 2001,
+          "identifiers": {
+            "doi": "10.1186/1756-0500-5-503",
+            "oai": "oai:oro.open.ac.uk:90496"
+          },
+          "journals": [],
+          "language": null,
+          "lastUpdate": "2026-08-31T16:26:00+01:00",
+          "license": "http://creativecommons.org/licenses/by/4.0",
+          "links": [
+            { "type": "download", "url": "<stack>/download/571618880.pdf" },
+            { "type": "reader", "url": "<stack>/reader/571618880" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "reader", "url": "<stack>/reader/571618880" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "display", "url": "<stack>/outputs/571618880" }
+          ],
+          "oai": "oai:oro.open.ac.uk:90496",
+          "orcids": [],
+          "publishedDate": "2012-01-01T00:00:00+00:00",
+          "publisher": null,
+          "reader": "<stack>/reader/571618880",
+          "references": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "acceptedDate": "",
+            "createdDate": "",
+            "depositedDate": "",
+            "id": 571618880,
+            "publishedDate": "2012-01-01T00:00:00+00:00",
+            "updatedDate": ""
+          },
+          "sdg": [],
+          "setSpecs": [],
+          "sourceFulltextUrls": [
+            [
+              "http://dx.doi.org/10.1186/1756-0500-5-503",
+              "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            ]
+          ],
+          "subjects": [],
+          "tags": [],
+          "thumbnail_l": "<stack>/image/571618880/large",
+          "thumbnail_m": "<stack>/image/571618880/medium",
+          "title": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+          "updatedDate": null,
+          "urls": [
+            {
+              "type": "fulltext",
+              "url": "http://dx.doi.org/10.1186/1756-0500-5-503"
+            },
+            {
+              "type": "fulltext",
+              "url": "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            }
+          ],
+          "versions": [],
+          "yearPublished": "2012"
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "display-2001",
+    "path": "/display/2001/",
+    "data": "/search/_next/data/<buildId>/outputs/2001.json?id=2001",
+    "page": "/outputs/[id]",
+    "query": { "id": "2001" },
+    "bytes": 4798,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "abstract": "Background\n\nThe ability to transport and store DNA at room temperature in low volumes has the advantage of optimising cost, time and storage space. Blood spots on adapted filter papers are popular for this, with FTA (Flinders Technology Associates) Whatman™ technology being one of the most recent. Plant material, plasmids, viral particles, bacteria and animal blood have been stored and transported successfully using this technology, however the method of porcine DNA extraction from FTA Whatman™ cards is a relatively new approach, allowing nucleic acids to be ready for downstream applications such as PCR, whole genome amplification, sequencing and subsequent application to single nucleotide polymorphism microarrays has hitherto been under-explored.\n\n\n\nFindings\n\nDNA was extracted from FTA Whatman™ cards (following adaptations of the manufacturer’s instructions), whole genome amplified and subsequently analysed to validate the integrity of the DNA for downstream SNP analysis. DNA was successfully extracted from 288/288 samples and amplified by WGA. Allele dropout post WGA, was observed in less than 2% of samples and there was no clear evidence of amplification bias nor contamination. Acceptable call rates on porcine SNP chips were also achieved using DNA extracted and amplified in this way.\n\n\n\nConclusions\n\nDNA extracted from FTA Whatman cards is of a high enough quality and quantity following whole genomic amplification to perform meaningful SNP chip studies",
+          "acceptedDate": "2012-09-13T01:00:00+01:00",
+          "authors": [
+            { "name": "Fowler, Katie E." },
+            { "name": "Reitter, Chris P" },
+            { "name": "Walling, Grant A" },
+            { "name": "Griffin, Darren K" }
+          ],
+          "citations": [
+            {
+              "id": "apa",
+              "style": "apa",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            },
+            {
+              "id": "bibtex",
+              "style": "bibtex",
+              "value": "Fowler, K. E., Reitter, C. P., Walling, G. A., & Griffin, D. K. (2012). Novel approach for deriving genome wide SNP analysis data from archived blood spots. BMC Research Notes, 5(1). https://doi.org/10.1186/1756-0500-5-503\n"
+            }
+          ],
+          "contributors": [],
+          "createdDate": "2023-07-10T10:25:12+01:00",
+          "dataProvider": {
+            "aliases": [],
+            "createdDate": "2011-05-05T00:00:00+01:00",
+            "email": "",
+            "homepageUrl": null,
+            "id": 86,
+            "institutionName": "Open University",
+            "location": {
+              "countryCode": "GB",
+              "latitude": 52.0333,
+              "longitude": -0.7
+            },
+            "logo": null,
+            "metadataFormat": "rioxx",
+            "name": "Open Research Online (The Open University)",
+            "oaiPmhUrl": "https://oro.open.ac.uk/cgi/oai2",
+            "openDoarId": 0,
+            "otherIdentifiers": [],
+            "rorId": "https://ror.org/05mzfcs16",
+            "software": "eprints",
+            "source": "",
+            "stats": null,
+            "type": "REPOSITORY",
+            "uri": "https://oro.open.ac.uk/cgi/oai2"
+          },
+          "deleted": "ALLOWED",
+          "depositedDate": "2023-07-03T13:41:27+01:00",
+          "disabled": false,
+          "display": "<stack>/outputs/571618880",
+          "documentType": "",
+          "doi": "10.1186/1756-0500-5-503",
+          "download": "<stack>/download/571618880.pdf",
+          "downloadUrl": "https://core.ac.uk/download/571618880.pdf",
+          "fulltextStatus": "enabled",
+          "id": 2001,
+          "identifiers": {
+            "doi": "10.1186/1756-0500-5-503",
+            "oai": "oai:oro.open.ac.uk:90496"
+          },
+          "journals": [],
+          "language": null,
+          "lastUpdate": "2026-08-31T16:26:00+01:00",
+          "license": "http://creativecommons.org/licenses/by/4.0",
+          "links": [
+            { "type": "download", "url": "<stack>/download/571618880.pdf" },
+            { "type": "reader", "url": "<stack>/reader/571618880" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "reader", "url": "<stack>/reader/571618880" },
+            { "type": "thumbnail_m", "url": "<stack>/image/571618880/medium" },
+            { "type": "thumbnail_l", "url": "<stack>/image/571618880/large" },
+            { "type": "display", "url": "<stack>/outputs/571618880" }
+          ],
+          "oai": "oai:oro.open.ac.uk:90496",
+          "orcids": [],
+          "publishedDate": "2012-01-01T00:00:00+00:00",
+          "publisher": null,
+          "reader": "<stack>/reader/571618880",
+          "references": [],
+          "repositories": [],
+          "repositoryDocument": {
+            "acceptedDate": "",
+            "createdDate": "",
+            "depositedDate": "",
+            "id": 571618880,
+            "publishedDate": "2012-01-01T00:00:00+00:00",
+            "updatedDate": ""
+          },
+          "sdg": [],
+          "setSpecs": [],
+          "sourceFulltextUrls": [
+            [
+              "http://dx.doi.org/10.1186/1756-0500-5-503",
+              "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            ]
+          ],
+          "subjects": [],
+          "tags": [],
+          "thumbnail_l": "<stack>/image/571618880/large",
+          "thumbnail_m": "<stack>/image/571618880/medium",
+          "title": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+          "updatedDate": null,
+          "urls": [
+            {
+              "type": "fulltext",
+              "url": "http://dx.doi.org/10.1186/1756-0500-5-503"
+            },
+            {
+              "type": "fulltext",
+              "url": "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+            }
+          ],
+          "versions": [],
+          "yearPublished": "2012"
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "providers",
+    "path": "/data-providers/",
+    "data": "/search/_next/data/<buildId>/data-providers.json",
+    "page": "/data-providers",
+    "query": {},
+    "bytes": 7034636,
+    "sha256": "d37845d4b1383e3a64886981e39a95018916f6e87fff7b0bad19e5fc3dcb0600",
+    "outline": {
+      "__N_SSP": "boolean",
+      "pageProps": { "initialState": { "dataProviders": "object" } },
+      "statistics": { "totalArticlesCount": "string" }
+    }
+  },
+  {
+    "id": "providers-q-aberystwyth",
+    "path": "/data-providers/?q=aberystwyth",
+    "data": "/search/_next/data/<buildId>/data-providers.json?q=aberystwyth",
+    "page": "/data-providers",
+    "query": { "q": "aberystwyth" },
+    "bytes": 7034653,
+    "sha256": "ec394c009dae6bae3fca8c80f6e7958d6b587fd315ba5649c3a054f01dca118d",
+    "outline": {
+      "__N_SSP": "boolean",
+      "pageProps": { "initialState": { "dataProviders": "object" } },
+      "statistics": { "totalArticlesCount": "string" }
+    }
+  },
+  {
+    "id": "provider-86",
+    "path": "/data-providers/86/",
+    "data": "/search/_next/data/<buildId>/data-providers/86.json?id=86",
+    "page": "/data-providers/[id]",
+    "query": { "id": "86" },
+    "bytes": 57790,
+    "sha256": "da93a0f8ce11ef42a2529cf48a9e165185cdc69bf4df90366d5eab5ff3b65a0f",
+    "outline": {
+      "__N_SSP": "boolean",
+      "pageProps": {
+        "data": {
+          "aliases": "array(0)",
+          "billingType": "string",
+          "createdDate": "string",
+          "email": "string",
+          "homepageUrl": "null",
+          "id": "number",
+          "institutionName": "string",
+          "location": "object",
+          "logo": "string",
+          "metadata": "object",
+          "metadataFormat": "string",
+          "name": "string",
+          "oaiPmhUrl": "string",
+          "openDoarId": "number",
+          "otherIdentifiers": "array(0)",
+          "outputs": "object",
+          "rorId": "string",
+          "software": "string",
+          "source": "string",
+          "stats": "null",
+          "type": "string",
+          "uri": "string"
+        }
+      },
+      "statistics": { "totalArticlesCount": "string" }
+    }
+  },
+  {
+    "id": "provider-4835",
+    "path": "/data-providers/4835/",
+    "data": "/search/_next/data/<buildId>/data-providers/4835.json?id=4835",
+    "page": "/data-providers/[id]",
+    "query": { "id": "4835" },
+    "bytes": 200919,
+    "sha256": "102ef5ee47bf6f8ac82a8e822f917592fd522dcf9692f6437764be49c62d0e27",
+    "outline": {
+      "__N_SSP": "boolean",
+      "pageProps": {
+        "data": {
+          "aliases": "array(0)",
+          "billingType": "string",
+          "createdDate": "string",
+          "email": "string",
+          "homepageUrl": "string",
+          "id": "number",
+          "institutionName": "string",
+          "location": "object",
+          "logo": "string",
+          "metadata": "object",
+          "metadataFormat": "string",
+          "name": "string",
+          "oaiPmhUrl": "string",
+          "openDoarId": "number",
+          "otherIdentifiers": "array(0)",
+          "outputs": "object",
+          "rorId": "string",
+          "software": "string",
+          "source": "string",
+          "stats": "null",
+          "type": "string",
+          "uri": "string"
+        }
+      },
+      "statistics": { "totalArticlesCount": "string" }
+    }
+  },
+  {
+    "id": "provider-8",
+    "path": "/data-providers/8/",
+    "data": "/search/_next/data/<buildId>/data-providers/8.json?id=8",
+    "page": "/data-providers/[id]",
+    "query": { "id": "8" },
+    "bytes": 57648,
+    "sha256": "037ab8461aba001a757683e4e0093ec3b34d35c5996a083fd220acbc3a83fa9b",
+    "outline": {
+      "__N_SSP": "boolean",
+      "pageProps": {
+        "data": {
+          "aliases": "array(0)",
+          "billingType": "string",
+          "createdDate": "string",
+          "email": "string",
+          "homepageUrl": "string",
+          "id": "number",
+          "institutionName": "string",
+          "location": "object",
+          "logo": "string",
+          "metadata": "object",
+          "metadataFormat": "string",
+          "name": "string",
+          "oaiPmhUrl": "string",
+          "openDoarId": "number",
+          "otherIdentifiers": "array(0)",
+          "outputs": "object",
+          "rorId": "string",
+          "software": "string",
+          "source": "string",
+          "stats": "null",
+          "type": "string",
+          "uri": "string"
+        }
+      },
+      "statistics": { "totalArticlesCount": "string" }
+    }
+  },
+  {
+    "id": "provider-3354",
+    "path": "/data-providers/3354/",
+    "data": "/search/_next/data/<buildId>/data-providers/3354.json?id=3354",
+    "page": "/data-providers/[id]",
+    "query": { "id": "3354" },
+    "bytes": 882,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "aliases": [],
+          "billingType": null,
+          "createdDate": "2017-08-31T14:55:09+01:00",
+          "email": null,
+          "homepageUrl": "http://deu.mitosweb.com",
+          "id": 3354,
+          "institutionName": null,
+          "location": { "countryCode": "", "latitude": 0, "longitude": 0 },
+          "logo": null,
+          "metadata": {
+            "countFulltext": 0,
+            "countMetadata": 0,
+            "history": null,
+            "id": 3354,
+            "lastSeen": { "harvest_times": [], "isActive": false },
+            "set": "",
+            "sourceStats": []
+          },
+          "metadataFormat": "oai_dc",
+          "name": "9 Eylül University",
+          "oaiPmhUrl": "http://deu.mitosweb.com/services_oai2/",
+          "openDoarId": 0,
+          "otherIdentifiers": [],
+          "outputs": {
+            "data": [],
+            "limit": 10,
+            "offset": 0,
+            "query": "",
+            "results": [],
+            "searchId": null,
+            "sort": "recency",
+            "tooks": [],
+            "total": 0,
+            "totalHits": 0
+          },
+          "rorId": null,
+          "software": null,
+          "source": "oai",
+          "stats": null,
+          "type": "REPOSITORY",
+          "uri": "http://deu.mitosweb.com/services_oai2/"
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  },
+  {
+    "id": "provider-86-e13-500",
+    "path": "/data-providers/86/?q=p2t610",
+    "data": "/search/_next/data/<buildId>/data-providers/86.json?id=86&q=p2t610",
+    "page": "/data-providers/[id]",
+    "query": { "q": "p2t610", "id": "86" },
+    "bytes": 4756,
+    "props": {
+      "__N_SSP": true,
+      "pageProps": {
+        "data": {
+          "aliases": [],
+          "billingType": "sustaining",
+          "createdDate": "2011-05-05T00:00:00+01:00",
+          "email": "",
+          "homepageUrl": null,
+          "id": 86,
+          "institutionName": "Open University",
+          "location": {
+            "countryCode": "GB",
+            "latitude": 52.0333,
+            "longitude": -0.7
+          },
+          "logo": "data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAqBSURBVHgB7d0/UNRnHsfxLzfOpNAM0BxWisZJqmNtomMcsTmwco0WaY7lmjinp6QJXCPMOYM2B1VgLl6gYqnMTAxQCdcAo2esspsmzogHk+LwGmXOzKTj9vsje3IEHmBl9/d9nuf9mskkJkUQ+ez3+/yvWy0RAJtZ/ZUA2BIBARwICOBAQAAHAgI4EBDAgYAADgQEcCAggAMBARwICOBAQAAHAgI4EBDAgYAADgQEcCAggAMBARwICOBAQAAHAgI4EBDAgYAADgQEcCAggMM+8cTLl69kauqhjI3NSLH4tPTrHwX+aGjYLy0txySXa5POznbxRZ0PV4/Ozhbk8uVBWVp6LvBfc3OT3L17UzKZd8Q4+1ePjo1NS3t7D+EIyOLiczl58mryZ2ud6QqirdT77/9REKa6ujqZnv6LtLZmxKhV0wF5990clSNwzc0H5cmTMTHKbouVz08TjggsLS3L5OQDscpsQCYmHgrCp/3L+PjfxSqzAZmfLwjiUCgsiFVmA8I6Rzwst9KspAMOBARwICCAAwEBHAgI4EBAAAcCAjgQEMDBmwNTlulhoPr6A//79crKKxY6A0FAdqm1tSU5GXf8+NFkm7YGQwOymWJxQRYXl2V29rtk6/7cXFHgF7Pb3d96y86xTA1FNvuB5HLntgzDTmhVmZp6kBwUIiyv6bmQn366LwbZPQ9iISC5XLt0drZV5UCP7j/q788n2/pjR0AqkGZAtGKMjvbI4cNNUm0EhYBUJI2AaPs0MtKTtFO1poeGurvvRHlIzHJAmOb9mVaNx4/vpBIOlc2elpmZwaStgx0EpKSr62Lyw1mLlspF//+jo93S15cT2BB9QPSHcXDwqljS22vva4pV1AHRcOgPo0Va1bSaIF3RBsRyOMp0PGL9awxdlAHRgbgvP3j6dWo1QTqiC4gOhH3q70szoHLjRodkMkcFtRddQLSvT3u2arcaG98urc8wHklDVAHRnt7wPbBOmcyxUiVhPFJr0QREV8l9X1/o6vrwjTZLYveiCUhX1yXvWquNtNW6du2SoHaiCUgoWzioIrUVRUA0HL5XjzKqSG1FERA90xESrSKojeADopXD15mrrTQ0HEh2H6P6gg9IaOFQen7i/Pl0tuXHJviAZLOnJESsrNcGFcRT+vtiNqv6gg6Ijj+0Xw9VKDNzlgUekIMSrrrkfi5UV/AVJFS6y/fQISpItREQjzEGqT4ubfBYyOMrKwgI4EBAAAcC4rGXL18JqivogIR+jSdvkFRf0AFZWQn3B0ivVNb3R1BdQQekUHgqIdOXrFBdwbdYIffpVJDqC36QPjdXkBDNzhYYg9RA8AGZnQ3zqbNi8Zmg+oIPyNTUQwmNDtBD/H1ZFHxAdBwSWpu1tLTMI6A1EsVC4cREOJ+2+mDe8PDXgtqIIiDj4zMBzWatyuQk7VWtRBEQDcfQ0D0JQT4/E+VDn2mJZi/W8PA976vIixf/kVu38oLaiSYgGg7ff7iGhr6metRYdO+kz8wMeHnTyeLiv+S9934vIeKddEM+/njQu1ZLP8Pa2/8kqL3oAqItyuXLg+ILre89PXdorVIS5YEpnSbt7/djPKJfZygzcD6K9kShDtith2RsbFpu32bWKk1RH7m1HJKhoa+8agVDFf2ZdIsh0a+nu/uOIH3RTfNuRad+R0c/TfW6Up1d06oR21YSpnk9oDt+29p6kr4/DXoA6sSJq+yzMoYKsgl907Cvr6Mm1US3rms7FXMwLFcQAuJQzaBoMD777J6Mj09Hf3SWgFTAQkDKdHySy7XJ2bMtbxQWHWNopdAduaGela8EAamApYCsp2FpaTma/L25uWnLR3o0DFoZNAiFwkJyhpxQbI6AVMBqQLay/qkFva+KG0d2znJA9gn2BHulwsQ0L+BAQAAHAgI4EBDAgYAADgQEcCAggAMBARwICOBAQAAHAgI4EBDAwWxAGhr2C5A2swGprz8giMP6owLW0GIhdZsdOLPCbEAsf6pgb1nuFgwHJL37qVBblsebDNKRukOHfi1W0WIhVXV1Is3NdrsFAoKU1SW3xFhlNiCZzDFBHBikV2DtvinGIaHTKd5M5h2xyvQ6SEuL3W8c9ob1P2PTAbH8yYK9YXn8oUwHpLW1RRAuncFqbf2NWGY8IP69Z47dqDM/GWM6IGsDONslGJXTFtr6dL75zYpUkXCdOWO/hTYfkGz2A0F49Eb3bPaUWGf2+YP1mpou8pxAYHR7yZMnY2KcH4946lNoCIsvrbMXAaHNCou2V7ncb8UHXrRYijYrHJ60V8qfd9KvX78kCINPLbM3FUQfxWxqIiS+0/ZKq4cnxxn8qSC6aMjWE/9p9fDprI9Xt5r09eUE/vJpcF7mVUB0apAq4q+1Pz+/dkZ4dy8WVcRPWj16e38nvvEuIFQRP/lYPZSXNytSRfyi1WNk5FPxkZcB0U+iCxdYXfeFbzNX63mzDrLR0tJzOXHiCqvrxnm27rGRP+sgG+k3nNV12/RIrbbDPt9x5m0FKTt58op8++0zgT1HjhyU77/3Ys/VVvytIGUjIz3JJxVs0dbq/v0B8Z33AdF7lQYGrgrsCKG1KvO+xSprb++W2dmiIH16U8njx3+VAPjfYpVpq9XYyFWladOzHl9++WcJRTAB0XJ+9+5NxiMpKi8IhnQzf1BvFOoCIuORdGg4dNwR2jVNwT3i2dV1UT755KKgdjQc+n2/caNDQhPMIH2jjz66KRMTDwXVd+HC6VJ7G864Y53VYAOiR3TPnespLSIuCKpHZ6ympwdCfcslnFmsjfSIri5UHT/OEwrVEng4EsEGRBGS6okhHCrogKjXIeGW+L2g0+hnz2aiCIcKPiBKQ/Lo0Z1kpgWV09mqzs72aMKhogiI0k++wcGryVw9i4m7V17n+OKLbolJsLNYLkND9+T27by8ePFKsL3GxgPJh0tHR5tEJtxp3u0sLi4n08CLi88Fm9NKe/jw2t6qSF8cDneadzu6qe7Ro8+T89K0XL+0tjp+Sb755vOon+OOtoKsl89Py61bearJz7SlGhnplvPno78YI94WayO9BKK/Py/j49MS63dk7WrQdhkYuBLNLNU2CMhGk5MPpKfnb6XALEcTFA2GtlGDg3/g0dT/R0C2stZ2jQcdFB176RpRb2+nXL/+oeAXCMh2QgxKORg6CL927SLt1NYIyE6FEBRtpfS0n66GE4wdISC7pWOUfH5Gpqb+UfrVqhdh0WDohd+9vR2MMXaHgFRKZ73m5goyPPyVFAr/FEthWVvXWQuFbiykWlSMgOwFDYtWlsnJhzI//13y72r9bdUqoSHQ2ahs9lRpDeN0UJcnpISAVINWFr2ja36+IMXis3UXbL95lXm96r8WCG2ZMpmjcuZMSykcx6gUe4uA1IIGpFh8WmrFFkqr9f+WH35YTo4Er6z8mPw3rUAb6Q96ff2B5J+1Euhf9fVvl8JwpPT3/cmBJSpE1REQwCHezYrAThAQwIGAAA4EBHAgIIADAQEcCAjgQEAABwICOBAQwIGAAA4EBHAgIIADAQEcCAjgQEAABwICOBAQwIGAAA4EBHAgIIADAQEc9oneZgZgM6v/BQTH0/sFVzPfAAAAAElFTkSuQmCC",
+          "metadata": {
+            "countFulltext": 26415,
+            "countMetadata": 66689,
+            "history": null,
+            "id": 86,
+            "lastSeen": { "harvest_times": [], "isActive": false },
+            "set": "",
+            "sourceStats": []
+          },
+          "metadataFormat": "rioxx",
+          "name": "Open Research Online (The Open University)",
+          "oaiPmhUrl": "https://oro.open.ac.uk/cgi/oai2",
+          "openDoarId": 0,
+          "otherIdentifiers": [],
+          "outputs": {
+            "error": {
+              "data": { "message": "Internal Server Error" },
+              "headers": {},
+              "name": "InternalServerError",
+              "response": {},
+              "status": 500,
+              "type": "application/json"
+            },
+            "limit": 10,
+            "offset": 0,
+            "query": "p2t610",
+            "sort": "recency"
+          },
+          "rorId": "https://ror.org/05mzfcs16",
+          "software": "eprints",
+          "source": "",
+          "stats": null,
+          "type": "REPOSITORY",
+          "uri": "https://oro.open.ac.uk/cgi/oai2"
+        }
+      },
+      "statistics": { "totalArticlesCount": "more than 356 million" }
+    }
+  }
+]
