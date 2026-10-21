@@ -140,7 +140,7 @@ STATUS §1 lists B0..Bn: {n, kind golden/tool/product, reference, baselines SHA-
 | `lint` | CI-1, CI-8 | tooling 24 | `npm ci`; `scripts/lint-parity.mjs` (T-001); docs check (40 §10); `scripts/ad-ledger.mjs` (signatures, §8); CI-8: `npm audit --omit=dev --audit-level=high --json` into `scripts/audit-gate.mjs` (allow-list `d3-color`, 02), `continue-on-error: ${{ vars.AUDIT_BLOCKING != 'true' }}`; owner sets it `true` when W7a (first Next >= 15.5.24) is in prod |
 | `unit` | CI-2 | step runtime (02) | Jest on the committed fixtures, `TZ=UTC` (40 §10); coverage (C3) |
 | `image` | CI-3, CI-5 | - | `build-image.sh parity HEAD ci`; `docker save` to artifact; T-002..T-018 (41) on the image `.next`; CI-5 = T-901 (`--memory 768m`, §2 env) + T-721 negative control |
-| `e2e` | CI-4 | - | `docker load` (image ID = `image` output); runner built (§3); §3 compose; tiers G-I (41); report, traces |
+| `e2e` | CI-4 | - | `docker load` (image ID = `image` output); runner built (§3); §3 compose; tiers G-I (41): `wire` (tests that read the stub's wire log) runs after the browser projects, never beside them (Playwright `dependencies`), `visual` in its own invocation (T-802 on the harness-variant build, 40 §2.5); report, traces |
 | `gate` | CI-7 | - | `needs` all four, `if: always()`; fails unless all are `success` |
 
 - **CI-6** WITHDRAWN (2026-10-20, with OD-29): the deploy workflows stay as today (no `needs: ci`, no nightly change). T-009 and T-014 (b) run on a release-recipe build of every step head instead (01 §4 step 3a); deployed data are checked on prod by T-907 (provider count).

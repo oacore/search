@@ -21,14 +21,14 @@
 
 | ID | P | Target | Cases | Risks | Wave |
 |---|---|---|---|---|---|
-| T-001 | P0 | Lint parity (`lint-parity.mjs`) | (path, rule, count), repo-relative = findings/baselines (13 ESLint + 16 stylelint findings, 38 inline disables); `test/**`, `e2e/**` overridden. W1: new-tool baseline on unchanged code | R-033, R-049, R-050 | W1, 6.2 |
-| T-002 | P0 | CSS-module keys (source) | 66 importing files: every `styles.<id>` (430 reads) exists in its module under camelCase. Blind to the build no-op (T-605) | R-001 | W4b–W4d, W6c, W7a, W7c, 6.7, 6.9 |
+| T-001 | P0 | Lint parity (`lint-parity.mjs`) | (path, rule, count), repo-relative = findings/baselines (13 ESLint + 16 stylelint findings, 38 inline disables); `test/**`, `e2e/**` overridden (`lint:js` takes `.js`/`.jsx` only: `.mjs` specs, scripts and configs are not linted today). W1: new-tool baseline on unchanged code | R-033, R-049, R-050 | W1, 6.2 |
+| T-002 | P0 | CSS-module keys (source) | 66 importing files: every `styles.<id>` member read (363; 430 was a grep token count) exists in its module under camelCase, except the 24 pinned dangling reads (Q-099), with 202 reads in 47 files that exist only through the camelCase export. Blind to the build no-op (T-605) | R-001 | W4b–W4d, W6c, W7a, W7c, 6.7, 6.9 |
 | T-003 | P0 | Built CSS | Keyed by (source file, normalised selector list, at-rule chain, ordinal), never hash-stripped selectors. 0 `@media (--`, 0 `@extend`, `color-mod(` count (Q-066), declarations per key = baseline; media-rule count per feature (`prefers-*`, `hover`, `pointer`, `forced-colors`) = baseline. Any diff (W4c minifier, DV7, CS-CSS-4, CS-W0-11) passes only as an AD row with T-801 0 px on all three engines (OD-37) | R-008, R-009, R-023, R-024, R-043, R-086 | W4b, W4c, W8, 6.9, 7.1 |
 | T-004 | P0 | Bundles (`.next` of the image) | Client: one `react`/`react-dom`, `@sentry/browser`; server only `@sentry/node` (CS-W0b-3; `@sentry/nextjs` from 6.8, CS-SEN-2); no new `readFileSync` of `lib/loader.js`; `API_KEY` placeholder in client (S-1); `pages-manifest` = known routes | R-032, R-040, R-044, R-091 | W2a, W4b, W4c, W6a, W6c, W7b, 6.7, 6.8 |
-| T-005 | P0 | Static assets | Set from the golden image: prod sprite 48 symbols + byte hash (Q-067); next-images 9 file URLs + 5 data URIs; `.next/static/media` base names (60 KaTeX fonts, slick, `ajax-loader.gif`); `public/images/*` | R-007, R-021, R-022 | W0.5, W4c, W5, 6.9, 7.F |
+| T-005 | P0 | Static assets | Set from the golden image: prod sprite 48 symbols + byte hash (Q-067); next-images 9 file URLs + 5 data URIs (14 source import sites; the build holds 9 file-URL and 4 data-URI modules: `templates/data-provider/logo.jsx:4` is imported by no page); `.next/static/media` base names (60 KaTeX fonts, slick, `ajax-loader.gif`); `public/images/*` | R-007, R-021, R-022 | W0.5, W4c, W5, 6.9, 7.F |
 | T-006 | P0@2.1 | Design runtime config | Image's design `lib/config.js` (from DV7 the committed constant): `iconsPublicPath` `/static/search/icons.svg` | R-022, R-091 | 2.1, W0.5, W5, 6.9 |
 | T-007 | P1 | Bundle budget | Per-route first-load JS gzip ≤ B0 +10 % cumulative (OD-49), from manifests, never per chunk (chunk graph changes) | R-048, R-064 | W4b–W7c, 6.x, 7.x |
-| T-008 | P0 | Install, alpine arm64 | `npm ci`, no fallback; with `npm_config_userconfig=/dev/null --no-legacy-peer-deps`: `npm ls --all` problems ⊆ the 02 §4 allow-list (today's 7 and their closing steps: 02 §1 rule 6); musl + gnu `@next/swc-*` (sharp musl from 15) locked; `@oacore/design` 5.0.74 `sha512-kwYolSk…` until DV9; resolves `node-fetch` (to W4a), `@mdi/svg`, `@babel/runtime`, `yargs` | R-014, R-015, R-027, R-054, R-066 | all |
+| T-008 | P0 | Install, alpine arm64 | `npm ci`, no fallback; with `npm_config_userconfig=/dev/null --no-legacy-peer-deps`: `npm ls --all` problems ⊆ the 02 §4 allow-list (today's 9 and their closing steps: 02 §1 rule 6); musl + gnu `@next/swc-*` locked from Next 12 (W4c; 10.2.3 locks none), sharp musl from 15; `@oacore/design` 5.0.74 `sha512-kwYolSk…` until DV9; resolves `node-fetch` (to W4a), `@mdi/svg`, `@babel/runtime`, `yargs` | R-014, R-015, R-027, R-054, R-066 | all |
 | T-009 | P1 | Data files | On the frozen snapshot and on the release-recipe build of every step head (01 §4 step 3a, blocking; deployed data: T-907): `.formap.json` `[{id:number,name}]`; `.members.json` `billing_type` ∈ starting/supporting/sustaining, `repo_id` int, int[] or null; `.statistics.json` numeric `totalArticlesCount`; floors: formap and members rows, `totalArticlesCount` ≥90 % of the snapshot's | R-067, Q-026 | W0, W4a, every step head |
 | T-010 | P0 | Routes manifest | (source, destination, headers) tuples = baseline (data and `/static` rewrites; CSP = T-116 string); the rewrite Next injects from 15 whitelisted | R-002, R-020, R-021, R-068 | W4c, W4d, W6c, W7a, W7c |
 | T-011 | P0@2.1 | Repo layout | 0 `*.test.*` under `pages/`; `git ls-files --others --ignored --exclude-standard -- test e2e` empty; harness page absent from the prod `pages-manifest` | R-091 | all |
@@ -36,7 +36,7 @@
 | T-013 | P0@2.1 | Prod tree immutable | `scripts/lock-immutable.mjs`: old lock entries unchanged; `npm ls --omit=dev --all` identical; drift pinned by `overrides`; Playwright, axe only in `e2e/package.json` | R-015, R-084 | 2.1, every harness PR |
 | T-014 | P0@2.1 | Build determinism | (a) Two builds of one tree: `.next/static` + `.next/server` identical, buildId normalised (VF-09; VG-5). (b) From 2.6, every step head (01 §4 step 3a): release and parity image of one checkout, built in one job: `.next` identical after normalising the inlined build-arg literals (42 §2) and the modules built from `data/*.json` | R-075, R-084, R-091 | 2.1, W0.5, W5, every step head |
 | T-015 | P1 | JS syntax floor | es-check on client chunks; floor per Next version in the step record | R-077 | W4d, W7a, W7c, 7.0 |
-| T-016 | P0 | Vendored design (VG-1, VG-2) | Not a symlink, 466 tracked files; emitted module == file, no core-js injection; `verify-design-verbatim` vs the 5.0.74 tarball == `CHANGES.md` (before W0.5 on `node_modules`: differs only in `lib/config.js`) | R-015, R-075 | W0.5, W5, W5.5, W7b, 7.1 (retired 7.F, 80 §5) |
+| T-016 | P0 | Vendored design (VG-1, VG-2) | Not a symlink, 466 tracked files; emitted module == file (client: equal after the same transform, Next's terser options with locals renamed canonically, since chunks are minified; server: the package stays external, the external list pinned), no core-js injection; `verify-design-verbatim` vs the 5.0.74 tarball == `CHANGES.md` (before W0.5 on `node_modules`: differs only in `lib/config.js`) | R-015, R-075 | W0.5, W5, W5.5, W7b, 7.1 (retired 7.F, 80 §5) |
 | T-017 | P1@6.1 | TS ratchet | `tsc -p tsconfig.json` and `-p tsconfig.strict.json` pass; strict `include` never shrinks | R-090 | 6.1–6.6 |
 | T-018 | P0@6.1 | Output identity | Per TS/Babel-config PR: Babel output of type-stripped TS == original JS; `.next` identical modulo module paths. 6.7 (SWC): same report, every diff class reviewed per [70](70-phase6.md) | R-011, R-032, R-090 | 6.1, 6.6, 6.7 |
 
@@ -44,14 +44,14 @@
 
 | ID | P | Target | Cases | Risks | Wave |
 |---|---|---|---|---|---|
-| T-101 | P0 | `api/index.js` requests | 06 §7.2 "request builder". Corr: string body → `text/plain;charset=UTF-8`; arrays `a%2Cb`, `undefined`/`null` literal; GET without Content-Type; Authorization to every host (S-2) | R-028 | 6.3 |
-| T-102 | P0 | `api/index.js` responses | 06 §7.2 "response/error". Corr: malformed JSON and empty 204 under `application/json` → `SyntaxError`; `JSON.stringify(error)` = `{name,response:{},data,type,status,headers:{}}` | R-028 | 6.3 |
+| T-101 | P0 | `api/index.js` requests | 06 §7.2 "request builder". Corr: string body → `text/plain;charset=UTF-8`; arrays `a%2Cb`, `undefined`/`null` literal; GET without Content-Type (a GET with an object body hands fetch the raw `body` option and `application/json`: `TypeError` before sending; no caller does it); Authorization to every host (S-2) | R-028 | 6.3 |
+| T-102 | P0 | `api/index.js` responses | 06 §7.2 "response/error". Corr: malformed JSON and empty 204 under `application/json` → `SyntaxError`, not reported to LogRocket (`captureException` runs for status and network failures only); `JSON.stringify(error)` = `{name,response:{},data,type,status,headers:{}}` | R-028 | 6.3 |
 | T-103 | P0 | `api/internalize.js` | 06 §1.4, 6 cases (`jest.isolateModules`) | R-016 | W4e, 6.3 |
-| T-104 | P0 | Wire headers | Echo server gets a call via `api/index.js` with `Internal_API*` set, MSW off: Host = service host, `user-agent: node`, `accept-encoding: gzip, deflate` (Q-022); step's runtime Node | R-016, R-028 | W4a, W4e, 6.3, 6.10 |
+| T-104 | P0 | Wire headers | Echo server gets a call via `api/index.js` with `Internal_API*` set, MSW off: Host = service host, `user-agent: node`, `accept-encoding: gzip, deflate` (Q-022); step's runtime Node (Jest's Node major = the Dockerfile's) | R-016, R-028 | W4a, W4e, 6.3, 6.10 |
 | T-105 | P0 | `utils/filters-transform.js` | 06 §3.2; Q-033, Q-034; `en`/`EN`; quote stripping | R-030 | W3, 6.5 |
 | T-106 | P0 | `utils/data-providers-transform.js` | 06 §3.7 (Q-023, Q-035). Corr: data `billing_type` vs code `billingType` (starting never excluded); null logo → `GET {API_URL}null` (Q-090) | R-067 | 6.3, 6.6 |
 | T-107 | P1 | `utils/validation.js`, `store/params.js` | 06 §3.4 | R-018 | W3, 6.5 |
-| T-108 | P0 | Locale/TZ/ICU | `formatDate` 06 §3.5 in UTC, New_York, Tokyo; Q-029; `formatNumber`; `regionDisplayName` 676-region snapshot, same on every runtime Node (R-042), FK/HK/MO/PS recorded (Q-093); `getCountryName` on vendored 6.8.0 data (TR→Turkey, null→undefined) | R-010, R-031, R-042 | W0, W4e, 6.10 |
+| T-108 | P0 | Locale/TZ/ICU | `formatDate` 06 §3.5 in UTC, New_York, Tokyo (a child process per zone: `process.env.TZ` set inside Jest does not reach `Intl`); Q-029; `formatNumber`; `regionDisplayName` 676-region snapshot, same on every runtime Node (R-042), FK/HK/MO/PS recorded (Q-093); `getCountryName` on vendored 6.8.0 data (TR→Turkey, null→undefined) | R-010, R-031, R-042 | W0, W4e, 6.10 |
 | T-109 | P1 | `utils/related-words.js` | 06 §3.3 | — | 6.6 |
 | T-110 | P1 | Helpers | `getAssetsPath`, `rewriteDataPath` (`utils/helpers.js:4-25`); `findUrlsByType` mutates, first wins; `utils/sort.js` 06 §3.1 | R-002, R-021 | W4c, W4d |
 | T-113 | P1 | Template utils | `generateFormMessage` error > created > duplicated; JSON-LD positions + `</script>` name (S-4, preserved: OD-36); `normalizeDataProviders`; multi-member `pickFeaturedMember`, seeded; `getMemberRepoId` | R-003 | 6.6 |
@@ -62,7 +62,7 @@
 | T-118 | P1 | `lib/loader.js` | Hit → no fetch; miss → `{data, timestamp}` (Q-025); 3 s timeout, 500 → null | R-055 | W4c, W6c |
 | T-119 | P0 | `App.getInitialProps` | Q-004, Q-007 | R-055 | W4c, W6c |
 | T-120 | P1 | `utils/sentry.js` | No DSN → no `init`; DSN → one `init` | R-040, R-055 | W2a, 6.8 |
-| T-121 | P0 | `invalidatePreviousRequests` | Call 2 aborts call 1; signal after args (Q-020); one controller per class; call 1 rejects after call 2 starts (Q-091) | R-011 | W2e, 6.5, 6.7 |
+| T-121 | P0 | `invalidatePreviousRequests` | Call 2 aborts call 1; signal after args (Q-020); one controller per decorated method, shared by every instance of the class; call 1 rejects after call 2 starts (Q-091) | R-011 | W2e, 6.5, 6.7 |
 | T-122 | P0@6.3 | Transport differential | Old wrapper vs axios transport: raw request bytes (method, URL, all headers, body) and error deep-equality for the T-101/102/104/205 cases, one CI job | R-016, R-028 | 6.3 |
 
 ### C. Store (Jest, jsdom)
@@ -71,7 +71,7 @@ Transitions: 03 §5.1, 06 §7.2.
 
 | ID | P | Target | Cases | Risks | Wave |
 |---|---|---|---|---|---|
-| T-201 | P0 | Filters fetch | `initialData` then diff; year open → 5 aggregations; zero years kept; `unknown` first; E2 500 → `console.error`; clear-all → 2 identical E2; refined q keeps stale buckets (Q-092, two distinct responses) | R-011, R-029 | W3, 6.5 |
+| T-201 | P0 | Filters fetch | `initialData` then diff (Corr: `isVisibleClearButton` is `undefined` after the first fetch with nothing checked, the first checked filter object otherwise); year open → 5 aggregations; zero years kept; `unknown` first; E2 500 → `console.error`; clear-all → 2 identical E2; refined q keeps stale buckets (Q-092, two distinct responses) | R-011, R-029 | W3, 6.5 |
 | T-202 | P0 | Filters URL algebra | Q-040, Q-041; `reset('machine learning AND x')` → `q='machine'` + `fetchFilters('machine', signal)` (Q-020, Q-042); `reset(undefined)` throws; `pathname: undefined` | R-019 | W4c–W7c, 6.5 |
 | T-203 | P0 | Reactivity contract | Generated table: observable/computed/action per field and method = baseline, incl. non-observable `Claim.duplicated` and un-actioned Search/Report methods; `autorun` once per write. From 6.0 via T-212 | R-011, R-039, R-046, R-081 | W2e, W3, 6.5, 6.7 |
 | T-204 | P0 | Search store | 03 §5.1 "Search" (Q-043; CSV flow) | R-019 | W4c–W7c, 6.5 |
@@ -102,7 +102,7 @@ Transitions: 03 §5.1, 06 §7.2.
 |---|---|---|---|---|---|
 | T-401 | P1 | `pages/search/index.jsx` | ErrorCard vs QueryError (Q-003); `queryError` → data re-render keeps "Rendered more hooks" (Q-047) | R-033 | W1, W6a |
 | T-402 | P0 | `templates/search/results.jsx` | Title href (Q-012); reader → `api.core.ac.uk/reader-ui/1`; full-text order (06 §2.2); logo rule (Q-023); E22 per card per provider (Q-090); UTC date | R-010, R-033, R-051 | W4c, W6a, W7b |
-| T-403 | P0 | Filters bar | LoadingBlock; facet search; exact push; "…" counts; Clear all iff checked; no undefined class; Q-092 | R-001, R-030 | W3–W7c, 6.5 |
+| T-403 | P0 | Filters bar | LoadingBlock; facet search; exact push; "..." counts (three ASCII dots); Clear all iff checked; no undefined class; Q-092 | R-001, R-030 | W3–W7c, 6.5 |
 | T-404 | P0 | Year filter, Histoslider | `height="200"` from `defaultProps`, slider 20, bars = years, no `NaN`; presets; classic and automatic JSX runtime | R-012 | W7b, 6.1, 7.1 |
 | T-405 | P1 | Search pagination | Labels at ≥5; siblings 2/0 at 500 px; last-page Next by keyboard (Q-083); "last" | R-019 | W6a |
 | T-406 | P0 | Provider pagination | Hrefs at offsets 0/10/90 of 100 (Q-044); one `<a>` per control; `aria-disabled`; Q-083 | R-013 | W6c, 7.F |
@@ -125,8 +125,8 @@ Transitions: 03 §5.1, 06 §7.2.
 
 | ID | P | Target | Cases | Risks | Wave |
 |---|---|---|---|---|---|
-| T-501 | P0 | `/search` | Every 06 §2.1 row (exact E1 URL, body, abort, members, props); Q-002, Q-013, Q-015. Corr: `t` injection, repeated `t` (Q-016) | R-028, R-045 | W4c–W7c, 6.3 |
-| T-502 | P0 | `/works/[id]` | 06 §7.2 (Q-031, Q-001, Q-024). Corr: W-410-json/-text, W-emptydate, W-nodp; Q-016; `GET {API_URL}null` (Q-090); citations in props | R-028, R-045 | W4c–W7c, 6.3 |
+| T-501 | P0 | `/search` | Every 06 §2.1 row (exact E1 URL, body, abort, members, props); Q-002, Q-013, Q-015. Corr: `t` injection, repeated `t` (Q-016), the recorded live answers for `page=0` (offset -1) and `page=1000` (offset 9990) are 500 and 400 (ErrorCard; `currentPage` 0 and 1000 only with a 200 answer) | R-028, R-045 | W4c–W7c, 6.3 |
+| T-502 | P0 | `/works/[id]` | 06 §7.2 (Q-031, Q-001, Q-024). Corr: W-410-json/-text, W-emptydate, W-nodp; Q-016; `GET {API_URL}undefined` (Q-090; only for a member provider whose logo is `null` or `''`; `{API_URL}null` is the provider page, T-504); citations in props | R-028, R-045 | W4c–W7c, 6.3 |
 | T-503 | P0 | `/outputs/[id]` | Q-030; 410, disabled, 500 messages; O-yearstring, O-nofulltext | R-028, R-045 | W4c–W7c, 6.3 |
 | T-504 | P0 | `/data-providers/[id]` | `notFound`; Q-035; base64 logos; `billingType`; E13 error serialised; E18 un-awaited; Q-016; Q-090 | R-028, R-045, R-067 | W4c–W7c, 6.3 |
 | T-505 | P1 | `/data-providers` | Props, formap fixture; Q-080 | R-018 | W3 |
@@ -138,12 +138,12 @@ Transitions: 03 §5.1, 06 §7.2.
 |---|---|---|---|---|---|
 | T-601 | P0 | Route/status matrix | findings/02 §4.1 URLs ± slash, with queries: status, `Location`, marker; plus `/search/?q=x&page=0`, `&page=abc`, `&page=1001`, `/works/1001/?t=a%26b%3Dc%20d`, `/works/1001/?t=a&t=b`, `/data-providers/0x56/`, `/data-providers/?q=100%25` (500: Q-028, Q-073 (d)), each with its T-607 upstream URL = B0 (Q-013, Q-016, Q-035). Corr: expected values per Q-001, Q-002, Q-005, Q-073, Q-098 and review:ui-flows §1; 500 fixtures W-410-*, W-emptydate, W-nodp, O-nofulltext; local-only pages via the allow-all proxy; `.map` 200 (S-9) | R-005, R-020, R-045, R-085 | all |
 | T-602 | P0 | SSR head | 07 §7.1 on works 1001–1005, outputs 2001–2004, O-yearstring, search, providers, errors. Corr: raw `<title>` bytes (DOM parser, JS off, comments kept); app-owned tags in order, set per page type (Q-053); 40 §1 normalisations; html-validate pinned; 1004 pins `window.__PWN` (S-4, preserved: OD-36) | R-003, R-005, R-042, R-069, R-078 | all |
-| T-603 | P0 | Headers | Values per class (HTML, `_next/data`, `public/`, `_next/static`, `.map`, `icons.svg`, 308, 404, 500, healthz), origin and proxy, for GET, HEAD, conditional GET and `Accept-Encoding: br, gzip` (42 §8) = `e2e/http/contract.baseline.json`; deltas only as AD rows (OD-39); CSP on every class; inline-script count (S-6) | R-026, R-083 | W2b, W4c, W4d, W6a, W6c, W7a, W7c, 6.8 |
+| T-603 | P0 | Headers | Values per class (HTML, `_next/data`, `public/`, `_next/static`, `.map`, `icons.svg`, 308, 404, 500, healthz), origin and proxy (healthz: the allow-all listener, the gateway does not route it, Q-005), for GET, HEAD, conditional GET and `Accept-Encoding: br, gzip` (42 §8) = `e2e/http/contract.baseline.json`; deltas only as AD rows (OD-39); CSP on every class; inline-script count (S-6) | R-026, R-083 | W2b, W4c, W4d, W6a, W6c, W7a, W7c, 6.8 |
 | T-604 | P0 | `_next/data` via prefix | `/search/_next/data/<id>/works/1001.json` with and without CS-OPS-1: `application/json` + `pageProps`; `__N_REDIRECT`; `{notFound:true}`; stale buildId → 404 + hard-nav fallback; root `/_next/data` → other service | R-002, R-068 | W4b–W4d, W6c, W7a, W7c |
 | T-605 | P0 | Class census | T-601 200-routes, SSR and post-interaction DOM (incl. client-only modals): (DOM path, class tokens, and `type`, `form`, `disabled`, `href`, `target`, `rel` of every `button`, `a`, `input`, `form`) normalised to `[name]_[local]` = baseline; 0 `[object Object]` URLs (an undefined `styles.x` omits the attribute) | R-001, R-007 | W4b–W7c, 6.7, 6.9, 7.x |
 | T-606 | P1 | SSR resilience | Failing stubs → render < 30 s; Q-004; LogRocket import safe | R-055, R-062 | W2b, W4a, W4c |
 | T-607 | P0 | In-cluster wire headers | Every run `Internal_API=http://stub`, `Internal_API_HOST=api.core.ac.uk`; stub records each SSR call's Host, Authorization, Accept, Content-Type, UA, Accept-Encoding, `sentry-trace`/`baggage` = baseline (Q-022) | R-016, R-028, R-076 | W4a, W4e, 6.3, 6.8, 6.10 |
-| T-608 | P0 | Crash semantics | Preload throws async: prod-shaped DSN → exit 1 within ~3 s; no DSN → survives; `unhandledRejection` → survives + 1 event | R-040, R-055 | W2a, W4b, W6c, W7c, 6.8 |
+| T-608 | P0 | Crash semantics | Preload throws async: prod-shaped DSN → exit 1 within ~3 s; no DSN → survives; `unhandledRejection` → survives + one event per handler (2 today: the `@sentry/node` 5.30 integration and `pages/_app.jsx:21-23`) | R-040, R-055 | W2a, W4b, W6c, W7c, 6.8 |
 | T-609 | P0 | Concurrency | 200 interleaved SSR requests (2 queries, works 1001/1002), random latency: each response holds only its data; every 6.x PR; `/data-providers/?q=<a>` and `?q=<b>` (two snapshot terms with disjoint results) in the same mix: each SSR result list holds only its own `q` (the server store's only per-request state, `pages/data-providers/index.jsx:34`; R-004) | R-004, R-018, R-073 | all |
 | T-610 | P0 | Props, server output | `__NEXT_DATA__.props` and `_next/data` JSON deep-equal; no `svc.cluster.local`, `Bearer `, stack in HTML; stdout/stderr census (allow Next 13.5/16 listeners); 0 server Sentry events | R-003, R-028, R-040, R-073 | all |
 | T-611 | P1 | Size budgets | Raw + gzip per route ±5 % (`/data-providers/` 7,104,305 / 1,003,968 B); RSS after the P0 sweep ≤ +10 % | R-048 | W4b–W7c, 6.x, 7.x |
@@ -168,10 +168,10 @@ Transitions: 03 §5.1, 06 §7.2.
 | T-713 | P1 | J11 | Q-060, Q-082, Q-094 | R-037 | W7b, 6.5, 7.2 |
 | T-714 | P1 | J12, J27, J32 | Q-080, Q-084 | R-013, R-047, R-052 | W6a, W6c, 6.5, 7.2 |
 | T-715 | P1 | J13 | Q-079, Q-044, Q-043, Q-049 | R-013, R-039, R-047 | W3, W6a, W6c, 7.2 |
-| T-716 | P1 | J14 | J14 (§2.4); client nav from `/search/?q=climate` to `?q=__status500` (header search): today's hooks-order crash stays (React #300 via `console.error`, blank `#__next`; Q-047, Q-010) | R-020, R-033 | all |
+| T-716 | P1 | J14 | J14 (§2.4); client nav from `/search/?q=climate` to `?q=__status500` (header search): today's hooks-order crash stays (React #300 via `console.error`, blank `#__next`; Q-047, Q-010); header search from a hydrated `/works/<id>/` or `/outputs/<id>/`: same crash (Q-100) | R-020, R-033 | all |
 | T-717 | P2 | J15 | | — | W7b |
 | T-718 | P1 | J16 | | R-008 | W4c, W8, 6.9 |
-| T-719 | P0 | J17 analytics | Pinned `gtag.js` or `dataLayer` spy: 0 hits before consent, 1 config hit on a consented hard load, 0 on client nav (Q-071); every `dataLayer` entry deep-equal B0 per cookie state (dates normalised); Sentry via prod-shaped DSN → counting stub; LogRocket aborted, counted; per cookie state | R-026, R-041 | W2a, W2b, W4c, W5, 6.8 |
+| T-719 | P0 | J17 analytics | Pinned `gtag.js` or `dataLayer` spy: 0 hits before consent, 1 config hit on a consented hard load, 0 on client nav (Q-071); every `dataLayer` entry deep-equal B0 per cookie state (dates normalised); Sentry via prod-shaped DSN → counting stub (today the CSP blocks the browser report: one `connect-src` violation, 0 requests at the stub; Q-096); LogRocket aborted, counted; per cookie state | R-026, R-041 | W2a, W2b, W4c, W5, 6.8 |
 | T-720 | P0 | CSP violations | `securitypolicyviolation` on all journeys = 0 | R-026 | W2b, W6c, W7a, W7c, 6.8 |
 | T-721 | P0 | Asset 4xx | No image/icon/CSS/JS ≥400 on any route or modal; negative control: start without `BUILD_TARGET` must fail | R-007, R-021, R-082 | W4c, W5, 7.F, Dockerfile/kube PRs |
 | T-722 | P0 | `/data-providers` history | 03 §5 R5 list; Q-048.U1, Q-048.U3; `history.length` | R-018 | W3, W6a, W6c, 6.5 |
@@ -182,11 +182,11 @@ Transitions: 03 §5.1, 06 §7.2.
 | T-727 | P1 | J20 | | R-051 | W5, W6c |
 | T-728 | P0 | J30 hydration diff | No-JS vs hydrated DOM (text, attributes) + MutationObserver, both also vs the B0 captures (SSR body DOM, 40 §1); pinned diff = T-701 allow-list on React 18/19, keyed on the 55 C7 (1) tuple; routes x fixtures x 3 TZ x 3 cookie states x 3 engines; React-17 dev inventory (40 §4), each hit → Q row | R-010, R-013 | all |
 | T-729 | P0 | Post-hydration head | `document.head` per fixture (author/subject counts varied) = pinned (Q-069); from 15 also after client nav, per-version diff as AD rows (OD-39) | R-003, R-071 | W6c, W7a, 7.x |
-| T-730 | P0 | J24 | Fixtures Q-074a–e: `#__next` empty, pageerror signature, SSR HTML intact | R-058 | all |
+| T-730 | P0 | J24 | Fixtures Q-074a–e: `#__next` empty, error signature (React 17: `console.error` through the ErrorBoundary, Q-010, no `pageerror`), SSR HTML intact | R-058 | all |
 | T-731 | P0 | J23 | T-601 500 fixtures in the browser: `_error` in layout, `<title>`; `_next/data` 200 where direct is 500 | R-045, R-085 | all |
 | T-732 | P1 | J22 | Extends T-723 | R-010, R-020 | W5.5, W6a |
 | T-733 | P1 | Modal layering | Q-085, header unmasked | R-075, R-087 | W5, 7.2 |
-| T-734 | P0 | J25 | Rows 1–5 (§2.6); `/account` per §2.2; delayed-stub claim race (Q-091) | R-028, R-038, R-073 | W6a, 6.3, 6.5, 7.2 |
+| T-734 | P0 | J25 | Rows 1–5 (§2.6); `/account` per §2.2; delayed E16 claim race (Q-091; the browser's E16 is held at a route gate: the stub delays server calls only) | R-028, R-038, R-073 | W6a, 6.3, 6.5, 7.2 |
 | T-735 | P1 | J26 | Q-079, Q-044, Q-043; counts §2.2 | R-018, R-039 | W3, W6c, 6.5, 7.2 |
 | T-736 | P1 | J29 | Extends T-804; Q-083 | R-075, R-087 | W5, 7.2 |
 | T-737 | P2 | J31 | V29 | — | 7.2 |
@@ -211,7 +211,7 @@ Transitions: 03 §5.1, 06 §7.2.
 
 | ID | P | Target | Cases | Risks | Wave |
 |---|---|---|---|---|---|
-| T-901 | P0 | Image + container smoke | arm64 alpine from `git archive` (single recipe, 42), `npm ci` only; image ENV asserted; prod deployment env, `--memory 768m`; healthz + 6 routes via proxy; size recorded; no "patching"/"wasm" log at 12.3.7; SIGTERM under 20 rps: in-flight requests complete, exit time ≤ B0 and < `terminationGracePeriodSeconds`; time-to-ready ≤1.10 × B0; `keepAliveTimeout`, `headersTimeout` recorded | R-014, R-015, R-017, R-027, R-035, R-036, R-060, R-061, R-063, R-066, R-082, R-091 | all |
+| T-901 | P0 | Image + container smoke | arm64 alpine from `git archive` (single recipe, 42), `npm ci` only; image ENV asserted; prod deployment env, `--memory 768m`; healthz + 6 routes via proxy; size recorded; no "patching"/"wasm" log at 12.3.7; SIGTERM under 20 rps: the prod sequence (preStop drain, then SIGTERM) loses no request, while a raw SIGTERM cuts the in-flight requests at Next 10.2.3 (`bin/next` exits without a drain; in-flight completion from the first Next that drains, VF-21), exit time ≤ B0 and < `terminationGracePeriodSeconds`; time-to-ready ≤1.10 × B0; `keepAliveTimeout`, `headersTimeout` recorded | R-014, R-015, R-017, R-027, R-035, R-036, R-060, R-061, R-063, R-066, R-082, R-091 | all |
 | T-902 | P1 | Pre-merge soak (C6-CI; was: stage soak 24 h) | 01 §4 step 3a: `soak.yml`, reference, candidate and golden parity images at prod limits, stub + interleaved replay (OD-47); 55 C6-CI rows 1–7 | R-048 | every deployable step |
 | T-903 | P1 | Prod watch 48 h | 01 §4 step 9; 55 C6-prod with the existing monitoring; breach → rollback; 0 5xx in the rollout per Next major (row 10); W4e and 6.3: Host/Authorization log (VF-02) | R-016, R-048 | every step |
 | T-904 | P1 | Manual checklist | GA realtime; Sentry test event where a DSN exists (VF-04); LogRocket session; Rich Results + Scholar meta on prod after the merge (stage first when used); edge headers incl. `cf-cache-status` (VF-14) | R-003, R-026, R-041, R-083 | W2a, W2b, W4c, W4d, W5, W6a, W6c, W7a–W7c, 6.8 |
@@ -283,13 +283,13 @@ findings/07 §5 (V1–V20) corrected by review:ui-flows §2.1; V21–V39: its §
 | V2 | Filters open (mobile); facets field, year, type | P0 | M | |
 | V3 | 2 filters + Clear all | P0 | M | |
 | V4 | Sort open; copy toast; CSV modal | P0 | M | + reopen after Top 100 (Q-077) |
-| V5 | `page=5`; page-1000 notice | P0 | M | |
+| V5 | `page=5`; page-1000 notice | P0 | M | The notice needs a 200 answer for offset 9990 (a derived fixture): the live API answers 400, so the recorded page 1000 is V6's ErrorCard |
 | V6 | 0 results; ErrorCard | P0 | M | |
 | V7 | Filters loading | P0 | M | |
-| V8 | `/works/<id>/` full, 25 authors, 3 versions | P0 | M | All outputs carry a DOI (Q-074); + empty "View on" (Q-081) |
+| V8 | `/works/<id>/` full (1001: 6 authors, 3 versions; many authors: 1003, 30) | P0 | M | All outputs carry a DOI (Q-074); + empty "View on" (Q-081: a derived work without the `arxivId`/`pubmedId` keys; the recorded works hold both as `null` and show none) |
 | V9 | `/outputs/<id>/` full | P0 | M | + `/display/<id>/`, `?source=oai` |
 | V10 | Output variants | P0 | M | |
-| V11 | Cite, Report, OAI modals | P0 | M | Header in shot |
+| V11 | Cite, Report, OAI modals | P0 | M | Header in shot; the OAI box is V9's `?source=oai` state (one capture) |
 | V12 | Similar loading, error | P0 | M | |
 | V13 | `/outputs/update/` states | P0 | M | |
 | V14 | `/data-providers/` default, no results + form, suggestions | P0 | M | + a `?q=` state whose results show a `TR` provider's country name (R-031 is 1L; the default view shows no country, its first rows have no location; term picked at 2.2) |
@@ -302,7 +302,7 @@ findings/07 §5 (V1–V20) corrected by review:ui-flows §2.1; V21–V39: its §
 | V21 | Header menus | P1 | 1920, 1440, 768 | |
 | V22 | Hamburger ± Filters | P1 | 767, 375 | |
 | V23 | Header search: input / collapsed icon / none per route | P0 | 1440, 375 | |
-| V24 | Advanced-search panel | P0 | 1920, 1440, 767, 375 | |
+| V24 | Advanced-search panel | P0 | 1920, 1440, 767, 375 | Below 768 px "How to search?" is hidden: the panel opens through the info button shown while the header input is focused |
 | V25 | Suggestions list | P1 | 1440, 375 | |
 | V26 | `/search` scrolled (sticky + fixed) | P0 | 1440, 375 | T-738 |
 | V27 | Works/outputs scrolled | P1 | 1440, 375 | T-738 |
@@ -377,7 +377,7 @@ Recording and scrubbing: 40 §6; storage: 42 §7.
 
 | Name | Shape |
 |---|---|
-| Works 1001 / 1002 / 1003 | full (3 authors, DOI, abstract, PDF; every output has a DOI) / minimal / 30 authors |
+| Works 1001 / 1002 / 1003 | full (6 authors, DOI, abstract, PDF; every output has a DOI) / minimal / 30 authors |
 | Works 1004 / 1005 | unicode + `</script>` (S-4; sandboxed context only) / 300-char title + `$x^2$` + a literal `**x**` (Q-097) |
 | Works 4100 / 4040 / 5000 | API 410 / 404 / 500 |
 | W-410-json, W-410-text | 410 with a JSON-object / text body (Q-001) |
@@ -387,7 +387,7 @@ Recording and scrubbing: 40 §6; storage: 42 §7.
 | O-yearstring | `publishedDate:null`, `yearPublished:"2001"` |
 | O-nofulltext | no download link; `sourceFulltextUrls` null and absent (Q-073) |
 | Search `q` | `climate` (>100 hits), `zzzzqqq` (0), `__status500`, `__neterror`, `__nodataproviders` (Q-015) |
-| Providers | 86 supporting, base64 logo; 4835 starting; 8, 503 multi-repo; 999999999 not in formap; a `/data-providers/?q=` term whose results include a `TR` provider (R-031) |
+| Providers | 86 supporting, base64 logo; 4835 starting; 8 multi-repo (503 is not in the snapshot's formap: its page is the 404); 999999999 not in formap; a `/data-providers/?q=` term whose results include a `TR` provider (R-031) |
 | `/members` | one member for page tests; full list only in T-113 |
 | Q-074a–e | output `doi:null`; work DOI + ≥4 output DOIs; provider without `location`; similar `dataProviders:[]`; empty/out-of-range year aggregation |
 | Claim rows 1–5 | 86 + accounts `[{…}]`; 4835 + `[]`; 86 + `[]`; a non-member formap provider (picked at 2.2) + `[]`; 86 + accounts 401/500 |
