@@ -1,0 +1,93 @@
+{
+  "package": "P0-09",
+  "note": "P0-09 (T-601, T-604, T-702, T-731). Two live read-only searches and four derived answers; every other request of the package is answered by fixtures that exist (scenarios search-climate, search-x, search-x-page0, search-zzzzqqq, search-csv, members, e19-client-nav, works-*, outputs-*, provider-*, logos, e10-report, e16-claim-form).",
+  "requests": [
+    {
+      "id": "p0-09.e1.facet-recency",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate AND documentType:\"thesis\"",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "recency"
+        }
+      },
+      "note": "T-702 c1: the facet toggle after the sort change keeps sort=recent (store/filters.js toggleCheckboxFilter spreads Router.query)"
+    },
+    {
+      "id": "p0-09.e1.all-params",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=fafad9968b7cd268c5fd64342bf88a26",
+        "body": {
+          "q": "climate",
+          "offset": 10,
+          "limit": "10",
+          "t": "fafad9968b7cd268c5fd64342bf88a26",
+          "exclude": ["fullText"],
+          "sort": "recency"
+        }
+      },
+      "note": "T-601 c1: /search/?q=climate&page=2&limit=10&sort=recent&t=<searchId of the recorded climate page 1> (findings/02 §4.1 query params; limit stays the query string, Q-013)"
+    },
+    {
+      "id": "p0-09.e4.works-1001-t",
+      "kind": "derive",
+      "endpoint": "E4",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001?t=undefined"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/1001?t=fafad9968b7cd268c5fd64342bf88a26-1001"
+      },
+      "note": "T-601 c1: /works/1001/?t=<searchId>-1001, the t shape of the search result links (templates/search/results.jsx generateMetadataLink)"
+    },
+    {
+      "id": "p0-09.e11.provider-86-t",
+      "kind": "derive",
+      "endpoint": "E11",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/data-providers/86?t=undefined"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/data-providers/86?t=fafad9968b7cd268c5fd64342bf88a26-86"
+      },
+      "note": "T-601 c1: /data-providers/86/?q=&offset=0&limit=10&sort=recency&t=<searchId>-86 (E12 and E13 keep their recorded URLs)"
+    },
+    {
+      "id": "p0-09.e4.works-1001-t-odd-wire",
+      "kind": "derive",
+      "endpoint": "E4",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001?t=undefined"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/1001?t=a&b=c+d"
+      },
+      "note": "T-601 c2: /works/1001/?t=a%26b%3Dc%20d reaches upstream as ?t=a&b=c+d (Q-016; api/index.js prepareParams re-serialises the query with URLSearchParams); the existing works-1001.e4.t-odd fixture is keyed ?t=a&b=c%20d, a URL the app never sends"
+    },
+    {
+      "id": "p0-09.e4.result-click",
+      "kind": "derive",
+      "endpoint": "E4",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/4040?t=undefined"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/19211324?t=fafad9968b7cd268c5fd64342bf88a26-19211324"
+      },
+      "note": "T-702 c6: the first result link of the recorded climate page 1 (work 19211324); the target answers the recorded live 404 of works-4040, so the full navigation lands on the soft 404 (Q-001) without further upstream calls"
+    }
+  ]
+}
