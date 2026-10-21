@@ -159,7 +159,9 @@ node -e '
   let shots = 0, nonzero = 0, tests = 0, failed = 0, skipped = 0, flaky = 0, retries = 0
   const walk = (s) => { for (const x of s.suites || []) walk(x); for (const sp of s.specs || []) for (const t of sp.tests || []) { tests++
     if (t.status === "skipped") skipped++; if (t.status === "unexpected") failed++; if (t.status === "flaky") flaky++
-    for (const r of t.results || []) { if (r.retry > 0) retries++; for (const a of r.annotations || t.annotations || []) if (a.type === "diff-pixels") { shots++; if (!/^0 /.test(a.description) && !/^recorded /.test(a.description)) nonzero++ } } } }
+    for (const r of t.results || []) { if (r.retry > 0) retries++; for (const a of r.annotations || t.annotations || []) if (a.type === "diff-pixels") {
+      // a comparison annotation is "<n> <file>"; other diff-pixels notes (T-801 c3 "n/a ...") are no comparison
+      const m = /^(\d+) /.exec(a.description); if (m) { shots++; if (Number(m[1]) > 0) nonzero++ } else if (/^missing baseline/.test(a.description)) nonzero++ } } } }
   for (const f of fs.readdirSync(dir).filter((f) => f.endsWith(".report.json"))) { try { walk(JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"))) } catch {} }
   const lines = fs.readFileSync(path.join(dir, "summary.tsv"), "utf8").trim().split("\n")
   const head = lines.filter((l) => l.startsWith("head\t")).pop()
