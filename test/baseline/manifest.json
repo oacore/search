@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "link": "B0-local",
+  "kind": "golden",
+  "provisional": "host baseline, macOS arm64 (owner notes §1); provisional until the CI capture on ubuntu-24.04-arm and the owner-signed B0 PR (VF-10, I-06)",
+  "reference": {
+    "G": "689fec94a2a194dcf90b40d3a02dd81cac112e75",
+    "tag": "p2-local/golden",
+    "builds": {
+      "default": "1fb7e5b548c5ae8c",
+      "nodsn": "70a6d4f2d15ad282",
+      "harness": "227d0cdda34e61b6"
+    }
+  },
+  "fixtures": {
+    "files": 208,
+    "sha256": "68520d8c57c4c90d674c3ab7490e68edb7415107be4e3113025e4d16a69742c7",
+    "dataSnapshot": {
+      "note": "git-excluded local snapshot (owner decision, I-11); its sums are committed in test/fixtures/SHA256SUMS",
+      "sums": [
+        "a171614bd0c966ad07cc3c85e9b9e90c78c85bfc2486864e086bb7a1a04f387a  data-snapshot/.formap.json",
+        "129858fde0933674881d146a85c48c807c7df8ce9d2858bac881822829030b05  data-snapshot/.members.json",
+        "40ed42f31f96610c2b08198eed246b20c43102f86aafce2bb0121aa779b9cf49  data-snapshot/.statistics.json",
+        "613c13f27123bff6598a768e2f5b5396cdef3fa761aa0de9be5a9d79f651032e  data-snapshot/languages.json"
+      ]
+    }
+  },
+  "baselines": {
+    "files": 1045,
+    "sha256": "4abc2fe93c2f411f4e17b1cd8b4e04529176a145dcc0ec4ffb2f1f4068625ae2"
+  },
+  "corpus": {
+    "files": 105,
+    "sha256": "1d378ce1c2865194e8faef05c8a447dca8cb86aee8559c0d3ee81d2f1981f448"
+  },
+  "method": "sha256 over the \"<sha256>  <path>\" lines (sorted by path) of each set; per-file sums of the baselines are in test/baseline/SHA256SUMS"
+}
