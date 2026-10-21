@@ -584,7 +584,7 @@ async function main() {
 
 if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || ''))
   main().catch((e) => {
-    console.error(e.stack || e.message)
+    console.error(process.env.P2_DEBUG ? e.stack : e.message)
     process.exit(e.exitCode || 1)
   })
 
