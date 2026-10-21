@@ -1,0 +1,10 @@
+{
+  "afterLoad": [
+    ["js", "<date>"],
+    ["config", "G-TEST000000"]
+  ],
+  "afterNavigation": [
+    ["js", "<date>"],
+    ["config", "G-TEST000000"]
+  ]
+}
