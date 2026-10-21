@@ -4,7 +4,10 @@
 //       `/account` (E18) from its render; the server never has the answer, so the SSR page always says "Not a
 //       member yet" and shows the card for providers without accounts (unless the billing type is "starting");
 //       after hydration the badge and the card follow what E18 returns, not the billing type (Q-087);
-//   c2  E18 counts per 41 §2.2: 1 on the server, 2 in the browser with accounts and 1 without, plus 1 for every
+//   c2  (the five row tests read the SSR stub's wire log of their own render, so they carry @wire and run in the
+//       serial wire project, after every other project: a neighbour that loads the same provider adds its calls
+//       to the window)
+//       E18 counts per 41 §2.2: 1 on the server, 2 in the browser with accounts and 1 without, plus 1 for every
 //       ClaimCard re-render (modal state, the e-mail state of a claim attempt; Q-087, Q-027), and a failed
 //       claim POST is silent (Q-027);
 //   c3  the claim race of the add-provider form (Q-091): the second call aborts the first, whose AbortError lands
@@ -160,7 +163,7 @@ test.describe('T-734 @P0 J25 claim rows', () => {
 
   for (const key of Object.keys(ROWS)) {
     const row = ROWS[key]
-    test(`T-734 c2 @P0 claim row ${key} (provider ${
+    test(`T-734 c2 @P0 @wire claim row ${key} (provider ${
       row.id
     }): /account counts, 1 on the server and ${
       key === '1' ? 2 : 1

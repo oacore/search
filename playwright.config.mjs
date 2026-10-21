@@ -108,6 +108,15 @@ if (process.env.RECORD === '1')
     },
   })
 
+// The wire project reads the SSR stub's wire log (a window of the calls its own page loads made), and every
+// page load of the other browser projects writes to that log: it runs after them, never beside them (`--project
+// wire` alone also runs them: add `--no-deps`). The visual project is its own invocation anyway: T-802 needs
+// the harness variant build, T-801 the pixel baselines.
+const wire = projects.find((p) => p.name === 'wire')
+wire.dependencies = projects
+  .filter((p) => ['chromium', 'webkit', 'firefox'].includes(p.name))
+  .map((p) => p.name)
+
 export default defineConfig({
   testDir: path.join(ROOT, 'e2e'),
   testMatch: '**/*.spec.mjs',
