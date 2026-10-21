@@ -1,0 +1,5 @@
+{
+  "package": "P0-11",
+  "note": "T-603, T-607, T-608 and T-609 request only pages whose server-side calls are answered by recorded fixtures (search climate and x, works 1001 and 1002 with their E9 DOIs, output 2001, provider 86, works 6948813 for the 500 row, the provider-map pages); the not-found rows (/search/nope/, /data-providers/999999999/) make no upstream call. No new answer is needed, so this list is empty.",
+  "requests": []
+}
