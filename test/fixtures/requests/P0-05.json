@@ -1,0 +1,5 @@
+{
+  "package": "P0-05",
+  "note": "T-201, T-202 and T-204 read the recorded answers of scenarios search-climate (E2 aggregations for climate, climate change, climate AND documentType:\"thesis\" and the five-aggregation year query) and search-csv (E3 limits 10, 100, 1000); T-205 reads the hand answers of e16-claim-form. Two edge answers are built inside the tests from a recorded answer with one change, through an MSW override: T-201 c4 adds an unknown bucket to the recorded climate answer, T-202 c2 serves the recorded climate answer for q=machine. T-203, T-302, T-303 and T-305 read no API answer. No further request is needed, so this list is empty.",
+  "requests": []
+}
