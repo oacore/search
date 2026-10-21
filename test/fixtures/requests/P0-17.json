@@ -1,0 +1,80 @@
+{
+  "package": "P0-17",
+  "note": "P0-17 (T-801 c1, search states V1-V7, V23, V24, V26, V38): the two-filter state (the same two read-only live requests as the P0-13 multi-select state: the recorder finds their answers already in the fixture pool, files of scenario req-P0-13, and writes nothing) and one derived answer for the page-1000 notice (scenario req-P0-17). Every other request of the package is answered by fixtures that exist (scenarios search-climate, search-zzzzqqq, members, logos, works-1001, outputs-2001, provider-86, works-6948813).",
+  "requests": [
+    {
+      "id": "p0-17.e1.two-filters",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate AND documentType:\"thesis\" AND publisher:\"Oregon State University\"",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-801 c1 V3: two checkbox filters applied (thesis and a publisher) with Clear all filters; the same request triple as the P0-13 multi-select state (listed here so that this list is complete; its answer is the fixture file of req-P0-13)"
+    },
+    {
+      "id": "p0-17.e2.two-filters",
+      "kind": "live",
+      "endpoint": "E2",
+      "browser": true,
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "yearPublished",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "climate AND documentType:\"thesis\" AND publisher:\"Oregon State University\""
+        }
+      },
+      "note": "T-801 c1 V3: the filters bar of the two-filter state (E2 of the page, called by the browser)"
+    },
+    {
+      "id": "p0-17.e1.page-1000-notice",
+      "kind": "derive",
+      "endpoint": "E1",
+      "from": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate",
+          "offset": 40,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "serve": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate",
+          "offset": 9990,
+          "limit": "10",
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/offset",
+          "value": 9990
+        }
+      ],
+      "note": "T-801 c1 V5: the page-1000 notice (templates/search/index.jsx) is shown only when the answer to page 1000 has results; the live API answers offset 9990 with 400 (fixture search-climate.e1.p1000, V6 ErrorCard, P0-08-4), so the notice state is the page 5 answer served for /search/?q=climate&page=1000&limit=10 (the limit query is the string \"10\" in the body, a key of its own: the recorded 400 stays untouched)"
+    }
+  ]
+}
