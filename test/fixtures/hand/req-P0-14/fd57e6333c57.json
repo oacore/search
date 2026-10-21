@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "scenario": "req-P0-14",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/internal/data-providers",
+    "bodySha256": "7ffd1f948c3f02c6555e20ea43065bd20f1ce511430b4cc0c3f87b3cecd2a794",
+    "bodyText": "{\"uri\":\"https://second.example.org/\"}"
+  },
+  "response": {
+    "status": 201,
+    "headers": [["content-type", "application/json"]],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "id": 990002,
+        "name": "Second Repository",
+        "email": "",
+        "uri": "https://second.example.org/"
+      }
+    }
+  },
+  "source": {
+    "kind": "hand",
+    "from": null,
+    "patch": null,
+    "recordedAt": null,
+    "note": "T-734 c3 (Q-091): the second settled value of the claim race; the first value is the created.example.org answer of e16-claim-form"
+  }
+}

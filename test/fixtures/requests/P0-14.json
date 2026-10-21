@@ -1,0 +1,105 @@
+{
+  "package": "P0-14",
+  "note": "P0-14 (T-707, T-722, T-734). One live read-only search (the J5 start page), the derived answers of the work page that its first result opens, and one hand answer for the claim-race second value. Every other request of the package is answered by fixtures that exist (scenarios search-climate, members, works-1001, provider-86, provider-4835, provider-3354, logos, e19-client-nav, e16-claim-form, e17-claim).",
+  "requests": [
+    {
+      "id": "p0-14.e1.recent-page2",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate",
+          "offset": 10,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "recency"
+        }
+      },
+      "note": "T-707 (J5): /search/?q=climate&page=2&sort=recent, the start page of the journey (the recorded page 2 is the relevance order, the recorded recency page is page 1)"
+    },
+    {
+      "id": "p0-14.e16.second-201",
+      "kind": "hand",
+      "endpoint": "E16",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/internal/data-providers",
+        "body": "{\"uri\":\"https://second.example.org/\"}"
+      },
+      "response": {
+        "status": 201,
+        "headers": [["content-type", "application/json"]],
+        "body": {
+          "encoding": "json",
+          "data": {
+            "id": 990002,
+            "name": "Second Repository",
+            "email": "",
+            "uri": "https://second.example.org/"
+          }
+        }
+      },
+      "note": "T-734 c3 (Q-091): the second settled value of the claim race; the first value is the created.example.org answer of e16-claim-form"
+    },
+    {
+      "id": "p0-14.e4.work-first-result",
+      "kind": "derive",
+      "endpoint": "E4",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001?t=undefined"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/80231700?t=acf43df7361f31ccae19b8c76873eccb-80231700"
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/id",
+          "value": 80231700
+        }
+      ],
+      "note": "T-707 (J5): the work behind the first result of the recorded recency page 2 (work 80231700, search id acf43df7361f31ccae19b8c76873eccb); the page content is that of works-1001 (full: 6 author entries, DOI, abstract, PDF, three outputs that all carry the DOI) so the journey reaches a rendered work page, as P0-09 does for the soft 404 of T-702 c6"
+    },
+    {
+      "id": "p0-14.e5.work-first-result",
+      "kind": "derive",
+      "endpoint": "E5",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001/outputs"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/80231700/outputs"
+      },
+      "note": "T-707 (J5): the outputs of work 80231700 (those of works-1001)"
+    },
+    {
+      "id": "p0-14.e8.work-first-result",
+      "kind": "derive",
+      "endpoint": "E8",
+      "browser": true,
+      "from": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:1001",
+          "limit": 5,
+          "resultType": "work"
+        }
+      },
+      "serve": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:80231700",
+          "limit": 5,
+          "resultType": "work"
+        }
+      },
+      "note": "T-707 (J5): the similar-works answer of work 80231700 (that of works-1001)"
+    }
+  ]
+}
