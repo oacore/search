@@ -1,0 +1,38 @@
+{
+  "steps": [
+    {
+      "event": "visibilitychange hidden",
+      "url": "<origin>/search/?q=climate",
+      "domUnchanged": true
+    },
+    {
+      "event": "visibilitychange visible",
+      "url": "<origin>/search/?q=climate",
+      "domUnchanged": true
+    },
+    {
+      "event": "window blur",
+      "url": "<origin>/search/?q=climate",
+      "domUnchanged": true
+    },
+    {
+      "event": "window focus",
+      "url": "<origin>/search/?q=climate",
+      "domUnchanged": true
+    },
+    {
+      "event": "offline",
+      "url": "<origin>/search/?q=climate",
+      "domUnchanged": true
+    },
+    {
+      "event": "online",
+      "url": "<origin>/search/?q=climate",
+      "domUnchanged": true
+    }
+  ],
+  "requests": {
+    "requests": [],
+    "thirdParty": {}
+  }
+}

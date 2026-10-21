@@ -1,0 +1,31 @@
+{
+  "requests": [
+    {
+      "kind": "api",
+      "method": "POST",
+      "url": "https://api.core.ac.uk/internal/data-providers",
+      "resourceType": "fetch",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "Bearer test-key",
+        "content-type": "text/plain;charset=UTF-8"
+      },
+      "body": "{\"uri\":\"https://created.example.org/\"}",
+      "status": 201
+    },
+    {
+      "kind": "api",
+      "method": "POST",
+      "url": "https://api.core.ac.uk/internal/data-providers",
+      "resourceType": "fetch",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "Bearer test-key",
+        "content-type": "text/plain;charset=UTF-8"
+      },
+      "body": "{\"uri\":\"https://created.example.org/\"}",
+      "status": 201
+    }
+  ],
+  "thirdParty": {}
+}

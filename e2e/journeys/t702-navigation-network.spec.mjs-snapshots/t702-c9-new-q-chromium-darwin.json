@@ -1,0 +1,84 @@
+{
+  "requests": [
+    {
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.core.ac.uk/data-providers/197/logo",
+      "resourceType": "fetch",
+      "headers": {
+        "accept": "*/*"
+      },
+      "body": null,
+      "status": 200
+    },
+    {
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.core.ac.uk/data-providers/197/logo",
+      "resourceType": "fetch",
+      "headers": {
+        "accept": "*/*"
+      },
+      "body": null,
+      "status": 200
+    },
+    {
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.core.ac.uk/data-providers/197/logo",
+      "resourceType": "image",
+      "headers": {
+        "accept": "image/jxl,image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+      },
+      "body": null,
+      "status": 200
+    },
+    {
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.core.ac.uk/data-providers/2313/logo",
+      "resourceType": "fetch",
+      "headers": {
+        "accept": "*/*"
+      },
+      "body": null,
+      "status": 200
+    },
+    {
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.core.ac.uk/data-providers/2313/logo",
+      "resourceType": "image",
+      "headers": {
+        "accept": "image/jxl,image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+      },
+      "body": null,
+      "status": 200
+    },
+    {
+      "kind": "api",
+      "method": "POST",
+      "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+      "resourceType": "fetch",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "Bearer test-key",
+        "content-type": "application/json"
+      },
+      "body": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate change\"}",
+      "status": 200
+    },
+    {
+      "kind": "next-data",
+      "method": "GET",
+      "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate+change&page=1",
+      "resourceType": "fetch",
+      "headers": {
+        "accept": "*/*"
+      },
+      "body": null,
+      "status": 200
+    }
+  ],
+  "thirdParty": {}
+}

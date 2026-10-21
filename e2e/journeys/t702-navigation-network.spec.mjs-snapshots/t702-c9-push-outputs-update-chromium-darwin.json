@@ -1,0 +1,38 @@
+{
+  "requests": [
+    {
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.core.ac.uk/internal/members",
+      "resourceType": "fetch",
+      "headers": {
+        "accept": "*/*"
+      },
+      "body": null,
+      "status": 200
+    },
+    {
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.core.ac.uk/internal/repositories/formap",
+      "resourceType": "fetch",
+      "headers": {
+        "accept": "*/*"
+      },
+      "body": null,
+      "status": 200
+    },
+    {
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.core.ac.uk/internal/statistics",
+      "resourceType": "fetch",
+      "headers": {
+        "accept": "*/*"
+      },
+      "body": null,
+      "status": 200
+    }
+  ],
+  "thirdParty": {}
+}
