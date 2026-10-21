@@ -122,8 +122,8 @@ describe('T-012 harness constants and comparator', () => {
           chromiumArgs: null,
         })
       )
-      // the wire project runs after the chromium project (its tests read the stub's wire log; the runner's
-      // webkit and firefox projects join it there)
+      // the wire project runs after the chromium project (its tests read the
+      // stub's wire log; the runner's webkit and firefox projects join it)
       expect(JSON.parse(out.stdout).wireAfter).toEqual(['chromium'])
       expect(
         JSON.parse(out.stdout).projectRetries.every(
