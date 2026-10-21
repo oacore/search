@@ -1,8 +1,8 @@
 // T-603 (41 G; R-026, R-083; S-6; 42 §8): the header contract. Every route class (HTML gSSP and gIP-only,
 // _next/data, public/, _next/static, .map, icons.svg, 308, 404, 500, healthz), at the origin (the app's own
 // listener) and through the proxy, for GET, HEAD, a conditional GET with the returned ETag and
-// Accept-Encoding: br, gzip, equals e2e/http/contract.baseline.json (date ignored, etag and content-length as
-// presence). c2: deltas pass only as rows of test/baseline/ACCEPTED-DIFFS.yml (OD-39, default deny). c3: the
+// Accept-Encoding: br, gzip, equals e2e/http/contract.baseline.json (date ignored; etag, content-length and
+// last-modified, the mtime of the build tree, as presence). c2: deltas pass only as rows of test/baseline/ACCEPTED-DIFFS.yml (OD-39, default deny). c3: the
 // production CSP on every class. c4: the executable inline-script count of every HTML response.
 // Record mode (`npm run e2e:record`, RECORD=1) writes the baseline instead of comparing (c1); golden
 // re-captures it at 2.5. Requests are raw node:http (exact request headers, undecoded bodies).
@@ -117,12 +117,16 @@ test.describe('T-603 @P0 header contract', () => {
         expect(row, `${row.id} ${f}`).toHaveProperty(f)
       expect(['delta', 'product']).toContain(row.kind)
     }
-    // the baseline declares the 42 §8 rules and holds no ignored header and only presence for etag and
-    // content-length
+    // the baseline declares the 42 §8 rules and holds no ignored header and only presence for etag,
+    // content-length and last-modified (P0-11-5)
     if (!RECORD) {
       const baseline = loadBaseline()
       expect(baseline.rules.ignored).toEqual(['date'])
-      expect(baseline.rules.presenceOnly).toEqual(['etag', 'content-length'])
+      expect(baseline.rules.presenceOnly).toEqual([
+        'etag',
+        'content-length',
+        'last-modified',
+      ])
       for (const row of baseline.routes) {
         expect(row.expect.headers).not.toHaveProperty('date')
         for (const h of PRESENCE_ONLY)
