@@ -1,0 +1,458 @@
+{
+  "package": "P0-13",
+  "note": "P0-13 (T-703, T-704, T-705, T-706): read-only searches the search journeys need beyond the scenarios of 2.2 (machine learning and its facet and Clear all states, a special-character term, two facet states, the year facet by quick range, histogram and selects, and one 85-hit search for the last page). Live answers only.",
+  "requests": [
+    {
+      "id": "p0-13.e1.ml",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "machine learning",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-703, T-704: the header search of J1 types machine learning on /search/?q=climate; T-704 Q-042 loads it"
+    },
+    {
+      "id": "p0-13.e2.ml",
+      "kind": "live",
+      "endpoint": "E2",
+      "browser": true,
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "yearPublished",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "machine learning"
+        }
+      },
+      "note": "T-703, T-704: the filters of the machine learning search"
+    },
+    {
+      "id": "p0-13.e1.special",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "tea&coffee c++",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-703: a header search term with & and + is pushed as an object, so Next encodes it (q=tea%26coffee+c%2B%2B); the unencoded paths are the result links (Q-012)"
+    },
+    {
+      "id": "p0-13.e2.special",
+      "kind": "live",
+      "endpoint": "E2",
+      "browser": true,
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "yearPublished",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "tea&coffee c++"
+        }
+      },
+      "note": "T-703: the filters of the special-character search"
+    },
+    {
+      "id": "p0-13.e1.multi",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate AND documentType:\"thesis\" AND publisher:\"Oregon State University\"",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-704 c1 (J21): a second facet value from another facet after the thesis toggle keeps both AND fragments"
+    },
+    {
+      "id": "p0-13.e2.multi",
+      "kind": "live",
+      "endpoint": "E2",
+      "browser": true,
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "yearPublished",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "climate AND documentType:\"thesis\" AND publisher:\"Oregon State University\""
+        }
+      },
+      "note": "T-704 (J21): the filters of the multi-select state"
+    },
+    {
+      "id": "p0-13.e1.since2016",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate AND (yearPublished>=2016 AND yearPublished<=10000)",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-705 (J3): Since 2016 uses the maximum year of the aggregation, 10000 (store/filters.js maxYear)"
+    },
+    {
+      "id": "p0-13.e2.since2016",
+      "kind": "live",
+      "endpoint": "E2",
+      "browser": true,
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "climate AND (yearPublished>=2016 AND yearPublished<=10000)"
+        }
+      },
+      "note": "T-705 (J3): the filters while the year facet is active exclude the yearPublished aggregation"
+    },
+    {
+      "id": "p0-13.e1.y1952.p1",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate AND (yearPublished>=1952 AND yearPublished<=1952)",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-705 (single year bucket), T-706 (last page): 85 hits, 9 pages"
+    },
+    {
+      "id": "p0-13.e2.y1952",
+      "kind": "live",
+      "endpoint": "E2",
+      "browser": true,
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "yearPublished",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "climate AND (yearPublished>=1952 AND yearPublished<=1952)"
+        }
+      },
+      "note": "T-705, T-706: the filters of the single-year search (hard load, all aggregations)"
+    },
+    {
+      "id": "p0-13.e1.y1952.p8",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate AND (yearPublished>=1952 AND yearPublished<=1952)",
+          "offset": 70,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-706: page 8 (offset 70) of the 85-hit search: Previous from the last page, 9 pages"
+    },
+    {
+      "id": "p0-13.e1.y1952.p9",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate AND (yearPublished>=1952 AND yearPublished<=1952)",
+          "offset": 80,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-706: the last page (page=9, offset 80, 5 results) of the 85-hit search"
+    },
+    {
+      "id": "p0-13.e1.y1952.p10",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate AND (yearPublished>=1952 AND yearPublished<=1952)",
+          "offset": 90,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-706: Next on the last page pushes page=10 (offset 90), past the end of the results",
+      "accept": "any"
+    },
+    {
+      "id": "p0-13.e1.ml.thesis",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "machine learning AND documentType:\"thesis\"",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-704 (Q-042): a facet toggle on the two-word search"
+    },
+    {
+      "id": "p0-13.e2.ml.thesis",
+      "kind": "live",
+      "endpoint": "E2",
+      "browser": true,
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "yearPublished",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "machine learning AND documentType:\"thesis\""
+        }
+      },
+      "note": "T-704 (Q-042): the filters of the toggled two-word search"
+    },
+    {
+      "id": "p0-13.e1.machine",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "machine",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-704 (Q-042): Clear all keeps only the first word of the query (store/filters.js reset)"
+    },
+    {
+      "id": "p0-13.e2.machine",
+      "kind": "live",
+      "endpoint": "E2",
+      "browser": true,
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "yearPublished",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "machine"
+        }
+      },
+      "note": "T-704 (Q-042): both aggregation calls of Clear all carry this body (Q-092)"
+    },
+    {
+      "id": "p0-13.e1.drag",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate AND (yearPublished>=1969 AND yearPublished<=2026)",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-705 (J3): the left Histoslider handle dragged 60 px on the fixed clock (maximum year 2026)"
+    },
+    {
+      "id": "p0-13.e2.drag",
+      "kind": "live",
+      "endpoint": "E2",
+      "browser": true,
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "climate AND (yearPublished>=1969 AND yearPublished<=2026)"
+        }
+      },
+      "note": "T-705: the filters of the drag state (the year facet is active, so no yearPublished aggregation)"
+    },
+    {
+      "id": "p0-13.e1.from2010",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate AND (yearPublished>=2010 AND yearPublished<=10000)",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-705 (J21, 767 px): the from select (a year facet value is a string, the upper bound is the maximum year 10000)"
+    },
+    {
+      "id": "p0-13.e2.from2010",
+      "kind": "live",
+      "endpoint": "E2",
+      "browser": true,
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "climate AND (yearPublished>=2010 AND yearPublished<=10000)"
+        }
+      },
+      "note": "T-705: the filters of the from2010 state (the year facet is active, so no yearPublished aggregation)"
+    },
+    {
+      "id": "p0-13.e1.to2015",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "climate AND (yearPublished>=2010 AND yearPublished<=20150)",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-705 (J21, 767 px): the to select appends 1 to the string 2015 before subtracting 1 (the upper bound becomes 20150)"
+    },
+    {
+      "id": "p0-13.e2.to2015",
+      "kind": "live",
+      "endpoint": "E2",
+      "browser": true,
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "climate AND (yearPublished>=2010 AND yearPublished<=20150)"
+        }
+      },
+      "note": "T-705: the filters of the to2015 state (the year facet is active, so no yearPublished aggregation)"
+    },
+    {
+      "id": "p0-13.e22.logo-619",
+      "kind": "derive",
+      "endpoint": "E22",
+      "browser": true,
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/data-providers/86/logo"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/data-providers/619/logo"
+      },
+      "note": "T-704 (Q-042): a member provider of the machine search results; the logo answer is a copy of the recorded one of provider 86, as for the other members of 2.2"
+    }
+  ]
+}

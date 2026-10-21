@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "scenario": "req-P0-13",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/data-providers/619/logo",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:38:38 GMT"],
+      ["Content-Type", "image/png"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["content-transfer-encoding", "binary"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "base64",
+      "data": "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"
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/data-providers/86/logo",
+    "patch": null,
+    "recordedAt": "2026-10-20T15:38:38.838Z",
+    "note": "T-704 (Q-042): a member provider of the machine search results; the logo answer is a copy of the recorded one of provider 86, as for the other members of 2.2"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "scenario": "req-P0-13",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+    "bodySha256": "862dbddee8ac02a93cd686f04cbe5b057d108368c051c15904085a61a22dce67",
+    "bodyText": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate AND documentType:\\\"thesis\\\" AND publisher:\\\"Oregon State University\\\"\"}"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 18:43:43 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "{\"aggregations\":{\"fieldsOfStudy\":[],\"yearPublished\":{\"2007\":1},\"documentType\":{\"thesis\":6909},\"authors\":{\"Brown, Melanie\":11,\"Chan, Allen M.\":10,\"Denman, Carmen C.\":9,\"Figueroa, Diego\":9,\"Hagelberg, Teresa King\":8,\"Serafin, Katherine A.\":8,\"Thurman, Lindsey L.\":7,\"Abbott, April N.\":6,\"Abdelli, Smida\":6,\"Abel, Kali M.\":6,\"Abernethy, Erin F.\":6,\"Abuqurayn, Ayat H.\":6,\"Adams, Logan\":6,\"Adelfio, Luca A.\":6,\"Adhikari, Roshan\":6,\"Adkhamov, Utkir\":6,\"Adotevi-Akue, George Modesto\":6,\"Adroli, Nurmalia\":6,\"Al Naabi, Rawan Y.\":6,\"Al-Bader, Noor M.\":6,\"Al-Hamadani, Saifaldawlah\":6,\"Al-agele, Hadi A.\":6,\"Alamri, Ashwaq S.\":6,\"Alder, Jay R.\":6,\"Allan, Andrea M.\":6,\"Allen, Scott T.\":6,\"Altingoz, Mehmet S.\":6,\"Altmaier, Pamela M.\":6,\"Amelia, Schantz\":6,\"Anderson, Dean J.\":6,\"Anderson, Dylan L.\":6,\"Anderson, Jordan D.\":6,\"Anderson, Stanley H.\":6,\"Anderson, William J.\":6,\"Andrade, Jessica F.\":6,\"Anslow, Faron S.\":6,\"Anthoni, Peter M.\":6,\"Arellano Ogaz, Eduardo\":6,\"Arellano, Lisabeth N.\":6,\"Arifanti, Virni B.\":6,\"Arnold, Linsey M.\":6,\"Arras, Tracy Lynn\":6,\"Arrieta, Corinne L.\":6,\"Asinjo, Robert\":6,\"Aslan, Fevziye\":6,\"Asselin, Kelley\":6,\"Augerot, Xanthippe\":6,\"Baadarani, Dalia\":6,\"Badau, Flavius\":6,\"Bailey, Arthur W.\":6,\"Bair, Zolton J.\":6,\"Baker, Kristina D.\":6,\"Baker, Nick J.\":6,\"Baker, Stanley D.\":6,\"Baldridge, Christopher M.\":6,\"Balduman, Lisa M.\":6,\"Bancroft, Betsy A.\":6,\"Barcel\\u00f3, Caren\":6,\"Barge, Edward G.\":6,\"Barker, Tessa A.\":6,\"Barnard, David M.\":6,\"Barnard, Holly Rene\":6,\"Barner, Allison K.\":6,\"Baron, Heather M.\":6,\"Barp, Meghan E.\":6,\"Barrett-Rivera, Brenda C.\":6,\"Barth, Aaron M.\":6,\"Bassiouni, Maoya\":6,\"Basuki, Imam\":6,\"Batazhan, Tatyana\":6,\"Bateman, Douglas S.\":6,\"Bates, Jonathan D.\":6,\"Baumann, Laura\":6,\"Bauska, Thomas K.\":6,\"Baxter, Mackenzie R.\":6,\"Beamer, Jordan P.\":6,\"Beasley, W. Jason\":6,\"Becker, Susan L.\":6,\"Beebe, Brittany A.\":6,\"Beets, Michael W.\":6,\"Behrenfeld, Michael Joseph\":6,\"Belaid, Abderrezak\":6,\"Belart Lengerich, Maria Francisca\":6,\"Benjamin, Ethan\":6,\"Bennett, Marley R.\":6,\"Bennett, Patrick I.\":6,\"Benway, Heather M.\":6,\"Bergmann, Gillian E.\":6,\"Bergmann, Maya K.\":6,\"Berner, Logan T.\":6,\"Bertoch, Madison\":6,\"Beuselinck, Paul Richard\":6,\"Biel, Reuben G.\":6,\"Bigelow, Daniel P.\":6,\"Bigouette, John P.\":6,\"Bill, Nicholas S.\":6,\"Bippus, Alexander C.\":6,\"Bird, David Nelson\":6,\"Black, Hugh C., 1941-\":6,\"Blackfield, Danielle\":6},\"language\":[],\"publisher\":{\"Oregon State University\":6909}}}"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T18:43:42.919Z",
+    "scrubbed": { "headersDropped": 4 },
+    "note": "T-704 (J21): the filters of the multi-select state"
+  }
+}
