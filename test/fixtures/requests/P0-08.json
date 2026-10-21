@@ -1,0 +1,5 @@
+{
+  "package": "P0-08",
+  "note": "T-501..T-504 read recorded answers of the scenarios search-climate, search-zzzzqqq, search-x-page0, members, works-1001, works-1002, works-4040, works-4100, works-4101, works-4102, works-4200, works-5000, works-6948813, outputs-2001..2004, outputs-2101..2103, outputs-4040, outputs-4100, outputs-5000, provider-86, provider-4835, provider-8, provider-3354, provider-0x56 and q090-null-logo (the doi.org citation answers and the E7 provider answers of those scenarios included). Every other answer is a recorded answer with one change, served by an MSW override inside the test (a work without dataProviders, a members list, a logo value, an arXiv or PubMed id, a status code), or the harness magic queries (__status500, __neterror, __nodataproviders). No live request and no new fixture is needed, so this list is empty.",
+  "requests": []
+}
