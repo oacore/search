@@ -210,6 +210,14 @@ export async function startStub(options = {}) {
     handle('https')
   )
   httpsServer.on('tlsClientError', () => {})
+  // The app's fetch pool reuses idle sockets. Node's default keepAliveTimeout (5 s) lets the stub close a
+  // socket at the moment the client writes a request on it, which is lost with ECONNRESET and turns a page
+  // into a soft 404 (P0-10-11, P0-11-1). Real upstreams keep idle connections far longer, and the client
+  // should always be the side that closes first.
+  for (const server of [httpServer, httpsServer]) {
+    server.keepAliveTimeout = 65000
+    server.headersTimeout = 66000
+  }
 
   const json = (res, status, obj) => {
     res.writeHead(status, { 'content-type': 'application/json' })
@@ -344,6 +352,11 @@ export async function selfCheck() {
         rec1.url ===
           'https://api.core.ac.uk/internal/harness-probe?t=undefined',
       rec1
+    )
+    ok(
+      'idle keep-alive sockets stay open for 65 s (the client closes first)',
+      /timeout=65/.test(String(r1.headers['keep-alive'] || '')),
+      r1.headers['keep-alive']
     )
     ok(
       'headers recorded in order',
