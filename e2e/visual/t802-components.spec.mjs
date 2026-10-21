@@ -218,8 +218,11 @@ async function act(page, capture) {
       return
     }
     case 'type-o': {
-      const box = page.getByRole('banner').getByRole('combobox')
-      await box.click()
+      const banner = page.getByRole('banner')
+      const box = banner.getByRole('combobox')
+      // the label overlays the input (Q-083): the pointer lands on the label, which focuses the input
+      await banner.locator('label[for="select-app-bar-search"]').click()
+      await expect(box).toBeFocused()
       await page.keyboard.type('o')
       await expect(box).toHaveValue('o')
       await expect(page.getByRole('banner').getByRole('option')).toHaveCount(3)
@@ -262,11 +265,48 @@ function targetOf(page, root, capture) {
   throw new Error(`T-802: unknown target ${capture.target}`)
 }
 
+// Transitions that the last action started (focus, open) run to their end state before the shot. The
+// placeholder of a focused field transitions `transform` and `opacity` (0.15 s) on the ::placeholder
+// pseudo-element, which `animations: 'disabled'` does not fast-forward, so the shot showed it mid-transition
+// in some runs (du-07-text-field-focused, du-08-options-icons). Settled = the computed placeholder style of
+// every field is the same on two polls 250 ms apart; finite Web Animations are awaited as well, infinite
+// ones are left alone.
+const settleAnimations = async (page) => {
+  await page.evaluate(() =>
+    Promise.all(
+      document
+        .getAnimations()
+        .filter((a) => Number.isFinite(a.effect.getComputedTiming().endTime))
+        .map((a) => a.finished.catch(() => null))
+    )
+  )
+  let last = null
+  await expect
+    .poll(
+      async () => {
+        const now = await page.evaluate(() =>
+          [...document.querySelectorAll('input, textarea')]
+            .map((el) => {
+              const style = getComputedStyle(el, '::placeholder')
+              return `${style.opacity}|${style.transform}`
+            })
+            .join(';')
+        )
+        const stable = now === last
+        last = now
+        return stable
+      },
+      { message: 'placeholder transitions settled', intervals: [250] }
+    )
+    .toBe(true)
+}
+
 async function captureState(page, p2Env, c, width) {
   if (process.env.RECORD === '1' && IMPL !== 'design')
     throw new Error('T-802: captures are recorded only with IMPL=design')
   const root = await openState(page, p2Env, c, width)
   await act(page, c)
+  await settleAnimations(page)
   const target = targetOf(page, root, c)
   if (target !== page) await expect(target).toBeVisible()
   await expectPixelExact(target, `${c.name}-${width}.png`, { fullPage: false })
@@ -317,6 +357,7 @@ test.describe('T-802 @P0 component visuals', () => {
       }) => {
         const root = await openState(page, p2Env, c, width)
         await act(page, c)
+        await settleAnimations(page)
         const box = root.getByRole('combobox')
         await expect(box).toHaveValue(c.edge.value)
         await expect(box).toHaveAttribute(
