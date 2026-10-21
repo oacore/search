@@ -461,13 +461,18 @@ function extract() {
     ...walk(path.join(dir, 'public')).map((f) => `public/${f}`),
   ]
   const picked = candidates.filter((f) => res.some((re) => re.test(f)))
+  // the absolute paths of this machine a build could carry: the repo, the artefact directory, the home and
+  // temp directories and their real paths (macOS links /tmp and /var into /private)
   const local = [
-    REPO,
-    ARTIFACT_DIR,
-    os.homedir(),
-    os.tmpdir(),
-    '/private/tmp/',
-    '/Users/',
+    ...new Set(
+      [REPO, ARTIFACT_DIR, os.homedir(), os.tmpdir()].flatMap((p) => {
+        try {
+          return [p, fs.realpathSync(p)]
+        } catch {
+          return [p]
+        }
+      })
+    ),
   ]
   const leaks = []
   fs.rmSync(to, { recursive: true, force: true })
