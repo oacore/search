@@ -1,0 +1,12 @@
+# T-728 outputs-update /outputs/update/ America/Los_Angeles essential (dom format 2)
+## nested anchors (Q-072): no-JS 0, hydrated 0
+## no-JS -> settled hydrated DOM
+@@ -329 +329 @@
++ html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
++ html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
+## MutationObserver (from the first Next chunk script)
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/section[2]/form[1]/div[1]/input[1] @name
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/section[2]/form[1]/div[1]/input[1] @value
+1 childList html[1]/body[1] +[next-route-announcer]
+1 childList html[1]/body[1]/next-route-announcer[1] +[p]
+## overflow 0, armed true

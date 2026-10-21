@@ -1,0 +1,548 @@
+# T-728 works-1005 /works/1005/ UTC absent (dom format 2)
+## nested anchors (Q-072): no-JS 0, hydrated 7
+## no-JS -> settled hydrated DOM
+@@ -21 +21 @@
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2] <div class="styles-item-1WhX8 styles-search-bar-item-dB35D styles-search-bar-item-icon-28R_6">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1] <button class="button-button-3fr3r button-text-2Jjil styles-search-bar-item-icon-button-fqoOL">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1]/svg[1] <svg aria-label="Search icon" class="icon-icon-35iz-" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
+@@ -243 +247 @@
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[4]/dd[1]/ol[1]/li[1] <li id="doi" itemprop="doi" itemtype="doi">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[4]/dd[1]/ol[1]/li[1] "DOI: 10.1111/REGO.12518"
+@@ -260 +266 @@
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1] <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey" id="work-similar-output-19211324" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1] ""
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/header[1] <header class="styles-header-13tcI">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/header[1]/h3[1] <h3 class="styles-title-1k6Ib" itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/header[1]/h3[1] "Climate change 2015: growing risks, critical choices"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1] <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1] <div class="metadata-list-group-1lOSg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1]/dt[1] <dt id="similar-output-19211324-author-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1]/dt[1] "Author"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1]/dd[1] <dd aria-labelledby="similar-output-19211324-author-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1]/dd[1]/ol[1] <ol aria-label="Author" class="expandable-list-list-2znM0">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1]/dd[1]/ol[1]/li[1] <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Climate Council)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1]/span[1] "Climate Council"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[2] <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[2]/dt[1] <dt id="similar-output-19211324-venue-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[2]/dt[1] "Publication venue"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[2]/dd[1] <dd aria-labelledby="similar-output-19211324-venue-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[3] <div class="metadata-list-group-1lOSg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[3]/dt[1] <dt id="similar-output-19211324-publication-date-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[3]/dt[1] "Publication date"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[3]/dd[1] <dd aria-labelledby="similar-output-19211324-publication-date-title" itemprop="datePublished">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[3]/dd[1] "2015"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[4] <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[4]/dt[1] <dt id="similar-output-19211324-field-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[4]/dt[1] "Field of study"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[4]/dd[1] <dd aria-labelledby="similar-output-19211324-field-title" itemprop="about">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/figure[1] <figure class="styles-thumbnail-1xurx">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/figure[1]/a[1] <a href="<stack>/reader/30671329">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/figure[1]/a[1]/img[1] <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/images/document-placeholder.svg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/figure[1]/a[1]/span[1] <span class="styles-thumbnail-caption-2Qdvz">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/figure[1]/a[1]/span[1] "Full text link"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[1] <div class="styles-content-35LN7" itemprop="abstract">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[1]/span[1] <span>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[1]/span[1] <len=882 sha256=ee8adc8e507f9fc7 "This latest Climate Council report provides an u"...>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[2] <div class="styles-footnote-2WLsl">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[2]/div[1] <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[2]/div[1]/a[1] <a class="styles-repository-link-xUkbI" href="/data-providers/713">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[2]/div[1]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[2]/div[1]/a[1]/span[1] "Analysis and Policy Observatory (APO)"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2] <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey" id="work-similar-output-62704171" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2] ""
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1] <header class="styles-header-13tcI">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/h3[1] <h3 class="styles-title-1k6Ib" itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/h3[1] "Climate and Airborne Pollutants"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/div[1] <div class="group-group-2Ka5T">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/div[1]/div[1] <div class="data-provider-sm-6ZNTy data-provider-circle-1YXHk">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/div[1]/div[1]/img[1] <img alt="UNT (University of North Texas) Digital Library" class="data-provider-image-2JFrU" src="https://api.core.ac.uk/data-providers/2313/logo">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1] <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[1] <div class="metadata-list-group-1lOSg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[1]/dt[1] <dt id="similar-output-62704171-author-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[1]/dt[1] "Author"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[1]/dd[1] <dd aria-labelledby="similar-output-62704171-author-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[1]/dd[1]/ol[1] <ol aria-label="Author" class="expandable-list-list-2znM0">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[1]/dd[1]/ol[1]/li[1] <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Climate Change Science Program (U.S.))">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1]/span[1] "Climate Change Science Program (U.S.)"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[2] <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[2]/dt[1] <dt id="similar-output-62704171-venue-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[2]/dt[1] "Publication venue"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[2]/dd[1] <dd aria-labelledby="similar-output-62704171-venue-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[3] <div class="metadata-list-group-1lOSg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[3]/dt[1] <dt id="similar-output-62704171-publication-date-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[3]/dt[1] "Publication date"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[3]/dd[1] <dd aria-labelledby="similar-output-62704171-publication-date-title" itemprop="datePublished">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[3]/dd[1] "2008"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[4] <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[4]/dt[1] <dt id="similar-output-62704171-field-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[4]/dt[1] "Field of study"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[4]/dd[1] <dd aria-labelledby="similar-output-62704171-field-title" itemprop="about">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/figure[1] <figure class="styles-thumbnail-1xurx">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/figure[1]/a[1] <a href="<stack>/reader/216240794">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/figure[1]/a[1]/img[1] <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/images/document-placeholder.svg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/figure[1]/a[1]/span[1] <span class="styles-thumbnail-caption-2Qdvz">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/figure[1]/a[1]/span[1] "Full text link"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/div[1] <div class="styles-content-35LN7" itemprop="abstract">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/div[1]/span[1] <span>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/div[1]/span[1] "Pamphlet describing climate projections based on emission scenarios for long-lived and short-lived radiatively active gases and aerosols"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/div[2] <div class="styles-footnote-2WLsl">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/div[2]/div[1] <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/div[2]/div[1]/a[1] <a class="styles-repository-link-xUkbI" href="/data-providers/2313">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/div[2]/div[1]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/div[2]/div[1]/a[1]/span[1] "UNT (University of North Texas) Digital Library"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3] <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey" id="work-similar-output-19212910" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3] ""
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/header[1] <header class="styles-header-13tcI">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/header[1]/h3[1] <h3 class="styles-title-1k6Ib" itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/header[1]/h3[1] "Thirsty country: climate change and drought in Australia"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1] <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1] <div class="metadata-list-group-1lOSg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1]/dt[1] <dt id="similar-output-19212910-author-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1]/dt[1] "Author"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1]/dd[1] <dd aria-labelledby="similar-output-19212910-author-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1]/dd[1]/ol[1] <ol aria-label="Author" class="expandable-list-list-2znM0">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1]/dd[1]/ol[1]/li[1] <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Climate Council)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1]/span[1] "Climate Council"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[2] <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[2]/dt[1] <dt id="similar-output-19212910-venue-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[2]/dt[1] "Publication venue"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[2]/dd[1] <dd aria-labelledby="similar-output-19212910-venue-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[3] <div class="metadata-list-group-1lOSg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[3]/dt[1] <dt id="similar-output-19212910-publication-date-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[3]/dt[1] "Publication date"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[3]/dd[1] <dd aria-labelledby="similar-output-19212910-publication-date-title" itemprop="datePublished">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[3]/dd[1] "2015"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[4] <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[4]/dt[1] <dt id="similar-output-19212910-field-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[4]/dt[1] "Field of study"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[4]/dd[1] <dd aria-labelledby="similar-output-19212910-field-title" itemprop="about">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/figure[1] <figure class="styles-thumbnail-1xurx">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/figure[1]/a[1] <a href="<stack>/reader/30672389">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/figure[1]/a[1]/img[1] <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/images/document-placeholder.svg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/figure[1]/a[1]/span[1] <span class="styles-thumbnail-caption-2Qdvz">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/figure[1]/a[1]/span[1] "Full text link"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/div[1] <div class="styles-content-35LN7" itemprop="abstract">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/div[1]/span[1] <span>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/div[1]/span[1] <len=1172 sha256=1a0c29a91b8bc934 "This report argues that climate change is likely"...>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/div[2] <div class="styles-footnote-2WLsl">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/div[2]/div[1] <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/div[2]/div[1]/a[1] <a class="styles-repository-link-xUkbI" href="/data-providers/713">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/div[2]/div[1]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/div[2]/div[1]/a[1]/span[1] "Analysis and Policy Observatory (APO)"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4] <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey" id="work-similar-output-18872441" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4] ""
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/header[1] <header class="styles-header-13tcI">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/header[1]/h3[1] <h3 class="styles-title-1k6Ib" itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/header[1]/h3[1] "Midwestern Regional Climate Center"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1] <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1] <div class="metadata-list-group-1lOSg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1]/dt[1] <dt id="similar-output-18872441-author-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1]/dt[1] "Author"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1]/dd[1] <dd aria-labelledby="similar-output-18872441-author-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1]/dd[1]/ol[1] <ol aria-label="Author" class="expandable-list-list-2znM0">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1]/dd[1]/ol[1]/li[1] <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Midwestern Regional Climate Center)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1]/span[1] "Midwestern Regional Climate Center"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[2] <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[2]/dt[1] <dt id="similar-output-18872441-venue-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[2]/dt[1] "Publication venue"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[2]/dd[1] <dd aria-labelledby="similar-output-18872441-venue-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[3] <div class="metadata-list-group-1lOSg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[3]/dt[1] <dt id="similar-output-18872441-publication-date-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[3]/dt[1] "Publication date"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[3]/dd[1] <dd aria-labelledby="similar-output-18872441-publication-date-title" itemprop="datePublished">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[3]/dd[1] "01/01/2001"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[4] <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[4]/dt[1] <dt id="similar-output-18872441-field-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[4]/dt[1] "Field of study"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[4]/dd[1] <dd aria-labelledby="similar-output-18872441-field-title" itemprop="about">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/figure[1] <figure class="styles-thumbnail-1xurx">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/figure[1]/a[1] <a href="<stack>/reader/158316893">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/figure[1]/a[1]/img[1] <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/images/document-placeholder.svg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/figure[1]/a[1]/span[1] <span class="styles-thumbnail-caption-2Qdvz">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/figure[1]/a[1]/span[1] "Full text link"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/div[1] <div class="styles-content-35LN7" itemprop="abstract">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/div[1]/span[1] <span>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/div[1]/span[1] <len=709 sha256=a261557a0adc1ebc "Made available in DSpace on 2016-11-14T22:36:27Z"...>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/div[2] <div class="styles-footnote-2WLsl">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/div[2]/div[1] <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/div[2]/div[1]/a[1] <a class="styles-repository-link-xUkbI" href="/data-providers/198">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/div[2]/div[1]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/div[2]/div[1]/a[1]/span[1] "Illinois Digital Environment for Access to Learning and Scholarship Repository"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5] <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey" id="work-similar-output-17489114" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5] ""
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/header[1] <header class="styles-header-13tcI">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/header[1]/h3[1] <h3 class="styles-title-1k6Ib" itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/header[1]/h3[1] "Seasonal Climate Forecasts and Risk Management Among Georgia Farmers"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1] <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1] <div class="metadata-list-group-1lOSg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dt[1] <dt id="similar-output-17489114-author-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dt[1] "Author"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1] <dd aria-labelledby="similar-output-17489114-author-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1] <ol aria-label="Author" class="expandable-list-list-2znM0">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[1] <li aria-setsize="14" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Hoogenhoom, G.)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[1]/a[1]/span[1] "Hoogenhoom  G."
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[2] <li aria-setsize="14" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[2]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Broad, K.)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[2]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[2]/a[1]/span[1] "Broad  K."
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[3] <li aria-setsize="14" class="expandable-list-show-more-2ndlc">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1] <button class="button-button-3fr3r button-text-2Jjil" title="Show more">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1] "+"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1] "12"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1] " more"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[4] <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[4]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Breuer, N.E)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[4]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[4]/a[1]/span[1] "Breuer  N.E"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[5] <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[5]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Paz, J.)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[5]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[5]/a[1]/span[1] "Paz  J."
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[6] <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[6]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Ingram, K.T)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[6]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[6]/a[1]/span[1] "Ingram  K.T"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[7] <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[7]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Roncoli, C.)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[7]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[7]/a[1]/span[1] "Roncoli  C."
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[8] <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[8]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Ingram, K.T.)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[8]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[8]/a[1]/span[1] "Ingram  K.T."
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[9] <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[9]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Crane, T.A)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[9]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[9]/a[1]/span[1] "Crane  T.A"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[10] <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[10]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Breuer, N.E.)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[10]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[10]/a[1]/span[1] "Breuer  N.E."
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[11] <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[11]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Crane, T.A.)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[11]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[11]/a[1]/span[1] "Crane  T.A."
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[12] <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[12]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Broad, K)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[12]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[12]/a[1]/span[1] "Broad  K"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[13] <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[13]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Roncoli, C)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[13]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[13]/a[1]/span[1] "Roncoli  C"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[14] <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[14]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Hoogenhoom, G)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[14]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[14]/a[1]/span[1] "Hoogenhoom  G"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[15] <li aria-setsize="14" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[15]/a[1] <a class="styles-link-ezM5z" href="/search?q=author:(Paz, J)">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[15]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[15]/a[1]/span[1] "Paz  J"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[2] <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[2]/dt[1] <dt id="similar-output-17489114-venue-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[2]/dt[1] "Publication venue"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[2]/dd[1] <dd aria-labelledby="similar-output-17489114-venue-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[3] <div class="metadata-list-group-1lOSg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[3]/dt[1] <dt id="similar-output-17489114-publication-date-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[3]/dt[1] "Publication date"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[3]/dd[1] <dd aria-labelledby="similar-output-17489114-publication-date-title" itemprop="datePublished">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[3]/dd[1] "01/01/2008"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[4] <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[4]/dt[1] <dt id="similar-output-17489114-field-title">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[4]/dt[1] "Field of study"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[4]/dd[1] <dd aria-labelledby="similar-output-17489114-field-title" itemprop="about">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/figure[1] <figure class="styles-thumbnail-1xurx">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/figure[1]/a[1] <a href="<stack>/reader/29255347">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/figure[1]/a[1]/img[1] <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/images/document-placeholder.svg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/figure[1]/a[1]/span[1] <span class="styles-thumbnail-caption-2Qdvz">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/figure[1]/a[1]/span[1] "Full text link"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/div[1] <div class="styles-content-35LN7" itemprop="abstract">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/div[1]/span[1] <span>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/div[1]/span[1] <len=1548 sha256=eb4e678488e58074 "Recent increases in the scientific robustness of"...>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/div[2] <div class="styles-footnote-2WLsl">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/div[2]/div[1] <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/div[2]/div[1]/a[1] <a class="styles-repository-link-xUkbI" href="/data-providers/679">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/div[2]/div[1]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/div[2]/div[1]/a[1]/span[1] "Wageningen University & Research Publications"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/div[2]/div[2] <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/div[2]/div[2]/a[1] <a class="styles-repository-link-xUkbI" href="/data-providers/14567">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/div[2]/div[2]/a[1]/span[1] <span itemprop="name">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/div[2]/div[2]/a[1]/span[1] "University of Miami: Scholarship@Miami"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/h2[1] <h2>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/h2[1] "Related searches"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2] <div class="styles_related-searches-result">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/svg[1] <svg class="icon-icon-35iz- styles_related-searches-icon" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1] <div class="styles_detach-dot">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/a[1] <a href="//core.ac.uk/search?q=climate" rel="noreferrer" target="_blank">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/a[1] "climate"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1] <span>
+@@ -264 +548 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] <div>
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/a[1] <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-1005">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] <div class="thumbnail-card_button-container">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[1] <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-1005">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[2] <a class="button-button-3fr3r button-contained-pmIp-" href="<stack>/reader/566708785">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[2] "Open in the Core reader"
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[2] <!--" "-->
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[2] " "
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[2]/svg[1] <svg class="icon-icon-35iz- thumbnail-card_icon" height="24" role="img" width="24">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[2]/svg[1]/use[1] <use href="/static/search/icons.svg#open-in-new">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2] <div class="thumbnail-card_download-container">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/a[1] <a class="button-button-3fr3r button-outlined-3dJXM thumbnail-card_download" download="" target="_blank">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/a[1] "Download PDF"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1] <div>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1] <div class="thumbnail-card_button-container">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1] <a class="button-button-3fr3r button-contained-pmIp-" href="<stack>/reader/566708785">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1] "Open in the Core reader"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1] " "
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1]/svg[1] <svg class="icon-icon-35iz- thumbnail-card_icon" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1]/svg[1]/use[1] <use href="/static/search/icons.svg#open-in-new">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[2] <div class="thumbnail-card_download-container">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[2]/a[1] <a class="button-button-3fr3r button-outlined-3dJXM thumbnail-card_download" download="" target="_blank">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[2]/a[1] "Download PDF"
+@@ -295 +576 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[2] <a href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[2]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[2]/button[1] "Go to the repository landing page"
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1] <div>
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/button[1] "Download from data provider"
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1] <span class="card-description-3Qppz card-dropdown_identifier">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/div[1] <div class="card-dropdown_inner-identifier">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/div[1]/img[1] <img alt="oai" class="card-dropdown_logo" src="/static/search/static/images/oai.svg">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/div[1]/a[1] <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/div[1]/a[1] "oai:dspace.stir.ac.uk:1893/351..."
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/div[2] <div>
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/div[2]/svg[1] <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/div[2]/svg[1]/use[1] <use href="/static/search/icons.svg#content-copy">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/a[1] <a href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/a[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/a[1]/button[1] "Go to the repository landing page"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/div[1] <div>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/div[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/div[1]/button[1] "Download from data provider"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1] <span class="card-description-3Qppz card-dropdown_identifier">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[1] <div class="card-dropdown_inner-identifier">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[1]/img[1] <img alt="oai" class="card-dropdown_logo" src="/static/search/static/images/oai.svg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[1]/a[1] <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[1]/a[1] "oai:dspace.stir.ac.uk:1893/351..."
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[2] <div>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[2]/svg[1] <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[2]/svg[1]/use[1] <use href="/static/search/icons.svg#content-copy">
+@@ -312 +593 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1] <!--" "-->
+@@ -329 +609 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2] <a href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/a[2]/button[1] "Go to the repository landing page"
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1] <div>
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/button[1] "Download from data provider"
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/span[1] <span class="card-description-3Qppz card-dropdown_identifier">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/span[1]/div[1] <div class="card-dropdown_inner-identifier">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/span[1]/div[1]/img[1] <img alt="oai" class="card-dropdown_logo" src="/static/search/static/images/oai.svg">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/span[1]/div[1]/a[1] <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/span[1]/div[1]/a[1] "oai:dspace.stir.ac.uk:1893/351..."
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/span[1]/div[2] <div>
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/span[1]/div[2]/svg[1] <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[1]/span[1]/div[2]/svg[1]/use[1] <use href="/static/search/icons.svg#content-copy">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/a[1] <a href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/a[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/a[1]/button[1] "Go to the repository landing page"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/div[1] <div>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/div[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/div[1]/button[1] "Download from data provider"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/span[1] <span class="card-description-3Qppz card-dropdown_identifier">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/span[1]/div[1] <div class="card-dropdown_inner-identifier">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/span[1]/div[1]/img[1] <img alt="oai" class="card-dropdown_logo" src="/static/search/static/images/oai.svg">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/span[1]/div[1]/a[1] <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/span[1]/div[1]/a[1] "oai:dspace.stir.ac.uk:1893/351..."
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/span[1]/div[2] <div>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/span[1]/div[2]/svg[1] <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/span[1]/div[2]/svg[1]/use[1] <use href="/static/search/icons.svg#content-copy">
+@@ -346 +626 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/div[2]/span[1] <!--" "-->
+@@ -363 +642 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[3]/div[1]/a[2] <a href="https://doi.org/10.1111/rego.12518">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[3]/div[1]/a[2]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[3]/div[1]/a[2]/button[1] "Go to the repository landing page"
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1] <div>
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/button[1] "Download from data provider"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]/a[1] <a href="https://doi.org/10.1111/rego.12518">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]/a[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]/a[1]/button[1] "Go to the repository landing page"
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]/div[1] <div>
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]/div[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]/div[1]/button[1] "Download from data provider"
+@@ -372 +651 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[3]/div[2]/span[1] <!--" "-->
+@@ -472 +750 @@
++ html[1]/body[1]/div[1]/div[2] <div class="cookies-popup-2NSSr" id="cookies-popup">
++ html[1]/body[1]/div[1]/div[2]/div[1] <div class="cookies-popup-body-1VEen">
++ html[1]/body[1]/div[1]/div[2]/div[1]/p[1] <p>
++ html[1]/body[1]/div[1]/div[2]/div[1]/p[1] "We use cookies to improve our website."
++ html[1]/body[1]/div[1]/div[2]/div[1]/a[1] <a class="cookies-popup-link-o-JpP" href="/cookies">
++ html[1]/body[1]/div[1]/div[2]/div[1]/a[1] "Learn more"
++ html[1]/body[1]/div[1]/div[2]/div[2] <div class="cookies-popup-actions-qIUXY">
++ html[1]/body[1]/div[1]/div[2]/div[2]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM cookies-popup-button-17h9a" id="essential_cookies_allowed">
++ html[1]/body[1]/div[1]/div[2]/div[2]/button[1] "Essential cookies only"
++ html[1]/body[1]/div[1]/div[2]/div[2]/button[2] <button class="button-button-3fr3r button-contained-pmIp- cookies-popup-button-17h9a" id="essential_cookies_allowed,analytics_cookies_allowed">
++ html[1]/body[1]/div[1]/div[2]/div[2]/button[2] "I agree"
+@@ -491 +780 @@
++ html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
++ html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
+## MutationObserver (from the first Next chunk script)
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/button[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[1]/dd[1]/ol[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[1]/dd[1]/ol[1]/li[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[1]/dd[1]/ol[1]/li[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[1]/dd[1]/ol[1]/li[5] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[1]/dd[1]/ol[1]/li[6] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[1]/dd[1]/ol[1]/li[7] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[4]/dd[1]/ol[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1]/dd[1]/ol[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/figure[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/header[1]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[1]/dd[1]/ol[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/figure[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1]/dd[1]/ol[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/figure[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/header[1]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1]/dd[1]/ol[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/figure[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/header[1]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[10] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[11] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[12] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[13] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[14] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[15] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[5] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[6] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[7] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[8] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[9] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[4] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/figure[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/header[1]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[2]/a[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/div[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/div[1]/div[1]/div[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/a[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/div[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[2]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/div[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/div[1]/div[1]/div[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/div[1]/div[1]/div[2]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/a[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/div[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/a[1]/span[1]/span[1]/div[2]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[2]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/div[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/div[1]/div[1]/div[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/div[1]/div[1]/div[2]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]/a[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]/div[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[2]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/h3[1] @class
+1 childList html[1]/body[1] +[next-route-announcer]
+1 childList html[1]/body[1]/div[1] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/header[1] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[4]/dd[1]/ol[1] +[li]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2] +[h2]
+6 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2] -[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/div[1] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2] -[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] +[h3]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] -[a]
+2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] +[div]
+2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] -[a]
+2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2] +[div]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2] -[a]
+1 childList html[1]/body[1]/next-route-announcer[1] +[p]
+## overflow 0, armed true

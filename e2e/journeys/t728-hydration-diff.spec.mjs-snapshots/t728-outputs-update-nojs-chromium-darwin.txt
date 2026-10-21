@@ -1,0 +1,328 @@
+<body>
+  <div id="__next">
+    <div class="styles_container">
+      <header class="styles-container-2d0MF styles-container-1KefU" id="header">
+        <div class="styles-item-1WhX8 styles-logo-container-261sh">
+          <a class="styles-logo-link-3SQhe" href="https://core.ac.uk/">
+            <span class="logo-logo-wCAGq styles-logo-3C3lk">
+              <svg aria-label="CORE" class="icon-icon-35iz- logo-logo-icon-1JnTB" height="24" role="img" width="18">
+                <use href="/static/search/icons.svg#core-symbol">
+              "CORE"
+            <div class="styles-separator-3Hkfn">
+            <div class="styles-peace-1CGQO">
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "CO"
+                "nnecting"
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "RE"
+                "positories"
+        <div class="styles-item-1WhX8 styles-toggle-container-3kw9N">
+          <button aria-controls="header-nav" aria-expanded="false" aria-label="Toggle navigation" class="button-button-3fr3r button-text-2Jjil styles-toggle-button-3MDvL" type="button">
+            <svg aria-hidden="true" aria-label="Menu icon" class="icon-icon-35iz-" height="24" role="img" width="24">
+              <use href="/static/search/icons.svg#menu">
+        <nav class="styles-item-1WhX8 styles-nav-1DaTS" id="header-nav">
+          <div class="styles-menu-2MrzW styles-services-menu-3Y6g_">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="services-title" role="button">
+              "Services"
+            <ul aria-labelledby="services-title" class="styles-menu-list-2qL0f">
+              <li class="styles-item-34TYT styles-services-overview-item-9AF_0">
+                <a class="styles-item-link--QpIs" href="/services">
+                  <img alt="" src=<len=34345 sha256=a0b9ceaf15f270fe "data:image/svg+xml,<svg viewBox=\"0 0 12953 10812"...>>
+                  <span class="styles-services-overview-item-label-2qM2Y">
+                    "Services overview"
+                  <span class="styles-services-overview-item-description-1SQ-o">
+                    "Explore all CORE services"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="access-to-raw-data-title">
+                  "Access to raw data"
+                <ul aria-labelledby="access-to-raw-data-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/api">
+                      "API"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/dataset">
+                      "Dataset"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fastsync">
+                      "FastSync"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="content-discovery-title">
+                  "Content discovery"
+                <ul aria-labelledby="content-discovery-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/recommender">
+                      "Recommender"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/discovery">
+                      "Discovery"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="oai-resolver-title">
+                  "OAI identifiers"
+                <ul aria-labelledby="oai-resolver-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/documentation/oai-resolver">
+                      "OAI Resolver"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="managing-content-title">
+                  "Managing content"
+                <ul aria-labelledby="managing-content-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/repository-dashboard">
+                      "Dashboard"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fair-certification">
+                      "FAIR Certification"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="contracts-title">
+                  "Bespoke contracts"
+                <ul aria-labelledby="contracts-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/consultancy">
+                      "Consultancy services"
+          <div class="styles-menu-2MrzW styles-communities-menu-3a1Ao">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="communities-title" role="button">
+              "Support us"
+            <ul aria-labelledby="communities-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T styles-support-menu-36qjb">
+                <h3 class="styles-group-title-1v3Na" id="membership-title">
+                  "Support us"
+                <ul aria-labelledby="membership-title" class="styles-group-list-37aX1">
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/membership">
+                    <span>
+                      "Membership"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/sponsorship">
+                    <span>
+                      "Sponsorship"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/governance/research">
+                    <span>
+                      "Research partnership"
+          <div class="styles-menu-2MrzW styles-about-menu-3ZQZB">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="about-title" role="button">
+              "About"
+            <ul aria-labelledby="about-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="about-title">
+                  "About"
+                <ul aria-labelledby="about-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about">
+                      "About us"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#mission">
+                      "Our mission"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#team">
+                      "Team"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="//blog.core.ac.uk">
+                      "Blog"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/faq">
+                      "FAQs"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#contact">
+                      "Contact us"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="community-title">
+                  "Community governance"
+                <ul aria-labelledby="community-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance">
+                      "Governance"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/advisory">
+                      "Advisory Board"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/supporters">
+                      "Board of supporters"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/research">
+                      "Research network"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="innovations-title">
+                  "Innovations"
+                <ul aria-labelledby="innovations-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about/research-outputs">
+                      "Our research"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/innovations/labs">
+                      "Labs"
+      <main class="styles_main">
+        <section class="styles_header styles_container">
+          <h2 class="display">
+            "Article Takedown Request "
+          <img alt="takedown" src="/static/search/_next/static/images/takedown-c4bb010481617ed3e02f8f78297db01c.svg">
+        <section class="styles_update styles_container">
+          <div class="styles_update-description">
+            <p>
+              "To remove a paper from CORE, please search for the paper using the search box at the top of this page."
+            <p>
+              "When you have found the paper, please enter the URL of the paper from CORE into the form on the right and we will redirect you to the correct page."
+          <form class="styles_update-link">
+            <p>
+              "Put link to the article here:"
+            <div class="styles-group-NqOA7 normal" id="">
+              <input :checked="false" :value="" aria-describedby="-message" aria-invalid="false" class="styles-control-12Pze" id="-control" name="outputUrl" placeholder="e.g. https://core.ac.uk/display/1" required="" value="">
+              <span class="text-field-helper-2vqOg" id="-helper">
+              <label class="styles-label-3Zc32" for="-control">
+                "CORE URL"
+            <button class="button-button-3fr3r button-contained-pmIp-">
+              "SUBMIT"
+        <section class="styles_links styles_container">
+          <h4 class="display">
+            "Types of links you can use to fill up the CORE URL field"
+          <p>
+            "For example, suppose you wanted to remove the paper:  "
+            <a href="https://core.ac.uk/display/82976757?recSetID=" target="blank">
+              "CORE: aggregation use cases for open access"
+            "."
+          <p>
+            " In the CORE URL box, you may enter one of the following:"
+          <ul class="styles_links">
+            <li class="styles_link">
+              <span class="styles_label">
+                " "
+                <!--" "-->
+                "A outputs page URL"
+              <a class="styles_link-href" href="https://core.ac.uk/outputs/82976757" target="blank">
+                "https://core.ac.uk/outputs/82976757"
+            <li class="styles_link">
+              <span class="styles_label">
+                " "
+                <!--" "-->
+                "A fulltext URL"
+              <a class="styles_link-href" href="https://core.ac.uk/download/82976757.pdf " target="blank">
+                "https://core.ac.uk/download/82976757.pdf "
+          <p class="styles_note-warning">
+            "Please note that the form does not accept links which start with \"https://core.ac.uk/"
+            <strong>
+              "search"
+            "\" and \"https://core.ac.uk/"
+            <strong>
+              "works"
+            "\"."
+        <div class="styles_note styles_container">
+        <section class="styles_faq styles_container">
+          <img alt="faq" src="/static/search/_next/static/images/faq-a381c84f64eef2c310026c181874b1d8.svg">
+          <p>
+            "You can find out more information about deleting articles in the  "
+            <a href="https://core.ac.uk/faq">
+              "\"Removing full text or metadata\""
+            " section of the FAQs."
+      <footer class="footer-footer-7joNV" id="footer">
+        <div class="footer-container-1XrUr">
+          <div class="footer-section-logos-1_Ejr">
+            <div class="footer-logos-28CCb">
+              <a href="https://core.ac.uk">
+                <svg aria-label="core logo" class="icon-icon-35iz- footer-footer-main-logo-1jMdX" height="24" role="img" width="24">
+                  <use href="/static/search/icons.svg#coreLogo">
+            <p>
+              "CORE (COnnecting REpositories) is a not-for-profit service supported by"
+              <!--" "-->
+              " "
+              <a href="https://core.ac.uk/governance/supporters#membership-list">
+                <span>
+                  "CORE Members."
+          <menu class="footer-menu-2JIRS">
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Product"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/services">
+                    "Services"
+                <li class="footer-item-1F33t">
+                  <a href="/membership">
+                    "Membership"
+                <li class="footer-item-1F33t">
+                  <a href="/sponsorship">
+                    "Sponsorship"
+                <li class="footer-item-1F33t">
+                  <a href="/innovations/labs">
+                    "Labs"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Organisation"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/about">
+                    "About us"
+                <li class="footer-item-1F33t">
+                  <a href="/about#our-mission">
+                    "Governance"
+                <li class="footer-item-1F33t">
+                  <a href="/about#team">
+                    "Team"
+                <li class="footer-item-1F33t">
+                  <a href="/benefits">
+                    "Data providers"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Support"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/terms">
+                    "Terms"
+                <li class="footer-item-1F33t">
+                  <a href="/faq">
+                    "FAQs"
+                <li class="footer-item-1F33t">
+                  <a href="https://blog.core.ac.uk/">
+                    "Blog"
+                <li class="footer-item-1F33t">
+                  <a href="/about#contact">
+                    "Contact us"
+          <div class="footer-section-card-3esBH">
+            <div class="footer-card-1yZdd">
+              <div>
+                <h6 class="footer-card-title-3Uaog">
+                  "Writing about CORE?"
+                <p class="footer-card-desc-30YMW">
+                  "Discover our"
+                  <!--" "-->
+                  " "
+                  <a href="/about/research-outputs">
+                    "research outputs"
+                  " and cite our work."
+                " "
+              <svg aria-label="writing" class="icon-icon-35iz- footer-card-img-o-6kR" height="24" role="img" width="24">
+                <use href="/static/search/icons.svg#writing">
+            <div class="footer-contact-wrapper-17ZHP">
+              <span class="footer-contact-2b5lt">
+                "Follow us:"
+              <div class="footer-footer-icons-2NPaF">
+                <a href="https://twitter.com/oacore" target="_blank">
+                  <svg aria-label="twitter" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#twitter">
+                <a href="https://www.linkedin.com/company/coreoa" target="_blank">
+                  <svg aria-label="linkedin" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#linkedin">
+                <a href="https://github.com/oacore" target="_blank">
+                  <svg aria-label="github" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#github">
+        <div class="footer-bottom-3E5D_">
+          <a class="footer-bottom-link-PaLMR" href="/accessibility">
+            "Accessibility"
+          <a class="footer-bottom-link-PaLMR" href="/cookies">
+            "Cookies"
+          <a class="footer-bottom-link-PaLMR" href="/privacy">
+            "Privacy"
+  <script next-owned="__NEXT_DATA__">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">

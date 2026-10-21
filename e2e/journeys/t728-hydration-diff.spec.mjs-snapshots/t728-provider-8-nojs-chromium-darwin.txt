@@ -1,0 +1,808 @@
+<body>
+  <div id="__next">
+    <div class="styles_container">
+      <header class="styles-container-2d0MF styles-container-1KefU" id="header">
+        <div class="styles-item-1WhX8 styles-logo-container-261sh">
+          <a class="styles-logo-link-3SQhe" href="https://core.ac.uk/">
+            <span class="logo-logo-wCAGq styles-logo-3C3lk">
+              <svg aria-label="CORE" class="icon-icon-35iz- logo-logo-icon-1JnTB" height="24" role="img" width="18">
+                <use href="/static/search/icons.svg#core-symbol">
+              "CORE"
+            <div class="styles-separator-3Hkfn">
+            <div class="styles-peace-1CGQO">
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "CO"
+                "nnecting"
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "RE"
+                "positories"
+        <div class="styles-item-1WhX8 styles-toggle-container-3kw9N">
+          <button aria-controls="header-nav" aria-expanded="false" aria-label="Toggle navigation" class="button-button-3fr3r button-text-2Jjil styles-toggle-button-3MDvL" type="button">
+            <svg aria-hidden="true" aria-label="Menu icon" class="icon-icon-35iz-" height="24" role="img" width="24">
+              <use href="/static/search/icons.svg#menu">
+        <nav class="styles-item-1WhX8 styles-nav-1DaTS" id="header-nav">
+          <div class="styles-menu-2MrzW styles-services-menu-3Y6g_">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="services-title" role="button">
+              "Services"
+            <ul aria-labelledby="services-title" class="styles-menu-list-2qL0f">
+              <li class="styles-item-34TYT styles-services-overview-item-9AF_0">
+                <a class="styles-item-link--QpIs" href="/services">
+                  <img alt="" src=<len=34345 sha256=a0b9ceaf15f270fe "data:image/svg+xml,<svg viewBox=\"0 0 12953 10812"...>>
+                  <span class="styles-services-overview-item-label-2qM2Y">
+                    "Services overview"
+                  <span class="styles-services-overview-item-description-1SQ-o">
+                    "Explore all CORE services"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="access-to-raw-data-title">
+                  "Access to raw data"
+                <ul aria-labelledby="access-to-raw-data-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/api">
+                      "API"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/dataset">
+                      "Dataset"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fastsync">
+                      "FastSync"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="content-discovery-title">
+                  "Content discovery"
+                <ul aria-labelledby="content-discovery-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/recommender">
+                      "Recommender"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/discovery">
+                      "Discovery"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="oai-resolver-title">
+                  "OAI identifiers"
+                <ul aria-labelledby="oai-resolver-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/documentation/oai-resolver">
+                      "OAI Resolver"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="managing-content-title">
+                  "Managing content"
+                <ul aria-labelledby="managing-content-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/repository-dashboard">
+                      "Dashboard"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fair-certification">
+                      "FAIR Certification"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="contracts-title">
+                  "Bespoke contracts"
+                <ul aria-labelledby="contracts-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/consultancy">
+                      "Consultancy services"
+          <div class="styles-menu-2MrzW styles-communities-menu-3a1Ao">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="communities-title" role="button">
+              "Support us"
+            <ul aria-labelledby="communities-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T styles-support-menu-36qjb">
+                <h3 class="styles-group-title-1v3Na" id="membership-title">
+                  "Support us"
+                <ul aria-labelledby="membership-title" class="styles-group-list-37aX1">
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/membership">
+                    <span>
+                      "Membership"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/sponsorship">
+                    <span>
+                      "Sponsorship"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/governance/research">
+                    <span>
+                      "Research partnership"
+          <div class="styles-menu-2MrzW styles-about-menu-3ZQZB">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="about-title" role="button">
+              "About"
+            <ul aria-labelledby="about-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="about-title">
+                  "About"
+                <ul aria-labelledby="about-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about">
+                      "About us"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#mission">
+                      "Our mission"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#team">
+                      "Team"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="//blog.core.ac.uk">
+                      "Blog"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/faq">
+                      "FAQs"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#contact">
+                      "Contact us"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="community-title">
+                  "Community governance"
+                <ul aria-labelledby="community-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance">
+                      "Governance"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/advisory">
+                      "Advisory Board"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/supporters">
+                      "Board of supporters"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/research">
+                      "Research network"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="innovations-title">
+                  "Innovations"
+                <ul aria-labelledby="innovations-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about/research-outputs">
+                      "Our research"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/innovations/labs">
+                      "Labs"
+      <main class="styles_main">
+        <div class="styles_container styles_layout">
+          <div class="styles_main">
+            <header class="styles_header">
+              <div class="data-provider-lg-1dRNT data-provider-circle-1YXHk">
+                <img alt="Birkbeck Institutional Research Online" class="data-provider-image-2JFrU" src=<len=8210 sha256=0531bf1df5e16263 "data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAAM"...>>
+              <div>
+                <h1 class="styles_header-info-title">
+                  "Birkbeck, University of London"
+                <span class="styles_sub-header-info">
+                  "Birkbeck Institutional Research Online"
+                <h5 class="styles_header-info-caption undefined">
+                  <a class="undefined" href="https://core.ac.uk/membership" rel="noreferrer" target="_blank">
+                    "Not a member yet"
+            <div class="select-select-wrapper-3xVb5 styles_search">
+              <div aria-live="assertive" class="sr-only">
+              <div class="styles-group-NqOA7">
+                <span class="styles-addon-fHX-H styles-prepend-3yZWC select-prepend-icon-2D41_">
+                  <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#magnify">
+                <span class="styles-addon-fHX-H styles-append-2Bs2q select-append-icon-3UXMK">
+                  <button class="button-button-3fr3r button-text-2Jjil select-clear-out-button-1XORg" type="button">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#window-close">
+                <input :checked="false" :value="" aria-autocomplete="both" aria-controls="suggestion-results-data-providers-outputs-select" aria-expanded="false" aria-owns="suggestion-results" autocomplete="off" class="styles-control-12Pze" id="select-data-providers-outputs-select" placeholder="Search over 30950 research outputs in Birkbeck Institutional Research Online" role="combobox" type="text" value="">
+                <label class="styles-label-3Zc32" for="select-data-providers-outputs-select">
+                  "Search"
+              <ul class="select-select-menu-EjIta" id="suggestion-results-data-providers-outputs-select" role="listbox">
+            <div class="styles_sort-wrapper">
+              <span class="styles_search-total">
+                "30950"
+                <!--" "-->
+                " research outputs found"
+              <div class="sort_sort styles_sort">
+                <div class="sort_sort-box" role="presentation">
+                  <span>
+                    "Sort by"
+                    <!--" "-->
+                    " "
+                    <span class="sort_active-item">
+                  <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#menu-down">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-699439957" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/699439957">
+                    <span>
+                      "AI, Copyright, and Open Licensing"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-699439957-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-699439957-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Eve, Martin Paul)">
+                          <span itemprop="name">
+                            "Eve  Martin Paul"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-699439957-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-699439957-venue-title">
+                    "TBC"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-699439957-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-699439957-publication-date-title" itemprop="datePublished">
+                    "01/01/2028"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-699439957-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-699439957-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/699439957/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=736 sha256=1c9ac1e8569f4c71 "For many years, proponents of open culture sugge"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-699439958" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/699439958">
+                    <span>
+                      "The Archive at the End of the World: Speculative Preservation and the Politics of Loss"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-699439958-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-699439958-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Eve, Martin Paul)">
+                          <span itemprop="name">
+                            "Eve  Martin Paul"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-699439958-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-699439958-venue-title">
+                    "Oxford University Press"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-699439958-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-699439958-publication-date-title" itemprop="datePublished">
+                    "01/01/2028"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-699439958-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-699439958-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/699439958/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=832 sha256=0f78a26e167a081c "This chapter proposes the possibility that futur"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-711557165" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/711557165">
+                    <span>
+                      "AI and the Gothic"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-711557165-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-711557165-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Eve, Martin Paul)">
+                          <span itemprop="name">
+                            "Eve  Martin Paul"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-711557165-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-711557165-venue-title">
+                    "Routledge"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-711557165-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-711557165-publication-date-title" itemprop="datePublished">
+                    "01/05/2028"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-711557165-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-711557165-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/711557165/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=883 sha256=d7d16ac99e3593a9 "For as long as technology has existed, there hav"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-757454717" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/757454717">
+                    <span>
+                      "The cost of “what might have been”: false memories for counterfactual actions"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-757454717-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-757454717-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Seghezzi, Silvia)">
+                          <span itemprop="name">
+                            "Seghezzi  Silvia"
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Armstrong, M.)">
+                          <span itemprop="name">
+                            "Armstrong  M."
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Haggard, P.)">
+                          <span itemprop="name">
+                            "Haggard  P."
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-757454717-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-757454717-venue-title">
+                    "Elsevier"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-757454717-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-757454717-publication-date-title" itemprop="datePublished">
+                    "2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-757454717-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-757454717-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/757454717/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=1559 sha256=cbde7644c991abe6 "Deciding what to do should typically involve con"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-684672624" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/684672624">
+                    <span>
+                      "The Dark Web"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-684672624-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-684672624-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Eve, Martin Paul)">
+                          <span itemprop="name">
+                            "Eve  Martin Paul"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-684672624-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-684672624-venue-title">
+                    "The MIT Press"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-684672624-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-684672624-publication-date-title" itemprop="datePublished">
+                    "10/07/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-684672624-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-684672624-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/684672624/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=1491 sha256=2da0d3f4e73e38e9 "With 5.52 billion internet users in 2024, the wo"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-739600522" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/739600522">
+                    <span>
+                      "The shadow circuits: transnational adoption, forced disappearance and genocide in Guatemala"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-739600522-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-739600522-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Posocco, Silvia)">
+                          <span itemprop="name">
+                            "Posocco  Silvia"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-739600522-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-739600522-venue-title">
+                    "Rutgers University Press"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-739600522-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-739600522-publication-date-title" itemprop="datePublished">
+                    "01/01/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-739600522-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-739600522-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/739600522/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=2385 sha256=8f9b8b1e2d9c44db "This chapter evokes the shadow circuits that sin"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-752783466" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/752783466">
+                    <span>
+                      "Financial regulatory rulemaking in the European Union: when expertise meets politics"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-752783466-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-752783466-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Griffiths, Dilwyn)">
+                          <span itemprop="name">
+                            "Griffiths  Dilwyn"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-752783466-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-752783466-venue-title">
+                    "Palgrave Macmillan"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-752783466-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-752783466-publication-date-title" itemprop="datePublished">
+                    "10/02/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-752783466-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-752783466-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/752783466/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=1458 sha256=aeb287f7be05547e "Book synopsis: This book provides the first comp"...>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-586539739" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/586539739">
+                    <span>
+                      "Repeat, Reset, Return: The Political Imagination of Star Trek: Voyager"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-586539739-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-586539739-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Eve, Martin Paul)">
+                          <span itemprop="name">
+                            "Eve  Martin Paul"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-586539739-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-586539739-venue-title">
+                    "Lever Press"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-586539739-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-586539739-publication-date-title" itemprop="datePublished">
+                    "01/01/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-586539739-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-586539739-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/586539739/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  "Forthcoming work on Voyage"
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-743585261" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/743585261">
+                    <span>
+                      "Disconnected TV heroines: transnational Nordic Noir and global femininities"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-743585261-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-743585261-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Mccabe, Janet)">
+                          <span itemprop="name">
+                            "Mccabe  Janet"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-743585261-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-743585261-venue-title">
+                    "Bloomsbury Academic"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-743585261-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-743585261-publication-date-title" itemprop="datePublished">
+                    "07/01/2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-743585261-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-743585261-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/743585261/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+              <div class="styles-footnote-2WLsl">
+            <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-758485265" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+              <header class="styles-header-13tcI">
+                <h3 class="styles-title-1k6Ib" itemprop="name">
+                  <a href="<stack>/outputs/758485265">
+                    <span>
+                      "From border carbon penalties to domestic action: can domestic carbon pricing provide a fairer solution to carbon leakage?"
+              <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-758485265-author-title">
+                    "Author"
+                  <dd aria-labelledby="search-output-758485265-author-title">
+                    <ol aria-label="Author" class="expandable-list-list-2znM0">
+                      <li aria-setsize="5" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Tang, R.)">
+                          <span itemprop="name">
+                            "Tang  R."
+                      <li aria-setsize="5" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Yu, D.)">
+                          <span itemprop="name">
+                            "Yu  D."
+                      <li aria-setsize="5" class="expandable-list-show-more-2ndlc">
+                        <button class="button-button-3fr3r button-text-2Jjil" title="Show more">
+                          "+"
+                          <!--" "-->
+                          "3"
+                          <!--" "-->
+                          " more"
+                      <li aria-setsize="5" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Han, Chunjia)">
+                          <span itemprop="name">
+                            "Han  Chunjia"
+                      <li aria-setsize="5" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Li, Y.)">
+                          <span itemprop="name">
+                            "Li  Y."
+                      <li aria-setsize="5" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                        <a class="styles-link-ezM5z" href="/search?q=author:(Shang, W.-L.)">
+                          <span itemprop="name">
+                            "Shang  W.-L."
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-758485265-venue-title">
+                    "Publication venue"
+                  <dd aria-labelledby="search-output-758485265-venue-title">
+                    "Elsevier"
+                <div class="metadata-list-group-1lOSg">
+                  <dt id="search-output-758485265-publication-date-title">
+                    "Publication date"
+                  <dd aria-labelledby="search-output-758485265-publication-date-title" itemprop="datePublished">
+                    "2027"
+                <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                  <dt id="search-output-758485265-field-title">
+                    "Field of study"
+                  <dd aria-labelledby="search-output-758485265-field-title" itemprop="about">
+              <figure class="styles-thumbnail-1xurx">
+                <a>
+                  <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/758485265/medium">
+                  <span class="styles-thumbnail-caption-2Qdvz">
+                    "No full text"
+              <div class="styles-content-35LN7" itemprop="abstract">
+                <span>
+                  <len=1337 sha256=df43db15f6730cee "Amid the rapid reconfiguration of the global cli"...>
+              <div class="styles-footnote-2WLsl">
+            <nav aria-label="Pagination Navigation" class="styles_pagination" role="navigation">
+              <div>
+                <span class="styles_result-stats styles_result-stats">
+                  "Showing "
+                  <!--" "-->
+                  "1"
+                  <!--" "-->
+                  "-"
+                  <!--" "-->
+                  "10"
+                  <!--" "-->
+                  " of "
+                  <!--" "-->
+                  "30,950"
+              <div class="styles_arrow-pagination">
+                <div>
+                  <a aria-disabled="true" aria-label="First" class="button-button-3fr3r button-text-2Jjil styles_arrow styles_disabled" href="/data-providers/8/?offset=0" title="Navigate to the first page">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-double-left">
+                  <a aria-disabled="true" aria-label="Previous" class="button-button-3fr3r button-text-2Jjil styles_arrow styles_disabled" href="/data-providers/8/?offset=0" title="Navigate to the previous page">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-left">
+                  <a aria-disabled="false" aria-label="Next" class="button-button-3fr3r button-text-2Jjil styles_arrow" href="/data-providers/8/?offset=10" title="Navigate to the next page">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-right">
+                  <a aria-disabled="false" aria-label="Last" class="button-button-3fr3r button-text-2Jjil styles_arrow" href="/data-providers/8/?offset=30950" title="Navigate to the last page">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-double-right">
+          <div class="styles_sidebar" tag="aside">
+            <div>
+              <h3 class="styles_data-sources">
+                "Data sources:"
+              <div class="styles_sources-wrapper">
+                <a class="styles_source-item styles_active-item" href="/data-providers/8">
+                  <img alt="arrowRight" src=<len=350 sha256=cd02e02076957940 "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cD"...>>
+                  <span class="styles_source-title" title="Birkbeck Institutional Research Online">
+                    "Birkbeck Institutional Research Online"
+            <div class="card-container-11P0y card-elevated-1Clhn styles_meta">
+              <div class="styles_boxes">
+                <div class="styles_box-item">
+                  <h1 class="card-title-2rvi9 styles_count">
+                    "11,194"
+                  <span class="styles_caption">
+                    "full texts"
+                <div class="styles_box-item">
+                  <h1 class="card-title-2rvi9 styles_count">
+                    "30,950"
+                  <span class="styles_caption">
+                    "metadata records"
+              <div class="styles_update-date">
+                "Updated in last 30 days."
+            <figure class="card-container-11P0y card-elevated-1Clhn styles_card styles_map-card">
+              <div class="styles_container styles_map">
+              <figcaption class="styles_map-caption">
+                "Birkbeck Institutional Research Online"
+                <!--" "-->
+                " is based in "
+                <!--" "-->
+                "United Kingdom"
+            <div class="card-container-11P0y card-elevated-1Clhn styles_claim-card styles_card">
+              <div class="styles_card-title">
+                "Access Repository Dashboard"
+              <div>
+                "Do you manage "
+                <!--" "-->
+                "Birkbeck Institutional Research Online"
+                <!--" "-->
+                "? Access insider analytics, issue reports and manage access to outputs from your repository in the"
+                <!--" "-->
+                " "
+                <a class="styles_link-underline" href="https://core.ac.uk/services/repository-dashboard" rel="noreferrer" target="_blank">
+                  "CORE Repository Dashboard!"
+                <span aria-hidden="true" role="img">
+                  "👇"
+              <div class="styles_claim-card-actions">
+                <button class="button-button-3fr3r button-contained-pmIp- styles_claim-card-action">
+                  "SIGN IN"
+                <button class="button-button-3fr3r button-text-2Jjil styles_claim-card-action">
+                  "Create account"
+      <footer class="footer-footer-7joNV" id="footer">
+        <div class="footer-container-1XrUr">
+          <div class="footer-section-logos-1_Ejr">
+            <div class="footer-logos-28CCb">
+              <a href="https://core.ac.uk">
+                <svg aria-label="core logo" class="icon-icon-35iz- footer-footer-main-logo-1jMdX" height="24" role="img" width="24">
+                  <use href="/static/search/icons.svg#coreLogo">
+            <p>
+              "CORE (COnnecting REpositories) is a not-for-profit service supported by"
+              <!--" "-->
+              " "
+              <a href="https://core.ac.uk/governance/supporters#membership-list">
+                <span>
+                  "CORE Members."
+          <menu class="footer-menu-2JIRS">
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Product"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/services">
+                    "Services"
+                <li class="footer-item-1F33t">
+                  <a href="/membership">
+                    "Membership"
+                <li class="footer-item-1F33t">
+                  <a href="/sponsorship">
+                    "Sponsorship"
+                <li class="footer-item-1F33t">
+                  <a href="/innovations/labs">
+                    "Labs"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Organisation"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/about">
+                    "About us"
+                <li class="footer-item-1F33t">
+                  <a href="/about#our-mission">
+                    "Governance"
+                <li class="footer-item-1F33t">
+                  <a href="/about#team">
+                    "Team"
+                <li class="footer-item-1F33t">
+                  <a href="/benefits">
+                    "Data providers"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Support"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/terms">
+                    "Terms"
+                <li class="footer-item-1F33t">
+                  <a href="/faq">
+                    "FAQs"
+                <li class="footer-item-1F33t">
+                  <a href="https://blog.core.ac.uk/">
+                    "Blog"
+                <li class="footer-item-1F33t">
+                  <a href="/about#contact">
+                    "Contact us"
+          <div class="footer-section-card-3esBH">
+            <div class="footer-card-1yZdd">
+              <div>
+                <h6 class="footer-card-title-3Uaog">
+                  "Writing about CORE?"
+                <p class="footer-card-desc-30YMW">
+                  "Discover our"
+                  <!--" "-->
+                  " "
+                  <a href="/about/research-outputs">
+                    "research outputs"
+                  " and cite our work."
+                " "
+              <svg aria-label="writing" class="icon-icon-35iz- footer-card-img-o-6kR" height="24" role="img" width="24">
+                <use href="/static/search/icons.svg#writing">
+            <div class="footer-contact-wrapper-17ZHP">
+              <span class="footer-contact-2b5lt">
+                "Follow us:"
+              <div class="footer-footer-icons-2NPaF">
+                <a href="https://twitter.com/oacore" target="_blank">
+                  <svg aria-label="twitter" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#twitter">
+                <a href="https://www.linkedin.com/company/coreoa" target="_blank">
+                  <svg aria-label="linkedin" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#linkedin">
+                <a href="https://github.com/oacore" target="_blank">
+                  <svg aria-label="github" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#github">
+        <div class="footer-bottom-3E5D_">
+          <a class="footer-bottom-link-PaLMR" href="/accessibility">
+            "Accessibility"
+          <a class="footer-bottom-link-PaLMR" href="/cookies">
+            "Cookies"
+          <a class="footer-bottom-link-PaLMR" href="/privacy">
+            "Privacy"
+  <script next-owned="__NEXT_DATA__">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">

@@ -1,0 +1,815 @@
+<body>
+  <div id="__next">
+    <div class="styles_container">
+      <header class="styles-container-2d0MF styles-container-1KefU styles_header" id="header">
+        <div class="styles-item-1WhX8 styles-logo-container-261sh">
+          <a class="styles-logo-link-3SQhe" href="https://core.ac.uk/">
+            <span class="logo-logo-wCAGq styles-logo-3C3lk">
+              <svg aria-label="CORE" class="icon-icon-35iz- logo-logo-icon-1JnTB" height="24" role="img" width="18">
+                <use href="/static/search/icons.svg#core-symbol">
+              "CORE"
+            <div class="styles-separator-3Hkfn">
+            <div class="styles-peace-1CGQO">
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "CO"
+                "nnecting"
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "RE"
+                "positories"
+        <div class="styles-item-1WhX8 styles-toggle-container-3kw9N">
+          <button aria-controls="header-nav" aria-expanded="false" aria-label="Toggle navigation" class="button-button-3fr3r button-text-2Jjil styles-toggle-button-3MDvL" type="button">
+            <svg aria-hidden="true" aria-label="Menu icon" class="icon-icon-35iz-" height="24" role="img" width="24">
+              <use href="/static/search/icons.svg#menu">
+        <nav class="styles-item-1WhX8 styles-nav-1DaTS" id="header-nav">
+          <div class="styles-menu-2MrzW styles-services-menu-3Y6g_">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="services-title" role="button">
+              "Services"
+            <ul aria-labelledby="services-title" class="styles-menu-list-2qL0f">
+              <li class="styles-item-34TYT styles-services-overview-item-9AF_0">
+                <a class="styles-item-link--QpIs" href="/services">
+                  <img alt="" src=<len=34345 sha256=a0b9ceaf15f270fe "data:image/svg+xml,<svg viewBox=\"0 0 12953 10812"...>>
+                  <span class="styles-services-overview-item-label-2qM2Y">
+                    "Services overview"
+                  <span class="styles-services-overview-item-description-1SQ-o">
+                    "Explore all CORE services"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="access-to-raw-data-title">
+                  "Access to raw data"
+                <ul aria-labelledby="access-to-raw-data-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/api">
+                      "API"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/dataset">
+                      "Dataset"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fastsync">
+                      "FastSync"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="content-discovery-title">
+                  "Content discovery"
+                <ul aria-labelledby="content-discovery-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/recommender">
+                      "Recommender"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/discovery">
+                      "Discovery"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="oai-resolver-title">
+                  "OAI identifiers"
+                <ul aria-labelledby="oai-resolver-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/documentation/oai-resolver">
+                      "OAI Resolver"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="managing-content-title">
+                  "Managing content"
+                <ul aria-labelledby="managing-content-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/repository-dashboard">
+                      "Dashboard"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fair-certification">
+                      "FAIR Certification"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="contracts-title">
+                  "Bespoke contracts"
+                <ul aria-labelledby="contracts-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/consultancy">
+                      "Consultancy services"
+          <div class="styles-menu-2MrzW styles-communities-menu-3a1Ao">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="communities-title" role="button">
+              "Support us"
+            <ul aria-labelledby="communities-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T styles-support-menu-36qjb">
+                <h3 class="styles-group-title-1v3Na" id="membership-title">
+                  "Support us"
+                <ul aria-labelledby="membership-title" class="styles-group-list-37aX1">
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/membership">
+                    <span>
+                      "Membership"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/sponsorship">
+                    <span>
+                      "Sponsorship"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/governance/research">
+                    <span>
+                      "Research partnership"
+          <div class="styles-menu-2MrzW styles-about-menu-3ZQZB">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="about-title" role="button">
+              "About"
+            <ul aria-labelledby="about-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="about-title">
+                  "About"
+                <ul aria-labelledby="about-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about">
+                      "About us"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#mission">
+                      "Our mission"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#team">
+                      "Team"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="//blog.core.ac.uk">
+                      "Blog"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/faq">
+                      "FAQs"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#contact">
+                      "Contact us"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="community-title">
+                  "Community governance"
+                <ul aria-labelledby="community-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance">
+                      "Governance"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/advisory">
+                      "Advisory Board"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/supporters">
+                      "Board of supporters"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/research">
+                      "Research network"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="innovations-title">
+                  "Innovations"
+                <ul aria-labelledby="innovations-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about/research-outputs">
+                      "Our research"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/innovations/labs">
+                      "Labs"
+      <main class="styles_main">
+        <div>
+          <div class="styles_container">
+            <button class="button-button-3fr3r button-text-2Jjil styles_button styles_toggle-button" type="button">
+              "Filters"
+            <ul class="styles_bar">
+          <div class="styles_container styles_layout styles_search">
+            <div class="styles_main">
+              <div class="styles_header">
+                <p>
+                  "1,956,781"
+                  <!--" "-->
+                  " research outputs found"
+                <div class="styles_action-buttons">
+                  <div>
+                    <button class="button-button-3fr3r button-text-2Jjil styles_action-button" type="button">
+                      <svg class="icon-icon-35iz- styles_action-icon" height="24" role="img" width="24">
+                        <use href="/static/search/icons.svg#download">
+                  <div>
+                    <button class="button-button-3fr3r button-text-2Jjil styles_action-button" type="button">
+                      <svg class="icon-icon-35iz- styles_action-icon" height="24" role="img" width="24">
+                        <use href="/static/search/icons.svg#share-variant">
+                <span class="styles_solid">
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-80231700" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/80231700/?t=4c40c26125fce3f4ed314570a8f9b337-80231700&search=q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26">
+                      <span>
+                        "An Analysis of the Relationship Between School-Based Management/shared Decision Making and School Climate"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-80231700-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-80231700-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Perry, Carol Yvonne Worsham)&t=4c40c26125fce3f4ed314570a8f9b337-80231700">
+                            <span itemprop="name">
+                              "Perry  Carol Yvonne Worsham"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-80231700-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-80231700-venue-title">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-80231700-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-80231700-publication-date-title" itemprop="datePublished">
+                      "10000"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-80231700-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-80231700-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/80231700/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=952 sha256=04be39138f03d6db "214 p.Thesis (Ph.D.)--University of Illinois at "...>
+                <div class="styles-footnote-2WLsl">
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-80234289" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/80234289/?t=4c40c26125fce3f4ed314570a8f9b337-80234289&search=q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26">
+                      <span>
+                        "Modeling Hydrological Response to Potential Climate Change and Urbanization in the Kishwaukee River Basin"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-80234289-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-80234289-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Choi, Woonsup)&t=4c40c26125fce3f4ed314570a8f9b337-80234289">
+                            <span itemprop="name">
+                              "Choi  Woonsup"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-80234289-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-80234289-venue-title">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-80234289-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-80234289-publication-date-title" itemprop="datePublished">
+                      "10000"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-80234289-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-80234289-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/80234289/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=2198 sha256=39d71bd1bcc1e4c3 "210 p.Thesis (Ph.D.)--University of Illinois at "...>
+                <div class="styles-footnote-2WLsl">
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-27467543" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/27467543/?t=4c40c26125fce3f4ed314570a8f9b337-27467543&search=q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26">
+                      <span>
+                        "Land use and climate change controls on recharge, northern High Plains aquifer, USA"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-27467543-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-27467543-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Lauffenburger, Zachary Howard)&t=4c40c26125fce3f4ed314570a8f9b337-27467543">
+                            <span itemprop="name">
+                              "Lauffenburger  Zachary Howard"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-27467543-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-27467543-venue-title">
+                      "San Francisco State University"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-27467543-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-27467543-publication-date-title" itemprop="datePublished">
+                      "10000"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-27467543-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-27467543-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/27467543/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=1532 sha256=59d2500fea5a7c0f "Understanding the controls of land use/land cove"...>
+                <div class="styles-footnote-2WLsl">
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-11556528" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/11556528/?t=4c40c26125fce3f4ed314570a8f9b337-11556528&search=q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26">
+                      <span>
+                        "Variability of temperature and chlorophyll of the Iberian Peninsula near costal ecosystem during an upwelling event for the present climate and a future climate scenario"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-11556528-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-11556528-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Rocha, Alfredo C.)&t=4c40c26125fce3f4ed314570a8f9b337-11556528">
+                            <span itemprop="name">
+                              "Rocha  Alfredo C."
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Ferreira, Juan A.)&t=4c40c26125fce3f4ed314570a8f9b337-11556528">
+                            <span itemprop="name">
+                              "Ferreira  Juan A."
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Lopes, José F.)&t=4c40c26125fce3f4ed314570a8f9b337-11556528">
+                            <span itemprop="name">
+                              "Lopes  José F."
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Cardoso, Ana Cristina)&t=4c40c26125fce3f4ed314570a8f9b337-11556528">
+                            <span itemprop="name">
+                              "Cardoso  Ana Cristina"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-11556528-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-11556528-venue-title">
+                      "Elsevier"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-11556528-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-11556528-publication-date-title" itemprop="datePublished">
+                      "10000"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-11556528-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-11556528-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/11556528/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=1997 sha256=7612f53d955fd95c "Understanding the importance and the implication"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/4786?t=4c40c26125fce3f4ed314570a8f9b337-11556528">
+                      <span itemprop="name">
+                        "Crossref"
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/580?t=4c40c26125fce3f4ed314570a8f9b337-11556528">
+                      <span itemprop="name">
+                        "Repositório Institucional da Universidade de Aveiro"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-80233820" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/80233820/?t=4c40c26125fce3f4ed314570a8f9b337-80233820&search=q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26">
+                      <span>
+                        "Influence of Climate Variability on Terrestrial Hydrology in North America"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-80233820-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-80233820-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Chen, Ji)&t=4c40c26125fce3f4ed314570a8f9b337-80233820">
+                            <span itemprop="name">
+                              "Chen  Ji"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-80233820-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-80233820-venue-title">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-80233820-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-80233820-publication-date-title" itemprop="datePublished">
+                      "10000"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-80233820-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-80233820-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/80233820/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=1204 sha256=0ede4a462785f212 "218 p.Thesis (Ph.D.)--University of Illinois at "...>
+                <div class="styles-footnote-2WLsl">
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-11485299" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/11485299/?t=4c40c26125fce3f4ed314570a8f9b337-11485299&search=q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26">
+                      <span>
+                        "Fire weather risk assessment under climate change using a dynamical downscaling approach"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-11485299-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-11485299-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li aria-setsize="8" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Carvalho, A.)&t=4c40c26125fce3f4ed314570a8f9b337-11485299">
+                            <span itemprop="name">
+                              "Carvalho  A."
+                        <li aria-setsize="8" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Marques, C.)&t=4c40c26125fce3f4ed314570a8f9b337-11485299">
+                            <span itemprop="name">
+                              "Marques  C."
+                        <li aria-setsize="8" class="expandable-list-show-more-2ndlc">
+                          <button class="button-button-3fr3r button-text-2Jjil" title="Show more">
+                            "+"
+                            <!--" "-->
+                            "6"
+                            <!--" "-->
+                            " more"
+                        <li aria-setsize="8" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Martins, H.)&t=4c40c26125fce3f4ed314570a8f9b337-11485299">
+                            <span itemprop="name">
+                              "Martins  H."
+                        <li aria-setsize="8" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Borrego, C.)&t=4c40c26125fce3f4ed314570a8f9b337-11485299">
+                            <span itemprop="name">
+                              "Borrego  C."
+                        <li aria-setsize="8" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Rocha, A.)&t=4c40c26125fce3f4ed314570a8f9b337-11485299">
+                            <span itemprop="name">
+                              "Rocha  A."
+                        <li aria-setsize="8" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Carvalho, A. C.)&t=4c40c26125fce3f4ed314570a8f9b337-11485299">
+                            <span itemprop="name">
+                              "Carvalho  A. C."
+                        <li aria-setsize="8" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Miranda, A. I.)&t=4c40c26125fce3f4ed314570a8f9b337-11485299">
+                            <span itemprop="name">
+                              "Miranda  A. I."
+                        <li aria-setsize="8" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Viegas, D. X.)&t=4c40c26125fce3f4ed314570a8f9b337-11485299">
+                            <span itemprop="name">
+                              "Viegas  D. X."
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-11485299-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-11485299-venue-title">
+                      "Elsevier"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-11485299-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-11485299-publication-date-title" itemprop="datePublished">
+                      "10000"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-11485299-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-11485299-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/11485299/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=2482 sha256=b555fe1a5b6bd79e "Results from general circulation models suggest "...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/580?t=4c40c26125fce3f4ed314570a8f9b337-11485299">
+                      <span itemprop="name">
+                        "Repositório Institucional da Universidade de Aveiro"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-80224613" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/80224613/?t=4c40c26125fce3f4ed314570a8f9b337-80224613&search=q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26">
+                      <span>
+                        "The effects of data aggregation on econometric estimates of climate change impact on corn and soybean production in the Midwest"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-80224613-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-80224613-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Park, Wayne Ivan)&t=4c40c26125fce3f4ed314570a8f9b337-80224613">
+                            <span itemprop="name">
+                              "Park  Wayne Ivan"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-80224613-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-80224613-venue-title">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-80224613-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-80224613-publication-date-title" itemprop="datePublished">
+                      "10000"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-80224613-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-80224613-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/80224613/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    "Climatologists have attempted to predict changes in regional climate patterns caused by increasing levels of CO"
+                    <span>
+                      "\\sb2"
+                    <len=2067 sha256=a8019db674cf477b " and other trace gases in the atmosphere. Althou"...>
+                <div class="styles-footnote-2WLsl">
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-27467818" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/27467818/?t=4c40c26125fce3f4ed314570a8f9b337-27467818&search=q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26">
+                      <span>
+                        "Effects of climate change on the prevalence of avian malaria in Alaska"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-27467818-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-27467818-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Wilkinson, Laura Christine)&t=4c40c26125fce3f4ed314570a8f9b337-27467818">
+                            <span itemprop="name">
+                              "Wilkinson  Laura Christine"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-27467818-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-27467818-venue-title">
+                      "San Francisco State University"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-27467818-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-27467818-publication-date-title" itemprop="datePublished">
+                      "10000"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-27467818-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-27467818-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/27467818/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=1605 sha256=87d28867e96494b3 "Parasite prevalence is widely influenced by biol"...>
+                <div class="styles-footnote-2WLsl">
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-361023302" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/361023302/?t=4c40c26125fce3f4ed314570a8f9b337-361023302&search=q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26">
+                      <span>
+                        "Groundwater management in transboundary watersheds: vulnerability, environmental risk and climate changes"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-361023302-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-361023302-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Antunes, Isabel Margarida Horta Ribeiro)&t=4c40c26125fce3f4ed314570a8f9b337-361023302">
+                            <span itemprop="name">
+                              "Antunes  Isabel Margarida Horta Ribeiro"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-361023302-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-361023302-venue-title">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-361023302-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-361023302-publication-date-title" itemprop="datePublished">
+                      "10000"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-361023302-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-361023302-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/361023302/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    "Apresentação efetuada no &quot;Two days International Workshop on Climate Change Impacts on Groundwater Quality and Health Issues&quot;, na India (on-line), 202"
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/2274?t=4c40c26125fce3f4ed314570a8f9b337-361023302">
+                      <span itemprop="name">
+                        "Universidade do Minho: RepositoriUM"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-6490824" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/6490824/?t=4c40c26125fce3f4ed314570a8f9b337-6490824&search=q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26">
+                      <span>
+                        "The impact of spatial resolution on area burned and fire occurrence projections in Portugal under climate change"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-6490824-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-6490824-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li aria-setsize="6" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Miranda, Ana)&t=4c40c26125fce3f4ed314570a8f9b337-6490824">
+                            <span itemprop="name">
+                              "Miranda  Ana"
+                        <li aria-setsize="6" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Flannigan, Mike)&t=4c40c26125fce3f4ed314570a8f9b337-6490824">
+                            <span itemprop="name">
+                              "Flannigan  Mike"
+                        <li aria-setsize="6" class="expandable-list-show-more-2ndlc">
+                          <button class="button-button-3fr3r button-text-2Jjil" title="Show more">
+                            "+"
+                            <!--" "-->
+                            "4"
+                            <!--" "-->
+                            " more"
+                        <li aria-setsize="6" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Logan, Kim)&t=4c40c26125fce3f4ed314570a8f9b337-6490824">
+                            <span itemprop="name">
+                              "Logan  Kim"
+                        <li aria-setsize="6" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Gowman, Lynn)&t=4c40c26125fce3f4ed314570a8f9b337-6490824">
+                            <span itemprop="name">
+                              "Gowman  Lynn"
+                        <li aria-setsize="6" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Carvalho, Anabela)&t=4c40c26125fce3f4ed314570a8f9b337-6490824">
+                            <span itemprop="name">
+                              "Carvalho  Anabela"
+                        <li aria-setsize="6" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Borrego, Carlos)&t=4c40c26125fce3f4ed314570a8f9b337-6490824">
+                            <span itemprop="name">
+                              "Borrego  Carlos"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-6490824-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-6490824-venue-title">
+                      "Springer"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-6490824-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-6490824-publication-date-title" itemprop="datePublished">
+                      "10000"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-6490824-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-6490824-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/6490824/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=851 sha256=d2a8d5719b98b92f "In this study, we investigated the impact of fut"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/4786?t=4c40c26125fce3f4ed314570a8f9b337-6490824">
+                      <span itemprop="name">
+                        "Crossref"
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/580?t=4c40c26125fce3f4ed314570a8f9b337-6490824">
+                      <span itemprop="name">
+                        "Repositório Institucional da Universidade de Aveiro"
+              <ul class="styles_pagination">
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-left">
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    "1"
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item styles_pagination-item-active">
+                    "2"
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    "3"
+                <li class="styles_pagination-dots">
+                  "…"
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    "last"
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-right">
+            <div class="styles_sidebar" tag="aside">
+              <a class="styles_logo" href="https://core.ac.uk/data-providers/86" rel="noopener noreferrer" target="_blank">
+                <div class="styles_member-info">
+                  <span class="styles_member-badge">
+                    "CORE membership"
+                  <div class="styles_member-body">
+                    <div class="styles_repository-logo-wrap">
+                      <img alt="Open University (ORO)" class="styles_repository-logo" src="https://api.core.ac.uk/data-providers/86/logo">
+                    <div class="styles_member-meta">
+                      <p class="styles_member-billing-type">
+                        "Sustaining"
+                        <!--" "-->
+                        " member"
+                      <p class="styles_organisation-name">
+                        "Open University (ORO)"
+              <a class="styles_logo" href="https://www.core.ac.uk" rel="noopener noreferrer" target="_blank">
+                <img alt="core" class="styles_sidebar-image" src="/static/search/_next/static/images/CoreB-ed256ea8a1c9661ee748e8203dc4296b.png">
+      <footer class="footer-footer-7joNV" id="footer">
+        <div class="footer-container-1XrUr">
+          <div class="footer-section-logos-1_Ejr">
+            <div class="footer-logos-28CCb">
+              <a href="https://core.ac.uk">
+                <svg aria-label="core logo" class="icon-icon-35iz- footer-footer-main-logo-1jMdX" height="24" role="img" width="24">
+                  <use href="/static/search/icons.svg#coreLogo">
+            <p>
+              "CORE (COnnecting REpositories) is a not-for-profit service supported by"
+              <!--" "-->
+              " "
+              <a href="https://core.ac.uk/governance/supporters#membership-list">
+                <span>
+                  "CORE Members."
+          <menu class="footer-menu-2JIRS">
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Product"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/services">
+                    "Services"
+                <li class="footer-item-1F33t">
+                  <a href="/membership">
+                    "Membership"
+                <li class="footer-item-1F33t">
+                  <a href="/sponsorship">
+                    "Sponsorship"
+                <li class="footer-item-1F33t">
+                  <a href="/innovations/labs">
+                    "Labs"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Organisation"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/about">
+                    "About us"
+                <li class="footer-item-1F33t">
+                  <a href="/about#our-mission">
+                    "Governance"
+                <li class="footer-item-1F33t">
+                  <a href="/about#team">
+                    "Team"
+                <li class="footer-item-1F33t">
+                  <a href="/benefits">
+                    "Data providers"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Support"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/terms">
+                    "Terms"
+                <li class="footer-item-1F33t">
+                  <a href="/faq">
+                    "FAQs"
+                <li class="footer-item-1F33t">
+                  <a href="https://blog.core.ac.uk/">
+                    "Blog"
+                <li class="footer-item-1F33t">
+                  <a href="/about#contact">
+                    "Contact us"
+          <div class="footer-section-card-3esBH">
+            <div class="footer-card-1yZdd">
+              <div>
+                <h6 class="footer-card-title-3Uaog">
+                  "Writing about CORE?"
+                <p class="footer-card-desc-30YMW">
+                  "Discover our"
+                  <!--" "-->
+                  " "
+                  <a href="/about/research-outputs">
+                    "research outputs"
+                  " and cite our work."
+                " "
+              <svg aria-label="writing" class="icon-icon-35iz- footer-card-img-o-6kR" height="24" role="img" width="24">
+                <use href="/static/search/icons.svg#writing">
+            <div class="footer-contact-wrapper-17ZHP">
+              <span class="footer-contact-2b5lt">
+                "Follow us:"
+              <div class="footer-footer-icons-2NPaF">
+                <a href="https://twitter.com/oacore" target="_blank">
+                  <svg aria-label="twitter" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#twitter">
+                <a href="https://www.linkedin.com/company/coreoa" target="_blank">
+                  <svg aria-label="linkedin" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#linkedin">
+                <a href="https://github.com/oacore" target="_blank">
+                  <svg aria-label="github" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#github">
+        <div class="footer-bottom-3E5D_">
+          <a class="footer-bottom-link-PaLMR" href="/accessibility">
+            "Accessibility"
+          <a class="footer-bottom-link-PaLMR" href="/cookies">
+            "Cookies"
+          <a class="footer-bottom-link-PaLMR" href="/privacy">
+            "Privacy"
+  <script next-owned="__NEXT_DATA__">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">

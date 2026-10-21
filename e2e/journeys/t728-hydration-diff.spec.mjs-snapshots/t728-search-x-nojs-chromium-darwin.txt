@@ -1,0 +1,863 @@
+<body>
+  <div id="__next">
+    <div class="styles_container">
+      <header class="styles-container-2d0MF styles-container-1KefU styles_header" id="header">
+        <div class="styles-item-1WhX8 styles-logo-container-261sh">
+          <a class="styles-logo-link-3SQhe" href="https://core.ac.uk/">
+            <span class="logo-logo-wCAGq styles-logo-3C3lk">
+              <svg aria-label="CORE" class="icon-icon-35iz- logo-logo-icon-1JnTB" height="24" role="img" width="18">
+                <use href="/static/search/icons.svg#core-symbol">
+              "CORE"
+            <div class="styles-separator-3Hkfn">
+            <div class="styles-peace-1CGQO">
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "CO"
+                "nnecting"
+              <div class="styles-item-wrapper-3TY65">
+                <span class="styles-indicator-3zUpD">
+                  "RE"
+                "positories"
+        <div class="styles-item-1WhX8 styles-toggle-container-3kw9N">
+          <button aria-controls="header-nav" aria-expanded="false" aria-label="Toggle navigation" class="button-button-3fr3r button-text-2Jjil styles-toggle-button-3MDvL" type="button">
+            <svg aria-hidden="true" aria-label="Menu icon" class="icon-icon-35iz-" height="24" role="img" width="24">
+              <use href="/static/search/icons.svg#menu">
+        <nav class="styles-item-1WhX8 styles-nav-1DaTS" id="header-nav">
+          <div class="styles-menu-2MrzW styles-services-menu-3Y6g_">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="services-title" role="button">
+              "Services"
+            <ul aria-labelledby="services-title" class="styles-menu-list-2qL0f">
+              <li class="styles-item-34TYT styles-services-overview-item-9AF_0">
+                <a class="styles-item-link--QpIs" href="/services">
+                  <img alt="" src=<len=34345 sha256=a0b9ceaf15f270fe "data:image/svg+xml,<svg viewBox=\"0 0 12953 10812"...>>
+                  <span class="styles-services-overview-item-label-2qM2Y">
+                    "Services overview"
+                  <span class="styles-services-overview-item-description-1SQ-o">
+                    "Explore all CORE services"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="access-to-raw-data-title">
+                  "Access to raw data"
+                <ul aria-labelledby="access-to-raw-data-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/api">
+                      "API"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/dataset">
+                      "Dataset"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fastsync">
+                      "FastSync"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="content-discovery-title">
+                  "Content discovery"
+                <ul aria-labelledby="content-discovery-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/recommender">
+                      "Recommender"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/discovery">
+                      "Discovery"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="oai-resolver-title">
+                  "OAI identifiers"
+                <ul aria-labelledby="oai-resolver-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/documentation/oai-resolver">
+                      "OAI Resolver"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="managing-content-title">
+                  "Managing content"
+                <ul aria-labelledby="managing-content-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/repository-dashboard">
+                      "Dashboard"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/fair-certification">
+                      "FAIR Certification"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="contracts-title">
+                  "Bespoke contracts"
+                <ul aria-labelledby="contracts-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/services/consultancy">
+                      "Consultancy services"
+          <div class="styles-menu-2MrzW styles-communities-menu-3a1Ao">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="communities-title" role="button">
+              "Support us"
+            <ul aria-labelledby="communities-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T styles-support-menu-36qjb">
+                <h3 class="styles-group-title-1v3Na" id="membership-title">
+                  "Support us"
+                <ul aria-labelledby="membership-title" class="styles-group-list-37aX1">
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/membership">
+                    <span>
+                      "Membership"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/sponsorship">
+                    <span>
+                      "Sponsorship"
+                  <a class="button-button-3fr3r button-contained-pmIp- styles-member-menu-item-tvwnB" href="/governance/research">
+                    <span>
+                      "Research partnership"
+          <div class="styles-menu-2MrzW styles-about-menu-3ZQZB">
+            <button aria-expanded="false" aria-haspopup="true" class="button-button-3fr3r button-text-2Jjil styles-menu-title-zh5md" id="about-title" role="button">
+              "About"
+            <ul aria-labelledby="about-title" class="styles-menu-list-2qL0f">
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="about-title">
+                  "About"
+                <ul aria-labelledby="about-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about">
+                      "About us"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#mission">
+                      "Our mission"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#team">
+                      "Team"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="//blog.core.ac.uk">
+                      "Blog"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/faq">
+                      "FAQs"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about#contact">
+                      "Contact us"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="community-title">
+                  "Community governance"
+                <ul aria-labelledby="community-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance">
+                      "Governance"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/advisory">
+                      "Advisory Board"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/supporters">
+                      "Board of supporters"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/governance/research">
+                      "Research network"
+              <li class="styles-group-3_h4T">
+                <h3 class="styles-group-title-1v3Na" id="innovations-title">
+                  "Innovations"
+                <ul aria-labelledby="innovations-title" class="styles-group-list-37aX1">
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/about/research-outputs">
+                      "Our research"
+                  <li class="styles-item-34TYT">
+                    <a class="styles-item-link--QpIs" href="/innovations/labs">
+                      "Labs"
+      <main class="styles_main">
+        <div>
+          <div class="styles_container">
+            <button class="button-button-3fr3r button-text-2Jjil styles_button styles_toggle-button" type="button">
+              "Filters"
+            <ul class="styles_bar">
+          <div class="styles_container styles_layout styles_search">
+            <div class="styles_main">
+              <div class="styles_header">
+                <p>
+                  "5,619,331"
+                  <!--" "-->
+                  " research outputs found"
+                <div class="styles_action-buttons">
+                  <div>
+                    <button class="button-button-3fr3r button-text-2Jjil styles_action-button" type="button">
+                      <svg class="icon-icon-35iz- styles_action-icon" height="24" role="img" width="24">
+                        <use href="/static/search/icons.svg#download">
+                  <div>
+                    <button class="button-button-3fr3r button-text-2Jjil styles_action-button" type="button">
+                      <svg class="icon-icon-35iz- styles_action-icon" height="24" role="img" width="24">
+                        <use href="/static/search/icons.svg#share-variant">
+                <span class="styles_solid">
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-148204186" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/148204186/?t=c8682877689bc9c9fef37d8ba61c8b86-148204186&search=q=x">
+                      <span>
+                        "x"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-148204186-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-148204186-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(x)&t=c8682877689bc9c9fef37d8ba61c8b86-148204186">
+                            <span itemprop="name">
+                              "x"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-148204186-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-148204186-venue-title">
+                      "x"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-148204186-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-148204186-publication-date-title" itemprop="datePublished">
+                      "04/07/2015"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-148204186-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-148204186-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/148204186/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/324?t=c8682877689bc9c9fef37d8ba61c8b86-148204186">
+                      <span itemprop="name">
+                        "ZENODO"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-337605194" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/337605194/?t=c8682877689bc9c9fef37d8ba61c8b86-337605194&search=q=x">
+                      <span>
+                        "X : X"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-337605194-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-337605194-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(X)&t=c8682877689bc9c9fef37d8ba61c8b86-337605194">
+                            <span itemprop="name">
+                              "X"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-337605194-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-337605194-venue-title">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-337605194-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-337605194-publication-date-title" itemprop="datePublished">
+                      "22/08/2019"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-337605194-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-337605194-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/337605194/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=6036 sha256=41c55e7c588c349f "Orientador :Dissertação (mestrado) - Universidad"...>
+                <div class="styles-footnote-2WLsl">
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey styles-container-recommended-2a9gS styles_search-results" id="work-search-output-7793987" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <div class="styles-text-upper-header-3Z0Zx">
+                  "Recommended from our members"
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/7793987/?t=c8682877689bc9c9fef37d8ba61c8b86-7793987&search=q=x">
+                      <span>
+                        "Enhanced colour encoding of materials discrimination information for multiple view dual-energy x-ray imaging"
+                  <div class="group-group-2Ka5T">
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-7793987-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-7793987-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Wang, X)&t=c8682877689bc9c9fef37d8ba61c8b86-7793987">
+                            <span itemprop="name">
+                              "Wang  X"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-7793987-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-7793987-venue-title">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-7793987-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-7793987-publication-date-title" itemprop="datePublished">
+                      "01/01/2009"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-7793987-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-7793987-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a href="<stack>/download/30624399.pdf">
+                    <img alt="" itemprop="image" loading="lazy" src="<stack>/image/30624399/large">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "Full text link"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=1659 sha256=22e66f5f2d0fcde5 "This thesis reports an investigation into dual-e"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/53?t=c8682877689bc9c9fef37d8ba61c8b86-7793987">
+                      <span itemprop="name">
+                        "Nottingham Trent Institutional Repository (NORA)"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-327200" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/327200/?t=c8682877689bc9c9fef37d8ba61c8b86-327200&search=q=x">
+                      <span>
+                        "CpG islands in human X-inactivation"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-327200-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-327200-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Ke, X.)&t=c8682877689bc9c9fef37d8ba61c8b86-327200">
+                            <span itemprop="name">
+                              "Ke  X."
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Ke, Xiayi)&t=c8682877689bc9c9fef37d8ba61c8b86-327200">
+                            <span itemprop="name">
+                              "Ke  Xiayi"
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Collins, A.)&t=c8682877689bc9c9fef37d8ba61c8b86-327200">
+                            <span itemprop="name">
+                              "Collins  A."
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-327200-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-327200-venue-title">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-327200-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-327200-publication-date-title" itemprop="datePublished">
+                      "2003"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-327200-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-327200-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/327200/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=1271 sha256=7434f2c7de4e8341 "Sequence comparison analyses have been carried o"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/34?t=c8682877689bc9c9fef37d8ba61c8b86-327200">
+                      <span itemprop="name">
+                        "Southampton (e-Prints Soton)"
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/234?t=c8682877689bc9c9fef37d8ba61c8b86-327200">
+                      <span itemprop="name">
+                        "The University of Manchester - Institutional Repository"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-70057142" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/70057142/?t=c8682877689bc9c9fef37d8ba61c8b86-70057142&search=q=x">
+                      <span>
+                        "PENENTUAN SENSITIVITAS DETEKTOR SINAR-X  BERBASIS FOTOTRANSISTOR"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-70057142-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-70057142-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Fardela, Ramacos; Teknik Komputer-Sekolah Tinggi Teknologi Payakumbuh)&t=c8682877689bc9c9fef37d8ba61c8b86-70057142">
+                            <span itemprop="name">
+                              "Fardela  Ramacos; Teknik Komputer-Sekolah Tinggi Teknologi Payakumbuh"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-70057142-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-70057142-venue-title">
+                      "LLDIKTI Wilayah X"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-70057142-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-70057142-publication-date-title" itemprop="datePublished">
+                      "14/07/2016"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-70057142-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-70057142-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/70057142/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=1623 sha256=5907c7963c7fd007 "AbstractX-ray interaction with matter can produc"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/5828?t=c8682877689bc9c9fef37d8ba61c8b86-70057142">
+                      <span itemprop="name">
+                        "Koordinasi Perguruan Tinggi Swasta Wilayah X"
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/12372?t=c8682877689bc9c9fef37d8ba61c8b86-70057142">
+                      <span itemprop="name">
+                        "E-Journal Kopertis Wilayah X (Koordinasi Perguruan Tinggi Swasta - Kementerian Riset, Teknologi, dan Pendidikan Tinggi)"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-316387398" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/316387398/?t=c8682877689bc9c9fef37d8ba61c8b86-316387398&search=q=x">
+                      <span>
+                        "Estudios de los hábitos alimentarios y estilo de vida en los estudiantes de la Universidad Alfonso X El Sabio. /"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-316387398-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-316387398-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Muñoz de Mier, Gema)&t=c8682877689bc9c9fef37d8ba61c8b86-316387398">
+                            <span itemprop="name">
+                              "Muñoz de Mier  Gema"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-316387398-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-316387398-venue-title">
+                      "Universidad Alfonso X \"El Sabio\". Facultad de Farmacia,"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-316387398-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-316387398-publication-date-title" itemprop="datePublished">
+                      "01/01/2013"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-316387398-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-316387398-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/316387398/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=319 sha256=59b1b4020dcc8c45 "Tesis de la Universidad Alfonso X \"El sabio\"- Fa"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/22908?t=c8682877689bc9c9fef37d8ba61c8b86-316387398">
+                      <span itemprop="name">
+                        "UAX Archive (Univ. Alfonso X el Sabi)"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey styles_search-results" id="work-search-output-11177556" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/11177556/?t=c8682877689bc9c9fef37d8ba61c8b86-11177556&search=q=x">
+                      <span>
+                        "Time Resolved Two Dimensional X-Ray Densitometry of a Two Phase Flow Downstream of a Ventilated Cavity"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-11177556-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-11177556-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li aria-setsize="9" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(GABILLET, Céline)&t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                            <span itemprop="name">
+                              "GABILLET  Céline"
+                        <li aria-setsize="9" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(PAIK, Bu-Geun)&t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                            <span itemprop="name">
+                              "PAIK  Bu-Geun"
+                        <li aria-setsize="9" class="expandable-list-show-more-2ndlc">
+                          <button class="button-button-3fr3r button-text-2Jjil" title="Show more">
+                            "+"
+                            <!--" "-->
+                            "7"
+                            <!--" "-->
+                            " more"
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(MAKIHARJU, Simo A)&t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                            <span itemprop="name">
+                              "MAKIHARJU  Simo A"
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Ceccio, Steven L.)&t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                            <span itemprop="name">
+                              "Ceccio  Steven L."
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(PERLIN, Marc)&t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                            <span itemprop="name">
+                              "PERLIN  Marc"
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(CHANG, Natasha A)&t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                            <span itemprop="name">
+                              "CHANG  Natasha A"
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Mäkiharju, Simo A.)&t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                            <span itemprop="name">
+                              "Mäkiharju  Simo A."
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Chang, Natasha A.)&t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                            <span itemprop="name">
+                              "Chang  Natasha A."
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(CECCIO, Steven L)&t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                            <span itemprop="name">
+                              "CECCIO  Steven L"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-11177556-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-11177556-venue-title">
+                      "Springer Verlag (Germany)"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-11177556-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-11177556-publication-date-title" itemprop="datePublished">
+                      "01/01/2013"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-11177556-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-11177556-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a href="<stack>/download/29137759.pdf">
+                    <img alt="" itemprop="image" loading="lazy" src="<stack>/image/29137759/large">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "Full text link"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=992 sha256=722b7187f7417353 "To measure the void fraction distribution in gas"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/4786?t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                      <span itemprop="name">
+                        "Crossref"
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/1510?t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                      <span itemprop="name">
+                        "HAL Descartes"
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/621?t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                      <span itemprop="name">
+                        "SAM : Science Arts et Métiers"
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/2973?t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                      <span itemprop="name">
+                        "HAL"
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/15262?t=c8682877689bc9c9fef37d8ba61c8b86-11177556">
+                      <span itemprop="name">
+                        "Oskar Bordeaux"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-401394820" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/401394820/?t=c8682877689bc9c9fef37d8ba61c8b86-401394820&search=q=x">
+                      <span>
+                        "Estudios de los hábitos alimentarios y estilo de vida en los estudiantes de la Universidad Alfonso X El Sabio. /"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-401394820-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-401394820-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Muñoz de Mier, Gema)&t=c8682877689bc9c9fef37d8ba61c8b86-401394820">
+                            <span itemprop="name">
+                              "Muñoz de Mier  Gema"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-401394820-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-401394820-venue-title">
+                      "Universidad Alfonso X \"El Sabio\". Facultad de Farmacia,"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-401394820-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-401394820-publication-date-title" itemprop="datePublished">
+                      "01/01/2013"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-401394820-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-401394820-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/401394820/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=319 sha256=59b1b4020dcc8c45 "Tesis de la Universidad Alfonso X \"El sabio\"- Fa"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/22908?t=c8682877689bc9c9fef37d8ba61c8b86-401394820">
+                      <span itemprop="name">
+                        "UAX Archive (Univ. Alfonso X el Sabi)"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-148187298" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/148187298/?t=c8682877689bc9c9fef37d8ba61c8b86-148187298&search=q=x">
+                      <span>
+                        "Studies of photoreflectance spectra in Cd(1-x)Mn(x)Te/CdTe superlattices with high compositions"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-148187298-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-148187298-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li aria-setsize="9" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(BELLANI, VITTORIO)&t=c8682877689bc9c9fef37d8ba61c8b86-148187298">
+                            <span itemprop="name">
+                              "BELLANI  VITTORIO"
+                        <li aria-setsize="9" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(GEDDO, MARIO)&t=c8682877689bc9c9fef37d8ba61c8b86-148187298">
+                            <span itemprop="name">
+                              "GEDDO  MARIO"
+                        <li aria-setsize="9" class="expandable-list-show-more-2ndlc">
+                          <button class="button-button-3fr3r button-text-2Jjil" title="Show more">
+                            "+"
+                            <!--" "-->
+                            "7"
+                            <!--" "-->
+                            " more"
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Wang X.)&t=c8682877689bc9c9fef37d8ba61c8b86-148187298">
+                            <span itemprop="name">
+                              "Wang X."
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Liang X.)&t=c8682877689bc9c9fef37d8ba61c8b86-148187298">
+                            <span itemprop="name">
+                              "Liang X."
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(STELLA, ANGIOLINO)&t=c8682877689bc9c9fef37d8ba61c8b86-148187298">
+                            <span itemprop="name">
+                              "STELLA  ANGIOLINO"
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Chen C.)&t=c8682877689bc9c9fef37d8ba61c8b86-148187298">
+                            <span itemprop="name">
+                              "Chen C."
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Sassella A.)&t=c8682877689bc9c9fef37d8ba61c8b86-148187298">
+                            <span itemprop="name">
+                              "Sassella A."
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Tavazzi S.)&t=c8682877689bc9c9fef37d8ba61c8b86-148187298">
+                            <span itemprop="name">
+                              "Tavazzi S."
+                        <li aria-setsize="9" class="expandable-list-hide-2DCLG" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(Borghesi A.)&t=c8682877689bc9c9fef37d8ba61c8b86-148187298">
+                            <span itemprop="name">
+                              "Borghesi A."
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-148187298-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-148187298-venue-title">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-148187298-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-148187298-publication-date-title" itemprop="datePublished">
+                      "01/01/2002"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-148187298-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-148187298-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/148187298/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=675 sha256=91d0c42072b55111 "Photoreflectance spectra of Cd(1-x)Mn(x)Te/CdTe "...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/11475?t=c8682877689bc9c9fef37d8ba61c8b86-148187298">
+                      <span itemprop="name">
+                        "Archivio Istituzionale della Ricerca - Università degli Studi di Pavia"
+              <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-missing-itR-a styles_search-results" id="work-search-output-401323267" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
+                <header class="styles-header-13tcI">
+                  <h3 class="styles-title-1k6Ib" itemprop="name">
+                    <a href="<stack>/works/401323267/?t=c8682877689bc9c9fef37d8ba61c8b86-401323267&search=q=x">
+                      <span>
+                        "Acordes arquitectónicos : otra geometría de la proporción y la armonía en la arquitectura"
+                <dl class="metadata-list-list-3uNb8 styles-metadata-list-34iT8">
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-401323267-author-title">
+                      "Author"
+                    <dd aria-labelledby="search-output-401323267-author-title">
+                      <ol aria-label="Author" class="expandable-list-list-2znM0">
+                        <li itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                          <a class="styles-link-ezM5z" href="/search?q=author:(López Sarda, María Luisa)&t=c8682877689bc9c9fef37d8ba61c8b86-401323267">
+                            <span itemprop="name">
+                              "López Sarda  María Luisa"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-401323267-venue-title">
+                      "Publication venue"
+                    <dd aria-labelledby="search-output-401323267-venue-title">
+                      "Facultad Alfonso X El Sabio"
+                  <div class="metadata-list-group-1lOSg">
+                    <dt id="search-output-401323267-publication-date-title">
+                      "Publication date"
+                    <dd aria-labelledby="search-output-401323267-publication-date-title" itemprop="datePublished">
+                      "01/01/2011"
+                  <div class="metadata-list-group-1lOSg metadata-list-empty-1hpLJ">
+                    <dt id="search-output-401323267-field-title">
+                      "Field of study"
+                    <dd aria-labelledby="search-output-401323267-field-title" itemprop="about">
+                <figure class="styles-thumbnail-1xurx">
+                  <a>
+                    <img alt="" itemprop="image" loading="lazy" src="//core.ac.uk/image/401323267/medium">
+                    <span class="styles-thumbnail-caption-2Qdvz">
+                      "No full text"
+                <div class="styles-content-35LN7" itemprop="abstract">
+                  <span>
+                    <len=283 sha256=968022ff37df5e11 "Tesis de la Universidad Alfonso X \"El Sabio\". Es"...>
+                <div class="styles-footnote-2WLsl">
+                  <div class="styles-data-provider-DvgWY" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+                    <a class="styles-repository-link-xUkbI" href="/data-providers/22908?t=c8682877689bc9c9fef37d8ba61c8b86-401323267">
+                      <span itemprop="name">
+                        "UAX Archive (Univ. Alfonso X el Sabi)"
+              <ul class="styles_pagination">
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item styles_pagination-item-disabled" disabled="">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-left">
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item styles_pagination-item-active">
+                    "1"
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    "2"
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    "3"
+                <li class="styles_pagination-dots">
+                  "…"
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    "last"
+                <li>
+                  <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
+                    <svg class="icon-icon-35iz-" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#chevron-right">
+            <div class="styles_sidebar" tag="aside">
+              <a class="styles_logo" href="https://core.ac.uk/data-providers/86" rel="noopener noreferrer" target="_blank">
+                <div class="styles_member-info">
+                  <span class="styles_member-badge">
+                    "CORE membership"
+                  <div class="styles_member-body">
+                    <div class="styles_repository-logo-wrap">
+                      <img alt="Open University (ORO)" class="styles_repository-logo" src="https://api.core.ac.uk/data-providers/86/logo">
+                    <div class="styles_member-meta">
+                      <p class="styles_member-billing-type">
+                        "Sustaining"
+                        <!--" "-->
+                        " member"
+                      <p class="styles_organisation-name">
+                        "Open University (ORO)"
+              <a class="styles_logo" href="https://www.core.ac.uk" rel="noopener noreferrer" target="_blank">
+                <img alt="core" class="styles_sidebar-image" src="/static/search/_next/static/images/CoreB-ed256ea8a1c9661ee748e8203dc4296b.png">
+      <footer class="footer-footer-7joNV" id="footer">
+        <div class="footer-container-1XrUr">
+          <div class="footer-section-logos-1_Ejr">
+            <div class="footer-logos-28CCb">
+              <a href="https://core.ac.uk">
+                <svg aria-label="core logo" class="icon-icon-35iz- footer-footer-main-logo-1jMdX" height="24" role="img" width="24">
+                  <use href="/static/search/icons.svg#coreLogo">
+            <p>
+              "CORE (COnnecting REpositories) is a not-for-profit service supported by"
+              <!--" "-->
+              " "
+              <a href="https://core.ac.uk/governance/supporters#membership-list">
+                <span>
+                  "CORE Members."
+          <menu class="footer-menu-2JIRS">
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Product"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/services">
+                    "Services"
+                <li class="footer-item-1F33t">
+                  <a href="/membership">
+                    "Membership"
+                <li class="footer-item-1F33t">
+                  <a href="/sponsorship">
+                    "Sponsorship"
+                <li class="footer-item-1F33t">
+                  <a href="/innovations/labs">
+                    "Labs"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Organisation"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/about">
+                    "About us"
+                <li class="footer-item-1F33t">
+                  <a href="/about#our-mission">
+                    "Governance"
+                <li class="footer-item-1F33t">
+                  <a href="/about#team">
+                    "Team"
+                <li class="footer-item-1F33t">
+                  <a href="/benefits">
+                    "Data providers"
+            <div>
+              <h6 class="footer-menu-title-2NNki">
+                "Support"
+              <ul class="undefined">
+                <li class="footer-item-1F33t">
+                  <a href="/terms">
+                    "Terms"
+                <li class="footer-item-1F33t">
+                  <a href="/faq">
+                    "FAQs"
+                <li class="footer-item-1F33t">
+                  <a href="https://blog.core.ac.uk/">
+                    "Blog"
+                <li class="footer-item-1F33t">
+                  <a href="/about#contact">
+                    "Contact us"
+          <div class="footer-section-card-3esBH">
+            <div class="footer-card-1yZdd">
+              <div>
+                <h6 class="footer-card-title-3Uaog">
+                  "Writing about CORE?"
+                <p class="footer-card-desc-30YMW">
+                  "Discover our"
+                  <!--" "-->
+                  " "
+                  <a href="/about/research-outputs">
+                    "research outputs"
+                  " and cite our work."
+                " "
+              <svg aria-label="writing" class="icon-icon-35iz- footer-card-img-o-6kR" height="24" role="img" width="24">
+                <use href="/static/search/icons.svg#writing">
+            <div class="footer-contact-wrapper-17ZHP">
+              <span class="footer-contact-2b5lt">
+                "Follow us:"
+              <div class="footer-footer-icons-2NPaF">
+                <a href="https://twitter.com/oacore" target="_blank">
+                  <svg aria-label="twitter" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#twitter">
+                <a href="https://www.linkedin.com/company/coreoa" target="_blank">
+                  <svg aria-label="linkedin" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#linkedin">
+                <a href="https://github.com/oacore" target="_blank">
+                  <svg aria-label="github" class="icon-icon-35iz- footer-footer-icon-2g_ak" height="24" role="img" width="24">
+                    <use href="/static/search/icons.svg#github">
+        <div class="footer-bottom-3E5D_">
+          <a class="footer-bottom-link-PaLMR" href="/accessibility">
+            "Accessibility"
+          <a class="footer-bottom-link-PaLMR" href="/cookies">
+            "Cookies"
+          <a class="footer-bottom-link-PaLMR" href="/privacy">
+            "Privacy"
+  <script next-owned="__NEXT_DATA__">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
+  <script next-owned="chunk">
