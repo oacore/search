@@ -1,10 +1,10 @@
 {
-  "link": "provisional-2.3",
+  "link": "B0-local",
   "reference": {
     "test": "T-603",
     "mode": "host",
-    "commit": "09d41933e7276b13c68d15906a9e74de8e2ade44",
-    "build": "4fc8dd1800ace9ec",
+    "commit": "689fec94a2a194dcf90b40d3a02dd81cac112e75",
+    "build": "1fb7e5b548c5ae8c",
     "variant": "default",
     "proxyOverlay": null
   },
