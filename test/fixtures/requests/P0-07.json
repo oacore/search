@@ -1,0 +1,5 @@
+{
+  "package": "P0-07",
+  "note": "T-417 (Jest, MSW) and T-802 (harness page in the browser) read only answers already recorded: the E22 logo requests GET https://api.core.ac.uk/data-providers/86/logo and /2313/logo (scenario logos); thumbnails come from the guard's fixed PNG. T-418 reads the build's sprite. No new request, so this list is empty.",
+  "requests": []
+}
