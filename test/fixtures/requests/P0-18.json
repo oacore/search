@@ -1,0 +1,263 @@
+{
+  "package": "P0-18",
+  "note": "P0-18 (T-801 c1 V8-V16, V18, V36; c4 V28). No live request. One derived work page without the arXiv and PubMed keys (V8, Q-081), three derived output pages for the V10 edge variants (outputs 2201 without an abstract, 2202 without a DOI, 2203 with a math and literal-markup title and abstract), each with its E8 answer for the browser, and one hand answer of the report submit for the repository-manager success modal (V11). Every other request of the package is answered by fixtures that exist (scenarios works-*, outputs-*, provider-*, search-climate, members, logos, e10-report, e19-client-nav, e18 answers of provider-*).",
+  "requests": [
+    {
+      "id": "p0-18.e4.works-1801-noviewon",
+      "kind": "derive",
+      "endpoint": "E4",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001?t=undefined"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/1801?t=undefined"
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/id",
+          "value": 1801
+        },
+        {
+          "op": "remove",
+          "path": "/arxivId"
+        },
+        {
+          "op": "remove",
+          "path": "/pubmedId"
+        }
+      ],
+      "note": "V8, Q-081: work 1001 without the arxivId and pubmedId keys (the recorded objects hold them as null, so no \"View on\" button renders; with the keys absent the button renders empty, no href and no name; the live shape is VF-03)"
+    },
+    {
+      "id": "p0-18.e5.works-1801",
+      "kind": "derive",
+      "endpoint": "E5",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001/outputs"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/1801/outputs"
+      },
+      "note": "the three outputs of work 1001 (every output carries a DOI, Q-074)"
+    },
+    {
+      "id": "p0-18.e8.works-1801",
+      "kind": "derive",
+      "endpoint": "E8",
+      "browser": true,
+      "from": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:1001",
+          "limit": 5,
+          "resultType": "work"
+        }
+      },
+      "serve": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:1801",
+          "limit": 5,
+          "resultType": "work"
+        }
+      },
+      "note": "the similar-works answer of work 1001 for work 1801"
+    },
+    {
+      "id": "p0-18.e6.outputs-2201-noabstract",
+      "kind": "derive",
+      "endpoint": "E6",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/outputs/2001"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/outputs/2201"
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/id",
+          "value": 2201
+        },
+        {
+          "op": "replace",
+          "path": "/abstract",
+          "value": null
+        }
+      ],
+      "note": "V10: output 2001 without an abstract (the page shows \"Abstract is not available.\")"
+    },
+    {
+      "id": "p0-18.e8.outputs-2201",
+      "kind": "derive",
+      "endpoint": "E8",
+      "browser": true,
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001/outputs"
+      },
+      "serve": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:2201",
+          "limit": 5
+        }
+      },
+      "patch": [
+        {
+          "op": "select",
+          "path": "",
+          "indexes": [0, 1, 2]
+        }
+      ],
+      "note": "the similar-works answer of output 2201, shaped as outputs-2101.e8 (the three outputs of work 1001)"
+    },
+    {
+      "id": "p0-18.e6.outputs-2202-nodoi",
+      "kind": "derive",
+      "endpoint": "E6",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/outputs/2001"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/outputs/2202"
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/id",
+          "value": 2202
+        },
+        {
+          "op": "replace",
+          "path": "/doi",
+          "value": null
+        },
+        {
+          "op": "replace",
+          "path": "/identifiers/doi",
+          "value": null
+        }
+      ],
+      "note": "V10: output 2001 without a DOI (no E9 citation request, no Cite button)"
+    },
+    {
+      "id": "p0-18.e8.outputs-2202",
+      "kind": "derive",
+      "endpoint": "E8",
+      "browser": true,
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001/outputs"
+      },
+      "serve": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:2202",
+          "limit": 5
+        }
+      },
+      "patch": [
+        {
+          "op": "select",
+          "path": "",
+          "indexes": [0, 1, 2]
+        }
+      ],
+      "note": "the similar-works answer of output 2202, shaped as outputs-2101.e8 (the three outputs of work 1001)"
+    },
+    {
+      "id": "p0-18.e6.outputs-2203-math-long",
+      "kind": "derive",
+      "endpoint": "E6",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/outputs/2001"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/outputs/2203"
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/id",
+          "value": 2203
+        },
+        {
+          "op": "replace",
+          "path": "/title",
+          "value": "Long title with $x^2$ and a literal **x** that must not become bold, repeated to reach three hundred characters: climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate litigation; climate accountability and due diligence in corporate l"
+        },
+        {
+          "op": "replace",
+          "path": "/abstract",
+          "value": "A display of math $\\frac{a}{b} + \\sqrt{c}$ and an inline $E = mc^2$, then a literal **x** and the text of the original record: Background The ability to transport and store DNA at room temperature in low volumes has the advantage of optimising cost, time and storage space."
+        }
+      ],
+      "note": "V10, Q-097: output 2001 with a 300-character title holding $x^2$ and a literal **x**, and an abstract with two KaTeX expressions"
+    },
+    {
+      "id": "p0-18.e8.outputs-2203",
+      "kind": "derive",
+      "endpoint": "E8",
+      "browser": true,
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001/outputs"
+      },
+      "serve": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:2203",
+          "limit": 5
+        }
+      },
+      "patch": [
+        {
+          "op": "select",
+          "path": "",
+          "indexes": [0, 1, 2]
+        }
+      ],
+      "note": "the similar-works answer of output 2203, shaped as outputs-2101.e8 (the three outputs of work 1001)"
+    },
+    {
+      "id": "p0-18.e10.report-ok-manager",
+      "kind": "hand",
+      "endpoint": "E10",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/internal/outputs/update",
+        "body": {
+          "outputId": 2001,
+          "name": "Test Reporter",
+          "email": "reporter@localhost",
+          "message": "report-ok",
+          "updateOption": "takeDownFullText",
+          "role": "repositoryManager"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": [["content-type", "application/json"]],
+        "body": {
+          "encoding": "json",
+          "data": {
+            "message": "Report accepted"
+          }
+        }
+      },
+      "note": "V11: the report form of output 2001 submitted as a repository manager (the success modal then shows the dashboard text); the author answer is the e10-report fixture"
+    }
+  ]
+}
