@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "scenario": "req-P0-10",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/outputs/2106",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 15:33:02 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "acceptedDate": "2012-09-13T01:00:00+01:00",
+        "authors": [
+          { "name": "Fowler, Katie E." },
+          { "name": "Reitter, Chris P" },
+          { "name": "Walling, Grant A" },
+          { "name": "Griffin, Darren K" }
+        ],
+        "contributors": [],
+        "createdDate": "2023-07-10T10:25:12+01:00",
+        "dataProvider": {
+          "id": 86,
+          "name": "Open Research Online (Open)",
+          "url": "https://api.core.ac.uk/v3/data-providers/86",
+          "logo": "https://api.core.ac.uk/data-providers/86/logo"
+        },
+        "depositedDate": "2023-07-03T13:41:27+01:00",
+        "documentType": "",
+        "versions": [],
+        "doi": "10.1186/1756-0500-5-503",
+        "downloadUrl": "https://core.ac.uk/download/571618880.pdf",
+        "fullText": "",
+        "id": 2106,
+        "identifiers": {
+          "doi": "10.1186/1756-0500-5-503",
+          "oai": "oai:oro.open.ac.uk:90496"
+        },
+        "title": "Novel approach for deriving genome wide SNP analysis data from archived blood spots",
+        "language": null,
+        "publishedDate": "2012-01-01T00:00:00+00:00",
+        "publisher": null,
+        "references": [],
+        "sourceFulltextUrls": [
+          "http://dx.doi.org/10.1186/1756-0500-5-503",
+          "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf"
+        ],
+        "updatedDate": null,
+        "yearPublished": "2012",
+        "links": [
+          {
+            "type": "download",
+            "url": "https://core.ac.uk/download/571618880.pdf"
+          },
+          { "type": "reader", "url": "https://core.ac.uk/reader/571618880" },
+          {
+            "type": "thumbnail_m",
+            "url": "https://core.ac.uk/image/571618880/medium"
+          },
+          {
+            "type": "thumbnail_l",
+            "url": "https://core.ac.uk/image/571618880/large"
+          },
+          { "type": "reader", "url": "https://core.ac.uk/reader/571618880" },
+          {
+            "type": "thumbnail_m",
+            "url": "https://core.ac.uk/image/571618880/medium"
+          },
+          {
+            "type": "thumbnail_l",
+            "url": "https://core.ac.uk/image/571618880/large"
+          },
+          { "type": "display", "url": "https://core.ac.uk/outputs/571618880" }
+        ],
+        "abstract": "Background\n\nThe ability to transport and store DNA at room temperature in low volumes has the advantage of optimising cost, time and storage space. Blood spots on adapted filter papers are popular for this, with FTA (Flinders Technology Associates) Whatman™ technology being one of the most recent. Plant material, plasmids, viral particles, bacteria and animal blood have been stored and transported successfully using this technology, however the method of porcine DNA extraction from FTA Whatman™ cards is a relatively new approach, allowing nucleic acids to be ready for downstream applications such as PCR, whole genome amplification, sequencing and subsequent application to single nucleotide polymorphism microarrays has hitherto been under-explored.\n\n\n\nFindings\n\nDNA was extracted from FTA Whatman™ cards (following adaptations of the manufacturer’s instructions), whole genome amplified and subsequently analysed to validate the integrity of the DNA for downstream SNP analysis. DNA was successfully extracted from 288/288 samples and amplified by WGA. Allele dropout post WGA, was observed in less than 2% of samples and there was no clear evidence of amplification bias nor contamination. Acceptable call rates on porcine SNP chips were also achieved using DNA extracted and amplified in this way.\n\n\n\nConclusions\n\nDNA extracted from FTA Whatman cards is of a high enough quality and quantity following whole genomic amplification to perform meaningful SNP chip studies",
+        "tags": [],
+        "fulltextStatus": "enabled",
+        "subjects": ["Article"],
+        "oai": "oai:oro.open.ac.uk:90496",
+        "deleted": "ALLOWED",
+        "disabled": false,
+        "journals": [],
+        "repositories": [],
+        "repositoryDocument": {
+          "id": 571618880,
+          "depositedDate": "",
+          "publishedDate": "2012-01-01T00:00:00+00:00",
+          "updatedDate": "",
+          "acceptedDate": "",
+          "createdDate": ""
+        },
+        "urls": [
+          {
+            "url": "http://dx.doi.org/10.1186/1756-0500-5-503",
+            "type": "fulltext"
+          },
+          {
+            "url": "https://oro.open.ac.uk/90496/1/1756-0500-5-503.pdf",
+            "type": "fulltext"
+          }
+        ],
+        "lastUpdate": "2026-08-31T16:26:00+01:00",
+        "setSpecs": [],
+        "license": "http://creativecommons.org/licenses/by/4.0",
+        "orcids": [],
+        "sdg": []
+      }
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/outputs/2001",
+    "patch": [
+      { "op": "replace", "path": "/id", "value": 2106 },
+      { "op": "replace", "path": "/subjects", "value": ["Article"] }
+    ],
+    "recordedAt": "2026-10-20T15:33:02.091Z",
+    "note": "T-602 c2, T-729 c1: outputs 2001 with one subject (the value of the recorded output 326218465)"
+  }
+}

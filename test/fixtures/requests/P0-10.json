@@ -1,0 +1,84 @@
+{
+  "package": "P0-10",
+  "note": "P0-10 (T-602, T-605, T-610, T-729). Four derived answers, no live request: two outputs with a non-empty `subjects` array (every output fixture of 2.2 has `subjects: []`, so no page rendered a DC.subject tag; T-729 varies the subject count, Q-069), each with its E8 recommend answer for the browser. Every other request of the package is answered by fixtures that exist (scenarios search-climate, search-x, search-zzzzqqq, members, works-*, outputs-*, provider-*, logos, req-P0-09).",
+  "requests": [
+    {
+      "id": "p0-10.e6.outputs-2105-subjects",
+      "kind": "derive",
+      "endpoint": "E6",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/outputs/2001"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/outputs/2105"
+      },
+      "patch": [
+        { "op": "replace", "path": "/id", "value": 2105 },
+        {
+          "op": "replace",
+          "path": "/subjects",
+          "value": [
+            "climate change litigation",
+            "corporate accountability",
+            "corporate sustainability",
+            "due diligence",
+            "human rights"
+          ]
+        }
+      ],
+      "note": "T-602 c2, T-729 c1: outputs 2001 with five subjects (the subjects of the recorded output 566708785, an output of the work behind works 1001): five DC.subject tags in SSR (Q-053)"
+    },
+    {
+      "id": "p0-10.e8.outputs-2105",
+      "kind": "derive",
+      "endpoint": "E8",
+      "browser": true,
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001/outputs"
+      },
+      "serve": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": { "identifier": "core:2105", "limit": 5 }
+      },
+      "patch": [{ "op": "select", "path": "", "indexes": [0, 1, 2] }],
+      "note": "the similar-works answer of outputs 2105, shaped as outputs-2101.e8 (the three outputs of work 1001)"
+    },
+    {
+      "id": "p0-10.e6.outputs-2106-subject",
+      "kind": "derive",
+      "endpoint": "E6",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/outputs/2001"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/outputs/2106"
+      },
+      "patch": [
+        { "op": "replace", "path": "/id", "value": 2106 },
+        { "op": "replace", "path": "/subjects", "value": ["Article"] }
+      ],
+      "note": "T-602 c2, T-729 c1: outputs 2001 with one subject (the value of the recorded output 326218465)"
+    },
+    {
+      "id": "p0-10.e8.outputs-2106",
+      "kind": "derive",
+      "endpoint": "E8",
+      "browser": true,
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001/outputs"
+      },
+      "serve": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": { "identifier": "core:2106", "limit": 5 }
+      },
+      "patch": [{ "op": "select", "path": "", "indexes": [0, 1, 2] }],
+      "note": "the similar-works answer of outputs 2106, shaped as outputs-2101.e8"
+    }
+  ]
+}
