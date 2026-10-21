@@ -3,12 +3,12 @@
   "kind": "provisional",
   "layout": "next10",
   "from": {
-    "commit": "d95a089a315c0cc90b509afa1cbb9048f50132a6",
-    "key": "494fc5127f9f9461",
+    "commit": "689fec94a2a194dcf90b40d3a02dd81cac112e75",
+    "key": "1fb7e5b548c5ae8c",
     "variant": "default",
     "mode": "host",
     "node": "v18.20.8",
-    "buildId": "GoUf0PIDoKKVbfXk31gL3"
+    "buildId": "fSewvhR0z-w12QYCnFd3s"
   },
   "entries": {
     "client:roots:react": "node_modules/react",

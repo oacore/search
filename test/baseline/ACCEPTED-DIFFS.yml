@@ -1,0 +1,5 @@
+# Accepted-diffs ledger (42 §8), the single ledger of the parity contract (40 §1). Append-only and default deny:
+# a diff passes only if a row matches test, key, from and to exactly (keys are exact literals, one row per
+# (test, key)); the only edit allowed adds `withdrawn: <reason, date>`. Rows need `signedOffBy` (the owner's
+# SIGNED: comment, checked by scripts/ad-ledger.mjs) and, for kind delta, `repro`. Empty at B0.
+[]

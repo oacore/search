@@ -1,0 +1,57 @@
+{
+  "test": "T-001",
+  "link": "B0-local",
+  "G": "689fec94a2a194dcf90b40d3a02dd81cac112e75",
+  "what": "lint parity of the golden commit (42 §6 item 2): ESLint and stylelint findings of the application files as (path, rule, count), repo-relative; equal to docs/upgrade/findings/baselines (the T-001 reference until W1)",
+  "parity": true,
+  "tools": {
+    "eslint": "7.32.0",
+    "stylelint": "13.13.1",
+    "configs": {
+      "@oacore/eslint-config-react": "1.0.6",
+      "@oacore/stylelint-config-base": "1.0.6"
+    }
+  },
+  "baselines": {
+    "eslint": "docs/upgrade/findings/baselines/eslint-baseline.json",
+    "stylelint": "docs/upgrade/findings/baselines/stylelint-baseline.json"
+  },
+  "eslint": {
+    "findings": 13,
+    "appFiles": 156,
+    "harnessFiles": 84,
+    "entries": [
+      ["api/index.js", "import/no-named-as-default", 1],
+      ["babel.config.js", "prettier/prettier", 1],
+      ["hooks/use-analytics.js", "no-console", 1],
+      ["hooks/use-analytics.js", "prettier/prettier", 1],
+      ["lib/loader.js", "class-methods-use-this", 1],
+      ["lib/loader.js", "max-len", 2],
+      ["modules/dropdown/index.jsx", "no-unused-vars", 1],
+      ["pages/search/index.jsx", "no-console", 4],
+      ["templates/output/index.jsx", "prettier/prettier", 1]
+    ]
+  },
+  "stylelint": {
+    "findings": 16,
+    "files": 28,
+    "entries": [
+      ["modules/layout/styles.module.css", "order/properties-order", 1],
+      ["modules/layout/styles.module.css", "selector-class-pattern", 4],
+      ["templates/output/styles.module.css", "prettier/prettier", 1],
+      [
+        "templates/output/update/styles.module.css",
+        "order/properties-order",
+        3
+      ],
+      ["templates/output/update/styles.module.css", "prettier/prettier", 3],
+      ["templates/search/styles.module.css", "order/properties-order", 3],
+      [
+        "templates/search/styles.module.css",
+        "shorthand-property-no-redundant-values",
+        1
+      ]
+    ]
+  },
+  "inlineDisables": { "expected": 38, "total": 38, "files": 30 }
+}
