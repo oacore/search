@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "scenario": "req-P0-13",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+    "bodySha256": "1196fc962964f0ed770bc94d8ad3c8cf7fea9bee36733235f25babcc8b38cb7d",
+    "bodyText": "{\"q\":\"climate AND (yearPublished>=1952 AND yearPublished<=1952)\",\"offset\":90,\"limit\":10,\"exclude\":[\"fullText\"],\"sort\":\"relevance\"}"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 18:44:33 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "totalHits": 85,
+        "limit": 10,
+        "offset": 90,
+        "results": [],
+        "searchId": "280667395ff2323a499de88c1efc1253"
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T18:44:33.199Z",
+    "scrubbed": { "headersDropped": 4 },
+    "note": "T-706: Next on the last page pushes page=10 (offset 90), past the end of the results"
+  }
+}

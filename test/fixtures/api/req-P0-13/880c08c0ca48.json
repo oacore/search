@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "scenario": "req-P0-13",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+    "bodySha256": "4b59a89a3ce42d6832756e586119d403a4de21adb446894cef138e60defdc5b3",
+    "bodyText": "{\"aggregations\":[\"fieldsOfStudy\",\"yearPublished\",\"documentType\",\"authors\",\"language\",\"publisher\"],\"q\":\"climate AND (yearPublished>=1952 AND yearPublished<=1952)\"}"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 18:43:53 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "{\"aggregations\":{\"fieldsOfStudy\":{\"text\":23,\"Text\":6,\"info:eu-repo\\/semantics\\/article\":5,\"journal-article\":4,\"Thesis\":3,\"Article\":2,\"Book\":2,\"Article \\/ Letter to the editor\":1,\"Electronic Thesis or Dissertation\":1,\"Journal\":1,\"Masters Research thesis\":1,\"Other\":1,\"Thesis or Dissertation\":1,\"Thesis\\/Dissertation\":1,\"article\":1,\"bulletin (article)\":1,\"conference-item\":1,\"departmental bulletin paper\":1,\"photograph; image\":1,\"thesis\":1},\"yearPublished\":{\"1952\":85},\"documentType\":{\"text\":10,\"thesis\":5,\"research article\":4,\"conference paper\":2,\"review\":1},\"authors\":{\"Kentucky Library Research Collections,\":17,\"Jay, Charles Douglas\":4,\"Everist, S.L.\":3,\"Hillary, C C\":3,\"Lightfoot, L C\":3,\"Moule, G.R.\":3,\"Arbuckle, Ronald. Hugh\":2,\"Beveridge, R. J.\":2,\"Colombini, Victor\":2,\"Department of Agriculture and Fisheries, Queensland\":2,\"Hare, F.K.\":2,\"Hutter, Harry K.\":2,\"Penman, Howard Latimer\":2,\"Scott, Robert Ronga\":2,\"A. L. Soden\":1,\"Berry, Delmar W.\":1,\"Campbell, John Duncan, 1923-\":1,\"Davis, W. C.\":1,\"Dockins, J. O.\":1,\"Estienne, Pierre\":1,\"Fishel, V.C.\":1,\"Flawn, Peter Tyrell\":1,\"Gentilli, Joseph 1912-2000\":1,\"Gentilli, Joseph,\":1,\"George William Salt\":1,\"Hare, F. Kenneth\":1,\"Henry G. Gilbert Nursery and Seed Trade Catalog Collection.\":1,\"Johnson, C. G.\":1,\"Jones, Jenkin W. (Jenkin William), 1888-\":1,\"Kentucky Library Research Collection,\":1,\"Kurtz, Edwin B.\":1,\"Leonard, Alvin R.\":1,\"Norton, Alan Charles\":1,\"Paul Tabor\":1,\"Penman, H. L.\":1,\"Pohl, Frederick Julius, 1889-1991\":1,\"Ram, Rao Canakapalli Venkata\":1,\"S. TAKEGAMI\":1,\"Sallenave, P.\":1,\"Smith Bros. Nursery Co. (Concord, Ga.),\":1,\"South Dakota Agricultural Experiment Station\":1,\"Staff Photographer\\nSeattle Post-Intelligencer\":1,\"Stafleu, F.A.\":1,\"Swanson, Bessie R.\":1,\"United States. Dept. of Agriculture.\":1,\"W. C. Wake\":1,\"Walker, R. K. (Rufus K.)\":1,\"Warnock, Robert E.\":1,\"Zimmerman, Harold\":1,\"\\u516b\\u936c, \\u5229\\u52a9\":1,\"\\u65e5\\u91ce, \\u5dd6\":1},\"language\":[],\"publisher\":{\"TopSCHOLAR\\u00ae\":18,\"Digital Library\":6,\"Alabama Department of Archives and History, 624 Washington Avenue, Montgomery, Alabama 36130\":4,\"Te Herenga Waka\\u2014Victoria University of Wellington\":4,\"The University of Edinburgh\":4,\"Kansas Geological Survey\":3,\"The Arctic Institute of North America\":3,\"Boston University\":2,\"Magyar Tudom\\u00e1nyos Akad\\u00e9mia\":2,\"Wiley\":2,\"Willamette River Basin Commission,\":2,\"Cirad\":1,\"Concord, Georgia, Smith Bros. Nursery Co, [1952]\":1,\"Crawley Univ. of Western Australia\":1,\"DigitalCommons@USU\":1,\"Harvard University Press\":1,\"Lincoln College, University of Canterbury\":1,\"McGill University\":1,\"Nedlands, W.A Western Australian Naturalists\\\\u27 Club 1947\":1,\"New York\":1,\"Open PRAIRIE: Open Public Research Access Institutional Repository and Information Exchange\":1,\"PERS\\u00c9E : Universit\\u00e9 de Lyon, CNRS \\u0026 ENS de Lyon\":1,\"Rubber Division, ACS\":1,\"Scholarly Commons\":1,\"Society of Agricultural Meteorology of Japan\":1,\"Topeka, Kansas\":1,\"United States. Department of Agriculture.\":1,\"University of Texas at Austin. Bureau of Economic Geology\":1,\"\\u5317\\u6d77\\u9053\\u5927\\u5b78\\u8fb2\\u5b78\\u90e8\\u9644\\u5c6c\\u8fb2\\u5834\":1,\"\\u5c71\\u53e3\\u5927\\u5b66\\u8fb2\\u5b66\\u90e8\":1}}}"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-20T18:43:53.416Z",
+    "scrubbed": { "headersDropped": 4 },
+    "note": "T-705, T-706: the filters of the single-year search (hard load, all aggregations)"
+  }
+}
