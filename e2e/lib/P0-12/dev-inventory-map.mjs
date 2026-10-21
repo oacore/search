@@ -29,8 +29,7 @@ export const DEV_WARNING_MAP = [
     },
   },
   {
-    // templates/output/metadata.jsx:37 (long date format of the works/outputs metadata): the same quirk at a
-    // site Q-050 does not list (issue P0-12-10)
+    // templates/output/metadata.jsx:37 (long date format of the works/outputs metadata): the third site of Q-050
     id: 'q050-dates-metadata',
     q: 'Q-050',
     match: {
@@ -80,7 +79,7 @@ export const DEV_WARNING_MAP = [
   },
   {
     // pages/_app.jsx:101 isSearchPage from router.asPath: on the gateway's /static/search rewrite the server sees
-    // `/` and the browser `/static/search`; React 17 keeps the server's class attribute (issue P0-12-11)
+    // `/` and the browser `/static/search`; React 17 keeps the server's class attribute (Q-008 c2)
     id: 'q008-search-header-class',
     q: 'Q-008',
     match: {
@@ -101,7 +100,7 @@ export const DEV_WARNING_MAP = [
   },
   {
     id: 'unknown-dom-prop-fulltext-thumbnail',
-    issue: 'P0-12-5',
+    q: 'Q-102',
     devOnly: true,
     match: {
       kind: 'react',
@@ -111,7 +110,7 @@ export const DEV_WARNING_MAP = [
   },
   {
     id: 'mobx-strict-mode',
-    issue: 'P0-12-6',
+    q: 'Q-103',
     devOnly: true,
     match: {
       kind: 'mobx',
@@ -132,7 +131,7 @@ export const DEV_WARNING_MAP = [
   // ---------- repeated `t` (Q-016): Next's development props check rejects serverError.code undefined ----------
   // pages/works/[id].jsx:85-97 returns { serverError: { code: error.status } } with status undefined; production
   // JSON drops the key (200 soft 404), next dev throws "Error serializing" and shows its error overlay
-  // (issue P0-12-12): the overlay's stack-frame requests 404 through the gateway proxy, its focus trap probes
+  // (Q-016 c3): the overlay's stack-frame requests 404 through the gateway proxy, its focus trap probes
   // an <object> (CSP object-src 'none'), and the ErrorBoundary's Sentry report is blocked by the CSP (Q-096)
   {
     id: 'q016-dev-props-serialization',
@@ -191,7 +190,7 @@ export const DEV_WARNING_MAP = [
   },
   {
     id: 'q097-katex',
-    q: 'Q-097',
+    q: 'Q-101',
     match: { kind: 'console', text: /^couldn`t convert string / },
   },
 ]
