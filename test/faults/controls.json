@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "note": "C4 positive controls (55 C4): one catalogue fault per aspect, run as `npm run corpus -- --controls` (2.7 and every gate). Skeleton written at 2.5: every `fault` is null until the 2.7 fault catalogue exists and the control gave >= 1 diff on its aspect at 2.7. Fixing or changing a control is an acceptance change (40 §8 rule 8): owner SIGNED, full C1 + C1-Q re-run.",
+  "status": "skeleton (2.5); controls fixed at 2.7",
+  "controls": [
+    {
+      "aspect": "headers",
+      "test": "T-603",
+      "risk": "R-083",
+      "alternate": null,
+      "fault": null,
+      "minDiffs": 1,
+      "gaveAt27": null
+    },
+    {
+      "aspect": "ssr-head",
+      "test": "T-602",
+      "risk": "R-003",
+      "alternate": null,
+      "fault": null,
+      "minDiffs": 1,
+      "gaveAt27": null
+    },
+    {
+      "aspect": "ssr-body-dom",
+      "test": "T-728",
+      "risk": "R-013",
+      "alternate": null,
+      "fault": null,
+      "minDiffs": 1,
+      "gaveAt27": null
+    },
+    {
+      "aspect": "data",
+      "test": "T-610",
+      "risk": "R-005",
+      "alternate": null,
+      "fault": null,
+      "minDiffs": 1,
+      "gaveAt27": null
+    },
+    {
+      "aspect": "request-trace",
+      "test": "T-607",
+      "risk": "R-016",
+      "alternate": "R-076",
+      "fault": null,
+      "minDiffs": 1,
+      "gaveAt27": null
+    },
+    {
+      "aspect": "classes",
+      "test": "T-605",
+      "risk": "R-001",
+      "alternate": null,
+      "fault": null,
+      "minDiffs": 1,
+      "gaveAt27": null
+    },
+    {
+      "aspect": "console",
+      "test": "T-701",
+      "risk": "R-026",
+      "alternate": "Q-071 clause patch",
+      "fault": null,
+      "minDiffs": 1,
+      "gaveAt27": null
+    },
+    {
+      "aspect": "screenshots",
+      "test": "T-801",
+      "risk": "R-008",
+      "viewport": 375,
+      "alternate": null,
+      "fault": null,
+      "minDiffs": 1,
+      "gaveAt27": null
+    }
+  ],
+  "live": {
+    "what": "a release image of a catalogue fault with a status .expect, run beside the reference, must fail the live A/B (55 C4 --live)",
+    "fault": null,
+    "expect": "status",
+    "gaveAt27": null
+  },
+  "rules": [
+    "each control changes read-only corpus URLs only (never a fault seen only on a mutating call or a state change, e.g. R-028, R-033)",
+    "a control with 0 diffs on its aspect fails C4; the gate record lists them"
+  ]
+}
