@@ -1,0 +1,5 @@
+{
+  "package": "P0-04",
+  "note": "T-106 c2 uses the recorded q090-null-logo answers (GET {API_URL}null and GET {API_URL}undefined, base plan entries q090.e14.null and q090.e14.undefined); T-117 serves its three data-loader URLs from a local stub; T-105, T-108, T-116 and T-119 read no API answer. No further request is needed, so this list is empty.",
+  "requests": []
+}
