@@ -107,7 +107,7 @@ describe('T-012 harness constants and comparator', () => {
         [
           '--input-type=module',
           '-e',
-          "const c = (await import('./playwright.config.mjs')).default; const args = (n) => (c.projects.find((p) => p.name === n)?.use.launchOptions?.args ?? null); console.log(JSON.stringify({ retries: c.retries, forbidOnly: c.forbidOnly, projectRetries: c.projects.map((p) => p.retries ?? null), tz: c.use.timezoneId, locale: c.use.locale, visualArgs: args('visual'), chromiumArgs: args('chromium') }))",
+          "const c = (await import('./playwright.config.mjs')).default; const args = (n) => (c.projects.find((p) => p.name === n)?.use.launchOptions?.args ?? null); const wire = c.projects.find((p) => p.name === 'wire'); console.log(JSON.stringify({ wireAfter: wire.dependencies.slice().sort(), retries: c.retries, forbidOnly: c.forbidOnly, projectRetries: c.projects.map((p) => p.retries ?? null), tz: c.use.timezoneId, locale: c.use.locale, visualArgs: args('visual'), chromiumArgs: args('chromium') }))",
         ],
         { env: { ...process.env, E2E_CONFIG_PROBE: '1' } }
       )
@@ -122,6 +122,9 @@ describe('T-012 harness constants and comparator', () => {
           chromiumArgs: null,
         })
       )
+      // the wire project runs after the chromium project (its tests read the stub's wire log; the runner's
+      // webkit and firefox projects join it there)
+      expect(JSON.parse(out.stdout).wireAfter).toEqual(['chromium'])
       expect(
         JSON.parse(out.stdout).projectRetries.every(
           (r) => r === null || r === 0

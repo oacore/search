@@ -91,6 +91,7 @@ test.describe('T-609 @P0 SSR concurrency', () => {
           '--config',
           path.join(REPO, 'playwright.config.mjs'),
           '--list',
+          '--no-deps',
           '--project',
           project,
           '--grep',

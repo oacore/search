@@ -4,7 +4,8 @@
 //    expect:{status, headers, inlineScripts?}}]}
 // Cases per route (42 §8): GET, HEAD, conditional GET with the returned ETag (If-None-Match), and
 // Accept-Encoding: br, gzip. `expect.headers` = every response header, lower-case name -> ordered values;
-// `date` is ignored; `etag` and `content-length` are kept as presence only ('<present>'); everything else is
+// `date` is ignored; `etag`, `content-length` and `last-modified` are kept as presence only ('<present>';
+// 42 §8 names the first two, the third is the same kind: a build artefact); everything else is
 // exact, and an added or removed header is a diff. Deltas pass only through rows of
 // test/baseline/ACCEPTED-DIFFS.yml (default deny, exact test/key/from/to; never a status or a Location).
 import fs from 'node:fs'
@@ -29,7 +30,9 @@ export const LEDGER_FILE = path.join(
   'ACCEPTED-DIFFS.yml'
 )
 export const IGNORED = ['date']
-export const PRESENCE_ONLY = ['etag', 'content-length']
+// last-modified of a static file is the mtime of the build tree (public/, .next/static, .map, icons.svg), so it
+// changes with every build of one tree like the etag built from it (P0-11-5): presence only
+export const PRESENCE_ONLY = ['etag', 'content-length', 'last-modified']
 // keys a delta row may never cover (42 §8: no status code, no Location; 30 §1 rule 3)
 export const NEVER_COVERED = [':status', 'location']
 
