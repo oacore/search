@@ -1,0 +1,688 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-18",
+  "name": "Footer",
+  "states": {
+    "default": {
+      "dom": [
+        "<div>",
+        "  <footer class=\"footer-footer-7joNV\" id=\"footer\">",
+        "    <div class=\"footer-container-1XrUr\">",
+        "      <div class=\"footer-section-logos-1_Ejr\">",
+        "        <div class=\"footer-logos-28CCb\">",
+        "          <a href=\"https://core.ac.uk\">",
+        "            <svg class=\"icon-icon-35iz- footer-footer-main-logo-1jMdX\" role=\"img\" aria-label=\"core logo\" width=\"24\" height=\"24\">",
+        "              <use href=\"/static/search/icons.svg#coreLogo\">",
+        "        <p>",
+        "          \"CORE (COnnecting REpositories) is a not-for-profit service supported by\"",
+        "          \" \"",
+        "          <a href=\"https://core.ac.uk/governance/supporters#membership-list\">",
+        "            <span>",
+        "              \"CORE Members.\"",
+        "      <menu class=\"footer-menu-2JIRS\">",
+        "        <div>",
+        "          <h6 class=\"footer-menu-title-2NNki\">",
+        "            \"Product\"",
+        "          <ul class=\"undefined \">",
+        "            <li class=\"footer-item-1F33t\">",
+        "              <a href=\"/services\">",
+        "                \"Services\"",
+        "            <li class=\"footer-item-1F33t\">",
+        "              <a href=\"/membership\">",
+        "                \"Membership\"",
+        "            <li class=\"footer-item-1F33t\">",
+        "              <a href=\"/sponsorship\">",
+        "                \"Sponsorship\"",
+        "            <li class=\"footer-item-1F33t\">",
+        "              <a href=\"/innovations/labs\">",
+        "                \"Labs\"",
+        "        <div>",
+        "          <h6 class=\"footer-menu-title-2NNki\">",
+        "            \"Organisation\"",
+        "          <ul class=\"undefined \">",
+        "            <li class=\"footer-item-1F33t\">",
+        "              <a href=\"/about\">",
+        "                \"About us\"",
+        "            <li class=\"footer-item-1F33t\">",
+        "              <a href=\"/about#our-mission\">",
+        "                \"Governance\"",
+        "            <li class=\"footer-item-1F33t\">",
+        "              <a href=\"/about#team\">",
+        "                \"Team\"",
+        "            <li class=\"footer-item-1F33t\">",
+        "              <a href=\"/benefits\">",
+        "                \"Data providers\"",
+        "        <div>",
+        "          <h6 class=\"footer-menu-title-2NNki\">",
+        "            \"Support\"",
+        "          <ul class=\"undefined \">",
+        "            <li class=\"footer-item-1F33t\">",
+        "              <a href=\"/terms\">",
+        "                \"Terms\"",
+        "            <li class=\"footer-item-1F33t\">",
+        "              <a href=\"/faq\">",
+        "                \"FAQs\"",
+        "            <li class=\"footer-item-1F33t\">",
+        "              <a href=\"https://blog.core.ac.uk/\">",
+        "                \"Blog\"",
+        "            <li class=\"footer-item-1F33t\">",
+        "              <a href=\"/about#contact\">",
+        "                \"Contact us\"",
+        "      <div class=\"footer-section-card-3esBH\">",
+        "        <div class=\"footer-card-1yZdd\">",
+        "          <div>",
+        "            <h6 class=\"footer-card-title-3Uaog\">",
+        "              \"Writing about CORE?\"",
+        "            <p class=\"footer-card-desc-30YMW\">",
+        "              \"Discover our\"",
+        "              \" \"",
+        "              <a href=\"/about/research-outputs\">",
+        "                \"research outputs\"",
+        "              \" and cite our work.\"",
+        "            \" \"",
+        "          <svg class=\"icon-icon-35iz- footer-card-img-o-6kR\" role=\"img\" aria-label=\"writing\" width=\"24\" height=\"24\">",
+        "            <use href=\"/static/search/icons.svg#writing\">",
+        "        <div class=\"footer-contact-wrapper-17ZHP\">",
+        "          <span class=\"footer-contact-2b5lt\">",
+        "            \"Follow us:\"",
+        "          <div class=\"footer-footer-icons-2NPaF\">",
+        "            <a href=\"https://twitter.com/oacore\" target=\"_blank\">",
+        "              <svg class=\"icon-icon-35iz- footer-footer-icon-2g_ak\" role=\"img\" aria-label=\"twitter\" width=\"24\" height=\"24\">",
+        "                <use href=\"/static/search/icons.svg#twitter\">",
+        "            <a href=\"https://www.linkedin.com/company/coreoa\" target=\"_blank\">",
+        "              <svg class=\"icon-icon-35iz- footer-footer-icon-2g_ak\" role=\"img\" aria-label=\"linkedin\" width=\"24\" height=\"24\">",
+        "                <use href=\"/static/search/icons.svg#linkedin\">",
+        "            <a href=\"https://github.com/oacore\" target=\"_blank\">",
+        "              <svg class=\"icon-icon-35iz- footer-footer-icon-2g_ak\" role=\"img\" aria-label=\"github\" width=\"24\" height=\"24\">",
+        "                <use href=\"/static/search/icons.svg#github\">",
+        "    <div class=\"footer-bottom-3E5D_\">",
+        "      <a href=\"/accessibility\" class=\"footer-bottom-link-PaLMR\">",
+        "        \"Accessibility\"",
+        "      <a href=\"/cookies\" class=\"footer-bottom-link-PaLMR\">",
+        "        \"Cookies\"",
+        "      <a href=\"/privacy\" class=\"footer-bottom-link-PaLMR\">",
+        "        \"Privacy\""
+      ],
+      "mount": { "f": "body" },
+      "nodes": [
+        "0:div>0:footer",
+        "0:div>0:footer>0:div",
+        "0:div>0:footer>0:div>0:div",
+        "0:div>0:footer>0:div>0:div>0:div",
+        "0:div>0:footer>0:div>0:div>0:div>0:a",
+        "0:div>0:footer>0:div>0:div>0:div>0:a>0:svg",
+        "0:div>0:footer>0:div>0:div>0:div>0:a>0:svg>0:use",
+        "0:div>0:footer>0:div>0:div>1:p",
+        "0:div>0:footer>0:div>0:div>1:p>0:a",
+        "0:div>0:footer>0:div>0:div>1:p>0:a>0:span",
+        "0:div>0:footer>0:div>1:menu",
+        "0:div>0:footer>0:div>1:menu>0:div",
+        "0:div>0:footer>0:div>1:menu>0:div>0:h6",
+        "0:div>0:footer>0:div>1:menu>0:div>1:ul",
+        "0:div>0:footer>0:div>1:menu>0:div>1:ul>0:li",
+        "0:div>0:footer>0:div>1:menu>0:div>1:ul>0:li>0:a",
+        "0:div>0:footer>0:div>1:menu>0:div>1:ul>1:li",
+        "0:div>0:footer>0:div>1:menu>0:div>1:ul>1:li>0:a",
+        "0:div>0:footer>0:div>1:menu>0:div>1:ul>2:li",
+        "0:div>0:footer>0:div>1:menu>0:div>1:ul>2:li>0:a",
+        "0:div>0:footer>0:div>1:menu>0:div>1:ul>3:li",
+        "0:div>0:footer>0:div>1:menu>0:div>1:ul>3:li>0:a",
+        "0:div>0:footer>0:div>1:menu>1:div",
+        "0:div>0:footer>0:div>1:menu>1:div>0:h6",
+        "0:div>0:footer>0:div>1:menu>1:div>1:ul",
+        "0:div>0:footer>0:div>1:menu>1:div>1:ul>0:li",
+        "0:div>0:footer>0:div>1:menu>1:div>1:ul>0:li>0:a",
+        "0:div>0:footer>0:div>1:menu>1:div>1:ul>1:li",
+        "0:div>0:footer>0:div>1:menu>1:div>1:ul>1:li>0:a",
+        "0:div>0:footer>0:div>1:menu>1:div>1:ul>2:li",
+        "0:div>0:footer>0:div>1:menu>1:div>1:ul>2:li>0:a",
+        "0:div>0:footer>0:div>1:menu>1:div>1:ul>3:li",
+        "0:div>0:footer>0:div>1:menu>1:div>1:ul>3:li>0:a",
+        "0:div>0:footer>0:div>1:menu>2:div",
+        "0:div>0:footer>0:div>1:menu>2:div>0:h6",
+        "0:div>0:footer>0:div>1:menu>2:div>1:ul",
+        "0:div>0:footer>0:div>1:menu>2:div>1:ul>0:li",
+        "0:div>0:footer>0:div>1:menu>2:div>1:ul>0:li>0:a",
+        "0:div>0:footer>0:div>1:menu>2:div>1:ul>1:li",
+        "0:div>0:footer>0:div>1:menu>2:div>1:ul>1:li>0:a",
+        "0:div>0:footer>0:div>1:menu>2:div>1:ul>2:li",
+        "0:div>0:footer>0:div>1:menu>2:div>1:ul>2:li>0:a",
+        "0:div>0:footer>0:div>1:menu>2:div>1:ul>3:li",
+        "0:div>0:footer>0:div>1:menu>2:div>1:ul>3:li>0:a",
+        "0:div>0:footer>0:div>2:div",
+        "0:div>0:footer>0:div>2:div>0:div",
+        "0:div>0:footer>0:div>2:div>0:div>0:div",
+        "0:div>0:footer>0:div>2:div>0:div>0:div>0:h6",
+        "0:div>0:footer>0:div>2:div>0:div>0:div>1:p",
+        "0:div>0:footer>0:div>2:div>0:div>0:div>1:p>0:a",
+        "0:div>0:footer>0:div>2:div>0:div>1:svg",
+        "0:div>0:footer>0:div>2:div>0:div>1:svg>0:use",
+        "0:div>0:footer>0:div>2:div>1:div",
+        "0:div>0:footer>0:div>2:div>1:div>0:span",
+        "0:div>0:footer>0:div>2:div>1:div>1:div",
+        "0:div>0:footer>0:div>2:div>1:div>1:div>0:a",
+        "0:div>0:footer>0:div>2:div>1:div>1:div>0:a>0:svg",
+        "0:div>0:footer>0:div>2:div>1:div>1:div>0:a>0:svg>0:use",
+        "0:div>0:footer>0:div>2:div>1:div>1:div>1:a",
+        "0:div>0:footer>0:div>2:div>1:div>1:div>1:a>0:svg",
+        "0:div>0:footer>0:div>2:div>1:div>1:div>1:a>0:svg>0:use",
+        "0:div>0:footer>0:div>2:div>1:div>1:div>2:a",
+        "0:div>0:footer>0:div>2:div>1:div>1:div>2:a>0:svg",
+        "0:div>0:footer>0:div>2:div>1:div>1:div>2:a>0:svg>0:use",
+        "0:div>0:footer>1:div",
+        "0:div>0:footer>1:div>0:a",
+        "0:div>0:footer>1:div>1:a",
+        "0:div>0:footer>1:div>2:a"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:footer",
+          "0:div>0:footer>0:div",
+          "0:div>0:footer>0:div>0:div",
+          "0:div>0:footer>0:div>0:div>0:div",
+          "0:div>0:footer>0:div>0:div>1:p",
+          "0:div>0:footer>0:div>1:menu",
+          "0:div>0:footer>0:div>1:menu>0:div",
+          "0:div>0:footer>0:div>1:menu>0:div>0:h6",
+          "0:div>0:footer>0:div>1:menu>0:div>1:ul",
+          "0:div>0:footer>0:div>1:menu>0:div>1:ul>0:li",
+          "0:div>0:footer>0:div>1:menu>0:div>1:ul>1:li",
+          "0:div>0:footer>0:div>1:menu>0:div>1:ul>2:li",
+          "0:div>0:footer>0:div>1:menu>0:div>1:ul>3:li",
+          "0:div>0:footer>0:div>1:menu>1:div",
+          "0:div>0:footer>0:div>1:menu>1:div>0:h6",
+          "0:div>0:footer>0:div>1:menu>1:div>1:ul",
+          "0:div>0:footer>0:div>1:menu>1:div>1:ul>0:li",
+          "0:div>0:footer>0:div>1:menu>1:div>1:ul>1:li",
+          "0:div>0:footer>0:div>1:menu>1:div>1:ul>2:li",
+          "0:div>0:footer>0:div>1:menu>1:div>1:ul>3:li",
+          "0:div>0:footer>0:div>1:menu>2:div",
+          "0:div>0:footer>0:div>1:menu>2:div>0:h6",
+          "0:div>0:footer>0:div>1:menu>2:div>1:ul",
+          "0:div>0:footer>0:div>1:menu>2:div>1:ul>0:li",
+          "0:div>0:footer>0:div>1:menu>2:div>1:ul>1:li",
+          "0:div>0:footer>0:div>1:menu>2:div>1:ul>2:li",
+          "0:div>0:footer>0:div>1:menu>2:div>1:ul>3:li",
+          "0:div>0:footer>0:div>2:div",
+          "0:div>0:footer>0:div>2:div>0:div",
+          "0:div>0:footer>0:div>2:div>0:div>0:div",
+          "0:div>0:footer>0:div>2:div>0:div>0:div>0:h6",
+          "0:div>0:footer>0:div>2:div>0:div>0:div>1:p",
+          "0:div>0:footer>0:div>2:div>0:div>1:svg",
+          "0:div>0:footer>0:div>2:div>0:div>1:svg>0:use",
+          "0:div>0:footer>0:div>2:div>1:div",
+          "0:div>0:footer>0:div>2:div>1:div>0:span",
+          "0:div>0:footer>0:div>2:div>1:div>1:div",
+          "0:div>0:footer>1:div"
+        ],
+        "active": {
+          "0:div>0:footer>0:div>0:div>0:div>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>0:div>0:div>0:a",
+              "nav": ["navigate https://core.ac.uk/"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>0:div>0:div>0:a",
+              "nav": [
+                "navigate https://core.ac.uk/",
+                "navigate https://core.ac.uk/"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>0:div>0:div>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>0:div>0:div>0:a>0:svg": {
+            "click": {
+              "f": "0:div>0:footer>0:div>0:div>0:div>0:a",
+              "nav": ["navigate https://core.ac.uk/"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>0:div>0:div>0:a",
+              "nav": [
+                "navigate https://core.ac.uk/",
+                "navigate https://core.ac.uk/"
+              ]
+            }
+          },
+          "0:div>0:footer>0:div>0:div>0:div>0:a>0:svg>0:use": {
+            "click": {
+              "f": "0:div>0:footer>0:div>0:div>0:div>0:a",
+              "nav": ["navigate https://core.ac.uk/"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>0:div>0:div>0:a",
+              "nav": [
+                "navigate https://core.ac.uk/",
+                "navigate https://core.ac.uk/"
+              ]
+            }
+          },
+          "0:div>0:footer>0:div>0:div>1:p>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>0:div>1:p>0:a",
+              "nav": [
+                "navigate https://core.ac.uk/governance/supporters#membership-list"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>0:div>1:p>0:a",
+              "nav": [
+                "navigate https://core.ac.uk/governance/supporters#membership-list",
+                "navigate https://core.ac.uk/governance/supporters#membership-list"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>0:div>1:p>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>0:div>1:p>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:footer>0:div>0:div>1:p>0:a",
+              "nav": [
+                "navigate https://core.ac.uk/governance/supporters#membership-list"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>0:div>1:p>0:a",
+              "nav": [
+                "navigate https://core.ac.uk/governance/supporters#membership-list",
+                "navigate https://core.ac.uk/governance/supporters#membership-list"
+              ]
+            }
+          },
+          "0:div>0:footer>0:div>1:menu>0:div>1:ul>0:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>1:menu>0:div>1:ul>0:li>0:a",
+              "nav": ["navigate http://localhost/services"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>1:menu>0:div>1:ul>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/services",
+                "navigate http://localhost/services"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>1:menu>0:div>1:ul>0:li>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>1:menu>0:div>1:ul>1:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>1:menu>0:div>1:ul>1:li>0:a",
+              "nav": ["navigate http://localhost/membership"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>1:menu>0:div>1:ul>1:li>0:a",
+              "nav": [
+                "navigate http://localhost/membership",
+                "navigate http://localhost/membership"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>1:menu>0:div>1:ul>1:li>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>1:menu>0:div>1:ul>2:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>1:menu>0:div>1:ul>2:li>0:a",
+              "nav": ["navigate http://localhost/sponsorship"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>1:menu>0:div>1:ul>2:li>0:a",
+              "nav": [
+                "navigate http://localhost/sponsorship",
+                "navigate http://localhost/sponsorship"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>1:menu>0:div>1:ul>2:li>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>1:menu>0:div>1:ul>3:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>1:menu>0:div>1:ul>3:li>0:a",
+              "nav": ["navigate http://localhost/innovations/labs"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>1:menu>0:div>1:ul>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/innovations/labs",
+                "navigate http://localhost/innovations/labs"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>1:menu>0:div>1:ul>3:li>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>1:menu>1:div>1:ul>0:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>1:menu>1:div>1:ul>0:li>0:a",
+              "nav": ["navigate http://localhost/about"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>1:menu>1:div>1:ul>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/about",
+                "navigate http://localhost/about"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>1:menu>1:div>1:ul>0:li>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>1:menu>1:div>1:ul>1:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>1:menu>1:div>1:ul>1:li>0:a",
+              "nav": ["navigate http://localhost/about#our-mission"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>1:menu>1:div>1:ul>1:li>0:a",
+              "nav": [
+                "navigate http://localhost/about#our-mission",
+                "navigate http://localhost/about#our-mission"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>1:menu>1:div>1:ul>1:li>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>1:menu>1:div>1:ul>2:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>1:menu>1:div>1:ul>2:li>0:a",
+              "nav": ["navigate http://localhost/about#team"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>1:menu>1:div>1:ul>2:li>0:a",
+              "nav": [
+                "navigate http://localhost/about#team",
+                "navigate http://localhost/about#team"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>1:menu>1:div>1:ul>2:li>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>1:menu>1:div>1:ul>3:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>1:menu>1:div>1:ul>3:li>0:a",
+              "nav": ["navigate http://localhost/benefits"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>1:menu>1:div>1:ul>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/benefits",
+                "navigate http://localhost/benefits"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>1:menu>1:div>1:ul>3:li>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>1:menu>2:div>1:ul>0:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>1:menu>2:div>1:ul>0:li>0:a",
+              "nav": ["navigate http://localhost/terms"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>1:menu>2:div>1:ul>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/terms",
+                "navigate http://localhost/terms"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>1:menu>2:div>1:ul>0:li>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>1:menu>2:div>1:ul>1:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>1:menu>2:div>1:ul>1:li>0:a",
+              "nav": ["navigate http://localhost/faq"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>1:menu>2:div>1:ul>1:li>0:a",
+              "nav": [
+                "navigate http://localhost/faq",
+                "navigate http://localhost/faq"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>1:menu>2:div>1:ul>1:li>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>1:menu>2:div>1:ul>2:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>1:menu>2:div>1:ul>2:li>0:a",
+              "nav": ["navigate https://blog.core.ac.uk/"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>1:menu>2:div>1:ul>2:li>0:a",
+              "nav": [
+                "navigate https://blog.core.ac.uk/",
+                "navigate https://blog.core.ac.uk/"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>1:menu>2:div>1:ul>2:li>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>1:menu>2:div>1:ul>3:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>1:menu>2:div>1:ul>3:li>0:a",
+              "nav": ["navigate http://localhost/about#contact"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>1:menu>2:div>1:ul>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/about#contact",
+                "navigate http://localhost/about#contact"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>1:menu>2:div>1:ul>3:li>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>2:div>0:div>0:div>1:p>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>2:div>0:div>0:div>1:p>0:a",
+              "nav": ["navigate http://localhost/about/research-outputs"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>2:div>0:div>0:div>1:p>0:a",
+              "nav": [
+                "navigate http://localhost/about/research-outputs",
+                "navigate http://localhost/about/research-outputs"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>2:div>0:div>0:div>1:p>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>2:div>1:div>1:div>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>0:a",
+              "nav": ["navigate https://twitter.com/oacore target=_blank"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>0:a",
+              "nav": [
+                "navigate https://twitter.com/oacore target=_blank",
+                "navigate https://twitter.com/oacore target=_blank"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>0:a"
+            }
+          },
+          "0:div>0:footer>0:div>2:div>1:div>1:div>0:a>0:svg": {
+            "click": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>0:a",
+              "nav": ["navigate https://twitter.com/oacore target=_blank"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>0:a",
+              "nav": [
+                "navigate https://twitter.com/oacore target=_blank",
+                "navigate https://twitter.com/oacore target=_blank"
+              ]
+            }
+          },
+          "0:div>0:footer>0:div>2:div>1:div>1:div>0:a>0:svg>0:use": {
+            "click": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>0:a",
+              "nav": ["navigate https://twitter.com/oacore target=_blank"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>0:a",
+              "nav": [
+                "navigate https://twitter.com/oacore target=_blank",
+                "navigate https://twitter.com/oacore target=_blank"
+              ]
+            }
+          },
+          "0:div>0:footer>0:div>2:div>1:div>1:div>1:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>1:a",
+              "nav": [
+                "navigate https://www.linkedin.com/company/coreoa target=_blank"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>1:a",
+              "nav": [
+                "navigate https://www.linkedin.com/company/coreoa target=_blank",
+                "navigate https://www.linkedin.com/company/coreoa target=_blank"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>1:a"
+            }
+          },
+          "0:div>0:footer>0:div>2:div>1:div>1:div>1:a>0:svg": {
+            "click": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>1:a",
+              "nav": [
+                "navigate https://www.linkedin.com/company/coreoa target=_blank"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>1:a",
+              "nav": [
+                "navigate https://www.linkedin.com/company/coreoa target=_blank",
+                "navigate https://www.linkedin.com/company/coreoa target=_blank"
+              ]
+            }
+          },
+          "0:div>0:footer>0:div>2:div>1:div>1:div>1:a>0:svg>0:use": {
+            "click": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>1:a",
+              "nav": [
+                "navigate https://www.linkedin.com/company/coreoa target=_blank"
+              ]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>1:a",
+              "nav": [
+                "navigate https://www.linkedin.com/company/coreoa target=_blank",
+                "navigate https://www.linkedin.com/company/coreoa target=_blank"
+              ]
+            }
+          },
+          "0:div>0:footer>0:div>2:div>1:div>1:div>2:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>2:a",
+              "nav": ["navigate https://github.com/oacore target=_blank"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>2:a",
+              "nav": [
+                "navigate https://github.com/oacore target=_blank",
+                "navigate https://github.com/oacore target=_blank"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>2:a"
+            }
+          },
+          "0:div>0:footer>0:div>2:div>1:div>1:div>2:a>0:svg": {
+            "click": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>2:a",
+              "nav": ["navigate https://github.com/oacore target=_blank"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>2:a",
+              "nav": [
+                "navigate https://github.com/oacore target=_blank",
+                "navigate https://github.com/oacore target=_blank"
+              ]
+            }
+          },
+          "0:div>0:footer>0:div>2:div>1:div>1:div>2:a>0:svg>0:use": {
+            "click": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>2:a",
+              "nav": ["navigate https://github.com/oacore target=_blank"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>0:div>2:div>1:div>1:div>2:a",
+              "nav": [
+                "navigate https://github.com/oacore target=_blank",
+                "navigate https://github.com/oacore target=_blank"
+              ]
+            }
+          },
+          "0:div>0:footer>1:div>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>1:div>0:a",
+              "nav": ["navigate http://localhost/accessibility"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>1:div>0:a",
+              "nav": [
+                "navigate http://localhost/accessibility",
+                "navigate http://localhost/accessibility"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:footer>1:div>0:a" }
+          },
+          "0:div>0:footer>1:div>1:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>1:div>1:a",
+              "nav": ["navigate http://localhost/cookies"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>1:div>1:a",
+              "nav": [
+                "navigate http://localhost/cookies",
+                "navigate http://localhost/cookies"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:footer>1:div>1:a" }
+          },
+          "0:div>0:footer>1:div>2:a": {
+            "click,Enter": {
+              "f": "0:div>0:footer>1:div>2:a",
+              "nav": ["navigate http://localhost/privacy"]
+            },
+            "dblclick": {
+              "f": "0:div>0:footer>1:div>2:a",
+              "nav": [
+                "navigate http://localhost/privacy",
+                "navigate http://localhost/privacy"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:footer>1:div>2:a" }
+          }
+        }
+      }
+    }
+  },
+  "overlay": null
+}

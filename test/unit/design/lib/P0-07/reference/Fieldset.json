@@ -1,0 +1,544 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-15",
+  "name": "Fieldset",
+  "states": {
+    "icon-items": {
+      "dom": [
+        "<div>",
+        "  <fieldset class=\"fieldset-fieldset-2vQmh\">",
+        "    <legend class=\"fieldset-title-1yf3g\">",
+        "      \"Who you are\"",
+        "    <div class=\"fieldset-boxes-3_sDQ\">",
+        "      <div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\">",
+        "        <p class=\"card-description-3Qppz fieldset-description-ScE_H\">",
+        "          <svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\" role=\"img\" width=\"24\" height=\"24\">",
+        "            <use href=\"/static/search/icons.svg#account\">",
+        "          <span>",
+        "            \"First item\"",
+        "      <div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\">",
+        "        <p class=\"card-description-3Qppz fieldset-description-ScE_H\">",
+        "          <svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\" role=\"img\" width=\"24\" height=\"24\">",
+        "            <use href=\"/static/search/icons.svg#account\">",
+        "          <span>",
+        "            \"Second item\"",
+        "      <div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\">",
+        "        <p class=\"card-description-3Qppz fieldset-description-ScE_H\">",
+        "          <svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\" role=\"img\" width=\"24\" height=\"24\">",
+        "            <use href=\"/static/search/icons.svg#account\">",
+        "          <span>",
+        "            \"Third item\""
+      ],
+      "mount": { "v": ["0:div>0:fieldset:valid"], "f": "body" },
+      "nodes": [
+        "0:div>0:fieldset",
+        "0:div>0:fieldset>0:legend",
+        "0:div>0:fieldset>1:div",
+        "0:div>0:fieldset>1:div>0:div",
+        "0:div>0:fieldset>1:div>0:div>0:p",
+        "0:div>0:fieldset>1:div>0:div>0:p>0:svg",
+        "0:div>0:fieldset>1:div>0:div>0:p>0:svg>0:use",
+        "0:div>0:fieldset>1:div>0:div>0:p>1:span",
+        "0:div>0:fieldset>1:div>1:div",
+        "0:div>0:fieldset>1:div>1:div>0:p",
+        "0:div>0:fieldset>1:div>1:div>0:p>0:svg",
+        "0:div>0:fieldset>1:div>1:div>0:p>0:svg>0:use",
+        "0:div>0:fieldset>1:div>1:div>0:p>1:span",
+        "0:div>0:fieldset>1:div>2:div",
+        "0:div>0:fieldset>1:div>2:div>0:p",
+        "0:div>0:fieldset>1:div>2:div>0:p>0:svg",
+        "0:div>0:fieldset>1:div>2:div>0:p>0:svg>0:use",
+        "0:div>0:fieldset>1:div>2:div>0:p>1:span"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:fieldset",
+          "0:div>0:fieldset>0:legend",
+          "0:div>0:fieldset>1:div"
+        ],
+        "active": {
+          "0:div>0:fieldset>1:div>0:div": {
+            "click": { "c": ["onClick(\"firstItem\")"] },
+            "dblclick": {
+              "c": ["onClick(\"firstItem\")", "onClick(\"firstItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>0:div>0:p": {
+            "click": { "c": ["onClick(\"firstItem\")"] },
+            "dblclick": {
+              "c": ["onClick(\"firstItem\")", "onClick(\"firstItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>0:div>0:p>0:svg": {
+            "click": { "c": ["onClick(\"firstItem\")"] },
+            "dblclick": {
+              "c": ["onClick(\"firstItem\")", "onClick(\"firstItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>0:div>0:p>0:svg>0:use": {
+            "click": { "c": ["onClick(\"firstItem\")"] },
+            "dblclick": {
+              "c": ["onClick(\"firstItem\")", "onClick(\"firstItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>0:div>0:p>1:span": {
+            "click": { "c": ["onClick(\"firstItem\")"] },
+            "dblclick": {
+              "c": ["onClick(\"firstItem\")", "onClick(\"firstItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>1:div": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"secondItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"secondItem\")", "onClick(\"secondItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>1:div>0:p": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"secondItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"secondItem\")", "onClick(\"secondItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>1:div>0:p>0:svg": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"secondItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"secondItem\")", "onClick(\"secondItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>1:div>0:p>0:svg>0:use": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"secondItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"secondItem\")", "onClick(\"secondItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>1:div>0:p>1:span": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"secondItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"secondItem\")", "onClick(\"secondItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>2:div": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"thirdItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"thirdItem\")", "onClick(\"thirdItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>2:div>0:p": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"thirdItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"thirdItem\")", "onClick(\"thirdItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>2:div>0:p>0:svg": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"thirdItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"thirdItem\")", "onClick(\"thirdItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>2:div>0:p>0:svg>0:use": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"thirdItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"thirdItem\")", "onClick(\"thirdItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>2:div>0:p>1:span": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"thirdItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p>0:svg class=\"icon-icon-35iz- fieldset-icon-2Y8M1\"",
+                "attr 0:div>0:fieldset>1:div>2:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>2:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh\""
+              ],
+              "c": ["onClick(\"thirdItem\")", "onClick(\"thirdItem\")"]
+            }
+          }
+        }
+      }
+    },
+    "no-icon": {
+      "dom": [
+        "<div>",
+        "  <fieldset class=\"fieldset-fieldset-2vQmh extra\">",
+        "    <legend class=\"fieldset-title-1yf3g\">",
+        "      \"Size\"",
+        "    <div class=\"fieldset-boxes-3_sDQ\">",
+        "      <div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\">",
+        "        <p class=\"card-description-3Qppz fieldset-description-ScE_H\">",
+        "          <span>",
+        "            \"First item\"",
+        "      <div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\">",
+        "        <p class=\"card-description-3Qppz fieldset-description-ScE_H\">",
+        "          <span>",
+        "            \"Second item\""
+      ],
+      "mount": { "v": ["0:div>0:fieldset:valid"], "f": "body" },
+      "nodes": [
+        "0:div>0:fieldset",
+        "0:div>0:fieldset>0:legend",
+        "0:div>0:fieldset>1:div",
+        "0:div>0:fieldset>1:div>0:div",
+        "0:div>0:fieldset>1:div>0:div>0:p",
+        "0:div>0:fieldset>1:div>0:div>0:p>0:span",
+        "0:div>0:fieldset>1:div>1:div",
+        "0:div>0:fieldset>1:div>1:div>0:p",
+        "0:div>0:fieldset>1:div>1:div>0:p>0:span"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:fieldset",
+          "0:div>0:fieldset>0:legend",
+          "0:div>0:fieldset>1:div"
+        ],
+        "active": {
+          "0:div>0:fieldset>1:div>0:div": {
+            "click": { "c": ["onClick(\"firstItem\")"] },
+            "dblclick": {
+              "c": ["onClick(\"firstItem\")", "onClick(\"firstItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>0:div>0:p": {
+            "click": { "c": ["onClick(\"firstItem\")"] },
+            "dblclick": {
+              "c": ["onClick(\"firstItem\")", "onClick(\"firstItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>0:div>0:p>0:span": {
+            "click": { "c": ["onClick(\"firstItem\")"] },
+            "dblclick": {
+              "c": ["onClick(\"firstItem\")", "onClick(\"firstItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>1:div": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh extra\""
+              ],
+              "c": ["onClick(\"secondItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh extra\""
+              ],
+              "c": ["onClick(\"secondItem\")", "onClick(\"secondItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>1:div>0:p": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh extra\""
+              ],
+              "c": ["onClick(\"secondItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh extra\""
+              ],
+              "c": ["onClick(\"secondItem\")", "onClick(\"secondItem\")"]
+            }
+          },
+          "0:div>0:fieldset>1:div>1:div>0:p>0:span": {
+            "click": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh extra\""
+              ],
+              "c": ["onClick(\"secondItem\")"]
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:fieldset>1:div>0:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>0:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu\"",
+                "attr 0:div>0:fieldset>1:div>1:div>0:p class=\"card-description-3Qppz fieldset-description-ScE_H\"",
+                "attr 0:div>0:fieldset>1:div>1:div class=\"card-container-11P0y card-outlined-1ScI1 fieldset-box-item-2sAPu fieldset-box-item-active-3j3M-\"",
+                "attr 0:div>0:fieldset class=\"fieldset-fieldset-2vQmh extra\""
+              ],
+              "c": ["onClick(\"secondItem\")", "onClick(\"secondItem\")"]
+            }
+          }
+        }
+      }
+    }
+  },
+  "overlay": null
+}

@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-22",
+  "name": "ExpandableList",
+  "states": {
+    "four-items": {
+      "dom": [
+        "<div>",
+        "  <ol class=\"expandable-list-list-2znM0\" aria-label=\"Fruit\">",
+        "    <li>",
+        "      \"Apple\"",
+        "    <li>",
+        "      \"Peach\"",
+        "    <li>",
+        "      \"Orange\"",
+        "    <li>",
+        "      \"Raspberries\""
+      ],
+      "mount": { "f": "body" },
+      "nodes": [
+        "0:div>0:ol",
+        "0:div>0:ol>0:li",
+        "0:div>0:ol>1:li",
+        "0:div>0:ol>2:li",
+        "0:div>0:ol>3:li"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:ol",
+          "0:div>0:ol>0:li",
+          "0:div>0:ol>1:li",
+          "0:div>0:ol>2:li",
+          "0:div>0:ol>3:li"
+        ],
+        "active": {}
+      }
+    },
+    "six-focusable-items": {
+      "dom": [
+        "<div>",
+        "  <ol class=\"expandable-list-list-2znM0\" aria-label=\"Fruit\">",
+        "    <li aria-setsize=\"6\">",
+        "      <a href=\"/search/?q=Apple\">",
+        "        \"Apple\"",
+        "    <li aria-setsize=\"6\">",
+        "      <a href=\"/search/?q=Peach\">",
+        "        \"Peach\"",
+        "    <li aria-setsize=\"6\" class=\"expandable-list-show-more-2ndlc\">",
+        "      <button class=\"button-button-3fr3r button-text-2Jjil\" title=\"Show more\">",
+        "        \"+\"",
+        "        \"4\"",
+        "        \" more\"",
+        "    <li aria-setsize=\"6\" class=\"expandable-list-hide-2DCLG\">",
+        "      <a href=\"/search/?q=Orange\">",
+        "        \"Orange\"",
+        "    <li aria-setsize=\"6\" class=\"expandable-list-hide-2DCLG\">",
+        "      <a href=\"/search/?q=Raspberries\">",
+        "        \"Raspberries\"",
+        "    <li aria-setsize=\"6\" class=\"expandable-list-hide-2DCLG\">",
+        "      <a href=\"/search/?q=Banana\">",
+        "        \"Banana\"",
+        "    <li aria-setsize=\"6\" class=\"expandable-list-hide-2DCLG\">",
+        "      <a href=\"/search/?q=Mango\">",
+        "        \"Mango\""
+      ],
+      "mount": { "v": ["0:div>0:ol>2:li>0:button:valid"], "f": "body" },
+      "nodes": [
+        "0:div>0:ol",
+        "0:div>0:ol>0:li",
+        "0:div>0:ol>0:li>0:a",
+        "0:div>0:ol>1:li",
+        "0:div>0:ol>1:li>0:a",
+        "0:div>0:ol>2:li",
+        "0:div>0:ol>2:li>0:button",
+        "0:div>0:ol>3:li",
+        "0:div>0:ol>3:li>0:a",
+        "0:div>0:ol>4:li",
+        "0:div>0:ol>4:li>0:a",
+        "0:div>0:ol>5:li",
+        "0:div>0:ol>5:li>0:a",
+        "0:div>0:ol>6:li",
+        "0:div>0:ol>6:li>0:a"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:ol",
+          "0:div>0:ol>0:li",
+          "0:div>0:ol>1:li",
+          "0:div>0:ol>2:li",
+          "0:div>0:ol>3:li",
+          "0:div>0:ol>4:li",
+          "0:div>0:ol>5:li",
+          "0:div>0:ol>6:li"
+        ],
+        "active": {
+          "0:div>0:ol>0:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:ol>0:li>0:a",
+              "nav": ["navigate http://localhost/search/?q=Apple"]
+            },
+            "dblclick": {
+              "f": "0:div>0:ol>0:li>0:a",
+              "nav": [
+                "navigate http://localhost/search/?q=Apple",
+                "navigate http://localhost/search/?q=Apple"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:ol>0:li>0:a" }
+          },
+          "0:div>0:ol>1:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:ol>1:li>0:a",
+              "nav": ["navigate http://localhost/search/?q=Peach"]
+            },
+            "dblclick": {
+              "f": "0:div>0:ol>1:li>0:a",
+              "nav": [
+                "navigate http://localhost/search/?q=Peach",
+                "navigate http://localhost/search/?q=Peach"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:ol>1:li>0:a" }
+          },
+          "0:div>0:ol>2:li>0:button": {
+            "click,focus,Space,Esc,ArrowDown": {
+              "m": [
+                "attr 0:div>0:ol>2:li>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 0:div>0:ol>2:li class=\"expandable-list-show-more-2ndlc expandable-list-hide-2DCLG\"",
+                "attr 0:div>0:ol>3:li class=\"\"",
+                "attr 0:div>0:ol>4:li class=\"\"",
+                "attr 0:div>0:ol>5:li class=\"\"",
+                "attr 0:div>0:ol>6:li class=\"\"",
+                "attr 0:div>0:ol class=\"expandable-list-list-2znM0\""
+              ],
+              "f": "0:div>0:ol>3:li>0:a"
+            },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:ol>2:li>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 0:div>0:ol>2:li class=\"expandable-list-show-more-2ndlc expandable-list-hide-2DCLG\"",
+                "attr 0:div>0:ol>3:li class=\"\"",
+                "attr 0:div>0:ol>4:li class=\"\"",
+                "attr 0:div>0:ol>5:li class=\"\"",
+                "attr 0:div>0:ol>6:li class=\"\"",
+                "attr 0:div>0:ol class=\"expandable-list-list-2znM0\""
+              ],
+              "f": "0:div>0:ol>2:li>0:button"
+            },
+            "Enter": {
+              "m": [
+                "attr 0:div>0:ol>2:li>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 0:div>0:ol>2:li class=\"expandable-list-show-more-2ndlc expandable-list-hide-2DCLG\"",
+                "attr 0:div>0:ol>3:li class=\"\"",
+                "attr 0:div>0:ol>4:li class=\"\"",
+                "attr 0:div>0:ol>5:li class=\"\"",
+                "attr 0:div>0:ol>6:li class=\"\"",
+                "attr 0:div>0:ol class=\"expandable-list-list-2znM0\""
+              ],
+              "f": "0:div>0:ol>3:li>0:a",
+              "nav": ["navigate http://localhost/search/?q=Orange"]
+            }
+          },
+          "0:div>0:ol>3:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:ol>3:li>0:a",
+              "nav": ["navigate http://localhost/search/?q=Orange"]
+            },
+            "dblclick": {
+              "f": "0:div>0:ol>3:li>0:a",
+              "nav": [
+                "navigate http://localhost/search/?q=Orange",
+                "navigate http://localhost/search/?q=Orange"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:ol>3:li>0:a" }
+          },
+          "0:div>0:ol>4:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:ol>4:li>0:a",
+              "nav": ["navigate http://localhost/search/?q=Raspberries"]
+            },
+            "dblclick": {
+              "f": "0:div>0:ol>4:li>0:a",
+              "nav": [
+                "navigate http://localhost/search/?q=Raspberries",
+                "navigate http://localhost/search/?q=Raspberries"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:ol>4:li>0:a" }
+          },
+          "0:div>0:ol>5:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:ol>5:li>0:a",
+              "nav": ["navigate http://localhost/search/?q=Banana"]
+            },
+            "dblclick": {
+              "f": "0:div>0:ol>5:li>0:a",
+              "nav": [
+                "navigate http://localhost/search/?q=Banana",
+                "navigate http://localhost/search/?q=Banana"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:ol>5:li>0:a" }
+          },
+          "0:div>0:ol>6:li>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:ol>6:li>0:a",
+              "nav": ["navigate http://localhost/search/?q=Mango"]
+            },
+            "dblclick": {
+              "f": "0:div>0:ol>6:li>0:a",
+              "nav": [
+                "navigate http://localhost/search/?q=Mango",
+                "navigate http://localhost/search/?q=Mango"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:ol>6:li>0:a" }
+          }
+        }
+      }
+    }
+  },
+  "overlay": null
+}

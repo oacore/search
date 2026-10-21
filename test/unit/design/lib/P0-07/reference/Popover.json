@@ -1,0 +1,520 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-11",
+  "name": "Popover",
+  "states": {
+    "hover-focus": {
+      "dom": [
+        "<div>",
+        "  <div>",
+        "    <button class=\"button-button-3fr3r button-text-2Jjil\" type=\"button\">",
+        "      \"Download\""
+      ],
+      "mount": { "v": ["0:div>0:div>0:button:valid"], "f": "body" },
+      "nodes": ["0:div>0:div", "0:div>0:div>0:button"],
+      "interactions": {
+        "quiet": ["0:div>0:div"],
+        "active": {
+          "0:div>0:div>0:button": {
+            "click": {
+              "m": [
+                "child body +[div#tippy-14]",
+                "attr (detached) style=\"pointer-events: none; z-index: 9999; transition: none;\" x4",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr (detached)>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr (detached)>0:div data-placement=\"top\"",
+                "attr (detached)>0:div data-reference-hidden=\"\"",
+                "attr (detached)>0:div data-escaped=\"\"",
+                "attr (detached) style=\"pointer-events: none; z-index: 9999; transition: none;\" x23",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr (detached)>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr (detached) style=\"pointer-events: none; z-index: 9999; transition: none;\" x19",
+                "child body -[div#tippy-14]"
+              ],
+              "f": "0:div>0:div>0:button"
+            },
+            "dblclick": {
+              "m": [
+                "child body +[div#tippy-15]",
+                "attr (detached) style=\"pointer-events: none; z-index: 9999; transition: none;\" x4",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr (detached)>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr (detached)>0:div data-placement=\"top\"",
+                "attr (detached)>0:div data-reference-hidden=\"\"",
+                "attr (detached)>0:div data-escaped=\"\"",
+                "attr (detached) style=\"pointer-events: none; z-index: 9999; transition: none;\" x23",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr (detached)>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr (detached) style=\"pointer-events: none; z-index: 9999; transition: none;\" x19",
+                "child body -[div#tippy-15]"
+              ],
+              "f": "0:div>0:div>0:button"
+            },
+            "hover": {
+              "m": [
+                "child body +[div#tippy-16]",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div>0:div data-placement=\"top\"",
+                "attr 1:div>0:div data-reference-hidden=\"\"",
+                "attr 1:div>0:div data-escaped=\"\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x23",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x13",
+                "attr 0:div>0:div>0:button aria-describedby=\"tippy-16\""
+              ]
+            },
+            "focus": {
+              "m": [
+                "child body +[div#tippy-17]",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div>0:div data-placement=\"top\"",
+                "attr 1:div>0:div data-reference-hidden=\"\"",
+                "attr 1:div>0:div data-escaped=\"\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x23",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x13",
+                "attr 0:div>0:div>0:button aria-describedby=\"tippy-17\""
+              ],
+              "f": "0:div>0:div>0:button"
+            },
+            "Enter": {
+              "m": [
+                "child body +[div#tippy-18]",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div>0:div data-placement=\"top\"",
+                "attr 1:div>0:div data-reference-hidden=\"\"",
+                "attr 1:div>0:div data-escaped=\"\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x23",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x13",
+                "attr 0:div>0:div>0:button aria-describedby=\"tippy-18\""
+              ],
+              "f": "0:div>0:div>0:button"
+            },
+            "Space": {
+              "m": [
+                "child body +[div#tippy-19]",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div>0:div data-placement=\"top\"",
+                "attr 1:div>0:div data-reference-hidden=\"\"",
+                "attr 1:div>0:div data-escaped=\"\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x23",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x13",
+                "attr 0:div>0:div>0:button aria-describedby=\"tippy-19\""
+              ],
+              "f": "0:div>0:div>0:button"
+            },
+            "Esc": {
+              "m": [
+                "child body +[div#tippy-20]",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div>0:div data-placement=\"top\"",
+                "attr 1:div>0:div data-reference-hidden=\"\"",
+                "attr 1:div>0:div data-escaped=\"\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x23",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x13",
+                "attr 0:div>0:div>0:button aria-describedby=\"tippy-20\""
+              ],
+              "f": "0:div>0:div>0:button"
+            },
+            "ArrowDown": {
+              "m": [
+                "child body +[div#tippy-21]",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div>0:div data-placement=\"top\"",
+                "attr 1:div>0:div data-reference-hidden=\"\"",
+                "attr 1:div>0:div data-escaped=\"\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x23",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x13",
+                "attr 0:div>0:div>0:button aria-describedby=\"tippy-21\""
+              ],
+              "f": "0:div>0:div>0:button"
+            }
+          }
+        }
+      }
+    },
+    "click-trigger": {
+      "dom": [
+        "<div>",
+        "  <div>",
+        "    <button class=\"button-button-3fr3r button-outlined-3dJXM\">",
+        "      \"top-start\""
+      ],
+      "mount": { "v": ["0:div>0:div>0:button:valid"], "f": "body" },
+      "nodes": ["0:div>0:div", "0:div>0:div>0:button"],
+      "interactions": {
+        "quiet": ["0:div>0:div"],
+        "active": {
+          "0:div>0:div>0:button": {
+            "click": {
+              "m": [
+                "child body +[div#tippy-30]",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div>0:div data-placement=\"top-start\"",
+                "attr 1:div>0:div data-reference-hidden=\"\"",
+                "attr 1:div>0:div data-escaped=\"\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x23",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x13",
+                "attr 0:div>0:div>0:button aria-describedby=\"tippy-30\""
+              ],
+              "f": "0:div>0:div>0:button"
+            },
+            "dblclick": {
+              "m": [
+                "child body +[div#tippy-31]",
+                "attr (detached) style=\"pointer-events: none; z-index: 9999;\" x4",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                "attr (detached)>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr (detached)>0:div data-placement=\"top-start\"",
+                "attr (detached)>0:div data-reference-hidden=\"\"",
+                "attr (detached)>0:div data-escaped=\"\"",
+                "attr (detached) style=\"pointer-events: none; z-index: 9999;\" x23",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                "attr (detached)>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr (detached) style=\"pointer-events: none; z-index: 9999;\" x13",
+                "attr 0:div>0:div>0:button aria-describedby=(removed) x2",
+                "attr (detached) style=\"pointer-events: none; z-index: 9999;\" x7",
+                "child body -[div#tippy-31]"
+              ],
+              "f": "0:div>0:div>0:button"
+            },
+            "focus,Esc,ArrowDown": { "f": "0:div>0:div>0:button" },
+            "Enter": {
+              "m": [
+                "child body +[div#tippy-34]",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div>0:div data-placement=\"top-start\"",
+                "attr 1:div>0:div data-reference-hidden=\"\"",
+                "attr 1:div>0:div data-escaped=\"\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x23",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x13",
+                "attr 0:div>0:div>0:button aria-describedby=\"tippy-34\""
+              ],
+              "f": "0:div>0:div>0:button"
+            },
+            "Space": {
+              "m": [
+                "child body +[div#tippy-35]",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div>0:div data-placement=\"top-start\"",
+                "attr 1:div>0:div data-reference-hidden=\"\"",
+                "attr 1:div>0:div data-escaped=\"\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x23",
+                "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x13",
+                "attr 0:div>0:div>0:button aria-describedby=\"tippy-35\""
+              ],
+              "f": "0:div>0:div>0:button"
+            }
+          }
+        }
+      }
+    },
+    "interactive-text-field": {
+      "dom": [
+        "<div>",
+        "  <div>",
+        "    <button class=\"button-button-3fr3r button-outlined-3dJXM\" aria-expanded=\"false\">",
+        "      \"top-end\""
+      ],
+      "mount": { "v": ["0:div>0:div>0:button:valid"], "f": "body" },
+      "nodes": ["0:div>0:div", "0:div>0:div>0:button"],
+      "interactions": {
+        "quiet": ["0:div>0:div"],
+        "active": {
+          "0:div>0:div>0:button": {
+            "click": {
+              "m": {
+                "count": 19,
+                "sha256": "bd0db98c5833205000f0ec18f6c7eb31d494643906ac7c6f41e36875656b6505",
+                "head": [
+                  "attr 0:div>0:div>0:button aria-expanded=\"false\"",
+                  "child 0:div>0:div +[div#tippy-46]",
+                  "attr (detached) style=\"z-index: 9999; transition: none; pointer-events: none;\" x4",
+                  "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                  "attr (detached)>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                  "attr (detached)>0:div data-placement=\"top-end\"",
+                  "attr (detached)>0:div data-reference-hidden=\"\"",
+                  "attr (detached)>0:div data-escaped=\"\""
+                ]
+              },
+              "f": "0:div>0:div>0:button"
+            },
+            "dblclick": {
+              "m": {
+                "count": 19,
+                "sha256": "8cccbdcd519778e7602eede53d89af6276cd6dfa1788c3e779a625e70dd48c43",
+                "head": [
+                  "attr 0:div>0:div>0:button aria-expanded=\"false\"",
+                  "child 0:div>0:div +[div#tippy-47]",
+                  "attr (detached) style=\"z-index: 9999; transition: none; pointer-events: none;\" x4",
+                  "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                  "attr (detached)>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                  "attr (detached)>0:div data-placement=\"top-end\"",
+                  "attr (detached)>0:div data-reference-hidden=\"\"",
+                  "attr (detached)>0:div data-escaped=\"\""
+                ]
+              },
+              "f": "0:div>0:div>0:button"
+            },
+            "hover": {
+              "m": {
+                "count": 17,
+                "sha256": "9ea61d9352f5973261d68f46c506c650f68cd6fb50ab9d604d41a494f10a4f39",
+                "head": [
+                  "attr 0:div>0:div>0:button aria-expanded=\"true\"",
+                  "child 0:div>0:div +[div#tippy-48]",
+                  "attr 0:div>0:div>1:div style=\"z-index: 9999; position: absolute; left: auto; top: auto; margin: 0px; right: 0px; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                  "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                  "attr 0:div>0:div>1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                  "attr 0:div>0:div>1:div>0:div data-placement=\"top-end\"",
+                  "attr 0:div>0:div>1:div>0:div data-reference-hidden=\"\"",
+                  "attr 0:div>0:div>1:div>0:div data-escaped=\"\""
+                ]
+              },
+              "v": [
+                "0:div>0:div>0:button:valid",
+                "0:div>0:div>1:div>0:div>0:div>0:input:valid"
+              ]
+            },
+            "focus": {
+              "m": {
+                "count": 17,
+                "sha256": "975318dd9b88953ea842f01edd32da98648441a4f00667330ce37663604857e3",
+                "head": [
+                  "attr 0:div>0:div>0:button aria-expanded=\"true\"",
+                  "child 0:div>0:div +[div#tippy-49]",
+                  "attr 0:div>0:div>1:div style=\"z-index: 9999; position: absolute; left: auto; top: auto; margin: 0px; right: 0px; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                  "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                  "attr 0:div>0:div>1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                  "attr 0:div>0:div>1:div>0:div data-placement=\"top-end\"",
+                  "attr 0:div>0:div>1:div>0:div data-reference-hidden=\"\"",
+                  "attr 0:div>0:div>1:div>0:div data-escaped=\"\""
+                ]
+              },
+              "f": "0:div>0:div>0:button",
+              "v": [
+                "0:div>0:div>0:button:valid",
+                "0:div>0:div>1:div>0:div>0:div>0:input:valid"
+              ]
+            },
+            "Enter": {
+              "m": {
+                "count": 17,
+                "sha256": "ea3ce46cfe9c0b309ac164a64bf37131a8ad2d27e3090840fe76f83ea0778f8e",
+                "head": [
+                  "attr 0:div>0:div>0:button aria-expanded=\"true\"",
+                  "child 0:div>0:div +[div#tippy-50]",
+                  "attr 0:div>0:div>1:div style=\"z-index: 9999; position: absolute; left: auto; top: auto; margin: 0px; right: 0px; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                  "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                  "attr 0:div>0:div>1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                  "attr 0:div>0:div>1:div>0:div data-placement=\"top-end\"",
+                  "attr 0:div>0:div>1:div>0:div data-reference-hidden=\"\"",
+                  "attr 0:div>0:div>1:div>0:div data-escaped=\"\""
+                ]
+              },
+              "f": "0:div>0:div>0:button",
+              "v": [
+                "0:div>0:div>0:button:valid",
+                "0:div>0:div>1:div>0:div>0:div>0:input:valid"
+              ]
+            },
+            "Space": {
+              "m": {
+                "count": 17,
+                "sha256": "0fb3dcc1b87aef9ae6f47c1075ccc3e0f249ee87c1a0cc1391dec7f8db49695a",
+                "head": [
+                  "attr 0:div>0:div>0:button aria-expanded=\"true\"",
+                  "child 0:div>0:div +[div#tippy-51]",
+                  "attr 0:div>0:div>1:div style=\"z-index: 9999; position: absolute; left: auto; top: auto; margin: 0px; right: 0px; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                  "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                  "attr 0:div>0:div>1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                  "attr 0:div>0:div>1:div>0:div data-placement=\"top-end\"",
+                  "attr 0:div>0:div>1:div>0:div data-reference-hidden=\"\"",
+                  "attr 0:div>0:div>1:div>0:div data-escaped=\"\""
+                ]
+              },
+              "f": "0:div>0:div>0:button",
+              "v": [
+                "0:div>0:div>0:button:valid",
+                "0:div>0:div>1:div>0:div>0:div>0:input:valid"
+              ]
+            },
+            "Esc": {
+              "m": {
+                "count": 17,
+                "sha256": "448d396d4ac049845354645cd2340ba99cb06ac0bf2151fcb800bcba417c5d2c",
+                "head": [
+                  "attr 0:div>0:div>0:button aria-expanded=\"true\"",
+                  "child 0:div>0:div +[div#tippy-52]",
+                  "attr 0:div>0:div>1:div style=\"z-index: 9999; position: absolute; left: auto; top: auto; margin: 0px; right: 0px; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                  "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                  "attr 0:div>0:div>1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                  "attr 0:div>0:div>1:div>0:div data-placement=\"top-end\"",
+                  "attr 0:div>0:div>1:div>0:div data-reference-hidden=\"\"",
+                  "attr 0:div>0:div>1:div>0:div data-escaped=\"\""
+                ]
+              },
+              "f": "0:div>0:div>0:button",
+              "v": [
+                "0:div>0:div>0:button:valid",
+                "0:div>0:div>1:div>0:div>0:div>0:input:valid"
+              ]
+            },
+            "ArrowDown": {
+              "m": {
+                "count": 17,
+                "sha256": "e7c984e041f7db7663dcdb8ad6b135c1e079310f9394172a79c2632d91c5007f",
+                "head": [
+                  "attr 0:div>0:div>0:button aria-expanded=\"true\"",
+                  "child 0:div>0:div +[div#tippy-53]",
+                  "attr 0:div>0:div>1:div style=\"z-index: 9999; position: absolute; left: auto; top: auto; margin: 0px; right: 0px; bottom: 0px; transform: translate(0px, -10px);\" x4",
+                  "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-outlined-3dJXM\"",
+                  "attr 0:div>0:div>1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+                  "attr 0:div>0:div>1:div>0:div data-placement=\"top-end\"",
+                  "attr 0:div>0:div>1:div>0:div data-reference-hidden=\"\"",
+                  "attr 0:div>0:div>1:div>0:div data-escaped=\"\""
+                ]
+              },
+              "f": "0:div>0:div>0:button",
+              "v": [
+                "0:div>0:div>0:button:valid",
+                "0:div>0:div>1:div>0:div>0:div>0:input:valid"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "visible-manual": {
+      "dom": [
+        "<div>",
+        "  <div>",
+        "    <button class=\"button-button-3fr3r button-text-2Jjil\" type=\"button\" aria-describedby=\"tippy-4\">",
+        "      \"Copy\"",
+        "<div data-tippy-root=\"\" id=\"tippy-4\" style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\">",
+        "  <div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\" data-placement=\"top\" data-reference-hidden=\"\" data-escaped=\"\">",
+        "    \"Copied!\""
+      ],
+      "mount": { "v": ["0:div>0:div>0:button:valid"], "f": "body" },
+      "nodes": ["0:div>0:div", "0:div>0:div>0:button", "1:div", "1:div>0:div"],
+      "interactions": {
+        "quiet": ["0:div>0:div"],
+        "active": {
+          "0:div>0:div>0:button": {
+            "click,dblclick,focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>0:button"
+            }
+          },
+          "1:div": {
+            "click,dblclick,hover": {
+              "e": "Error: Unable to perform pointer interaction as the element has `pointer-events: none`:"
+            }
+          },
+          "1:div>0:div": {
+            "click,dblclick,hover": {
+              "e": "Error: Unable to perform pointer interaction as the element has `pointer-events: none`:"
+            }
+          }
+        }
+      }
+    },
+    "hidden-manual": {
+      "dom": [
+        "<div>",
+        "  <div>",
+        "    <button class=\"button-button-3fr3r button-text-2Jjil\" type=\"button\">",
+        "      \"Copy\""
+      ],
+      "mount": { "v": ["0:div>0:div>0:button:valid"], "f": "body" },
+      "nodes": ["0:div>0:div", "0:div>0:div>0:button"],
+      "interactions": {
+        "quiet": ["0:div>0:div"],
+        "active": {
+          "0:div>0:div>0:button": {
+            "click,dblclick,focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:div>0:button"
+            }
+          }
+        }
+      }
+    }
+  },
+  "overlay": {
+    "kind": "popover",
+    "state": "hover-focus",
+    "open": {
+      "m": [
+        "child body +[div#tippy-102]",
+        "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x4",
+        "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+        "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+        "attr 1:div>0:div data-placement=\"top\"",
+        "attr 1:div>0:div data-reference-hidden=\"\"",
+        "attr 1:div>0:div data-escaped=\"\"",
+        "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x23",
+        "attr 0:div>0:div>0:button class=\"button-button-3fr3r button-text-2Jjil\"",
+        "attr 1:div>0:div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\"",
+        "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\" x13",
+        "attr 0:div>0:div>0:button aria-describedby=\"tippy-102\""
+      ]
+    },
+    "openDom": [
+      "<div>",
+      "  <div>",
+      "    <button class=\"button-button-3fr3r button-text-2Jjil\" type=\"button\" aria-describedby=\"tippy-102\">",
+      "      \"Download\"",
+      "<div data-tippy-root=\"\" id=\"tippy-102\" style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, -10px);\">",
+      "  <div class=\"card-container-11P0y card-elevated-1Clhn popover-content-3mgoY\" data-placement=\"top\" data-reference-hidden=\"\" data-escaped=\"\">",
+      "    \"Download results in CSV\""
+    ],
+    "blur": "-",
+    "scroll-100": {
+      "m": [
+        "attr 1:div style=\"pointer-events: none; z-index: 9999; position: absolute; left: 0px; top: auto; margin: 0px; right: auto; bottom: 0px; transform: translate(0px, 90px);\""
+      ]
+    },
+    "resize+1": "-",
+    "resize-1": "-"
+  }
+}

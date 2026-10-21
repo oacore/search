@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-04",
+  "name": "Card",
+  "states": {
+    "statics": {
+      "dom": [
+        "<div>",
+        "  <div class=\"card-container-11P0y card-elevated-1Clhn\">",
+        "    <h1 class=\"card-title-2rvi9\">",
+        "      \"Hi there, I am just simple Card\"",
+        "    <p class=\"card-description-3Qppz\">",
+        "      \"This is just mine description\"",
+        "    <p>",
+        "      \"Text inside\"",
+        "    <div class=\"card-footer-1UaTv\">",
+        "      \"This is just simple footer.\""
+      ],
+      "mount": { "f": "body" },
+      "nodes": [
+        "0:div>0:div",
+        "0:div>0:div>0:h1",
+        "0:div>0:div>1:p",
+        "0:div>0:div>2:p",
+        "0:div>0:div>3:div"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:div",
+          "0:div>0:div>0:h1",
+          "0:div>0:div>1:p",
+          "0:div>0:div>2:p",
+          "0:div>0:div>3:div"
+        ],
+        "active": {}
+      }
+    },
+    "outlined-tags": {
+      "dom": [
+        "<div>",
+        "  <section class=\"card-container-11P0y card-outlined-1ScI1 extra\">",
+        "    <h2 class=\"card-title-2rvi9\">",
+        "      \"Title\"",
+        "    <div class=\"card-description-3Qppz\">",
+        "      \"Description\""
+      ],
+      "mount": { "f": "body" },
+      "nodes": [
+        "0:div>0:section",
+        "0:div>0:section>0:h2",
+        "0:div>0:section>1:div"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:section",
+          "0:div>0:section>0:h2",
+          "0:div>0:section>1:div"
+        ],
+        "active": {}
+      }
+    },
+    "tag-a-nested-anchors": {
+      "dom": [
+        "<div>",
+        "  <a class=\"card-container-11P0y card-outlined-1ScI1\" href=\"/download/1.pdf\">",
+        "    <span class=\"card-title-2rvi9\">",
+        "      \"Full text\"",
+        "    <a class=\"button-button-3fr3r button-contained-pmIp-\" href=\"/reader/1\">",
+        "      \"Read\""
+      ],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:a", "0:div>0:a>0:span", "0:div>0:a>1:a"],
+      "interactions": {
+        "quiet": [],
+        "active": {
+          "0:div>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:a",
+              "nav": ["navigate http://localhost/download/1.pdf"]
+            },
+            "dblclick": {
+              "f": "0:div>0:a",
+              "nav": [
+                "navigate http://localhost/download/1.pdf",
+                "navigate http://localhost/download/1.pdf"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:a" }
+          },
+          "0:div>0:a>0:span": {
+            "click": {
+              "f": "0:div>0:a",
+              "nav": ["navigate http://localhost/download/1.pdf"]
+            },
+            "dblclick": {
+              "f": "0:div>0:a",
+              "nav": [
+                "navigate http://localhost/download/1.pdf",
+                "navigate http://localhost/download/1.pdf"
+              ]
+            }
+          },
+          "0:div>0:a>1:a": {
+            "click,Enter": {
+              "f": "0:div>0:a>1:a",
+              "nav": ["navigate http://localhost/reader/1"]
+            },
+            "dblclick": {
+              "f": "0:div>0:a>1:a",
+              "nav": [
+                "navigate http://localhost/reader/1",
+                "navigate http://localhost/reader/1"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:a>1:a" }
+          }
+        }
+      }
+    }
+  },
+  "overlay": null
+}

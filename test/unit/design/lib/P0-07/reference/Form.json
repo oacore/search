@@ -1,0 +1,201 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-07",
+  "name": "Form",
+  "states": {
+    "label-before": {
+      "dom": [
+        "<div>",
+        "  <p class=\"styles-group-NqOA7\">",
+        "    <label class=\"styles-label-3Zc32\" for=\"du-form-1\">",
+        "      \"Label\"",
+        "    <input class=\"styles-control-12Pze\" id=\"du-form-1\" value=\"Hello\">"
+      ],
+      "mount": { "v": ["0:div>0:p>1:input:valid"], "f": "body" },
+      "nodes": ["0:div>0:p", "0:div>0:p>0:label", "0:div>0:p>1:input"],
+      "interactions": {
+        "quiet": ["0:div>0:p"],
+        "active": {
+          "0:div>0:p>0:label": {
+            "click,dblclick": { "f": "0:div>0:p>1:input" }
+          },
+          "0:div>0:p>1:input": {
+            "click,dblclick,focus,Enter,Esc,ArrowDown": {
+              "f": "0:div>0:p>1:input"
+            },
+            "Space": {
+              "m": ["attr 0:div>0:p>1:input value=\"Hello\""],
+              "f": "0:div>0:p>1:input"
+            }
+          }
+        }
+      }
+    },
+    "addons-number": {
+      "dom": [
+        "<div>",
+        "  <p class=\"styles-group-NqOA7\">",
+        "    <span class=\"styles-addon-fHX-H styles-prepend-3yZWC\">",
+        "      \"$\"",
+        "    <span class=\"styles-addon-fHX-H styles-append-2Bs2q\">",
+        "      \".00\"",
+        "    <input type=\"number\" class=\"styles-control-12Pze\" id=\"du-form-2\" placeholder=\"e.g. 10\" value=\"\">",
+        "    <label class=\"styles-label-3Zc32\" for=\"du-form-2\">",
+        "      \"Amount\""
+      ],
+      "mount": { "v": ["0:div>0:p>2:input:valid"], "f": "body" },
+      "nodes": [
+        "0:div>0:p",
+        "0:div>0:p>0:span",
+        "0:div>0:p>1:span",
+        "0:div>0:p>2:input",
+        "0:div>0:p>3:label"
+      ],
+      "interactions": {
+        "quiet": ["0:div>0:p", "0:div>0:p>0:span", "0:div>0:p>1:span"],
+        "active": {
+          "0:div>0:p>2:input": {
+            "click,dblclick,focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:p>2:input"
+            }
+          },
+          "0:div>0:p>3:label": {
+            "click,dblclick": { "f": "0:div>0:p>2:input" }
+          }
+        }
+      }
+    },
+    "select-textarea": {
+      "dom": [
+        "<div>",
+        "  <form aria-label=\"controls\">",
+        "    <div class=\"styles-group-NqOA7\">",
+        "      <select class=\"styles-control-12Pze\" id=\"du-form-3\">",
+        "        <option>",
+        "          \"Lorem\"",
+        "        <option selected=\"\">",
+        "          \"Ipsum\"",
+        "      <label class=\"styles-label-3Zc32\" for=\"du-form-3\">",
+        "        \"Select\"",
+        "    <div class=\"styles-group-NqOA7\">",
+        "      <textarea class=\"styles-control-12Pze\" id=\"du-form-4\" placeholder=\"Hello world!\">",
+        "      <label class=\"styles-label-3Zc32\" for=\"du-form-4\">",
+        "        \"Textarea\""
+      ],
+      "mount": {
+        "v": [
+          "0:div>0:form:valid",
+          "0:div>0:form>0:div>0:select:valid",
+          "0:div>0:form>1:div>0:textarea:valid"
+        ],
+        "f": "body"
+      },
+      "nodes": [
+        "0:div>0:form",
+        "0:div>0:form>0:div",
+        "0:div>0:form>0:div>0:select",
+        "0:div>0:form>0:div>0:select>0:option",
+        "0:div>0:form>0:div>0:select>1:option",
+        "0:div>0:form>0:div>1:label",
+        "0:div>0:form>1:div",
+        "0:div>0:form>1:div>0:textarea",
+        "0:div>0:form>1:div>1:label"
+      ],
+      "interactions": {
+        "quiet": ["0:div>0:form", "0:div>0:form>0:div", "0:div>0:form>1:div"],
+        "active": {
+          "0:div>0:form>0:div>0:select": {
+            "click,dblclick,focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:form>0:div>0:select"
+            }
+          },
+          "0:div>0:form>0:div>0:select>0:option": {
+            "click,dblclick": { "f": "0:div>0:form>0:div>0:select" }
+          },
+          "0:div>0:form>0:div>0:select>1:option": {
+            "click,dblclick": { "f": "0:div>0:form>0:div>0:select" }
+          },
+          "0:div>0:form>0:div>1:label": {
+            "click,dblclick": { "f": "0:div>0:form>0:div>0:select" }
+          },
+          "0:div>0:form>1:div>0:textarea": {
+            "click,dblclick,focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:form>1:div>0:textarea"
+            }
+          },
+          "0:div>0:form>1:div>1:label": {
+            "click,dblclick": { "f": "0:div>0:form>1:div>0:textarea" }
+          }
+        }
+      }
+    },
+    "required-submit": {
+      "dom": [
+        "<div>",
+        "  <form aria-label=\"required form\">",
+        "    <div class=\"styles-group-NqOA7 normal\" id=\"du-form-email\">",
+        "      <input type=\"email\" class=\"styles-control-12Pze\" id=\"du-form-email-control\" aria-invalid=\"false\" aria-describedby=\"du-form-email-message\" required=\"\" value=\"\">",
+        "      <span id=\"du-form-email-helper\" class=\"text-field-helper-2vqOg\">",
+        "      <label class=\"styles-label-3Zc32\" for=\"du-form-email-control\">",
+        "        \"E-mail\"",
+        "    <button class=\"button-button-3fr3r button-contained-pmIp-\" type=\"submit\">",
+        "      \"Send\""
+      ],
+      "mount": {
+        "v": [
+          "0:div>0:form:invalid",
+          "0:div>0:form>0:div>0:input:invalid",
+          "0:div>0:form>1:button:valid"
+        ],
+        "f": "body"
+      },
+      "nodes": [
+        "0:div>0:form",
+        "0:div>0:form>0:div",
+        "0:div>0:form>0:div>0:input",
+        "0:div>0:form>0:div>1:span",
+        "0:div>0:form>0:div>2:label",
+        "0:div>0:form>1:button"
+      ],
+      "interactions": {
+        "quiet": [
+          "0:div>0:form",
+          "0:div>0:form>0:div",
+          "0:div>0:form>0:div>1:span"
+        ],
+        "active": {
+          "0:div>0:form>0:div>0:input": {
+            "click,dblclick,focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:form>0:div>0:input"
+            }
+          },
+          "0:div>0:form>0:div>2:label": {
+            "click": { "f": "0:div>0:form>0:div>0:input" },
+            "dblclick": {
+              "m": [
+                "attr 0:div>0:form>0:div>0:input class=\"styles-control-12Pze text-field-touched-2sKii\"",
+                "attr 0:div>0:form>0:div>0:input value=\"\"",
+                "attr 0:div>0:form>0:div>2:label class=\"styles-label-3Zc32\"",
+                "attr 0:div>0:form>0:div class=\"styles-group-NqOA7 normal text-field-touched-2sKii\""
+              ],
+              "f": "0:div>0:form>0:div>0:input"
+            }
+          },
+          "0:div>0:form>1:button": {
+            "click,dblclick,focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:form>1:button"
+            }
+          }
+        }
+      }
+    }
+  },
+  "overlay": null
+}

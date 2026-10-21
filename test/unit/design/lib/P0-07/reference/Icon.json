@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-02",
+  "name": "Icon",
+  "states": {
+    "alt": {
+      "dom": [
+        "<div>",
+        "  <svg class=\"icon-icon-35iz-\" role=\"img\" aria-label=\"OK\" width=\"24\" height=\"24\">",
+        "    <use href=\"/static/search/icons.svg#check\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:svg", "0:div>0:svg>0:use"],
+      "interactions": {
+        "quiet": ["0:div>0:svg", "0:div>0:svg>0:use"],
+        "active": {}
+      }
+    },
+    "aria-hidden-in-button": {
+      "dom": [
+        "<div>",
+        "  <button type=\"button\">",
+        "    <svg class=\"icon-icon-35iz-\" role=\"img\" width=\"24\" height=\"24\" aria-hidden=\"true\">",
+        "      <use href=\"/static/search/icons.svg#check\">",
+        "    \"OK\""
+      ],
+      "mount": { "v": ["0:div>0:button:valid"], "f": "body" },
+      "nodes": [
+        "0:div>0:button",
+        "0:div>0:button>0:svg",
+        "0:div>0:button>0:svg>0:use"
+      ],
+      "interactions": {
+        "quiet": [],
+        "active": {
+          "0:div>0:button": {
+            "click,dblclick,focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:button"
+            }
+          },
+          "0:div>0:button>0:svg": {
+            "click,dblclick": { "f": "0:div>0:button" }
+          },
+          "0:div>0:button>0:svg>0:use": {
+            "click,dblclick": { "f": "0:div>0:button" }
+          }
+        }
+      }
+    },
+    "class-and-url": {
+      "dom": [
+        "<div>",
+        "  <svg class=\"icon-icon-35iz- extra\" role=\"img\" width=\"24\" height=\"24\">",
+        "    <use href=\"/static/search/images/logo.svg\">"
+      ],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:svg", "0:div>0:svg>0:use"],
+      "interactions": {
+        "quiet": ["0:div>0:svg", "0:div>0:svg>0:use"],
+        "active": {}
+      }
+    }
+  },
+  "overlay": null
+}

@@ -1,0 +1,161 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-03",
+  "name": "Button",
+  "states": {
+    "variants": {
+      "dom": [
+        "<div>",
+        "  <p>",
+        "    <button class=\"button-button-3fr3r button-contained-pmIp-\">",
+        "      \"Contained\"",
+        "    <button class=\"button-button-3fr3r button-outlined-3dJXM\">",
+        "      \"Outlined\"",
+        "    <button class=\"button-button-3fr3r button-text-2Jjil\">",
+        "      \"Text\""
+      ],
+      "mount": {
+        "v": [
+          "0:div>0:p>0:button:valid",
+          "0:div>0:p>1:button:valid",
+          "0:div>0:p>2:button:valid"
+        ],
+        "f": "body"
+      },
+      "nodes": [
+        "0:div>0:p",
+        "0:div>0:p>0:button",
+        "0:div>0:p>1:button",
+        "0:div>0:p>2:button"
+      ],
+      "interactions": {
+        "quiet": ["0:div>0:p"],
+        "active": {
+          "0:div>0:p>0:button": {
+            "click,dblclick,focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:p>0:button"
+            }
+          },
+          "0:div>0:p>1:button": {
+            "click,dblclick,focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:p>1:button"
+            }
+          },
+          "0:div>0:p>2:button": {
+            "click,dblclick,focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:p>2:button"
+            }
+          }
+        }
+      }
+    },
+    "as-link": {
+      "dom": [
+        "<div>",
+        "  <p>",
+        "    <a class=\"button-button-3fr3r button-contained-pmIp-\" href=\"#next\">",
+        "      \"Next\"",
+        "    <a class=\"button-button-3fr3r button-text-2Jjil\" href=\"/search/\">",
+        "      \"Homepage\""
+      ],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:p", "0:div>0:p>0:a", "0:div>0:p>1:a"],
+      "interactions": {
+        "quiet": ["0:div>0:p"],
+        "active": {
+          "0:div>0:p>0:a": {
+            "click,Enter": {
+              "f": "0:div>0:p>0:a",
+              "nav": ["navigate http://localhost/#next"]
+            },
+            "dblclick": {
+              "f": "0:div>0:p>0:a",
+              "nav": [
+                "navigate http://localhost/#next",
+                "navigate http://localhost/#next"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:p>0:a" }
+          },
+          "0:div>0:p>1:a": {
+            "click,Enter": {
+              "f": "0:div>0:p>1:a",
+              "nav": ["navigate http://localhost/search/"]
+            },
+            "dblclick": {
+              "f": "0:div>0:p>1:a",
+              "nav": [
+                "navigate http://localhost/search/",
+                "navigate http://localhost/search/"
+              ]
+            },
+            "focus,Space,Esc,ArrowDown": { "f": "0:div>0:p>1:a" }
+          }
+        }
+      }
+    },
+    "disabled": {
+      "dom": [
+        "<div>",
+        "  <button class=\"button-button-3fr3r button-contained-pmIp-\" disabled=\"\">",
+        "    \"Contained\""
+      ],
+      "mount": { "v": ["0:div>0:button:valid"], "f": "body" },
+      "nodes": ["0:div>0:button"],
+      "interactions": { "quiet": ["0:div>0:button"], "active": {} }
+    },
+    "in-form": {
+      "dom": [
+        "<div>",
+        "  <form action=\"/search/\" aria-label=\"button form\">",
+        "    <input name=\"q\" required=\"\" aria-label=\"query\">",
+        "    <button class=\"button-button-3fr3r button-contained-pmIp-\">",
+        "      \"Search\""
+      ],
+      "mount": {
+        "v": [
+          "0:div>0:form:invalid",
+          "0:div>0:form>0:input:invalid",
+          "0:div>0:form>1:button:valid"
+        ],
+        "f": "body"
+      },
+      "nodes": [
+        "0:div>0:form",
+        "0:div>0:form>0:input",
+        "0:div>0:form>1:button"
+      ],
+      "interactions": {
+        "quiet": ["0:div>0:form"],
+        "active": {
+          "0:div>0:form>0:input": {
+            "click,dblclick,focus,Enter,Esc,ArrowDown": {
+              "f": "0:div>0:form>0:input"
+            },
+            "Space": {
+              "f": "0:div>0:form>0:input",
+              "v": [
+                "0:div>0:form:valid",
+                "0:div>0:form>0:input:valid",
+                "0:div>0:form>1:button:valid"
+              ]
+            }
+          },
+          "0:div>0:form>1:button": {
+            "click,dblclick,focus,Enter,Space,Esc,ArrowDown": {
+              "f": "0:div>0:form>1:button"
+            }
+          }
+        }
+      }
+    }
+  },
+  "overlay": null
+}

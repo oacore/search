@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "impl": "design",
+  "package": {
+    "name": "@oacore/design",
+    "version": "5.0.74",
+    "lockVersion": "5.0.74",
+    "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  },
+  "du": "DU-10",
+  "name": "DesignProvider",
+  "states": {
+    "children": {
+      "dom": ["<div>", "  <p>", "    \"My application with design provider\""],
+      "mount": { "f": "body" },
+      "nodes": ["0:div>0:p"],
+      "interactions": { "quiet": ["0:div>0:p"], "active": {} }
+    }
+  },
+  "overlay": null
+}
