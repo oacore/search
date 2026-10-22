@@ -1,0 +1,11 @@
+--- a/lib/elements/cookies/cookies.js	2026-10-22 06:39:10
++++ b/lib/elements/cookies/cookies.js	2026-10-22 06:39:10
+@@ -17,7 +17,7 @@
+ 
+ var Cookies = function Cookies() {
+   var cookieHandler = (0, _hooks.useCookieHandler)();
+-  var _useState = (0, _react.useState)(!(0, _hooks.useCookie)('essential_cookies_allowed')),
++  var _useState = (0, _react.useState)(!(0, _hooks.useCookie)('analytics_cookies_allowed')),
+     _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
+     visibleCookiePopup = _useState2[0],
+     setVisibleCookiePopup = _useState2[1];

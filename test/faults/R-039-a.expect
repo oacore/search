@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-039-a",
+  "risk": "R-039",
+  "mechanism": "the re-render that fills the sort box of the provider page (a non-observer template, Q-049) is lost: the box of a provider with outputs and accounts is empty, as the box of a provider without them is at baseline",
+  "checks": [],
+  "script": "R-039-a.mjs"
+}

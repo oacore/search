@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-033-a",
+  "risk": "R-033",
+  "mechanism": "useStore and Header.useSearchBar are called above the early return of the search page: the error card state gets the header search box",
+  "checks": [],
+  "script": "R-033-a.mjs"
+}

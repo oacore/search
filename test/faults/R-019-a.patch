@@ -1,0 +1,12 @@
+diff --git a/store/search.js b/store/search.js
+index 6531d91..9e5e3a8 100644
+--- a/store/search.js
++++ b/store/search.js
+@@ -110,7 +110,6 @@ class Search {
+       query: {
+         ...Router.query,
+         sort: sortType.value,
+-        page: 1,
+       },
+     })
+   }

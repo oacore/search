@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-030-a",
+  "risk": "R-030",
+  "mechanism": "the filter box gets copies of the filter items: the active-facet highlight no longer follows an item tick before the new data arrives",
+  "checks": [],
+  "script": "R-030-a.mjs"
+}

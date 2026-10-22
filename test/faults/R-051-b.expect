@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "fault": "R-051-b",
+  "risk": "R-051",
+  "mechanism": "the search tail of the result metadata links is encoded: &search=q%3Dclimate (baseline: &search=q=climate)",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "js": false,
+      "expect": { "selector": "a[href*=\"&search=q%3Dclimate\"]", "count": 10 }
+    }
+  ]
+}

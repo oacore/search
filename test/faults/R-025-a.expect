@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-025-a",
+  "risk": "R-025",
+  "mechanism": "design code in the browser bundle resolves the bare hooks import through the app alias and uses the app's same-named hooks (use-window-size, use-outside-click)",
+  "checks": [],
+  "script": "R-025-a.mjs"
+}

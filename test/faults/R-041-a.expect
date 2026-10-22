@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "fault": "R-041-a",
+  "risk": "R-041",
+  "mechanism": "the consent popup is keyed on analytics_cookies_allowed: a visitor with only the essential cookie is asked again (baseline: popup keyed on essential_cookies_allowed)",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "js": true,
+      "cookieState": "essential",
+      "expect": { "selector": "button:has-text(\"I AGREE\")", "count": 1 }
+    }
+  ]
+}

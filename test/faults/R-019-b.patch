@@ -1,0 +1,40 @@
+diff --git a/store/filters.js b/store/filters.js
+index d53354b..a7b88d0 100644
+--- a/store/filters.js
++++ b/store/filters.js
+@@ -175,7 +175,7 @@ class Filters {
+ 
+     if (query.includes(filterValue)) {
+       Router.push({
+-        pathname: pathName,
++        pathname: pathName === undefined ? '/' : pathName,
+         query: {
+           ...Router.query,
+           q: query.replace(` AND ${filterKey}:"${filterValue}"`, ''),
+@@ -184,7 +184,7 @@ class Filters {
+       })
+     } else {
+       Router.push({
+-        pathname: pathName,
++        pathname: pathName === undefined ? '/' : pathName,
+         query: {
+           ...Router.query,
+           q: `${query} AND ${filterKey}:"${filterValue}"`,
+@@ -235,7 +235,7 @@ class Filters {
+     const { q: query } = Router.query
+ 
+     Router.push({
+-      pathname: pathName,
++      pathname: pathName === undefined ? '/' : pathName,
+       query: {
+         ...Router.query,
+         q: `${query.replace(/ AND \(year(.*)\)/g, '')} AND (${filterKey}>=${
+@@ -332,7 +332,7 @@ class Filters {
+     this.isLoading = false
+     this.isVisibleClearButton = false
+     Router.push({
+-      pathname: pathName,
++      pathname: pathName === undefined ? '/' : pathName,
+       query: {
+         ...Router.query,
+         q: query?.replace(/ .*/, ''),

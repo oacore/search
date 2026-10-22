@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "fault": "R-031-a",
+  "risk": "R-031",
+  "mechanism": "the first country name of nine codes follows i18n-iso-countries 7.14.0 (TR: Türkiye instead of Turkey)",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/data-providers/?q=eylul",
+      "via": "proxy",
+      "js": false,
+      "expect": {
+        "selector": "dd[aria-labelledby=\"data-provider-country-title\"]",
+        "text": "Türkiye"
+      }
+    }
+  ]
+}

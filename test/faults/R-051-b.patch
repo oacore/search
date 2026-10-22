@@ -1,0 +1,15 @@
+diff --git a/templates/search/results.jsx b/templates/search/results.jsx
+index 538aab9..9c24abd 100644
+--- a/templates/search/results.jsx
++++ b/templates/search/results.jsx
+@@ -46,7 +46,9 @@ const Results = ({ works, searchId }) =>
+         const pos = router.asPath.indexOf('?')
+         const result = router.asPath.slice(pos + 1)
+ 
+-        return `${baseLink}/?t=${propSearchId}-${propId}&search=${result}`
++        return `${baseLink}/?t=${propSearchId}-${propId}&search=${encodeURIComponent(
++          result
++        )}`
+       }
+ 
+       const modifiedReaderLink = readerLink

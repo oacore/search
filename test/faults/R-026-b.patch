@@ -1,0 +1,12 @@
+diff --git a/csp.config.js b/csp.config.js
+index 9737347..0c499af 100644
+--- a/csp.config.js
++++ b/csp.config.js
+@@ -49,7 +49,6 @@ const config = {
+   'connect-src': [
+     SELF,
+     PRODUCTION,
+-    'sentry.io',
+     '*.google-analytics.com',
+     '*.doubleclick.net',
+     '*.googletagmanager.com',

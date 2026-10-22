@@ -1,0 +1,13 @@
+diff --git a/templates/output/similar-works.jsx b/templates/output/similar-works.jsx
+index 46d2de5..e8b07de 100644
+--- a/templates/output/similar-works.jsx
++++ b/templates/output/similar-works.jsx
+@@ -28,7 +28,7 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
+ 
+   useEffect(() => {
+     similarWorks.fetchSimilar(articleId, params)
+-  }, [])
++  }, [articleId])
+ 
+   return (
+     <section>

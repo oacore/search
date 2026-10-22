@@ -1,0 +1,22 @@
+diff --git a/pages/search/index.jsx b/pages/search/index.jsx
+index 746affa..a457be4 100644
+--- a/pages/search/index.jsx
++++ b/pages/search/index.jsx
+@@ -115,8 +115,6 @@ const Search = ({ data, queryError, members }) => {
+ 
+   const searchItem = router.query.q
+ 
+-  if (queryError?.status) return <ErrorCard />
+-
+   const { statistics } = useStore()
+   const totalArticlesCount =
+     statistics?.totalArticlesCount.toLocaleString('en-GB')
+@@ -144,6 +142,8 @@ const Search = ({ data, queryError, members }) => {
+     { isHidden: false }
+   )
+ 
++  if (queryError?.status) return <ErrorCard />
++
+   return (
+     <div>
+       {data?.results?.length >= 1 ? (

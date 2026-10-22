@@ -1,0 +1,14 @@
+diff --git a/hooks/use-sync-url-params-with-store/index.js b/hooks/use-sync-url-params-with-store/index.js
+index fd815b4..e86cdd9 100644
+--- a/hooks/use-sync-url-params-with-store/index.js
++++ b/hooks/use-sync-url-params-with-store/index.js
+@@ -29,8 +29,7 @@ export const useSyncUrlParamsWithStore = (paramsInstance) => {
+       `${window.location.pathname}${window.location.search}` !==
+       `${pathnameUrl}?${urlParams.toString()}`
+     ) {
+-      const updateParams =
+-        window.location.search === '' ? router.replace : router.push
++      const updateParams = router.push
+ 
+       updateParams(
+         {

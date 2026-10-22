@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "fault": "R-019-a",
+  "risk": "R-019",
+  "mechanism": "the sort push drops page: 1, so changing the sort on page 2 keeps page 2 (baseline: page=1)",
+  "checks": [
+    {
+      "kind": "request",
+      "url": "/search/?q=climate&page=2",
+      "via": "proxy",
+      "js": true,
+      "steps": [
+        { "click": "text=Sort by" },
+        { "click": "li:has-text(\"recent\")" }
+      ],
+      "expect": {
+        "method": "GET",
+        "urlMatches": "/_next/data/[^/]+/search\\.json\\?q=climate&page=2&sort=recent$",
+        "min": 1
+      }
+    }
+  ]
+}

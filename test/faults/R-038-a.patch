@@ -1,0 +1,14 @@
+diff --git a/templates/data-provider/claim/claim-card.jsx b/templates/data-provider/claim/claim-card.jsx
+index 00ab1c4..f8a7a99 100644
+--- a/templates/data-provider/claim/claim-card.jsx
++++ b/templates/data-provider/claim/claim-card.jsx
+@@ -101,6 +101,9 @@ const ClaimCard = ({
+     useState(false)
+   const [newEmail, setNewEmail] = useState(false)
+ 
++  getDataProviderAccounts({
++    params: { id, setIsDataProviderHasAccounts },
++  })
+   getDataProviderAccounts({
+     params: { id, setIsDataProviderHasAccounts },
+   })

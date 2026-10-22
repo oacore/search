@@ -1,0 +1,19 @@
+diff --git a/templates/output/citation.jsx b/templates/output/citation.jsx
+index adfaff7..1f8b665 100644
+--- a/templates/output/citation.jsx
++++ b/templates/output/citation.jsx
+@@ -64,7 +64,13 @@ const CitationManager = ({ data }) => {
+           <h2 className={styles.citeTitle}>Citation</h2>
+           {data.citations.map((cite) => {
+             if (cite.id !== CITATION_STYLE_BIBTEX) return null
+-            const bibtex = bibtexParse.toJSON(cite.value)
++            let bibtex
++            try {
++              bibtex = bibtexParse.toJSON(cite.value)
++            } catch (parseError) {
++              // the throw shape of the fork: an error object, not a string
++              throw new TypeError(String(parseError))
++            }
+             if (!bibtex || !bibtex[0]) return null
+             return (
+               <div id={`cite-${cite.id}`} className={styles.block}>

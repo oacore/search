@@ -1,0 +1,29 @@
+diff --git a/templates/data-providers/index.jsx b/templates/data-providers/index.jsx
+index 1ff34bd..185a5d2 100644
+--- a/templates/data-providers/index.jsx
++++ b/templates/data-providers/index.jsx
+@@ -25,8 +25,23 @@ const filterAndMapDataProviders = (dataProviders) =>
+       longitude: dataProviderLocation?.longitude,
+     }))
+ 
++// the names that differ at index 0 in i18n-iso-countries 7.14.0 (simulated here, the package stays 6.8.0)
++const RENAMED_COUNTRIES = {
++  CN: "People's Republic of China",
++  CG: 'Republic of the Congo',
++  CD: 'Democratic Republic of the Congo',
++  CI: "Cote d'Ivoire",
++  GM: 'Republic of The Gambia',
++  IR: 'Islamic Republic of Iran',
++  MK: 'The Republic of North Macedonia',
++  TZ: 'United Republic of Tanzania',
++  TR: 'Türkiye',
++}
++
+ const getCountryName = (code) => {
+-  const countryName = countries[String(code).toUpperCase()]
++  const key = String(code).toUpperCase()
++  if (RENAMED_COUNTRIES[key]) return RENAMED_COUNTRIES[key]
++  const countryName = countries[key]
+   return Array.isArray(countryName) ? countryName[0] : countryName
+ }
+ 

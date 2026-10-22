@@ -1,0 +1,13 @@
+diff --git a/store/filters.js b/store/filters.js
+index d53354b..1866b90 100644
+--- a/store/filters.js
++++ b/store/filters.js
+@@ -296,7 +296,7 @@ class Filters {
+     let sortedArray = []
+     sortItemsByNumberDesc(items, 'count')
+     sortedArray = sortItemsByBoolean(items, 'checked')
+-    this.activeFilterSuggestions = sortedArray
++    this.activeFilterSuggestions = sortedArray.map((item) => ({ ...item }))
+   }
+ 
+   @computed
