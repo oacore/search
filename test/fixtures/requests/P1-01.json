@@ -1,0 +1,5 @@
+{
+  "package": "P1-01",
+  "note": "T-007, T-009, T-015, T-107, T-110, T-114, T-118 and T-120 read no API answer: T-007 and T-015 read the parity build's .next, T-009 the frozen data snapshot, T-107, T-110, T-114 and T-120 are pure functions or module loads, and T-118 serves its fetches from a spy over a temp cache file. No request is needed, so this list is empty.",
+  "requests": []
+}
