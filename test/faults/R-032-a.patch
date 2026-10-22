@@ -1,0 +1,64 @@
+diff --git a/next.config.js b/next.config.js
+index 114b0f4..c74cfac 100644
+--- a/next.config.js
++++ b/next.config.js
+@@ -95,8 +95,6 @@ const nextConfig = {
+       'modules': path.join(__dirname, 'modules'),
+       'lib': path.join(__dirname, 'lib'),
+       '@sentry/node': config.isServer ? '@sentry/node' : '@sentry/browser',
+-      'react': path.join(__dirname, 'node_modules', 'react'),
+-      'react-dom': path.join(__dirname, 'node_modules', 'react-dom'),
+     })
+ 
+     return config
+diff --git a/package-lock.json b/package-lock.json
+index 2e4cebc..e0b7fe1 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -22118,6 +22118,7 @@
+         "enquire.js": "^2.1.6",
+         "json2mq": "^0.2.0",
+         "lodash.debounce": "^4.0.8",
++        "react": "17.0.2",
+         "resize-observer-polyfill": "^1.5.0"
+       },
+       "peerDependencies": {
+@@ -22125,6 +22126,18 @@
+         "react-dom": "^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0"
+       }
+     },
++    "node_modules/react-slick/node_modules/react": {
++      "version": "17.0.2",
++      "resolved": "https://registry.npmjs.org/react/-/react-17.0.2.tgz",
++      "integrity": "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==",
++      "dependencies": {
++        "loose-envify": "^1.1.0",
++        "object-assign": "^4.1.1"
++      },
++      "engines": {
++        "node": ">=0.10.0"
++      }
++    },
+     "node_modules/read-all-stream": {
+       "version": "3.1.0",
+       "resolved": "https://registry.npmjs.org/read-all-stream/-/read-all-stream-3.1.0.tgz",
+@@ -43265,7 +43278,19 @@
+         "enquire.js": "^2.1.6",
+         "json2mq": "^0.2.0",
+         "lodash.debounce": "^4.0.8",
++        "react": "17.0.2",
+         "resize-observer-polyfill": "^1.5.0"
++      },
++      "dependencies": {
++        "react": {
++          "version": "17.0.2",
++          "resolved": "https://registry.npmjs.org/react/-/react-17.0.2.tgz",
++          "integrity": "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==",
++          "requires": {
++            "loose-envify": "^1.1.0",
++            "object-assign": "^4.1.1"
++          }
++        }
+       }
+     },
+     "read-all-stream": {

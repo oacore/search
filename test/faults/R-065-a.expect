@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-065-a",
+  "risk": "R-065",
+  "mechanism": "the lock re-resolves caniuse-lite to a newer data release (1.0.30001816) while browserslist stays: PostCSS drops vendor prefixes the older data asked for, so the served stylesheets change",
+  "checks": [],
+  "script": "R-065-a.mjs"
+}

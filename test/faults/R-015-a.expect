@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "fault": "R-015-a",
+  "risk": "R-015",
+  "mechanism": "package.json asks for the moving tag and the lock resolves @oacore/design to another published version (5.0.73): the image tree differs from the 5.0.74 tree that was tested",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "js": false,
+      "expect": {
+        "selector": "footer#footer a[href=\"https://www.open.ac.uk\"]",
+        "count": 1
+      }
+    }
+  ]
+}

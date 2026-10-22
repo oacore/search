@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-084-a",
+  "risk": "R-084",
+  "mechanism": "a test devDependency (@mdi/svg 7.4.47) takes the hoisted slot of a runtime entry and the design package keeps its own copy (5.9.55): design build icons reads design.config.js from the root and builds the sprite from the moved version; the served sprite stays valid and the static output does not change",
+  "checks": [],
+  "script": "R-084-a.mjs"
+}

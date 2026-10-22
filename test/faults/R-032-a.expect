@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-032-a",
+  "risk": "R-032",
+  "mechanism": "the react and react-dom aliases are gone from next.config.js and a dependency holds its own copy of react: the client output carries a second React core",
+  "checks": [],
+  "script": "R-032-a.mjs"
+}

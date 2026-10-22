@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-084-b",
+  "risk": "R-084",
+  "mechanism": "a test devDependency (node-fetch 2.7.0) takes the hoisted slot of a runtime entry and the framework's pinned copy (2.6.1) moves into its own node_modules: what require('node-fetch') resolves to changes",
+  "checks": [],
+  "script": "R-084-b.mjs"
+}

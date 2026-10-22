@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-015-b",
+  "risk": "R-015",
+  "mechanism": "lock regeneration (npm update) moves a runtime dependency (core-js 3.42.0 to 3.51.0) while package.json stays the same: the image tree differs from the tested tree",
+  "checks": [],
+  "script": "R-015-b.mjs"
+}

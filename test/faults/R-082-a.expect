@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "fault": "R-082-a",
+  "risk": "R-082",
+  "mechanism": "next start runs without BUILD_TARGET: asset URLs lose the /static/search prefix and point at the unrouted /_next/static",
+  "checks": [
+    {
+      "kind": "request",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "expect": {
+        "urlMatches": "^https?://[^/]+/_next/static/",
+        "min": 1
+      }
+    },
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "expect": {
+        "selector": "link[rel=\"stylesheet\"][href^=\"/static/search/\"]",
+        "count": 0
+      }
+    },
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "expect": {
+        "selector": "script[src^=\"/static/search/\"]",
+        "count": 0
+      }
+    }
+  ]
+}

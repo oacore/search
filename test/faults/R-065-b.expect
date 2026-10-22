@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-065-b",
+  "risk": "R-065",
+  "mechanism": "the browser targets shift (.browserslistrc last 3 versions becomes last 1 version, the in-source simulation of newer browser data): PostCSS and Babel emit a different output, here far fewer vendor prefixes in the served stylesheets",
+  "checks": [],
+  "script": "R-065-b.mjs"
+}

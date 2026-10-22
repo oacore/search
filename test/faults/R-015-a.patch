@@ -1,0 +1,52 @@
+diff --git a/package-lock.json b/package-lock.json
+index 2e4cebc..c6c2f52 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -9,7 +9,7 @@
+       "version": "1.0.2",
+       "license": "UNLICENSED",
+       "dependencies": {
+-        "@oacore/design": "5.0.74",
++        "@oacore/design": "latest",
+         "@oacore/stylelint-config-base": "^1.0.6",
+         "@sentry/browser": "^5.28.0",
+         "@sentry/node": "^5.28.0",
+@@ -4163,9 +4163,9 @@
+       }
+     },
+     "node_modules/@oacore/design": {
+-      "version": "5.0.74",
+-      "resolved": "https://npm.pkg.github.com/download/@oacore/design/5.0.74/e6a401d74defeb09d828b10374ff35107a9324c4",
+-      "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ==",
++      "version": "5.0.73",
++      "resolved": "https://npm.pkg.github.com/download/@oacore/design/5.0.73/64e79277a2cfcd91d196f4307ceed9ddb72edbc1",
++      "integrity": "sha512-0XlbVBXR0AkwA3b7kNMJR0TkHl30xJYUe6ddgLCLVnxHUtCW4GnW/FACHE2aTcUs7JPBoZxHYqscb7rrOkWwYA==",
+       "hasInstallScript": true,
+       "license": "UNLICENSED",
+       "dependencies": {
+@@ -30152,9 +30152,9 @@
+       }
+     },
+     "@oacore/design": {
+-      "version": "5.0.74",
+-      "resolved": "https://npm.pkg.github.com/download/@oacore/design/5.0.74/e6a401d74defeb09d828b10374ff35107a9324c4",
+-      "integrity": "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ==",
++      "version": "5.0.73",
++      "resolved": "https://npm.pkg.github.com/download/@oacore/design/5.0.73/64e79277a2cfcd91d196f4307ceed9ddb72edbc1",
++      "integrity": "sha512-0XlbVBXR0AkwA3b7kNMJR0TkHl30xJYUe6ddgLCLVnxHUtCW4GnW/FACHE2aTcUs7JPBoZxHYqscb7rrOkWwYA==",
+       "requires": {
+         "@babel/runtime": "^7.12.1",
+         "@mdi/svg": "^5.8.55",
+diff --git a/package.json b/package.json
+index 7a8175c..e328936 100644
+--- a/package.json
++++ b/package.json
+@@ -15,7 +15,7 @@
+   },
+   "homepage": "https://github.com/oacore/search#readme",
+   "dependencies": {
+-    "@oacore/design": "5.0.74",
++    "@oacore/design": "latest",
+     "@oacore/stylelint-config-base": "^1.0.6",
+     "@sentry/browser": "^5.28.0",
+     "@sentry/node": "^5.28.0",

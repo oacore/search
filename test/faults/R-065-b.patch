@@ -1,0 +1,9 @@
+diff --git a/.browserslistrc b/.browserslistrc
+index d3a3839..154b35f 100644
+--- a/.browserslistrc
++++ b/.browserslistrc
+@@ -1,3 +1,3 @@
+-last 3 versions
++last 1 version
+ not ie > 0
+ not op_mini > 0
