@@ -1,0 +1,5 @@
+{
+  "package": "P1-03",
+  "note": "T-412, T-413, T-414, T-415, T-420 and T-505 need no new recorded answer. T-412 reads the provider pages of 86, 4835 and 3354 and the account answers of the claim rows from the existing scenarios (provider-86, provider-4835, provider-3354), the claim POSTs from the e17-claim hand answers or from handlers of the test itself; T-413 reads the e16-claim-form hand answers; T-414, T-415 and T-420 render components over the existing members, formap and statistics stand-ins and call no API; T-505 reads the baked formap stand-in and makes no request. The list is empty.",
+  "requests": []
+}
