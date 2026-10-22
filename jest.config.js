@@ -51,6 +51,9 @@ const shared = {
     '<rootDir>/e2e/',
     '<rootDir>/.next/',
   ],
+  // git-excluded local work folders hold unpacked packages: a second
+  // package.json named like an installed one makes the haste map ambiguous
+  modulePathIgnorePatterns: ['<rootDir>/\\.p2-work/'],
 }
 
 module.exports = {
@@ -79,6 +82,17 @@ module.exports = {
       testEnvironment: 'node',
       testMatch: ['<rootDir>/test/static/**/*.test.js'],
       setupFilesAfterEnv: ['<rootDir>/test/setup/mocks.js'],
+    },
+    {
+      // ops tests (T-902, T-903, T-904, T-908): plain CommonJS over the tools
+      // and recorded reports, no transform and no setup files
+      rootDir: __dirname,
+      displayName: 'ops',
+      testEnvironment: 'node',
+      testMatch: ['<rootDir>/test/ops/**/*.test.js'],
+      transform: {},
+      modulePathIgnorePatterns: ['<rootDir>/\\.p2-work/'],
+      testPathIgnorePatterns: ['/node_modules/', '<rootDir>/.next/'],
     },
   ],
 }
