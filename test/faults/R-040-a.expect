@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "fault": "R-040-a",
+  "risk": "R-040",
+  "mechanism": "the server bundle no longer leaves @sentry/node external, so the `@sentry/node` -> `@sentry/browser` alias of next.config.js (keyed on the undefined config.isServer) takes effect on the server: no server event reaches Sentry and the SDK's exit-on-fatal behaviour is gone",
+  "checks": [
+    {
+      "kind": "build",
+      "expect": {
+        "file": "server/pages/_app.js",
+        "contains": "sentry.javascript.browser",
+        "notContains": "require(\"@sentry/node\")"
+      }
+    }
+  ],
+  "script": "R-040-a.mjs"
+}

@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "fault": "R-012-a",
+  "risk": "R-012",
+  "mechanism": "Histoslider.defaultProps is removed from the compiled design library (design path), so height and sliderHeight are undefined and the year histogram renders an SVG with NaN geometry",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "steps": [
+        { "click": "ul > li > div[role=\"presentation\"]:has(p:text-is(\"year\"))" }
+      ],
+      "expect": {
+        "selector": "[class*=\"histoslider\"] svg",
+        "attribute": "height",
+        "value": "NaN"
+      }
+    }
+  ]
+}

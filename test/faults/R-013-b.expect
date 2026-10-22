@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-013-b",
+  "risk": "R-013",
+  "mechanism": "the title link of a data provider result card is wrapped in an extra <a> inside next/link, so the server-rendered card has an <a> directly inside an <a>",
+  "checks": [],
+  "script": "R-013-b.mjs"
+}

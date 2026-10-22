@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "fault": "R-069-a",
+  "risk": "R-069",
+  "mechanism": "the server renders the two children of the title of a work and of an output as separate text nodes (<title>X<!-- --> - CORE</title>); the browser keeps the marker as text of the title until the page is hydrated",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "js": false,
+      "expect": { "selector": "head title", "textMatches": "<!-- --> - CORE$" }
+    },
+    {
+      "kind": "dom",
+      "url": "/outputs/2001/",
+      "via": "proxy",
+      "js": false,
+      "expect": { "selector": "head title", "textMatches": "<!-- --> - CORE$" }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "fault": "R-011-a",
+  "risk": "R-011",
+  "mechanism": "activeFilterSuggestions loses its @observable decorator: typing in the search box of an open facet changes the store but the facet's list (another observer) is not re-rendered, so it keeps listing every entry",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "steps": [
+        { "click": "ul > li > div[role=\"presentation\"]:has(p:text-is(\"author\"))" },
+        { "fill": "#search-filter input", "value": "zzzzzz" }
+      ],
+      "expect": { "selector": "li[role=\"presentation\"] label p", "count": 100 }
+    }
+  ]
+}

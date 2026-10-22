@@ -1,0 +1,12 @@
+diff --git a/pages/_app.jsx b/pages/_app.jsx
+index fa230f8..841df8b 100644
+--- a/pages/_app.jsx
++++ b/pages/_app.jsx
+@@ -20,6 +20,7 @@ import 'main/global.css'
+ 
+ process.on('unhandledRejection', (err) => {
+   Sentry.captureException(err)
++  process.exit(1)
+ })
+ 
+ process.on('uncaughtException', (err) => {

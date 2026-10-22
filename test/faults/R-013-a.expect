@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-013-a",
+  "risk": "R-013",
+  "mechanism": "each of the four pagination controls of a data provider page is wrapped in an extra <a> inside next/link (the shape next/link 13 produces), so the server-rendered HTML has an <a> directly inside an <a> four times",
+  "checks": [],
+  "script": "R-013-a.mjs"
+}

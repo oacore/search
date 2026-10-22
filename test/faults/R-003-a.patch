@@ -1,0 +1,22 @@
+diff --git a/modules/meta/index.jsx b/modules/meta/index.jsx
+index b40925a..784aa08 100644
+--- a/modules/meta/index.jsx
++++ b/modules/meta/index.jsx
+@@ -33,14 +33,14 @@ const CitationMeta = ({
+ 
+   return (
+     <>
++      {publicationDate && (
++        <meta name="citation_publication_date" content={publicationDate} />
++      )}
+       {downloadLink && <meta name="citation_pdf_url" content={downloadLink} />}
+       {title && <meta name="citation_title" content={title} />}
+       {(authors || []).map(({ name }) => (
+         <meta key={name} name="citation_author" content={name} />
+       ))}
+-      {publicationDate && (
+-        <meta name="citation_publication_date" content={publicationDate} />
+-      )}
+     </>
+   )
+ }

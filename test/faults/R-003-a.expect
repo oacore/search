@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "fault": "R-003-a",
+  "risk": "R-003",
+  "mechanism": "CitationMeta renders citation_publication_date first and the authors last (the baseline order is citation_pdf_url, citation_title, citation_author, citation_publication_date), so the server-rendered head of a work lists the citation_* tags in another order",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "js": false,
+      "expect": {
+        "selector": "head meta[name^=\"citation_\"]",
+        "attribute": "name",
+        "value": "citation_publication_date"
+      }
+    },
+    {
+      "kind": "dom",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "js": false,
+      "expect": {
+        "selector": "head meta[name^=\"citation_\"] >> nth=-1",
+        "attribute": "name",
+        "value": "citation_author"
+      }
+    }
+  ]
+}

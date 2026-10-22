@@ -1,0 +1,24 @@
+--- a/lib/elements/histoslider/histoslider.js
++++ b/lib/elements/histoslider/histoslider.js
+@@ -138,20 +138,5 @@
+   disableHistogram: _propTypes["default"].bool,
+   showLabels: _propTypes["default"].bool
+ };
+-Histoslider.defaultProps = {
+-  selectedBarColor: '#EF8237',
+-  rangeColor: '#b75400',
+-  unselectedColor: '#E0E0E0',
+-  showOnDrag: false,
+-  width: 300,
+-  height: 200,
+-  barBorderRadius: 2,
+-  barPadding: 2,
+-  padding: 20,
+-  sliderHeight: 20,
+-  handleLabelFormat: '0.5P',
+-  formatLabelFunction: undefined,
+-  showLabels: false
+-};
+ var _default = Histoslider;
+ exports["default"] = _default;
+\ No newline at end of file
