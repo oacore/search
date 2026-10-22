@@ -1,0 +1,37 @@
+diff --git a/pages/_app.jsx b/pages/_app.jsx
+index fa230f8..de99d4f 100644
+--- a/pages/_app.jsx
++++ b/pages/_app.jsx
+@@ -67,18 +67,6 @@ const useLoading = (initialState = false) => {
+   return isLoading
+ }
+ 
+-const useInterceptNextDataHref = ({ router, namespace }) => {
+-  useEffect(() => {
+-    if (router.pageLoader?.getDataHref) {
+-      const originalGetDataHref = router.pageLoader.getDataHref
+-      router.pageLoader.getDataHref = (args) => {
+-        const r = originalGetDataHref.call(router.pageLoader, args)
+-        return r && r.startsWith('/_next/data') ? `${namespace}${r}` : r
+-      }
+-    }
+-  }, [router, namespace])
+-}
+-
+ const App = ({
+   Component: PageComponent,
+   pageProps,
+@@ -90,13 +78,6 @@ const App = ({
+   if (process.env.NODE_ENV === 'production')
+     LogRocket.init('cab1al/search-gfe6o')
+ 
+-  if (process.env.NODE_ENV === 'production') {
+-    useInterceptNextDataHref({
+-      router: approuter,
+-      namespace: '/search',
+-    })
+-  }
+-
+   const loading = useLoading()
+   const isSearchPage = router.asPath.match(/search/gm)
+ 

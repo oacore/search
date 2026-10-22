@@ -1,0 +1,23 @@
+diff --git a/api/index.js b/api/index.js
+index d963077..5cf2778 100644
+--- a/api/index.js
++++ b/api/index.js
+@@ -89,9 +89,16 @@ const processBody = (response, { method }) => {
+   const { status, headers } = response
+   const type = headers.get('Content-Type')
+ 
++  // Any body is parsed as JSON when it can be; otherwise it stays a string
+   return (
+-    /application\/([\w.-]\+)?json/g.test(type) && method !== 'HEAD'
+-      ? response.json()
++    method !== 'HEAD'
++      ? response.text().then((text) => {
++          try {
++            return JSON.parse(text)
++          } catch (error) {
++            return text
++          }
++        })
+       : response.blob()
+   ).then((data) => ({ data, type, status, headers }))
+ }

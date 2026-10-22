@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "fault": "R-083-b",
+  "risk": "R-083",
+  "mechanism": "the work page handler sets its own Cache-Control (s-maxage=600, stale-while-revalidate=60) on the response, which replaces the framework default for that page class only",
+  "checks": [
+    {
+      "kind": "header",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "expect": { "name": "cache-control", "equals": "s-maxage=600, stale-while-revalidate=60" }
+    },
+    {
+      "kind": "header",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "expect": { "name": "cache-control", "equals": "private, no-cache, no-store, max-age=0, must-revalidate" }
+    }
+  ]
+}

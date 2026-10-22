@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "fault": "R-020-b",
+  "risk": "R-020",
+  "mechanism": "the empty-search redirect of pages/search/index.jsx is no longer permanent: /search/ answers 307 instead of 308",
+  "checks": [
+    {
+      "kind": "status",
+      "url": "/search/",
+      "via": "proxy",
+      "expect": { "status": 307 }
+    },
+    {
+      "kind": "header",
+      "url": "/search/",
+      "via": "proxy",
+      "expect": { "name": "location", "equals": "/" }
+    },
+    {
+      "kind": "status",
+      "url": "/search/",
+      "via": "origin",
+      "expect": { "status": 307 }
+    }
+  ]
+}

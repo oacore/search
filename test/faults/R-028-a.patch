@@ -1,0 +1,15 @@
+diff --git a/api/index.js b/api/index.js
+index d963077..b5e5d4c 100644
+--- a/api/index.js
++++ b/api/index.js
+@@ -39,9 +39,7 @@ const prepareHeaders = ({ headers: customHeaders, body }) => {
+     Authorization: `Bearer ${API_KEY}`,
+   }
+   const contentHeaders =
+-    typeof body == 'object' && body != null
+-      ? { 'Content-Type': 'application/json' }
+-      : {}
++    body != null ? { 'Content-Type': 'application/json' } : {}
+ 
+   return {
+     ...defaultHeaders,

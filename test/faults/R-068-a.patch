@@ -1,0 +1,17 @@
+diff --git a/next.config.js b/next.config.js
+index 114b0f4..dafe851 100644
+--- a/next.config.js
++++ b/next.config.js
+@@ -13,12 +13,7 @@ const nextConfig = {
+   assetPrefix: helpers.getAssetsPath(''),
+ 
+   async rewrites() {
+-    const dataPath = helpers.rewriteDataPath()
+     return [
+-      {
+-        source: dataPath.source,
+-        destination: dataPath.destination,
+-      },
+       {
+         source: `/static/:path*`,
+         destination: '/:path*',

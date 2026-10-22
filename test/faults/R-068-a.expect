@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "fault": "R-068-a",
+  "risk": "R-068",
+  "mechanism": "the production rewrite /search/_next/data/:path* -> /_next/data/:path* of next.config.js is deleted: the data URL of every client navigation answers 404 and the router falls back to a full page load",
+  "checks": [
+    {
+      "kind": "request",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "js": true,
+      "steps": [{ "click": "button:text-is(\"2\")" }],
+      "expect": {
+        "method": "GET",
+        "urlMatches": "^https?://[^/]+/search/\\?q=climate&page=2$",
+        "min": 1
+      }
+    }
+  ],
+  "script": "R-068-a.mjs"
+}

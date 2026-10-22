@@ -1,0 +1,39 @@
+diff --git a/api/index.js b/api/index.js
+index d963077..bfdc1e9 100644
+--- a/api/index.js
++++ b/api/index.js
+@@ -50,6 +50,21 @@ const prepareHeaders = ({ headers: customHeaders, body }) => {
+   }
+ }
+ 
++const randomHex = (length) =>
++  Array.from({ length }, () => Math.floor(Math.random() * 16).toString(16)).join(
++    ''
++  )
++
++// Server-side calls carry a sentry-trace and a baggage header
++const traceHeaders = () => {
++  if (typeof window !== 'undefined') return {}
++  const traceId = randomHex(32)
++  return {
++    'sentry-trace': `${traceId}-${randomHex(16)}-1`,
++    'baggage': `sentry-environment=production,sentry-public_key=public,sentry-trace_id=${traceId},sentry-sampled=true`,
++  }
++}
++
+ const prepareRequest = (init) => {
+   const request = {}
+ 
+@@ -63,7 +78,11 @@ const prepareRequest = (init) => {
+   // No-op in the browser and when Internal_API isn't configured.
+   const internal = internalize(request.url)
+   request.url = internal.url
+-  request.headers = { ...request.headers, ...internal.headers }
++  request.headers = {
++    ...request.headers,
++    ...internal.headers,
++    ...traceHeaders(),
++  }
+ 
+   const body = prepareBody({ ...init, method: request.method })
+   if (body != null) request.body = body

@@ -1,0 +1,56 @@
+diff --git a/pages/works/[id].jsx b/pages/works/[id].jsx
+index 5d892f9..2b3f6a1 100644
+--- a/pages/works/[id].jsx
++++ b/pages/works/[id].jsx
+@@ -1,4 +1,4 @@
+-import React from 'react'
++import React, { useEffect, useState } from 'react'
+ import Head from 'next/head'
+ import { Header } from '@oacore/design'
+ import { useRouter } from 'next/router'
+@@ -16,7 +16,7 @@ import { checkLogo, checkMembership } from 'utils/data-providers-transform'
+ const LOCALE = 'en-GB'
+ const CITATION_STYLES = ['apa', 'bibtex']
+ 
+-export async function getServerSideProps({
++export async function loadWorkProps({
+   params: routeParams,
+   query: searchParams,
+   req,
+@@ -119,9 +119,27 @@ export async function getServerSideProps({
+   }
+ }
+ 
+-const ScientificWorkPage = ({ serverError, data }) => {
++// The server renders no work data: the browser loads the work after hydration.
++export async function getServerSideProps() {
++  return { props: {} }
++}
++
++const ScientificWorkPage = () => {
+   const { statistics } = useStore()
+   const router = useRouter()
++  const [loaded, setLoaded] = useState({})
++  const { id } = router.query
++
++  useEffect(() => {
++    if (!id) return
++    loadWorkProps({
++      params: { id },
++      query: router.query,
++      req: { headers: {} },
++    }).then(({ props }) => setLoaded(props))
++  }, [id])
++
++  const { serverError, data } = loaded
+ 
+   const totalArticlesCount =
+     statistics?.totalArticlesCount.toLocaleString('en-GB')
+@@ -138,6 +156,7 @@ const ScientificWorkPage = ({ serverError, data }) => {
+     },
+   })
+   if (serverError) return <Error404 error={serverError} />
++  if (!data) return null
+   return (
+     <>
+       <Head>

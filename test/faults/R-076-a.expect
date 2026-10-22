@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "fault": "R-076-a",
+  "risk": "R-076",
+  "mechanism": "every server-side API call adds sentry-trace and baggage request headers, as the Sentry fetch instrumentation of later SDK versions does",
+  "checks": [
+    {
+      "kind": "status",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "expect": { "status": 200 }
+    }
+  ],
+  "script": "R-076-a.mjs"
+}

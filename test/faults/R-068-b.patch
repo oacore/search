@@ -1,0 +1,12 @@
+diff --git a/utils/helpers.js b/utils/helpers.js
+index c020907..6427b85 100644
+--- a/utils/helpers.js
++++ b/utils/helpers.js
+@@ -13,6 +13,7 @@ const rewriteDataPath = (
+     outputDataPath = {
+       ...outputDataPath,
+       source: `/search${path}`,
++      destination: '/',
+     }
+   } else {
+     outputDataPath = {

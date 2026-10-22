@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "fault": "R-067-a",
+  "risk": "R-067",
+  "mechanism": "the data snapshot of the build (data/.formap.json) has no row for data provider 86, simulated at the two places that read it: the provider page answers 404 and the directory list loses the provider",
+  "checks": [
+    {
+      "kind": "status",
+      "url": "/data-providers/86/",
+      "via": "proxy",
+      "expect": { "status": 404 }
+    },
+    {
+      "kind": "status",
+      "url": "/data-providers/8/",
+      "via": "proxy",
+      "expect": { "status": 200 }
+    }
+  ]
+}

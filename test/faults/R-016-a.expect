@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "fault": "R-016-a",
+  "risk": "R-016",
+  "mechanism": "server-side API calls go through node-fetch, which sends the Host override of the in-cluster routing that the native fetch drops",
+  "checks": [
+    {
+      "kind": "status",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "expect": { "status": 200 }
+    }
+  ],
+  "script": "R-016-a.mjs"
+}

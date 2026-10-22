@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "fault": "R-005-a",
+  "risk": "R-005",
+  "mechanism": "the work page loads its data in the browser instead of getServerSideProps: the server HTML carries no work title or meta tags and makes no API call, and the browser asks the API itself",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "js": false,
+      "expect": { "selector": "meta[name=\"citation_title\"]", "count": 0 }
+    },
+    {
+      "kind": "dom",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "js": false,
+      "expect": { "selector": "h1", "count": 0 }
+    },
+    {
+      "kind": "request",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "js": true,
+      "expect": {
+        "method": "GET",
+        "urlMatches": "^https://api\\.core\\.ac\\.uk/v3/works/1001",
+        "min": 1
+      }
+    },
+    {
+      "kind": "dom",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "js": true,
+      "expect": { "selector": "h1", "textMatches": "Mandatory due diligence laws" }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "fault": "R-020-a",
+  "risk": "R-020",
+  "mechanism": "trailingSlash is false in next.config.js: every canonical URL with a trailing slash answers 308 to the slash-less URL, the health probe path /api/healthz/ included",
+  "readiness": "redirect",
+  "checks": [
+    {
+      "kind": "status",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "expect": { "status": 308 }
+    },
+    {
+      "kind": "header",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "expect": { "name": "location", "equals": "/works/1001" }
+    },
+    {
+      "kind": "header",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "expect": { "name": "location", "equals": "/search?q=climate" }
+    },
+    {
+      "kind": "status",
+      "url": "/api/healthz/",
+      "via": "allow",
+      "expect": { "status": 308 }
+    }
+  ]
+}
