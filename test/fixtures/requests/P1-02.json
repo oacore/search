@@ -1,0 +1,5 @@
+{
+  "package": "P1-02",
+  "note": "T-115, T-208, T-211, T-306, T-401, T-408, T-409 and T-410 need no new answer: every request they make is served by the committed fixtures or by the magic queries of the resolver (__status500, __neterror), and each file asserts in afterEach that no request reached the 502 'unmatched' answer. Some tests change the answer of one request inside the test: T-115 answers one E3 request with a JSON body; T-211 and T-409 hold an answer until the test releases it (T-211 also fails one); T-306 and T-408 count or replace the answer of one E10/E18 request; T-410 answers doi.org by the Accept header with the BibTeX text of the recorded raw answers for output 2001 and work 1001 (the resolver keys on method, URL and body, so the committed pair answers both Accept values with the APA text, I-41). T-208 and T-306 build rows and facets in memory in the shapes the API returns.",
+  "requests": []
+}
