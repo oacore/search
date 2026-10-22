@@ -1,0 +1,14 @@
+--- a/lib/modules/header/search-bar.js	2026-10-22 06:47:40
++++ b/lib/modules/header/search-bar.js	2026-10-22 06:47:40
+@@ -16,7 +16,10 @@
+ var _ = require("..");
+ var _elements = require("../../elements");
+ var _context2 = require("../../context");
+-var _hooks = require("../../hooks");
++var _hooks = typeof window !== "undefined" ? {
++  useWindowSize: require("hooks/use-window-size")["default"],
++  useOutsideClick: require("hooks/use-outside-click")["default"]
++} : require("../../hooks");
+ var _jsxRuntime = require("react/jsx-runtime");
+ var _excluded = ["selectClassName"],
+   _excluded2 = ["appBarItemClassName"];

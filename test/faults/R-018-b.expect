@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-018-b",
+  "risk": "R-018",
+  "mechanism": "history changes no longer reach the store: Back changes the URL but the list stays filtered by the previous query",
+  "checks": [],
+  "script": "R-018-b.mjs"
+}

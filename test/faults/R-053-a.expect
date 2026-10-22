@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-053-a",
+  "risk": "R-053",
+  "mechanism": "the BibTeX parser throws an Error object (TypeError) instead of a string: the console line for a malformed citation starts with TypeError",
+  "checks": [],
+  "script": "R-053-a.mjs"
+}

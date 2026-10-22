@@ -1,0 +1,28 @@
+diff --git a/templates/search/pagination.jsx b/templates/search/pagination.jsx
+index dadbc67..07462c5 100644
+--- a/templates/search/pagination.jsx
++++ b/templates/search/pagination.jsx
+@@ -17,13 +17,17 @@ const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }) => {
+   const router = useRouter()
+ 
+   const onPageChange = (number) => {
+-    router.push({
+-      pathname: '/search',
+-      query: {
+-        ...router.query,
+-        page: number,
++    router.push(
++      {
++        pathname: '/search',
++        query: {
++          ...router.query,
++          page: number,
++        },
+       },
+-    })
++      undefined,
++      { scroll: false }
++    )
+     setCurrentPage(number)
+   }
+ 

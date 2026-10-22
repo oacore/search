@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-029-a",
+  "risk": "R-029",
+  "mechanism": "similar works are fetched again when the output id changes on a client navigation (two recommend requests for two outputs)",
+  "checks": [],
+  "script": "R-029-a.mjs"
+}

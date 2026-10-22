@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-018-a",
+  "risk": "R-018",
+  "mechanism": "the first URL sync of the data-providers page pushes a history entry (baseline: replaces the entry because the search string is empty)",
+  "checks": [],
+  "script": "R-018-a.mjs"
+}

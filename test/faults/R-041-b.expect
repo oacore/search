@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "fault": "R-041-b",
+  "risk": "R-041",
+  "mechanism": "analytics consent is read from essential_cookies_allowed: a visitor with only the essential cookie loads gtag.js",
+  "checks": [
+    {
+      "kind": "request",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "js": true,
+      "cookieState": "essential",
+      "expect": { "method": "GET", "urlMatches": "googletagmanager\\.com/gtag/js", "min": 1 }
+    }
+  ]
+}

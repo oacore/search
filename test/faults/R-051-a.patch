@@ -1,0 +1,13 @@
+diff --git a/pages/works/[id].jsx b/pages/works/[id].jsx
+index 5d892f9..c1d0bbf 100644
+--- a/pages/works/[id].jsx
++++ b/pages/works/[id].jsx
+@@ -127,7 +127,7 @@ const ScientificWorkPage = ({ serverError, data }) => {
+     statistics?.totalArticlesCount.toLocaleString('en-GB')
+   Header.useSearchBar({
+     onQueryChanged: (searchTerm) => {
+-      router.push(`/search?q=${searchTerm}`)
++      router.push(`/search?q=${encodeURIComponent(searchTerm)}`)
+     },
+     initQuery: '',
+     searchBarProps: {

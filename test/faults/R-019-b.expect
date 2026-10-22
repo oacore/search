@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-019-b",
+  "risk": "R-019",
+  "mechanism": "an undefined pathname in Router.push resolves to / instead of the current route: a facet click leaves /search/ for /",
+  "checks": [],
+  "script": "R-019-b.mjs"
+}

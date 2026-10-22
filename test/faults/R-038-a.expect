@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "fault": "R-038-a",
+  "risk": "R-038",
+  "mechanism": "the claim card fetches the provider accounts twice per render: two browser /account requests for a provider without accounts (baseline: one)",
+  "checks": [
+    {
+      "kind": "request",
+      "url": "/data-providers/3354/",
+      "via": "proxy",
+      "js": true,
+      "expect": {
+        "method": "GET",
+        "urlMatches": "/data-providers/3354/account$",
+        "count": 2
+      }
+    }
+  ]
+}

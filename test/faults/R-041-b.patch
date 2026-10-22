@@ -1,0 +1,13 @@
+diff --git a/hooks/use-analytics.js b/hooks/use-analytics.js
+index 6847e7f..f517706 100644
+--- a/hooks/use-analytics.js
++++ b/hooks/use-analytics.js
+@@ -4,7 +4,7 @@ import ReactGA from 'react-ga4'
+ import { useCookie } from '@oacore/design'
+ 
+ const useAnalytics = () => {
+-  const analyticsAllowed = useCookie('analytics_cookies_allowed')
++  const analyticsAllowed = useCookie('essential_cookies_allowed')
+ 
+   const router = useRouter()
+   const reportPageview = useCallback((url, title, type = 'search') => {

@@ -1,0 +1,12 @@
+diff --git a/templates/data-provider/claim/claim-card.jsx b/templates/data-provider/claim/claim-card.jsx
+index 00ab1c4..0708c73 100644
+--- a/templates/data-provider/claim/claim-card.jsx
++++ b/templates/data-provider/claim/claim-card.jsx
+@@ -67,7 +67,6 @@ export async function getDataProviderAccounts({ params }) {
+   try {
+     const dataProviderAccounts = await fetchDataProviderAccounts({ id })
+ 
+-    if (dataProviderAccounts.length > 0) setIsDataProviderHasAccounts(true)
+     data.accounts = {
+       [id]: dataProviderAccounts,
+     }

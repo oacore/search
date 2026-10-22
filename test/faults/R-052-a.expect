@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-052-a",
+  "risk": "R-052",
+  "mechanism": "the pagination push passes scroll:false: the scroll position survives a page change (baseline: scrolls to the top)",
+  "checks": [],
+  "script": "R-052-a.mjs"
+}

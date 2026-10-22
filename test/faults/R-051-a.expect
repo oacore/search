@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-051-a",
+  "risk": "R-051",
+  "mechanism": "the works page header search encodes the term in the router push: C# & C++ reaches /search/ as one q value (baseline: q=C)",
+  "checks": [],
+  "script": "R-051-a.mjs"
+}
