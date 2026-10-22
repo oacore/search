@@ -13,8 +13,8 @@
     }
   },
   "fixtures": {
-    "files": 208,
-    "sha256": "68520d8c57c4c90d674c3ab7490e68edb7415107be4e3113025e4d16a69742c7",
+    "files": 239,
+    "sha256": "bea046fba34d65cd886ebf90c985076227192b3deac4d09baea035763d597d29",
     "dataSnapshot": {
       "note": "git-excluded local snapshot (owner decision, I-11); its sums are committed in test/fixtures/SHA256SUMS",
       "sums": [
@@ -26,8 +26,8 @@
     }
   },
   "baselines": {
-    "files": 1045,
-    "sha256": "4abc2fe93c2f411f4e17b1cd8b4e04529176a145dcc0ec4ffb2f1f4068625ae2"
+    "files": 1253,
+    "sha256": "548eeb901ce45a4a2e26ce91d2a08f7cd5c887dce56d4961590a0b46f5d73113"
   },
   "corpus": {
     "files": 105,
