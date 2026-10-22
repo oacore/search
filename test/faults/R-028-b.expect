@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "fault": "R-028-b",
+  "risk": "R-028",
+  "mechanism": "api/index.js hands every non-JSON response body over as a string instead of a Blob, as axios does: the citation requests fail on blob.text() and the work page renders with no citations and status 200",
+  "checks": [
+    {
+      "kind": "status",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "expect": { "status": 200 }
+    },
+    {
+      "kind": "dom",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "js": false,
+      "expect": {
+        "selector": "script#__NEXT_DATA__",
+        "textMatches": "\"citations\":\\[\\]"
+      }
+    }
+  ]
+}

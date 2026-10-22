@@ -1,0 +1,22 @@
+diff --git a/api/index.js b/api/index.js
+index d963077..a16da18 100644
+--- a/api/index.js
++++ b/api/index.js
+@@ -1,4 +1,5 @@
+ import LogRocket from 'logrocket'
++import nodeFetch from 'node-fetch'
+ 
+ import NetworkError from './errors'
+ import internalize from './internalize'
+@@ -108,8 +109,10 @@ const processError = (error, details) => {
+   })
+ }
+ 
++// Server-side calls go through node-fetch, which sends the Host override of
++// the in-cluster routing (the native fetch drops it).
+ const executeRequest = ({ url, ...options }) =>
+-  fetch(url, options)
++  (typeof window === 'undefined' ? nodeFetch : fetch)(url, options)
+     .then(processStatus)
+     .then(
+       (response) => processBody(response, { ...options }),

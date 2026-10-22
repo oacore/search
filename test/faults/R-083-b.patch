@@ -1,0 +1,18 @@
+diff --git a/pages/works/[id].jsx b/pages/works/[id].jsx
+index 5d892f9..2576638 100644
+--- a/pages/works/[id].jsx
++++ b/pages/works/[id].jsx
+@@ -20,10 +20,13 @@ export async function getServerSideProps({
+   params: routeParams,
+   query: searchParams,
+   req,
++  res,
+ }) {
+   const { id } = routeParams
+   const { t } = searchParams
+ 
++  res.setHeader('Cache-Control', 's-maxage=600, stale-while-revalidate=60')
++
+   const data = {}
+ 
+   try {

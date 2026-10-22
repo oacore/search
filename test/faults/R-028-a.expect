@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "fault": "R-028-a",
+  "risk": "R-028",
+  "mechanism": "api/index.js sends Content-Type: application/json for every body, string bodies included, instead of only for object bodies",
+  "checks": [
+    {
+      "kind": "status",
+      "url": "/data-providers/86/",
+      "via": "proxy",
+      "expect": { "status": 200 }
+    }
+  ],
+  "script": "R-028-a.mjs"
+}

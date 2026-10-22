@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "fault": "R-002-b",
+  "risk": "R-002",
+  "mechanism": "the getDataHref patch of pages/_app.jsx is kept but its namespace has a trailing slash: client navigations request /search//_next/data/<buildId>/..., which the data rewrite does not match",
+  "checks": [
+    {
+      "kind": "request",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "js": true,
+      "steps": [{ "click": "button:text-is(\"2\")" }],
+      "expect": {
+        "method": "GET",
+        "urlMatches": "^https?://[^/]+/search//_next/data/[^/]+/search\\.json",
+        "min": 1
+      }
+    },
+    {
+      "kind": "request",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "js": true,
+      "steps": [{ "click": "button:text-is(\"2\")" }],
+      "expect": {
+        "method": "GET",
+        "urlMatches": "/search/_next/data/",
+        "count": 0
+      }
+    }
+  ]
+}
