@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "fault": "R-007-b",
+  "risk": "R-007",
+  "mechanism": "SVG imports resolve to { src, height, width } (no longer inlined as data URIs) while the pages still use them as URL strings",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/outputs/update/",
+      "via": "proxy",
+      "expect": { "selector": "img[alt=\"takedown\"]", "attribute": "src", "value": "[object Object]" }
+    },
+    {
+      "kind": "dom",
+      "url": "/outputs/update/",
+      "via": "proxy",
+      "expect": { "selector": "img[alt=\"faq\"]", "attribute": "src", "value": "[object Object]" }
+    }
+  ]
+}

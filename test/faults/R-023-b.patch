@@ -1,0 +1,14 @@
+diff --git a/pages/_app.jsx b/pages/_app.jsx
+index fa230f8..74e6dfd 100644
+--- a/pages/_app.jsx
++++ b/pages/_app.jsx
+@@ -15,8 +15,8 @@ import { Sentry } from 'utils/sentry'
+ import 'leaflet/dist/leaflet.css'
+ import 'leaflet.markercluster/dist/MarkerCluster.css'
+ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
+-import '@oacore/design/lib/index.css'
+ import 'main/global.css'
++import '@oacore/design/lib/index.css'
+ 
+ process.on('unhandledRejection', (err) => {
+   Sentry.captureException(err)

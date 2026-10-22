@@ -1,0 +1,34 @@
+diff --git a/main/design-helpers.module.css b/main/design-helpers.module.css
+new file mode 100644
+index 0000000..b6b2fe1
+--- /dev/null
++++ b/main/design-helpers.module.css
+@@ -0,0 +1,11 @@
++.sr-only {
++  position: absolute !important;
++  width: 1px !important;
++  height: 1px !important;
++  padding: 0 !important;
++  margin: -1px !important;
++  overflow: hidden !important;
++  clip: rect(0, 0, 0, 0) !important;
++  white-space: nowrap !important;
++  border: 0 !important;
++}
+diff --git a/pages/_app.jsx b/pages/_app.jsx
+index fa230f8..9ae4a8d 100644
+--- a/pages/_app.jsx
++++ b/pages/_app.jsx
+@@ -15,7 +15,11 @@ import { Sentry } from 'utils/sentry'
+ import 'leaflet/dist/leaflet.css'
+ import 'leaflet.markercluster/dist/MarkerCluster.css'
+ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
+-import '@oacore/design/lib/index.css'
++import '@oacore/design/lib/reboot.css'
++import '@oacore/design/lib/foundation/index.css'
++import '@oacore/design/lib/elements/index.css'
++import '@oacore/design/lib/modules/index.css'
++import 'main/design-helpers.module.css'
+ import 'main/global.css'
+ 
+ process.on('unhandledRejection', (err) => {

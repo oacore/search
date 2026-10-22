@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-008-b",
+  "risk": "R-008",
+  "mechanism": "the postcss-custom-media plugin entry is removed from postcss.config.js, so the custom media of main/media-queries.css are never resolved and no rule for widths up to 767 px ever matches",
+  "checks": [],
+  "script": "R-008-mobile.mjs"
+}

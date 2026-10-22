@@ -1,0 +1,13 @@
+diff --git a/design.config.js b/design.config.js
+index 7a70f6d..0c5c785 100644
+--- a/design.config.js
++++ b/design.config.js
+@@ -33,7 +33,7 @@ const config = {
+ 
+   output: {
+     path: path.join(__dirname, 'public/design'),
+-    publicPath: '/static/search',
++    publicPath: '/',
+     icons: {
+       files: 'icons',
+       sprite: 'icons.svg',

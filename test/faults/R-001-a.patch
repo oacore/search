@@ -1,0 +1,13 @@
+diff --git a/next.config.js b/next.config.js
+index 114b0f4..314de25 100644
+--- a/next.config.js
++++ b/next.config.js
+@@ -72,7 +72,7 @@ const nextConfig = {
+       )
+       if (cssLoaderConfig && cssLoaderConfig.options) {
+         // Patch it with the new config
+-        cssLoaderConfig.options.modules.exportLocalsConvention = 'camelCase'
++        cssLoaderConfig.options.modules.exportLocalsConvention = 'asIs'
+       }
+     })
+ 

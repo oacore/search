@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-024-a",
+  "risk": "R-024",
+  "mechanism": "the design helpers.css is loaded as main/design-helpers.module.css (its class names are hashed) instead of as part of the global design stylesheet, so the global .sr-only rule that the app and the design components rely on is lost; the build still passes",
+  "checks": [],
+  "script": "R-024-global.mjs"
+}

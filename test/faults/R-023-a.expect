@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-023-a",
+  "risk": "R-023",
+  "mechanism": "main/global.css is imported first in pages/_app.jsx, before the Leaflet and design styles, so the equal-specificity design spacing rules override the popup margins that main/global.css restores",
+  "checks": [],
+  "script": "R-023-cascade.mjs"
+}

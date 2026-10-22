@@ -1,0 +1,12 @@
+diff --git a/postcss.config.js b/postcss.config.js
+index 1e4d02e..8b8015c 100644
+--- a/postcss.config.js
++++ b/postcss.config.js
+@@ -20,6 +20,6 @@ module.exports = {
+     'postcss-custom-media': {
+       importFrom: 'main/media-queries.css',
+     },
+-    'postcss-extend-rule': {},
++    'postcss-extend-rule': { onUnusedExtend: 'ignore' },
+   },
+ }
