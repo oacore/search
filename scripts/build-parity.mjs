@@ -11,6 +11,14 @@
 //
 // Usage: node scripts/build-parity.mjs [--mode host|docker] [--ref HEAD] [--variant default|nodsn|harness]
 //                                      [--install link|ci] [--suffix <tag>] [--force] [--json] [--key-only]
+//                                      [--alias-of <key>]
+//
+// --alias-of <key> (lean mode, owner notes section 0): no `npm ci`, no build. Re-keys an installed host build for
+// <ref> when the app is unchanged since that build: the paths of the runtime tree that differ between the build's
+// commit and <ref> may only be package.json, package-lock.json, jest.config.js, stryker.config.mjs, .github/,
+// Dockerfile, .dockerignore, kube/ (the host build does not use them), and the production sections of package.json
+// and the production entries of the lock must be equal. The build directory is an APFS clone (`cp -Rc`), recorded
+// under the key of <ref> with `aliasOf`. Anything else is a real build.
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
@@ -436,6 +444,113 @@ export async function dockerBuild({
   return result
 }
 
+const ALIAS_OK = (p) =>
+  p === 'package.json' ||
+  p === 'package-lock.json' ||
+  p === 'jest.config.js' ||
+  p === 'stryker.config.mjs' ||
+  p === 'Dockerfile' ||
+  p === '.dockerignore' ||
+  /^(\.github|kube)\//.test(p)
+
+const same = (a, b) => JSON.stringify(a) === JSON.stringify(b)
+
+export function aliasBuild({
+  ref = 'HEAD',
+  variant = 'default',
+  from,
+  log = console.error,
+} = {}) {
+  const images = readImages()
+  const src = images.builds[from]
+  if (!src || !fs.existsSync(path.join(src.dir, '.next', 'BUILD_ID')))
+    throw new Error(`alias: no installed host build ${from}`)
+  if (src.variant !== variant)
+    throw new Error(`alias: build ${from} is the ${src.variant} variant`)
+  const k = runtimeKey(ref, variant, src.mode, src.install)
+  const known = images.builds[k.key]
+  if (known && fs.existsSync(path.join(known.dir, '.next', 'BUILD_ID'))) {
+    log(`reusing host build ${k.key} (${known.dir})`)
+    return known
+  }
+  const changed = gitIn(REPO, 'diff', '--name-only', src.commit, k.commit)
+    .split('\n')
+    .filter(Boolean)
+    .filter(inRuntimeTree)
+  const bad = changed.filter((p) => !ALIAS_OK(p))
+  if (bad.length)
+    throw new Error(
+      `alias: the app tree differs from build ${from} (${bad
+        .slice(0, 5)
+        .join(', ')}): a real build is needed`
+    )
+  if (
+    changed.includes('package.json') ||
+    changed.includes('package-lock.json')
+  ) {
+    const at = (c, f) => JSON.parse(gitIn(REPO, 'show', `${c}:${f}`))
+    const a = at(src.commit, 'package.json')
+    const b = at(k.commit, 'package.json')
+    for (const f of [
+      'dependencies',
+      'peerDependencies',
+      'optionalDependencies',
+      'engines',
+      'browserslist',
+      'resolutions',
+      'overrides',
+      'main',
+    ])
+      if (!same(a[f], b[f]))
+        throw new Error(
+          `alias: package.json ${f} changed: a real build is needed`
+        )
+    for (const f of ['build', 'build:test', 'start'])
+      if (a.scripts[f] !== b.scripts[f])
+        throw new Error(`alias: script ${f} changed: a real build is needed`)
+    const prod = (c) => {
+      const lock = at(c, 'package-lock.json').packages || {}
+      return Object.fromEntries(
+        Object.entries(lock).filter(
+          ([k, v]) => k !== '' && !v.dev && !v.devOptional
+        )
+      )
+    }
+    if (!same(prod(src.commit), prod(k.commit)))
+      throw new Error(
+        'alias: production entries of the lock changed: a real build is needed'
+      )
+  }
+  const dir = path.join(ARTIFACT_DIR, 'builds', k.key)
+  fs.rmSync(dir, { recursive: true, force: true })
+  const c = spawnSync('cp', ['-Rc', src.dir, dir], { stdio: 'inherit' })
+  if (c.status !== 0) throw new Error('alias: clone failed')
+  // commit and runtimeTree stay those of the installed tree (T-008 compares its lock with that commit's)
+  const rec = {
+    ...src,
+    key: k.key,
+    dir,
+    aliasOf: from,
+    aliasCommit: k.commit,
+    aliasRuntimeTree: k.runtimeTree,
+    builtAt: new Date().toISOString(),
+    durationS: 0,
+    evidence: false,
+  }
+  fs.writeFileSync(
+    path.join(dir, 'build.json'),
+    `${JSON.stringify(rec, null, 1)}\n`
+  )
+  images.builds[k.key] = rec
+  writeImages(images)
+  log(
+    `host build ${
+      k.key
+    } = clone of ${from} (app tree unchanged since ${src.commit.slice(0, 7)})`
+  )
+  return rec
+}
+
 export function findBuild({
   ref = 'HEAD',
   variant = 'default',
@@ -467,6 +582,11 @@ async function main(argv) {
     throw new Error(
       'docker mode is disabled (local mode only); set P2_DOCKER_MODE=enabled in CI'
     )
+  if (opt('--alias-of')) {
+    const res = aliasBuild({ ref, variant, from: opt('--alias-of') })
+    if (argv.includes('--json')) console.log(JSON.stringify(res, null, 1))
+    return
+  }
   const fn = mode === 'docker' ? dockerBuild : hostBuild
   const res = await fn({
     ref,

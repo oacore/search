@@ -1124,10 +1124,10 @@ function writeResultsLocked(records) {
         at: r.finished,
       }
   fs.mkdirSync(FAULTS, { recursive: true })
-  fs.writeFileSync(
-    path.join(FAULTS, 'kill-summary.json'),
-    `${JSON.stringify(summary, null, 2)}\n`
-  )
+  const summaryOut = path.join(FAULTS, 'kill-summary.json')
+  fs.writeFileSync(summaryOut, `${JSON.stringify(summary, null, 2)}\n`)
+  // committed JSON goes through the repo's prettier config (npm run lint:json stays clean)
+  sh('npx', ['prettier', '--write', summaryOut], { cwd: REPO })
   return file
 }
 
