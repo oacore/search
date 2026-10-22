@@ -1,0 +1,41 @@
+{
+  "steps": [
+    {
+      "event": "visibilitychange hidden",
+      "url": "/works/1001/",
+      "domUnchanged": true,
+      "e8": 0
+    },
+    {
+      "event": "visibilitychange visible",
+      "url": "/works/1001/",
+      "domUnchanged": true,
+      "e8": 0
+    },
+    {
+      "event": "window blur",
+      "url": "/works/1001/",
+      "domUnchanged": true,
+      "e8": 0
+    },
+    {
+      "event": "window focus",
+      "url": "/works/1001/",
+      "domUnchanged": true,
+      "e8": 0
+    },
+    {
+      "event": "offline",
+      "url": "/works/1001/",
+      "domUnchanged": true,
+      "e8": 0
+    },
+    {
+      "event": "online",
+      "url": "/works/1001/",
+      "domUnchanged": true,
+      "e8": 0
+    }
+  ],
+  "requests": []
+}
