@@ -1,0 +1,108 @@
+{
+  "package": "P1-05",
+  "note": "P1-05 (T-714, T-715, T-716, T-726, T-727, T-735, T-736). Read-only answers of the provider page (E13 of provider 8 for a search term, the next and last offsets and the relevance sort) and of the one search the collapsed-search journey of T-727 submits (its aggregation answer is derived: the live call answers 500). Every other request of the package is answered by fixtures that exist (scenarios search-climate, search-zzzzqqq, search-x, members, logos, works-1001, outputs-2001, provider-8, provider-86, provider-3354, e16-claim-form, req-P0-13).",
+  "requests": [
+    {
+      "id": "p1-05.e13.p8.thesis",
+      "kind": "live",
+      "endpoint": "E13",
+      "request": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/data-providers/8/outputs?q=thesis&offset=0&limit=10&sort=recency"
+      },
+      "note": "T-715, T-735 (J13, J26, Q-079): the provider page search; the first change is swallowed, the second pushes ?q=thesis&offset=0 and the server fetches this answer"
+    },
+    {
+      "id": "p1-05.e13.p8.offset10",
+      "kind": "live",
+      "endpoint": "E13",
+      "request": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/data-providers/8/outputs?q=&offset=10&limit=10&sort=recency"
+      },
+      "note": "T-715, T-735 (Q-044): the Next arrow of the provider pager (offset 10)"
+    },
+    {
+      "id": "p1-05.e13.p8.last",
+      "kind": "live",
+      "endpoint": "E13",
+      "accept": "any",
+      "request": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/data-providers/8/outputs?q=&offset=30950&limit=10&sort=recency"
+      },
+      "note": "T-715, T-735 (Q-044): the Last arrow of provider 8 (30,950 outputs, a multiple of the page size) points at offset 30950, past the last result; whatever the API answers is the baseline"
+    },
+    {
+      "id": "p1-05.e13.p8.nan",
+      "kind": "live",
+      "endpoint": "E13",
+      "accept": "any",
+      "request": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/data-providers/8/outputs?q=&offset=NaN&limit=10&sort=recency"
+      },
+      "note": "T-736 (J29, Q-083): at the end state of provider 8 the Next and Last arrows point at offset=NaN; Enter on the disabled Next pushes it, and the server fetches this answer (whatever the API answers is the baseline)"
+    },
+    {
+      "id": "p1-05.e13.p8.relevance",
+      "kind": "live",
+      "endpoint": "E13",
+      "request": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/data-providers/8/outputs?q=&offset=0&limit=10&sort=relevance"
+      },
+      "note": "T-715, T-735 (Q-043): choosing either sort option pushes sort=relevance; the server fetches the relevance order"
+    },
+    {
+      "id": "p1-05.e13.p8.offset10.relevance",
+      "kind": "live",
+      "endpoint": "E13",
+      "request": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/data-providers/8/outputs?q=&offset=10&limit=10&sort=relevance"
+      },
+      "note": "T-715, T-735 (Q-043): the sort push keeps the offset of the page it is chosen on (offset 10)"
+    },
+    {
+      "id": "p1-05.e1.a",
+      "kind": "live",
+      "endpoint": "E1",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works?t=undefined",
+        "body": {
+          "q": "a",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "T-727 (J20): the collapsed header search of a works page submits a&b c++, which is pushed unencoded; the server reads q=a and a stray parameter named 'b c++'"
+    },
+    {
+      "id": "p1-05.e2.a",
+      "kind": "derive",
+      "endpoint": "E2",
+      "browser": true,
+      "from": "search-x.e2",
+      "serve": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/search/works/aggregate",
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "yearPublished",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "a"
+        }
+      },
+      "note": "T-727 (J20): the filters bar of the q=a search page. The live aggregation answers 500 for q=a (three attempts on 2026-10-21), which would add a filters console error that is not the subject of the journey; the answer is a copy of the recorded aggregation of q=x served for q=a"
+    }
+  ]
+}

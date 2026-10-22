@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "scenario": "req-P1-05",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/data-providers/8/outputs?q=&offset=NaN&limit=10&sort=recency",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 500,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 14:28:20 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "utf8",
+      "data": "{\"message\":\"The HTTP status code \\u00220\\u0022 is not valid.\"}"
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T14:28:20.246Z",
+    "scrubbed": { "headersDropped": 4 },
+    "note": "T-736 (J29, Q-083): at the end state of provider 8 the Next and Last arrows point at offset=NaN; Enter on the disabled Next pushes it, and the server fetches this answer (whatever the API answers is the baseline)"
+  }
+}

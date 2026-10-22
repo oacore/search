@@ -1,0 +1,826 @@
+{
+  "schema": 1,
+  "scenario": "req-P1-05",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/data-providers/8/outputs?q=&offset=10&limit=10&sort=relevance",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 12:21:47 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "totalHits": 30950,
+        "limit": 10,
+        "offset": 10,
+        "results": [
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Cadete, Denise" },
+              { "name": "Morris, Harriet" },
+              { "name": "Readman, M.R." },
+              { "name": "Linkenauger, S.A." },
+              { "name": "Ferre, Elisa Raffaella" },
+              { "name": "Longo, Matthew" }
+            ],
+            "contributors": [],
+            "createdDate": "2026-06-17T01:05:49+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-06-12T15:25:20+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 743585260,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57544"
+            },
+            "title": "Beyond five: how the experience of a supernumerary sixth finger alters action perception",
+            "language": null,
+            "publishedDate": null,
+            "publisher": "American Psychological Association",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/57544/3/57544.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/743585260"
+              }
+            ],
+            "abstract": "When interacting with the world, one’s bodily features are estimated in relation to the objects we handle. Perceived changes to one’s hand size and shape alter the perception of the actions that can be performed with that hand. Here, we investigated whether experiencing the illusion of a sixth finger on the hand alters individuals’ perception of their action abilities and movement boundaries. After inducing the sensation of having a sixth finger, healthy adult participants estimated the smallest aperture their hand could fit through and the largest object they felt capable of grasping. Our results show that the illusion of a sixth finger expanded both the smallest aperture that participants believed their hand could pass through and the largest object they felt capable of grasping. Importantly, these effects occurred even in participants who did not explicitly report feeling a sixth finger, indicating that the representation of the extra digit operates at both implicit and explicit levels. These findings demonstrate that hand representation and the perceived action capabilities and boundaries it defines can be rapidly and flexibly updated in response to the illusion of an additional finger, highlighting the plasticity of the human body schema",
+            "tags": ["PS"],
+            "fulltextStatus": "disabled",
+            "subjects": ["PS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57544",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 743585260,
+              "depositedDate": "",
+              "publishedDate": "",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57544/3/57544.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:32+01:00",
+            "setSpecs": [],
+            "license": "http://creativecommons.org/licenses/by/4.0",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Mccabe, Janet" }],
+            "contributors": [],
+            "createdDate": "2026-06-17T01:05:49+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-06-12T16:58:43+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 743585261,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57548"
+            },
+            "title": "Disconnected TV heroines: transnational Nordic Noir and global femininities",
+            "language": null,
+            "publishedDate": "2027-01-07T00:00:00+00:00",
+            "publisher": "Bloomsbury Academic",
+            "references": [],
+            "sourceFulltextUrls": [],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/743585261"
+              }
+            ],
+            "abstract": "",
+            "tags": ["CACC"],
+            "fulltextStatus": "disabled",
+            "subjects": ["CACC"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57548",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 743585261,
+              "depositedDate": "",
+              "publishedDate": "2027-01-07T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [],
+            "lastUpdate": "2026-08-31T06:53:32+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Evans, Richard" }],
+            "contributors": [],
+            "createdDate": "2026-03-14T06:18:50+00:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-03-11T10:34:35+00:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.1108/SBM-08-2025-0190",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 713727604,
+            "identifiers": {
+              "doi": "10.1108/SBM-08-2025-0190",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57098"
+            },
+            "title": "Paid to play: football club owner ambitions on promotion to the English Premier League and impact on the league",
+            "language": null,
+            "publishedDate": "2026-03-06T00:00:00+00:00",
+            "publisher": "Emerald",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/57098/1/57098.pdf",
+              "http://doi.org/10.1108/SBM-08-2025-0190"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/713727604"
+              }
+            ],
+            "abstract": "Purpose: What can be inferred about the financial and sporting ambitions of football club owners when promoted to the English Premier League (EPL)? Does this effect the competitive balance of the league? Do parachute payments effect sporting outcomes in the EPL?\n\n\n\nDesign/methodology/approach: The expected financial gain and additional expenditure on talent for clubs promoted to the EPL are calculated and compared to a hypothetical scenario where clubs spend at least the full gain. The league competitive balance is compared to a hypothetical league without newly promoted clubs.\n\nFindings: More owners are concerned with retaining expected gains than with avoiding relegation. This did not significantly adversely affect competitive balance in the EPL. Clubs promoted without parachute payments were more successful in avoiding relegation from the EPL.\n\nOriginality/value: Owners of clubs promoted to the EPL are less “win oriented” than their financial gain would allow but more successful if not promoted with a parachute payment",
+            "tags": ["BBS"],
+            "fulltextStatus": "disabled",
+            "subjects": ["BBS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57098",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 713727604,
+              "depositedDate": "",
+              "publishedDate": "2026-03-06T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57098/1/57098.pdf",
+                "type": "fulltext"
+              },
+              {
+                "url": "http://doi.org/10.1108/SBM-08-2025-0190",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:20+01:00",
+            "setSpecs": [],
+            "license": "http://creativecommons.org/licenses/by/4.0",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Caldwell, Dorigen" }],
+            "contributors": [],
+            "createdDate": "2026-03-14T06:18:50+00:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-03-13T17:18:18+00:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 713727605,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57102"
+            },
+            "title": "Art in Renaissance Florence: the Medici as patrons",
+            "language": null,
+            "publishedDate": null,
+            "publisher": "Karwansaray Publishers",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/57102/1/Caldwell%2C%20Medici%20as%20Patrons%20of%20Art.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2025",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/713727605"
+              }
+            ],
+            "abstract": "",
+            "tags": ["HS"],
+            "fulltextStatus": "disabled",
+            "subjects": ["HS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57102",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 713727605,
+              "depositedDate": "",
+              "publishedDate": "",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57102/1/Caldwell%2C%20Medici%20as%20Patrons%20of%20Art.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:20+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Luckhurst, Roger" }],
+            "contributors": [],
+            "createdDate": "2026-04-10T17:36:19+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-04-09T14:00:42+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 721893728,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57202"
+            },
+            "title": "On the uses of Science Fiction in contemporary art as the planet burns down",
+            "language": null,
+            "publishedDate": "2026-06-01T01:00:00+01:00",
+            "publisher": "Liverpool University Press",
+            "references": [],
+            "sourceFulltextUrls": [],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/721893728"
+              }
+            ],
+            "abstract": "This essay examines the turn towards science fiction and science fictional tropes in contemporary art as a way of providing a generic frame to process the climate crisis through forms of relational and intersectional aesthetics. The first half of the essay aims to establish how science fiction has become an increasingly significant set of tropes and tactics in the practice and curation of art in the twenty-first century. The second half particularly examines contemporary artists, works and movements associated with Afrofuturism, the Black fantastic, Gulf Futurism, and Arabfuturism and ends with the 2024 exhibition in Paris, Arabofuturs, as one culmination of these trends privileging SF and the SFnal as a mode of contemporary art practice that can effectively address the climate crisis",
+            "tags": ["CACC"],
+            "fulltextStatus": "disabled",
+            "subjects": ["CACC"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57202",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 721893728,
+              "depositedDate": "",
+              "publishedDate": "2026-06-01T01:00:00+01:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [],
+            "lastUpdate": "2026-08-31T06:53:31+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Evans, Richard" }],
+            "contributors": [],
+            "createdDate": "2026-04-23T03:45:01+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-04-21T13:05:26+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.1177/15270025231222634",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 735709297,
+            "identifiers": {
+              "doi": "10.1177/15270025231222634",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57260"
+            },
+            "title": "The S-Score of financial sustainability for professional football clubs",
+            "language": null,
+            "publishedDate": "2024-04-17T01:00:00+01:00",
+            "publisher": "Sage",
+            "references": [],
+            "sourceFulltextUrls": [
+              "http://doi.org/10.1177/15270025231222634",
+              "https://eprints.bbk.ac.uk/id/eprint/57260/1/57260.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2024",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/735709297"
+              }
+            ],
+            "abstract": "This article extends the extensive literature on business failure and develops the approach of Altman to provide quantified recommendations for the financial sustainability of football clubs. The article uniquely identifies four scenarios that have caused insolvency for football clubs in the English Football League (EFL) and uses multiple discriminant analysis to identify financial models that delineate between professional football clubs that experience insolvency events and those that do not. These models produce an S-score which is introduced to suggest minimum financial tolerances for accounting ratios that provide a reasonable level of resilience for the financial sustainability of clubs in each scenario. The results are relevant for academics and non-academics with an interest in the business of football, professional football clubs aiming to avoid financial distress, and specifically, the Regulator that the U.K. government has proposed for football in England",
+            "tags": ["BBS"],
+            "fulltextStatus": "disabled",
+            "subjects": ["BBS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57260",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 735709297,
+              "depositedDate": "",
+              "publishedDate": "2024-04-17T01:00:00+01:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "http://doi.org/10.1177/15270025231222634",
+                "type": "fulltext"
+              },
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57260/1/57260.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:31+01:00",
+            "setSpecs": [],
+            "license": "http://creativecommons.org/licenses/by/4.0",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Cupitt, Rebekah" }],
+            "contributors": [],
+            "createdDate": "2026-05-04T09:55:40+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-05-01T14:50:30+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 736573807,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57271"
+            },
+            "title": "BIRMAC - Birkbeck’s Centre for Interdisciplinary Research in Media and Culture",
+            "language": null,
+            "publishedDate": "2014-01-01T00:00:00+00:00",
+            "publisher": "Birkbeck, University of London",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/57271/2/BIRMAC.zip"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2014",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/736573807"
+              }
+            ],
+            "abstract": "Static version of the BIRMAC website, consisting of a folder of HTML files which preserves the site navigation",
+            "tags": ["CACC"],
+            "fulltextStatus": "disabled",
+            "subjects": ["CACC"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57271",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 736573807,
+              "depositedDate": "",
+              "publishedDate": "2014-01-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57271/2/BIRMAC.zip",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:31+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Mamatzakis, Emmanuel" },
+              { "name": "Staikouras, C." },
+              { "name": "Triantopoulos, C." }
+            ],
+            "contributors": [],
+            "createdDate": "2026-05-11T03:13:23+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-05-07T13:55:31+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "https://core.ac.uk/download/738362408.pdf",
+            "fullText": "",
+            "id": 738362408,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57372"
+            },
+            "title": "A monetary policy perspective of threshold effects in interest rates in the Euro-area",
+            "language": { "code": "en", "name": "English" },
+            "publishedDate": "2025-09-30T01:00:00+01:00",
+            "publisher": "Economics Bulletin",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/57372/1/EB-25-V45-I3-P132.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2025",
+            "links": [
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/738362408.pdf"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/738362408"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/738362408/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/738362408/large"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/738362408"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/738362408/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/738362408/large"
+              },
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/738362408"
+              }
+            ],
+            "abstract": "This paper examines the impact of euro-area monetary policy on the banking industry. We provide a dynamic threshold panel model that endogenously identifies the low threshold of monetary policy rate. And we also provide insights of the long vs the short run impact of unconventional monetary policy on bank level resilience. Results show that there is a negative relationship between low rates and bank risk. Dynamic threshold methodology identifies threshold effects and two regimes in the underlying data generating process. Policy implications are of interest in the current conjecture that there are voices for hikes in the interest rates despite the anemic euro-area recovery and the geopolitical tensions",
+            "tags": ["BBS"],
+            "fulltextStatus": "enabled",
+            "subjects": ["BBS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57372",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 738362408,
+              "depositedDate": "",
+              "publishedDate": "2025-09-30T01:00:00+01:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57372/1/EB-25-V45-I3-P132.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:31+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Korobilis, D." },
+              { "name": "Mamatzakis, Emmanuel" },
+              { "name": "Pappas, V." }
+            ],
+            "contributors": [],
+            "createdDate": "2026-05-11T03:13:23+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-05-07T13:59:38+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.1016/j.jeconom.2025.106109",
+            "downloadUrl": "https://core.ac.uk/download/738362412.pdf",
+            "fullText": "",
+            "id": 738362412,
+            "identifiers": {
+              "doi": "10.1016/j.jeconom.2025.106109",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57376"
+            },
+            "title": "Bayesian nonparametric inference in bank business models with transient and persistent cost inefficiency",
+            "language": { "code": "en", "name": "English" },
+            "publishedDate": null,
+            "publisher": "Elsevier",
+            "references": [],
+            "sourceFulltextUrls": [
+              "http://doi.org/10.1016/j.jeconom.2025.106109",
+              "https://eprints.bbk.ac.uk/id/eprint/57376/3/57376a.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/738362412.pdf"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/738362412"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/738362412/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/738362412/large"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/738362412"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/738362412/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/738362412/large"
+              },
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/738362412"
+              }
+            ],
+            "abstract": "This paper introduces a novel econometric framework for identifying and modeling bank business models (BBMs), which dynamically evolve in response to changing financial and economic conditions. Building on the stochastic frontier literature, we extend the traditional cost-efficiency models by decomposing inefficiency into persistent and transient components. We propose a Bayesian nonparametric approach that adapts to the data through an infinite mixture model with predictor-dependent clustering, enabling a flexible classification of banks into distinct business models. Our method, based on the Logit Stick-Breaking Process (LSBP), provides a data-driven way to capture the heterogeneity in bank strategies, allowing for dynamic transitions between business models over time. This model offers a significant advancement over existing parametric and kernel-based approaches by combining the scalability of nonparametric methods with efficient computational routines. We apply the model to a dataset of European banks and identify four distinct business model clusters, providing novel insights into the evolution of bank performance and efficiency. Our findings contribute to the growing literature on the identification and measurement of bank business models, offering valuable implications for policy and regulatory frameworks",
+            "tags": ["BBS"],
+            "fulltextStatus": "enabled",
+            "subjects": ["BBS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57376",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 738362412,
+              "depositedDate": "",
+              "publishedDate": "",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "http://doi.org/10.1016/j.jeconom.2025.106109",
+                "type": "fulltext"
+              },
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57376/3/57376a.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:31+01:00",
+            "setSpecs": [],
+            "license": "http://creativecommons.org/licenses/by/4.0",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Fasbender, U." },
+              { "name": "Drury, Lisbeth" },
+              { "name": "Goštautaitė, B." },
+              { "name": "Keller, A.C." },
+              { "name": "Vignoli, V." },
+              { "name": "Wolf, T." }
+            ],
+            "contributors": [],
+            "createdDate": "2026-05-31T13:08:11+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-05-29T13:30:43+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.1093/workar/waag007",
+            "downloadUrl": "https://core.ac.uk/download/741225779.pdf",
+            "fullText": "",
+            "id": 741225779,
+            "identifiers": {
+              "doi": "10.1093/workar/waag007",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57298"
+            },
+            "title": "No matter the distance? A theoretical framework of age-diverse friendship effects",
+            "language": { "code": "en", "name": "English" },
+            "publishedDate": "2026-04-30T01:00:00+01:00",
+            "publisher": "Oxford Academic",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/57298/3/57298a.pdf",
+              "http://doi.org/10.1093/workar/waag007"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/741225779.pdf"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/741225779"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/741225779/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/741225779/large"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/741225779"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/741225779/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/741225779/large"
+              },
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/741225779"
+              }
+            ],
+            "abstract": "Friendship is the most transformative form of high-quality intergroup contact, with the capacity to build solidarity, foster cooperation, and bridge divides. Age-diverse friendships, in particular, offer unique opportunities to connect people of different ages, yet their role in work and non-work settings requires further theorizing. We thus develop a theoretical framework of age-diverse friendship effects that explains how such effects extend beyond the dyad to influence organizations and society at large. Building on intergroup contact theory, the taxonomy of transfer effects, and research on other-oriented processes, we propose that age-diverse friendships generate spillover effects at three levels: from individual friends to the broader age group (primary transfer), from age groups to other social groups (secondary transfer), and toward more general liberalization effects that transcends group boundaries (tertiary transfer). Central to these transfer effects are empathic concern and perspective taking, which enable friendships to foster prosocial behavior in work and non-work contexts. We further theorize that the extent and direction of these primary, secondary, and tertiary transfer effects depend on two boundary conditions: age distance and semantic distance. Our theoretical framework positions age-diverse friendships as a powerful vehicle of social change, with the potential to not only reduce tensions but also to strengthen intergroup cooperation and address broader societal challenges",
+            "tags": ["BBS"],
+            "fulltextStatus": "enabled",
+            "subjects": ["BBS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57298",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 741225779,
+              "depositedDate": "",
+              "publishedDate": "2026-04-30T01:00:00+01:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57298/3/57298a.pdf",
+                "type": "fulltext"
+              },
+              {
+                "url": "http://doi.org/10.1093/workar/waag007",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:32+01:00",
+            "setSpecs": [],
+            "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+            "orcids": [],
+            "sdg": []
+          }
+        ],
+        "tooks": [],
+        "searchId": null
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T12:21:48.001Z",
+    "scrubbed": { "fullText": 3, "headersDropped": 4 },
+    "note": "T-715, T-735 (Q-043): the sort push keeps the offset of the page it is chosen on (offset 10)"
+  }
+}
