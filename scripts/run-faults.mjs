@@ -651,7 +651,7 @@ function jestFilesFor(treeDir, ids) {
             ).test(src)
           )
         )
-          out.push(path.relative(treeDir, f)) // relative: /var/folders is /private/var/folders for Jest's rootDir
+          out.push(path.relative(treeDir, f)) // relative: a temporary directory and its real path differ for Jest's rootDir
       }
     }
   }
