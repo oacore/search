@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scenario": "req-P1-05",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/data-providers/8/outputs?q=&offset=30950&limit=10&sort=recency",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 400,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 12:21:41 GMT"],
+      ["Content-Type", "text/html; charset=UTF-8"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Server", "cloudflare"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "message": "Your search offset is too large and not supported, \n                please use a smaller offset."
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T12:21:41.550Z",
+    "scrubbed": { "headersDropped": 4 },
+    "note": "T-715, T-735 (Q-044): the Last arrow of provider 8 (30,950 outputs, a multiple of the page size) points at offset 30950, past the last result; whatever the API answers is the baseline"
+  }
+}

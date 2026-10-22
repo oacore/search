@@ -1,0 +1,860 @@
+{
+  "schema": 1,
+  "scenario": "req-P1-05",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/data-providers/8/outputs?q=&offset=0&limit=10&sort=relevance",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 12:21:44 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "totalHits": 30950,
+        "limit": 10,
+        "offset": 0,
+        "results": [
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Lou, Jackie Jia" }],
+            "contributors": [],
+            "createdDate": "2020-01-22T15:49:08+00:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2020-01-22T15:49:08+00:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "https://core.ac.uk/download/286350833.pdf",
+            "fullText": "",
+            "id": 286350833,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:26885"
+            },
+            "title": "Space and place as context",
+            "language": { "code": "en", "name": "English" },
+            "publishedDate": "2015-01-25T00:00:00+00:00",
+            "publisher": "Bloomsbury",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/26885/1/Lou%202014%20Locating%20power%20of%20place%20in%20space%20%28accepted%20version%29.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2015",
+            "links": [
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/286350833.pdf"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/286350833"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/286350833/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/286350833/large"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/286350833"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/286350833/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/286350833/large"
+              },
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/286350833"
+              }
+            ],
+            "abstract": "Book synopsis: Featuring internationally renowned academics, this volume provides a snapshot of the field of applied linguistics, and illustrates how linguistics is engaging with the idea of 'context'. The book treats discourse as language in the contexts of its use in and above the level of the sentence and as systems of knowledge and beliefs.\n\n\n\nIn using the term context(s), the book understands this as different situations in which discourse is produced and, on the other, how analysts construe context in their work. The volume is thus concerned with language in its context of use (little d discourse), but at the same time, more specifically, in individual chapters, with particular discourses as they are manifested in particular contexts (big D discourses).\n\n\n\nWell known discourse analysts contribute chapters focussing on different contexts with which they are familiar, viz. business, education, ethnicity and race, gender and sexuality, history, intercultural contexts, lingua franca contexts, media, place, politics, race, and the virtual world. It brings together researchers from different approaches, but all with a commitment to the study of language in context. The contributors themselves represent different approaches to discourse analysis: conversation analysis, corpus linguistics, critical discourse analysis, ethnographic discourse analysis, mediated discourse analysis, multimodal discourse analysis, systemic functional linguistics. Readers are invited to compare and contrast these different contexts and approaches",
+            "tags": ["alc"],
+            "fulltextStatus": "enabled",
+            "subjects": ["alc"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:26885",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 286350833,
+              "depositedDate": "",
+              "publishedDate": "2015-01-25T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/26885/1/Lou%202014%20Locating%20power%20of%20place%20in%20space%20%28accepted%20version%29.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-03-28T12:33:30+00:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Opacic, Zoe" }],
+            "contributors": [],
+            "createdDate": "2020-01-20T14:26:47+00:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2020-01-20T14:26:47+00:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 286350863,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:30634"
+            },
+            "title": "‘Et ils s’émerveillèrent . . .’. L’art médiéval en Croatie",
+            "language": null,
+            "publishedDate": null,
+            "publisher": "Burlington Magazine Publications Limited",
+            "references": [],
+            "sourceFulltextUrls": [],
+            "updatedDate": null,
+            "yearPublished": "2013",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/286350863"
+              }
+            ],
+            "abstract": "",
+            "tags": ["hafvm"],
+            "fulltextStatus": "disabled",
+            "subjects": ["hafvm"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:30634",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 286350863,
+              "depositedDate": "",
+              "publishedDate": "",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [],
+            "lastUpdate": "2026-03-28T12:33:30+00:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Grayson, Richard S." }],
+            "contributors": [],
+            "createdDate": "2026-07-13T08:44:14+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-07-10T17:20:42+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.1080/03086530600991423",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 749264148,
+            "identifiers": {
+              "doi": "10.1080/03086530600991423",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57690"
+            },
+            "title": "Imperialism in Conservative defence and foreign policy: Leo Amery and the Chamberlains, 1903-1939’",
+            "language": null,
+            "publishedDate": "2006-12-01T00:00:00+00:00",
+            "publisher": "Taylor & Francis",
+            "references": [],
+            "sourceFulltextUrls": ["http://doi.org/10.1080/03086530600991423"],
+            "updatedDate": null,
+            "yearPublished": "2006",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/749264148"
+              }
+            ],
+            "abstract": "This article explores the place of imperialism in aspects of Conservative defence and foreign policy between 1903 and 1939, through a comparative study of Leo Amery and the three Chamberlains (Joseph, Austen and Neville), all of whom were nominally imperialists. The article draws conclusions in two general areas. First, it argues that there has not been enough attention to the diversity of imperialist approaches to policy. Exploring the army reform controversy of 1903 suggests a fault line between some imperialists over whether imperial unity could be developed from intra-colonial or extra-colonial sources. Second, the paper contends that the functions of imperialism in Conservative policy have not been fully understood, with previous work focusing largely on social and economic policy. The article points to the existence of an ‘imperial foreign policy’ strategy within the Conservative party in the 1920s and 1930s. The historiography of imperialism within the Conservative party should therefore recognise the diversity of imperialist approaches to policy and consider the application of imperial thinking to discussions on foreign policy",
+            "tags": ["HS"],
+            "fulltextStatus": "disabled",
+            "subjects": ["HS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57690",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 749264148,
+              "depositedDate": "",
+              "publishedDate": "2006-12-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "http://doi.org/10.1080/03086530600991423",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:32+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Dark, Jessica" }],
+            "contributors": [],
+            "createdDate": "2026-07-08T17:12:14+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-07-08T16:40:19+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.3389/fpsyg.2026.1826284",
+            "downloadUrl": "https://core.ac.uk/download/748668105.pdf",
+            "fullText": "",
+            "id": 748668105,
+            "identifiers": {
+              "doi": "10.3389/fpsyg.2026.1826284",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57646"
+            },
+            "title": "The system-level organisational design framework: a neuro-cognitive trait interaction approach to workplace inclusion for autistic people",
+            "language": { "code": "en", "name": "English" },
+            "publishedDate": "2026-06-17T01:00:00+01:00",
+            "publisher": "Frontiers Media S.A.",
+            "references": [],
+            "sourceFulltextUrls": [
+              "http://doi.org/10.3389/fpsyg.2026.1826284",
+              "https://eprints.bbk.ac.uk/id/eprint/57646/1/fpsyg-17-1826284.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/748668105.pdf"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/748668105"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/748668105/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/748668105/large"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/748668105"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/748668105/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/748668105/large"
+              },
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/748668105"
+              }
+            ],
+            "abstract": "Employment outcomes for autistic people in the United Kingdom (UK) remain persistently low despite increasing attention to workplace inclusion. Drawing on my positionality as an autistic doctoral student in Organisational Psychology, this perspective article examines how workplace inclusion is often approached through individually negotiated adjustments implemented within existing workplace systems and practices. While these approaches provide important forms of support, organisational conditions continue to shape participation in ways that do not fully account for differences in how autistic people think, process information, and communicate. In response, the article introduces the system-level organisational design framework (SLODF), underpinned by a neuro-cognitive trait interaction lens, as a reflexive framework for examining how organisational conditions shape workplace participation across cognitive variation. Drawing on multidisciplinary literature, the article explores how barriers emerge through interactions between neuro-cognitive traits and the organisational domains of environment, systems, people, and policy. Rather than functioning as a predictive or prescriptive model, the SLODF conceptualises workplace inclusion as an ongoing, context-sensitive organisational process. In doing so, the article contributes to broader developments within Organisational Psychology by encouraging reconsideration of workplace inclusion through organisational design and neuro-cognitive trait interaction",
+            "tags": ["PS"],
+            "fulltextStatus": "enabled",
+            "subjects": ["PS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57646",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 748668105,
+              "depositedDate": "",
+              "publishedDate": "2026-06-17T01:00:00+01:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "http://doi.org/10.3389/fpsyg.2026.1826284",
+                "type": "fulltext"
+              },
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57646/1/fpsyg-17-1826284.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:32+01:00",
+            "setSpecs": [],
+            "license": "http://creativecommons.org/licenses/by/4.0",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [],
+            "contributors": ["Grayson, Richard S.", "McGarry, F."],
+            "createdDate": "2026-07-20T06:11:38+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-07-15T16:37:05+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 750223264,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57684"
+            },
+            "title": "Remembering 1916: The Easter Rising, the Somme and the politics of memory in Ireland",
+            "language": null,
+            "publishedDate": "2016-03-03T00:00:00+00:00",
+            "publisher": "Cambridge University Press",
+            "references": [],
+            "sourceFulltextUrls": [],
+            "updatedDate": null,
+            "yearPublished": "2016",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/750223264"
+              }
+            ],
+            "abstract": "Book synopsis: The year 1916 witnessed two events that would profoundly shape both politics and commemoration in Ireland over the course of the following century. Although the Easter Rising and the Battle of the Somme were important historical events in their own right, their significance also lay in how they came to be understood as iconic moments in the emergence of Northern Ireland and the Irish Republic. Adopting an interdisciplinary approach drawing on history, politics, anthropology and cultural studies, this volume explores how the memory of these two foundational events has been constructed, mythologised and revised over the course of the past century. The aim is not merely to understand how the Rising and the Somme came to exert a central place in how the past is viewed in Ireland, but to explore wider questions about the relationship between history, commemoration and memory",
+            "tags": ["HS"],
+            "fulltextStatus": "disabled",
+            "subjects": ["HS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57684",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 750223264,
+              "depositedDate": "",
+              "publishedDate": "2016-03-03T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [],
+            "lastUpdate": "2026-08-31T06:53:32+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Clegg, N." },
+              { "name": "Grayson, Richard S." }
+            ],
+            "contributors": [],
+            "createdDate": "2026-07-20T06:11:38+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-07-15T16:36:46+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "https://core.ac.uk/download/750223281.pdf",
+            "fullText": "",
+            "id": 750223281,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57714"
+            },
+            "title": "Learning from Europe: lessons in education",
+            "language": { "code": "en", "name": "English" },
+            "publishedDate": "2002-05-01T01:00:00+01:00",
+            "publisher": "Centre for European Reform",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/57714/1/CleggGraysonPamphlet.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2002",
+            "links": [
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/750223281.pdf"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/750223281"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/750223281/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/750223281/large"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/750223281"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/750223281/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/750223281/large"
+              },
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/750223281"
+              }
+            ],
+            "abstract": "",
+            "tags": ["HS"],
+            "fulltextStatus": "enabled",
+            "subjects": ["HS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57714",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 750223281,
+              "depositedDate": "",
+              "publishedDate": "2002-05-01T01:00:00+01:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57714/1/CleggGraysonPamphlet.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:32+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Watts, Aspen Ryn" }],
+            "contributors": [],
+            "createdDate": "2026-07-20T06:11:38+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-07-14T15:41:54+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.18743/PUB.00057735",
+            "downloadUrl": "https://core.ac.uk/download/750223294.pdf",
+            "fullText": "",
+            "id": 750223294,
+            "identifiers": {
+              "doi": "10.18743/PUB.00057735",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57735"
+            },
+            "title": "Disentangling the drivers of Insect Armageddon: determining the impact of \n\nanthropogenic disturbances on midge diversity in the UK",
+            "language": { "code": "en", "name": "English" },
+            "publishedDate": null,
+            "publisher": "Birkbeck, University of London",
+            "references": [],
+            "sourceFulltextUrls": [
+              "http://doi.org/10.18743/PUB.00057735",
+              "https://eprints.bbk.ac.uk/id/eprint/57735/1/Watts%20A%2C%20final%20thesis%20for%20library.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "",
+            "links": [
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/750223294.pdf"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/750223294"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/750223294/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/750223294/large"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/750223294"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/750223294/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/750223294/large"
+              },
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/750223294"
+              }
+            ],
+            "abstract": "Global biodiversity loss affects all animal groups and biogeographical regions, and is higher in freshwater environments than in any other natural habitat. Insect biomass, species richness and abundance are declining globally, and all areas in the UK have experienced a net insect species loss and community composition change since 1970 CE. The dramatic decrease in insect abundance and species richness since the 1980s threatens ecosystem functioning and services, and has led to the coining of the term “Insect Armageddon”. Information on insect declines is only based on short-term monitoring datasets, typically spanning less than 50 years, whereas human impacts date back to ca. 6000 years BP. This limits understanding of the magnitude of Insect Armageddon. A palaeoecological approach, in this case using chironomid (non-biting midge) sub-fossils, allows anthropogenic drivers to be disentangled over a multi-decadal to millennial timescales. In this study, centennial-scale chironomid community dynamics are reconstructed for 16 UK lakes, with a focus on post-industrial human impacts. First, the impact of individual drivers (e.g. industry, tourism) on the chironomid communities of eight lakes were studied. All drivers impacted chironomid community composition and diversity, with eutrophication having the greatest impact. Secondly, six meres in the West Midlands, experiencing recent eutrophication, were selected in order to further explore the impacts on chironomids. Despite similarities in climate, depth, and geology of the lakes, chironomid compositional changes had different directions and magnitude between sites. Finally, three sites with multiple intersecting drivers were studied at higher resolution. The records show sensitive ecosystem responses to eutrophication, mining, and restoration efforts, allowing the identification of natural baselines and appropriate sampling resolutions. The results presented in this study contribute to a deeper understanding of insect diversity dynamics, and inform conservation and mitigation strategies for freshwater lake ecosystems",
+            "tags": ["SS"],
+            "fulltextStatus": "enabled",
+            "subjects": ["SS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57735",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 750223294,
+              "depositedDate": "",
+              "publishedDate": "",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "http://doi.org/10.18743/PUB.00057735",
+                "type": "fulltext"
+              },
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57735/1/Watts%20A%2C%20final%20thesis%20for%20library.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:32+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Stanko, E." },
+              { "name": "Hohl, K." },
+              { "name": "May, Tiggey" },
+              { "name": "Atkinson, Samantha" },
+              { "name": "Holtham, Emilly" }
+            ],
+            "contributors": [],
+            "createdDate": "2026-07-30T06:30:39+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-07-23T16:48:56+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "https://core.ac.uk/download/750802643.pdf",
+            "fullText": "",
+            "id": 750802643,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57748"
+            },
+            "title": "Operation Soteria: year 1 report",
+            "language": { "code": "en", "name": "English" },
+            "publishedDate": "2023-04-14T01:00:00+01:00",
+            "publisher": "Home Office",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://www.gov.uk/government/publications/operation-soteria-year-one-report",
+              "https://eprints.bbk.ac.uk/id/eprint/57748/1/Operation_Soteria_Bluestone_Year_1_Report-_FINAL.v3.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2023",
+            "links": [
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/750802643.pdf"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/750802643"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/750802643/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/750802643/large"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/750802643"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/750802643/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/750802643/large"
+              },
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/750802643"
+              }
+            ],
+            "abstract": "Police are the primary gatekeepers of the criminal justice system. As representatives of the state, law and society, police also wield significant symbolic power in defining the fault line between behaviour that is deemed ‘right’ or ‘wrong’. Police actions matter to citizens’ sense of justice. These actions are the substance of trust and confidence in the rule of law.\n\n\n\nMost experiences of sexual violence remain unreported, so never interface with law and legal decision-making in practice. When a victim, or someone on their behalf, reaches out to the police for help following sexual violence, the state has a clear mandate to make this justice space accessible and responsive to them. How police treat rape and other sexual offences and engage with victims and suspects – including within their own ranks – sends a powerful signal to wider society about what is and is not morally acceptable. What police do when victims tell them about harm is a powerful tool in validating people’s experiences of that harm. Harnessing this symbolic power of the police, by visibly improving the police response to rape, has the potential to aid the cause of ending sexual violence, and violence against women and girls more broadly (Hohl and Stanko, 2022: 222).\n\n\n\nThis report sets out Operation Soteria Bluestone’s first year’s programme of work on a unique academic-police collaboration for transforming the police response to rape investigation in England and Wales. Operation Soteria Bluestone is a core element of the UK Government’s End-to-End Rape Review Action Plan and the broader Operation Soteria programme.[footnote 9] The theoretical framework underpinning this academic-police collaborative programme is set out in Hohl and Stanko (2022, Appendix 1).\n\n\n\nThis Year 1 Report details the practical implementation of the commissioned programme of work, including challenges, as well as key findings. These findings require fresh thinking about rape and other sexual offences disclosed to police, and how police must engage with suspects, victims, and other agencies.\n\n\n\nFinally, the report previews the National Operating Model and the Year 2 programme of work for Operation Soteria Bluestone. The aspiration for the second year is a wholesale transformation in the way police respond to rape and other sexual offences by developing a national operating model for the investigation of rape and other sexual offences. The CPS are also developing a national operating model for the prosecution of rape",
+            "tags": ["SS"],
+            "fulltextStatus": "enabled",
+            "subjects": ["SS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57748",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 750802643,
+              "depositedDate": "",
+              "publishedDate": "2023-04-14T01:00:00+01:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://www.gov.uk/government/publications/operation-soteria-year-one-report",
+                "type": "fulltext"
+              },
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57748/1/Operation_Soteria_Bluestone_Year_1_Report-_FINAL.v3.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:33+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Jackson, Abigail Elizabeth" }],
+            "contributors": [],
+            "createdDate": "2026-08-06T12:43:46+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-08-05T17:21:56+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.18743/PUB.00057806",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 751545926,
+            "identifiers": {
+              "doi": "10.18743/PUB.00057806",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57806"
+            },
+            "title": "Landlords, Licensing and the Paradox of Legibility",
+            "language": null,
+            "publishedDate": null,
+            "publisher": "Birkbeck, University of London",
+            "references": [],
+            "sourceFulltextUrls": [
+              "http://doi.org/10.18743/PUB.00057806",
+              "https://eprints.bbk.ac.uk/id/eprint/57806/1/Jackson%20A%2C%20final%20thesis%20for%20library.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/751545926"
+              }
+            ],
+            "abstract": "Introduced by the Labour Government in the Housing Act 2004, selective licensing was designed to address concerns relating to low housing demand and anti-social behaviour. It does this by requiring private landlords to obtain a licence to let residential property to a single-family household in a designated area. That, however, has created a regulatory patchwork or a system of ‘local law’, where landlords have differentiated responsibilities depending on the location of a rental property. To investigate that further, this research aims to develop a sociolegal understanding of selective licensing as a regulatory mechanism, and how it operates to hide certain aspects of the landlord-tenant relationship, and its oversight by local authorities. Drawing on a methodology incorporating doctrinal research, legal anthropology, and a spatio-materialist reading of law, this research analyses selective licensing through the lens of rules, standards and legibility. It focuses on 3 aspects of selective licensing, namely the consultation process, the fit and proper person test, and its enforcement by local authorities using civil penalties. It subsequently compares selective licensing with landlord registration in Scotland. To conclude, this thesis contends that selective licensing creates a regulatory paradox. It makes certain socio-economic problems in the neighbourhood visible, while concealing those outside the designation. It reveals the work of the local authority as part of the consultation process, but hides its housing enforcement’s function. In other words, selective licensing obscures a more embodied, practical understanding of the wider problems associated with deprived neighbourhoods, the landlord-tenant relationship and regulatory activities of government officials. That creates a distance between the law, and the phenomenon it is designed to regulate, making any legislation less effective",
+            "tags": ["BLS"],
+            "fulltextStatus": "disabled",
+            "subjects": ["BLS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57806",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 751545926,
+              "depositedDate": "",
+              "publishedDate": "",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "http://doi.org/10.18743/PUB.00057806",
+                "type": "fulltext"
+              },
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57806/1/Jackson%20A%2C%20final%20thesis%20for%20library.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:33+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Lawton Smith, Helen" }],
+            "contributors": [],
+            "createdDate": "2026-06-17T01:05:49+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-06-08T17:01:51+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 743585251,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57516"
+            },
+            "title": "Social entrepreneurship: building social enterprises through digital crowdfunding and ecosystem support",
+            "language": null,
+            "publishedDate": "2026-05-19T01:00:00+01:00",
+            "publisher": "CIMR, Birkbeck, University of London",
+            "references": [],
+            "sourceFulltextUrls": [],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/743585251"
+              }
+            ],
+            "abstract": "This Linked In blog reports on a CIMR Debate in Public Policy Wednesday 6th May 2026. The Debate brought together two projects on social entrepreneurship with very different skill sets and insights. It illustrated how multidisciplinary analysis brings into sharp focus the need for differing perspectives - theoretical, methodological and empirical - in understanding processes and outcomes in different geographical contexts. Both projects are ‘grounded’ in responding to the need for academic research to have practical and policy applications",
+            "tags": ["BBS"],
+            "fulltextStatus": "disabled",
+            "subjects": ["BBS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57516",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 743585251,
+              "depositedDate": "",
+              "publishedDate": "2026-05-19T01:00:00+01:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [],
+            "lastUpdate": "2026-08-31T06:53:32+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          }
+        ],
+        "tooks": [],
+        "searchId": null
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T12:21:45.246Z",
+    "scrubbed": { "fullText": 5, "headersDropped": 4 },
+    "note": "T-715, T-735 (Q-043): choosing either sort option pushes sort=relevance; the server fetches the relevance order"
+  }
+}

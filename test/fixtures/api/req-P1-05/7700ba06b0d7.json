@@ -1,0 +1,912 @@
+{
+  "schema": 1,
+  "scenario": "req-P1-05",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/data-providers/8/outputs?q=&offset=10&limit=10&sort=recency",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Wed, 21 Oct 2026 12:21:40 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "totalHits": 30950,
+        "limit": 10,
+        "offset": 10,
+        "results": [
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Eve, Martin Paul" }],
+            "contributors": ["Groes, Bas", "Goody, Alex", "Nakamura, Asami"],
+            "createdDate": "2025-04-14T05:57:38+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2025-04-11T09:06:29+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 650322569,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:55407"
+            },
+            "title": "Rage Against the Machine: The Politics of Open Access, Large Language Models, and the Reaction Against Open",
+            "language": null,
+            "publishedDate": "2027-01-01T00:00:00+00:00",
+            "publisher": "Open Book Publishers",
+            "references": [],
+            "sourceFulltextUrls": [],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/650322569"
+              }
+            ],
+            "abstract": "For over two decades now, a select group of scientists and researchers have called for academic publishing to harness the digital abundance of the internet and the world wide web. This movement – dubbed \"open access\" – has called for the open and free availability and re-use of scholarly material. For the longest time, the key arguments for such access centred not only on the epistemic congruence of open practices with research itself, but also on the gross iniquities in scholarly communications on the global stage, fuelled by a voracious for-profit publishing industry that valued returns over scholarship. Meanwhile, governments expressed the more neoliberal view that business access to OA would fuel national economic growth and make academia serve industry, leading to a conflicted political history. In recent days, however, open-access scholarly material has served as the engine that powers the training of so-called AI large language models (LLMs). This has prompted outrage and kickback among substantial portions of the academic and creative community who seek a re-entrenchment of strong copyright principles to guard against AI systems; a rage against the machine. This chapter explores the contradictory motivations and methods of the OA movement and argues that LLMs were an easily foreseen consequence and extension of text and data mining practices. It closes with suggestions of ways to reconcile openness for humanity with the brave new world of artificial intelligence",
+            "tags": ["CACC"],
+            "fulltextStatus": "disabled",
+            "subjects": ["CACC"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:55407",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 650322569,
+              "depositedDate": "",
+              "publishedDate": "2027-01-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [],
+            "lastUpdate": "2026-08-31T06:52:28+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Eve, Martin Paul" }],
+            "contributors": ["Waddell, Nathan"],
+            "createdDate": "2025-04-14T05:57:38+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2025-04-10T08:28:40+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 650322567,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:55401"
+            },
+            "title": "Atomics",
+            "language": null,
+            "publishedDate": "2027-09-01T01:00:00+01:00",
+            "publisher": "Cambridge University Press",
+            "references": [],
+            "sourceFulltextUrls": [],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/650322567"
+              }
+            ],
+            "abstract": "George Orwell wrote several essays that mention the atomic bomb. This chapter examines these sources alongside Nineteen Eighty-Four to show that the atomic bomb was a structuring force for Orwell's novel and thought. Although Orwell died before the true implications of the Cold War -- a term he coined -- were felt, his prescient writing on nuclear war reverberate through his novel",
+            "tags": ["CACC"],
+            "fulltextStatus": "disabled",
+            "subjects": ["CACC"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:55401",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 650322567,
+              "depositedDate": "",
+              "publishedDate": "2027-09-01T01:00:00+01:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [],
+            "lastUpdate": "2026-08-31T06:52:28+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Lewis, Ann" }],
+            "contributors": ["Pierse, S.", "Raynal, L."],
+            "createdDate": "2026-07-08T17:12:14+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-07-03T17:13:15+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 748668109,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57653"
+            },
+            "title": "The oldest profession? (Re)imagining sex, work, and métier in Mercier and Rétif de la Bretonne",
+            "language": null,
+            "publishedDate": "2027-01-21T00:00:00+00:00",
+            "publisher": "Bloomsbury Academic",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/57653/1/57653.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/748668109"
+              }
+            ],
+            "abstract": "Book synopsis: This book focuses on the interface between women and work and/or women at work, across the eighteenth-century French-speaking world, primarily in text (private, historical, and literary), but also in art. In this way, contributors confront the difficulty of defining work in gendered terms; a return to the simplistic binary underscores the value of isolating work by women and why this is important in both eighteenth- and twenty-first-century contexts; and it identifies underlying, recurrent themes which underpin the book's chapters and subsections, many of which have striking echoes in the modern world. While in dialogue with recent work in this field, the specific moments, memoirs, and narratives selected for inclusion in this book are engaging and exciting. Essays comprise original studies with a number or entirely new focuses, which will contribute fresh perspectives to current scholarship on the history, social history, culture, art history, and literature of the 18th-century Francosphere",
+            "tags": ["CACC"],
+            "fulltextStatus": "disabled",
+            "subjects": ["CACC"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57653",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 748668109,
+              "depositedDate": "",
+              "publishedDate": "2027-01-21T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57653/1/57653.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:32+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [],
+            "contributors": [
+              "Centeno-Martin, Marcos Pablo",
+              "Gonzalez-Lopez, Irene",
+              "Armendariz-Hernandez, Alejandra"
+            ],
+            "createdDate": "2026-08-13T06:28:26+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-08-06T14:20:25+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 752011535,
+            "identifiers": {
+              "doi": null,
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57776"
+            },
+            "title": "The documentary cinema of Haneda Sumiko: Japan in transition through gender, arts, nature and society",
+            "language": null,
+            "publishedDate": "2026-05-06T01:00:00+01:00",
+            "publisher": "Routledge",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/57776/1/The%20Documentary%20Cinema%20of%20Haneda%20Sumiko%20Japan%20in%20Transition%20through%20Gender%2C%20Arts%2C%20Nature%20and%20Society.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/752011535"
+              }
+            ],
+            "abstract": "Book synopsis: This is the first academic book to provide a comprehensive survey of the work of Haneda Sumiko (1926–), the first woman to regularly direct documentaries in postwar Japan, by examining her major documentaries among the extensive filmography she developed over 60 years.\n\n\n\nBringing together scholars from a range of disciplines—including film studies, gender studies, art history, eco-criticism and aging studies—this volume explores Haneda’s depiction of critical issues in Japanese society, culture, history and nature. It showcases how her cinema provides a personal and reflective view on Japan’s drastic transformations of the twentieth century, while her career also bore witness to changes taking place in the national cinema industry. It thus situates Haneda’s oeuvre within the history of Japanese non-fiction film while offering new perspectives on questions of authorship and representation.\n\n\n\nCollectively, the chapters in this book make a case for Haneda to be recognized as a key figure in Japan’s postwar documentary scene. Bridging gaps in research on both documentary studies and women filmmakers, this will be a valuable resource to scholars and students of film studies, Japanese studies, gender studies and art history, as well as to film curators and programmers",
+            "tags": ["CACC"],
+            "fulltextStatus": "disabled",
+            "subjects": ["CACC"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57776",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 752011535,
+              "depositedDate": "",
+              "publishedDate": "2026-05-06T01:00:00+01:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57776/1/The%20Documentary%20Cinema%20of%20Haneda%20Sumiko%20Japan%20in%20Transition%20through%20Gender%2C%20Arts%2C%20Nature%20and%20Society.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:33+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Bontognali, T.R.R." },
+              { "name": "Hickman-Lewis, Keyron" }
+            ],
+            "contributors": [],
+            "createdDate": "2026-08-24T06:21:12+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-08-20T15:15:59+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.2138/gselements.22.4.225",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 752783458,
+            "identifiers": {
+              "doi": "10.2138/gselements.22.4.225",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57827"
+            },
+            "title": "Stromatolites: the shape we give to our vision of Martian life?",
+            "language": null,
+            "publishedDate": "2026-08-01T01:00:00+01:00",
+            "publisher": "GeoScienceWorld",
+            "references": [],
+            "sourceFulltextUrls": [
+              "http://doi.org/10.2138/gselements.22.4.225",
+              "https://eprints.bbk.ac.uk/id/eprint/57827/1/Bontognali%20and%20Hickman-Lewis%20%282026%29%20Stromatolites%20Elements.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/752783458"
+              }
+            ],
+            "abstract": "",
+            "tags": ["NS"],
+            "fulltextStatus": "disabled",
+            "subjects": ["NS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57827",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 752783458,
+              "depositedDate": "",
+              "publishedDate": "2026-08-01T01:00:00+01:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "http://doi.org/10.2138/gselements.22.4.225",
+                "type": "fulltext"
+              },
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57827/1/Bontognali%20and%20Hickman-Lewis%20%282026%29%20Stromatolites%20Elements.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-24T06:21:19+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Williford, K.H." },
+              { "name": "Farley, K.A." },
+              { "name": "Horgan, B.H.N." },
+              { "name": "Garczynski, B." },
+              { "name": "Treiman, A.H." },
+              { "name": "Gupta, S." },
+              { "name": "Jones, A.J." },
+              { "name": "Siljeström, S." },
+              { "name": "Clavé, E." },
+              { "name": "Mayhew, L." },
+              { "name": "Osterhout, J.T." },
+              { "name": "Ravanis, E." },
+              { "name": "Stack, K.M." },
+              { "name": "Fagents, S." },
+              { "name": "Bedford, C.C." },
+              { "name": "Bosak, T." },
+              { "name": "Bykov, S.V." },
+              { "name": "Flannery, D." },
+              { "name": "Hand, K.P." },
+              { "name": "Jones, M.W.M." },
+              { "name": "Kah, L." },
+              { "name": "Klidaras, A." },
+              { "name": "Maki, J." },
+              { "name": "Mandon, L." },
+              { "name": "Mansbach, E." },
+              { "name": "McCubbin, F.M." },
+              { "name": "Simon, J.I." },
+              { "name": "Srivastava, A." },
+              { "name": "Uckert, K." },
+              { "name": "Wiens, R.C." },
+              { "name": "Alwmark, S." },
+              { "name": "Aramendia, J." },
+              { "name": "Barnes, R." },
+              { "name": "Beck, P." },
+              { "name": "Bell, J.F." },
+              { "name": "Bernard, S." },
+              { "name": "Bhartia, R." },
+              { "name": "Bramble, M.S." },
+              { "name": "Brown, A.J." },
+              { "name": "Broz, A." },
+              { "name": "Buckner, D." },
+              { "name": "Catling, D.C." },
+              { "name": "Cloutis, E." },
+              { "name": "Connell, S." },
+              { "name": "Corpolongo, A." },
+              { "name": "Czaja, A.D." },
+              { "name": "Dehouck, E." },
+              { "name": "Fornaro, T." },
+              { "name": "Forni, O." },
+              { "name": "Haney, N.C." },
+              { "name": "Hickman-Lewis, Keyron" },
+              { "name": "Hug, W." },
+              { "name": "Koeppel, A." },
+              { "name": "Madariaga, J.M." },
+              { "name": "Martínez-Frías, J." },
+              { "name": "Núñez, J.I." },
+              { "name": "Orenstein, B.J." },
+              { "name": "Phua, Y.Y." },
+              { "name": "Pilorget, C." },
+              { "name": "Randazzo, N." },
+              { "name": "Royer, C." },
+              { "name": "Scheller, E.L." },
+              { "name": "Schmitz, N." },
+              { "name": "Schröder, S." },
+              { "name": "Sephton, M.A." },
+              { "name": "Sharma, S." },
+              { "name": "Sharma, S." },
+              { "name": "Shuster, D." },
+              { "name": "Sinclair, K.P." },
+              { "name": "Steele, A." },
+              { "name": "Tate, C." },
+              { "name": "Weiss, B." },
+              { "name": "Williams, A.J." },
+              { "name": "Wolf, Z.U." },
+              { "name": "Yingst, R.A." }
+            ],
+            "contributors": [],
+            "createdDate": "2026-08-24T06:21:13+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-08-17T15:21:44+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.1126/science.adu8264",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 752783460,
+            "identifiers": {
+              "doi": "10.1126/science.adu8264",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57829"
+            },
+            "title": "Carbonated ultramafic igneous rocks in Jezero crater, Mars",
+            "language": null,
+            "publishedDate": "2026-02-19T00:00:00+00:00",
+            "publisher": "The American Association for the Advancement of Science",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/57829/1/Williford%20et%20al.%20%282025%29%20Crater%20margin.pdf",
+              "http://doi.org/10.1126/science.adu8264"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/752783460"
+              }
+            ],
+            "abstract": "INTRODUCTION: The Mars 2020 Perseverance rover landed in Jezero crater, Mars, which contained a lake of liquid water about 3.5 billion years ago. After exploring the igneous rocks of the crater floor, Perseverance ascended to the crater rim. Previous orbital spectroscopy indicated that the composition of these rocks is dominated by olivine and carbonate and that they were of unknown formation process and alteration history. It had been hypothesized that these rocks were deposited along the shoreline of an alkaline lake. Alternatively, they might be igneous in origin, part of a regional olivine- and carbonate-bearing system of rocks that extends outside the crater and on the crater floor.\n\n\n\nRATIONALE: Over more than 10 km of traversed terrain extending 400 m in elevation, the rover explored and sampled rocks of the Margin unit, located on and inside the western rim of the crater. The location of the Margin unit along the inner crater rim is at an elevation consistent with that of the highest water level of the ancient lake. Rover instruments, including cameras and spectrometers, were used to investigate the geology and stratigraphic relations and to determine the rock compositions. The rover’s drill was used to abrade rock surfaces prior to some compositional measurements and collect three samples for potential return to Earth.\n\nRESULTS: The rocks of the Margin unit have millimeter-scale granularity, commonly comprising olivine cores rimmed by Fe- and Mg carbonates, with minor amounts of phyllosilicates (including serpentine minerals). The intergranular matrix is composed of variably hydrated silica and contains dispersed ~100-μm Ti-bearing chromite grains. Layering was observed on several scales, with fewer complex sedimentary-like structures. There is no evidence for the systematic structural and grain size variations that would be produced by large-scale sedimentary deposition. The observed structures are similar to those in layered intrusive igneous settings on Earth. Systematic variations in the olivine forsterite content and Ti/Cr ratios of chromites are consistent with fractional crystallization from an evolving magma. Rocks encountered at lower elevations (below the maximum lake level) have undergone more extensive aqueous alteration than exposures encountered at higher elevation on the crater rim. The latter rocks show primary igneous textures, more olivine, and less carbonate and silica. The western sedimentary fan and the Neretva Vallis inlet channel eroded (and thus formed after) the Margin unit.\n\nCONCLUSION: We infer that the Margin unit rocks formed by accumulation of olivine crystals in a layered intrusive igneous system. These rocks were later variably altered in the presence of liquid water and carbon dioxide to form carbonates, phyllosilicates, and silica. The higher abundance of alteration minerals in lower-elevation targets indicates that the Jezero lake system enhanced the carbonation process but was not the sole driver. These carbonated igneous rocks on Mars record interactions between magmatic processes, a CO 2 -rich early atmosphere, and surface liquid water",
+            "tags": ["NS"],
+            "fulltextStatus": "disabled",
+            "subjects": ["NS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57829",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 752783460,
+              "depositedDate": "",
+              "publishedDate": "2026-02-19T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57829/1/Williford%20et%20al.%20%282025%29%20Crater%20margin.pdf",
+                "type": "fulltext"
+              },
+              {
+                "url": "http://doi.org/10.1126/science.adu8264",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-24T06:21:19+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Fox, M." },
+              { "name": "Smith, A.G.G." },
+              { "name": "Vermeesch, P." },
+              { "name": "Gallagher, K." },
+              { "name": "Carter, Andy" }
+            ],
+            "contributors": [],
+            "createdDate": "2026-09-07T06:14:09+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2026-09-02T16:03:38+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.5194/gchron-8-463-2026",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 755901406,
+            "identifiers": {
+              "doi": "10.5194/gchron-8-463-2026",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:57853"
+            },
+            "title": "Uncertainty in helium diffusion in zircon limits thermochronologic resolution: application to the Great Unconformity",
+            "language": null,
+            "publishedDate": "2026-08-27T01:00:00+01:00",
+            "publisher": "Copernicus Publications",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/57853/1/Fox2026.pdf",
+              "http://doi.org/10.5194/gchron-8-463-2026"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/755901406"
+              }
+            ],
+            "abstract": "Thermochronology provides a unique perspective on the timing and magnitude of erosion during the generation of unconformities. Recently, thermochronology has been used to reinvigorate a long-standing debate about the origin of the Great Unconformity, a geological feature representing a period of missing time of almost a billion years from the stratigraphic record at the end of the Precambrian. Our ability to resolve thermal histories is fundamentally limited by how well we know parameters describing the temperature sensitivity of a thermochronometric system. The (U-Th)/He in zircon system is particularly well suited to examine the origin of the Great Unconformity because it is very sensitive to long durations of time at relatively low temperatures (<200–250 °C). Here we determine uncertainties in the Zircon Radiation Damage and Annealing Model (ZRDAAM, Guenthner et al. 2013) that describes changes in 4He diffusion kinetics as a function of radiation damage accumulation and annealing. We show that the dispersion in predicted zircon (U-Th)/He ages for a given thermal history can be 100’s of Ma for a specific amount of radiation damage highlighting that thermal histories are less well resolved than previously appreciated. Additional diffusion experiments and calibration with natural laboratories would provide better constraints on diffusion kinetic parameters",
+            "tags": ["NS"],
+            "fulltextStatus": "disabled",
+            "subjects": ["NS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:57853",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 755901406,
+              "depositedDate": "",
+              "publishedDate": "2026-08-27T01:00:00+01:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/57853/1/Fox2026.pdf",
+                "type": "fulltext"
+              },
+              {
+                "url": "http://doi.org/10.5194/gchron-8-463-2026",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-09-07T06:14:14+01:00",
+            "setSpecs": [],
+            "license": "http://creativecommons.org/licenses/by/4.0",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Jacobson, Jessica" },
+              { "name": "Templeton, L." },
+              { "name": "Murray, Alexandra" }
+            ],
+            "contributors": [],
+            "createdDate": "2025-09-08T07:30:29+01:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2025-09-07T01:31:00+01:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.1080/09649069.2026.2614853",
+            "downloadUrl": "https://core.ac.uk/download/667901921.pdf",
+            "fullText": "",
+            "id": 667901921,
+            "identifiers": {
+              "doi": "10.1080/09649069.2026.2614853",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:56112"
+            },
+            "title": "‘I just felt we were shadows': scope and limits of participation by bereaved families in coroners’ inquests in England and Wales",
+            "language": null,
+            "publishedDate": "2026-01-16T00:00:00+00:00",
+            "publisher": "Taylor & Francis",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/56112/3/56112.pdf",
+              "http://doi.org/10.1080/09649069.2026.2614853"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/667901921.pdf"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/667901921"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/667901921/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/667901921/large"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/667901921"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/667901921/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/667901921/large"
+              },
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/667901921"
+              }
+            ],
+            "abstract": "A long-standing legal principle in England and Wales is that members of the public should be able to participate effectively in court proceedings that directly concern them. This paper examines the application of this principle to the role of family in coroners’ inquests, which investigate violent, unnatural and unexplained deaths, and deaths which have occurred in state detention. \n\n\n\nClose family members of the deceased person have rights to participate in the inquest, and there is a widely stated policy goal that the bereaved should be ‘at the heart’ of the coronial process. Empirical research examining lay and professional experiences of inquests found that participation was deemed important as a means of acknowledging the grief of the bereaved and personhood of the deceased, and on the basis that it contributes to accurate fact-finding and effective outcomes. The research also found, however, that practical and procedural barriers to participation often leave bereaved family feeling excluded and denied a voice, compounding their pain and distress.  If these barriers are to be overcome, there must be courtroom reform, clarification and better communication of the inquest’s purpose, and a cultural shift towards putting humanity at the heart of the process",
+            "tags": ["SS"],
+            "fulltextStatus": "enabled",
+            "subjects": ["SS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:56112",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 667901921,
+              "depositedDate": "",
+              "publishedDate": "2026-01-16T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/56112/3/56112.pdf",
+                "type": "fulltext"
+              },
+              {
+                "url": "http://doi.org/10.1080/09649069.2026.2614853",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:52:30+01:00",
+            "setSpecs": [],
+            "license": "http://creativecommons.org/licenses/by/4.0",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Maara, J." }, { "name": "Maydom, Barry" }],
+            "contributors": [],
+            "createdDate": "2025-12-04T17:14:10+00:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2025-11-28T16:36:21+00:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.1016/j.worlddev.2025.107262",
+            "downloadUrl": "https://core.ac.uk/download/684449208.pdf",
+            "fullText": "",
+            "id": 684449208,
+            "identifiers": {
+              "doi": "10.1016/j.worlddev.2025.107262",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:56562"
+            },
+            "title": "Do corruption experiences promote emigration? Observational and experimental evidence from Sub-Saharan Africa",
+            "language": null,
+            "publishedDate": null,
+            "publisher": "Elsevier",
+            "references": [],
+            "sourceFulltextUrls": [
+              "http://doi.org/10.1016/j.worlddev.2025.107262",
+              "https://eprints.bbk.ac.uk/id/eprint/56562/1/Maara%20and%20Maydom%20-%20Do%20Corruption%20Experiences%20Promote%20Emigration.pdf"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/684449208.pdf"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/684449208"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/684449208/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/684449208/large"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/684449208"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/684449208/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/684449208/large"
+              },
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/684449208"
+              }
+            ],
+            "abstract": "How does corruption influence emigration decisions? Previous research has focused on the relationship between individuals’ perceptions of corruption and their desire to emigrate internationally. In this paper, we argue that personal experiences of corruption influence the desire to emigrate even more strongly than perceptions in order to escape from extortion and demands for bribes. To explore the relationship between corruption experiences and emigration, we analyse survey data from Afrobarometer alongside an original survey experiment. We use Afrobarometer to model the relationship between different types of corruption experiences on both intentions and specific plans to emigrate. We conduct a vignette experiment in Kenya in which respondents rate the desirability of emigration for a hypothetical countryman with varying experiences of corruption. We find that personal experiences of corruption are a strong push factor for migration, and that this relationship does not vary with education levels. Our study extends the literature by focussing on how personal experiences of corruption shape migration",
+            "tags": ["SS"],
+            "fulltextStatus": "enabled",
+            "subjects": ["SS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:56562",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 684449208,
+              "depositedDate": "",
+              "publishedDate": "",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "http://doi.org/10.1016/j.worlddev.2025.107262",
+                "type": "fulltext"
+              },
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/56562/1/Maara%20and%20Maydom%20-%20Do%20Corruption%20Experiences%20Promote%20Emigration.pdf",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:19+01:00",
+            "setSpecs": [],
+            "license": "http://creativecommons.org/licenses/by/4.0",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Ghooch Kanloo, Amir" },
+              { "name": "Kachlicka, Magdalena" },
+              { "name": "Saito, Kazuya" },
+              { "name": "Tierney, Adam" }
+            ],
+            "contributors": [],
+            "createdDate": "2025-12-25T03:16:13+00:00",
+            "dataProvider": {
+              "id": 8,
+              "name": "Birkbeck Institutional Research Online",
+              "url": "https://api.core.ac.uk/v3/data-providers/8",
+              "logo": "https://api.core.ac.uk/data-providers/8/logo"
+            },
+            "depositedDate": "2025-12-18T16:41:48+00:00",
+            "documentType": [],
+            "versions": [],
+            "doi": "10.1016/j.bandl.2025.105689",
+            "downloadUrl": "https://core.ac.uk/download/688271346.pdf",
+            "fullText": "",
+            "id": 688271346,
+            "identifiers": {
+              "doi": "10.1016/j.bandl.2025.105689",
+              "oai": "oai:eprints.bbk.ac.uk.oai2:56666"
+            },
+            "title": "Individual differences in perception of prosody in Mandarin-accented speech are linked to pitch perception, melody memory, musical training, and neural encoding of sound",
+            "language": null,
+            "publishedDate": null,
+            "publisher": "Elsevier",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://eprints.bbk.ac.uk/id/eprint/56666/3/56666.pdf",
+              "http://doi.org/10.1016/j.bandl.2025.105689"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2026",
+            "links": [
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/688271346.pdf"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/688271346"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/688271346/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/688271346/large"
+              },
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/reader/688271346"
+              },
+              {
+                "type": "thumbnail_m",
+                "url": "https://core.ac.uk/image/688271346/medium"
+              },
+              {
+                "type": "thumbnail_l",
+                "url": "https://core.ac.uk/image/688271346/large"
+              },
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/688271346"
+              }
+            ],
+            "abstract": "There are large differences across individuals in the ability to perceive foreign-accented speech, and the sources of this variability are poorly understood. Here we tested the hypothesis that individual differences in auditory processing help drive variability in accented speech perception. We asked L1 English speakers to perceive prosodic features in Mandarin-accented English. Individuals who could precisely discriminate pitch and accurately remember melodic sequences, and who placed more emphasis on pitch information during prosodic categorization, were better able to perceive Mandarin-accented speech. Individuals with more musical training also demonstrated enhanced Mandarin-accented speech perception. Finally, we found that better Mandarin-accented speech perception was linked to more robust neural encoding of speech harmonics. These findings suggest that the precision of sound perception and robustness of memory for sound sequences are major factors driving variability in accented speech perception, and so auditory training could potentially help remediate poor perception of accented speech",
+            "tags": ["PS"],
+            "fulltextStatus": "enabled",
+            "subjects": ["PS"],
+            "oai": "oai:eprints.bbk.ac.uk.oai2:56666",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 688271346,
+              "depositedDate": "",
+              "publishedDate": "",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://eprints.bbk.ac.uk/id/eprint/56666/3/56666.pdf",
+                "type": "fulltext"
+              },
+              {
+                "url": "http://doi.org/10.1016/j.bandl.2025.105689",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T06:53:19+01:00",
+            "setSpecs": [],
+            "license": "http://creativecommons.org/licenses/by/4.0",
+            "orcids": [],
+            "sdg": []
+          }
+        ],
+        "tooks": [],
+        "searchId": null
+      }
+    }
+  },
+  "source": {
+    "kind": "recorded",
+    "from": null,
+    "patch": null,
+    "recordedAt": "2026-10-21T12:21:40.314Z",
+    "scrubbed": { "fullText": 3, "headersDropped": 4 },
+    "note": "T-715, T-735 (Q-044): the Next arrow of the provider pager (offset 10)"
+  }
+}
