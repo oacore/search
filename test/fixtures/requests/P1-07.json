@@ -1,0 +1,105 @@
+{
+  "package": "P1-07",
+  "note": "P1-07 (T-801 c1 P1 states V21-V39, T-803). No live request: every entry is derived from a recorded object (copy, change one field). Provider 86 page answers for an offset past the end (V35: the pager reads 'Showing 91-100 of 95', Q-044) and for an offset that is not a number (V35: 'Showing a lot of-a lot of of 95'); the search page of the facet box with language codes (V33: one code with no name in data/languages.json). Every other request of the package is answered by fixtures that exist (scenarios search-climate, search-zzzzqqq, members, e19-client-nav, works-1001, works-1003, works-1005, works-6948813, outputs-2001, provider-86, e16-claim-form, req-P0-13, req-P0-18).",
+  "requests": [
+    {
+      "id": "p1-07.e13.p86.offset90",
+      "kind": "derive",
+      "endpoint": "E13",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/data-providers/86/outputs?q=&offset=0&limit=10&sort=recency"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/data-providers/86/outputs?q=&offset=90&limit=10&sort=recency"
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/totalHits",
+          "value": 95
+        },
+        {
+          "op": "replace",
+          "path": "/offset",
+          "value": 90
+        },
+        {
+          "op": "select",
+          "path": "/results",
+          "indexes": [0, 1, 2, 3, 4]
+        }
+      ],
+      "note": "V35 (Q-044): the last page of a provider with 95 outputs: 5 results, totalHits 95. The pager does not clamp its upper bound: 'Showing 91-100 of 95'"
+    },
+    {
+      "id": "p1-07.e13.p86.offset-abc",
+      "kind": "derive",
+      "endpoint": "E13",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/data-providers/86/outputs?q=&offset=0&limit=10&sort=recency"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/data-providers/86/outputs?q=&offset=abc&limit=10&sort=recency"
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/totalHits",
+          "value": 95
+        }
+      ],
+      "note": "V35 (Q-044): the first page answer of a provider with 95 outputs for an offset that is not a number; the pager computes NaN and prints 'a lot of' (utils/format-number.js)"
+    },
+    {
+      "id": "p1-07.e1.v33lang",
+      "kind": "derive",
+      "endpoint": "E1",
+      "from": "d4ff6fa34cfd",
+      "serve": {
+        "body": {
+          "q": "v33lang",
+          "offset": 0,
+          "limit": 10,
+          "exclude": ["fullText"],
+          "sort": "relevance"
+        }
+      },
+      "note": "V33: the climate page 1 answer for the query v33lang (the page under the facet box with language codes)"
+    },
+    {
+      "id": "p1-07.e2.v33lang",
+      "kind": "derive",
+      "endpoint": "E2",
+      "browser": true,
+      "from": "1e5986956e67",
+      "serve": {
+        "body": {
+          "aggregations": [
+            "fieldsOfStudy",
+            "yearPublished",
+            "documentType",
+            "authors",
+            "language",
+            "publisher"
+          ],
+          "q": "v33lang"
+        }
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/aggregations/language",
+          "value": {
+            "en": 1204356,
+            "de": 31872,
+            "fr": 12044,
+            "und": 977
+          }
+        }
+      ],
+      "note": "V33: the base aggregation of the climate query with a language aggregation that has values (the recorded one is an empty list): three codes of data/languages.json and 'und', which has no name there, so the box shows the raw code"
+    }
+  ]
+}
