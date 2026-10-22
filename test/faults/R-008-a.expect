@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-008-a",
+  "risk": "R-008",
+  "mechanism": "postcss-custom-media gets no importFrom, so @media (--screen-until-desktop) stays unresolved and no rule for widths up to 767 px ever matches",
+  "checks": [],
+  "script": "R-008-mobile.mjs"
+}

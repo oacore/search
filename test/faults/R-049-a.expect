@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-049-a",
+  "risk": "R-049",
+  "mechanism": "the declarations of `.bar-item p` in modules/filters/styles.module.css are re-sequenced as a property-order autofix would (the margin-right longhand moves before the margin shorthand), so the shorthand overrides it",
+  "checks": [],
+  "script": "R-049-bar.mjs"
+}

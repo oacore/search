@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "fault": "R-007-a",
+  "risk": "R-007",
+  "mechanism": "a PNG import resolves to { src, height, width } (as the built-in static image import of Next.js 11 and later does) while the page still uses it as a URL string",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "expect": { "selector": "img[alt=\"core\"]", "attribute": "src", "value": "[object Object]" }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+diff --git a/next.config.js b/next.config.js
+index 114b0f4..2ce5717 100644
+--- a/next.config.js
++++ b/next.config.js
+@@ -99,6 +99,35 @@ const nextConfig = {
+       'react-dom': path.join(__dirname, 'node_modules', 'react-dom'),
+     })
+ 
++    // SVG imports resolve to { src, height, width } instead of a URL string
++    const imageRule = rules.find(
++      (r) =>
++        r.test &&
++        r.test.test('file.svg') &&
++        r.use &&
++        r.use[0] &&
++        String(r.use[0].loader).includes('url-loader')
++    )
++    if (imageRule) {
++      const [urlLoader] = imageRule.use
++      imageRule.test = /\.(jpe?g|png|gif|ico|webp|jp2|avif)$/
++      rules.push({
++        ...imageRule,
++        test: /\.svg$/,
++        use: [
++          {
++            ...urlLoader,
++            options: {
++              ...urlLoader.options,
++              limit: 0,
++              postTransformPublicPath: (p) =>
++                `({ src: ${p}, height: 1, width: 1 })`,
++            },
++          },
++        ],
++      })
++    }
++
+     return config
+   },
+ }

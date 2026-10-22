@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "fault": "R-001-b",
+  "risk": "R-001",
+  "mechanism": "the CSS-module camelCase patch in next.config.js exits early, before it touches the css-loader options (the rest of the webpack hook, the aliases, still runs), so every styles.camelCase read is undefined",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "expect": { "selector": "img[alt=\"core\"]", "attribute": "class", "value": null }
+    },
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "expect": { "selector": "[class*=\"styles_search-results__\"]", "count": 0 }
+    }
+  ]
+}

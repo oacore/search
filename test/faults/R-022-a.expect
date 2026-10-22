@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "fault": "R-022-a",
+  "risk": "R-022",
+  "mechanism": "the design.config.js that the design postinstall reads sets publicPath '/' (the value it falls back to without the file), so lib/config.js is generated with iconsPublicPath /icons.svg",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "expect": { "selector": "use[href$=\"#menu\"]", "attribute": "href", "value": "/icons.svg#menu" }
+    },
+    {
+      "kind": "status",
+      "url": "/icons.svg",
+      "via": "proxy",
+      "expect": { "status": 404 }
+    }
+  ]
+}

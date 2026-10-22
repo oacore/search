@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-023-b",
+  "risk": "R-023",
+  "mechanism": "the design lib/index.css import in pages/_app.jsx moves after main/global.css, so the equal-specificity design spacing rules override the popup margins that main/global.css restores",
+  "checks": [],
+  "script": "R-023-cascade.mjs"
+}

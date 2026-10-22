@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-009-a",
+  "risk": "R-009",
+  "mechanism": "the postcss-extend-rule plugin entry is removed from postcss.config.js, so the @extend statements of the design form styles reach the served stylesheet unresolved",
+  "checks": [],
+  "script": "R-009-ext.mjs"
+}

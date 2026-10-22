@@ -1,0 +1,28 @@
+diff --git a/next.config.js b/next.config.js
+index 114b0f4..6f77172 100644
+--- a/next.config.js
++++ b/next.config.js
+@@ -42,6 +42,7 @@ const nextConfig = {
+       }
+     }
+ 
++    camelCasePatch: {
+     // TODO: Remove once https://github.com/zeit/next.js/issues/10584 is solved and released
+     // Find the array of "style rules" in the webpack config.
+     // This is the array of webpack rules that:
+@@ -53,6 +54,7 @@ const nextConfig = {
+       ) || {}
+     ).oneOf
+     if (!styleRules) return config
++    break camelCasePatch
+     // Find all the webpack rules that handle CSS modules
+     // Look for rules that match '.module.css'
+     // but aren't being used to generate
+@@ -75,6 +77,7 @@ const nextConfig = {
+         cssLoaderConfig.options.modules.exportLocalsConvention = 'camelCase'
+       }
+     })
++    }
+ 
+     // TODO: Enable 3th party source maps once we use Sentry
+     // config.module.rules.push({

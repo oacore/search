@@ -1,0 +1,39 @@
+diff --git a/next.config.js b/next.config.js
+index 114b0f4..1e0524c 100644
+--- a/next.config.js
++++ b/next.config.js
+@@ -99,6 +99,34 @@ const nextConfig = {
+       'react-dom': path.join(__dirname, 'node_modules', 'react-dom'),
+     })
+ 
++    // PNG imports resolve to { src, height, width } instead of a URL string
++    const imageRule = rules.find(
++      (r) =>
++        r.test &&
++        r.test.test('file.png') &&
++        r.use &&
++        r.use[0] &&
++        String(r.use[0].loader).includes('url-loader')
++    )
++    if (imageRule) {
++      const [urlLoader] = imageRule.use
++      imageRule.test = /\.(jpe?g|svg|gif|ico|webp|jp2|avif)$/
++      rules.push({
++        ...imageRule,
++        test: /\.png$/,
++        use: [
++          {
++            ...urlLoader,
++            options: {
++              ...urlLoader.options,
++              postTransformPublicPath: (p) =>
++                `({ src: ${p}, height: 1, width: 1 })`,
++            },
++          },
++        ],
++      })
++    }
++
+     return config
+   },
+ }

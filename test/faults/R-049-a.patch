@@ -1,0 +1,14 @@
+diff --git a/modules/filters/styles.module.css b/modules/filters/styles.module.css
+index 831620e..c4dc863 100644
+--- a/modules/filters/styles.module.css
++++ b/modules/filters/styles.module.css
+@@ -46,8 +46,8 @@
+ }
+ 
+ .bar-item p {
+-  margin: 0;
+   margin-right: 1rem;
++  margin: 0;
+   text-transform: capitalize;
+ }
+ 

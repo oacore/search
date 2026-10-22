@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "fault": "R-021-a",
+  "risk": "R-021",
+  "mechanism": "the asset prefix is built from getAssetsPath('/') instead of getAssetsPath(''), a trailing slash that next-images copies into its image URLs (/static/search//_next/static/images/...), so imported images answer 404 behind the gateway while the scripts and styles still load",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "expect": { "selector": "img[alt=\"core\"][src^=\"/static/search//_next/static/images/\"]", "count": 1 }
+    }
+  ],
+  "script": "R-021-image.mjs"
+}

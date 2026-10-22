@@ -1,0 +1,14 @@
+diff --git a/Dockerfile b/Dockerfile
+index 904685a..70ea48c 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -25,8 +25,6 @@ ENV NODE_ENV=$NODE_ENV
+ ENV APP_ENV=$APP_ENV
+ ENV NODE_OPTIONS="--openssl-legacy-provider"
+ RUN npm run ${BUILD_SCRIPT} && \
+-    cp public/design/icons.svg public/icons.svg && \
+-    mkdir -p public/images && \
+-    cp -r public/static/images/* public/images/
++    cp public/design/icons.svg public/icons.svg
+ EXPOSE 8080
+ CMD ["node_modules/next/dist/bin/next", "start", "-p", "8080"]

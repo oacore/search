@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-009-b",
+  "risk": "R-009",
+  "mechanism": "postcss-extend-rule is configured with onUnusedExtend: 'ignore' (an option default that changes between majors), so the @extend statements of the design form styles that have no target are no longer removed and reach the served stylesheet unresolved",
+  "checks": [],
+  "script": "R-009-ext.mjs"
+}
