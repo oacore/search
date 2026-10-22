@@ -8,10 +8,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-605",
-        "T-739"
-      ],
+      "redDetectors": ["T-605", "T-739"],
       "redCount": 16,
       "red": [
         {
@@ -42,10 +39,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-605",
-        "T-739"
-      ],
+      "redDetectors": ["T-605", "T-739"],
       "redCount": 16,
       "red": [
         {
@@ -76,10 +70,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-604",
-        "T-702"
-      ],
+      "redDetectors": ["T-604", "T-702"],
       "red": [
         {
           "test": "T-604 c1 @P0 /search/_next/data/<id>/works/1001.json with and without CS-OPS-1: application/json + pageProps",
@@ -110,10 +101,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-604",
-        "T-702"
-      ],
+      "redDetectors": ["T-604", "T-702"],
       "red": [
         {
           "test": "T-604 c1 @P0 /search/_next/data/<id>/works/1001.json with and without CS-OPS-1: application/json + pageProps",
@@ -144,9 +132,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-602"
-      ],
+      "redDetectors": ["T-602"],
       "redCount": 3,
       "red": [
         {
@@ -177,9 +163,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-602"
-      ],
+      "redDetectors": ["T-602"],
       "redCount": 3,
       "red": [
         {
@@ -210,10 +194,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-209",
-        "T-609"
-      ],
+      "redDetectors": ["T-209", "T-609"],
       "redCount": 2,
       "red": [
         {
@@ -239,10 +220,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-601",
-        "T-602"
-      ],
+      "redDetectors": ["T-601", "T-602"],
       "red": [
         {
           "test": "T-601 c1 @P0 findings/02 §4.1 URLs ± slash, with queries: status, Location, marker",
@@ -273,11 +251,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-005",
-        "T-605",
-        "T-801"
-      ],
+      "redDetectors": ["T-005", "T-605", "T-801"],
       "redCount": 15,
       "red": [
         {
@@ -308,11 +282,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-005",
-        "T-605",
-        "T-801"
-      ],
+      "redDetectors": ["T-005", "T-605", "T-801"],
       "redCount": 17,
       "red": [
         {
@@ -343,11 +313,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-003",
-        "T-718",
-        "T-739"
-      ],
+      "redDetectors": ["T-003", "T-718", "T-739"],
       "redCount": 18,
       "red": [
         {
@@ -378,11 +344,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-003",
-        "T-718",
-        "T-739"
-      ],
+      "redDetectors": ["T-003", "T-718", "T-739"],
       "redCount": 17,
       "red": [
         {
@@ -413,9 +375,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-003"
-      ],
+      "redDetectors": ["T-003"],
       "redCount": 8,
       "red": [
         {
@@ -446,10 +406,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-003",
-        "T-801"
-      ],
+      "redDetectors": ["T-003", "T-801"],
       "redCount": 8,
       "red": [
         {
@@ -480,10 +437,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-203",
-        "T-704"
-      ],
+      "redDetectors": ["T-203", "T-704"],
       "redCount": 3,
       "red": [
         {
@@ -514,10 +468,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-203",
-        "T-704"
-      ],
+      "redDetectors": ["T-203", "T-704"],
       "redCount": 3,
       "red": [
         {
@@ -548,10 +499,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-705",
-        "T-801"
-      ],
+      "redDetectors": ["T-705", "T-801"],
       "redCount": 10,
       "red": [
         {
@@ -582,11 +530,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-406",
-        "T-701",
-        "T-715"
-      ],
+      "redDetectors": ["T-406", "T-701", "T-715"],
       "redCount": 12,
       "red": [
         {
@@ -617,10 +561,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-407",
-        "T-714"
-      ],
+      "redDetectors": ["T-407", "T-714"],
       "redCount": 7,
       "red": [
         {
@@ -651,10 +592,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-008",
-        "T-016"
-      ],
+      "redDetectors": ["T-008", "T-016"],
       "redCount": 0,
       "red": [],
       "plan": "recorded earlier (full run, 13.6% of P0 red), kept; genuine kills T-008 c4 and T-016 c1/c3; the T-013 reds of that run were a no-history runner artifact and are not credited",
@@ -669,10 +607,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-013",
-        "T-008"
-      ],
+      "redDetectors": ["T-013", "T-008"],
       "redCount": 3,
       "red": [
         {
@@ -703,10 +638,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-104",
-        "T-607"
-      ],
+      "redDetectors": ["T-104", "T-607"],
       "redCount": 7,
       "red": [
         {
@@ -737,10 +669,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-302",
-        "T-722"
-      ],
+      "redDetectors": ["T-302", "T-722"],
       "redCount": 9,
       "red": [
         {
@@ -771,11 +700,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-302",
-        "T-609",
-        "T-722"
-      ],
+      "redDetectors": ["T-302", "T-609", "T-722"],
       "redCount": 5,
       "red": [
         {
@@ -806,10 +731,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-704",
-        "T-706"
-      ],
+      "redDetectors": ["T-704", "T-706"],
       "redCount": 4,
       "red": [
         {
@@ -840,10 +762,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-202",
-        "T-704"
-      ],
+      "redDetectors": ["T-202", "T-704"],
       "redCount": 5,
       "red": [
         {
@@ -874,12 +793,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-010",
-        "T-601",
-        "T-612",
-        "T-731"
-      ],
+      "redDetectors": ["T-010", "T-601", "T-612", "T-731"],
       "red": [
         {
           "test": "T-010 @P0 routes manifest T-010 c1 @P0 (source, destination, headers) tuples = reference: prod data rewrite, /static rewrite, CSP = the T-116 string",
@@ -910,9 +824,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-601"
-      ],
+      "redDetectors": ["T-601"],
       "red": [
         {
           "test": "T-601 c1 @P0 findings/02 §4.1 URLs ± slash, with queries: status, Location, marker",
@@ -933,10 +845,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-005",
-        "T-605"
-      ],
+      "redDetectors": ["T-005", "T-605"],
       "redCount": 9,
       "red": [
         {
@@ -967,9 +876,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-005"
-      ],
+      "redDetectors": ["T-005"],
       "redCount": 1,
       "red": [
         {
@@ -990,12 +897,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-418",
-        "T-006",
-        "T-721",
-        "T-801"
-      ],
+      "redDetectors": ["T-418", "T-006", "T-721", "T-801"],
       "redCount": 17,
       "red": [
         {
@@ -1027,13 +929,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-418",
-        "T-006",
-        "T-005",
-        "T-721",
-        "T-801"
-      ],
+      "redDetectors": ["T-418", "T-006", "T-005", "T-721", "T-801"],
       "redCount": 23,
       "red": [
         {
@@ -1064,10 +960,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-003",
-        "T-805"
-      ],
+      "redDetectors": ["T-003", "T-805"],
       "redCount": 9,
       "red": [
         {
@@ -1098,10 +991,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-003",
-        "T-805"
-      ],
+      "redDetectors": ["T-003", "T-805"],
       "redCount": 9,
       "red": [
         {
@@ -1132,10 +1022,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-003",
-        "T-801"
-      ],
+      "redDetectors": ["T-003", "T-801"],
       "redCount": 9,
       "red": [
         {
@@ -1166,9 +1053,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-016"
-      ],
+      "redDetectors": ["T-016"],
       "redCount": 2,
       "red": [
         {
@@ -1194,10 +1079,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-116",
-        "T-603"
-      ],
+      "redDetectors": ["T-116", "T-603"],
       "redCount": 7,
       "red": [
         {
@@ -1228,11 +1110,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-116",
-        "T-603",
-        "T-720"
-      ],
+      "redDetectors": ["T-116", "T-603", "T-720"],
       "redCount": 7,
       "red": [
         {
@@ -1263,10 +1141,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-101",
-        "T-702"
-      ],
+      "redDetectors": ["T-101", "T-702"],
       "red": [
         {
           "test": "T-101 @P0 api/index.js request builder c1 url, method, headers, body T-101 c1 @P0 a string body is sent as is, with the fetch default text/plain;charset=UTF-8 (",
@@ -1292,10 +1167,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-102",
-        "T-610"
-      ],
+      "redDetectors": ["T-102", "T-610"],
       "red": [
         {
           "test": "T-102 @P0 api/index.js responses and errors c1 bodies and errors T-102 c1 @P0 application/vnd.api+json resolves a Blob, not parsed JSON (Q-017)",
@@ -1326,10 +1198,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-702",
-        "T-712"
-      ],
+      "redDetectors": ["T-702", "T-712"],
       "redCount": 3,
       "red": [
         {
@@ -1360,10 +1229,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-403",
-        "T-703"
-      ],
+      "redDetectors": ["T-403", "T-703"],
       "redCount": 3,
       "red": [
         {
@@ -1394,10 +1260,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-108",
-        "T-801"
-      ],
+      "redDetectors": ["T-108", "T-801"],
       "redCount": 7,
       "red": [
         {
@@ -1428,9 +1291,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-004"
-      ],
+      "redDetectors": ["T-004"],
       "redCount": 1,
       "red": [
         {
@@ -1452,9 +1313,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-004"
-      ],
+      "redDetectors": ["T-004"],
       "redCount": 1,
       "red": [
         {
@@ -1475,11 +1334,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-401",
-        "T-001",
-        "T-716"
-      ],
+      "redDetectors": ["T-401", "T-001", "T-716"],
       "redCount": 5,
       "red": [
         {
@@ -1510,11 +1365,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-412",
-        "T-702",
-        "T-734"
-      ],
+      "redDetectors": ["T-412", "T-702", "T-734"],
       "redCount": 30,
       "red": [
         {
@@ -1545,11 +1396,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-408",
-        "T-715",
-        "T-735"
-      ],
+      "redDetectors": ["T-408", "T-715", "T-735"],
       "redCount": 9,
       "red": [
         {
@@ -1580,10 +1427,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-004",
-        "T-608"
-      ],
+      "redDetectors": ["T-004", "T-608"],
       "redCount": 3,
       "red": [
         {
@@ -1614,11 +1458,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-416",
-        "T-740",
-        "T-741"
-      ],
+      "redDetectors": ["T-416", "T-740", "T-741"],
       "redCount": 10,
       "red": [
         {
@@ -1649,12 +1489,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-305",
-        "T-719",
-        "T-740",
-        "T-741"
-      ],
+      "redDetectors": ["T-305", "T-719", "T-740", "T-741"],
       "redCount": 38,
       "red": [
         {
@@ -1685,10 +1520,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-001",
-        "T-801"
-      ],
+      "redDetectors": ["T-001", "T-801"],
       "redCount": 11,
       "red": [
         {
@@ -1719,11 +1551,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-420",
-        "T-707",
-        "T-727"
-      ],
+      "redDetectors": ["T-420", "T-707", "T-727"],
       "redCount": 11,
       "red": [
         {
@@ -1754,9 +1582,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-707"
-      ],
+      "redDetectors": ["T-707"],
       "redCount": 1,
       "red": [
         {
@@ -1777,9 +1603,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-706"
-      ],
+      "redDetectors": ["T-706"],
       "redCount": 2,
       "red": [
         {
@@ -1805,9 +1629,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-410"
-      ],
+      "redDetectors": ["T-410"],
       "redCount": 3,
       "red": [
         {
@@ -1838,9 +1660,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-608"
-      ],
+      "redDetectors": ["T-608"],
       "redCount": 2,
       "red": [
         {
@@ -1866,9 +1686,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-608"
-      ],
+      "redDetectors": ["T-608"],
       "redCount": 1,
       "red": [
         {
@@ -1889,9 +1707,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-003"
-      ],
+      "redDetectors": ["T-003"],
       "redCount": 1,
       "red": [
         {
@@ -1913,9 +1729,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-003"
-      ],
+      "redDetectors": ["T-003"],
       "redCount": 1,
       "red": [
         {
@@ -1937,9 +1751,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-601"
-      ],
+      "redDetectors": ["T-601"],
       "red": [
         {
           "test": "T-601 c1 @P0 findings/02 §4.1 URLs ± slash, with queries: status, Location, marker",
@@ -1960,11 +1772,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-010",
-        "T-604",
-        "T-702"
-      ],
+      "redDetectors": ["T-010", "T-604", "T-702"],
       "red": [
         {
           "test": "T-010 @P0 routes manifest T-010 c1 @P0 (source, destination, headers) tuples = reference: prod data rewrite, /static rewrite, CSP = the T-116 string",
@@ -1995,12 +1803,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-010",
-        "T-604",
-        "T-612",
-        "T-702"
-      ],
+      "redDetectors": ["T-010", "T-604", "T-612", "T-702"],
       "red": [
         {
           "test": "T-010 @P0 routes manifest T-010 c1 @P0 (source, destination, headers) tuples = reference: prod data rewrite, /static rewrite, CSP = the T-116 string",
@@ -2031,9 +1834,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-602"
-      ],
+      "redDetectors": ["T-602"],
       "redCount": 3,
       "red": [
         {
@@ -2079,10 +1880,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-016",
-        "T-014"
-      ],
+      "redDetectors": ["T-016", "T-014"],
       "redCount": 6,
       "red": [
         {
@@ -2114,9 +1912,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-607"
-      ],
+      "redDetectors": ["T-607"],
       "red": [
         {
           "test": "T-607 c2 @P0 @wire Host, Authorization, Accept, Content-Type, UA, Accept-Encoding, sentry-trace/baggage of every SSR call = baseline (Q-022)",
@@ -2137,9 +1933,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-721"
-      ],
+      "redDetectors": ["T-721"],
       "redCount": 1,
       "red": [
         {
@@ -2161,10 +1955,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-010",
-        "T-603"
-      ],
+      "redDetectors": ["T-010", "T-603"],
       "red": [
         {
           "test": "T-010 @P0 routes manifest T-010 c1 @P0 (source, destination, headers) tuples = reference: prod data rewrite, /static rewrite, CSP = the T-116 string",
@@ -2195,9 +1986,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-603"
-      ],
+      "redDetectors": ["T-603"],
       "red": [
         {
           "test": "T-603 c1 @P0 status and every header per route class, origin and proxy, GET, HEAD, conditional GET, br/gzip = contract.baseline.json",
@@ -2218,9 +2007,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-013"
-      ],
+      "redDetectors": ["T-013"],
       "redCount": 3,
       "red": [
         {
@@ -2251,9 +2038,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-013"
-      ],
+      "redDetectors": ["T-013"],
       "redCount": 3,
       "red": [
         {
@@ -2284,11 +2069,7 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": [
-        "T-005",
-        "T-006",
-        "T-801"
-      ],
+      "redDetectors": ["T-005", "T-006", "T-801"],
       "redCount": 7,
       "red": [
         {
