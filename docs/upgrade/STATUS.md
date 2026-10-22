@@ -14,7 +14,7 @@
 |Base images|`node:18-alpine` index digest: not set (2.1); `node:24-alpine` (W4e), `node:26-alpine` (6.10): not set (command 42 §2)|
 |Activity|32 commits on `origin/main` after 2026-07-01, 6 authors (R-089)|
 |Docs branch|`docs/upgrade-plan`, local only. Landing 1(a)–(e) done 2026-10-20 (README §8 action 1): doc set placed in `docs/upgrade/`, `60-design-copy-plan.md` removed, `tools/check-docs.mjs` added, `findings/` scrubbed, `findings/review-2026-10-19/parts/` deleted, checker ERROR 0, and the plan committed on the branch as one commit replacing the two draft commits. Next: 1(f), by the owner (rebase onto `origin/main`, push, open the PR). Tag `upgrade-baseline`: not created; set on origin at `cc0e228` after the docs PR (01 §2)|
-|Golden|G (tag `upgrade-golden`), first golden build digest, baseline/fixture/corpus SHA-256 sets (committed, 42 §7), the C4 draw seeds (55 C4) and the `t805-exclusions.json` sha256 (40 §1): not set (2.4, 2.4, 2.5/2.2/2.5, 2.5); approved baseline chain B0..Bn: empty; formats [42](42-baselines-and-ci.md) §4, §7, §9|
+|Golden|G (tag `upgrade-golden`), first golden build digest, baseline/fixture/corpus SHA-256 sets (committed, 42 §7), and the C4 draw seeds (55 C4): not set (2.4, 2.4, 2.5/2.2, 2.5); the `t805-exclusions.json` sha256 (40 §1): ab40bbc6b81165505f904b8aec2870885cef3ea33d6584f1e0f819a782a224a9 (2.7, captured on the host baseline, macOS arm64); approved baseline chain B0..Bn: empty; formats [42](42-baselines-and-ci.md) §4, §7, §9|
 |Signals|Signals exports `test/signals/<tag>.json` and their SHA-256 (55 C6-NI, 42 §7): `2.0`, `W0`, `S`, `A`, `F`: not set (2.0 exit, W0 merge, end of each gate window)|
 
 ## 2. Owner confirmations

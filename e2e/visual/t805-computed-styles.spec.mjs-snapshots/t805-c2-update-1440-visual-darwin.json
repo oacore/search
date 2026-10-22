@@ -1,0 +1,2781 @@
+{
+  "shell": "update",
+  "url": "/outputs/update/",
+  "viewport": { "width": 1440, "height": 900 },
+  "interactive": [
+    "body[1]/div[1]/div[1]/header[1]/div[1]/a[1]",
+    "body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/button[1]",
+    "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/button[1]",
+    "body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/button[1]",
+    "body[1]/div[1]/div[1]/main[1]/section[2]/form[1]/div[1]/input[1]",
+    "body[1]/div[1]/div[1]/main[1]/section[2]/form[1]/div[1]/label[1]",
+    "body[1]/div[1]/div[1]/main[1]/section[2]/form[1]/button[1]",
+    "body[1]/div[1]/div[1]/main[1]/section[3]/p[1]/a[1]",
+    "body[1]/div[1]/div[1]/main[1]/section[3]/ul[1]/li[1]/a[1]",
+    "body[1]/div[1]/div[1]/main[1]/section[3]/ul[1]/li[2]/a[1]",
+    "body[1]/div[1]/div[1]/main[1]/section[4]/p[1]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/div[1]/div[1]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/div[1]/p[1]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[1]/ul[1]/li[1]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[1]/ul[1]/li[2]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[1]/ul[1]/li[3]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[1]/ul[1]/li[4]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[2]/ul[1]/li[1]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[2]/ul[1]/li[2]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[2]/ul[1]/li[3]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[2]/ul[1]/li[4]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[3]/ul[1]/li[1]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[3]/ul[1]/li[2]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[3]/ul[1]/li[3]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[3]/ul[1]/li[4]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[1]/div[1]/p[1]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[1]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[1]/a[2]",
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[1]/a[3]",
+    "body[1]/div[1]/div[1]/footer[1]/div[2]/a[1]",
+    "body[1]/div[1]/div[1]/footer[1]/div[2]/a[2]",
+    "body[1]/div[1]/div[1]/footer[1]/div[2]/a[3]"
+  ],
+  "forced": {
+    "body[1]/div[1]/div[1]/header[1]/div[1]/a[1]": {
+      "hover": { ".": { "background-color": "rgba(0, 0, 0, 0.04)" } },
+      "focus": { ".": { "background-color": "rgba(0, 0, 0, 0.04)" } },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgba(0, 0, 0, 0.87)",
+          "-webkit-text-stroke-color": "rgba(0, 0, 0, 0.87)",
+          "border-block-end-color": "rgba(0, 0, 0, 0.87)",
+          "border-block-start-color": "rgba(0, 0, 0, 0.87)",
+          "border-bottom-color": "rgba(0, 0, 0, 0.87)",
+          "border-inline-end-color": "rgba(0, 0, 0, 0.87)",
+          "border-inline-start-color": "rgba(0, 0, 0, 0.87)",
+          "border-left-color": "rgba(0, 0, 0, 0.87)",
+          "border-right-color": "rgba(0, 0, 0, 0.87)",
+          "border-top-color": "rgba(0, 0, 0, 0.87)",
+          "caret-color": "rgba(0, 0, 0, 0.87)",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "column-rule-color": "rgba(0, 0, 0, 0.87)",
+          "outline-color": "rgba(0, 0, 0, 0.87)",
+          "row-rule-color": "rgba(0, 0, 0, 0.87)",
+          "text-decoration-color": "rgba(0, 0, 0, 0.87)",
+          "text-emphasis-color": "rgba(0, 0, 0, 0.87)"
+        },
+        "./span[1]": {
+          "-webkit-text-fill-color": "rgba(0, 0, 0, 0.87)",
+          "-webkit-text-stroke-color": "rgba(0, 0, 0, 0.87)",
+          "border-block-end-color": "rgba(0, 0, 0, 0.87)",
+          "border-block-start-color": "rgba(0, 0, 0, 0.87)",
+          "border-bottom-color": "rgba(0, 0, 0, 0.87)",
+          "border-inline-end-color": "rgba(0, 0, 0, 0.87)",
+          "border-inline-start-color": "rgba(0, 0, 0, 0.87)",
+          "border-left-color": "rgba(0, 0, 0, 0.87)",
+          "border-right-color": "rgba(0, 0, 0, 0.87)",
+          "border-top-color": "rgba(0, 0, 0, 0.87)",
+          "caret-color": "rgba(0, 0, 0, 0.87)",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "column-rule-color": "rgba(0, 0, 0, 0.87)",
+          "outline-color": "rgba(0, 0, 0, 0.87)",
+          "row-rule-color": "rgba(0, 0, 0, 0.87)",
+          "text-decoration-color": "rgba(0, 0, 0, 0.87)",
+          "text-emphasis-color": "rgba(0, 0, 0, 0.87)"
+        },
+        "./span[1]/svg[1]": {
+          "-webkit-text-fill-color": "rgba(0, 0, 0, 0.87)",
+          "-webkit-text-stroke-color": "rgba(0, 0, 0, 0.87)",
+          "border-block-end-color": "rgba(0, 0, 0, 0.87)",
+          "border-block-start-color": "rgba(0, 0, 0, 0.87)",
+          "border-bottom-color": "rgba(0, 0, 0, 0.87)",
+          "border-inline-end-color": "rgba(0, 0, 0, 0.87)",
+          "border-inline-start-color": "rgba(0, 0, 0, 0.87)",
+          "border-left-color": "rgba(0, 0, 0, 0.87)",
+          "border-right-color": "rgba(0, 0, 0, 0.87)",
+          "border-top-color": "rgba(0, 0, 0, 0.87)",
+          "caret-color": "rgba(0, 0, 0, 0.87)",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "column-rule-color": "rgba(0, 0, 0, 0.87)",
+          "fill": "rgba(0, 0, 0, 0.87)",
+          "outline-color": "rgba(0, 0, 0, 0.87)",
+          "row-rule-color": "rgba(0, 0, 0, 0.87)",
+          "text-decoration-color": "rgba(0, 0, 0, 0.87)",
+          "text-emphasis-color": "rgba(0, 0, 0, 0.87)"
+        },
+        "./span[1]/svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgba(0, 0, 0, 0.87)",
+          "-webkit-text-stroke-color": "rgba(0, 0, 0, 0.87)",
+          "border-block-end-color": "rgba(0, 0, 0, 0.87)",
+          "border-block-start-color": "rgba(0, 0, 0, 0.87)",
+          "border-bottom-color": "rgba(0, 0, 0, 0.87)",
+          "border-inline-end-color": "rgba(0, 0, 0, 0.87)",
+          "border-inline-start-color": "rgba(0, 0, 0, 0.87)",
+          "border-left-color": "rgba(0, 0, 0, 0.87)",
+          "border-right-color": "rgba(0, 0, 0, 0.87)",
+          "border-top-color": "rgba(0, 0, 0, 0.87)",
+          "caret-color": "rgba(0, 0, 0, 0.87)",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "column-rule-color": "rgba(0, 0, 0, 0.87)",
+          "fill": "rgba(0, 0, 0, 0.87)",
+          "outline-color": "rgba(0, 0, 0, 0.87)",
+          "row-rule-color": "rgba(0, 0, 0, 0.87)",
+          "text-decoration-color": "rgba(0, 0, 0, 0.87)",
+          "text-emphasis-color": "rgba(0, 0, 0, 0.87)"
+        },
+        "./div[1]": {
+          "-webkit-text-fill-color": "rgba(0, 0, 0, 0.87)",
+          "-webkit-text-stroke-color": "rgba(0, 0, 0, 0.87)",
+          "border-block-end-color": "rgba(0, 0, 0, 0.87)",
+          "border-block-start-color": "rgba(0, 0, 0, 0.87)",
+          "border-bottom-color": "rgba(0, 0, 0, 0.87)",
+          "border-inline-end-color": "rgba(0, 0, 0, 0.87)",
+          "border-inline-start-color": "rgba(0, 0, 0, 0.87)",
+          "border-left-color": "rgba(0, 0, 0, 0.87)",
+          "border-right-color": "rgba(0, 0, 0, 0.87)",
+          "border-top-color": "rgba(0, 0, 0, 0.87)",
+          "caret-color": "rgba(0, 0, 0, 0.87)",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "column-rule-color": "rgba(0, 0, 0, 0.87)",
+          "outline-color": "rgba(0, 0, 0, 0.87)",
+          "row-rule-color": "rgba(0, 0, 0, 0.87)",
+          "text-decoration-color": "rgba(0, 0, 0, 0.87)",
+          "text-emphasis-color": "rgba(0, 0, 0, 0.87)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/button[1]": {
+      "hover": {
+        ".": {
+          "--button-overlay": "rgba(0,0,0,0.06666666666666667)",
+          "background-image": "linear-gradient(rgba(0, 0, 0, 0.067), rgba(0, 0, 0, 0.067))"
+        }
+      },
+      "focus": {
+        ".": {
+          "--button-overlay": "rgba(0,0,0,0.06666666666666667)",
+          "background-image": "linear-gradient(rgba(0, 0, 0, 0.067), rgba(0, 0, 0, 0.067))",
+          "outline-width": "0px"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "box-shadow": "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0.067) 0px 0px 4px 0px inset"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/button[1]": {
+      "hover": {
+        ".": {
+          "--button-overlay": "rgba(0,0,0,0.06666666666666667)",
+          "background-image": "linear-gradient(rgba(0, 0, 0, 0.067), rgba(0, 0, 0, 0.067))"
+        }
+      },
+      "focus": {
+        ".": {
+          "--button-overlay": "rgba(0,0,0,0.06666666666666667)",
+          "background-image": "linear-gradient(rgba(0, 0, 0, 0.067), rgba(0, 0, 0, 0.067))",
+          "outline-width": "0px"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "box-shadow": "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0.067) 0px 0px 4px 0px inset"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/button[1]": {
+      "hover": {
+        ".": {
+          "--button-overlay": "rgba(0,0,0,0.06666666666666667)",
+          "background-image": "linear-gradient(rgba(0, 0, 0, 0.067), rgba(0, 0, 0, 0.067))"
+        }
+      },
+      "focus": {
+        ".": {
+          "--button-overlay": "rgba(0,0,0,0.06666666666666667)",
+          "background-image": "linear-gradient(rgba(0, 0, 0, 0.067), rgba(0, 0, 0, 0.067))",
+          "outline-width": "0px"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "box-shadow": "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0.067) 0px 0px 4px 0px inset"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/main[1]/section[2]/form[1]/div[1]/input[1]": {
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/main[1]/section[2]/form[1]/div[1]/label[1]": {
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/main[1]/section[2]/form[1]/button[1]": {
+      "hover": {
+        ".": {
+          "--button-overlay": "rgba(0,0,0,0.06666666666666667)",
+          "background-image": "linear-gradient(rgba(0, 0, 0, 0.067), rgba(0, 0, 0, 0.067))"
+        }
+      },
+      "focus": {
+        ".": {
+          "--button-overlay": "rgba(0,0,0,0.06666666666666667)",
+          "background-image": "linear-gradient(rgba(0, 0, 0, 0.067), rgba(0, 0, 0, 0.067))",
+          "box-shadow": "none",
+          "outline-width": "0px"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "box-shadow": "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0.067) 0px 0px 4px 0px inset"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/main[1]/section[3]/p[1]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/main[1]/section[3]/ul[1]/li[1]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/main[1]/section[3]/ul[1]/li[2]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/main[1]/section[4]/p[1]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/div[1]/div[1]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        },
+        "./svg[1]": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "fill": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        },
+        "./svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "fill": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/div[1]/p[1]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./span[1]": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./span[1]": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        },
+        "./span[1]": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[1]/ul[1]/li[1]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[1]/ul[1]/li[2]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[1]/ul[1]/li[3]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[1]/ul[1]/li[4]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[2]/ul[1]/li[1]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[2]/ul[1]/li[2]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[2]/ul[1]/li[3]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[2]/ul[1]/li[4]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[3]/ul[1]/li[1]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[3]/ul[1]/li[2]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[3]/ul[1]/li[3]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/menu[1]/div[3]/ul[1]/li[4]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[1]/div[1]/p[1]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[1]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        },
+        "./svg[1]": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "fill": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        },
+        "./svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "fill": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[1]/a[2]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        },
+        "./svg[1]": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "fill": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        },
+        "./svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "fill": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[1]/div[2]/div[2]/div[1]/a[3]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        },
+        "./svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "fill": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        },
+        "./svg[1]": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "fill": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        },
+        "./svg[1]/use[1]": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "fill": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[2]/a[1]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[2]/a[2]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    },
+    "body[1]/div[1]/div[1]/footer[1]/div[2]/a[3]": {
+      "hover": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus": {
+        ".": {
+          "-webkit-text-decorations-in-effect": "underline",
+          "-webkit-text-fill-color": "rgb(129, 39, 0)",
+          "-webkit-text-stroke-color": "rgb(129, 39, 0)",
+          "border-block-end-color": "rgb(129, 39, 0)",
+          "border-block-start-color": "rgb(129, 39, 0)",
+          "border-bottom-color": "rgb(129, 39, 0)",
+          "border-inline-end-color": "rgb(129, 39, 0)",
+          "border-inline-start-color": "rgb(129, 39, 0)",
+          "border-left-color": "rgb(129, 39, 0)",
+          "border-right-color": "rgb(129, 39, 0)",
+          "border-top-color": "rgb(129, 39, 0)",
+          "caret-color": "rgb(129, 39, 0)",
+          "color": "rgb(129, 39, 0)",
+          "column-rule-color": "rgb(129, 39, 0)",
+          "outline-color": "rgb(129, 39, 0)",
+          "row-rule-color": "rgb(129, 39, 0)",
+          "text-decoration": "underline",
+          "text-decoration-color": "rgb(129, 39, 0)",
+          "text-decoration-line": "underline",
+          "text-emphasis-color": "rgb(129, 39, 0)"
+        }
+      },
+      "focus-visible": {
+        ".": {
+          "outline-color": "rgb(0, 95, 204)",
+          "outline-offset": "1px",
+          "outline-style": "auto",
+          "outline-width": "1px"
+        }
+      },
+      "active": {
+        ".": {
+          "-webkit-text-fill-color": "rgb(0, 0, 0)",
+          "-webkit-text-stroke-color": "rgb(0, 0, 0)",
+          "border-block-end-color": "rgb(0, 0, 0)",
+          "border-block-start-color": "rgb(0, 0, 0)",
+          "border-bottom-color": "rgb(0, 0, 0)",
+          "border-inline-end-color": "rgb(0, 0, 0)",
+          "border-inline-start-color": "rgb(0, 0, 0)",
+          "border-left-color": "rgb(0, 0, 0)",
+          "border-right-color": "rgb(0, 0, 0)",
+          "border-top-color": "rgb(0, 0, 0)",
+          "caret-color": "rgb(0, 0, 0)",
+          "color": "rgb(0, 0, 0)",
+          "column-rule-color": "rgb(0, 0, 0)",
+          "outline-color": "rgb(0, 0, 0)",
+          "row-rule-color": "rgb(0, 0, 0)",
+          "text-decoration-color": "rgb(0, 0, 0)",
+          "text-emphasis-color": "rgb(0, 0, 0)"
+        }
+      }
+    }
+  }
+}

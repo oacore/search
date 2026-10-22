@@ -1,0 +1,784 @@
+{
+  "scenario": "loader-bar",
+  "url": "/search/?q=machine+learning&page=1",
+  "viewport": { "width": 1440, "height": 900 },
+  "reducedMotion": "no-preference",
+  "phases": [
+    {
+      "phase": "load",
+      "events": [],
+      "running": [],
+      "base": {
+        "animation-composition": "replace",
+        "animation-delay": "0s",
+        "animation-direction": "normal",
+        "animation-duration": "0s",
+        "animation-fill-mode": "none",
+        "animation-iteration-count": "1",
+        "animation-name": "none",
+        "animation-play-state": "running",
+        "animation-range-end": "normal",
+        "animation-range-start": "normal",
+        "animation-timeline": "auto",
+        "animation-timing-function": "ease",
+        "animation-trigger": "none",
+        "transition-behavior": "normal",
+        "transition-delay": "0s",
+        "transition-duration": "0s",
+        "transition-property": "all",
+        "transition-timing-function": "ease"
+      },
+      "styles": {
+        "body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1]": {
+          "transition-property": "none"
+        },
+        "body[1]/div[1]/div[1]/header[1]/div[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]": {
+          "transition-duration": "0.15s"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[2]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[3]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[6]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[10]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[11]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        }
+      }
+    },
+    {
+      "phase": "typed",
+      "events": [],
+      "running": [],
+      "base": {
+        "animation-composition": "replace",
+        "animation-delay": "0s",
+        "animation-direction": "normal",
+        "animation-duration": "0s",
+        "animation-fill-mode": "none",
+        "animation-iteration-count": "1",
+        "animation-name": "none",
+        "animation-play-state": "running",
+        "animation-range-end": "normal",
+        "animation-range-start": "normal",
+        "animation-timeline": "auto",
+        "animation-timing-function": "ease",
+        "animation-trigger": "none",
+        "transition-behavior": "normal",
+        "transition-delay": "0s",
+        "transition-duration": "0s",
+        "transition-property": "all",
+        "transition-timing-function": "ease"
+      },
+      "styles": {
+        "body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[4]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1]": {
+          "transition-property": "none"
+        },
+        "body[1]/div[1]/div[1]/header[1]/div[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]": {
+          "transition-duration": "0.15s"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[2]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[3]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[6]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[10]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[11]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        }
+      }
+    },
+    {
+      "phase": "loading",
+      "events": [
+        "animationstart body[1]/div[1]/div[1]/div[1] loading-bar-stretching-IcVvS ::before"
+      ],
+      "running": [
+        "CSSAnimation body[1]/div[1]/div[1]/div[1]::before loading-bar-stretching-IcVvS duration=3000 delay=0 iterations=Infinity easing=linear fill=none direction=normal running"
+      ],
+      "base": {
+        "animation-composition": "replace",
+        "animation-delay": "0s",
+        "animation-direction": "normal",
+        "animation-duration": "0s",
+        "animation-fill-mode": "none",
+        "animation-iteration-count": "1",
+        "animation-name": "none",
+        "animation-play-state": "running",
+        "animation-range-end": "normal",
+        "animation-range-start": "normal",
+        "animation-timeline": "auto",
+        "animation-timing-function": "ease",
+        "animation-trigger": "none",
+        "transition-behavior": "normal",
+        "transition-delay": "0s",
+        "transition-duration": "0s",
+        "transition-property": "all",
+        "transition-timing-function": "ease"
+      },
+      "styles": {
+        "body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1]": {
+          "transition-property": "none"
+        },
+        "body[1]/div[1]/div[1]/header[1]/div[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]": {
+          "transition-duration": "0.15s"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[2]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[3]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[6]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[10]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[11]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        }
+      }
+    },
+    {
+      "phase": "loaded",
+      "events": [],
+      "running": [],
+      "base": {
+        "animation-composition": "replace",
+        "animation-delay": "0s",
+        "animation-direction": "normal",
+        "animation-duration": "0s",
+        "animation-fill-mode": "none",
+        "animation-iteration-count": "1",
+        "animation-name": "none",
+        "animation-play-state": "running",
+        "animation-range-end": "normal",
+        "animation-range-start": "normal",
+        "animation-timeline": "auto",
+        "animation-timing-function": "ease",
+        "animation-trigger": "none",
+        "transition-behavior": "normal",
+        "transition-delay": "0s",
+        "transition-duration": "0s",
+        "transition-property": "all",
+        "transition-timing-function": "ease"
+      },
+      "styles": {
+        "body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1]": {
+          "transition-property": "none"
+        },
+        "body[1]/div[1]/div[1]/header[1]/div[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]": {
+          "transition-duration": "0.15s"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[1]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[2]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[2]/ul[1]/li[1]/ul[1]/a[3]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/header[1]/nav[1]/div[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/figure[1]/a[1]": {
+          "transition-behavior": "normal, normal",
+          "transition-delay": "0s, 0s",
+          "transition-duration": "0.15s, 0.15s",
+          "transition-property": "box-shadow, -webkit-box-shadow",
+          "transition-timing-function": "ease, ease"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[6]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[10]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        },
+        "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[11]/button[1]": {
+          "transition-duration": "0.15s",
+          "transition-property": "color, background, border-color, box-shadow, -webkit-box-shadow"
+        }
+      }
+    }
+  ]
+}

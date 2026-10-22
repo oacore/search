@@ -1,0 +1,88 @@
+{
+  "pages": {
+    "search": {
+      "rules": {
+        "CSSLayerBlockRule": 0,
+        "CSSLayerStatementRule": 0,
+        "CSSScopeRule": 0,
+        "CSSContainerRule": 0
+      },
+      "layerNames": [],
+      "adoptedStyleSheets": 0,
+      "styleElements": 0,
+      "cssinjsStyleElements": 0,
+      "antClassElements": 0,
+      "antCustomProperties": 0
+    },
+    "works": {
+      "rules": {
+        "CSSLayerBlockRule": 0,
+        "CSSLayerStatementRule": 0,
+        "CSSScopeRule": 0,
+        "CSSContainerRule": 0
+      },
+      "layerNames": [],
+      "adoptedStyleSheets": 0,
+      "styleElements": 0,
+      "cssinjsStyleElements": 0,
+      "antClassElements": 0,
+      "antCustomProperties": 0
+    },
+    "outputs": {
+      "rules": {
+        "CSSLayerBlockRule": 0,
+        "CSSLayerStatementRule": 0,
+        "CSSScopeRule": 0,
+        "CSSContainerRule": 0
+      },
+      "layerNames": [],
+      "adoptedStyleSheets": 0,
+      "styleElements": 0,
+      "cssinjsStyleElements": 0,
+      "antClassElements": 0,
+      "antCustomProperties": 0
+    },
+    "update": {
+      "rules": {
+        "CSSLayerBlockRule": 0,
+        "CSSLayerStatementRule": 0,
+        "CSSScopeRule": 0,
+        "CSSContainerRule": 0
+      },
+      "layerNames": [],
+      "adoptedStyleSheets": 0,
+      "styleElements": 0,
+      "cssinjsStyleElements": 0,
+      "antClassElements": 0,
+      "antCustomProperties": 0
+    },
+    "providers": {
+      "rules": {
+        "CSSLayerBlockRule": 0,
+        "CSSLayerStatementRule": 0,
+        "CSSScopeRule": 0,
+        "CSSContainerRule": 0
+      },
+      "layerNames": [],
+      "adoptedStyleSheets": 0,
+      "styleElements": 0,
+      "cssinjsStyleElements": 0,
+      "antClassElements": 0,
+      "antCustomProperties": 0
+    },
+    "provider": {
+      "rules": {
+        "CSSLayerBlockRule": 0,
+        "CSSLayerStatementRule": 0,
+        "CSSScopeRule": 0,
+        "CSSContainerRule": 0
+      },
+      "layerNames": [],
+      "adoptedStyleSheets": 0,
+      "styleElements": 0,
+      "cssinjsStyleElements": 0,
+      "antClassElements": 0,
+      "antCustomProperties": 0
+    }
+  }
+}

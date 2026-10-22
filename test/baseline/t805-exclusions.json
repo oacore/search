@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "description": "T-805 property exclusions (40 §1): properties shown nondeterministic across the 3 captures of the T-805 c1 census on the golden build (42 §6), per engine. null = not captured for that engine. A change is an acceptance change (40 §8 rule 8); the sha256 of this file is recorded with B0 in STATUS §1 and checked by T-012.",
+  "captures": {
+    "chromium": {
+      "files": 24,
+      "note": "3 record captures of T-805 c1 on the golden build (p2-local/golden 689fec9, build 1fb7e5b548c5ae8c), host Chromium 156.0.8078.4, Playwright 1.64.1, macOS arm64 (host baseline), 2026-10-21; the stack restarted between captures; all 24 census files byte-identical: no nondeterministic property"
+    }
+  },
+  "engines": { "chromium": [], "webkit": null, "firefox": null }
+}
