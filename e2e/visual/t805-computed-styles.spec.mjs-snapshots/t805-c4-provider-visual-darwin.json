@@ -1,0 +1,559 @@
+{
+  "shell": "provider",
+  "url": "/data-providers/86/",
+  "sheets": [
+    {
+      "index": 0,
+      "kind": "document",
+      "owner": "link",
+      "href": "<stack>/static/search/_next/static/css/<hash>.css",
+      "disabled": false,
+      "media": "",
+      "topLevelRules": 1053,
+      "types": {
+        "CSSStyleRule": 1045,
+        "CSSMediaRule": 43,
+        "CSSKeyframesRule": 10,
+        "CSSKeyframeRule": 22,
+        "CSSFontFaceRule": 21,
+        "CSSSupportsRule": 1
+      },
+      "mediaRules": [
+        {
+          "at": "131",
+          "within": "",
+          "condition": "print",
+          "rules": 1,
+          "children": [".leaflet-control"]
+        },
+        {
+          "at": "205",
+          "within": "",
+          "condition": "(prefers-reduced-motion: reduce)",
+          "rules": 1,
+          "children": ["*, ::after, ::before"]
+        },
+        {
+          "at": "258",
+          "within": "",
+          "condition": "(max-width: 80rem)",
+          "rules": 1,
+          "children": [":root"]
+        },
+        {
+          "at": "490",
+          "within": "",
+          "condition": "(max-width: 767px)",
+          "rules": 2,
+          "children": [
+            ".fieldset-box-item-2sAPu",
+            ".fieldset-box-item-2sAPu:not(:last-child)"
+          ]
+        },
+        {
+          "at": "507",
+          "within": "",
+          "condition": "(max-width: 85rem)",
+          "rules": 1,
+          "children": [":root"]
+        },
+        {
+          "at": "530",
+          "within": "",
+          "condition": "(max-width: 48rem)",
+          "rules": 4,
+          "children": [
+            ".footer-section-logos-1_Ejr",
+            ".footer-logos-28CCb",
+            ".footer-section-card-3esBH",
+            ".footer-menu-2JIRS"
+          ]
+        },
+        {
+          "at": "531",
+          "within": "",
+          "condition": "(max-width: 33rem)",
+          "rules": 5,
+          "children": [
+            ".footer-menu-2JIRS, .footer-section-card-3esBH, .footer-section-logos-1_Ejr",
+            ".footer-section-card-3esBH",
+            ".footer-section-logos-1_Ejr",
+            ".footer-menu-2JIRS",
+            ".footer-bottom-link-PaLMR"
+          ]
+        },
+        {
+          "at": "532",
+          "within": "",
+          "condition": "(max-width: 22.5rem)",
+          "rules": 2,
+          "children": [".footer-bottom-3E5D_", ".footer-logo-link-j8Agm"]
+        },
+        {
+          "at": "538",
+          "within": "",
+          "condition": "(max-width: 950px)",
+          "rules": 1,
+          "children": [".cookies-popup-actions-qIUXY"]
+        },
+        {
+          "at": "850",
+          "within": "",
+          "condition": "(max-width: 767px)",
+          "rules": 2,
+          "children": [
+            ".select-append-text-3PQA-",
+            ".select-info-append-button-1QUbQ.select-show-3H16k"
+          ]
+        },
+        {
+          "at": "868",
+          "within": "",
+          "condition": "(min-width: 768px)",
+          "rules": 1,
+          "children": [".styles-nav-1DaTS"]
+        },
+        {
+          "at": "870",
+          "within": "",
+          "condition": "(min-width: 768px)",
+          "rules": 1,
+          "children": [".styles-nav-1DaTS:not(.styles-expanded-3EGw2)"]
+        },
+        {
+          "at": "876",
+          "within": "",
+          "condition": "(min-width: 768px)",
+          "rules": 1,
+          "children": [".styles-toggle-container-3kw9N"]
+        },
+        {
+          "at": "881",
+          "within": "",
+          "condition": "(min-width: 768px)",
+          "rules": 1,
+          "children": [".styles-menu-title-zh5md"]
+        },
+        {
+          "at": "883",
+          "within": "",
+          "condition": "(min-width: 768px)",
+          "rules": 1,
+          "children": [".styles-menu-title-zh5md::after"]
+        },
+        {
+          "at": "889",
+          "within": "",
+          "condition": "(min-width: 768px)",
+          "rules": 1,
+          "children": [".styles-menu-list-2qL0f"]
+        },
+        {
+          "at": "903",
+          "within": "",
+          "condition": "(min-width: 768px)",
+          "rules": 1,
+          "children": [".styles-services-menu-3Y6g_ .styles-menu-list-2qL0f"]
+        },
+        {
+          "at": "906",
+          "within": "",
+          "condition": "(min-width: 768px)",
+          "rules": 1,
+          "children": [
+            ".styles-services-overview-item-9AF_0 .styles-item-link--QpIs"
+          ]
+        },
+        {
+          "at": "908",
+          "within": "",
+          "condition": "(min-width: 768px)",
+          "rules": 1,
+          "children": [".styles-services-overview-item-9AF_0 img"]
+        },
+        {
+          "at": "909",
+          "within": "",
+          "condition": "(max-width: 768px)",
+          "rules": 1,
+          "children": [".styles-services-overview-item-9AF_0 img"]
+        },
+        {
+          "at": "915",
+          "within": "",
+          "condition": "(min-width: 768px)",
+          "rules": 2,
+          "children": [
+            ".styles-communities-menu-3a1Ao .styles-menu-list-2qL0f",
+            ".styles-communities-menu-3a1Ao .styles-group-3_h4T:first-child"
+          ]
+        },
+        {
+          "at": "916",
+          "within": "",
+          "condition": "(max-width: 768px)",
+          "rules": 1,
+          "children": [".styles-communities-menu-3a1Ao .styles-group-3_h4T a"]
+        },
+        {
+          "at": "924",
+          "within": "",
+          "condition": "(min-width: 768px)",
+          "rules": 1,
+          "children": [".styles-about-menu-3ZQZB .styles-menu-list-2qL0f"]
+        },
+        {
+          "at": "939",
+          "within": "",
+          "condition": "(min-width: 768px)",
+          "rules": 3,
+          "children": [
+            ".styles-select-3ZCU1",
+            ".styles-select-3ZCU1[focus-within]",
+            ".styles-select-3ZCU1:focus-within"
+          ]
+        },
+        {
+          "at": "940",
+          "within": "",
+          "condition": "(max-width: 93rem) and (min-width: 768px)",
+          "rules": 1,
+          "children": [".styles-select-3ZCU1"]
+        },
+        {
+          "at": "941",
+          "within": "",
+          "condition": "(max-width: 35rem)",
+          "rules": 2,
+          "children": [
+            ".styles-select-3ZCU1 input::-webkit-input-placeholder",
+            ".styles-select-3ZCU1 input::placeholder, .styles-select-3ZCU1 label"
+          ]
+        },
+        {
+          "at": "944",
+          "within": "",
+          "condition": "(max-width: 768px)",
+          "rules": 1,
+          "children": [".styles-peace-1CGQO, .styles-separator-3Hkfn"]
+        },
+        {
+          "at": "958",
+          "within": "",
+          "condition": "(max-width: 93rem) and (min-width: 768px)",
+          "rules": 1,
+          "children": [".advanced-search-container-2LG3_"]
+        },
+        {
+          "at": "959",
+          "within": "",
+          "condition": "(max-width: 767px)",
+          "rules": 5,
+          "children": [
+            ".advanced-search-container-2LG3_",
+            ".advanced-search-title--5aN8",
+            ".advanced-search-buttons-1_1xg",
+            ".advanced-search-button-container-1Mqt0",
+            ".advanced-search-button-container-1Mqt0:not(:last-child)"
+          ]
+        },
+        {
+          "at": "963",
+          "within": "",
+          "condition": "(max-width: 768px)",
+          "rules": 1,
+          "children": [".styles-documentation-inner-wrapper-2Nx_p"]
+        },
+        {
+          "at": "970",
+          "within": "",
+          "condition": "(max-width: 768px)",
+          "rules": 1,
+          "children": [".styles-placement-2qJqA"]
+        },
+        {
+          "at": "974",
+          "within": "",
+          "condition": "(max-width: 768px)",
+          "rules": 1,
+          "children": [".styles-placement-height-1oqBl"]
+        },
+        {
+          "at": "988",
+          "within": "",
+          "condition": "(max-width: 876px)",
+          "rules": 1,
+          "children": [".styles-sub-title-wrapper-3-m26"]
+        },
+        {
+          "at": "990",
+          "within": "",
+          "condition": "(max-width: 876px)",
+          "rules": 1,
+          "children": [".styles-type-wrapper-31cce"]
+        },
+        {
+          "at": "993",
+          "within": "",
+          "condition": "(max-width: 876px)",
+          "rules": 1,
+          "children": [".styles-link-wrapper-39nB-"]
+        },
+        {
+          "at": "994",
+          "within": "",
+          "condition": "(max-width: 780px)",
+          "rules": 1,
+          "children": [".styles-link-wrapper-39nB-"]
+        },
+        {
+          "at": "1017",
+          "within": "",
+          "condition": "(max-width: 876px)",
+          "rules": 1,
+          "children": [".styles-tutorial-wrapper-3RYh3"]
+        },
+        {
+          "at": "1018",
+          "within": "",
+          "condition": "(max-width: 780px)",
+          "rules": 1,
+          "children": [".styles-tutorial-wrapper-3RYh3"]
+        },
+        {
+          "at": "1021",
+          "within": "",
+          "condition": "(max-width: 768px)",
+          "rules": 1,
+          "children": [".styles-navigator-3rd0R"]
+        },
+        {
+          "at": "1024",
+          "within": "",
+          "condition": "(max-width: 768px)",
+          "rules": 1,
+          "children": [".styles-sider-wrapper-23svF"]
+        },
+        {
+          "at": "1030",
+          "within": "",
+          "condition": "(max-width: 768px)",
+          "rules": 1,
+          "children": [".styles-sider-item-3S136"]
+        },
+        {
+          "at": "1036",
+          "within": "",
+          "condition": "(max-width: 768px)",
+          "rules": 1,
+          "children": [".styles-placeholder-1L-aO"]
+        },
+        {
+          "at": "1039",
+          "within": "",
+          "condition": "(max-width: 48rem)",
+          "rules": 1,
+          "children": [".styles-document-select-label-2EG_W"]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "kind": "document",
+      "owner": "link",
+      "href": "<stack>/static/search/_next/static/css/<hash>.css",
+      "disabled": false,
+      "media": "",
+      "topLevelRules": 168,
+      "types": { "CSSStyleRule": 188, "CSSMediaRule": 4 },
+      "mediaRules": [
+        {
+          "at": "32",
+          "within": "",
+          "condition": "(orientation: portrait)",
+          "rules": 1,
+          "children": [".styles_container__116_N"]
+        },
+        {
+          "at": "90",
+          "within": "",
+          "condition": "(max-width: 767px)",
+          "rules": 5,
+          "children": [
+            ".styles_container__2YSuD",
+            ".styles_main__3YQAh, .styles_sidebar__VCDeH",
+            ".styles_sidebar__VCDeH",
+            ".styles_result__bqmmC",
+            ".styles_result__bqmmC:not(:first-child)"
+          ]
+        },
+        {
+          "at": "132",
+          "within": "",
+          "condition": "(max-width: 767px)",
+          "rules": 13,
+          "children": [
+            ".styles_button__3q4hs",
+            ".styles_clear-button__12G5I",
+            ".styles_clear-button__12G5I, .styles_toggle-button__yQXbT",
+            ".styles_toggle-button__yQXbT",
+            ".styles_bar__6YNaB",
+            ".styles_expanded__34kOc",
+            ".styles_bar-item__20zrH",
+            ".styles_bar-item__20zrH p",
+            ".styles_bar-item-wrapper__1AkYV",
+            ".styles_bar-item-wrapper__1AkYV:nth-child(n+4)",
+            ".styles_bar-item-wrapper__1AkYV:not(:first-child)",
+            ".styles_filter-box__3EpE2",
+            ".styles_custom-range-text__160sJ, .styles_slider__30muM"
+          ]
+        },
+        {
+          "at": "167",
+          "within": "",
+          "condition": "(max-width: 767px)",
+          "rules": 5,
+          "children": [
+            ".styles_header__dGlUR",
+            ".styles_header__dGlUR p",
+            ".styles_solid__NxW5D",
+            ".styles_layout__twotT",
+            ".styles_member-info__p9jnR, .styles_sidebar-image__2TzFs"
+          ]
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    "(max-width: 22.5rem)",
+    "(max-width: 33rem)",
+    "(max-width: 35rem)",
+    "(max-width: 48rem)",
+    "(max-width: 767px)",
+    "(max-width: 768px)",
+    "(max-width: 780px)",
+    "(max-width: 80rem)",
+    "(max-width: 85rem)",
+    "(max-width: 876px)",
+    "(max-width: 93rem) and (min-width: 768px)",
+    "(max-width: 950px)",
+    "(min-width: 768px)",
+    "(orientation: portrait)",
+    "(prefers-reduced-motion: reduce)",
+    "print"
+  ],
+  "matches": {
+    "(max-width: 22.5rem)": {
+      "375": false,
+      "767": false,
+      "768": false,
+      "1440": false,
+      "1920": false
+    },
+    "(max-width: 33rem)": {
+      "375": true,
+      "767": false,
+      "768": false,
+      "1440": false,
+      "1920": false
+    },
+    "(max-width: 35rem)": {
+      "375": true,
+      "767": false,
+      "768": false,
+      "1440": false,
+      "1920": false
+    },
+    "(max-width: 48rem)": {
+      "375": true,
+      "767": true,
+      "768": true,
+      "1440": false,
+      "1920": false
+    },
+    "(max-width: 767px)": {
+      "375": true,
+      "767": true,
+      "768": false,
+      "1440": false,
+      "1920": false
+    },
+    "(max-width: 768px)": {
+      "375": true,
+      "767": true,
+      "768": true,
+      "1440": false,
+      "1920": false
+    },
+    "(max-width: 780px)": {
+      "375": true,
+      "767": true,
+      "768": true,
+      "1440": false,
+      "1920": false
+    },
+    "(max-width: 80rem)": {
+      "375": true,
+      "767": true,
+      "768": true,
+      "1440": false,
+      "1920": false
+    },
+    "(max-width: 85rem)": {
+      "375": true,
+      "767": true,
+      "768": true,
+      "1440": false,
+      "1920": false
+    },
+    "(max-width: 876px)": {
+      "375": true,
+      "767": true,
+      "768": true,
+      "1440": false,
+      "1920": false
+    },
+    "(max-width: 93rem) and (min-width: 768px)": {
+      "375": false,
+      "767": false,
+      "768": true,
+      "1440": true,
+      "1920": false
+    },
+    "(max-width: 950px)": {
+      "375": true,
+      "767": true,
+      "768": true,
+      "1440": false,
+      "1920": false
+    },
+    "(min-width: 768px)": {
+      "375": false,
+      "767": false,
+      "768": true,
+      "1440": true,
+      "1920": true
+    },
+    "(orientation: portrait)": {
+      "375": true,
+      "767": true,
+      "768": true,
+      "1440": false,
+      "1920": false
+    },
+    "(prefers-reduced-motion: reduce)": {
+      "375": true,
+      "767": true,
+      "768": true,
+      "1440": true,
+      "1920": true
+    },
+    "print": {
+      "375": false,
+      "767": false,
+      "768": false,
+      "1440": false,
+      "1920": false
+    }
+  }
+}
