@@ -1,0 +1,5 @@
+{
+  "package": "P1-08",
+  "note": "T-606, T-611, T-902, T-903, T-904 and T-908 need no new recorded answer. T-606 fails the upstream with stub rules (no fixture) and reads the existing pages (search-climate, search-zzzzqqq, works-1001, outputs-2001, provider-86, provider-3354, outputs update); T-611 requests the routes of its table from the fixtures that exist (the page scenarios of P0-09, P0-10 and P0-13); T-902, T-903 and T-904 read repository files, a soak report and synthetic exports; T-908 reads the members and formap snapshot and starts the stub's TLS endpoint. The list is empty.",
+  "requests": []
+}
