@@ -1,0 +1,187 @@
+{
+  "schema": 1,
+  "id": "T-904",
+  "title": "Manual checklist (41 J)",
+  "purpose": "The checks of a deployable step that only a person with the team's accounts and a browser on the deployed site can make: telemetry that reaches third parties, the SEO head as Google reads it, and the headers the edge adds. Each item names its risk, the quirks it observes, the steps, what must be seen, and the evidence the step record carries (01 §7: T-904 item -> evidence). The structure is checked by test/ops/t904-checklist.test.js.",
+  "execution": {
+    "status": "DEFERRED",
+    "reason": "Needs the deployed site (stage first when the runbook's stage step ran, else production right after the merge, 01 §4 steps 7 and 8), the probe path of VF-14 (outside requests to core.ac.uk get a Cloudflare challenge), and read access to GA4, Sentry, LogRocket and Search Console (VF-04, VF-16). Owner action; nothing here was run against a deployment. Q-096: the Sentry browser path is probably blocked on production, so the Sentry item may end as NOT-APPLICABLE with the CSP console line as its evidence.",
+    "doneWhen": "every item of the step's 41 Wave is DONE or NOT-APPLICABLE with its result filled in, copied into the step record (docs/upgrade/01-playbook.md section 7)"
+  },
+  "source": {
+    "row": "docs/upgrade/41-test-inventory.md T-904",
+    "runbook": "docs/upgrade/01-playbook.md section 4 steps 7 and 8",
+    "gates": "docs/upgrade/55-gates-and-confidence.md RG-3"
+  },
+  "waves": [
+    "W2a",
+    "W2b",
+    "W4c",
+    "W4d",
+    "W5",
+    "W6a",
+    "W6c",
+    "W7a",
+    "W7b",
+    "W7c",
+    "6.8"
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "clause": "GA realtime",
+      "title": "Google Analytics 4 receives page views from the deployed site",
+      "risks": ["R-041"],
+      "quirks": ["Q-059", "Q-070", "Q-071"],
+      "verifies": ["VF-13"],
+      "waves": ["W4c", "W5"],
+      "prerequisites": [
+        "Read access to the GA4 property whose measurement id is the production GA_TRACKING_CODE (VF-16)",
+        "A real browser with an empty profile (no extensions, third-party cookies allowed), DevTools open on the Network and Console tabs"
+      ],
+      "steps": [
+        "Open the deployed site on /search/?q=climate. The consent popup appears. Choose 'I agree'; the page stores essential_cookies_allowed and analytics_cookies_allowed (Q-070). Reload once: consent applied after mount only takes effect on the next load.",
+        "In GA4, open Reports, Realtime. Within one minute the visit shows as one active user with a page_view event whose page location is the URL opened.",
+        "Open a work from the results (a full page load, then use client navigation to a second page). Note which of these produce a page_view: Q-071 says only the hard load does, because the 'search' hit is a no-op that warns \"Send command doesn't exist: search\" in the console.",
+        "Repeat in a second empty profile with 'Essential only' and in a third without choosing: count the requests to google-analytics.com and googletagmanager.com in the Network tab.",
+        "Compare the three request counts and the page_view list with the record made on the same URLs before the merge (or on the previous deployed step)."
+      ],
+      "expect": [
+        "'I agree': at least one page_view per hard load in Realtime, none for the client-side navigation (as before the step)",
+        "The same console warning about the 'search' command is present (T-741 pins it in CI), and no new console error",
+        "Request counts per cookie state equal the pre-merge record (T-719 pins them against fixtures in CI; this item confirms the real property)"
+      ],
+      "evidence": {
+        "kind": "screenshot",
+        "record": "GA4 Realtime screenshot per cookie state with the time, the three Network counts, the console warning line"
+      },
+      "onFailure": "Stop the watch decision (01 section 8): compare the Network tab with T-719's log; GA stopping silently is the failure R-041 names.",
+      "status": "DEFERRED",
+      "result": null
+    },
+    {
+      "id": "c2",
+      "clause": "Sentry test event where a DSN exists (VF-04)",
+      "title": "A Sentry event from the deployed site reaches the project",
+      "risks": ["R-026"],
+      "quirks": ["Q-096", "Q-074", "Q-073", "Q-010"],
+      "verifies": ["VF-04", "VF-03"],
+      "waves": ["W2a", "W2b", "W7c", "6.8"],
+      "prerequisites": [
+        "Read access to the Sentry project (VF-04)",
+        "A live output whose doi is null (Q-074a; its id comes from the VF-03 probe list)",
+        "Whether the deployed build has a SENTRY_DSN: the stage build has none and starts no Sentry (Q-096); the production value is VF-04's open question"
+      ],
+      "steps": [
+        "Decide where a DSN exists: search the deployed client bundle (DevTools, Sources, search for 'ingest.sentry.io') or take the answer from the owner's secret check. No DSN: record NOT-APPLICABLE for this deployment and stop.",
+        "With a DSN, open the doi-null output in the browser. The server HTML renders, the page blanks after hydration (Q-074a) and the error boundary reports once (Q-010).",
+        "In the Console and Network tabs look for the request to the DSN host and for a 'Refused to connect' Content-Security-Policy line: the CSP allows connect-src sentry.io only, not the ingest subdomain of a legacy DSN host (Q-096).",
+        "In Sentry, find the event (time within 10 minutes of the visit, the output URL in its request data).",
+        "Where the server also has a DSN, open /data-providers/?q=100%25 (an SSR 500, Q-073d) and look for the server event the same way."
+      ],
+      "expect": [
+        "Either the event arrives within 10 minutes (then C6-prod row 8 can pass), or the request is blocked and the CSP line is recorded: the owner then signs at 2.8 that C6-prod rows 1 and 7 are not counted (docs/upgrade/55-gates-and-confidence.md C6-prod)",
+        "One event for the output, not several: the handler count is the same as before the step (T-608 pins the server side)"
+      ],
+      "evidence": {
+        "kind": "link",
+        "record": "the Sentry issue link and event time, or the CSP console line and the DSN decision"
+      },
+      "onFailure": "An event that arrived before the step and not after is a regression of R-026: roll back first (01 section 5).",
+      "status": "DEFERRED",
+      "result": null
+    },
+    {
+      "id": "c3",
+      "clause": "LogRocket session",
+      "title": "LogRocket records a session of the deployed site",
+      "risks": ["R-026"],
+      "quirks": ["Q-009"],
+      "verifies": ["VF-04"],
+      "waves": ["W2b", "W7c"],
+      "prerequisites": [
+        "Read access to the LogRocket project (VF-04)",
+        "A real browser with an empty profile and DevTools open on the Console tab"
+      ],
+      "steps": [
+        "Open the deployed site, run one search, open one work. LogRocket is initialised in every production render (Q-009), whatever the cookie choice.",
+        "Watch the Console for 'Refused to connect', 'Refused to load the script' or worker-src violations naming logrocket.com, lgrckt-in.com or logr-in.com.",
+        "In LogRocket, find the session (within five minutes): play it back.",
+        "Check that the playback shows the page content (not a blank frame), the network calls and the console of the visit."
+      ],
+      "expect": [
+        "The session exists and replays the pages visited",
+        "No Content-Security-Policy violation for a LogRocket host (a newer LogRocket uses the logr-in.com hosts that the policy does not list, R-026)"
+      ],
+      "evidence": {
+        "kind": "link",
+        "record": "the session link and time, or the violation lines from the Console"
+      },
+      "onFailure": "Missing sessions after a LogRocket bump: the CSP host list is the first suspect (csp.config.js).",
+      "status": "DEFERRED",
+      "result": null
+    },
+    {
+      "id": "c4",
+      "clause": "Rich Results + Scholar meta on prod after the merge (stage first when used)",
+      "title": "Google reads the same SEO head: structured data and the Scholar tags",
+      "risks": ["R-003"],
+      "quirks": ["Q-053"],
+      "verifies": ["VF-14"],
+      "waves": ["W6a", "W6c", "W7a", "W7b"],
+      "prerequisites": [
+        "Three probe URLs from the VF-03 list: a work, an output and a work with a numeric year",
+        "The rendered HTML of each saved before the merge (view-source in a real browser, because outside requests meet the Cloudflare challenge, VF-14)",
+        "Stage first when the runbook's stage step ran, otherwise production right after the merge"
+      ],
+      "steps": [
+        "After the merge save the rendered HTML of the same three URLs the same way and compare the citation_* and DC.* tags and the JSON-LD block with the saved copies: same tags, same order, same values (T-602 pins this against fixtures in CI).",
+        "Run each URL through Google's Rich Results Test. If the tester cannot fetch the page (challenge), paste the saved HTML into its code input.",
+        "Check the Scholar inclusion tags are present: citation_title, citation_author, citation_publication_date in the form Q-053 describes (2024/1/01, and 2001/NaN/undefined for a string year), citation_pdf_url where a download link exists.",
+        "Note the Search Console coverage and structured-data reports for works and outputs (report-only, RG-3)."
+      ],
+      "expect": [
+        "No tag added, removed or reordered, and the JSON-LD of each URL unchanged",
+        "The Rich Results Test detects the same items with no new error or warning compared with the pre-merge run"
+      ],
+      "evidence": {
+        "kind": "link",
+        "record": "the three tester result links or screenshots and the empty tag diff"
+      },
+      "onFailure": "A changed head is a parity break (R-003): Scholar degrades weeks later, so roll back first (01 section 5).",
+      "status": "DEFERRED",
+      "result": null
+    },
+    {
+      "id": "c5",
+      "clause": "edge headers incl. `cf-cache-status` (VF-14)",
+      "title": "The headers the edge adds and caches are the ones recorded before the step",
+      "risks": ["R-083"],
+      "quirks": ["Q-005"],
+      "verifies": ["VF-14"],
+      "waves": ["W4d", "W6a", "W6c", "W7a", "W7c"],
+      "prerequisites": [
+        "The probe path VF-14 settles: an allow-listed IP or read-only cluster access, or a real browser with DevTools",
+        "The response headers of the classes below saved before the merge"
+      ],
+      "steps": [
+        "Request one URL per class and save the full response headers: HTML from getServerSideProps (/search/?q=climate), HTML from getInitialProps (/outputs/update/), a _next/data JSON (/search/_next/data/<buildId>/works/<id>.json), a file from public/, a hashed file under /static/search/_next/static/, a 308 (/search), a 404 and the health path if the probe path reaches it.",
+        "For each response note cache-control, cf-cache-status, age, etag, content-encoding, vary, server and any header the origin does not send (e.g. headers named cf-*).",
+        "Request each URL twice, a minute apart, and note whether cf-cache-status changes (MISS then HIT) for the cacheable classes.",
+        "Compare class by class with the pre-merge record and with e2e/http/contract.baseline.json (the origin's side, T-603)."
+      ],
+      "expect": [
+        "Per class the header set and values equal the pre-merge record, apart from date, age and the ray id",
+        "cf-cache-status is not HIT for a page the origin sends with cache-control no-store",
+        "No cache-control added or removed on a 404, 500 or 308 (R-083)"
+      ],
+      "evidence": {
+        "kind": "text",
+        "record": "the saved header sets per class before and after, and the diff (empty or listed as accepted differences, OD-39)"
+      },
+      "onFailure": "A difference is either an accepted-difference row signed by the owner (docs/upgrade/42-baselines-and-ci.md section 8) or a rollback (01 section 5).",
+      "status": "DEFERRED",
+      "result": null
+    }
+  ]
+}
