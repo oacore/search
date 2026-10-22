@@ -1,0 +1,5 @@
+{
+  "package": "P1-06",
+  "note": "T-718, T-724, T-739 and T-805 load /search/?q=climate (also page 2 sorted by recent), the header search for machine learning, /works/1001/, /outputs/2001/, /outputs/update/, /data-providers/ (Load more and the open univ search) and /data-providers/86/. Every request is answered by fixtures that exist: the SSR calls by the scenarios search-climate, works-1001, outputs-2001, provider-86, req-P0-13, req-P0-14 and harness-t725, the browser calls by the same scenarios (without harness-t725) plus logos. No request is needed, so this list is empty.",
+  "requests": []
+}
