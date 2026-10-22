@@ -146,7 +146,7 @@ export const readImages = () =>
   fs.existsSync(imagesFile)
     ? JSON.parse(fs.readFileSync(imagesFile, 'utf8'))
     : { builds: {} }
-const writeImages = (data) => {
+export const writeImages = (data) => {
   fs.mkdirSync(ARTIFACT_DIR, { recursive: true })
   const tmp = `${imagesFile}.${process.pid}.tmp`
   fs.writeFileSync(tmp, `${JSON.stringify(data, null, 1)}\n`)
@@ -154,7 +154,7 @@ const writeImages = (data) => {
 }
 
 // at most two Next builds at once on this machine (owner notes §2): two mkdir slots
-async function withBuildSlot(fn) {
+export async function withBuildSlot(fn) {
   const dir = path.join(ARTIFACT_DIR, 'locks')
   fs.mkdirSync(dir, { recursive: true })
   for (;;) {
