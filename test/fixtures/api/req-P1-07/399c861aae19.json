@@ -1,0 +1,366 @@
+{
+  "schema": 1,
+  "scenario": "req-P1-07",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/data-providers/86/outputs?q=&offset=90&limit=10&sort=recency",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:29:53 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "totalHits": 95,
+        "limit": 10,
+        "offset": 90,
+        "results": [
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Wortham, Leah" },
+              { "name": "McFaul, Hugh" },
+              { "name": "Mukwevho, Tribe" }
+            ],
+            "contributors": ["Stege, Ulrich", "Bloch, Frank S."],
+            "createdDate": "2025-10-24T07:23:50+01:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2025-10-14T14:05:54+01:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 672884869,
+            "identifiers": { "doi": null, "oai": "oai:oro.open.ac.uk:106629" },
+            "title": "Clinical Scholarship’s Contribution to the Global Clinical Movement: Progress Made and More to Do",
+            "language": null,
+            "publishedDate": "2027-01-30T00:00:00+00:00",
+            "publisher": "Oxford University Press (In Press)",
+            "references": [],
+            "sourceFulltextUrls": [],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/672884869"
+              }
+            ],
+            "abstract": "This chapter investigates the areas of focus of clinical legal scholarship since 2011",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:106629",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 672884869,
+              "depositedDate": "",
+              "publishedDate": "2027-01-30T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [],
+            "lastUpdate": "2026-08-31T16:36:36+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Benatti, Francesca" }],
+            "contributors": [
+              "Mahlberg, Michaela",
+              "Brookes, Gavin",
+              "Curry, Niall"
+            ],
+            "createdDate": "2026-07-27T11:21:25+01:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2026-07-21T11:45:06+01:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 750693293,
+            "identifiers": { "doi": null, "oai": "oai:oro.open.ac.uk:110533" },
+            "title": "Digital humanities",
+            "language": null,
+            "publishedDate": "2027-01-01T00:00:00+00:00",
+            "publisher": "Bloomsbury Academic (In Press)",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://oro.open.ac.uk/110533/1/Chapter%2027_Benatti_rev_02.docx"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/750693293"
+              }
+            ],
+            "abstract": "The methodologies of Digital Humanities (DH) are acquiring an ever greater relevance to the study of the history of reading, for example through the collation of historical reading experiences in databases. The UK Reading Experience Database (UK-RED; Eliot, 1996). is one of the longest-running Digital Humanities projects in the United Kingdom, having collected in 20 years about 40,000 curated testimonies of reading dated between 1450 and 1945. As a corpus, UK-RED provides opportunities for both macro- and micro-scale research, combining corpus approaches with close reading and comparison of individual testimonies of reading (Crone and Halsey, 2012). This chapter will investigate how corpus linguistics approaches can be applied to the analysis of Digital Humanities resources such as UK-RED. It will examine the project’s data as a corpus, searching for language patterns in accounts of experiences of reading and examining the reading testimonies across the five-century span of the project. The application of corpus methods allows the interrogation of reading practices on a scale impossible with human means alone. The interpretation and critique of the results of these analyses can in turn stimulate new questions and signal paths for further investigations, such as those of the recent READ-IT project on contemporary digital reading practices",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:110533",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 750693293,
+              "depositedDate": "",
+              "publishedDate": "2027-01-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://oro.open.ac.uk/110533/1/Chapter%2027_Benatti_rev_02.docx",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T16:38:57+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Horsley, Karen" }],
+            "contributors": ["Gaywood, Donna", "Koutoulas, Jennifer"],
+            "createdDate": "2026-02-13T21:31:51+00:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2026-02-12T09:28:10+00:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 701292755,
+            "identifiers": { "doi": null, "oai": "oai:oro.open.ac.uk:108536" },
+            "title": "Picture This: A new sociocultural ‘layered listening framework’ that promotes participation through documentary photography, with young children whose families have migrated to the UK.",
+            "language": null,
+            "publishedDate": "2027-01-01T00:00:00+00:00",
+            "publisher": "Bloomsbury Publishing (In Press)",
+            "references": [],
+            "sourceFulltextUrls": [],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/701292755"
+              }
+            ],
+            "abstract": "High quality, equitable early childhood education and care (ECEC) is significant for the participation of children whose families have migrated to the UK. The rich lived experiences, perspectives and funds of knowledge of newly arrived children are largely invisible and there is an increased risk of social exclusion as a consequence. Drawing upon the findings of a three-year study using child-led photography and photo story books to explore three- to four-year-old children’s funds of knowledge, this chapter offers an original theoretical and pedagogic ‘layered listening framework’ (LLF) that blurs sociocultural theory and visual theories for deep listening with young children. This novel conceptualisation, comprising intuitive and wise photography; ambiguity; photographing democratically and ‘elastic spaces’ suggests an expanded guide for understanding how children as ‘photographer-authors’ co-create diverse perspectives about their lived experiences as pedagogical possibilities. Further research into photography is recommended for researchers and practitioners to develop ‘elastic spaces’ of ongoing dialogue and alternative ways of seeing in culturally responsive ECEC and beyond. Such possibilities have the potential for challenging deficit perspectives of diversity by building democratic relationships of trust and reciprocity, with and for strong, resilient communities with hearts as well as minds",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:108536",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 701292755,
+              "depositedDate": "",
+              "publishedDate": "2027-01-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [],
+            "lastUpdate": "2026-08-31T16:38:27+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [{ "name": "Brown, Richard Danson" }],
+            "contributors": ["Bates, Catherine"],
+            "createdDate": "2025-03-31T09:36:31+01:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2025-03-24T11:30:08+00:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 648213547,
+            "identifiers": { "doi": null, "oai": "oai:oro.open.ac.uk:103417" },
+            "title": "Edmund Spenser: <i>The Faerie Queene</i>",
+            "language": null,
+            "publishedDate": "2027-01-01T00:00:00+00:00",
+            "publisher": "Routledge [In press]",
+            "references": [],
+            "sourceFulltextUrls": [
+              "https://oro.open.ac.uk/103417/1/CHAPTER%2032%20-%20Edmund%20Spenser%2C%20FQ%20-%20Brown%20-%20edited.docx"
+            ],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/648213547"
+              }
+            ],
+            "abstract": "",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:103417",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 648213547,
+              "depositedDate": "",
+              "publishedDate": "2027-01-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "https://oro.open.ac.uk/103417/1/CHAPTER%2032%20-%20Edmund%20Spenser%2C%20FQ%20-%20Brown%20-%20edited.docx",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T16:35:05+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          },
+          {
+            "acceptedDate": "",
+            "authors": [
+              { "name": "Hendry, Helen" },
+              { "name": "Drew, Sheila" },
+              { "name": "Teria Ng'asike, John" }
+            ],
+            "contributors": ["Wood, Lesley", "Koen, Mariette"],
+            "createdDate": "2026-08-31T16:39:09+01:00",
+            "dataProvider": {
+              "id": 86,
+              "name": "Open Research Online (Open)",
+              "url": "https://api.core.ac.uk/v3/data-providers/86",
+              "logo": "https://api.core.ac.uk/data-providers/86/logo"
+            },
+            "depositedDate": "2026-08-24T11:17:04+01:00",
+            "documentType": "",
+            "versions": [],
+            "doi": "10.4324/9781003609957-2",
+            "downloadUrl": "",
+            "fullText": "",
+            "id": 753685737,
+            "identifiers": {
+              "doi": "10.4324/9781003609957-2",
+              "oai": "oai:oro.open.ac.uk:111727"
+            },
+            "title": "Building Sustainable Professional Development for ECE Practitioners in Low Resource Contexts",
+            "language": null,
+            "publishedDate": "2027-01-01T00:00:00+00:00",
+            "publisher": "Routledge",
+            "references": [],
+            "sourceFulltextUrls": ["http://dx.doi.org/10.4324/9781003609957-2"],
+            "updatedDate": null,
+            "yearPublished": "2027",
+            "links": [
+              {
+                "type": "display",
+                "url": "https://core.ac.uk/outputs/753685737"
+              }
+            ],
+            "abstract": "Unprecedented expansion of early childhood education (ECE) in low- and middle-income countries requires trained practitioners to provide quality learning opportunities for children. However, in Sub-Saharan Africa, only 64% of practitioners have been trained to the minimum national standard and access to training is variable. This chapter presents a model for designing accessible professional development using collaborative research, based on the process of co-creating “Skills for Early Education and Development” (SEED), with ECE practitioners in South Africa and Kenya. Drawing on a mixed method, comparative study of 272 ECE practitioners in South Africa and Kenya, and collaborative stakeholder workshops, practitioners’ priority training needs, motivations, and access to training were established, leading to co-created, skills-focused training. This participatory approach encourages practitioner “buy in,” by responding to their needs and priorities, and co-creating contextual examples, and offers a sustainable way to develop key skills for high-quality ECE practice with limited resources",
+            "tags": [],
+            "fulltextStatus": "disabled",
+            "subjects": [],
+            "oai": "oai:oro.open.ac.uk:111727",
+            "deleted": "ALLOWED",
+            "disabled": false,
+            "journals": [],
+            "repositories": [],
+            "repositoryDocument": {
+              "id": 753685737,
+              "depositedDate": "",
+              "publishedDate": "2027-01-01T00:00:00+00:00",
+              "updatedDate": "",
+              "acceptedDate": "",
+              "createdDate": ""
+            },
+            "urls": [
+              {
+                "url": "http://dx.doi.org/10.4324/9781003609957-2",
+                "type": "fulltext"
+              }
+            ],
+            "lastUpdate": "2026-08-31T16:39:42+01:00",
+            "setSpecs": [],
+            "license": "",
+            "orcids": [],
+            "sdg": []
+          }
+        ],
+        "tooks": [],
+        "searchId": null
+      }
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/data-providers/86/outputs?q=&offset=0&limit=10&sort=recency",
+    "patch": [
+      { "op": "replace", "path": "/totalHits", "value": 95 },
+      { "op": "replace", "path": "/offset", "value": 90 },
+      { "op": "select", "path": "/results", "indexes": [0, 1, 2, 3, 4] }
+    ],
+    "recordedAt": "2026-10-20T13:29:53.499Z",
+    "note": "V35 (Q-044): the last page of a provider with 95 outputs: 5 results, totalHits 95. The pager does not clamp its upper bound: 'Showing 91-100 of 95'"
+  }
+}

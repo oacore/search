@@ -1,0 +1,127 @@
+{
+  "state": "r3-works-many-authors",
+  "route": "/works/1003/",
+  "viewport": "1440x900",
+  "axe": "4.14.0",
+  "tags": ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"],
+  "duplicateRules": [
+    "duplicate-id",
+    "duplicate-id-active",
+    "duplicate-id-aria"
+  ],
+  "violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": [
+            ".styles_card-item.card-dropdown_dropdown:nth-child(2) > .styles_header > .styles_content > .styles_oai-title.styles_subtitle.card-description > .card-dropdown_identifier.card-description > .card-dropdown_inner-identifier > .card-dropdown_ellipsis"
+          ]
+        },
+        {
+          "target": [
+            ".styles_card-item.card-dropdown_dropdown:nth-child(3) > .styles_header > .styles_content > .styles_oai-title.styles_subtitle.card-description > .card-dropdown_identifier.card-description > .card-dropdown_inner-identifier > .card-dropdown_ellipsis"
+          ]
+        },
+        {
+          "target": [
+            "#work-similar-output-17489114 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        {
+          "target": [
+            "#work-similar-output-18872441 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        {
+          "target": [
+            "#work-similar-output-19211324 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        {
+          "target": [
+            "#work-similar-output-19212910 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        {
+          "target": [
+            "#work-similar-output-62704171 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        { "target": ["p > a > span"] }
+      ]
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "nodes": [{ "target": ["div:nth-child(1) > .footer-menu-title"] }]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [{ "target": ["html"] }]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        { "target": [".citation_cite-button > svg[width=\"24\"]"] },
+        {
+          "target": [
+            ".styles_card-item.card-dropdown_dropdown:nth-child(2) > .styles_header > .styles_content > .styles_header-wrapper.styles_header-wrapper-clickable > .styles_item-wrapper > .data-provider-md.data-provider-circle > .data-provider-image[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_card-item.card-dropdown_dropdown:nth-child(2) > .styles_header > .styles_content > .styles_oai-title.styles_subtitle.card-description > .card-dropdown_identifier.card-description > div:nth-child(2) > .card-dropdown_icon-copy[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_card-item.card-dropdown_dropdown:nth-child(3) > .styles_header > .styles_content > .styles_header-wrapper.styles_header-wrapper-clickable > .styles_item-wrapper > .data-provider-md.data-provider-circle > .data-provider-image[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_card-item.card-dropdown_dropdown:nth-child(3) > .styles_header > .styles_content > .styles_oai-title.styles_subtitle.card-description > .card-dropdown_identifier.card-description > div:nth-child(2) > .card-dropdown_icon-copy[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_card-item.card-dropdown_dropdown:nth-child(4) > .styles_header > .styles_content > .styles_header-wrapper.styles_header-wrapper-clickable > .styles_item-wrapper > .data-provider-md.data-provider-circle > .data-provider-image[width=\"24\"]"
+          ]
+        },
+        { "target": [".styles_related-searches-icon"] },
+        { "target": [".thumbnail-card_icon"] }
+      ]
+    }
+  ],
+  "duplicateIds": [
+    {
+      "rule": "duplicate-id",
+      "outcome": "violation",
+      "id": "author",
+      "count": 30,
+      "target": [
+        "li[aria-setsize=\"30\"][itemprop=\"author\"][itemtype=\"https://schema.org/Person\"]:nth-child(1)"
+      ]
+    },
+    {
+      "rule": "duplicate-id",
+      "outcome": "violation",
+      "id": "doi",
+      "count": 2,
+      "target": ["li[itemprop=\"doi\"][itemtype=\"doi\"]:nth-child(1)"]
+    },
+    {
+      "rule": "duplicate-id-aria",
+      "outcome": "incomplete",
+      "id": "about-title",
+      "count": 2,
+      "target": [
+        ".styles-about-menu > .styles-menu-title[aria-haspopup=\"true\"][role=\"button\"]"
+      ]
+    }
+  ]
+}

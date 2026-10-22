@@ -1,0 +1,63 @@
+{
+  "state": "r6-providers",
+  "route": "/data-providers/",
+  "viewport": "1440x900",
+  "axe": "4.14.0",
+  "tags": ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"],
+  "duplicateRules": [
+    "duplicate-id",
+    "duplicate-id-active",
+    "duplicate-id-aria"
+  ],
+  "violations": [
+    {
+      "id": "aria-valid-attr-value",
+      "impact": "critical",
+      "nodes": [{ "target": ["#select-app-bar-search"] }]
+    },
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [{ "target": ["label"] }, { "target": ["p > a > span"] }]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [{ "target": ["html"] }]
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "nodes": [{ "target": ["html"] }]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": [".styles-prepend > .icon-icon[role=\"img\"][width=\"24\"]"]
+        }
+      ]
+    }
+  ],
+  "duplicateIds": [
+    {
+      "rule": "duplicate-id-aria",
+      "outcome": "incomplete",
+      "id": "about-title",
+      "count": 2,
+      "target": [
+        ".styles-about-menu > .styles-menu-title[aria-haspopup=\"true\"]"
+      ]
+    },
+    {
+      "rule": "duplicate-id-aria",
+      "outcome": "incomplete",
+      "id": "data-provider-webpage-title",
+      "count": 10,
+      "target": [
+        ".card-container.card-elevated.styles_result:nth-child(1) > dl > .metadata-list-group > dt"
+      ]
+    }
+  ]
+}

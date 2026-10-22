@@ -1,0 +1,671 @@
+{
+  "state": "r2-facet-open",
+  "route": "/search/?q=climate",
+  "viewport": "1440x900",
+  "axe": "4.14.0",
+  "tags": ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"],
+  "duplicateRules": [
+    "duplicate-id",
+    "duplicate-id-active",
+    "duplicate-id-aria"
+  ],
+  "violations": [
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "nodes": [
+        { "target": [".select-clear-out-button"] },
+        { "target": [".styles_pagination-item-disabled"] },
+        {
+          "target": [
+            "div:nth-child(1) > .styles_action-button[type=\"button\"]"
+          ]
+        },
+        {
+          "target": [
+            "div:nth-child(2) > .styles_action-button[type=\"button\"]"
+          ]
+        },
+        { "target": ["li:nth-child(11) > .styles_pagination-item"] }
+      ]
+    },
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": [
+            "#work-search-output-153927213 > .styles-header > .styles-title > a > span"
+          ]
+        },
+        {
+          "target": [
+            "#work-search-output-164917271 > .styles-header > .styles-title > a > span"
+          ]
+        },
+        {
+          "target": [
+            "#work-search-output-17489114 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        {
+          "target": [
+            "#work-search-output-18872441 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        {
+          "target": [
+            "#work-search-output-19212910 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        {
+          "target": [
+            "#work-search-output-19213079 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        {
+          "target": [
+            "#work-search-output-366588237 > .styles-header > .styles-title > a > span"
+          ]
+        },
+        {
+          "target": [
+            "#work-search-output-385302858 > .styles-header > .styles-title > a > span"
+          ]
+        },
+        {
+          "target": [
+            "#work-search-output-62704171 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        { "target": ["p > a > span"] }
+      ]
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "nodes": [{ "target": ["div:nth-child(1) > .footer-menu-title"] }]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [{ "target": ["html"] }]
+    },
+    {
+      "id": "list",
+      "impact": "serious",
+      "nodes": [{ "target": [".styles_filter-box"] }]
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "nodes": [{ "target": ["html"] }]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        { "target": [".select-clear-out-button > svg[width=\"24\"]"] },
+        { "target": [".sort_sort-box > svg[width=\"24\"]"] },
+        {
+          "target": [
+            ".styles_bar-item-wrapper:nth-child(1) > .styles_bar-item[role=\"presentation\"] > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_bar-item-wrapper:nth-child(2) > .styles_bar-item[role=\"presentation\"] > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_bar-item-wrapper:nth-child(3) > .styles_bar-item[role=\"presentation\"] > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_bar-item-wrapper:nth-child(4) > .styles_bar-item[role=\"presentation\"] > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_bar-item-wrapper:nth-child(5) > .styles_bar-item[role=\"presentation\"] > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_bar-item-wrapper:nth-child(6) > .styles_bar-item[role=\"presentation\"] > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(10) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(100) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(101) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(11) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(12) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(13) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(14) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(15) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(16) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(17) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(18) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(19) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(2) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(20) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(21) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(22) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(23) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(24) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(25) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(26) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(27) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(28) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(29) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(3) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(30) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(31) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(32) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(33) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(34) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(35) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(36) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(37) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(38) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(39) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(4) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(40) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(41) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(42) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(43) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(44) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(45) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(46) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(47) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(48) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(49) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(5) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(50) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(51) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(52) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(53) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(54) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(55) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(56) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(57) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(58) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(59) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(6) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(60) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(61) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(62) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(63) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(64) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(65) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(66) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(67) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(68) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(69) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(7) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(70) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(71) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(72) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(73) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(74) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(75) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(76) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(77) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(78) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(79) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(8) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(80) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(81) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(82) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(83) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(84) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(85) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(86) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(87) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(88) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(89) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(9) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(90) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(91) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(92) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(93) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(94) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(95) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(96) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(97) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(98) > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_filter-box-item[role=\"presentation\"]:nth-child(99) > svg[width=\"24\"]"
+          ]
+        },
+        { "target": [".styles_pagination-item-disabled > svg[width=\"24\"]"] },
+        { "target": [".styles-prepend > svg[width=\"24\"]"] },
+        {
+          "target": [
+            "div:nth-child(1) > .styles_action-button[type=\"button\"] > .styles_action-icon[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            "div:nth-child(2) > .styles_action-button[type=\"button\"] > .styles_action-icon[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            "li:nth-child(11) > .styles_pagination-item > svg[width=\"24\"]"
+          ]
+        }
+      ]
+    }
+  ],
+  "duplicateIds": [
+    {
+      "rule": "duplicate-id-aria",
+      "outcome": "incomplete",
+      "id": "about-title",
+      "count": 2,
+      "target": [
+        ".styles-about-menu > .styles-menu-title[aria-haspopup=\"true\"][role=\"button\"]"
+      ]
+    }
+  ]
+}
