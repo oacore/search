@@ -1,0 +1,150 @@
+{
+  "state": "r2-csv-modal",
+  "route": "/search/?q=climate",
+  "viewport": "1440x900",
+  "axe": "4.14.0",
+  "tags": ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"],
+  "duplicateRules": [
+    "duplicate-id",
+    "duplicate-id-active",
+    "duplicate-id-aria"
+  ],
+  "violations": [
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "nodes": [
+        { "target": [".select-clear-out-button"] },
+        { "target": [".styles_pagination-item-disabled"] },
+        {
+          "target": [
+            "div:nth-child(1) > .styles_action-button.button-text[type=\"button\"]"
+          ]
+        },
+        {
+          "target": [
+            "div:nth-child(2) > .styles_action-button.button-text[type=\"button\"]"
+          ]
+        },
+        { "target": ["li:nth-child(11) > .styles_pagination-item.button-text"] }
+      ]
+    },
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": [
+            "#work-search-output-19211324 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        {
+          "target": [
+            "#work-search-output-19212910 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        {
+          "target": [
+            "#work-search-output-62704171 > .styles-header > .styles-title > a > span"
+          ]
+        },
+        {
+          "target": [
+            "#work-search-output-62704171 > figure > a > .styles-thumbnail-caption"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "nodes": [{ "target": ["div:nth-child(1) > .footer-menu-title"] }]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [{ "target": ["html"] }]
+    },
+    {
+      "id": "landmark-no-duplicate-contentinfo",
+      "impact": "moderate",
+      "nodes": [{ "target": ["#footer"] }]
+    },
+    {
+      "id": "landmark-unique",
+      "impact": "moderate",
+      "nodes": [{ "target": ["#footer"] }]
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "nodes": [{ "target": ["#modal-root"] }]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        { "target": [".select-clear-out-button > svg[width=\"24\"]"] },
+        { "target": [".sort_sort-box > svg[width=\"24\"]"] },
+        {
+          "target": [
+            ".styles_bar-item-wrapper:nth-child(1) > .styles_bar-item[role=\"presentation\"] > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_bar-item-wrapper:nth-child(2) > .styles_bar-item[role=\"presentation\"] > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_bar-item-wrapper:nth-child(3) > .styles_bar-item[role=\"presentation\"] > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_bar-item-wrapper:nth-child(4) > .styles_bar-item[role=\"presentation\"] > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_bar-item-wrapper:nth-child(5) > .styles_bar-item[role=\"presentation\"] > svg[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            ".styles_bar-item-wrapper:nth-child(6) > .styles_bar-item[role=\"presentation\"] > svg[width=\"24\"]"
+          ]
+        },
+        { "target": [".styles_pagination-item-disabled > svg[width=\"24\"]"] },
+        { "target": [".styles-prepend > svg[width=\"24\"]"] },
+        {
+          "target": [
+            "div:nth-child(1) > .styles_action-button.button-text[type=\"button\"] > .styles_action-icon[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            "div:nth-child(2) > .styles_action-button.button-text[type=\"button\"] > .styles_action-icon[width=\"24\"]"
+          ]
+        },
+        {
+          "target": [
+            "li:nth-child(11) > .styles_pagination-item.button-text > svg[width=\"24\"]"
+          ]
+        }
+      ]
+    }
+  ],
+  "duplicateIds": [
+    {
+      "rule": "duplicate-id-aria",
+      "outcome": "incomplete",
+      "id": "about-title",
+      "count": 2,
+      "target": [
+        ".styles-about-menu > .styles-menu-title[aria-haspopup=\"true\"][role=\"button\"]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "state": "r6-form-duplicate",
+  "route": "/data-providers/?q=zzzzqqq",
+  "viewport": "1440x900",
+  "axe": "4.14.0",
+  "tags": ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"],
+  "duplicateRules": [
+    "duplicate-id",
+    "duplicate-id-active",
+    "duplicate-id-aria"
+  ],
+  "violations": [
+    {
+      "id": "aria-valid-attr-value",
+      "impact": "critical",
+      "nodes": [{ "target": ["#select-app-bar-search"] }]
+    },
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        { "target": ["label[for=\"select-app-bar-search\"]"] },
+        { "target": ["p > a > span"] }
+      ]
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "nodes": [{ "target": ["div:nth-child(1) > .footer-menu-title"] }]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [{ "target": ["html"] }]
+    },
+    {
+      "id": "link-in-text-block",
+      "impact": "serious",
+      "nodes": [
+        { "target": ["#data-provider-url-helper > a:nth-child(1)"] },
+        { "target": ["#data-provider-url-helper > a:nth-child(2)"] }
+      ]
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "nodes": [{ "target": ["html"] }]
+    },
+    {
+      "id": "role-img-alt",
+      "impact": "serious",
+      "nodes": [
+        { "target": ["h2 > span[aria-label=\"\"][role=\"img\"]"] },
+        { "target": ["p > span[aria-label=\"\"][role=\"img\"]"] }
+      ]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [{ "target": [".styles-prepend > svg[width=\"24\"]"] }]
+    }
+  ],
+  "duplicateIds": [
+    {
+      "rule": "duplicate-id-aria",
+      "outcome": "incomplete",
+      "id": "about-title",
+      "count": 2,
+      "target": [
+        ".styles-about-menu > .styles-menu-title[aria-haspopup=\"true\"][role=\"button\"]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "state": "g-cookie-popup",
+  "route": "/outputs/update/",
+  "viewport": "1440x900",
+  "axe": "4.14.0",
+  "tags": ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"],
+  "duplicateRules": [
+    "duplicate-id",
+    "duplicate-id-active",
+    "duplicate-id-aria"
+  ],
+  "violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [{ "target": ["p > a > span"] }]
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "nodes": [
+        { "target": ["div:nth-child(1) > .footer-menu-title"] },
+        { "target": ["h4"] }
+      ]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [{ "target": ["html"] }]
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "nodes": [{ "target": ["html"] }]
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "nodes": [{ "target": [".cookies-popup-body"] }]
+    }
+  ],
+  "duplicateIds": [
+    {
+      "rule": "duplicate-id-aria",
+      "outcome": "incomplete",
+      "id": "about-title",
+      "count": 2,
+      "target": [
+        ".styles-about-menu > .styles-menu-title[aria-haspopup=\"true\"][role=\"button\"]"
+      ]
+    }
+  ]
+}

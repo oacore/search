@@ -1,0 +1,84 @@
+{
+  "state": "r4-output",
+  "route": "/outputs/2001/",
+  "viewport": "1440x900",
+  "axe": "4.14.0",
+  "tags": ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"],
+  "duplicateRules": [
+    "duplicate-id",
+    "duplicate-id-active",
+    "duplicate-id-aria"
+  ],
+  "violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        { "target": [".card-dropdown_member-highlight"] },
+        { "target": [".styles_oai > a"] },
+        {
+          "target": [
+            "#work-similar-output-566708785 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        {
+          "target": [
+            "#work-similar-output-567714872 > figure > a > .styles-thumbnail-caption"
+          ]
+        },
+        { "target": ["p > a > span"] }
+      ]
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "nodes": [{ "target": ["div:nth-child(1) > .footer-menu-title"] }]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "nodes": [{ "target": ["html"] }]
+    },
+    {
+      "id": "svg-img-alt",
+      "impact": "serious",
+      "nodes": [
+        { "target": [".card-dropdown_icon-copy"] },
+        {
+          "target": [
+            ".citation_cite-button > .icon-icon[role=\"img\"][width=\"24\"]"
+          ]
+        },
+        { "target": [".styles_related-searches-icon"] },
+        { "target": [".thumbnail-card_icon"] }
+      ]
+    }
+  ],
+  "duplicateIds": [
+    {
+      "rule": "duplicate-id",
+      "outcome": "violation",
+      "id": "author",
+      "count": 4,
+      "target": [
+        "dd[aria-labelledby=\"metadata-authors-title\"] > ol > li[itemprop=\"author\"][itemtype=\"https://schema.org/Person\"]:nth-child(1)"
+      ]
+    },
+    {
+      "rule": "duplicate-id",
+      "outcome": "violation",
+      "id": "full-text-thumbnail-2001-body",
+      "count": 2,
+      "target": ["#full-text-thumbnail-2001 > .thumbnail-card_body"]
+    },
+    {
+      "rule": "duplicate-id-aria",
+      "outcome": "incomplete",
+      "id": "about-title",
+      "count": 2,
+      "target": [
+        ".styles-about-menu > .styles-menu-title[aria-haspopup=\"true\"][role=\"button\"]"
+      ]
+    }
+  ]
+}
