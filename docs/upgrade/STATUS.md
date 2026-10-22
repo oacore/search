@@ -80,7 +80,7 @@ Settles it: `owner:` = the owner (or whoever the owner names), else the implemen
 |VF-05|linux/arm64-musl `npm ci`; alpine ICU; Next 12.3-16 on alpine arm64; 12.1.6 lockfile patcher|T-901 in Docker on arm64|2.1, W4c|
 |VF-06|T-801 pixel effect of the minifier change; feasibility of OD-37 A|W4c run|W4c|
 |VF-07|msw 2.15.0 in Jest on Node 18 (2.11.2 disputed); msw 3 under Jest 30 on Node 24|10-minute lab|2.1, 6.0|
-|VF-08|Stryker 10 with legacy decorators / Babel 7|2.1 spike|2.7|
+|VF-08|Stryker 10 with legacy decorators / Babel 7|2.1 spike|2.7 (settled at 2.7: staging copy without `babel.config.js`, parser plugins `decorators-legacy`, `jsx`, `exportDefaultFrom`; 02 §3.5)|
 |VF-09|Next build reproducibility (two identical builds)|T-014|2.1|
 |VF-10|Cross-arch/host pixel determinism; fonts in the Playwright image|stability proof (2.5)|2.5|
 |VF-11|Local `next dev`/`build` on Node 24 with Next 10 (OpenSSL flag)|one local run|2.1|
