@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "scenario": "req-P1-04",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/internal/outputs/update",
+    "bodySha256": "203afdeb31d0c2042d6931bc28cb687a563f164fb99dcc3b633bce60f2c64c81",
+    "bodyText": "{\"outputId\":2001,\"name\":\"Test Reporter\",\"email\":\"reporter@localhost\",\"message\":\"report-ok\",\"updateOption\":\"issueWithContent\",\"role\":\"author\"}"
+  },
+  "response": {
+    "status": 201,
+    "headers": [["content-type", "application/json"]],
+    "body": { "encoding": "json", "data": { "message": "Report accepted" } }
+  },
+  "source": {
+    "kind": "hand",
+    "from": null,
+    "patch": null,
+    "recordedAt": null,
+    "note": "J11 (T-713): the report form of output 2001 submitted for 'The document is outdated' as an author; the takedown answers are the e10-report fixture"
+  }
+}

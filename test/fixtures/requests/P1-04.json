@@ -1,0 +1,241 @@
+{
+  "package": "P1-04",
+  "note": "P1-04 (T-709, T-710, T-711, T-712, T-713, T-723, T-732). No live request. Work 1709 is work 1001 with its DOI in upper case (DOIs are case-insensitive, doi.org answers the same record), so its citation requests have their own key and can carry the recorded BibTeX answer of doi.org (the resolver keys on method, URL and body, so the recorded pair of work 1001 answers both Accept values with the APA text, I-41); work 1719 is work 1001 without a DOI (no Cite button); work 1710 is work 1001 whose first version's download link has the http scheme, so the resolver leaves it on core.ac.uk and J8's core-hosted 'Download from data provider' branch is reachable (T-710); one hand answer of the report submit for the option 'The document is outdated' (J11). Every other request of the package is answered by fixtures that exist (scenarios works-1001, works-1007, outputs-2001, outputs-2004, provider-86, search-climate, search-csv, members, logos, e10-report, e19-client-nav).",
+  "requests": [
+    {
+      "id": "p1-04.e4.works-1709-bibtex",
+      "kind": "derive",
+      "endpoint": "E4",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001?t=undefined"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/1709?t=undefined"
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/id",
+          "value": 1709
+        },
+        {
+          "op": "replace",
+          "path": "/doi",
+          "value": "10.1111/REGO.12518"
+        }
+      ],
+      "note": "J7 (T-709): work 1001 with the DOI in upper case, so the two citation requests of the page go to https://doi.org/10.1111/REGO.12518, a key the APA fixture of work 1001 does not hold"
+    },
+    {
+      "id": "p1-04.e5.works-1709",
+      "kind": "derive",
+      "endpoint": "E5",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001/outputs"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/1709/outputs"
+      },
+      "note": "the three outputs of work 1001"
+    },
+    {
+      "id": "p1-04.e8.works-1709",
+      "kind": "derive",
+      "endpoint": "E8",
+      "browser": true,
+      "from": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:1001",
+          "limit": 5,
+          "resultType": "work"
+        }
+      },
+      "serve": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:1709",
+          "limit": 5,
+          "resultType": "work"
+        }
+      },
+      "note": "the similar-works answer of work 1001 for work 1709"
+    },
+    {
+      "id": "p1-04.e9.works-1709-bibtex",
+      "kind": "live",
+      "endpoint": "E9",
+      "request": {
+        "method": "GET",
+        "url": "https://doi.org/10.1111/rego.12518",
+        "headers": {
+          "Accept": "text/x-bibliography; style=bibtex; locale=en-GB"
+        }
+      },
+      "serve": {
+        "url": "https://doi.org/10.1111/REGO.12518"
+      },
+      "note": "the recorded BibTeX answer of doi.org for the DOI of work 1001 (raw recording works-1001.e9.bibtex, not requested again), served for the upper-case spelling of the same DOI; it answers both citation requests of work 1709 (the page renders only the BibTeX entry, the APA text is never shown)"
+    },
+    {
+      "id": "p1-04.e4.works-1719-nodoi",
+      "kind": "derive",
+      "endpoint": "E4",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001?t=undefined"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/1719?t=undefined"
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/id",
+          "value": 1719
+        },
+        {
+          "op": "replace",
+          "path": "/doi",
+          "value": null
+        }
+      ],
+      "note": "J7 (T-709): work 1001 without a DOI (no citation request, no Cite button)"
+    },
+    {
+      "id": "p1-04.e5.works-1719",
+      "kind": "derive",
+      "endpoint": "E5",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001/outputs"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/1719/outputs"
+      },
+      "note": "the three outputs of work 1001 (each carries a DOI, Q-074)"
+    },
+    {
+      "id": "p1-04.e8.works-1719",
+      "kind": "derive",
+      "endpoint": "E8",
+      "browser": true,
+      "from": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:1001",
+          "limit": 5,
+          "resultType": "work"
+        }
+      },
+      "serve": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:1719",
+          "limit": 5,
+          "resultType": "work"
+        }
+      },
+      "note": "the similar-works answer of work 1001 for work 1719"
+    },
+    {
+      "id": "p1-04.e10.outputs-2001-outdated-author",
+      "kind": "hand",
+      "endpoint": "E10",
+      "request": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/internal/outputs/update",
+        "body": {
+          "outputId": 2001,
+          "name": "Test Reporter",
+          "email": "reporter@localhost",
+          "message": "report-ok",
+          "updateOption": "issueWithContent",
+          "role": "author"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": [["content-type", "application/json"]],
+        "body": {
+          "encoding": "json",
+          "data": {
+            "message": "Report accepted"
+          }
+        }
+      },
+      "note": "J11 (T-713): the report form of output 2001 submitted for 'The document is outdated' as an author; the takedown answers are the e10-report fixture"
+    },
+    {
+      "id": "p1-04.e4.works-1710-corehosted",
+      "kind": "derive",
+      "endpoint": "E4",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001?t=undefined"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/1710?t=undefined"
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/id",
+          "value": 1710
+        }
+      ],
+      "note": "J8 (T-710): work 1001 as work 1710, whose first version keeps a CORE download link that the resolver does not move to the stack origin (next entry)"
+    },
+    {
+      "id": "p1-04.e5.works-1710-corehosted",
+      "kind": "derive",
+      "endpoint": "E5",
+      "from": {
+        "method": "GET",
+        "url": "https://api.core.ac.uk/v3/works/1001/outputs"
+      },
+      "serve": {
+        "url": "https://api.core.ac.uk/v3/works/1710/outputs"
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/0/links/0/url",
+          "value": "http://core.ac.uk/download/566708785.pdf"
+        }
+      ],
+      "note": "J8 (T-710): the three outputs of work 1001; the download link of the first one written with the http scheme, which the resolver's rewrite of https://core.ac.uk links (40 §2.4) leaves alone, so the version row takes the core-hosted branch of 'Download from data provider' (modules/dropdown/index.jsx: the CORE download URL contains core.ac.uk) as production does for every recorded https link"
+    },
+    {
+      "id": "p1-04.e8.works-1710",
+      "kind": "derive",
+      "endpoint": "E8",
+      "browser": true,
+      "from": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:1001",
+          "limit": 5,
+          "resultType": "work"
+        }
+      },
+      "serve": {
+        "method": "POST",
+        "url": "https://api.core.ac.uk/v3/recommend",
+        "body": {
+          "identifier": "core:1710",
+          "limit": 5,
+          "resultType": "work"
+        }
+      },
+      "note": "the similar-works answer of work 1001 for work 1710"
+    }
+  ]
+}

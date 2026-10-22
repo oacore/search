@@ -1,0 +1,2578 @@
+{
+  "schema": 1,
+  "scenario": "req-P1-04",
+  "request": {
+    "method": "POST",
+    "url": "https://api.core.ac.uk/v3/recommend",
+    "bodySha256": "d00e63216aaf62536f2730299a92737a5ccdda70089ee941cf72cde169bce1ce",
+    "bodyText": "{\"identifier\":\"core:1719\",\"limit\":5,\"resultType\":\"work\"}"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:25:38 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": [
+        {
+          "acceptedDate": "",
+          "arxivId": null,
+          "authors": [{ "name": "Climate Council" }],
+          "citationCount": 0,
+          "contributors": [],
+          "outputs": ["https://api.core.ac.uk/v3/outputs/30671329"],
+          "createdDate": "2016-01-05T00:00:00+00:00",
+          "dataProviders": [
+            {
+              "id": 713,
+              "name": "Analysis and Policy Observatory (APO)",
+              "url": "https://api.core.ac.uk/v3/data-providers/713",
+              "logo": "https://api.core.ac.uk/data-providers/713/logo"
+            }
+          ],
+          "depositedDate": "2016-01-05T00:00:00+00:00",
+          "abstract": "This latest Climate Council report provides an update of climate change science, impacts and risks. This report draws from the massive body of evidence that human activities - primarily from the burning of coal, oil and gas - are driving dramatic changes in our climate system. The report outlines how the changing climate poses substantial and escalating risks for health, property, infrastructure, agriculture and natural ecosystems in Australia. Compared to our understanding when the last Critical Decade report was published, the risks of climate change for our well-being now look more serious at lower levels of climate change, strengthening the case for urgent action. Finally, the report describes why it is in Australia’s national interest to play a leadership role in the global move for strong climate action leading up to the Paris climate conference at the end of 2015",
+          "documentType": null,
+          "doi": null,
+          "downloadUrl": "https://core.ac.uk/download/30671329.pdf",
+          "fieldOfStudy": "Report",
+          "id": 19211324,
+          "identifiers": [
+            { "identifier": "30671329", "type": "core_id" },
+            { "identifier": "oai:apo.org.au:56783", "type": "oai_id" },
+            { "identifier": "oai:apo.org.au:56783", "type": "oai" }
+          ],
+          "title": "Climate change 2015: growing risks, critical choices",
+          "language": { "code": "en", "name": "English" },
+          "magId": null,
+          "oaiIds": ["oai:apo.org.au:56783"],
+          "publishedDate": "",
+          "publisher": "Climate Council",
+          "pubmedId": null,
+          "references": [
+            {
+              "id": "19601454",
+              "title": "69 Climate Change 2015: GrowinG risks, CritiCal ChoiCes references ebinger Ck and Zambetakis e (2009) The geopolitics of Arctic melt.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "69 Climate Change 2015: GrowinG risks, CritiCal ChoiCes references ebinger Ck and Zambetakis e (2009) The geopolitics of Arctic melt. International Affairs, 85:1215-1232."
+            },
+            {
+              "id": "19601455",
+              "title": "73 Climate Change 2015: GrowinG risks, CritiCal ChoiCes references Un (United nations) (2014). World Urbanization Prospects: The",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "73 Climate Change 2015: GrowinG risks, CritiCal ChoiCes references Un (United nations) (2014). World Urbanization Prospects: The 2014 revision, highlights (sT/esA/ser.A/352). Department of economic and social Affairs, Population Division). Accessed at http://esa.un.org/unpd/wup/ highlights/WUP2014-highlights.pdf."
+            },
+            {
+              "id": "19601456",
+              "title": "A daily homogenized temperature data set for Australia.",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Trewin B (2013) A daily homogenized temperature data set for Australia. International Journal of Climatology, 33:1510-1529, doi: 10.1002/joc.3530."
+            },
+            {
+              "id": "19601457",
+              "title": "A koala (Phascolarctos Cinereus Goldfuss) population crash during drought and heatwave conditions in south-western Queensland.",
+              "authors": [],
+              "date": "1988",
+              "doi": null,
+              "raw": "Gordon G, Brown A and Pulsford T (1988) A koala (Phascolarctos Cinereus Goldfuss) population crash during drought and heatwave conditions in south-western Queensland. Australian Journal of Ecology, 13:451-461."
+            },
+            {
+              "id": "19601458",
+              "title": "A literature review on the economic, social and environmental impacts of severe bushfires",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "stephenson C (2010) A literature review on the economic, social and environmental impacts of severe bushfires in south-eastern Australia. Fire and Adaptive Management report no. 87. Bushfire CrC."
+            },
+            {
+              "id": "19601459",
+              "title": "A review of historic and future hydrological changes in the Murray Darling Basin. Global and Planetary Change,",
+              "authors": [],
+              "date": "2012",
+              "doi": null,
+              "raw": "leblanc MJ, Tweed so, van Dijk AiJM and Timbal B (2012) A review of historic and future hydrological changes in the Murray Darling Basin. Global and Planetary Change, 80-81: 226–246."
+            },
+            {
+              "id": "19601460",
+              "title": "ABs (Australian Bureau of statistics) (2004) Yearbook Australia 2004—economic impact of Drought in 2002-03. Canberra, Australia: Australian Bureau of statistics;",
+              "authors": [],
+              "date": "2004",
+              "doi": null,
+              "raw": "ABs (Australian Bureau of statistics) (2004) Yearbook Australia 2004—economic impact of Drought in 2002-03. Canberra, Australia: Australian Bureau of statistics; 2004. Accessed at http://www.abs.gov.au/ ausstats/abs@.nsf/0/81A2e2F13AA7994BCA256DeA 00053932?opendocument."
+            },
+            {
+              "id": "19601461",
+              "title": "Accelerating extinction risk from climate change.",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "Urban MC (2015) Accelerating extinction risk from climate change. Science, 348: 371-573."
+            },
+            {
+              "id": "19601462",
+              "title": "Accessed at http:// www.seaci.org/publications/documents/ seACi-1%20 reports/Phase1_synthesisreport.pdf Csiro and BoM",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "Accessed at http:// www.seaci.org/publications/documents/ seACi-1%20 reports/Phase1_synthesisreport.pdf Csiro and BoM (2015) Climate change in Australia: Projections for Australia’s nrM regions. Technical report, 216pp."
+            },
+            {
+              "id": "19601463",
+              "title": "AeM (Australian emergency Management)",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "AeM (Australian emergency Management) (2014) resource – Australian emergency Management knowledge hub. Accessed at https://www.emknowledge.gov.au/ resource/?id=345."
+            },
+            {
+              "id": "19601464",
+              "title": "Air pollution from bushfires and out of hospital cardiac arrests in Melbourne Australia.",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "Dennekamp M, erbas B, sim M, Glass D, keywood M, Abramson M and Tonkin A (2011) Air pollution from bushfires and out of hospital cardiac arrests in Melbourne Australia. Epidemiology, 22:53."
+            },
+            {
+              "id": "19601465",
+              "title": "Air pollution from bushfires and their association with hospital admissions in sydney, newcastle and Wollongong,",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Martin kl, hanigan iC, Morgan GG, henderson sB, Johnston Fh (2013) Air pollution from bushfires and their association with hospital admissions in sydney, newcastle and Wollongong, Australia 1994–2007. Australian and New Zealand Journal of Public Health, 37:238-243."
+            },
+            {
+              "id": "19601466",
+              "title": "Alexander lV, Allen sk, Bindoff nl, Bréon FM,",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "stocker TF, Qin D, Plattner Gk, Alexander lV, Allen sk, Bindoff nl, Bréon FM, Church JA, Cubasch U, emori s, Forster P, Friedlingstein P, Gillett n, Gregory JM, hartmann Dl, Jansen e, kirtman B, knutti r, krishna kumar k, lemke P, Marotzke J, Masson-Delmotte V, Meehl GA, Mokhov ii, Piao s, ramaswamy V, randall D, rhein M, rojas M, sabine C, shindell D, Talley lD, Vaughan DG and Xie sP (2013) Technical summary. in: Climate Change 2013: The Physical science Basis. Contribution of Working Group i to the Fifth Assessment report of the intergovernmental Panel on Climate Change [stocker, T.F., D. Qin, G.-k. Plattner, M. Tignor, s.k. Allen, J. Boschung, A. nauels, Y. Xia, V. Bex and P.M. Midgley (eds.)]. Cambridge University Press, Cambridge, United kingdom and new York, nY, UsA, pp."
+            },
+            {
+              "id": "19601467",
+              "title": "An overview of fatalities from some natural hazards.",
+              "authors": [],
+              "date": "1996",
+              "doi": null,
+              "raw": "Coates l (1996) An overview of fatalities from some natural hazards. Proceedings, nDr96 conference on natural disaster reduction, Gold Coast, 29 september - 2 october."
+            },
+            {
+              "id": "19601468",
+              "title": "and o’neill sJ (2012) islands, resettlement and adaptation.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Barnett J and o’neill sJ (2012) islands, resettlement and adaptation. Nature Climate Change, 2: 8–10."
+            },
+            {
+              "id": "19601469",
+              "title": "and stain hJ (2012) Mental health impact for adolescents living with prolonged drought.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Dean JG and stain hJ (2012) Mental health impact for adolescents living with prolonged drought. Australian Journal of Rural Health 18: 32–37."
+            },
+            {
+              "id": "19601470",
+              "title": "Annual report 2012–13. Accessed at http://www.melbournewater.com.au/ aboutus/ reportsandpublications/Annual-report/",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Melbourne Water (2013) Annual report 2012–13. Accessed at http://www.melbournewater.com.au/ aboutus/ reportsandpublications/Annual-report/ Documents/2013_ Annual_report.pdf."
+            },
+            {
+              "id": "19601471",
+              "title": "Ash Wednesday: the effect of a fire.",
+              "authors": [],
+              "date": "1984",
+              "doi": null,
+              "raw": "McFarlane AC and raphael B (1984) Ash Wednesday: the effect of a fire. Australian and New Zealand Journal of Psychiatry,18:341–51."
+            },
+            {
+              "id": "19601472",
+              "title": "Assessment of heatrelated health impacts in Brisbane, Australia: comparison of different heatwave definitions. Plos one 5:e12155.",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "Tong s, Wang XY and Barnett AG (2010) Assessment of heatrelated health impacts in Brisbane, Australia: comparison of different heatwave definitions. Plos one 5:e12155."
+            },
+            {
+              "id": "19601473",
+              "title": "Australia’s biodiversity and climate change.",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "steffen W, Burbidge A, hughes l, kitching r, lindenmayer D, Musgrave W, stafford smith M and Werner P (2009) Australia’s biodiversity and climate change. Csiro: Collingwood."
+            },
+            {
+              "id": "19601474",
+              "title": "Australia’s country towns 2050: What will a climate adapted settlement pattern look like? national Climate Change Adaptation research Facility,",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Beer A, Tually s, kroehn M, Martin J, Gerritsen r, Taylor M, Grimier M and law J (2013) Australia’s country towns 2050: What will a climate adapted settlement pattern look like? national Climate Change Adaptation research Facility, Gold Coast, 139 pp."
+            },
+            {
+              "id": "19601475",
+              "title": "Australia’s dengue risk driven by human adaptation to climate change. PLoS Neglected Tropical Diseases 3(5): e429,",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "Beebe nW, Cooper rD, Mottram P and sweenet AW (2009) Australia’s dengue risk driven by human adaptation to climate change. PLoS Neglected Tropical Diseases 3(5): e429, doi:10.1371/journal.pntd.0000429."
+            },
+            {
+              "id": "19601476",
+              "title": "Australian Defence Force completes Philippines recovery operation. Department of Defence. Accessed at http://news.defence.gov.",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Australian Government (2013) Australian Defence Force completes Philippines recovery operation. Department of Defence. Accessed at http://news.defence.gov. au/2013/12/18/australian-defence-force-completesphilippines-recovery-operation/."
+            },
+            {
+              "id": "19601477",
+              "title": "Australian national accounts, national income, expenditure and product,",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "ABs (2011) Australian national accounts, national income, expenditure and product, Cat. nos. 5204.0 and 5206.0."
+            },
+            {
+              "id": "19601478",
+              "title": "Australian sea levels— trends, regional variability and influencing factors, Earth Science Reviews,136:",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "White nJ, haigh iD, Church JA, koen T, Watson Cs, Pritchard Tr, Watson PJ, Burgette rJ, Mcinnes kl, You Z-J, Zhang X and Tregoning P (2014) Australian sea levels— trends, regional variability and influencing factors, Earth Science Reviews,136: 155–174, doi:10.1016/j.earscirev.20."
+            },
+            {
+              "id": "19601479",
+              "title": "Australian Wine Grape Production Projections to 2011-12, ABAre research report 10.4 for the Grape and Wine research and Development Corporation,",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "Gunning-Trant C (2010) Australian Wine Grape Production Projections to 2011-12, ABAre research report 10.4 for the Grape and Wine research and Development Corporation, Canberra."
+            },
+            {
+              "id": "19601480",
+              "title": "Banks sC (2011) newly discovered landscape traps produce regime shifts in wet forests.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "lindenmayer DB, hobbs rJ, likens Ge, krebs CJ, Banks sC (2011) newly discovered landscape traps produce regime shifts in wet forests. Proceedings of the National Academy of Sciences, 108:15887-15891."
+            },
+            {
+              "id": "19601481",
+              "title": "Be Prepared: climate change and the Australian bushfire threat. hughes l. Accessed at http://www.climatecouncil.org.au/uploads/ c597d19c0ab18366cfbf7b9f6235ef7c.pdf.",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Climate Council (2013) Be Prepared: climate change and the Australian bushfire threat. hughes l. Accessed at http://www.climatecouncil.org.au/uploads/ c597d19c0ab18366cfbf7b9f6235ef7c.pdf."
+            },
+            {
+              "id": "19601482",
+              "title": "Bennett s and rousseaux Cs",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Wernberg T, smale DA, Tuya F, Thomsen Ms , langlois TJ, de Bettignies T, Bennett s and rousseaux Cs (2013) An extreme climatic event alters marine ecosystem structure in a global biodiversity hotspot. Nature Climate Change, 3:78-82."
+            },
+            {
+              "id": "19601483",
+              "title": "Bergin A and Garnsey e (2013) heavy Weather: Climate and the Australian Defence Force. Canberra: Australian strategic Policy institute.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Press A, Bergin A and Garnsey e (2013) heavy Weather: Climate and the Australian Defence Force. Canberra: Australian strategic Policy institute."
+            },
+            {
+              "id": "19601484",
+              "title": "BoM (2014a) state of the Climate. Bureau of Meteorology.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "BoM (2014a) state of the Climate. Bureau of Meteorology. Commonwealth of Australia."
+            },
+            {
+              "id": "19601485",
+              "title": "Bushfires: are we doing enough to reduce the human impact?",
+              "authors": [],
+              "date": "2002",
+              "doi": null,
+              "raw": "sim M (2002) Bushfires: are we doing enough to reduce the human impact? Occupational and Environmental Medicine, 59: 215-216."
+            },
+            {
+              "id": "19601486",
+              "title": "Carbon and other Biogeochemical Cycles. in: Climate Change 2013: The Physical science Basis. Contribution of Working Group i to the Fifth Assessment report of the intergovernmental Panel on Climate Change [stocker",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Ciais P, sabine C, Bala G, Bopp l, Brovkin V, Canadell J, Chhabra A, DeFries r, Galloway J, heimann M, Jones C, le Quéré C, Myneni rB, Piao s and Thornton P (2013) Carbon and other Biogeochemical Cycles. in: Climate Change 2013: The Physical science Basis. Contribution of Working Group i to the Fifth Assessment report of the intergovernmental Panel on Climate Change [stocker TF, Qin D, Plattner Gk, Tignor M, Allen sk, Boschung J, nauels A, Xia Y, Bex V and Midgley PM (eds)]. Cambridge University Press, Cambridge, United kingdom and new York, nY, pp."
+            },
+            {
+              "id": "19601487",
+              "title": "CD and hanigan i (2006) inter-annual rainfall variations and suicide in new south Wales,",
+              "authors": [],
+              "date": "1964",
+              "doi": null,
+              "raw": "nicholls n, Butler CD and hanigan i (2006) inter-annual rainfall variations and suicide in new south Wales, 1964-2001. International Journal of Biometeorology, 50: 139-143."
+            },
+            {
+              "id": "19601488",
+              "title": "Chambers le and keatley Mr",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "Beaumont lJ, hartenthaler T, Chambers le and keatley Mr (2015) shifting time: recent changes to the phenology of Australian species. Climate Research 63: 203-214."
+            },
+            {
+              "id": "19601489",
+              "title": "Clementson l and lyne V",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "kelly P, Clementson l and lyne V (2015) Decadal and seasonal changes in temperature, salinity, nitrate, and chlorophyll in inshore and offshore waters along southeast Australia. Journal of Geophysical Research oceans, 120: 4226-4244."
+            },
+            {
+              "id": "19601490",
+              "title": "Climate and human migration: past experiences, future challenges.",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Mcleman rA (2013) Climate and human migration: past experiences, future challenges. Cambridge University Press, Cambridge."
+            },
+            {
+              "id": "19601491",
+              "title": "Climate Change 2014: impacts, Adaptation, and Vulnerability. Part A: Global and sectoral Aspects. Contribution of Working Group ii to the Fifth Assessment report of the intergovernmental Panel on Climate Change",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "iPCC (2014) Climate Change 2014: impacts, Adaptation, and Vulnerability. Part A: Global and sectoral Aspects. Contribution of Working Group ii to the Fifth Assessment report of the intergovernmental Panel on Climate Change [Field, C.B., V.r. Barros, D.J. Dokken, k.J. Mach, M.D. Mastrandrea, e.T. Bilir, M. Chatterjee, k.l. ebi, Y.o. estrada, r.C. Genova, B. Girma, e.s. kissel, A.n. levy, s. MacCracken, P.r. Mastrandrea and l.l.White (eds.)]."
+            },
+            {
+              "id": "19601492",
+              "title": "Climate Change Adaptation roadmap. Washington: office of the Deputy Under secretary of Defense for installations and environment;",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "U.s. Department of Defense (2014) Climate Change Adaptation roadmap. Washington: office of the Deputy Under secretary of Defense for installations and environment; 2014 June. Accessed at: http://www.acq.osd. mil/ie/download/CCArprint_wForward_e%202015.pdf."
+            },
+            {
+              "id": "19601493",
+              "title": "Climate change and Australia: key vulnerable regions.",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "hughes l (2011) Climate change and Australia: key vulnerable regions. Regional Environmental Change, 11: 189-195."
+            },
+            {
+              "id": "19601494",
+              "title": "Climate change and health: impacts, vulnerability, adaptation and mitigation.",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "kjellstrom T and Weaver hJ (2009) Climate change and health: impacts, vulnerability, adaptation and mitigation."
+            },
+            {
+              "id": "19601495",
+              "title": "Climate change effects on WA grain production. Western Australian Agriculture Authority, Perth. Accessed at http://www.agric. wa.gov.au/objtwr/ imported_assets/content/lwe/cli/ climatechangeandgrains.",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "van Gool D (2009) Climate change effects on WA grain production. Western Australian Agriculture Authority, Perth. Accessed at http://www.agric. wa.gov.au/objtwr/ imported_assets/content/lwe/cli/ climatechangeandgrains. pdf."
+            },
+            {
+              "id": "19601496",
+              "title": "Climate Change risks to Australia’s Coast: A First Pass national Assessment, DCC, Canberra. Accessed at http://www. climatechange.gov.au/sites/climatechange/files/",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "DCC (Department of Climate Change) (2009) Climate Change risks to Australia’s Coast: A First Pass national Assessment, DCC, Canberra. Accessed at http://www. climatechange.gov.au/sites/climatechange/files/ documents/03_2013/cc-risks-full-report.pdf."
+            },
+            {
+              "id": "19601497",
+              "title": "Climate change threats to population health and well-being: the imperative of protective solutions that will last.",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "kjellstrom T and McMichael AJ (2013) Climate change threats to population health and well-being: the imperative of protective solutions that will last. Global health Action 6, doi: 10.3402/gha.v6i0.20816."
+            },
+            {
+              "id": "19601498",
+              "title": "Climate change through the farming systems lens: challenges and opportunities for farming in Australia. Crop and Pasture Science,",
+              "authors": [],
+              "date": "2012",
+              "doi": null,
+              "raw": "hayman P, rickards l, eckard r, and lemerle D (2012) Climate change through the farming systems lens: challenges and opportunities for farming in Australia. Crop and Pasture Science, 63:203–214."
+            },
+            {
+              "id": "19601499",
+              "title": "Climate Change, human security and Violent Conflict. Political Geography,",
+              "authors": [],
+              "date": "2007",
+              "doi": null,
+              "raw": "Barnett J and Adger Wn (2007) Climate Change, human security and Violent Conflict. Political Geography, 639-655."
+            },
+            {
+              "id": "19601500",
+              "title": "Climate Change: impacts on Australian agriculture.",
+              "authors": [],
+              "date": "2007",
+              "doi": null,
+              "raw": "Gunasekera D, kim Y, Tulloh C and Ford M (2007) Climate Change: impacts on Australian agriculture. Australian Commodities 14: 657-676."
+            },
+            {
+              "id": "19601501",
+              "title": "Climate Council (2014a) Counting the Costs: Climate Change and Coastal Flooding. steffen W, hunter J and hughes l. Accessed at https://www.climatecouncil.org.au/ coastalflooding.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Climate Council (2014a) Counting the Costs: Climate Change and Coastal Flooding. steffen W, hunter J and hughes l. Accessed at https://www.climatecouncil.org.au/ coastalflooding."
+            },
+            {
+              "id": "19601502",
+              "title": "Climate Council (2014b) heatwaves: hotter, longer and more often. hughes l and steffen W. Accessed at http:// and the accelerating risks of climate change.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Climate Council (2014b) heatwaves: hotter, longer and more often. hughes l and steffen W. Accessed at http:// and the accelerating risks of climate change."
+            },
+            {
+              "id": "19601503",
+              "title": "Comparing the role of absolute sea-level rise and vertical tectonic motions in coastal flooding, Torres islands (Vanuatu).",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "Ballu V, Bouinc M, siméonid P, Crawford WC, Calmante s, Boréf J, kanasg T and Pelletiera B (2011) Comparing the role of absolute sea-level rise and vertical tectonic motions in coastal flooding, Torres islands (Vanuatu). Proceedings ofthe National Academy of Sciences of the United States of America, 108(32): 13019-13022."
+            },
+            {
+              "id": "19601504",
+              "title": "Coral reefs and sealevel change.",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "Woodroffe CD and Webster JM (2014) Coral reefs and sealevel change. Marine Geology, 352: 248–267."
+            },
+            {
+              "id": "19601505",
+              "title": "Correlative and mechanistic models of species distribution provide congruent forecasts under climate change.",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "kearney, Mr, Wintle BA and Porter WP (2010). Correlative and mechanistic models of species distribution provide congruent forecasts under climate change. Conservation Letters, 3(3): 203-213."
+            },
+            {
+              "id": "19601506",
+              "title": "Csiro (Commonwealth scientific and industrial research organisation) (2010) Climate variability and change in south-eastern Australia: A synthesis of findings from Phase 1 of the south eastern Australian Climate initiative (seACi).",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Csiro (Commonwealth scientific and industrial research organisation) (2010) Climate variability and change in south-eastern Australia: A synthesis of findings from Phase 1 of the south eastern Australian Climate initiative (seACi)."
+            },
+            {
+              "id": "19601507",
+              "title": "Dear k, Woodruff r, hanigan i and McMichael A",
+              "authors": [],
+              "date": "2008",
+              "doi": null,
+              "raw": "Bambrick h, Dear k, Woodruff r, hanigan i and McMichael A (2008) The impacts of Climate Change on Three health outcomes: Temperature-related Mortality and hospitalisations, salmonellosis and other Bacterial Gastroenteritis, and Population at risk From Dengue. Cambridge, Uk: Cambridge University Press."
+            },
+            {
+              "id": "19601508",
+              "title": "Declining coral calcification in massive Porites in two nearshore regions of the northern Great Barrier reef.",
+              "authors": [],
+              "date": "2008",
+              "doi": null,
+              "raw": "Cooper TF, De’ath G, Fabricius ke and lough JM (2008) Declining coral calcification in massive Porites in two nearshore regions of the northern Great Barrier reef. Global Change Biology, 14(3): 529-538."
+            },
+            {
+              "id": "19601509",
+              "title": "Defining heatwaves: heatwave defined as a heat-impact even servicing all community and business sectors",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "nairn J and Fawcett r (2013) Defining heatwaves: heatwave defined as a heat-impact even servicing all community and business sectors in Australia. CAWCr Technical report, no. 060. Csiro and Australian Bureau of Meteorology, p 96."
+            },
+            {
+              "id": "19601510",
+              "title": "Demidova n, lim Jh, Allard G, running sW, semerci A and Cobb n (2010) A global overview of drought and heatinduced tree mortality reveals emerging climate change risks for forests. Forest Ecology and Management,",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Allen CD, Macalady Ak, Chenchouni h, Bachelet D, McDowell n, Vennetier M, kitzberger T, rigling A, Breshears DD, hogg eG, Gonzalez P, Fensham r, Zhang Z, Castro J, Demidova n, lim Jh, Allard G, running sW, semerci A and Cobb n (2010) A global overview of drought and heatinduced tree mortality reveals emerging climate change risks for forests. Forest Ecology and Management, 259(4): 660-684."
+            },
+            {
+              "id": "19601511",
+              "title": "Dengue and climate change in Australia: predictions for the future should incorporate knowledge from the past.",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "russell rC, Currie BJ, lindsay MD, Mackenzie Js, ritchie sA and Whelan Pi (2009) Dengue and climate change in Australia: predictions for the future should incorporate knowledge from the past. Medical Journal of Australia, 190(5): 265-268."
+            },
+            {
+              "id": "19601512",
+              "title": "Dengue: Australia’s other pandemic.",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "ritchie sA (2009) Dengue: Australia’s other pandemic. Microbiology Australia, 30(4): 114-117."
+            },
+            {
+              "id": "19601513",
+              "title": "Dhs (Department of human services)",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "Dhs (Department of human services) (2009) January 2009 heatwave in Victoria: an Assessment of health impacts."
+            },
+            {
+              "id": "19601514",
+              "title": "Disaster relief Funding Activated Following Cyclone ingrid. Queensland Disaster Management. Accessed at: http://www.disaster.qld.gov.au/ news/ view.asp?id=1024.",
+              "authors": [],
+              "date": "2005",
+              "doi": null,
+              "raw": "Queensland Government (2005) Disaster relief Funding Activated Following Cyclone ingrid. Queensland Disaster Management. Accessed at: http://www.disaster.qld.gov.au/ news/ view.asp?id=1024."
+            },
+            {
+              "id": "19601515",
+              "title": "Disaster response and climate change in the Pacific, national Climate Change Adaptation research Facility,",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Gero A, Fletcher sM, rumsey M, Thiessen, J, kuruppu n, Buchan J, Daly J and Willetts J (2013) Disaster response and climate change in the Pacific, national Climate Change Adaptation research Facility, Gold Coast, 203 pp."
+            },
+            {
+              "id": "19601516",
+              "title": "Droughtinduced tree death in savanna.",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "Fensham rJ, Fairfax rJ and Ward DP (2009) Droughtinduced tree death in savanna. Global Change Biology, 15(2): 380-387."
+            },
+            {
+              "id": "19601517",
+              "title": "Dynamics of seasonal outbreaks of black band disease in an assemblage of Montipora species at Pelorus island (Great Barrier reef,",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "sato Y, Bourne DG and Willis Bl (2009) Dynamics of seasonal outbreaks of black band disease in an assemblage of Montipora species at Pelorus island (Great Barrier reef, Australia). Proceedings of the Royal Society B, 276(1668): 2795-2803."
+            },
+            {
+              "id": "19601518",
+              "title": "east Coast lows and the newcastle/Central Coast Pasha Bulker storm, national Climate Change Adaptation research Facility,",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "Verdon-kidd D, kiem As, Willgoose G and haines P (2010) east Coast lows and the newcastle/Central Coast Pasha Bulker storm, national Climate Change Adaptation research Facility, Gold Coast, 61pp."
+            },
+            {
+              "id": "19601519",
+              "title": "ecomigration and Violent Conflict: Case studies and Public Policy implications.",
+              "authors": [],
+              "date": "2008",
+              "doi": null,
+              "raw": "reuveny r (2008) ecomigration and Violent Conflict: Case studies and Public Policy implications. Human Ecology, 36: 1-13."
+            },
+            {
+              "id": "19601520",
+              "title": "Farmers’ Federation",
+              "authors": [],
+              "date": "2008",
+              "doi": null,
+              "raw": "QFF (Queensland Farmers’ Federation) (2008) A farmer’s guide to climate change in Queensland. Accessed at http://qff.org.au/wp-content/uploads/2011/10/ ClimateChangereport_lowres1.pdf."
+            },
+            {
+              "id": "19601521",
+              "title": "Feeling the heat: Australian landbirds and climate change. emu 112:i-vii.",
+              "authors": [],
+              "date": "2012",
+              "doi": null,
+              "raw": "Mckechnie Ae, hockey PA and Wolf Bo (2012) Feeling the heat: Australian landbirds and climate change. emu 112:i-vii."
+            },
+            {
+              "id": "19601522",
+              "title": "Floods Commission of inquiry) (2012) Queensland Floods Commission of inquiry: Final report. Accessed at http://www.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "QFCi (Queensland Floods Commission of inquiry) (2012) Queensland Floods Commission of inquiry: Final report. Accessed at http://www. floodcommission.qld.gov."
+            },
+            {
+              "id": "19601523",
+              "title": "Food or consequences: food security and its implications for global sociopolitical stability. in: Food security and sociopolitical stability",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Barrett CB (2013) Food or consequences: food security and its implications for global sociopolitical stability. in: Food security and sociopolitical stability [Barrett CB (ed.)]. oxford University Press, oxford, Uk, pp 1-34."
+            },
+            {
+              "id": "19601524",
+              "title": "Frusher s and king Ck",
+              "authors": [],
+              "date": "2008",
+              "doi": null,
+              "raw": "ling sD, Johnson Cr, Frusher s and king Ck (2008) reproductive potential of a marine ecosystem engineer at the edge of a newly expanded range. Global Change Biology, 14(4): 907-915."
+            },
+            {
+              "id": "19601525",
+              "title": "Future flood losses in major coastal cities.",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "hallegatte s, Green C, nicholls rJ and Corfee-Morlot J (2013) Future flood losses in major coastal cities. Nature Climate Change, 3(9): 802-806."
+            },
+            {
+              "id": "19601526",
+              "title": "Future potential losses from extremes under climate change: the case of Victoria, Australia. VCCCAr Project: Framing Adaptation in the Victorian Context, Working Paper Victorian Centre for Climate Change Adaptation research,",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "keating A and handmer J (2013) Future potential losses from extremes under climate change: the case of Victoria, Australia. VCCCAr Project: Framing Adaptation in the Victorian Context, Working Paper Victorian Centre for Climate Change Adaptation research, Melbourne."
+            },
+            {
+              "id": "19601527",
+              "title": "GDP growth (annual %). Accessed at http://data.worldbank.org/indicator/nY.GDP.",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "World Bank (2015) GDP growth (annual %). Accessed at http://data.worldbank.org/indicator/nY.GDP. MkTP. kD.ZG?page=1."
+            },
+            {
+              "id": "19601528",
+              "title": "Godwin s, smith sDA and Pereg l (2010) Australian subtropical white syndrome: a transmissible, temperature-dependent coral disease.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Dalton sJ, Godwin s, smith sDA and Pereg l (2010) Australian subtropical white syndrome: a transmissible, temperature-dependent coral disease. Marine and Freshwater Research, 61(3): 342-350."
+            },
+            {
+              "id": "19601529",
+              "title": "Good r and Green k (2004) Potential effects of global warming on the biota of the Australian Alps. Australian Greenhouse office,",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Pickering CM, Good r and Green k (2004) Potential effects of global warming on the biota of the Australian Alps. Australian Greenhouse office, Canberra."
+            },
+            {
+              "id": "19601530",
+              "title": "Government",
+              "authors": [],
+              "date": "2005",
+              "doi": null,
+              "raw": "northern Territory Government (2005) Disaster relief Activated for Cyclone ingrid Damage. Media release. Accessed at http://www. territorystories. nt.gov.au/bitstream/ handle/10070/77428/20050402_ sydCycloneingridnDrA. pdf?sequence=2&isAllowed=y."
+            },
+            {
+              "id": "19601531",
+              "title": "Government Department of human services.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Melbourne: Victorian Government Department of human services. Accessed at http://docs.health.vic.gov.au/docs/ doc/ January-2009-heatwave-in-Victoria:-an-Assessmentof- health-impacts."
+            },
+            {
+              "id": "19601532",
+              "title": "hales s, Béguin A, louis V and sauerborn r (2012) Potential distribution of dengue fever under scenarios of climate change and economic development.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Åström C, rocklöv J, hales s, Béguin A, louis V and sauerborn r (2012) Potential distribution of dengue fever under scenarios of climate change and economic development. EcoHealth, 9, 448-454."
+            },
+            {
+              "id": "19601533",
+              "title": "hennessy kJ, York A et al.",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "Williams rJ, Bradstock rA, Cary GJ, enright nJ, Gill AM, liedloff AC, lucas C, Whelan rJ, Anderson An, Bowman DJMs, Clarke PJ, Cook GD, hennessy kJ, York A et al. (2009) interactions between climate change, fire regimes and biodiversity in Australia—a preliminary assessment. report to the Department of Climate Change and Department of the environment, Water, heritage and the Arts, Canberra, 214 pp."
+            },
+            {
+              "id": "19601534",
+              "title": "hoegh-Guldberg o (2011) Coral reef ecosystems and anthropogenic climate change. regional environmental",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "hoegh-Guldberg o (2011) Coral reef ecosystems and anthropogenic climate change. regional environmental Change, 11: 215–227."
+            },
+            {
+              "id": "19601535",
+              "title": "iCA (insurance Council of Australia)",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "iCA (insurance Council of Australia) (2013) historical Disaster statistics. Accessed at http://www. insurancecouncil.com.au/industry-statistics-data/disasterstatistics/historical-disaster-statistics."
+            },
+            {
+              "id": "19601536",
+              "title": "impacts and adaptation response of infrastructure and communities to heatwaves: The southern Australian experience of 2009. report for the national Climate Change Adaptation research Facility,",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "QUT (Queensland University of Technology) (2010) impacts and adaptation response of infrastructure and communities to heatwaves: The southern Australian experience of 2009. report for the national Climate Change Adaptation research Facility, Gold Coast, Australia; 2010. Accessed at: http://www.nccarf.edu.au/sites/default/files/ FinAl%205-heatwaves%282%29.pdf."
+            },
+            {
+              "id": "19601537",
+              "title": "impacts, Adaptation and Vulnerability. Contribution of Working Group ii to the Fourth Assessment report of the intergovernmental",
+              "authors": [],
+              "date": "2007",
+              "doi": null,
+              "raw": "iPCC (intergovernmental Panel on Climate Change) (2007) Climate Change 2007: impacts, Adaptation and Vulnerability. Contribution of Working Group ii to the Fourth Assessment report of the intergovernmental Panel on Climate Change [M.l. Parry, o.F. Canziani, J.P. Palutikof, P.J. van der linden and C.e. hanson, (eds.)]. Cambridge University Press, Cambridge, Uk, 976pp."
+            },
+            {
+              "id": "19601538",
+              "title": "ioCi (indian ocean Climate initiative)",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "ioCi (indian ocean Climate initiative) (2011) Accessed at http://ioci.org.au/publications/ioci-stage-3/cat_view/17-ioci-stage-3/46-briefings.html."
+            },
+            {
+              "id": "19601539",
+              "title": "kartiki k (2011) Climate change and migration: a case study from rural Bangladesh.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "kartiki k (2011) Climate change and migration: a case study from rural Bangladesh. Gender & Development, 19(1): 23-38."
+            },
+            {
+              "id": "19601540",
+              "title": "king D and Woodruff r (2011) Climate change and Australian agriculture: a review of the threats facing rural communities and the healthy policy landscape. Asia Pacific",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "hanna eG, Bell e, king D and Woodruff r (2011) Climate change and Australian agriculture: a review of the threats facing rural communities and the healthy policy landscape. Asia Pacific Journal of Public Health 105s-18."
+            },
+            {
+              "id": "19601541",
+              "title": "kingdom and new",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "rhein M, rintoul sr, Aoki s, Campos e, Chambers D, Feely rA, Gulev s, Johnson GC, Josey sA, kostianoy A, Mauritzen C, roemmich D, Talley lD and Wang F (2013) observations: ocean. in: Climate Change 2013: The Physical science Basis. Contribution of Working Group i to the Fifth Assessment report of the intergovernmental Panel on Climate Change [stocker, T.F., D. Qin, G.-k. Plattner, M. Tignor, s.k. Allen, J. Boschung, A. nauels,Y. Xia, V. Bex and P.M. Midgley (eds.)]. Cambridge University Press, Cambridge, United kingdom and new York, nY, UsA, pp."
+            },
+            {
+              "id": "19601542",
+              "title": "klose sM, Markus n and eby P",
+              "authors": [],
+              "date": "2008",
+              "doi": null,
+              "raw": "Welbergen JA, klose sM, Markus n and eby P (2008) Climate change and the effects of temperature extremes on Australian flying-foxes. Proceedings of the royal society B: Biological Sciences, 275:419-425."
+            },
+            {
+              "id": "19601543",
+              "title": "kokic Pn and hutchinson MF (2012) suicide and drought in new south",
+              "authors": [],
+              "date": "1970",
+              "doi": null,
+              "raw": "hanigan iC, Butler CD, kokic Pn and hutchinson MF (2012) suicide and drought in new south Wales, Australia, 1970– 2007. Proceedings of the national Academy of sciences, 109:13950–13955."
+            },
+            {
+              "id": "19601544",
+              "title": "late 20th century mangrove encroachment in the coastal Australian monsoon tropics parallels the regional increase in woody biomass. Regional Environmental Change,",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "Williamson GT, Boggs Gs and Bowman D (2011) late 20th century mangrove encroachment in the coastal Australian monsoon tropics parallels the regional increase in woody biomass. Regional Environmental Change, 11:19–27."
+            },
+            {
+              "id": "19601545",
+              "title": "limitations to thermoregulation and acclimatisation challenges human adaptation to global warming.",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "hanna eG and Tait PW (2015) limitations to thermoregulation and acclimatisation challenges human adaptation to global warming. International Journal of Environmental Research on Public Health 12: 8034-8074."
+            },
+            {
+              "id": "19601546",
+              "title": "long-term shifts in abundance and distribution of a temperate fish fauna: a response to climate change and fishing practices.",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "last Pr, White WT, Gledhill DC, hobday AJ, Brown r, edgar GJ and Pecl G (2011) long-term shifts in abundance and distribution of a temperate fish fauna: a response to climate change and fishing practices. Global Ecology and Biogeography, 20(1): 58-72."
+            },
+            {
+              "id": "19601547",
+              "title": "lough JM and Fabricius ke (2009) Declining coral calcification on the Great Barrier reef.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "De’ath G, lough JM and Fabricius ke (2009) Declining coral calcification on the Great Barrier reef. Science, 323:116-119."
+            },
+            {
+              "id": "19601548",
+              "title": "Magadza ChD, Fussel h-M, Pittock AB, rahman A, suarez A and van Ypersele J-P",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "smith JB, schneider sh, oppenheimer M, Yohe GW, hare W, Mastrandrea MD, Patwardhan A, Burton i, Corfee-Morlot J, Magadza ChD, Fussel h-M, Pittock AB, rahman A, suarez A and van Ypersele J-P (2009). Assessing dangerous climate change through an update of the intergovernmental Panel on Climate Change (iPCC) “reasons for concern”."
+            },
+            {
+              "id": "19601549",
+              "title": "Managing the risks of extreme events and disasters to advance climate change adaptation. A special report of Working Groups i and ii of the intergovernmental Panel on Climate Change",
+              "authors": [],
+              "date": "2012",
+              "doi": null,
+              "raw": "iPCC (2012) Managing the risks of extreme events and disasters to advance climate change adaptation. A special report of Working Groups i and ii of the intergovernmental Panel on Climate Change [Field, C.B., Barros, V., stocker, T.F., Qin, D., Dokken, D.J., ebi, k.l., Mastrandrea, M.D., Mach, k.J., Plattner, G.k., Allen, s.k., Tignor, M., and Midgley, P.M. (eds.)]. Cambridge University Press: Cambridge, Uk, and new York, UsA."
+            },
+            {
+              "id": "19601550",
+              "title": "McFallan s and Meharg s (2010) Coastal inundation under climate change: a case study in south east Queensland. Csiro Climate Adaptation Flagship Working paper no. 6. Accessed at http://www.csiro.au/resources/ CAF-workingpapers.html.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Wang X, stafford smith M, McAllister rrJ, leitch A, McFallan s and Meharg s (2010) Coastal inundation under climate change: a case study in south east Queensland. Csiro Climate Adaptation Flagship Working paper no. 6. Accessed at http://www.csiro.au/resources/ CAF-workingpapers.html."
+            },
+            {
+              "id": "19601551",
+              "title": "McGregor Gr and Paldy A",
+              "authors": [],
+              "date": "2007",
+              "doi": null,
+              "raw": "Gosling sn, McGregor Gr and Páldy A (2007) Climate change and heat-related mortality in six cities Part 1: model construction and validation. International journal of Biometeorology, 51:525-540."
+            },
+            {
+              "id": "19601552",
+              "title": "Mcinnes kl and White nJ (2006) sea-level rise around the Australian coastline and the changing frequency of extreme sea-level events,",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Church JA, hunter Jr, Mcinnes kl and White nJ (2006) sea-level rise around the Australian coastline and the changing frequency of extreme sea-level events, Australian Meteorological Magazine 55: 253–260."
+            },
+            {
+              "id": "19601553",
+              "title": "Mcleod r and Pascoe s (2010) Victoria Bushfires royal Commission.",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "Teague B, Mcleod r and Pascoe s (2010) Victoria Bushfires royal Commission. 2009 Victorian Bushfires royal Commission: Final report: Government Printer, south Africa, 2010."
+            },
+            {
+              "id": "19601554",
+              "title": "Meinshausen n, hare W, raper sC, Frieler k, knutti r, Frame DJ and Allen Mr",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "Meinshausen M, Meinshausen n, hare W, raper sC, Frieler k, knutti r, Frame DJ and Allen Mr (2009) Greenhouse-gas emission targets for limiting global warming to 2°C. Nature, 458(7242): 1158–1162."
+            },
+            {
+              "id": "19601555",
+              "title": "Melbourne Water Use. The Victorian Government. Accessed at http:// www. melbournewater.com.au/waterdata/wateruse/Pages/ default.aspx.",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "Melbourne Water (2014) Melbourne Water Use. The Victorian Government. Accessed at http:// www. melbournewater.com.au/waterdata/wateruse/Pages/ default.aspx."
+            },
+            {
+              "id": "19601556",
+              "title": "Migration and displacement triggered by floods in the Mekong Delta.",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "Dun o (2011) Migration and displacement triggered by floods in the Mekong Delta. International Migration, 49."
+            },
+            {
+              "id": "19601557",
+              "title": "Modelling drought and recovery in the southern Murray- Darling basin.",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "Wittwer G and Griffith M (2011) Modelling drought and recovery in the southern Murray- Darling basin. Australian Journal of Agricultural and Resource Economics, 55(3): 342–359."
+            },
+            {
+              "id": "19601558",
+              "title": "Morrell s and Taylor r (2002) suicide and political regime",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Page A, Morrell s and Taylor r (2002) suicide and political regime in new south Wales and Australia during the 20th century. Journal of Epidemiology and Community Health, 56:766–772."
+            },
+            {
+              "id": "19601559",
+              "title": "national oceanic and Atmospheric Administration (noAA) (2015) national Centers for environmental information, state of the Climate: Global Analysis for Annual 2014. Accessed at http://www.ncdc.noaa.gov/sotc/global/201413.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "national oceanic and Atmospheric Administration (noAA) (2015) national Centers for environmental information, state of the Climate: Global Analysis for Annual 2014. Accessed at http://www.ncdc.noaa.gov/sotc/global/201413."
+            },
+            {
+              "id": "19601560",
+              "title": "nicholls n (2005) Climate variability, climate change and the Australian snow season. Australian Meteorological Magazine,",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "nicholls n (2005) Climate variability, climate change and the Australian snow season. Australian Meteorological Magazine, 54:177–185."
+            },
+            {
+              "id": "19601561",
+              "title": "nicholls rJ, Tol rs, Marzeion B, Fettweis X, ionescu C and levermann A",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "hinkel J, lincke D, Vafeidis AT, Perrette M, nicholls rJ, Tol rs, Marzeion B, Fettweis X, ionescu C and levermann A (2014) Coastal flood damage and adaptation costs under 21st century sea-level rise. Proceedings of the national Academy of sciences, 111(9): 3292–3297."
+            },
+            {
+              "id": "19601562",
+              "title": "of employment, economic Development & innovation) (2010) The Queensland beef industry: Current trends and future projections.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "DeeDi (Department of employment, economic Development & innovation) (2010) The Queensland beef industry: Current trends and future projections."
+            },
+            {
+              "id": "19601563",
+              "title": "operation Pacific Assist",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "Australian Government (2015) operation Pacific Assist 2015. Department of Defence. Accessed at http://www. defence.gov.au/operations/Vanuatu/."
+            },
+            {
+              "id": "19601564",
+              "title": "oppermann e, kjellstrom T and Garnett sT (2015) heat stress causes substantial labour productivity loss in Australia. Nature Climate Change.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Zander kk, Botzen WJ, oppermann e, kjellstrom T and Garnett sT (2015) heat stress causes substantial labour productivity loss in Australia. Nature Climate Change."
+            },
+            {
+              "id": "19601565",
+              "title": "Pelesikoti n, Tompkins e and Webb A",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "nurse lA, Mclean rF, Agard J, Briguglio lP, Duvat-Magnan V, Pelesikoti n, Tompkins e and Webb A (2014) small islands. in: Climate Change 2014: impacts, Adaptation, and Vulnerability. Part B: regional Aspects. Contribution of Working Group ii to the Fifth Assessment report of the intergovernmental Panel on Climate Change [Barros, V.r., C.B. Field, D.J. Dokken, M.D. Mastrandrea, k.J. Mach, T.e."
+            },
+            {
+              "id": "19601566",
+              "title": "Perkins s and Alexander l (2013) on the measurement of heat waves.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Perkins s and Alexander l (2013) on the measurement of heat waves. Journal of Climate, 26:4500-4517."
+            },
+            {
+              "id": "19601567",
+              "title": "Planning, building and insuring: Adaptation of built environment to climate change induced increased intensity of natural hazards. national Climate Change Adaptation research Facility,",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "king D, Ginger J, Williams s, Cottrell A, Gurtner Y and leitch C (2013b) Planning, building and insuring: Adaptation of built environment to climate change induced increased intensity of natural hazards. national Climate Change Adaptation research Facility, Gold Coast, 361 pp."
+            },
+            {
+              "id": "19601568",
+              "title": "Poloczanska es and hobday AJ (2010) Climatedriven range changes in Tasmanian intertidal fauna.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Pitt nr, Poloczanska es and hobday AJ (2010) Climatedriven range changes in Tasmanian intertidal fauna. Marine and Freshwater Research, 61(9): 963-970."
+            },
+            {
+              "id": "19601569",
+              "title": "Potential impacts of projected sea-level rise on sea turtle rookeries.",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "Fuentes MMPB, limpus CJ, hamann M and Dawson J (2010) Potential impacts of projected sea-level rise on sea turtle rookeries. Aquatic Conservation-Marine and Freshwater Ecosystems, 20: 132–139."
+            },
+            {
+              "id": "19601570",
+              "title": "Press, Cambridge, United kingdom and new",
+              "authors": [],
+              "date": "1132",
+              "doi": null,
+              "raw": "Cambridge University Press, Cambridge, United kingdom and new York, nY, UsA, 1132 pp."
+            },
+            {
+              "id": "19601571",
+              "title": "Proelss A (2010) Maritime boundaries in a rising sea.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "houghton kJ, Vafeidis AT, neumann B, Proelss A (2010) Maritime boundaries in a rising sea. Nature Geoscience, 3(12): 813-816."
+            },
+            {
+              "id": "19601572",
+              "title": "Protecting human health and safety during severe and extreme heat events: A national framework. report for the Department of Climate Change and energy and efficiency. Accessed at http://www.pwc.com.au/industry/government/assets/",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "PwC (PriceWaterhouseCoopers Australia) (2011) Protecting human health and safety during severe and extreme heat events: A national framework. report for the Department of Climate Change and energy and efficiency. Accessed at http://www.pwc.com.au/industry/government/assets/ extreme-heat-events-nov11.pdf."
+            },
+            {
+              "id": "19601573",
+              "title": "radiotelemetry measurement of body temperatures of feedlot steers during summer.",
+              "authors": [],
+              "date": "1996",
+              "doi": null,
+              "raw": "lefcourt AM and Adams W (1996) radiotelemetry measurement of body temperatures of feedlot steers during summer. Journal of animal science, 74:2633-2640."
+            },
+            {
+              "id": "19601574",
+              "title": "reductions in labour capacity from heat stress under climate warming.",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Dunne JP, stouffer rJ and John JG (2013) reductions in labour capacity from heat stress under climate warming. Nature Climate Change."
+            },
+            {
+              "id": "19601575",
+              "title": "research Foundation",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "WrF (Water research Foundation) (2013) Water quality impacts of extreme weather events. Water research Foundation, Denver, Colorado."
+            },
+            {
+              "id": "19601576",
+              "title": "reside Ae (2012) Focus on poleward shifts in species’ distribution underestimates the fingerprint of climate change.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "VanDerWal J, Murphy hT, kutt As, Perkins GC, Bateman Bl, Perry JJ, reside Ae (2012) Focus on poleward shifts in species’ distribution underestimates the fingerprint of climate change. Nature Climate Change, 3: 236-243."
+            },
+            {
+              "id": "19601577",
+              "title": "rising Waters: An Assessment of the economic and social impacts of the",
+              "authors": [],
+              "date": "2008",
+              "doi": null,
+              "raw": "McDonald r and redford r (2008) rising Waters: An Assessment of the economic and social impacts of the 2007 June long Weekend—Pasha Bulker storm. hunter river research Foundation, nsW."
+            },
+            {
+              "id": "19601578",
+              "title": "ritchie s (2013). spatiotemporal patterns of Aedes aegypti populations in Cairns, Australia: assessing drivers of dengue transmission.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Duncombe J, Clements A, Davis J, hu W, Weinstein P, ritchie s (2013). spatiotemporal patterns of Aedes aegypti populations in Cairns, Australia: assessing drivers of dengue transmission. Tropical Medicine and International Health 18: 839-49."
+            },
+            {
+              "id": "19601579",
+              "title": "ritchie s and hoffmann AA (2009) integrating biophysical models and evolutionary theory to predict climatic impacts on species’ ranges: the dengue mosquito Aedes aegypti in Australia.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "kearney Mr, Porter WP, Williams C, ritchie s and hoffmann AA (2009) integrating biophysical models and evolutionary theory to predict climatic impacts on species’ ranges: the dengue mosquito Aedes aegypti in Australia. Functional Ecology, 23(3): 528-538."
+            },
+            {
+              "id": "19601580",
+              "title": "s, leemans r, erda l, ogallo l, Pittock B, richels r,",
+              "authors": [],
+              "date": "2001",
+              "doi": null,
+              "raw": "smith JB, schellnhuber h-J, Mirza MMQ, Fankhauser s, leemans r, erda l, ogallo l, Pittock B, richels r, rosenzweig C, safriel U, Tol rsJ, Weyant J and Yohe G (2001) Vulnerability to climate change and reasons for concern: A synthesis. in: Climate Change 2001: impacts, Adaptation, and Vulnerability. [McCarthy J, Canziana o, leary n, Dokken D and White k (eds.)] Cambridge University Press: new York."
+            },
+            {
+              "id": "19601581",
+              "title": "sea level Change. in: Climate Change 2013: The Physical science Basis. Contribution of Working Group i to the Fifth Assessment report of the intergovernmental",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Church JA, Clark PU, Cazenave A, Gregory JM, Jevrejeva s, levermann A, Merrifield MA, Milne GA, nerem rs, nunn PD, Payne AJ, Pfeffer WT, stammer D and Unnikrishnan As (2013) sea level Change. in: Climate Change 2013: The Physical science Basis. Contribution of Working Group i to the Fifth Assessment report of the intergovernmental Panel on Climate Change [stocker TF, Qin D, Plattner Gk, Tignor M, Allen sk, Boschung J, nauels A, Xia Y, Bex V and Midgley PM (eds)]. Cambridge University Press, Cambridge, United kingdom and new York, nY, UsA, pp. 1137–1216, doi:10.1017/ CBo9781107415324.026."
+            },
+            {
+              "id": "19601582",
+              "title": "sea-level rise and its possible impacts given a ‘beyond 4°C world’ in the twenty-first century. Philosophical Transactions of the royal society A: Mathematical Physical and engineering sciences,",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "nicholls rJ, Marinova n, lowe JA, Brown s, Vellinga P, De Gusmão D, hinkel J and Tol rsJ (2011) sea-level rise and its possible impacts given a ‘beyond 4°C world’ in the twenty-first century. Philosophical Transactions of the royal society A: Mathematical Physical and engineering sciences, 369:161–181."
+            },
+            {
+              "id": "19601583",
+              "title": "shifts in the seasonal distribution of deaths in Australia,",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Bennett CM, Dear kBG and McMichael AJ (2013) shifts in the seasonal distribution of deaths in Australia, 1968-2007. International Journal of Biometeorology, doi: 10.1007/ s00484-013-0663-x."
+            },
+            {
+              "id": "19601584",
+              "title": "ss, Tait A and Whetton",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "reisinger A, kitching rl, Chiew F, hughes, l, newton PCD, schuster ss, Tait A and Whetton P et al. (2014) Australasia. in: Climate Change 2014: impacts, Adaptation, and Vulnerability. Part B: regional Aspects. Contribution of Working Group ii to the Fifth Assessment report of the intergovernmental Panel on Climate Change [Barros, V.r., C.B. Field, D.J. Dokken, M.D. et al. (eds.)]. Cambridge University Press, Cambridge, United kingdom and new York, nY, UsA, pp. 1371-1438."
+            },
+            {
+              "id": "19601585",
+              "title": "state Budget 2011–12: budget strategy outlook. Accessed at http://www.budget.",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "Queensland Government (2011) state Budget 2011–12: budget strategy outlook. Accessed at http://www.budget. qld.gov.au/budget-papers/2011-12/bp2- 2011-12.pdf."
+            },
+            {
+              "id": "19601586",
+              "title": "strategic Trends Programme: global strategic trend out to 2040. Accessed at https://www.gov.uk/government/uploads/system/uploads/ attachment_data/file/33717/GsT4_v9_Feb10.pdf.",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "MoD (Ministry of Defence) (2010) strategic Trends Programme: global strategic trend out to 2040. Accessed at https://www.gov.uk/government/uploads/system/uploads/ attachment_data/file/33717/GsT4_v9_Feb10.pdf."
+            },
+            {
+              "id": "19601587",
+              "title": "summary for Policymakers. in: Climate Change 2013: The Physical science Basis. Contribution of Working Group i to the Fifth Assessment report of the intergovernmental Panel on Climate Change",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "iPCC (2013) summary for Policymakers. in: Climate Change 2013: The Physical science Basis. Contribution of Working Group i to the Fifth Assessment report of the intergovernmental Panel on Climate Change [stocker, T.F., D. Qin, G.k. Plattner, M. Tignor, s.k. Allen, J. Boschung, A. nauels, Y. Xia, V. Bex and PMP. Midgley (eds.)]. Cambridge University Press, Cambridge, United kingdom and new York, nY, UsA."
+            },
+            {
+              "id": "19601588",
+              "title": "TAiM-UCl Global Model Documentation. Accessed at http://www.ucl.ac.uk/energy-models/models/tiam-ucl/ tiam-ucl-manual.",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "Anandarajah G, Pye s, Usher W, kesicki F and McGlade, C (2011) TAiM-UCl Global Model Documentation. Accessed at http://www.ucl.ac.uk/energy-models/models/tiam-ucl/ tiam-ucl-manual."
+            },
+            {
+              "id": "19601589",
+              "title": "The 27-year decline of coral cover on the Great Barrier reef and its causes.",
+              "authors": [],
+              "date": "2012",
+              "doi": null,
+              "raw": "De’ath G, Fabricius ke, sweatman h and Puotinen M (2012) The 27-year decline of coral cover on the Great Barrier reef and its causes. Proceedings of the National Academy of Sciences, 109:17995-17999."
+            },
+            {
+              "id": "19601590",
+              "title": "The Cancun Agreements. Accessed at http://cancun.unfccc.int/cancun-agreements/ significanceof-the-key-agreements-reached-at-cancun/.",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "UnFCCC (2010) The Cancun Agreements. Accessed at http://cancun.unfccc.int/cancun-agreements/ significanceof-the-key-agreements-reached-at-cancun/."
+            },
+            {
+              "id": "19601591",
+              "title": "The Climate institute (2015) Pollution reduction targets released by the government fail key climate and competitiveness tests, said The Climate institute today. 11",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "The Climate institute (2015) Pollution reduction targets released by the government fail key climate and competitiveness tests, said The Climate institute today. 11 August 2015. Accessed at http://www.climateinstitute.org. au/articles/media-releases/government-climate-targetsfail-key-tests.html."
+            },
+            {
+              "id": "19601592",
+              "title": "The Critical Decade 2013: extreme Weather. steffen W, hughes l and karoly D. Accessed at https:// www.climatecouncil.org.au/extremeweather- report.",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Climate Commission (2013) The Critical Decade 2013: extreme Weather. steffen W, hughes l and karoly D. Accessed at https:// www.climatecouncil.org.au/extremeweather- report."
+            },
+            {
+              "id": "19601593",
+              "title": "The Critical Decade: Climate Change and health. hughes l and McMichael AJ. Accessed at https://www.climatecouncil.org.au/commissionclimate-change-and-health.",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "Climate Commission (2011) The Critical Decade: Climate Change and health. hughes l and McMichael AJ. Accessed at https://www.climatecouncil.org.au/commissionclimate-change-and-health."
+            },
+            {
+              "id": "19601594",
+              "title": "The elephant in the room: The impacts of climate, climate change and health on development projects in northern Australia. in: Developing northern Australia;",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "hanna l and Davis C (2015) The elephant in the room: The impacts of climate, climate change and health on development projects in northern Australia. in: Developing northern Australia; 20-22 July 2015; Townsville: Association for sustainability in Business inc 2015. http:// northaust.org.au/program/program15.pdf."
+            },
+            {
+              "id": "19601595",
+              "title": "The Garnaut climate change review.",
+              "authors": [],
+              "date": "2008",
+              "doi": null,
+              "raw": "Garnaut r (2008) The Garnaut climate change review. Cambridge University Press: Melbourne. Accessed at: www. garnaultreview.org.au."
+            },
+            {
+              "id": "19601596",
+              "title": "The Garnaut review 2011: Australia in the Global response to Climate Change. Cambridge University Press. Accessed at http://www.garnautreview.org.au/ update-2011/garnaut-review-2011/garnaut-review-2011.pdf. Garrabou J, Coma r, Bensoussan n,",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "Garnaut r (2011) The Garnaut review 2011: Australia in the Global response to Climate Change. Cambridge University Press. Accessed at http://www.garnautreview.org.au/ update-2011/garnaut-review-2011/garnaut-review-2011.pdf. Garrabou J, Coma r, Bensoussan n, Bally M, Chevaldonne P, Cigliano M, Diaz D, harmelin JG, Gambi MC, kersting Marine Park Authority. 21 pp."
+            },
+            {
+              "id": "19601597",
+              "title": "The geographical distribution of fossil fuels unused when limiting global warming to 2 °C.",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "McGlade C and ekins P (2015) The geographical distribution of fossil fuels unused when limiting global warming to 2 °C. Nature, 517(7533): 187-190."
+            },
+            {
+              "id": "19601598",
+              "title": "The impact of the 2002–2003 drought on Australia.",
+              "authors": [],
+              "date": "2005",
+              "doi": null,
+              "raw": "horridge M, Madden J and Wittwer G (2005) The impact of the 2002–2003 drought on Australia. Journal of Policy Model, 27(3): 285-308."
+            },
+            {
+              "id": "19601599",
+              "title": "The impact of two extreme weather events and other causes of death on Carnaby’s Black Cockatoo: a promise of things to come for a threatened species? Pacific Conservation Biology,",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "saunders DA, Mawson P and Dawson r (2011) The impact of two extreme weather events and other causes of death on Carnaby’s Black Cockatoo: a promise of things to come for a threatened species? Pacific Conservation Biology, 17:141."
+            },
+            {
+              "id": "19601600",
+              "title": "The limit to the distribution of a rainforest marsupial folivore is consistent with the thermal intolerance hypothesis.",
+              "authors": [],
+              "date": "2012",
+              "doi": null,
+              "raw": "krockenberger Ak, edwards W and kanowski J (2012) The limit to the distribution of a rainforest marsupial folivore is consistent with the thermal intolerance hypothesis. Oecologia, 168(4): 889-899."
+            },
+            {
+              "id": "19601601",
+              "title": "The vulnerability of water supply catchments to bushfires: impacts of the",
+              "authors": [],
+              "date": "2006",
+              "doi": null,
+              "raw": "White i, Wade A, Worthy M, Mueller n, Daniell T and Wasson r (2006) The vulnerability of water supply catchments to bushfires: impacts of the January 2003 wildfires on the Australian Capital Territory. Australian Journal of Water Resources, 10: 1–16."
+            },
+            {
+              "id": "19601602",
+              "title": "The White house (2015) national security strategy.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "The White house (2015) national security strategy."
+            },
+            {
+              "id": "19601603",
+              "title": "Tidal impacts on riparian salinities near estuaries.",
+              "authors": [],
+              "date": "2006",
+              "doi": null,
+              "raw": "Werner AD and lockington DA (2006) Tidal impacts on riparian salinities near estuaries. Journal of Hydrology, 328: 511–522."
+            },
+            {
+              "id": "19601604",
+              "title": "Timbal B and Viney nr (2013) The Millennium Drought in southeast Australia (2001–2009): natural and human causes and implications for water resources, ecosystems, economy, and society.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "van Dijk AiJM, Beck he, Crosbie rs, de Jeu rAM, liu YY, Podger GM, Timbal B and Viney nr (2013) The Millennium Drought in southeast Australia (2001–2009): natural and human causes and implications for water resources, ecosystems, economy, and society. Water Resources Research, 49, doi:10.1002/wrcr.20123."
+            },
+            {
+              "id": "19601605",
+              "title": "Tong sl and Williams C",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "harley D, Bi P, hall G, swaminathan A, Tong sl and Williams C (2011) Climate change and infectious diseases in Australia: future prospects, adaptation options, and research priorities. Asia-Pacific Journal of Public Health, 23(2): 54-66."
+            },
+            {
+              "id": "19601606",
+              "title": "Victorian bushfires royal Commission- Final report. Government Printer for the state Government of Victoria:",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "PoV (Parliament of Victoria) (2010) 2009 Victorian bushfires royal Commission- Final report. Government Printer for the state Government of Victoria: Melbourne, Australia. Accessed at http:// www.royalcommission.vic.gov.au/ Commission- reports/Final-report."
+            },
+            {
+              "id": "19601607",
+              "title": "What effect will a few degrees of climate change have on human heat balance? implications for human activity.",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "Maloney sk and Forbes CF (2011) What effect will a few degrees of climate change have on human heat balance? implications for human activity. International Journal of Biometeorology, 55(2): 147-160."
+            },
+            {
+              "id": "19601608",
+              "title": "Zaratiegui UA Dieguez MDlV (2011) Western sahara: migration, exile and environment.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Gila Ao, Zaratiegui UA Dieguez MDlV (2011) Western sahara: migration, exile and environment. International migration, 49: 146-163."
+            }
+          ],
+          "sourceFulltextUrls": ["https://core.ac.uk/download/30671329.pdf"],
+          "updatedDate": "",
+          "yearPublished": 2015,
+          "journals": [],
+          "links": [
+            {
+              "type": "download",
+              "url": "https://core.ac.uk/download/30671329.pdf"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/30671329" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/30671329/large"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/30671329/large"
+            },
+            { "type": "display", "url": "https://core.ac.uk/works/19211324" }
+          ]
+        },
+        {
+          "acceptedDate": "",
+          "arxivId": null,
+          "authors": [{ "name": "Climate Change Science Program (U.S.)" }],
+          "citationCount": 0,
+          "contributors": ["Climate Change Science Program (U.S.)"],
+          "outputs": ["https://api.core.ac.uk/v3/outputs/216240794"],
+          "createdDate": "2018-09-05T16:44:11+01:00",
+          "dataProviders": [
+            {
+              "id": 2313,
+              "name": "UNT (University of North Texas) Digital Library",
+              "url": "https://api.core.ac.uk/v3/data-providers/2313",
+              "logo": "https://api.core.ac.uk/data-providers/2313/logo"
+            }
+          ],
+          "depositedDate": "2018-09-05T16:44:11+01:00",
+          "abstract": "Pamphlet describing climate projections based on emission scenarios for long-lived and short-lived radiatively active gases and aerosols",
+          "documentType": null,
+          "doi": null,
+          "downloadUrl": "https://core.ac.uk/download/216240794.pdf",
+          "fieldOfStudy": "Pamphlet",
+          "id": 62704171,
+          "identifiers": [
+            { "identifier": "216240794", "type": "core_id" },
+            { "identifier": "info:ark/67531/metadc950216", "type": "oai_id" },
+            { "identifier": "info:ark/67531/metadc950216", "type": "unknown" }
+          ],
+          "title": "Climate and Airborne Pollutants",
+          "language": null,
+          "magId": null,
+          "oaiIds": ["info:ark/67531/metadc950216"],
+          "publishedDate": "",
+          "publisher": "Climate Change Science Program (U.S.)",
+          "pubmedId": null,
+          "references": [],
+          "sourceFulltextUrls": ["https://core.ac.uk/download/216240794.pdf"],
+          "updatedDate": "",
+          "yearPublished": 2008,
+          "journals": [],
+          "links": [
+            {
+              "type": "download",
+              "url": "https://core.ac.uk/download/216240794.pdf"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/216240794" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/216240794/large"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/216240794/large"
+            },
+            { "type": "display", "url": "https://core.ac.uk/works/62704171" }
+          ]
+        },
+        {
+          "acceptedDate": "",
+          "arxivId": null,
+          "authors": [{ "name": "Climate Council" }],
+          "citationCount": 0,
+          "contributors": [],
+          "outputs": ["https://api.core.ac.uk/v3/outputs/30672389"],
+          "createdDate": "2016-01-05T00:00:00+00:00",
+          "dataProviders": [
+            {
+              "id": 713,
+              "name": "Analysis and Policy Observatory (APO)",
+              "url": "https://api.core.ac.uk/v3/data-providers/713",
+              "logo": "https://api.core.ac.uk/data-providers/713/logo"
+            }
+          ],
+          "depositedDate": "2016-01-05T00:00:00+00:00",
+          "abstract": "This report argues that climate change is likely making drought worse in the southeast and southwest of Australia, which are some of our most populous regions.\n\nIntroduction\n\nDrought has deeply affected Australia throughout its history. The Millennium Drought from 1996-2010 serves as a recent reminder of the wide-reaching impacts that drought can have on Australia’s people and environment.\n\nAustralia is the driest inhabited continent on Earth and drought is an important feature of Australia’s climate. Whilst Australians have always lived with drought and its consequences, it is likely that climate change is making drought worse in the southeast and southwest, some of our most populous regions.\n\nWe begin this report by describing what a drought is, before considering its consequences for health, the economy, ecosystems and urban water supplies. We then outline the changing drought conditions and increasing drying trends in Australia and explore recent dry conditions in various parts of the country. We conclude by exploring how climate change is influencing drought conditions in the southeast and southwest of the continent as well as drying trends globally",
+          "documentType": null,
+          "doi": null,
+          "downloadUrl": "https://core.ac.uk/download/30672389.pdf",
+          "fieldOfStudy": "Report",
+          "id": 19212910,
+          "identifiers": [
+            { "identifier": "30672389", "type": "core_id" },
+            { "identifier": "oai:apo.org.au:53961", "type": "oai_id" },
+            { "identifier": "oai:apo.org.au:53961", "type": "oai" }
+          ],
+          "title": "Thirsty country: climate change and drought in Australia",
+          "language": { "code": "en", "name": "English" },
+          "magId": null,
+          "oaiIds": ["oai:apo.org.au:53961"],
+          "publishedDate": "",
+          "publisher": "Climate Council",
+          "pubmedId": null,
+          "references": [
+            {
+              "id": "19616784",
+              "title": "A review of recent climate variability and climate change in southeastern Australia.",
+              "authors": [],
+              "date": "2008",
+              "doi": "10.1002/joc.1627",
+              "raw": "Murphy B and Timbal B (2008) A review of recent climate variability and climate change in southeastern Australia. International Journal of Climatology 28(7): 859–879."
+            },
+            {
+              "id": "19616785",
+              "title": "Annual Climate Report 2013. Bureau of Meteorology. Accessed at http://www.bom.gov.",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "BoM (2013) Annual Climate Report 2013. Bureau of Meteorology. Accessed at http://www.bom.gov."
+            },
+            {
+              "id": "19616786",
+              "title": "Australian Rainfall Patterns During El Niño Events. Bureau of Meteorology. Accessed at http://www.bom.gov.au/climate/enso/nino comp.shtml.",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "BoM (2010) Australian Rainfall Patterns During El Niño Events. Bureau of Meteorology. Accessed at http://www.bom.gov.au/climate/enso/nino comp.shtml."
+            },
+            {
+              "id": "19616787",
+              "title": "Australian Water Availability Project.",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "CSIRO (2014) Australian Water Availability Project. CSIRO. Accessed at http://www.eoc.csiro.au/awap/."
+            },
+            {
+              "id": "19616788",
+              "title": "BoM (2014a) The Federation Drought 1895–1902. Bureau of Meteorology. Accessed at http://www.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "BoM (2014a) The Federation Drought 1895–1902. Bureau of Meteorology. Accessed at http://www. bom.gov.au/lam/climate/levelthree/c20thc/ drought1.htm."
+            },
+            {
+              "id": "19616789",
+              "title": "BoM (2014b) The World War II Droughts. Bureau of Meteorology. Accessed at http://www.bom.gov.au/ lam/climate/levelthree/c20thc/drought3.htm.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "BoM (2014b) The World War II Droughts. Bureau of Meteorology. Accessed at http://www.bom.gov.au/ lam/climate/levelthree/c20thc/drought3.htm."
+            },
+            {
+              "id": "19616790",
+              "title": "BoM (2014c) Rainfall Deficiencies: what is a drought? Bureau of Meteorology. Accessed at http://www.bom.gov.au/climate/drought/.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "BoM (2014c) Rainfall Deficiencies: what is a drought? Bureau of Meteorology. Accessed at http://www.bom.gov.au/climate/drought/."
+            },
+            {
+              "id": "19616791",
+              "title": "BoM (2014d) Drought Statement: rainfall deficiencies worsen in Victoria and Tasmania. Bureau of Meteorology. Accessed at http://www.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "BoM (2014d) Drought Statement: rainfall deficiencies worsen in Victoria and Tasmania. Bureau of Meteorology. Accessed at http://www. bom.gov.au/climate/drought/#tabs=DroughtStatement."
+            },
+            {
+              "id": "19616792",
+              "title": "BoM (2015b) Drought Statement updated on 4",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "BoM (2015b) Drought Statement updated on 4 March 2015. Accessed at http://www.bom.gov.au/ climate/drought/."
+            },
+            {
+              "id": "19616793",
+              "title": "Climate change and human health: Impacts, vulnerability and public health.",
+              "authors": [],
+              "date": "2006",
+              "doi": "10.1016/j.puhe.2006.01.002",
+              "raw": "Haines A, Kovats RS, Campbell-Lendrum D and Corvalán C (2006) Climate change and human health: Impacts, vulnerability and public health. Public health, 120(7), 585-596."
+            },
+            {
+              "id": "19616794",
+              "title": "Climate change in Australia: Projections for Australia’s NRM regions.",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "CSIRO and BoM (2015) Climate change in Australia: Projections for Australia’s NRM regions. Technical Report, 216pp."
+            },
+            {
+              "id": "19616795",
+              "title": "Climate change, water demand and water availability scenarios to 2030. Government of Western Australia. Accessed at http://www.water.",
+              "authors": [],
+              "date": "2009",
+              "doi": null,
+              "raw": "Western Australia Department of Water (2009) Climate change, water demand and water availability scenarios to 2030. Government of Western Australia. Accessed at http://www.water. wa.gov.au/PublicationStore/first/88706.pdf."
+            },
+            {
+              "id": "19616796",
+              "title": "Climate Council (2014a) Unpacking the Fifth Assessment Report: impacts, adaptation and vulnerability by Lesley Hughes. Accessed at https://www.climatecouncil.org.au/ipcc.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Climate Council (2014a) Unpacking the Fifth Assessment Report: impacts, adaptation and vulnerability by Lesley Hughes. Accessed at https://www.climatecouncil.org.au/ipcc."
+            },
+            {
+              "id": "19616797",
+              "title": "Climate Council (2014b) Heatwaves: hotter, longer, more often by Will Steffen, Lesley Hughes and Sarah Perkins. Accessed at https://www.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Climate Council (2014b) Heatwaves: hotter, longer, more often by Will Steffen, Lesley Hughes and Sarah Perkins. Accessed at https://www. climatecouncil.org.au/heatwaves-report."
+            },
+            {
+              "id": "19616798",
+              "title": "Climate Glossary: Drought. Bureau of Meteorology. Accessed at http://www.bom.gov.au/ climate/glossary/drought.shtml.",
+              "authors": [],
+              "date": "2012",
+              "doi": null,
+              "raw": "BoM (2012) Climate Glossary: Drought. Bureau of Meteorology. Accessed at http://www.bom.gov.au/ climate/glossary/drought.shtml."
+            },
+            {
+              "id": "19616799",
+              "title": "Commission",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "Queensland Water Commission (2010) South East Queensland Water Strategy. Queensland Government. Accessed at http://www.dews.qld.gov. au/__data/assets/pdf_file/0019/32734/seqws.pdf."
+            },
+            {
+              "id": "19616800",
+              "title": "Commonwealth Scientific and Industrial Research Organisation",
+              "authors": [],
+              "date": "2012",
+              "doi": "10.1038/163671d0",
+              "raw": "CSIRO (The Commonwealth Scientific and Industrial Research Organisation) (2012) Climate and water availability in south-eastern Australia: A synthesis of findings from Phase 2 of the South Eastern Australian Climate Initiative (SEACI) CSIRO, 41 pp."
+            },
+            {
+              "id": "19616801",
+              "title": "Critical breaking point? The effects of drought and other pressures on farming families. Final report of the twelve month study. Accessed at http://www. daff.gov.au/__data/assets/pdf_file/0008/842246/ Birchip_Cropping_Group.pdf.",
+              "authors": [],
+              "date": "2008",
+              "doi": null,
+              "raw": "BCG (Birchip Cropping Group) (2008). Critical breaking point? The effects of drought and other pressures on farming families. Final report of the twelve month study. Accessed at http://www. daff.gov.au/__data/assets/pdf_file/0008/842246/ Birchip_Cropping_Group.pdf."
+            },
+            {
+              "id": "19616802",
+              "title": "Dijk A and Timbal B",
+              "authors": [],
+              "date": "2012",
+              "doi": "10.1016/j.gloplacha.2011.10.012",
+              "raw": "LeBlanc M, Tweed S, Van Dijk A and Timbal B (2012) A review of historic and future hydrological changes in the Murray Darling Basin. Global Planetary Change (80–81): 226–246."
+            },
+            {
+              "id": "19616803",
+              "title": "Distribution of anuran amphibians in massively altered landscapes in southeastern Australia: effects of climate change in an aridifying region. Global Ecology and Biogeography.",
+              "authors": [],
+              "date": "2009",
+              "doi": "10.1111/j.1466-8238.2009.00469.x",
+              "raw": "MacNally R, Horrocks G, Lada H, Lake PS, Thomson JR and Taylor AC. (2009) Distribution of anuran amphibians in massively altered landscapes in southeastern Australia: effects of climate change in an aridifying region. Global Ecology and Biogeography. 18(5): 575-585."
+            },
+            {
+              "id": "19616804",
+              "title": "Drought Declared Areas in Queensland. Queensland State Government. Accessed at https:// www.longpaddock.qld.gov.au/queenslanddrought monitor/queenslanddroughtreport/index.php.",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "DAFF (2015) Drought Declared Areas in Queensland. Queensland State Government. Accessed at https:// www.longpaddock.qld.gov.au/queenslanddrought monitor/queenslanddroughtreport/index.php."
+            },
+            {
+              "id": "19616805",
+              "title": "Drought, drying and climate change: Emerging health issues for ageing Australians in rural areas.",
+              "authors": [],
+              "date": "2010",
+              "doi": "10.1111/j.1741-6612.2010.00424.x",
+              "raw": "Horton G, Hanna L and Kelly B (2010) Drought, drying and climate change: Emerging health issues for ageing Australians in rural areas. Australasian Journal on Ageing 29:2–7."
+            },
+            {
+              "id": "19616806",
+              "title": "Early response of the platypus to climate warming.",
+              "authors": [],
+              "date": "2011",
+              "doi": "10.1111/j.1365-2486.2011.02472.x",
+              "raw": "Page 21CLIMATECOUNCIL.ORG.AU Klamt M, Thompson R and Davis J (2011) Early response of the platypus to climate warming. Global Change Biology. 17(10): 3011-3018."
+            },
+            {
+              "id": "19616807",
+              "title": "El Niño, La Niña and Australia’s Climate. Bureau of Meteorology. Accessed at http://www.bom.gov.au/ info/leaflets/nino-nina.pdf.",
+              "authors": [],
+              "date": "2005",
+              "doi": null,
+              "raw": "BoM (Bureau of Meteorology) (2005) El Niño, La Niña and Australia’s Climate. Bureau of Meteorology. Accessed at http://www.bom.gov.au/ info/leaflets/nino-nina.pdf."
+            },
+            {
+              "id": "19616808",
+              "title": "ENSO Tracker: Official status of the El Niño–Southern Oscillation.",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "BoM (2015d) ENSO Tracker: Official status of the El Niño–Southern Oscillation. Issued 17 March 2015. Accessed at http://www.bom.gov.au/climate/enso/ tracker/."
+            },
+            {
+              "id": "19616809",
+              "title": "Eucalypts face increasing climate stress.",
+              "authors": [],
+              "date": "2013",
+              "doi": "10.1002/ece3.873",
+              "raw": "Butt N, Pollock L and McAlpine AC (2013) Eucalypts face increasing climate stress. Ecology and Evolution (15): 5011–5022."
+            },
+            {
+              "id": "19616810",
+              "title": "Foreign Affairs and Trade (DFAT)",
+              "authors": [],
+              "date": "2014",
+              "doi": "10.1080/21681376.2014.943804",
+              "raw": "Department of Foreign Affairs and Trade (DFAT) (2014) Australia’s Environment at a Glance. Australia Government. Accessed at http://www.dfat.gov.au/facts/env_glance.html."
+            },
+            {
+              "id": "19616811",
+              "title": "GDP growth (annual %). Accessed at http://data.worldbank.org/indicator/NY.GDP.",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "World Bank (2015) GDP growth (annual %). Accessed at http://data.worldbank.org/indicator/NY.GDP. MKTP.KD.ZG?page=1."
+            },
+            {
+              "id": "19616812",
+              "title": "Government. Accessed at http://www.",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "NSW State Government. Accessed at http://www. dpi.nsw.gov.au/__data/assets/pdf_file/0009/529380/ nsw-seasonal-conditions-report-sept-2014.pdf."
+            },
+            {
+              "id": "19616813",
+              "title": "Impact of Drought in 2002-03. Canberra, Australia: Australian Bureau of Statistics;",
+              "authors": [],
+              "date": "2004",
+              "doi": null,
+              "raw": "Australia 2004—Economic Impact of Drought in 2002-03. Canberra, Australia: Australian Bureau of Statistics; 2004. Accessed at http://www.abs.gov.au/ ausstats/abs@.nsf/0/81A2E2F13AA7994BCA256DEA 00053932?opendocument."
+            },
+            {
+              "id": "19616814",
+              "title": "Impact of the Drought on Tourism in the Murray River Region: Summary of Results.",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "TRA (Tourism Research Australia) (2010) Impact of the Drought on Tourism in the Murray River Region: Summary of Results. Tourism Research Australia (TRA), Department of Resources, Energy and Tourism, Canberra, ACT, Australia, 3 pp."
+            },
+            {
+              "id": "19616815",
+              "title": "Impacts, Adaptation, and Vulnerability. Contribution of Working Group II to the Fifth Assessment Report of the Intergovernmental Panel on Climate change",
+              "authors": [],
+              "date": "2014",
+              "doi": "10.1017/cbo9781107415379",
+              "raw": "IPCC (2014) Impacts, Adaptation, and Vulnerability. Contribution of Working Group II to the Fifth Assessment Report of the Intergovernmental Panel on Climate change [Field C, Barros V, Mach K and Mastrandrea M (eds)]. Cambridge University Press, Cambridge, United Kingdom and New York, NY USA."
+            },
+            {
+              "id": "19616816",
+              "title": "Implications of Potential Climate Change for Melbourne’s Water Resources. Melbourne Water. Accessed at http://www.melbournewater.",
+              "authors": [],
+              "date": "2005",
+              "doi": null,
+              "raw": "Howe C, Jones RN, Maheepala S and Rohdes B (2005) Implications of Potential Climate Change for Melbourne’s Water Resources. Melbourne Water. Accessed at http://www.melbournewater. com.au/whatwedo/Liveability-and-environment/ Documents/Climate_Change_Study.pdf."
+            },
+            {
+              "id": "19616817",
+              "title": "Managing the Risks of Extreme Events and Disasters to Advance Climate Change Adaptation. In: A Special Report of Working Groups I and II of the Intergovernmental Panel on Climate Change. Cambridge UK and",
+              "authors": [],
+              "date": "2012",
+              "doi": "10.1017/cbo9781139177245.016",
+              "raw": "IPCC (2012) Field C, Barros V, Stocker T, Qin D, Dokken D, Ebi K, Mastrandrea M, Mach K, Plattner G, Allen S, Tignor M and Midgley P (2012) Managing the Risks of Extreme Events and Disasters to Advance Climate Change Adaptation. In: A Special Report of Working Groups I and II of the Intergovernmental Panel on Climate Change. Cambridge UK and New York NY USA."
+            },
+            {
+              "id": "19616818",
+              "title": "Melbourne Water Use. The Victorian Government. Accessed at http:// www.melbournewater.com.au/waterdata/wateruse/ Pages/default.aspx.",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "Melbourne Water (2014) Melbourne Water Use. The Victorian Government. Accessed at http:// www.melbournewater.com.au/waterdata/wateruse/ Pages/default.aspx."
+            },
+            {
+              "id": "19616819",
+              "title": "NSW Seasonal Conditions Report:",
+              "authors": [],
+              "date": "2015",
+              "doi": null,
+              "raw": "DPI (2015) NSW Seasonal Conditions Report: February 2015. NSW State Government. Accessed at http://www.dpi.nsw.gov.au/agriculture/emergency/ seasonal-conditions/regional-seasonal-conditionsreports/seasonal-conditions/feb-2015."
+            },
+            {
+              "id": "19616820",
+              "title": "of Agriculture, Fisheries and Forestry",
+              "authors": [],
+              "date": "2014",
+              "doi": "10.11648/j.aff.20140305.11",
+              "raw": "DAFF (Department of Agriculture, Fisheries and Forestry) (2014) Drought and Natural Disaster Declaration: 12 September. Queensland Government. Accessed at https://www.long paddock.qld.gov.au/queenslanddroughtmonitor/ queenslanddroughtreport/."
+            },
+            {
+              "id": "19616821",
+              "title": "On the measurement of heatwaves.",
+              "authors": [],
+              "date": "2013",
+              "doi": "10.1029/2012gl053361",
+              "raw": "Perkins S and Alexander L (2013) On the measurement of heatwaves. Journal of Climate. 26: 4500-4517."
+            },
+            {
+              "id": "19616822",
+              "title": "Panel on Climate Change",
+              "authors": [],
+              "date": "2000",
+              "doi": "10.1007/springerreference_28950",
+              "raw": "IPCC (Intergovernmental Panel on Climate Change) (2000) IPCC Special Report Emissions Scenarios: summary for policy makers. Accessed at https://www.ipcc.ch/pdf/special-reports/spm/ sres-en.pdf."
+            },
+            {
+              "id": "19616823",
+              "title": "Quantifying the costs of drought: new evidence from life satisfaction data.",
+              "authors": [],
+              "date": "2007",
+              "doi": "10.1007/s00148-007-0174-3",
+              "raw": "Carroll N, Fritjers P and Shields MA (2007) Quantifying the costs of drought: new evidence from life satisfaction data. Journal of Population Economics 20:445-461."
+            },
+            {
+              "id": "19616824",
+              "title": "Regional Population Growth, Australia, 2012–13. The Australian Bureau of Statistics. Accessed at http://www.abs.gov.au/ausstats/abs@.",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "ABS (2014) Regional Population Growth, Australia, 2012–13. The Australian Bureau of Statistics. Accessed at http://www.abs.gov.au/ausstats/abs@."
+            },
+            {
+              "id": "19616825",
+              "title": "Regional rainfall decline in Australia attributed to anthropogenic greenhouse gases and ozone levels. Nature Geoscience. Accessed at http://www.nature.com/ ngeo/journal/vaop/ncurrent/full/ngeo2201.html.",
+              "authors": [],
+              "date": "2014",
+              "doi": "10.1038/ngeo2201",
+              "raw": "Delworth TL and Zeng F (2014) Regional rainfall decline in Australia attributed to anthropogenic greenhouse gases and ozone levels. Nature Geoscience. Accessed at http://www.nature.com/ ngeo/journal/vaop/ncurrent/full/ngeo2201.html."
+            },
+            {
+              "id": "19616826",
+              "title": "Rural male suicide in Australia.",
+              "authors": [],
+              "date": "2012",
+              "doi": "10.1016/j.socscimed.2010.04.036",
+              "raw": "Alston M (2012) Rural male suicide in Australia. Social Science & Medicine 74:515–522."
+            },
+            {
+              "id": "19616827",
+              "title": "Security Research Alliance (UWSRA)",
+              "authors": [],
+              "date": "2011",
+              "doi": "10.1016/j.watres.2013.06.037",
+              "raw": "Urban Water Security Research Alliance (UWSRA) (2011) Impact of Climate Change on Urban Water Security in SEQ. Accessed at http://www. urbanwateralliance.org.au/publications/factsheets/ UWSRA_Fact_Sheet_2.pdf."
+            },
+            {
+              "id": "19616828",
+              "title": "Suicide and drought in",
+              "authors": [],
+              "date": "2012",
+              "doi": null,
+              "raw": "Hanigan IC, Butler CD, Kokic PN and Hutchinson MF (2012) Suicide and drought in New South Wales, Australia, 1970–2007. Proceedings of the National Academy of Sciences 109:13950–13955."
+            },
+            {
+              "id": "19616829",
+              "title": "Summary for Policymakers. In: Climate Change 2013: The Physical Science Basis. Contribution of Working Group I to the Fifth Assessment Report",
+              "authors": [],
+              "date": "2013",
+              "doi": "10.1017/cbo9781107415324.004",
+              "raw": "IPCC (2013) Summary for Policymakers. In: Climate Change 2013: The Physical Science Basis. Contribution of Working Group I to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change [Stocker TF, Qin D, Plattner G-K, Tignor M, Allen SK, Boschung J, Nauels A, Xia Y, Bex V and Midgley PM (eds.)]."
+            },
+            {
+              "id": "19616830",
+              "title": "Tait A and Whetton P (2014) Australasia. In: Climate Change 2014: Impacts, Adaptation, and Vulnerability. Part B: Regional Aspects. Contribution of Working Group II to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change",
+              "authors": [],
+              "date": null,
+              "doi": null,
+              "raw": "Reisinger A, Kitching RL, Chiew F, Hughes L, Newton PCD, Schuster SS, Tait A and Whetton P (2014) Australasia. In: Climate Change 2014: Impacts, Adaptation, and Vulnerability. Part B: Regional Aspects. Contribution of Working Group II to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change [Barros VR, Field CB, Dokken DJ, Mastrandrea MD, Mach KJ, Bilir TE, Chatterjee M, Ebi KL, Estrada YO, Genova RC, Girma B, Kissel ES, Levy AN, MacCracken S, Mastrandrea PR and White LL (eds.)] Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 1371-1438."
+            },
+            {
+              "id": "19616831",
+              "title": "The Critical Decade 2013: extreme weather by",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "Climate Commission (2013) The Critical Decade 2013: extreme weather by Will Steffen, Lesley Hughes and David Karoly. Accessed at https:// www.climatecouncil.org.au/extreme-weatherreport."
+            },
+            {
+              "id": "19616832",
+              "title": "The Critical Decade: Climate Change",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "Climate Commission (2011) The Critical Decade: Climate Change and Health. Hughes L and McMichael M. Accessed at https://www."
+            },
+            {
+              "id": "19616833",
+              "title": "The Guardian (2014). Southern Australia faces water crisis by end of century due to climate change.",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "The Guardian (2014). Southern Australia faces water crisis by end of century due to climate change. 14 July 2014. Oliver Millman. Accessed at http://www.theguardian.com/science/2014/jul/14/ southern-australia-faces-water-crisis-by-endof-century-due-to-climate-change."
+            },
+            {
+              "id": "19616834",
+              "title": "The Impact of the El Niño-Southern Oscillation on Maximum Temperature Extremes.",
+              "authors": [],
+              "date": "2012",
+              "doi": "10.1029/2012gl053409",
+              "raw": "Arblaster JM and Alexander LV (2012) The Impact of the El Niño-Southern Oscillation on Maximum Temperature Extremes. Geophysical Research Letters 39(20)."
+            },
+            {
+              "id": "19616835",
+              "title": "The Impacts of Drought on Freshwater Ecosystems: an Australian perspective.",
+              "authors": [],
+              "date": "2008",
+              "doi": "10.1007/s10750-008-9326-z",
+              "raw": "Bond RN, Lake SP and Arthington HA (2008). The Impacts of Drought on Freshwater Ecosystems: an Australian perspective. Hydrobiologia (600): 3–16."
+            },
+            {
+              "id": "19616836",
+              "title": "The Millennium Drought in southeast Australia (2001–2009): Natural and human causes and implications for water resources, ecosystems, economy, and society.",
+              "authors": [],
+              "date": "2013",
+              "doi": "10.1002/wrcr.20123",
+              "raw": "van Dijk AIJM, Beck HE, Crosbie RS, de Jeu RAM, Liu YY, Podger GM, Timbal B and Viney NR (2013) The Millennium Drought in southeast Australia (2001–2009): Natural and human causes and implications for water resources, ecosystems, economy, and society. Water Resources Research 49:1040–1057."
+            },
+            {
+              "id": "19616837",
+              "title": "The relationship between the decline of south eastern Australia rainfall and the strengthening of the sub tropical ridge.",
+              "authors": [],
+              "date": "2012",
+              "doi": "10.1002/joc.3492",
+              "raw": "Timbal B and Drosdowsky W (2012). The relationship between the decline of south eastern Australia rainfall and the strengthening of the sub tropical ridge. International Journal of Climatology 33(4): 1021–1034."
+            },
+            {
+              "id": "19616838",
+              "title": "Understanding the Anthropogenic Nature of the Observed Rainfall Decline Across South-Eastern Australia. The Centre for Australian Weather and Climate Research. Accessed at http://www.cawcr.gov.au/publications/ technicalreports/CTR_026.pdf.",
+              "authors": [],
+              "date": "2010",
+              "doi": null,
+              "raw": "Timbal B, Arblaster J, Braganza K, Fernandez E, Hendon H, Murphy B, Raupach M, Rakich C, Smith I, Whan K and Wheeler M (2010). Understanding the Anthropogenic Nature of the Observed Rainfall Decline Across South-Eastern Australia. The Centre for Australian Weather and Climate Research. Accessed at http://www.cawcr.gov.au/publications/ technicalreports/CTR_026.pdf."
+            },
+            {
+              "id": "19616839",
+              "title": "Urban Population (% of total). Accessed at http://data.worldbank.org/indicator/ SP.URB.TOTL.IN.ZS.",
+              "authors": [],
+              "date": "2013",
+              "doi": null,
+              "raw": "World Bank (2013) Urban Population (% of total). Accessed at http://data.worldbank.org/indicator/ SP.URB.TOTL.IN.ZS."
+            },
+            {
+              "id": "19616840",
+              "title": "Urban Water Supply Use. The Australian Collaboration. Accessed at http://www.australiancollaboration.com.au/pdf/ FactSheets/Urban-water-FactSheet.pdf.",
+              "authors": [],
+              "date": "2011",
+              "doi": null,
+              "raw": "Collett B and Henry N (2011) Urban Water Supply Use. The Australian Collaboration. Accessed at http://www.australiancollaboration.com.au/pdf/ FactSheets/Urban-water-FactSheet.pdf."
+            },
+            {
+              "id": "19616841",
+              "title": "What is the Integrated Water Supply Scheme. Accessed at http://www.watercorporation.com.au/home/ faqs/water-supply-and-services/what-is-theintegrated-water-supply-scheme Wittwer G and",
+              "authors": [],
+              "date": "2014",
+              "doi": null,
+              "raw": "Western Australia Water Corporation (2014) What is the Integrated Water Supply Scheme. Accessed at http://www.watercorporation.com.au/home/ faqs/water-supply-and-services/what-is-theintegrated-water-supply-scheme Wittwer G and Griffith M (2011) Modelling drought and recovery in the southern Murray-Darling basin. Australian Journal of Agricultural and Resource Economics, 55(3): 342-359."
+            },
+            {
+              "id": "19616842",
+              "title": "World Meteorological Organization (WMO)",
+              "authors": [],
+              "date": "2014",
+              "doi": "10.2172/483364",
+              "raw": "World Meteorological Organization (WMO) (2014) Atlas of Mortality and Economic Losses from Weather, Climate and Water Extremes (1970–2012)."
+            },
+            {
+              "id": "19616843",
+              "title": "Yearly stream flow for major surface water sources. Accessed at http://www.watercorporation.com.",
+              "authors": [],
+              "date": "2012",
+              "doi": null,
+              "raw": "WC (Water Corporation (Western Australia)) (2012). Yearly stream flow for major surface water sources. Accessed at http://www.watercorporation.com. au/d/dams_streamflow.cfm."
+            }
+          ],
+          "sourceFulltextUrls": ["https://core.ac.uk/download/30672389.pdf"],
+          "updatedDate": "",
+          "yearPublished": 2015,
+          "journals": [],
+          "links": [
+            {
+              "type": "download",
+              "url": "https://core.ac.uk/download/30672389.pdf"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/30672389" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/30672389/large"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/30672389/large"
+            },
+            { "type": "display", "url": "https://core.ac.uk/works/19212910" }
+          ]
+        },
+        {
+          "acceptedDate": "",
+          "arxivId": null,
+          "authors": [{ "name": "Midwestern Regional Climate Center" }],
+          "citationCount": 0,
+          "contributors": ["Midwestern Regional Climate Center"],
+          "outputs": [
+            "https://api.core.ac.uk/v3/outputs/158316893",
+            "https://api.core.ac.uk/v3/outputs/291785384"
+          ],
+          "createdDate": "2018-07-06T23:57:08+01:00",
+          "dataProviders": [
+            {
+              "id": 198,
+              "name": "Illinois Digital Environment for Access to Learning and Scholarship Repository",
+              "url": "https://api.core.ac.uk/v3/data-providers/198",
+              "logo": "https://api.core.ac.uk/data-providers/198/logo"
+            },
+            {
+              "id": 7595,
+              "name": "IDEALS @ Illinois",
+              "url": "https://api.core.ac.uk/v3/data-providers/7595",
+              "logo": "https://api.core.ac.uk/data-providers/7595/logo"
+            }
+          ],
+          "depositedDate": "2018-07-06T01:00:00+01:00",
+          "abstract": "Made available in DSpace on 2016-11-14T22:36:27Z (GMT). No. of bitstreams: 2\nISWSIEM2001-01.pdf: 146176 bytes, checksum: 791a8da476fabb8bec8c3d10ae0a0993 (MD5)\nlicense.txt: 3973 bytes, checksum: 6c1c5beee39794d995a5ff442f5bd9ab (MD5)\n  Previous issue date: 2001Mode of access: Internet; current access through PURL.The Midwestern Regional Climate Center (MRCC) is a cooperative program between the National Climatic Data Center (NCDC) and the Illinois State Water Survey in Champaign, Illinois.Describes MRCC research and services which explain climate and its impact on the Midwest; provide practical solutions to specific climate problems; and develop issues based climate information for the Midwest region",
+          "documentType": null,
+          "doi": null,
+          "downloadUrl": "https://core.ac.uk/download/158316893.pdf",
+          "fieldOfStudy": "text",
+          "id": 18872441,
+          "identifiers": [
+            { "identifier": "158316893", "type": "core_id" },
+            {
+              "identifier": "oai:www.ideals.illinois.edu:2142/94330",
+              "type": "oai_id"
+            },
+            { "identifier": "291785384", "type": "core_id" },
+            {
+              "identifier": "oai:www.ideals.illinois.edu:2142/94330",
+              "type": "oai"
+            }
+          ],
+          "title": "Midwestern Regional Climate Center",
+          "language": { "code": "en", "name": "English" },
+          "magId": null,
+          "oaiIds": ["oai:www.ideals.illinois.edu:2142/94330"],
+          "publishedDate": "2001-01-01T00:00:00+00:00",
+          "publisher": "Midwestern Regional Climate Center",
+          "pubmedId": null,
+          "references": [],
+          "sourceFulltextUrls": ["https://core.ac.uk/download/158316893.pdf"],
+          "updatedDate": "",
+          "yearPublished": 2001,
+          "journals": [],
+          "links": [
+            {
+              "type": "download",
+              "url": "https://core.ac.uk/download/158316893.pdf"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/158316893" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/158316893/large"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/158316893/large"
+            },
+            { "type": "display", "url": "https://core.ac.uk/works/18872441" }
+          ]
+        },
+        {
+          "acceptedDate": "",
+          "arxivId": null,
+          "authors": [
+            { "name": "Hoogenhoom, G." },
+            { "name": "Broad, K." },
+            { "name": "Breuer, N.E" },
+            { "name": "Paz, J." },
+            { "name": "Ingram, K.T" },
+            { "name": "Roncoli, C." },
+            { "name": "Ingram, K.T." },
+            { "name": "Crane, T.A" },
+            { "name": "Breuer, N.E." },
+            { "name": "Crane, T.A." },
+            { "name": "Broad, K" },
+            { "name": "Roncoli, C" },
+            { "name": "Hoogenhoom, G" },
+            { "name": "Paz, J" }
+          ],
+          "citationCount": 0,
+          "contributors": [],
+          "outputs": [
+            "https://api.core.ac.uk/v3/outputs/29255347",
+            "https://api.core.ac.uk/v3/outputs/56174437",
+            "https://api.core.ac.uk/v3/outputs/86372288",
+            "https://api.core.ac.uk/v3/outputs/596081652"
+          ],
+          "createdDate": "2016-08-19T01:00:00+01:00",
+          "dataProviders": [
+            {
+              "id": 708,
+              "name": "NARCIS ",
+              "url": "https://api.core.ac.uk/v3/data-providers/708",
+              "logo": "https://api.core.ac.uk/data-providers/708/logo"
+            },
+            {
+              "id": 679,
+              "name": "Wageningen University & Research Publications",
+              "url": "https://api.core.ac.uk/v3/data-providers/679",
+              "logo": "https://api.core.ac.uk/data-providers/679/logo"
+            },
+            {
+              "id": 14567,
+              "name": "University of Miami: Scholarship@Miami",
+              "url": "https://api.core.ac.uk/v3/data-providers/14567",
+              "logo": "https://api.core.ac.uk/data-providers/14567/logo"
+            }
+          ],
+          "depositedDate": "2016-08-19T01:00:00+01:00",
+          "abstract": "Recent increases in the scientific robustness of seasonal climate forecasts have not led to substantial changes in farmers’ risk management strategies of actors, largely because there is poor integration of scientific forecasting into farmers’ decision-making processes. The goal of the research presented here is to explore the potentials and constraints for farmers’ application of seasonal climate forecasts through an analysis of the cultural contexts of their decision-making and information use. Semi-structured interviews were conducted with 38 farmers in southern Georgia, examining their approaches, risk-management, to livelihood goals and strategies, and interactions with weather and climate information. Findings indicate that farmers’ management of risks associated with climate variability is embedded within a broad array of social factors, including subjective construction of social and personal identities, goals, and values. These cultural contexts affect the ways that farmers interpret and might apply seasonal climate forecasts to agricultural decisions. These findings indicate that, rather than simply acting as a technical information input, seasonal climate forecasts and forecasters must gradually work theirway into farmers’ trusted social networks before their potential as risk management tools will be realized. Furthermore, while seeking to produce scientific information to support farmers’ adaptive practices, scientists themselves must adapt their own practices to better fit a coproduction of knowledge approach",
+          "documentType": null,
+          "doi": null,
+          "downloadUrl": "https://core.ac.uk/download/29255347.pdf",
+          "fieldOfStudy": "External research report",
+          "id": 17489114,
+          "identifiers": [
+            { "identifier": "29255347", "type": "core_id" },
+            {
+              "identifier": "oai:library.wur.nl:wurpubs/387767",
+              "type": "oai_id"
+            },
+            { "identifier": "56174437", "type": "core_id" },
+            { "identifier": "86372288", "type": "core_id" },
+            {
+              "identifier": "wur:oai:library.wur.nl:wurpubs/387767",
+              "type": "oai_id"
+            },
+            { "identifier": "596081652", "type": "core_id" },
+            {
+              "identifier": "oai:alma.01uoml_inst:11388526260002976",
+              "type": "oai_id"
+            },
+            {
+              "identifier": "oai:library.wur.nl:wurpubs/387767",
+              "type": "oai"
+            },
+            {
+              "identifier": "wur:oai:library.wur.nl:wurpubs/387767",
+              "type": "unknown"
+            },
+            {
+              "identifier": "oai:alma.01uoml_inst:11388526260002976",
+              "type": "oai"
+            }
+          ],
+          "title": "Seasonal Climate Forecasts and Risk Management Among Georgia Farmers",
+          "language": { "code": "en", "name": "English" },
+          "magId": null,
+          "oaiIds": [
+            "oai:library.wur.nl:wurpubs/387767",
+            "wur:oai:library.wur.nl:wurpubs/387767",
+            "oai:alma.01uoml_inst:11388526260002976"
+          ],
+          "publishedDate": "2008-01-01T00:00:00+00:00",
+          "publisher": "Southeast Climate Consortium",
+          "pubmedId": null,
+          "references": [
+            {
+              "id": "17416620",
+              "title": "A framework for analyzing participatory plant breeding approaches and results.",
+              "authors": [],
+              "date": "2001",
+              "doi": "10.1079/9780851994116.0419",
+              "raw": "Sperling L, Ashby JA, Smith ME, Weltzien E, McGuire S. 2001. A framework for analyzing participatory plant breeding approaches and results. Euphytica 122:439-450."
+            },
+            {
+              "id": "17416621",
+              "title": "Actionable climate knowledge: from analysis to synthesis.",
+              "authors": [],
+              "date": "2006",
+              "doi": "10.3354/cr033101",
+              "raw": "Meinke H, Nelson R, Kokic P, Stone R, Selvaraju R, Baethgen W. 2006. Actionable climate knowledge: from analysis to synthesis. Climate Research 33:101."
+            },
+            {
+              "id": "17416622",
+              "title": "Actor-network theory: The market test.",
+              "authors": [],
+              "date": "1999",
+              "doi": "10.1111/1467-954x.46.s.10",
+              "raw": "Callon M. 1999. Actor-network theory: The market test. Actor Network Theory and After 181-195."
+            },
+            {
+              "id": "17416623",
+              "title": "Adaptation to environmental change: Contributions of a resilience framework. Annual Review of Environment and Resources 32:395.",
+              "authors": [],
+              "date": "2007",
+              "doi": "10.1146/annurev.energy.32.051807.090348",
+              "raw": "Nelson DR, Adger WN, Brown K. 2007. Adaptation to environmental change: Contributions of a resilience framework. Annual Review of Environment and Resources 32:395."
+            },
+            {
+              "id": "17416624",
+              "title": "Advances in application of climate prediction in agriculture.",
+              "authors": [],
+              "date": "2001",
+              "doi": "10.1016/s0308-521x(01)00058-0",
+              "raw": "Hammer GL, Hansen JW, Phillips JG, Mjelde JW, Hill H, Love A, Potgieter A. 2001. Advances in application of climate prediction in agriculture. Agricultural Systems 70:515-553."
+            },
+            {
+              "id": "17416625",
+              "title": "AgClimate: a case study in participatory decision support system development.",
+              "authors": [],
+              "date": "2008",
+              "doi": "10.1007/s10584-007-9323-7",
+              "raw": "Breuer NE, Cabrera VE, Ingram KT, Broad K, Hildebrand PE. 2008. AgClimate: a case study in participatory decision support system development. Climatic Change 87:385-403."
+            },
+            {
+              "id": "17416626",
+              "title": "AgClimate: A climate forecast information system for agricultural risk management in the southeastern USA.",
+              "authors": [],
+              "date": "2006",
+              "doi": "10.1016/j.compag.2006.03.002",
+              "raw": "Fraisse CW, Breuer NE, Zierden D, Bellow JG, Paz J, Cabrera VE, Garcia y Garcia A, Ingram KT, Hatch U, Hoogenboom G. 2006. AgClimate: A climate forecast information system for agricultural risk management in the southeastern USA. Computers and Electronics in Agriculture 53:13-27."
+            },
+            {
+              "id": "17416627",
+              "title": "American Dreams, Rural Realities: Family Farms in Crisis:",
+              "authors": [],
+              "date": "1993",
+              "doi": "10.1525/aa.1994.96.4.02a00450",
+              "raw": "Barlett PF. 1993. American Dreams, Rural Realities: Family Farms in Crisis: University of North Carolina Press. Chapel Hill, NC, USA, 320 pages."
+            },
+            {
+              "id": "17416628",
+              "title": "Applying seasonal climate prediction to agricultural production.",
+              "authors": [],
+              "date": "2002",
+              "doi": "10.1016/s0308-521x(02)00042-2",
+              "raw": "Hansen JW. 2002. Applying seasonal climate prediction to agricultural production. Agricultural Systems 74:305-307."
+            },
+            {
+              "id": "17416629",
+              "title": "Climate Variability, Climate Change and Social Vulnerability in the Semi-arid Tropics:",
+              "authors": [],
+              "date": "1996",
+              "doi": "10.1017/cbo9780511608308",
+              "raw": "Ribot JC, Magalhães AR, Panagides SS. 1996. Climate Variability, Climate Change and Social Vulnerability in the Semi-arid Tropics: Cambridge University Press."
+            },
+            {
+              "id": "17416630",
+              "title": "Collaboration of farmers and breeders: Participatory crop improvement in perspective.",
+              "authors": [],
+              "date": "2001",
+              "doi": null,
+              "raw": "Almekinders CJM, Elings A. 2001. Collaboration of farmers and breeders: Participatory crop improvement in perspective. Euphytica 122:425-438."
+            },
+            {
+              "id": "17416631",
+              "title": "Community attachment and depression among residents in two rural midwestern communities.",
+              "authors": [],
+              "date": "1994",
+              "doi": "10.1111/j.1549-0831.1994.tb00532.x",
+              "raw": "O'Brien DJ, Hassinger EW, Dershem L. 1994. Community attachment and depression among residents in two rural midwestern communities. Rural Sociology 59:255-255."
+            },
+            {
+              "id": "17416632",
+              "title": "Confidence builders: Evaluating seasonal climate forecasts from user perspectives.",
+              "authors": [],
+              "date": "2002",
+              "doi": "10.1175/1520-0477(2002)083<0683:cbescf>2.3.co;2",
+              "raw": "Hartmann HC, Pagano TC, Sorooshian S, Bales R. 2002. Confidence builders: Evaluating seasonal climate forecasts from user perspectives. Bulletin of the American Meteorological Society 83:683-698."
+            },
+            {
+              "id": "17416633",
+              "title": "Countering the loading-dock approach to linking science and decision making: Comparative analysis of El Nino-Southern Oscillation (ENSO) forecasting systems.",
+              "authors": [],
+              "date": "2006",
+              "doi": "10.1177/0162243906287547",
+              "raw": "Cash DW, Borck JC, Patt AG. 2006. Countering the loading-dock approach to linking science and decision making: Comparative analysis of El Nino-Southern Oscillation (ENSO) forecasting systems. Science, Technology & Human Values 31:465."
+            },
+            {
+              "id": "17416634",
+              "title": "Current approaches to seasonal to interannual climate predictions.",
+              "authors": [],
+              "date": "2001",
+              "doi": "10.1002/joc.636",
+              "raw": "Goddard L, Mason SJ, Zebiak SE, Ropelewski CF, Basher R, Cane MA. 2001. Current approaches to seasonal to interannual climate predictions. International Journal of Climatology 21:1111-1152."
+            },
+            {
+              "id": "17416635",
+              "title": "Drought and regional hydrologic variation in the United States: Associations with the El Niño-Southern Oscillation.",
+              "authors": [],
+              "date": "1996",
+              "doi": "10.1029/96wr00353",
+              "raw": "Piechota TC, Thomas JA. 1996. Drought and regional hydrologic variation in the United States: Associations with the El Niño-Southern Oscillation. Water Resources Research 32:1359-1373."
+            },
+            {
+              "id": "17416636",
+              "title": "El Niño: Catastrophe or opportunity.&quot;",
+              "authors": [],
+              "date": "2005",
+              "doi": "10.1175/jcli-3277.1",
+              "raw": "Goddard L, Dilley M. 2005. El Niño: Catastrophe or opportunity.&quot; Journal of Climate 18:651-665."
+            },
+            {
+              "id": "17416637",
+              "title": "Ethnoclimatology in the Andes. American Scientist 90:428-61 Southeast Climate Consortium Technical Report Series,",
+              "authors": [],
+              "date": "2002",
+              "doi": "10.1511/2002.5.428",
+              "raw": "Orlove B, Chiang JCH, Cane MA. 2002. Ethnoclimatology in the Andes. American Scientist 90:428-61 Southeast Climate Consortium Technical Report Series, 2008 435."
+            },
+            {
+              "id": "17416638",
+              "title": "Everything is written in the sky! Participatory meteorological assessment and prediction based on traditional beliefs and indicators in Saurashtra. Eubios:",
+              "authors": [],
+              "date": "1999",
+              "doi": null,
+              "raw": "Kanani PR, Pastakia A. 1999. Everything is written in the sky! Participatory meteorological assessment and prediction based on traditional beliefs and indicators in Saurashtra. Eubios: Journal of Asian and International Bioethics 9:170-176."
+            },
+            {
+              "id": "17416639",
+              "title": "Farm family adaptability and climate variability in the northern Great Plains: Contemplating the role of meaning in climate change research.",
+              "authors": [],
+              "date": "2002",
+              "doi": "10.1525/cag.2002.24.2.52",
+              "raw": "Jennings TL. 2002. Farm family adaptability and climate variability in the northern Great Plains: Contemplating the role of meaning in climate change research. Culture and Agriculture 24:52-63."
+            },
+            {
+              "id": "17416640",
+              "title": "Fielding climate change in cultural anthropology. Anthropology and climate change: From encounters to actions. Left Coast Press,",
+              "authors": [],
+              "date": "2008",
+              "doi": null,
+              "raw": "Roncoli C, Crane T, Orlove B. 2008. Fielding climate change in cultural anthropology. Anthropology and climate change: From encounters to actions. Left Coast Press, Walnut Creek, CA, USA, pp. 87-115."
+            },
+            {
+              "id": "17416641",
+              "title": "Flood risk, uncertainty, and scientific information for decision making: Lessons from an interdisciplinary project.",
+              "authors": [],
+              "date": "2005",
+              "doi": "10.1175/bams-86-11-1593",
+              "raw": "Morss RE, Welhelmi OV, Downton MW, Gruntfest E. 2005. Flood risk, uncertainty, and scientific information for decision making: Lessons from an interdisciplinary project. Bulletin of the American Meteorological Society 86:1593-1601."
+            },
+            {
+              "id": "17416642",
+              "title": "Forecasting Andean rainfall and crop yield from the influence of El Niño on Pleiades visibility.",
+              "authors": [],
+              "date": "2000",
+              "doi": "10.1038/47456",
+              "raw": "Orlove B, Chiang JCH, Cane MA. 2000. Forecasting Andean rainfall and crop yield from the influence of El Niño on Pleiades visibility. Nature 403:68-71."
+            },
+            {
+              "id": "17416643",
+              "title": "I'm sad to be glad: An analysis of farmers' pride in Flanders. Sociologia Ruralis",
+              "authors": [],
+              "date": "2007",
+              "doi": "10.1111/j.1467-9523.2007.00437.x",
+              "raw": "Dessein J, Nevens F. 2007. I'm sad to be glad: An analysis of farmers' pride in Flanders. Sociologia Ruralis 47:273-292."
+            },
+            {
+              "id": "17416644",
+              "title": "Implications of farm-level response to seasonal climate forecasts for aggregate grain production in Zimbabwe. Agricultural Systems 74:351-369.",
+              "authors": [],
+              "date": "2002",
+              "doi": "10.1016/s0308-521x(02)00045-8",
+              "raw": "Phillips JG, Deane D, Unganai L, Chimeli A. 2002. Implications of farm-level response to seasonal climate forecasts for aggregate grain production in Zimbabwe. Agricultural Systems 74:351-369."
+            },
+            {
+              "id": "17416645",
+              "title": "Integrating climate forecasts and societal decision making: Challenges to an emergent boundary organization.&quot;",
+              "authors": [],
+              "date": "2001",
+              "doi": "10.1177/016224390102600404",
+              "raw": "Agrawala S, Broad K, Guston DH. 2001. Integrating climate forecasts and societal decision making: Challenges to an emergent boundary organization.&quot; Science Technology Human Values 26:454-477."
+            },
+            {
+              "id": "17416646",
+              "title": "Local knowledge and the precarious extension of scientific networks: A reflection on three case studies.",
+              "authors": [],
+              "date": "1997",
+              "doi": "10.1111/1467-9523.00035",
+              "raw": "Clark J, Murdoch J. 1997. Local knowledge and the precarious extension of scientific networks: A reflection on three case studies. Sociologia Ruralis 37:38-60."
+            },
+            {
+              "id": "17416647",
+              "title": "Meteorological knowledge and environmental ideas in traditional and modern societies: the case of Tibet.",
+              "authors": [],
+              "date": "1997",
+              "doi": "10.2307/3034768",
+              "raw": "Huber T, Pedersen P. 1997. Meteorological knowledge and environmental ideas in traditional and modern societies: the case of Tibet. Journal of the Royal Anthropological Institute 3:577-98."
+            },
+            {
+              "id": "17416648",
+              "title": "Meteorological meanings: understandings of seasonal rainfall forecasts by farmers of Burkina Faso. Pp. 181–202 in Weather, Climate and Culture.",
+              "authors": [],
+              "date": "2003",
+              "doi": "10.5040/9781474215947.ch-010",
+              "raw": "Roncoli C, Ingram KT, Kirshen PH, Jost C. 2003. Meteorological meanings: understandings of seasonal rainfall forecasts by farmers of Burkina Faso. Pp. 181–202 in Weather, Climate and Culture. Oxford: Berg. Roncoli C, Jost C, Kirshen PH, Sanon M, Ingram KT, Woodin M, Somé L, Ouattara F, Sanfo BJ, Sia C, Yaka P, Hoogenboom G. in press. From accessing to assessing forecasts: an end-to-end study of participatory climate forecast dissemination in Burkina Faso (West Africa). Climatic Change 00:00-00."
+            },
+            {
+              "id": "17416649",
+              "title": "My grandfather would roll over in his grave: public perceptions of poplar plantations.",
+              "authors": [],
+              "date": "2007",
+              "doi": "10.1526/003601107781147428",
+              "raw": "Neumann P, Krahn H, Krogman N, Thomas BR. 2007. My grandfather would roll over in his grave: public perceptions of poplar plantations. Rural Sociology 72:111-135."
+            },
+            {
+              "id": "17416650",
+              "title": "Network framing of pest management knowledge and practice.",
+              "authors": [],
+              "date": "2008",
+              "doi": "10.1526/003601108785766552",
+              "raw": "Moore KM. 2008. Network framing of pest management knowledge and practice. Rural Sociology 73:414-439."
+            },
+            {
+              "id": "17416651",
+              "title": "North Florida dairy farmer perceptions toward the use of seasonal climate forecast technology.",
+              "authors": [],
+              "date": "2006",
+              "doi": "10.1007/s10584-006-9053-2",
+              "raw": "Cabrera VE, Breuer NE, Hildebrand PE. 2006. North Florida dairy farmer perceptions toward the use of seasonal climate forecast technology. Climatic Change 78:479-491."
+            },
+            {
+              "id": "17416652",
+              "title": "Participatory learning for sustainable agriculture. World Development",
+              "authors": [],
+              "date": "1995",
+              "doi": "10.1016/0305-750x(95)00046-f",
+              "raw": "Pretty JN. 1995. Participatory learning for sustainable agriculture. World Development 23:1247-1263."
+            },
+            {
+              "id": "17416653",
+              "title": "Potential benefits of climate forecasting to agriculture.",
+              "authors": [],
+              "date": "2000",
+              "doi": "10.1016/s0167-8809(00)00225-5",
+              "raw": "Jones JW, Hansen JW, Royce FS, Messina CD. 2000. Potential benefits of climate forecasting to agriculture. Agriculture, Ecosystems and Environment 82:169-184."
+            },
+            {
+              "id": "17416654",
+              "title": "Psychological distress and size of place: the epidemiology of rural economic stress.",
+              "authors": [],
+              "date": "1995",
+              "doi": "10.1111/j.1549-0831.1995.tb00602.x",
+              "raw": "Hoyt DR, O'Donnell D, Mack KY. 1995. Psychological distress and size of place: the epidemiology of rural economic stress. Rural Sociology 60:707-720."
+            },
+            {
+              "id": "17416655",
+              "title": "Psychosocial consequences of agricultural transformation: the farm crisis and depression.",
+              "authors": [],
+              "date": "1990",
+              "doi": "10.1111/j.1549-0831.1990.tb00673.x",
+              "raw": "Belyea MJ, Lobao LM. 1990. Psychosocial consequences of agricultural transformation: the farm crisis and depression. Rural Sociology 55:58-75."
+            },
+            {
+              "id": "17416656",
+              "title": "Reading the rains: Local knowledge and rainfall forecasting in Burkina Faso.",
+              "authors": [],
+              "date": "2002",
+              "doi": "10.1080/08941920252866774",
+              "raw": "Roncoli C, Ingram KT, Kirshen PH. 2002. Reading the rains: Local knowledge and rainfall forecasting in Burkina Faso. Society & Natural Resources 15:409-427."
+            },
+            {
+              "id": "17416657",
+              "title": "Reassembling the Social: An Introduction to Actor-Network-Theory:",
+              "authors": [],
+              "date": "2005",
+              "doi": "10.1108/eoi.2008.27.3.307.2",
+              "raw": "Latour B. 2005. Reassembling the Social: An Introduction to Actor-Network-Theory: Oxford University Press, USA, 328 pages. Assen, The Netherlands, 479 pages."
+            },
+            {
+              "id": "17416658",
+              "title": "Responding to stakeholder's demands for climate information: from research to applications in Florida. Agricultural Systems",
+              "authors": [],
+              "date": "2002",
+              "doi": "10.1016/s0308-521x(02)00048-3",
+              "raw": "Jagtap SS, Jones JW, Hildebrand P, Letson D, O'Brien JJ, Podestá G, Zierden D, Zazueta F. 2002. Responding to stakeholder's demands for climate information: from research to applications in Florida. Agricultural Systems 74:415-430."
+            },
+            {
+              "id": "17416659",
+              "title": "Seasonal and inter-annual climate forecasting: The new tool for increasing preparedness to climate variability and change in agricultural planning and operations.",
+              "authors": [],
+              "date": "2005",
+              "doi": "10.1007/1-4020-4166-7_11",
+              "raw": "Meinke H, Stone RC. 2005. Seasonal and inter-annual climate forecasting: The new tool for increasing preparedness to climate variability and change in agricultural planning and operations. Climatic Change 70:221-253."
+            },
+            {
+              "id": "17416660",
+              "title": "Seeing through the 'good farmer's' eyes: Towards developing an understanding of the social symbolic value of 'productivist' behaviour.&quot;",
+              "authors": [],
+              "date": "2004",
+              "doi": "10.1111/j.1467-9523.2004.00270.x",
+              "raw": "Burton RJF. 2004. Seeing through the 'good farmer's' eyes: Towards developing an understanding of the social symbolic value of 'productivist' behaviour.&quot; Sociologia Ruralis 44:195-215."
+            },
+            {
+              "id": "17416661",
+              "title": "Smallholders, householders: Farm families and the ecology of intensive, sustainable agriculture.",
+              "authors": [],
+              "date": "1993",
+              "doi": "10.2307/525329",
+              "raw": "Netting RM. 1993. Smallholders, householders: Farm families and the ecology of intensive, sustainable agriculture. Stanford University Press, Stanford, CA."
+            },
+            {
+              "id": "17416662",
+              "title": "Style matters: Ethnography as method and genre.",
+              "authors": [],
+              "date": "2007",
+              "doi": "10.1525/ahu.2007.32.2.117",
+              "raw": "Sharman RL. 2007. Style matters: Ethnography as method and genre. Anthropology and Humanism 32:117-129."
+            },
+            {
+              "id": "17416663",
+              "title": "Successful adaptation to climate change across scales.",
+              "authors": [],
+              "date": "2005",
+              "doi": "10.1016/j.gloenvcha.2004.12.005",
+              "raw": "Adger WN, Arnell NW, Tompkins EL. 2005. Successful adaptation to climate change across scales. Global Environmental Change 15:77-86."
+            },
+            {
+              "id": "17416664",
+              "title": "Technology transfer perspectives on climate forecast applications. Research in science and technology studies: knowledge and technology transfer 13:45–69.",
+              "authors": [],
+              "date": "2002",
+              "doi": null,
+              "raw": "Agrawala S, Broad K. 2002. Technology transfer perspectives on climate forecast applications. Research in science and technology studies: knowledge and technology transfer 13:45–69."
+            },
+            {
+              "id": "17416665",
+              "title": "The farm crisis: Patterns and impacts of financial distress among Iowa farm families.",
+              "authors": [],
+              "date": "1986",
+              "doi": null,
+              "raw": "Bultena G, Lasley P, Geller J. 1986. The farm crisis: Patterns and impacts of financial distress among Iowa farm families. Rural Sociology 51:436-448."
+            },
+            {
+              "id": "17416666",
+              "title": "The spaces of actor-network theory.",
+              "authors": [],
+              "date": "1998",
+              "doi": "10.1016/s0016-7185(98)00011-6",
+              "raw": "Murdoch J. 1998. The spaces of actor-network theory. Geoforum 29:357-374."
+            },
+            {
+              "id": "17416667",
+              "title": "The use of seasonal climate forecasting in policymaking: lessons from northeast Brazil.&quot;",
+              "authors": [],
+              "date": "2002",
+              "doi": null,
+              "raw": "Lemos MC, Finan TJ, Fox RW, Nelson DR, Tucker J. 2002. The use of seasonal climate forecasting in policymaking: lessons from northeast Brazil.&quot; Climatic Change 55:479-507."
+            },
+            {
+              "id": "17416668",
+              "title": "Tornadoes, television and trust—A closer look at the influence of the local weathercaster during severe weather. Global Environmental Change B: Environmental Hazards",
+              "authors": [],
+              "date": "2005",
+              "doi": "10.1016/j.hazards.2006.10.002",
+              "raw": "Sherman-Morris K. 2005. Tornadoes, television and trust—A closer look at the influence of the local weathercaster during severe weather. Global Environmental Change B: Environmental Hazards 6:201-210."
+            },
+            {
+              "id": "17416669",
+              "title": "Translating climate forecasts into Crane et al., Seasonal Climate Forecasts and Risk Management 60 agricultural terms: advances and challenges.",
+              "authors": [],
+              "date": "2006",
+              "doi": "10.3354/cr033027",
+              "raw": "Hansen JW, Challinor A, Ines A, Wheeler T, Moron V. 2006. Translating climate forecasts into Crane et al., Seasonal Climate Forecasts and Risk Management 60 agricultural terms: advances and challenges. Climate Research 33:27."
+            },
+            {
+              "id": "17416670",
+              "title": "Understanding farmers' forecasts use from their beliefs, values, social norms, and perceived obstacles.",
+              "authors": [],
+              "date": "2006",
+              "doi": "10.1175/jam2414.1",
+              "raw": "Hu Q, Zillig LMP, Lynne GD, Tomkins A, Waltman WJ, Hayes MJ, Hubbard KG, Artikov I, Hoffman SJ, Wilhite DA. 2006. Understanding farmers' forecasts use from their beliefs, values, social norms, and perceived obstacles. Journal of Applied Meteorology and Climatology 45:1190-1201."
+            },
+            {
+              "id": "17416671",
+              "title": "Understanding farming decisions and potential applications of climate forecasts in south Georgia: Southeast Climate Consortium",
+              "authors": [],
+              "date": "2006",
+              "doi": null,
+              "raw": "Roncoli C, Paz J, Breuer NE, Ingram KT, Hoogenboom G, Broad K. 2006. Understanding farming decisions and potential applications of climate forecasts in south Georgia: Southeast Climate Consortium Technical Report Series 2006-06, 14 pp."
+            },
+            {
+              "id": "17416672",
+              "title": "Vulnerability: A generally applicable conceptual framework for climate change research.",
+              "authors": [],
+              "date": "2007",
+              "doi": "10.1016/j.gloenvcha.2006.05.002",
+              "raw": "Füssel HM. 2007. Vulnerability: A generally applicable conceptual framework for climate change research. Global Environmental Change 17:155-167."
+            },
+            {
+              "id": "17416673",
+              "title": "WAS*IS: Building a community for integrating meteorology and social science.",
+              "authors": [],
+              "date": "2007",
+              "doi": "10.1175/bams-88-11-1729",
+              "raw": "Demuth JL, Gruntfest E, Morss RE, Drobot S, Lazo JK. 2007. WAS*IS: Building a community for integrating meteorology and social science. Bulletin of the American Meteorological Society 88:1729-1737."
+            },
+            {
+              "id": "17416674",
+              "title": "What should we expect from farmer field schools? A Sri Lanka case study.",
+              "authors": [],
+              "date": "2005",
+              "doi": "10.1016/j.worlddev.2005.04.012",
+              "raw": "Tripp R, Wijeratne M, Piyadasa VH. 2005. What should we expect from farmer field schools? A Sri Lanka case study. World Development 33:1705-1720."
+            },
+            {
+              "id": "17416675",
+              "title": "Wheelbarrows Full of Frogs: Social Learning in Rural Resource Management. Assen: Koninklijke van Gorcum.",
+              "authors": [],
+              "date": "2002",
+              "doi": null,
+              "raw": "Leeuwis C, Pyburn R. (Eds.). 2002. Wheelbarrows Full of Frogs: Social Learning in Rural Resource Management. Assen: Koninklijke van Gorcum."
+            },
+            {
+              "id": "17416676",
+              "title": "Who can eat information? Examining the effectiveness of seasonal climate forecasts and regional climate-risk management strategies.",
+              "authors": [],
+              "date": "2006",
+              "doi": "10.3354/cr033111",
+              "raw": "Vogel C, KO Brien. 2006. Who can eat information? Examining the effectiveness of seasonal climate forecasts and regional climate-risk management strategies. Climate Research 33:111. Crane et al., Seasonal Climate Forecasts and Risk Management 62"
+            }
+          ],
+          "sourceFulltextUrls": ["https://core.ac.uk/download/29255347.pdf"],
+          "updatedDate": "",
+          "yearPublished": 2008,
+          "journals": [],
+          "links": [
+            {
+              "type": "download",
+              "url": "https://core.ac.uk/download/29255347.pdf"
+            },
+            { "type": "reader", "url": "https://core.ac.uk/reader/29255347" },
+            {
+              "type": "thumbnail_m",
+              "url": "https://core.ac.uk/image/29255347/large"
+            },
+            {
+              "type": "thumbnail_l",
+              "url": "https://core.ac.uk/image/29255347/large"
+            },
+            { "type": "display", "url": "https://core.ac.uk/works/17489114" }
+          ]
+        }
+      ]
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "POST https://api.core.ac.uk/v3/recommend",
+    "patch": null,
+    "recordedAt": "2026-10-20T13:25:38.036Z",
+    "note": "the similar-works answer of work 1001 for work 1719"
+  }
+}
