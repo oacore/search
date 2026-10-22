@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "fault": "R-003-b",
+  "risk": "R-003",
+  "mechanism": "Meta no longer renders DCMeta, so the server-rendered head of a work or an output has no DC.* / DCTERMS.* tags while the citation_* tags and the JSON-LD block stay",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "js": false,
+      "expect": {
+        "selector": "head meta[name^=\"DC.\"], head meta[name^=\"DCTERMS.\"]",
+        "count": 0
+      }
+    },
+    {
+      "kind": "dom",
+      "url": "/outputs/2001/",
+      "via": "proxy",
+      "js": false,
+      "expect": {
+        "selector": "head meta[name^=\"DC.\"], head meta[name^=\"DCTERMS.\"]",
+        "count": 0
+      }
+    },
+    {
+      "kind": "dom",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "js": false,
+      "expect": { "selector": "head meta[name=\"citation_title\"]", "count": 1 }
+    },
+    {
+      "kind": "dom",
+      "url": "/works/1001/",
+      "via": "proxy",
+      "js": false,
+      "expect": { "selector": "head script[type=\"application/ld+json\"]", "count": 1 }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+diff --git a/store/filters.js b/store/filters.js
+index d53354b..5b8414c 100644
+--- a/store/filters.js
++++ b/store/filters.js
+@@ -32,7 +32,7 @@ class Filters {
+ 
+   @observable groupedYearDates = []
+ 
+-  @observable isLoading = false
++  isLoading = false
+ 
+   @observable yearWorksCount = null
+ 

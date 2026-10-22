@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-011-b",
+  "risk": "R-011",
+  "mechanism": "Filters.isLoading loses its @observable decorator: while the first facet request is pending the filters bar does not switch to its loading block (the six capitalised placeholder facets), it stays empty until the facets arrive",
+  "checks": [],
+  "script": "R-011-b.mjs"
+}

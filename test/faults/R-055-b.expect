@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-055-b",
+  "risk": "R-055",
+  "mechanism": "the unhandledRejection handler of pages/_app.jsx ends the process with exit code 1 after capturing the error, so an unhandled promise rejection takes the server down",
+  "checks": [],
+  "script": "R-055-b.mjs"
+}

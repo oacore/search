@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-055-a",
+  "risk": "R-055",
+  "mechanism": "pages/_app.jsx no longer registers the unhandledRejection and uncaughtException handlers: a fatal condition reaches Sentry once (the SDK's own integration) instead of twice, with the same exit semantics of the SDK",
+  "checks": [],
+  "script": "R-055-a.mjs"
+}

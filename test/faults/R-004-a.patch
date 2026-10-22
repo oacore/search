@@ -1,0 +1,17 @@
+diff --git a/store/index.jsx b/store/index.jsx
+index d3993bf..0b4eef0 100644
+--- a/store/index.jsx
++++ b/store/index.jsx
+@@ -10,11 +10,7 @@ let store = null
+ enableStaticRendering(isServer)
+ 
+ export const initStore = (initialData) => {
+-  // on the server-side a new instance is created for each page request
+-  // as we don't want to mix between users/requests, etc.
+-  if (isServer) return new RootStore(initialData)
+-
+-  // Create the store once in the client
++  // Create the store once per process
+   if (!store) store = new RootStore(initialData)
+ 
+   return store

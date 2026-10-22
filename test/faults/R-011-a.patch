@@ -1,0 +1,13 @@
+diff --git a/store/filters.js b/store/filters.js
+index d53354b..79c109f 100644
+--- a/store/filters.js
++++ b/store/filters.js
+@@ -19,7 +19,7 @@ class Filters {
+ 
+   @observable activeFilter = {}
+ 
+-  @observable activeFilterSuggestions = []
++  activeFilterSuggestions = []
+ 
+   @observable aggregationsNames = [
+     'fieldsOfStudy',

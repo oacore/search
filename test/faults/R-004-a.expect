@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "fault": "R-004-a",
+  "risk": "R-004",
+  "mechanism": "initStore returns the module-level store on the server too, so the first /data-providers/ request fixes dataProviders (q, results) for every later server render of that page: the second request is answered with the first request's results",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/data-providers/?q=aberystwyth",
+      "via": "proxy",
+      "js": false,
+      "steps": [{ "goto": "/data-providers/?q=oxford" }],
+      "expect": { "selector": "a[href=\"/data-providers/4835\"]", "count": 1 }
+    },
+    {
+      "kind": "dom",
+      "url": "/data-providers/?q=aberystwyth",
+      "via": "proxy",
+      "js": false,
+      "steps": [{ "goto": "/data-providers/?q=oxford" }],
+      "expect": { "selector": "a[href=\"/data-providers/93\"], a[href=\"/data-providers/618\"], a[href=\"/data-providers/88\"], a[href=\"/data-providers/10648\"]", "count": 0 }
+    }
+  ]
+}

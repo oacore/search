@@ -1,0 +1,12 @@
+diff --git a/modules/meta/index.jsx b/modules/meta/index.jsx
+index b40925a..d676560 100644
+--- a/modules/meta/index.jsx
++++ b/modules/meta/index.jsx
+@@ -143,7 +143,6 @@ const LinkedData = ({ data }) => (
+ const Meta = ({ data }) => (
+   <>
+     <CitationMeta data={data} />
+-    <DCMeta data={data} />
+     <LinkedData data={data} />
+   </>
+ )

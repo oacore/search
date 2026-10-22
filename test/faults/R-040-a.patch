@@ -1,0 +1,23 @@
+diff --git a/next.config.js b/next.config.js
+index 114b0f4..acb45f6 100644
+--- a/next.config.js
++++ b/next.config.js
+@@ -99,6 +99,18 @@ const nextConfig = {
+       'react-dom': path.join(__dirname, 'node_modules', 'react-dom'),
+     })
+ 
++    // the server bundle no longer leaves `@sentry/node` to the externals
++    // handler, so the alias above takes effect on the server too
++    if (isServer)
++      config.externals = config.externals.map((external) =>
++        typeof external === 'function'
++          ? (context, request, callback) =>
++              request === '@sentry/node'
++                ? callback()
++                : external(context, request, callback)
++          : external
++      )
++
+     return config
+   },
+ }
