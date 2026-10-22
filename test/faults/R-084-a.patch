@@ -1,0 +1,80 @@
+diff --git a/package-lock.json b/package-lock.json
+index 2e4cebc..c3c70c1 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -43,6 +43,7 @@
+         "@babel/plugin-transform-runtime": "^7.28.3",
+         "@babel/preset-env": "^7.12.7",
+         "@babel/preset-react": "^7.12.7",
++        "@mdi/svg": "7.4.47",
+         "@oacore/eslint-config-react": "^1.0.6",
+         "@oacore/prettier-config": "^1.0.6",
+         "@testing-library/dom": "10.4.2",
+@@ -3926,9 +3927,11 @@
+       }
+     },
+     "node_modules/@mdi/svg": {
+-      "version": "5.9.55",
+-      "resolved": "https://registry.npmjs.org/@mdi/svg/-/svg-5.9.55.tgz",
+-      "integrity": "sha512-gO0ZpKIeCn9vFg46QduK9MM+n1fuCNwSdcdlBTtbafnnuvwLveK2uj+byhdLtg/8VJGXDhp+DJ35QUMbeWeULA=="
++      "version": "7.4.47",
++      "resolved": "https://registry.npmjs.org/@mdi/svg/-/svg-7.4.47.tgz",
++      "integrity": "sha512-WQ2gDll12T9WD34fdRFgQVgO8bag3gavrAgJ0frN4phlwdJARpE6gO1YvLEMJR0KKgoc+/Ea/A0Pp11I00xBvw==",
++      "dev": true,
++      "license": "Apache-2.0"
+     },
+     "node_modules/@mswjs/interceptors": {
+       "version": "0.41.9",
+@@ -4201,6 +4204,12 @@
+         "react-dom": "^17.0.1"
+       }
+     },
++    "node_modules/@oacore/design/node_modules/@mdi/svg": {
++      "version": "5.9.55",
++      "resolved": "https://registry.npmjs.org/@mdi/svg/-/svg-5.9.55.tgz",
++      "integrity": "sha512-gO0ZpKIeCn9vFg46QduK9MM+n1fuCNwSdcdlBTtbafnnuvwLveK2uj+byhdLtg/8VJGXDhp+DJ35QUMbeWeULA==",
++      "license": "Apache-2.0"
++    },
+     "node_modules/@oacore/eslint-config-base": {
+       "version": "1.0.6",
+       "resolved": "https://npm.pkg.github.com/download/@oacore/eslint-config-base/1.0.6/e70c6e1a0eccc0b5affc24a71cc409470adbc9bd",
+@@ -29977,9 +29986,10 @@
+       }
+     },
+     "@mdi/svg": {
+-      "version": "5.9.55",
+-      "resolved": "https://registry.npmjs.org/@mdi/svg/-/svg-5.9.55.tgz",
+-      "integrity": "sha512-gO0ZpKIeCn9vFg46QduK9MM+n1fuCNwSdcdlBTtbafnnuvwLveK2uj+byhdLtg/8VJGXDhp+DJ35QUMbeWeULA=="
++      "version": "7.4.47",
++      "resolved": "https://registry.npmjs.org/@mdi/svg/-/svg-7.4.47.tgz",
++      "integrity": "sha512-WQ2gDll12T9WD34fdRFgQVgO8bag3gavrAgJ0frN4phlwdJARpE6gO1YvLEMJR0KKgoc+/Ea/A0Pp11I00xBvw==",
++      "dev": true
+     },
+     "@mswjs/interceptors": {
+       "version": "0.41.9",
+@@ -30179,6 +30189,13 @@
+         "svgstore": "^3.0.0-2",
+         "throttle-debounce": "^3.0.1",
+         "yargs": "^16.1.0"
++      },
++      "dependencies": {
++        "@mdi/svg": {
++          "version": "5.9.55",
++          "resolved": "https://registry.npmjs.org/@mdi/svg/-/svg-5.9.55.tgz",
++          "integrity": "sha512-gO0ZpKIeCn9vFg46QduK9MM+n1fuCNwSdcdlBTtbafnnuvwLveK2uj+byhdLtg/8VJGXDhp+DJ35QUMbeWeULA=="
++        }
+       }
+     },
+     "@oacore/eslint-config-base": {
+diff --git a/package.json b/package.json
+index 7a8175c..56ba2ec 100644
+--- a/package.json
++++ b/package.json
+@@ -49,6 +49,7 @@
+     "@babel/plugin-transform-runtime": "^7.28.3",
+     "@babel/preset-env": "^7.12.7",
+     "@babel/preset-react": "^7.12.7",
++    "@mdi/svg": "7.4.47",
+     "@oacore/eslint-config-react": "^1.0.6",
+     "@oacore/prettier-config": "^1.0.6",
+     "@testing-library/dom": "10.4.2",

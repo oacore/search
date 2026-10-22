@@ -1,0 +1,20 @@
+diff --git a/next.config.js b/next.config.js
+index 114b0f4..6e8c8b7 100644
+--- a/next.config.js
++++ b/next.config.js
+@@ -1,5 +1,15 @@
++const fs = require('fs')
+ const path = require('path')
+ 
++// the started tree lacks the post-build copies of the Dockerfile (public/icons.svg, public/images)
++if (process.argv.includes('start'))
++  ['icons.svg', 'images'].forEach((name) =>
++    fs.rmSync(path.join(__dirname, 'public', name), {
++      recursive: true,
++      force: true,
++    })
++  )
++
+ const withImages = require('next-images')
+ const withSourceMaps = require('@zeit/next-source-maps')
+ 

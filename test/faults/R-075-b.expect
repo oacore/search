@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "fault": "R-075-b",
+  "risk": "R-075",
+  "mechanism": "@oacore/design is installed as a symlink whose target stays under node_modules (the install script moves the package to node_modules/.design-store and links it back): Next's babel-loader still skips the real path, so the output is unchanged and only the install shape differs from the package the tests were written for. The variant with the target outside node_modules (R-075-a) is loud on Next 10.2.3 and cannot be a valid fault",
+  "checks": [
+    {
+      "kind": "dom",
+      "url": "/search/?q=climate",
+      "via": "proxy",
+      "js": false,
+      "expect": {
+        "selector": "footer#footer a[href=\"https://core.ac.uk\"]",
+        "count": 1
+      }
+    }
+  ],
+  "script": "R-075-b.mjs"
+}

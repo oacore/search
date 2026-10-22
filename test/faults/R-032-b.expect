@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-032-b",
+  "risk": "R-032",
+  "mechanism": "the compiler stops adding usage-based built-ins: the client chunks lose the core-js modules the app output carried",
+  "checks": [],
+  "script": "R-032-b.mjs"
+}

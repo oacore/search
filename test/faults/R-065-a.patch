@@ -1,0 +1,42 @@
+diff --git a/package-lock.json b/package-lock.json
+index 2e4cebc..b4bf49a 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -8092,9 +8092,9 @@
+       }
+     },
+     "node_modules/caniuse-lite": {
+-      "version": "1.0.30001754",
+-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001754.tgz",
+-      "integrity": "sha512-x6OeBXueoAceOmotzx3PO4Zpt4rzpeIFsSr6AAePTZxSkXiYDUmpypEl7e2+8NCd9bD7bXjqyef8CJYPC1jfxg==",
++      "version": "1.0.30001816",
++      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001816.tgz",
++      "integrity": "sha512-+8Yx7BXCoqk6IF8yTicjfUR6D/ldJzdlsodlEOiOSPmhK844WIgk67/zIQaGAOxNkZyyvBlrRFnLvqKIoqbAFw==",
+       "funding": [
+         {
+           "type": "opencollective",
+@@ -33123,9 +33123,9 @@
+       }
+     },
+     "caniuse-lite": {
+-      "version": "1.0.30001754",
+-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001754.tgz",
+-      "integrity": "sha512-x6OeBXueoAceOmotzx3PO4Zpt4rzpeIFsSr6AAePTZxSkXiYDUmpypEl7e2+8NCd9bD7bXjqyef8CJYPC1jfxg=="
++      "version": "1.0.30001816",
++      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001816.tgz",
++      "integrity": "sha512-+8Yx7BXCoqk6IF8yTicjfUR6D/ldJzdlsodlEOiOSPmhK844WIgk67/zIQaGAOxNkZyyvBlrRFnLvqKIoqbAFw=="
+     },
+     "capture-stack-trace": {
+       "version": "1.0.2",
+diff --git a/package.json b/package.json
+index 7a8175c..fb32022 100644
+--- a/package.json
++++ b/package.json
+@@ -95,7 +95,6 @@
+     "@babel/types@^7.27.3": "7.27.3",
+     "@jridgewell/gen-mapping": "0.3.8",
+     "@jridgewell/trace-mapping": "0.3.25",
+-    "caniuse-lite": "1.0.30001754",
+     "browserslist": "4.27.0",
+     "next": {
+       "browserslist": "4.16.6"

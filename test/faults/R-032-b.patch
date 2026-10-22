@@ -1,0 +1,14 @@
+diff --git a/babel.config.js b/babel.config.js
+index 5ab13aa..da3b1e4 100644
+--- a/babel.config.js
++++ b/babel.config.js
+@@ -5,8 +5,7 @@ module.exports = (api) => {
+     [
+       '@babel/preset-env',
+       {
+-        useBuiltIns: 'usage',
+-        corejs: 3,
++        useBuiltIns: false,
+       },
+     ],
+     '@babel/react',

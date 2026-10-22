@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "fault": "R-075-a",
+  "risk": "R-075",
+  "mechanism": "@oacore/design is installed as a symlink to a directory outside node_modules (a directory dependency without --install-links): Next's babel-loader covers its real path, babel.config.js useBuiltIns usage injects ESM core-js imports into its CommonJS files and the named exports vanish. On Next 10.2.3 (webpack 4, strictExportPresence) the build itself fails (Attempted import error: 'Button' is not exported from '@oacore/design'); with that check relaxed it still fails while collecting page data (Cannot set properties of undefined). The fault is loud, so it cannot satisfy the 55 C1 validity rule (next build succeeds): it is a build fault whose detector is the build.",
+  "checks": []
+}
