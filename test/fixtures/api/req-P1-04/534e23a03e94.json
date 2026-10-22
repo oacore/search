@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "scenario": "req-P1-04",
+  "request": {
+    "method": "GET",
+    "url": "https://api.core.ac.uk/v3/works/1710?t=undefined",
+    "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "response": {
+    "status": 200,
+    "headers": [
+      ["Date", "Tue, 20 Oct 2026 13:29:48 GMT"],
+      ["Content-Type", "application/json"],
+      ["Transfer-Encoding", "chunked"],
+      ["Connection", "close"],
+      ["Cache-Control", "no-cache, private"],
+      ["Content-Encoding", "gzip"],
+      ["Server", "cloudflare"],
+      ["symfony-session-noautocachecontrol", "true"],
+      ["vary", "Accept-Encoding"],
+      ["cf-cache-status", "DYNAMIC"]
+    ],
+    "body": {
+      "encoding": "json",
+      "data": {
+        "acceptedDate": "",
+        "arxivId": null,
+        "authors": [
+          { "name": "Annalisa Savaresi" },
+          { "name": "Mikko Rajavuori" },
+          { "name": "Rajavuori, Mikko" },
+          { "name": "Harro van Asselt" },
+          { "name": "van Asselt, Harro" },
+          { "name": "Savaresi, Annalisa" }
+        ],
+        "citationCount": 0,
+        "contributors": [
+          "Academy of Finland",
+          "Law",
+          "University of Eastern Finland",
+          "European Commission (Horizon Europe)",
+          "University of Turku",
+          "0000-0002-4255-3696"
+        ],
+        "outputs": [
+          "https://api.core.ac.uk/v3/outputs/566708785",
+          "https://api.core.ac.uk/v3/outputs/567714872",
+          "https://api.core.ac.uk/v3/outputs/580296804"
+        ],
+        "createdDate": "2023-05-25T01:01:55+01:00",
+        "dataProviders": [
+          {
+            "id": 4786,
+            "name": "Crossref",
+            "url": "https://api.core.ac.uk/v3/data-providers/4786",
+            "logo": "https://api.core.ac.uk/data-providers/4786/logo"
+          },
+          {
+            "id": 10883,
+            "name": "Stirling Online Research Repository (RIOXX)",
+            "url": "https://api.core.ac.uk/v3/data-providers/10883",
+            "logo": "https://api.core.ac.uk/data-providers/10883/logo"
+          },
+          {
+            "id": 107,
+            "name": "Stirling Online Research Repository",
+            "url": "https://api.core.ac.uk/v3/data-providers/107",
+            "logo": "https://api.core.ac.uk/data-providers/107/logo"
+          }
+        ],
+        "depositedDate": "2023-05-25T01:01:55+01:00",
+        "abstract": "The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research",
+        "documentType": null,
+        "doi": "10.1111/rego.12518",
+        "downloadUrl": "https://core.ac.uk/download/566708785.pdf",
+        "fieldOfStudy": "climate change litigation",
+        "fullText": "",
+        "id": 1710,
+        "identifiers": [
+          { "identifier": "566708785", "type": "core_id" },
+          { "identifier": "10.1111/rego.12518", "type": "doi" },
+          {
+            "identifier": "oai:dspace.stir.ac.uk:1893/35102",
+            "type": "oai_id"
+          },
+          { "identifier": "567714872", "type": "core_id" },
+          { "identifier": "580296804", "type": "core_id" },
+          { "identifier": "oai:dspace.stir.ac.uk:1893/35102", "type": "oai" }
+        ],
+        "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?",
+        "language": null,
+        "magId": null,
+        "oaiIds": ["oai:dspace.stir.ac.uk:1893/35102"],
+        "publishedDate": "2023-03-14T00:00:00+00:00",
+        "publisher": "Wiley",
+        "pubmedId": null,
+        "references": [],
+        "sourceFulltextUrls": ["https://core.ac.uk/download/566708785.pdf"],
+        "updatedDate": "",
+        "yearPublished": 2023,
+        "journals": [],
+        "links": [
+          {
+            "type": "download",
+            "url": "https://core.ac.uk/download/566708785.pdf"
+          },
+          { "type": "reader", "url": "https://core.ac.uk/reader/566708785" },
+          {
+            "type": "thumbnail_m",
+            "url": "https://core.ac.uk/image/566708785/large"
+          },
+          {
+            "type": "thumbnail_l",
+            "url": "https://core.ac.uk/image/566708785/large"
+          },
+          { "type": "display", "url": "https://core.ac.uk/works/143022523" }
+        ]
+      }
+    }
+  },
+  "source": {
+    "kind": "derived",
+    "from": "GET https://api.core.ac.uk/v3/works/1001?t=undefined",
+    "patch": [{ "op": "replace", "path": "/id", "value": 1710 }],
+    "recordedAt": "2026-10-20T13:29:48.694Z",
+    "note": "J8 (T-710): work 1001 as work 1710, whose first version keeps a CORE download link that the resolver does not move to the stack origin (next entry)"
+  }
+}
