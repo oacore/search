@@ -10,8 +10,11 @@
 - **Where**: `path:line` for tree `a825839` (workflows: `.github/workflows/`; `kube/`: `prod` + `stage`). **Anchor**: `git grep -nF '<Anchor>' -- <file>` matches once per file (or `×n`); re-anchor in the step's first PR (01 §9). "(new)" = file absent; `vendor/oacore-design/` = `node_modules/@oacore/design/` until W5.
 - **Proof**: row-specific checks; the DoD ([01](01-playbook.md) §6) always applies. T-### → 41; R/Q/S → [10](10-risk-register.md)/[30](30-quirks-register.md); OD → [90](90-open-decisions.md); VF → STATUS §3; "Verify only": no edit unless proof fails.
 - Versions = exact pins from 02 (`--save-exact`; 02 wins); "path-only" = below latest by design. W9 = 6.7. No `--fix` for ESLint/stylelint (R-049).
+- **D19 (2026-10-22):** a row, or the part of a row, whose Where is `Dockerfile`, `.dockerignore`, `kube/`, `.github/` or a deploy workflow is a **deploy-time item** (§Deploy-time items): recorded for the owner, never applied in the track; `git diff f5cfc20 -- .github kube Dockerfile .dockerignore` stays empty. The jumps (50 §4.0) apply only the app and test parts.
 
 ## 2.0 — Pre-baseline PRs (gateway rule, Dependabot)
+
+**WITHDRAWN (2026-10-22, D19):** CS-OPS-1 and CS-OPS-6 change `kube/` and `.github/` and were not applied; the `_next/data` fix is the app-side CS-N12-9 (jump 2, OD-03 D), and CS-OPS-1 is an owner option at deploy time (§Deploy-time items). The proxy overlay `--overlay cs-ops-1` keeps testing the rule (T-604, T-702). The rest of this section is the original plan.
 
 One step (2.0a and 2.0b WITHDRAWN 2026-10-20 with OD-29: today's deploy workflows stay unchanged), branch `upgrade/p2-20-gateway` ([01](01-playbook.md) §2): CS-OPS-6, then CS-OPS-1 (label `infra`, owner signs); one runbook pass (01 §4 with the 01 §6 bootstrap). Both are normal PRs in this repo: the merge to `main` runs the existing `aks_deploy.yml`, whose 'Apply Kubernetes manifests' step (`aks_deploy.yml:88`) puts the route on prod, before 2.4 (G, 42 §4). Stage gets it whenever `stage` is deployed as today (`aks_stage_deploy.yml:88`).
 
@@ -34,17 +37,19 @@ CS-OPS-1 rule (`kube/prod/httproute.yaml`; stage the same), inserted before the 
 
 ## 2.1 — Docker/npm neutral changes
 
+**Lean outcome (2026-10-22, D19):** applied and kept: CS-W0-9 (the `build:test` script; its Dockerfile `ARG BUILD_SCRIPT` half reverted), CS-W0-1, CS-W0-10. Applied, then reverted with the other DevOps changes: CS-W0-7, CS-W0-8 with `.dockerignore`, the Dockerfile half of CS-W0-9 (deploy-time items, not needed for the deploy: §Deploy-time items). The inertness proof (42 §5) ran on host parity builds. The rest of this section is the original plan.
+
 Inert proof: T-013 + T-014 (42 §5); recipe: 42 §2. One step branch `<B>` = `upgrade/p2-21-harness`; every PR goes into `<B>`, which runs the 01 §4 runbook once (steps 3–11). Order: CS-W0-9 (its merge into `<B>` = `<base'>`, SHA in STATUS §1, 42 §5) → the harness PRs (root devDependencies, `jest.config.js`, scripts, T-006/T-011..T-014, prototype `ci.yml`; 40 §2), each T-013-checked against `<base'>` → CS-W0-8 (with `.dockerignore`) → CS-W0-7 → CS-W0-1 → CS-W0-10. **CS-NODE-5** (verify in every `Dockerfile`/`kube/` PR): the ARG defaults `Dockerfile:2,4` feed `ENV BUILD_TARGET` (`:14`) and `NODE_ENV` (`:21`); keep `BUILD_TARGET=azure`, `NODE_ENV=production` (T-901, T-721; R-082).
 
 | ID | Where | Anchor | Current | Change | Proof | Refs |
 |-|-|-|-|-|-|-|
-| CS-W0-1, CS-W0-10 | `package.json:18`; `package.json:70` (new `overrides`) | `"latest"`; `"engines": {` | Floating; drifts | -1: `"@oacore/design": "5.0.74"` exact. -10: `"overrides": {"caniuse-lite": "1.0.30001754", "browserslist": "4.27.0", "next": {"browserslist": "4.16.6"}}` (the lock's versions; the nested key keeps `node_modules/next/node_modules/browserslist` and its `node-releases`); `npm install --package-lock-only --ignore-scripts --legacy-peer-deps` changes only the root lock entry; CI: `npx browserslist` equals the committed copy; the `next` key is re-checked when CS-N12-4 regenerates the lock; unpin: CS-W0-11 (70) | Lock diff = the root spec and `overrides` only (T-013); `npm ci` ok | R-015, R-065, D17, OD-16 |
+| CS-W0-1, CS-W0-10 | `package.json:18`; `package.json:70` (new `overrides`) | `"latest"`; `"engines": {` | Floating; drifts | -1: `"@oacore/design": "5.0.74"` exact. -10: `"overrides": {"caniuse-lite": "1.0.30001754", "browserslist": "4.27.0", "next": {"browserslist": "4.16.6"}}` (the lock's versions; the nested key keeps `node_modules/next/node_modules/browserslist` and its `node-releases`); `npm install --package-lock-only --ignore-scripts --legacy-peer-deps` changes only the root lock entry. Also in `overrides` (2.1, the Jest install): test-tooling pins of the root `@babel/*` packages (`@babel/core` as `$@babel/core`, `code-frame`, `compat-data`, `generator`, six `helper-*`, `helpers`, `parser`, `template`, `traverse`, `types`) and of `@jridgewell/gen-mapping`, `@jridgewell/trace-mapping`, each at the version the lock already had, so the test devDependencies cannot move the app's build toolchain; proven inert (T-013, the 42 §5 builds identical); the local run (42 §10): `npx browserslist` equals the committed copy; the `next` key is re-checked when CS-N12-4 regenerates the lock; unpin: CS-W0-11 (70) | Lock diff = the root spec and `overrides` only (T-013); `npm ci` ok | R-015, R-065, D17, OD-16 |
 | CS-W0-7, CS-W0-9 | `Dockerfile:17-19,23-24` | `COPY . .`; `RUN npm run build` | Late copy; live loader | -7: `COPY package.json package-lock.json design.config.js ./` before `npm ci`, then `COPY . .`; no `--ignore-scripts`, no cached `node_modules`. -9: `ARG BUILD_SCRIPT=build` → `npm run ${BUILD_SCRIPT}`; test images: `build:test` + frozen `data/` snapshot; `NODE_OPTIONS` appended, never replaced | `lib/config.js` in image and CI has `/static/search/icons.svg` (T-006); default build: `.next` identical (T-014) | R-022, R-091 |
 | CS-W0-8 | `Dockerfile:1,6,18-20`; `aks_deploy.yml:54` (stage same) | `FROM node:18-alpine`; `--build-arg NPM_TOKEN` | Token in layer | BuildKit secret `npm_token` replaces `ARG NPM_TOKEN` and the `.npmrc` write (workflows `--secret id=npm_token,env=NPM_TOKEN`: the deploy workflows change only this build flag, so CI images of the same Dockerfile carry no token; trigger, target and rollout stay as today, OD-29); `.dockerignore` (new); `ARG NODE_VERSION=18`, `FROM node:${NODE_VERSION}-alpine@sha256:<digest>` | `docker history --no-trunc`: no `NPM_TOKEN=`; T-901 ENV unchanged | S-3, R-091 |
 
 ## 2.6 — CI workflows
 
-**CS-NODE-4**: `ci.yml` (new; replaces the 2.1 prototype) + required check `CI / gate` on `main` (CI-7), spec 42 §10; CI-1 includes `node tools/check-docs.mjs docs/upgrade --repo .` (40 §10). The deploy workflows are not changed (CI-6 WITHDRAWN, OD-29). Proof: 20 consecutive green runs on the unchanged app (55 C5); CI-7 screenshot.
+**WITHDRAWN (2026-10-22, D20):** no workflow is written; `bash scripts/ci-local.sh` is the local full-suite run (42 §10). Was: **CS-NODE-4**: `ci.yml` (new; replaces the 2.1 prototype) + required check `CI / gate` on `main` (CI-7), spec 42 §10; CI-1 includes `node tools/check-docs.mjs docs/upgrade --repo .` (40 §10). The deploy workflows are not changed (CI-6 WITHDRAWN, OD-29). Proof: 20 consecutive green runs on the unchanged app (55 C5); CI-7 screenshot.
 
 ## W0 — Hygiene
 
@@ -107,8 +112,9 @@ CS-MOBX-3 (not in the track): if phase 6 slips, after W7 do CS-BAB-1, then mobx 
 | CS-N11-4 (W4c) | `next.config.js:4,106`; `package.json:22,54` | `next-source-maps` (×2 in `package.json`) | Public maps | Remove wrapper and both entries; `productionBrowserSourceMaps: true` | T-601 `.map` matrix: client maps still 200 (CSS maps: VF-24) | S-9, OD-42 |
 | CS-N12-4 (W4c) | `package-lock.json:4` | `"lockfileVersion"` | No SWC | Regenerate with npm ≥10; lock holds `@next/swc-linux-{arm64,x64}-musl`; 12.1.6 prints "patching": keep lock v2 or allow-list [VERIFY: VF-05] | T-008 musl entries; T-901 arm64: no "patching"/"wasm" at 12.3.7 | R-027 |
 | CS-GA-1 (W4c) | `package.json:40`; `hooks/use-analytics.js:3,11` | `from 'react-ga4'` | 2.1.0 | 3.0.1; Jest `jest.mock('react-ga4', factory)` | T-305, T-719 equal; else stop, OD-27 | Q-071 |
-| CS-N12-5, CS-N12-3 (W4d) | `package.json:36`; `pages/_app.jsx:72-77` | `"next": "^10`; `getDataHref = (args)` | 12.1.6 | `next@12.3.7`; entry: CS-OPS-1 live on prod. -3 **unchanged** (identical on all 8 builds); `getDataHref` missing: stop (OD-03) | T-604, T-702 via proxy with the rule; T-901 no "patching"/"wasm"; T-015; VF-25 | R-068, R-077, R-072 |
-| CS-N12-6 (W4e) | `Dockerfile:1` | `FROM node:18-alpine` | Node 18 | `ARG NODE_VERSION=24`, `node:24-alpine@sha256:<digest>`; `engines.node` runtime floor. 12.3.7 fails on Node 26 | T-901 arm64 (VF-05); T-908; first prod rollout: Host + Authorization at the API (VF-02) | R-042, R-080, OD-05 |
+| CS-N12-5, CS-N12-3 (W4d) | `package.json:36`; `pages/_app.jsx:72-77` | `"next": "^10`; `getDataHref = (args)` | 12.1.6 | `next@12.3.7`; entry: CS-N12-9 in the same jump (was: CS-OPS-1 live on prod; D19). -3 **unchanged** (identical on all 8 builds); `getDataHref` missing: stop (OD-03) | T-604, T-702 via the proxy without the CS-OPS-1 overlay; T-901 no "patching"/"wasm"; T-015; VF-25 | R-068, R-077, R-072 |
+| CS-N12-9 (W4d, jump 2) | `next.config.js:15-21` | `async rewrites() {` | The app's own rewrite `/search/_next/data` → `/_next/data` (`helpers.rewriteDataPath()`); stops matching from 12.2 (R-068) | App-side fix, OD-03 D, in place of the gateway rule (D19): the same source and destination as a `beforeFiles` rewrite (`return { beforeFiles: [that rule], afterFiles: [the other rewrites, unchanged] }`); the client patch (CS-N12-3) unchanged | T-604, T-702 through the gateway-faithful proxy without the CS-OPS-1 overlay on 12.3.7: JSON with `pageProps`, 0 document requests; other routes unchanged (T-601, T-603; a routes-manifest diff only as an AD row, OD-39); again on 15.5 and 16 as the jump-4 spike (OD-03) | R-068, R-002, OD-03 |
+| CS-N12-6 (W4e) | `Dockerfile:1` | `FROM node:18-alpine` | Node 18 | Deploy-time item (D19): `ARG NODE_VERSION=24`, `node:24-alpine@sha256:<digest>`, applied by the owner at the final deploy; in the track: `engines.node` runtime floor and the local runtime Node 24. 12.3.7 fails on Node 26 | T-901 arm64 (VF-05); T-908; first prod rollout: Host + Authorization at the API (VF-02) | R-042, R-080, OD-05 |
 
 CS-N12-8 (W4c, no code; R-043): OD-37 B accepts the 13 changed CSS rules only if T-801 is 0 px, AD rows per T-003 category (VF-06); fallback A: `cssnano-simple@2.0.0` minimizer (M1 exception).
 
@@ -169,6 +175,26 @@ Checked, N/A here: 13 `next/image`, `target`, `next/script`, fonts, AMP, runtime
 
 Applies (undocumented, in no guide): multi-child `<title>` from 13 (R-069), CSS `oneOf` string `test` from 13 (R-001), `data-next-head` from 15 (R-071), data requests flagged from the original URL from 15.4 (R-068), build lints flat config (R-070), `_next/data` charset (R-083), server bundles `@sentry/browser` from webpack 5 (R-040). Documented items that apply have CS rows (CS-N13-1/-2, CS-N16-2..6) or risks (R-077, R-027).
 
+## Deploy-time items (D19, 2026-10-22)
+
+Recorded for the owner, never applied in the track (D19); the owner applies those marked "needed" with the final deploy (55 §0). Lines: tree `a825839` (= `f5cfc20`).
+
+| Item | Rows; where | Needed for the final deploy? |
+|-|-|-|
+| Node base image | CS-N12-6: `Dockerfile:1` `FROM node:18-alpine` | Needed: the upgraded app runs on Node 24 (jump 2, OD-05); `node:24-alpine`, by digest if the owner wants |
+| OpenSSL flag | CS-N11-5: `Dockerfile:23` `ENV NODE_OPTIONS="--openssl-legacy-provider"` | Check: only Next 10 with webpack needs it; remove it if Node 24 rejects the flag (the local builds of jump 2 run without it) |
+| Design install flag | CS-DSN-2, [60](60-design-ownership.md): `Dockerfile:19` `npm ci --include=dev --legacy-peer-deps` | Needed from W5 (jump 1): the design directory package installs with `--install-links` (60 §4 layout C), so the image install needs the flag too, or the repository's `.npmrc` carries `install-links=true` (an app-side alternative, owner's choice); `COPY . .` (`Dockerfile:17`) already copies `vendor/` before the install, so CS-DSN-1's `COPY vendor/` is not needed |
+| Husky in the image | CS-W0-6: `Dockerfile:10-15` | Check: from W1 husky 9's `prepare` script runs in the image's `npm ci`; `ENV HUSKY=0` keeps it inert if it fails without `.git` |
+| Registry token | DV6 (b), [60](60-design-ownership.md): `Dockerfile:6,18-20`, deploy workflows | Only once the lock has no `npm.pkg.github.com` entry: the `NPM_TOKEN` build argument can go (S-3 stays as today until then) |
+| Gateway rule | CS-OPS-1: `kube/{prod,stage}/httproute.yaml:33-36` | Only if the jump-4 spike shows CS-N12-9 cannot serve `_next/data` on 15.5 or 16 (OD-03) |
+| Install retry chain | CS-W0-4: `Dockerfile:19` (`\|\| npm install` fallback) | Not needed: the fallback stays as today |
+| Copy order, build script | CS-W0-7, CS-W0-9 Dockerfile half: `Dockerfile:17-19,24` | Not needed: the deploy keeps `npm run build` with the live loader; the host parity build applies `build:test` and the frozen snapshot itself |
+| Token secret, `.dockerignore` | CS-W0-8: `Dockerfile:1,6,18-20`; deploy workflows | Not needed (S-3 stays as today, D1). Without `.dockerignore` the image also holds `test/`, `e2e/`, `docs/`, `scripts/`, `tools/`, as before Phase 2; the app never reads them |
+| Dependabot file | CS-OPS-6: a new Dependabot config under `.github/` | Not needed: WITHDRAWN; Dependabot PRs are not merged during the track |
+| CI workflow, required check | CS-NODE-4, CI-7: workflow file, branch protection | Not needed: WITHDRAWN (D20) |
+| Runtime env | CS-NODE-3, CS-NODE-5: `kube/prod/deployment.yaml:41-44`; `Dockerfile:2,4,14,21` | Verify only, unchanged (T-901 host mode pins the ENV contract) |
+| Image checks | the first image build of the final deploy | T-008 alpine half, T-901 container half, VF-05 (musl install, ICU, SWC and sharp musl binaries): DEFERRED from the track (no Docker); the owner's deploy build is their first run |
+
 ## Withdrawn and rescheduled
 
 | ID | WITHDRAWN, or was → now |
@@ -181,6 +207,8 @@ Applies (undocumented, in no guide): multi-child `<title>` from 13 (R-069), CSS 
 | CS-OPS-5 | WITHDRAWN (2026-10-20, OD-41): no gateway block; the endpoint stays as today |
 | CS-IMG-1 | WITHDRAWN (2026-10-20, OD-41: this part stays the old way): was the `next.config.js` off-switch for the unused optimizer from W4c, now OD-41 option B |
 | CS-SEC-1 | WITHDRAWN (2026-10-20, D16 WITHDRAWN, OD-36): S-4 preserved, pinned by T-602 and T-113 |
+| CS-OPS-1, CS-OPS-6 | WITHDRAWN from the track (2026-10-22, D19) → CS-N12-9; deploy-time items (§Deploy-time items) |
+| CS-NODE-4 | WITHDRAWN (2026-10-22, D20): no CI workflow; the local full-suite run (42 §10) |
 | CS-W0-1 | W0 → 2.1 |
 | CS-BAB-3 | phase 6 → W0 |
 | CS-N13-1, CS-N13-2 | W6c → W0b |

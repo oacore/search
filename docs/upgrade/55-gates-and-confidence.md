@@ -1,9 +1,40 @@
 # 55 — Gates and confidence
 
-**Purpose.** Every binary acceptance criterion: "≥95% confidence" as C1–C8 (D12/M7), pre-merge runtime (C6-CI) and watch thresholds, GATE-S, GATE-A (pre-antd; D10/M5), GATE-F, W5 checks, residual gaps.
+**Purpose.** Every binary acceptance criterion; the lean criteria in force since 2026-10-22 are §0 (D18–D20): "≥95% confidence" as C1–C8 (D12/M7), pre-merge runtime (C6-CI) and watch thresholds, GATE-S, GATE-A (pre-antd; D10/M5), GATE-F, W5 checks, residual gaps.
 **Read it** before a C6-CI or watch verdict, at W5 exit and before any gate. **Owns:** C1–C8 (definitions, thresholds, statistics), GATE-x.n (x = S, A, F), VG, RG, the gate record. Elsewhere: tests [41](41-test-inventory.md), commands [40](40-test-strategy.md) §10, CI and baselines [42](42-baselines-and-ci.md), runbook and records [01](01-playbook.md), versions [02](02-version-matrix.md), statuses [STATUS](STATUS.md).
 
 All thresholds are **DECIDED (2026-10-20, owner confirmed the recommended defaults)**: OD-35 (OQ-3); watch setup OD-47 (2026-10-20, owner in chat: existing monitoring, no stage soak, no traffic split; the stage soak's checks moved pre-merge as C6-CI). No gate depends on stage, on deploy by digest, on a canary or split, on private artefact storage or on new infrastructure. They change only under [90](90-open-decisions.md) rule 6, never in a record.
+
+## 0. Lean gates (D18–D20, 2026-10-22): what applies now
+
+The owner's decisions D18 ("relatively sure"), D19 (scope) and D20 (no CI) ([00](00-decisions.md) §4b) override §1–§8 wherever they conflict. §1–§8 stay as the reference for what each check measures and for a stricter run later; their IDs are kept. Every check below is binary, runs on the workstation, and needs no CI, Docker, deploy or prod window. A deploy happens once, after GATE-S, by the owner.
+
+| Check | When | Pass (binary) |
+|---|---|---|
+| Jump check | end of each jump 1–5 ([50](50-roadmap.md) §4.0), on the jump's tip | One `bash scripts/ci-local.sh` (all six jobs; the staged form of [42](42-baselines-and-ci.md) §10 counts as one run), every job `success`: every P0 and due P1 test green, T-801/T-802 0 px against the B0-local baselines, the SSR/HTTP/SEO contract checks (T-601–T-612, T-729) and every pinned quirk green, `retries: 0`, T-008 green. A red test is re-run once: green = a flake, fixed in the harness (40 §8) before the next jump; red again = a regression, fixed only at a listed change site (20, 60) or accepted only by a signed AD row (42 §8), never by changing the test (D1). |
+| Heavy checks | the midpoint (end of jump 3) and GATE-S | (a) Breakage catalogue re-run: `npm run faults -- --lean` over every R patch in `test/faults/` (C1 (a) with the lean validity: the patch applies, a stale patch refreshed for the same risk and detectors (C1 freshness), the build succeeds, the named detectors go red, the `.expect` holds): 0 valid survivors. (b) Old-vs-new corpus: `npm run corpus` with the golden build as reference and the jump tip as candidate over the committed URL list (the pilot list `test/corpus/pilot/` until the owner supplies logs, VF-26): 0 diffs that no AD row explains. (c) One merged coverage report (`npm run coverage`), printed, not gating. |
+| GATE-S (lean stabilisation gate) | end of jump 5 | The jump check and the heavy checks; GATE-x.1 versions (02 §5 sweep on every row, `npm run outdated-at -- <Tr>` lists only 02 §4 rows); one opt-in audit run (`CI_LOCAL_AUDIT=1`, CI-8) recorded; one sampled mutation run (`npm run mutation` on the C2 core files): the five core files together ≥90% (2.7: 90.58%); C8 (docs check ERROR 0, records written); RG-1..RG-8 accepted by name; `records/gate-S.md` with the deploy-time items the owner applies ([20](20-change-sites.md) §Deploy-time items), signed by the owner. |
+| Final deploy | after GATE-S, by the owner | Today's deploy process (01 §5 rollback as today). 48 h watch with the existing monitoring: C6-prod rows 1–7, 9 and 10 where a source exists, a breach = rollback first. Then one human smoke check of about 15 minutes (search with a filter and a sort, a works page, an outputs page, the data-providers list and one provider page, the CSV download, the cookie banner): no visible difference, no error. Results in `records/gate-S.md`. |
+
+WITHDRAWN or DESCOPED (2026-10-22, D18–D20), IDs kept:
+
+| Item | Lean status |
+|---|---|
+| C1 (b) sealed batch, its statistic L, C1 build faults; C1-Q quirk-clause patches | WITHDRAWN (D18): quirks are pinned directly by the P0/P1 tests; the catalogue (a) stays |
+| C1 validity extras (≤20% P0 red, T-901 green, all tiers per fault) | WITHDRAWN (D18): lean validity above |
+| C2 per step and gate | WITHDRAWN except the one sampled run at GATE-S |
+| C3 thresholds (a)–(d) | printed only (2.7: 88.79% of app statements; OD-35) |
+| C4 N ≥500 per step, N ≥2,000 at GATE-S, fresh corpora, live A/B, positive controls per gate | WITHDRAWN (D18); the old-vs-new run of the heavy checks remains |
+| C5: 20 consecutive green runs, 3 green runs per head, the 1/100 flake budget, the 20 + 20 triage runs (40 §9) | WITHDRAWN (D18, D20): one run per jump, a red test re-run once |
+| C6-CI soak at prod limits | WITHDRAWN (D19: it needs Docker) |
+| C6-prod per step, calibration watches, C6-NI, signals exports | WITHDRAWN (D18): one 48 h watch after the final deploy |
+| GATE-x.2 "3 consecutive green `CI / gate` runs" | one green local run (D20) |
+| GATE-x.6 (14-day window, per-day tests, pod RSS slope, live A/B) | WITHDRAWN (D18) |
+| GATE-x.7 CI-only binaries and actions | WITHDRAWN (D20); test tools stay at their 02 target |
+| GATE-x.8 rollback rehearsal on CI | DEFERRED to the owner's deploy (rollback as today, 01 §5) |
+| C7 | kept through the jump check on Chromium; the WebKit and Firefox legs are DEFERRED (browser downloads not approved) |
+| GATE-A, GATE-F | outside the version track; their lean form is set before phase 6 |
+| VG-1..VG-7 | kept (jump 1, design copy) |
 
 ## 1. What "≥95% confidence" means
 
@@ -130,7 +161,7 @@ Every gate: one commit, deployed to prod by its merge; **all tiers** (every 41 r
 
 | ID | Criterion (binary) |
 |---|---|
-| GATE-x.1 Versions | 02 §1 rule 4 and §4 hold at the gate's **version cut-off Tr** (D6) = committer date of the gate commit's last change to `package.json`, `package-lock.json`, `e2e/package*.json`, `e2e/runner/Dockerfile` or a pinned action (`git log -1 --format=%cI <commit> -- <those paths>`); that change is the last commit of the **gate sweep** (02 §5 on every row, test tools and CI-only pins included: GATE-S in W8, GATE-A in 6.10, GATE-F in 7.F) and Tr ≥ the start of the gate's first GATE-x.6 window − 10 days (a look 2 or a restarted window needs no new sweep); evaluated by `scripts/outdated-at.mjs <Tr>` (02 §5 step 5); a row open past its 02 §4 column passes only under §4 (b); versions published after Tr are listed in the gate record and taken in the first step after the gate (after GATE-F: a post-GATE-F maintenance step entered in 02 §4); a CI-8 advisory ≥ high on the gate day still fails; `npm ci --legacy-peer-deps` passes and the strict-mode `npm ls --all` problem set ⊆ the 02 §4 allow-list (T-008); at GATE-F strict `npm_config_userconfig=/dev/null npm ci --no-legacy-peer-deps` passes and `npm ls --all` exits 0; CI-8 green, blocking (allow-list 42) |
+| GATE-x.1 Versions | 02 §1 rule 4 and §4 hold at the gate's **version cut-off Tr** (D6) = committer date of the gate commit's last change to `package.json`, `package-lock.json` or `e2e/package*.json` (`git log -1 --format=%cI <commit> -- <those paths>`; the Docker runner recipe and the pinned actions of the first plan were removed, D19, D20); that change is the last commit of the **gate sweep** (02 §5 on every row, test tools and CI-only pins included: GATE-S in W8, GATE-A in 6.10, GATE-F in 7.F) and Tr ≥ the start of the gate's first GATE-x.6 window − 10 days (a look 2 or a restarted window needs no new sweep); evaluated by `scripts/outdated-at.mjs <Tr>` (02 §5 step 5); a row open past its 02 §4 column passes only under §4 (b); versions published after Tr are listed in the gate record and taken in the first step after the gate (after GATE-F: a post-GATE-F maintenance step entered in 02 §4); a CI-8 advisory ≥ high on the gate day still fails; `npm ci --legacy-peer-deps` passes and the strict-mode `npm ls --all` problem set ⊆ the 02 §4 allow-list (T-008); at GATE-F strict `npm_config_userconfig=/dev/null npm ci --no-legacy-peer-deps` passes and `npm ls --all` exits 0; CI-8 green, blocking (allow-list 42) |
 | GATE-x.2 Suite | Computed from the gate run's JSON reports: ≥1 executed, passing test per (active P0 or due P1 row, Cases clause) (title prefix `T-###` plus clause, 40 §7, 41 §0); `docs:check --tests` fails on a clause with no test; each P2 passing or owner-waived in the record (§4 (c)); 0 failed, 0 skipped; `docs:check` rejects a test title whose T-ID is not in 41; 3 consecutive green `CI / gate` runs at the commit; `retries: 0`; STATUS §4 DONE flips follow the report |
 | GATE-x.3 Parity | Vs the approved chain head + AD ledger (42 §9): T-801/T-802 0 px read from the JSON reports (the exact comparator's `diff-pixels` annotation = 0 per screenshot, 40 §1; a screenshot without one fails), every viewport and engine (41 §2.5); T-601–T-612 green, snapshots identical; T-702/T-607 logs identical; T-701/T-728 no new events (tuple set, C7 (1)), SSR body DOM identical; T-803 identical violation set; T-805/T-806 identical; T-001 parity |
 | GATE-x.4 Confidence | C1–C8 pass |

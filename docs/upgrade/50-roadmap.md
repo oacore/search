@@ -1,11 +1,11 @@
 # 50 — Roadmap: order, steps, effort
 
 **Purpose.** The execution order from today's stack to GATE-F, one step at a time, with binary entry and exit per step.
-**Read it** to pick the next step and check its entry, then execute it with [01](01-playbook.md). **Owns:** OC-1..OC-24; steps 2.0–2.8 and W0…W8 (entry, exit, step-specific rollback, security column, effort, calendar); parallelism. Elsewhere: CS rows [20](20-change-sites.md), tests [41](41-test-inventory.md), runbook, rollback and DoD 01, gates [55](55-gates-and-confidence.md), versions [02](02-version-matrix.md), phases 6–7 [70](70-phase6.md), [80](80-phase7-antd.md).
+**Read it** to pick the next step and check its entry, then execute it with [01](01-playbook.md). Since 2026-10-22 the version track runs as five jumps (§4.0; D18–D20 in [00](00-decisions.md) §4b), which win over the per-step rules below where they conflict. **Owns:** OC-1..OC-24; steps 2.0–2.8 and W0…W8 (entry, exit, step-specific rollback, security column, effort, calendar); parallelism. Elsewhere: CS rows [20](20-change-sites.md), tests [41](41-test-inventory.md), runbook, rollback and DoD 01, gates [55](55-gates-and-confidence.md), versions [02](02-version-matrix.md), phases 6–7 [70](70-phase6.md), [80](80-phase7-antd.md).
 
 ## 1. Phase order
 
-Binding order: [00](00-decisions.md) §5. Phases 3 (bump) and 4 (fix) interleave per step: a step bumps, fixes, is green on the full pre-merge suite and goes to prod alone before the next starts ([90](90-open-decisions.md) OD-01, default A). Phase 5 (design copy) = W0.5 and W5. The version track ends at GATE-S.
+Binding order: [00](00-decisions.md) §5. **AMENDED (2026-10-22, D18–D20):** phases 3 (bump) and 4 (fix) interleave per jump (§4.0): a jump bumps, fixes at the listed change sites and is green on one local full-suite run (55 §0); nothing is deployed until the single deploy after GATE-S. Was: per step, a step bumps, fixes, is green on the full pre-merge suite and goes to prod alone before the next starts ([90](90-open-decisions.md) OD-01, default A). Phase 5 (design copy) = W0.5 and W5. The version track ends at GATE-S.
 
 - **Step** = one deployable unit through 01 §4 (branch, CS PRs, pre-merge suite incl. C6-CI, prod merge, 48 h watch, record). **"X DONE"** = `records/X.md` signed and X marked DONE in [STATUS](STATUS.md) §4.
 - **Renamed** (review:00 X20.2, X50.5): W4c is now Next 12.1.6 (the draft's W4c, Next 11.1, cannot build the app); W6b WITHDRAWN (→ W5.5); W9 = 6.7; L1 sweep = 6.10; L2 sweep = part of 7.F; OC-1..OC-14 = the draft's O1–O14.
@@ -41,7 +41,7 @@ Binding order: [00](00-decisions.md) §5. Phases 3 (bump) and 4 (fix) interleave
 
 ## 3. Phase 2 — safety net and baselines (2.0–2.8)
 
-No runtime behaviour change. 2.0 and 2.1 are deployable (01 §4); 2.2–2.8 are test, CI and docs PRs (01 §6 non-deployable steps), whose merges still redeploy an unchanged runtime tree (R-088). 2.0a and 2.0b are WITHDRAWN (2026-10-20, with OD-29): one step 2.0. Until `CI / gate` is required (2.6) PRs and the 2.0/2.1 runbooks follow the 01 §6 bootstrap rules. Workflows appear at: prototype `ci.yml` 2.1; `baseline-capture.yml` 2.4; `golden-canary.yml`, `gate-s.yml`, `soak.yml` 2.5; full `ci.yml`, `CI / gate` 2.6; `faults.yml`, `mutation.yml` 2.7 (42 §10); other harness files: 40 §10. Entry always includes the previous exit. Record: `records/phase-2.md`, a section per step.
+**Lean mode (D18–D20, 2026-10-22):** Phase 2 ran locally (host parity builds, host stacks, host Chromium; no Docker, no CI, nothing pushed or deployed) and is DONE (2026-10-27); results, deviations and open items per step: [records/phase-2.md](records/phase-2.md). 2.0 (CS-OPS-1, CS-OPS-6) is WITHDRAWN (D19), 2.6 (CI workflows) is WITHDRAWN (D20); the exit-row parts below that need CI, Docker, a deploy, a watch, prod data or GitHub settings are WITHDRAWN or DEFERRED as that record lists. The rest of this section is the original plan. No runtime behaviour change. 2.0 and 2.1 are deployable (01 §4); 2.2–2.8 are test, CI and docs PRs (01 §6 non-deployable steps), whose merges still redeploy an unchanged runtime tree (R-088). 2.0a and 2.0b are WITHDRAWN (2026-10-20, with OD-29): one step 2.0. Until `CI / gate` is required (2.6) PRs and the 2.0/2.1 runbooks follow the 01 §6 bootstrap rules. Workflows appear at: prototype `ci.yml` 2.1; `baseline-capture.yml` 2.4; `golden-canary.yml`, `gate-s.yml`, `soak.yml` 2.5; full `ci.yml`, `CI / gate` 2.6; `faults.yml`, `mutation.yml` 2.7 (42 §10); other harness files: 40 §10. Entry always includes the previous exit. Record: `records/phase-2.md`, a section per step.
 
 | Step | Content | Entry (extra) | Exit (binary) | pd |
 |---|---|---|---|---|
@@ -58,6 +58,20 @@ No runtime behaviour change. 2.0 and 2.1 are deployable (01 §4); 2.2–2.8 are 
 Rollback: 2.0 and 2.1 — 01 §5 (revert; the deploy workflow re-applies the previous `kube/` manifests); never revert CS-OPS-1 while Next ≥12.2 is in prod; CS-W0-8's Dockerfile and workflow flag revert together. 2.2–2.8 change no runtime: revert the PR; baselines change only by re-capture (42 §9). Optional: the P0 suite on `node:24-alpine` with Next 10 (informs OD-05).
 
 ## 4. Version track (W0 … W8, GATE-S)
+
+### 4.0 Five jumps (D18–D20, 2026-10-22)
+
+The W-steps below are grouped into five jumps, run one after the other on local step branches (01 §10). No jump is deployed: one deploy at the end, by the owner, after GATE-S, with a 48 h watch on the existing monitoring and a 15-minute smoke check (55 §0). Inside a jump the steps keep their order, CS rows (20, 60) and exit facts; the table's per-step prod merge, watch, Rollback timing and Cal columns are WITHDRAWN (D18).
+
+| Jump | Steps | Content | Exit (55 §0) |
+|---|---|---|---|
+| 1 | W0, W0b, W0.5, W1, W2a–W2e, W3, W5 | Tooling and leaf libraries plus the design copy: hygiene, the Next-proofing rows (neutral on 10.2.3), lint, format and hooks on tooling Node 24, Sentry 7, LogRocket 12, core-js, postcss 8.5, Babel 7.29, mobx 6.16; design 5.0.74 as tarball (W0.5), then as in-repo directory package (W5, 60; it moves before W4, so its VG reference is the jump-1 build just before it, not W4e) | Jump check; VG-1..VG-7 at W0.5 and W5 |
+| 2 | W4a–W4e, CS-N12-9 | webpack 5, Next 12.1.6 then 12.3.7, runtime Node 24 for the local builds and Jest (the local runner's runtime Node moves from 18.20.8 to 24: a harness change, 40 §8); the app-side `_next/data` fix CS-N12-9 (OD-03 D) instead of the gateway rule CS-OPS-1. The Dockerfile Node tag (CS-N12-6) and the Dockerfile OpenSSL line (CS-N11-5) are deploy-time items only (20 §Deploy-time items) | Jump check, incl. T-604 and T-702 through the gateway-faithful proxy without the CS-OPS-1 overlay: JSON with `pageProps`, 0 document requests |
+| 3 | W5.5, W6a, W6c, W6d | React 18 and Next 14: the W5.5 spike first (§4.2, proven ESCALATES fixes only), then React 18.3.1, Next 13.5, Next 14.2 | Jump check; heavy checks (the midpoint) |
+| 4 | W7a, W7b, W7c | Next 15.5 and 16, React 19. First a spike: CS-N12-9 still serves `_next/data` on 15.5 and on 16 (T-604, T-702 through the proxy without the overlay); red = stop, the owner chooses (OD-03 C, or CS-OPS-1 applied by the owner as a deploy-time item) | Jump check |
+| 5 | W8, the GATE-S sweep | Remaining libraries: the PostCSS majors, every 02 row still below latest (02 §5 on every row), test-tool bumps with a re-capture (42 §9); stabilisation | GATE-S (lean, 55 §0) |
+
+Per jump: one full local suite run on the tip, a failing test re-run once (55 §0); fixes only at listed change sites (20, 60; a new site gets a CS row first, 01 §9); the heavy checks (breakage catalogue re-run, old-vs-new corpus) only at the midpoint and at GATE-S; no build from scratch: after a jump changes `package.json` or the lock, the repository's `node_modules` is synced once, then every build tree is a `cp -Rc` clone of the repository tree that reuses it, followed by the app build step only (01 §10); disk budget ≥25 GB free and at most 3 build trees; at most 2 builds at the same time. A jump's record: `records/jump-<n>.md` (01 §7).
 
 Each row also needs the DoD (01 §6, incl. the 55 §1 step column), every CS Proof in 20 under the step's heading (60 for W0.5, W5), and tests = all P0 + the 41 rows whose Wave lists the step. Versions per 02, re-resolved at step start (02 §5). **Rollback** = revert the merge, or re-run the previous deploy first (01 §5); the column adds only what is specific. **Sec** = Next advisories open in prod during the step (`npm audit`, total / critical); the unused image optimizer stays as today (OD-41, S-10); today's 10.2.3 has 16, a superset of 12.3.7's, incl. GHSA-2xp9-vwfh-vxw4 (image-optimizer RCE, fixed in 15.5.24). **Cal** = pd + 2 (48 h watch; C6-CI runs inside pd).
 
@@ -112,7 +126,7 @@ D11 (M6) adopts these tools after stability, but search already runs ESLint 7, P
 
 ## 6. Effort and calendar
 
-pd = one implementer's working days; phases 2, 6, 7 bottom-up from review:roadmap-process RP-19, the version track from §4. Unverified: re-estimate after each calibration spike (2.1: 5 days; 6.0: first week, 70; 7.0: 5 days, 80), record in STATUS (VF-17).
+**AMENDED (2026-10-22, D18):** no per-step watch or deploy, so the calendar is the jumps' pd plus one 48 h watch after the final deploy; the 14-day GATE-S window is WITHDRAWN. The table keeps the original estimate. pd = one implementer's working days; phases 2, 6, 7 bottom-up from review:roadmap-process RP-19, the version track from §4. Unverified: re-estimate after each calibration spike (2.1: 5 days; 6.0: first week, 70; 7.0: 5 days, 80), record in STATUS (VF-17).
 
 | Scope | pd | Calendar (one implementer) |
 |---|---|---|
@@ -131,5 +145,5 @@ pd = one implementer's working days; phases 2, 6, 7 bottom-up from review:roadma
 ## 7. Parallelism
 
 - Alongside any step: test writing (P1 rows of later Waves) and doc PRs.
-- Steps are serial: never two deployable steps in flight (OC-21).
+- Steps are serial: never two deployable steps in flight (OC-21). In the jump model (§4.0) jumps are serial too, with at most 2 builds at the same time and at most 3 build trees.
 - Overlap: step N+1 may run 01 §4 steps 1–4 (branch, CS PRs, CI) during step N's watch, branching from `main` after N's merge; it merges only after N's record. If N rolls back, re-create N+1's branch from the reverted `main`.
