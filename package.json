@@ -46,7 +46,7 @@
     "@babel/plugin-transform-runtime": "^7.28.3",
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
-    "@oacore/eslint-config-react": "^1.0.6",
+    "@eslint/js": "10.0.1",
     "@oacore/prettier-config": "^1.0.6",
     "@stryker-mutator/core": "10.0.0",
     "@stryker-mutator/jest-runner": "10.0.0",
@@ -55,14 +55,14 @@
     "@testing-library/react": "12.1.5",
     "@testing-library/user-event": "14.6.8",
     "@zeit/next-source-maps": "0.0.3",
-    "babel-eslint": "^10.1.0",
     "babel-jest": "30.5.2",
     "es-check": "9.8.1",
-    "eslint": "^7.15.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.5",
+    "eslint": "10.13.0",
+    "eslint-plugin-import-x": "4.17.1",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.13.0",
     "husky": "^4.3.0",
     "jest": "30.5.2",
     "jest-environment-jsdom": "30.5.2",
@@ -74,7 +74,9 @@
     "postcss-extend-rule": "^4.0.0",
     "postcss-preset-env": "^7.7.2",
     "prettier": "^2.2.1",
-    "stylelint": "^13.8.0"
+    "stylelint": "^13.8.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.1"
   },
   "overrides": {
     "@babel/code-frame@^7.27.1": "7.27.1",
@@ -99,6 +101,12 @@
     "browserslist": "4.27.0",
     "next": {
       "browserslist": "4.16.6"
+    },
+    "eslint-plugin-jsx-a11y": {
+      "eslint": "$eslint"
+    },
+    "eslint-plugin-react": {
+      "eslint": "$eslint"
     }
   },
   "engines": {
