@@ -27,7 +27,11 @@
 //             (D15) carries OD-31 in `ref`
 //   append    the rows of the base ledger are a prefix of the ledger and unchanged; the only edit is an added
 //             `withdrawn: <reason, date>`
-//   signed    `signedOffBy` = `<name>, <URL of the SIGNED: comment>`: the comment exists
+//   signed    `signedOffBy` is one of two forms (42 §8):
+//             local (D20, 2026-10-27: no GitHub in the track, so no comment exists): exactly
+//             `SIGNED: owner, <YYYY-MM-DD> (<note>)`, a real date that is not in the future and a non-empty note,
+//             the owner's confirmation in the work session (STATUS §2); nothing is looked up;
+//             GitHub (for a later CI): `<name>, <URL of the SIGNED: comment>`: the comment exists
 //             (`gh api repos/oacore/search/issues/comments/<id>`), its author is the owner, its body starts with
 //             `SIGNED:` and names the AD id. Offline and without rows nothing is looked up: an empty ledger
 //             passes without the network.
@@ -121,6 +125,35 @@ export const commentIdOf = (signedOffBy, repo = DEFAULT_REPO) => {
   return m ? m[3] : null
 }
 
+// the local signature (D20): exact prefix, an ISO date, one space, a parenthesised non-empty note, nothing after
+const LOCAL_SIGNATURE = /^SIGNED: owner, (\d{4}-\d{2}-\d{2}) \(([^()]*)\)$/
+// the latest calendar date the checker can be running on: the local date or the UTC date, whichever is later
+export const todayOf = (now = new Date()) => {
+  const pad = (n) => String(n).padStart(2, '0')
+  const local = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(
+    now.getDate()
+  )}`
+  const utc = now.toISOString().slice(0, 10)
+  return local > utc ? local : utc
+}
+// a local signature -> null when valid, else why not
+export function localSignatureProblem(signedOffBy, today = todayOf()) {
+  const m = LOCAL_SIGNATURE.exec(String(signedOffBy))
+  if (!m) return 'not the form "SIGNED: owner, <YYYY-MM-DD> (<note>)"'
+  if (!validDate(m[1])) return `${m[1]} is not a real date`
+  if (m[1] > today) return `${m[1]} is in the future`
+  if (m[2].trim() === '') return 'the note is empty'
+  return null
+}
+// which form a signature has: 'github', 'local' or null (neither, or a local form that is not valid)
+export function signatureForm(
+  signedOffBy,
+  { repo = DEFAULT_REPO, today = todayOf() } = {}
+) {
+  if (commentUrlRe(repo).test(String(signedOffBy))) return 'github'
+  return localSignatureProblem(signedOffBy, today) === null ? 'local' : null
+}
+
 // is a row of a `kind: delta` allowed to cover this (test, key)? -> reason it may not, or null
 export function deltaForbidden(row) {
   const { test, key } = row
@@ -141,7 +174,7 @@ export function deltaForbidden(row) {
 }
 
 // one row -> [{ code, message }]
-export function checkRow(row, { repo = DEFAULT_REPO } = {}) {
+export function checkRow(row, { repo = DEFAULT_REPO, today = todayOf() } = {}) {
   const errors = []
   const bad = (code, message) => errors.push({ code, message })
   if (!isObject(row)) {
@@ -198,11 +231,14 @@ export function checkRow(row, { repo = DEFAULT_REPO } = {}) {
   }
   if (text('date') && !validDate(row.date))
     bad('bad-date', `date ${JSON.stringify(row.date)} is not a YYYY-MM-DD date`)
-  if (text('signedOffBy') && !commentUrlRe(repo).test(row.signedOffBy))
-    bad(
-      'bad-signature',
-      `signedOffBy must be "<name>, https://github.com/${repo}/(issues|pull)/<n>#issuecomment-<id>"`
-    )
+  if (text('signedOffBy') && !commentUrlRe(repo).test(row.signedOffBy)) {
+    const why = localSignatureProblem(row.signedOffBy, today)
+    if (why)
+      bad(
+        'bad-signature',
+        `signedOffBy must be the local form "SIGNED: owner, <YYYY-MM-DD> (<note>)" (D20; ${why}) or "<name>, https://github.com/${repo}/(issues|pull)/<n>#issuecomment-<id>"`
+      )
+  }
   if (row.kind === 'delta') {
     if (!('repro' in row))
       bad(
@@ -505,6 +541,16 @@ export function check({
   const signable = list.filter(
     (r) => isText(r.id) && commentIdOf(r.signedOffBy, repo)
   )
+  // local signatures (D20) have nothing to look up: listed, never counted as checked or skipped
+  const local = list.filter(
+    (r) => isText(r.id) && signatureForm(r.signedOffBy, { repo }) === 'local'
+  )
+  if (local.length)
+    notes.push(
+      `local signatures (D20, the owner's confirmation in the work session; nothing to look up): ${local
+        .map((r) => r.id)
+        .join(', ')}`
+    )
   if (signable.length) {
     if (offline) {
       signatures.skipped = signable.length
