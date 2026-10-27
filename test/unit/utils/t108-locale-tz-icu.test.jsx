@@ -11,7 +11,8 @@
 //      runtime Node, R-042), FK/HK/MO/PS recorded (Q-093)
 //   c5 getCountryName (templates/data-providers/index.jsx:28-31) on the
 //      vendored i18n-iso-countries 6.8.0 data, through the rendered providers
-//      list
+//      list; the vendored map is the 6.8.0 file byte for byte (CS-I18N-1)
+const crypto = require('crypto')
 const fs = require('fs')
 const path = require('path')
 const { spawnSync } = require('child_process')
@@ -374,6 +375,36 @@ describe('T-108 @P0 locale, time zone and ICU', () => {
         ['Palestinian repository', 'State of Palestine'],
         ['Czech repository', 'Czech Republic'],
       ])
+    })
+
+    // CS-I18N-1: vendor/i18n-iso-countries/en.json is langs/en.json of
+    // i18n-iso-countries 6.8.0 (sha256 of the file in the npm tarball); while
+    // the package is still installed the two also parse deep-equal
+    const EN_6_8_0_SHA256 =
+      '9f5bf5eff1f6362c7529e41c29b791ad868b65e31de4543d38704bce97121242'
+
+    test('T-108 c5 @P0 the vendored en map is the unmodified 6.8.0 langs/en.json with 250 countries', () => {
+      const file = path.join(REPO, 'vendor', 'i18n-iso-countries', 'en.json')
+      const bytes = fs.readFileSync(file)
+      expect(crypto.createHash('sha256').update(bytes).digest('hex')).toBe(
+        EN_6_8_0_SHA256
+      )
+      const en = JSON.parse(bytes.toString('utf8'))
+      expect(Object.keys(en).sort()).toEqual(['countries', 'locale'])
+      expect(en.locale).toBe('en')
+      expect(Object.keys(en.countries)).toHaveLength(250)
+      expect(en.countries.TR).toBe('Turkey')
+      const installed = path.join(
+        REPO,
+        'node_modules',
+        'i18n-iso-countries',
+        'langs',
+        'en.json'
+      )
+      const copies = [installed].filter((p) => fs.existsSync(p))
+      copies.forEach((p) => {
+        expect(en).toEqual(JSON.parse(fs.readFileSync(p, 'utf8')))
+      })
     })
 
     test('T-108 c5 @P0 the code is upper-cased; null, a missing location and an unknown code give no country', async () => {

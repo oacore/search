@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useMemo, useRef } from 'react'
 import { Button, Modal, Icon } from '@oacore/design'
-import bibtexParse from 'bibtex-parse-js'
 import { classNames } from '@oacore/design/lib/utils'
 
+import bibtexParse from '../../vendor/bibtex-parse-js/bibtexParse'
 import styles from './citation.module.css'
 
 const useModal = (initialState = false) => {

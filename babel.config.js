@@ -28,5 +28,9 @@ module.exports = (api) => {
   return {
     presets,
     plugins,
+    // the vendored bibtexParse.js stays untransformed, as the node_modules copy
+    // was: injected core-js imports would turn it into an ES module without
+    // exports (CS-BIB-1, R-075)
+    ignore: ['./vendor/bibtex-parse-js'],
   }
 }
