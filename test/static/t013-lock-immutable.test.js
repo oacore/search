@@ -1,6 +1,8 @@
 // T-013 (41 A, R-015, R-084): the production dependency tree is immutable under
-// test tooling, against <base'> (the CS-W0-9 merge; 42 §5 item 3). Runs
-// scripts/lock-immutable.mjs and reads its JSON report.
+// test tooling, against <base'> (the CS-W0-9 merge; 42 §5 item 3) until W0;
+// from the W0 merge on, against the latest dependency step merge (AD-005; the
+// script's default reference). Runs scripts/lock-immutable.mjs and reads its
+// JSON report.
 const path = require('path')
 const fs = require('fs')
 const { spawnSync } = require('child_process')
