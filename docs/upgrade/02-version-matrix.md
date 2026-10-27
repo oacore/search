@@ -88,16 +88,16 @@ Installed: `next` 10.2.3, `react`/`react-dom` 17.0.2. Latest: `next` 16.4.2, `re
 | Package | Installed | Latest (peers/engines) | Target | Status | Notes |
 |---|---|---|---|---|---|
 | eslint; @eslint/js; globals | 7.32.0; -; 11.12.0 (transitive) | 10.13.0 (Node ^20.19/^22.13/≥24); 10.0.1; 17.13.0 | 10.13.0; 10.0.1; 17.13.0 | TARGET | flat config (CS-LINT-1) |
-| eslint-plugin-react; eslint-plugin-jsx-a11y | 7.37.5; 6.10.2 | same (peers stop at eslint ^9.7/^9) | keep | AT-LATEST | load on ESLint 10 via npm `overrides`; the 7 of 103 react rules that crash are replaced (`@eslint-react/eslint-plugin` 5.28.2) or dropped with a parity note (CS-LINT-1) |
+| eslint-plugin-react; eslint-plugin-jsx-a11y | 7.37.5; 6.10.2 | same (peers stop at eslint ^9.7/^9) | keep (exact pins from W1) | AT-LATEST | load on ESLint 10 via npm `overrides` of their `eslint` peer; W1: of the enabled rules only `react/jsx-filename-extension` calls a removed context method, kept through a context shim in `eslint.config.js`, so no rule is replaced or dropped and `@eslint-react/eslint-plugin` is not installed (CS-LINT-1) |
 | eslint-plugin-import → eslint-plugin-import-x | 2.31.0 | 2.32.0; import-x 4.17.1 (eslint ^8.57/^9/^10) | import-x 4.17.1 under the key `import` | TARGET | 4 of 46 `import` rules crash on ESLint 10; the 38 `eslint-disable` comments still resolve |
 | eslint-plugin-react-hooks | - | 7.1.1 (eslint up to ^10) | 7.1.1 | TARGET | `rules-of-hooks` only, never `recommended` (React Compiler rules, X20.8) |
-| typescript-eslint | - | 8.72.0 (eslint ^10; **typescript <6.1.0**) | 8.72.0 as JS/JSX parser (W1); TS rules at 6.2 | TARGET | `@babel/eslint-parser` crashes on ESLint 10 (7.x) or needs Babel 8: not used. Needs `typescript` at W1 (§3.6) |
+| typescript-eslint | - | 8.72.0 (eslint ^10; **typescript <6.1.0**); 8.72.1 at W1 (re-resolved 2026-10-28, same peers) | 8.72.1 as JS/JSX parser (W1); TS rules at 6.2 | TARGET | `@babel/eslint-parser` crashes on ESLint 10 (7.x) or needs Babel 8: not used. Needs `typescript` at W1 (§3.6) |
 | @next/eslint-plugin-next | - | 16.4.2 | 16.4.2 (6.2, CS-LINT-5) | TARGET | Next 16 has no `next lint` |
 | babel-eslint; eslint-plugin-prettier; @oacore/eslint-config-react; @oacore/prettier-config; @oacore/stylelint-config-base | 10.1.0; 3.4.1; 1.0.6 ×3 | deprecated; 5.5.7; private | removed (CS-LINT-1, CS-PRET-1, CS-STY-1) | REMOVED | own configs, generated from the baseline resolved configs, replace them |
 | prettier | 2.8.8 | 3.9.10 | 3.9.10 | TARGET | own `prettier.config.js` (5 org options inlined); one format-only commit (8 files), listed in `.git-blame-ignore-revs` |
 | stylelint | 13.13.1 | 17.16.0 (Node ≥20.19) | 17.16.0 | TARGET | with stylelint-order 8.1.2, stylelint-config-css-modules 4.6.0, stylelint-prettier 5.0.3. `stylelint-config-standard` not adopted (adds 40 findings); explicit rules, no `--fix` (X02.2) |
 | husky; lint-staged | 4.3.8; - | 9.1.7; 17.6.0 (Node ≥22.22.1; ESM) | 9.1.7; 17.6.0 | TARGET | `HUSKY=0` in Docker (CS-W0-6) |
-| npm-run-all | 4.1.5 | npm-run-all2 9.0.3 (Node ^22.22.2/^24.15/≥26) | npm-run-all2 9.0.3 (CS-NRA-1) | TARGET | 4.1.5 is the old package's last release |
+| npm-run-all | 4.1.5 | npm-run-all2 9.0.3 (Node ^22.22.2/^24.15/≥26); 9.0.4 at W1 (re-resolved 2026-10-28) | npm-run-all2 9.0.4 (CS-NRA-1) | TARGET | 4.1.5 is the old package's last release |
 
 ### 3.5 Test tooling (added at 2.1; Playwright and axe in `e2e/package.json`)
 

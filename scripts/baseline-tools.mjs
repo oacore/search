@@ -42,6 +42,8 @@ import { createRequire } from 'node:module'
 import { execFileSync, spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
+import { formatJsonSync } from './prettier-sync.mjs'
+
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const ARTIFACT_DIR = path.resolve(
   process.env.ARTIFACT_DIR || path.join(REPO, '..', 'search-upgrade-artifacts')
@@ -63,17 +65,8 @@ const writeJson = (f, obj) => {
 }
 // committed JSON goes through the repo's prettier config (npm run lint:json stays clean)
 const writeJsonPretty = (f, obj) => {
-  const prettier = require('prettier')
-  const options = prettier.resolveConfig.sync(f) || {}
   fs.mkdirSync(path.dirname(f), { recursive: true })
-  fs.writeFileSync(
-    f,
-    prettier.format(JSON.stringify(obj), {
-      ...options,
-      filepath: f,
-      parser: 'json',
-    })
-  )
+  fs.writeFileSync(f, formatJsonSync(obj, f))
 }
 const byCodePoint = (a, b) => (a < b ? -1 : Number(a > b))
 const walk = (dir, base = dir, skip = () => false) =>

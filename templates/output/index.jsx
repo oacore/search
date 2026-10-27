@@ -189,7 +189,7 @@ const ScientificOutputTemplate = ({
           <section id="abstract" className={styles.abstract}>
             <h2>Abstract</h2>
             {abstract ? (
-                <MathMarkdown>{abstract}</MathMarkdown>
+              <MathMarkdown>{abstract}</MathMarkdown>
             ) : (
               <span className={styles.abstractEmpty}>
                 Abstract is not available.

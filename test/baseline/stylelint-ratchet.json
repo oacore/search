@@ -1,0 +1,21 @@
+{
+  "test": "T-001",
+  "what": "stylelint findings ratchet (CS-STY-1): the stylelint 17 findings of the CSS as (path, rule, count), repo-relative; may only shrink (scripts/stylelint-ratchet.mjs)",
+  "tool": {
+    "stylelint": "17.16.0"
+  },
+  "command": "stylelint --ignore-path .gitignore '**/*.css'",
+  "files": 28,
+  "total": 12,
+  "findings": [
+    ["modules/layout/styles.module.css", "order/properties-order", 1],
+    ["modules/layout/styles.module.css", "selector-class-pattern", 4],
+    ["templates/output/update/styles.module.css", "order/properties-order", 3],
+    ["templates/search/styles.module.css", "order/properties-order", 3],
+    [
+      "templates/search/styles.module.css",
+      "shorthand-property-no-redundant-values",
+      1
+    ]
+  ]
+}

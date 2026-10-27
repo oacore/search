@@ -5,9 +5,9 @@
 // rule 7: `lint:json` checks every committed JSON), so a re-capture is byte-identical (42 §6 item 1).
 import fs from 'node:fs'
 import path from 'node:path'
-import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { test, expect } from '../../fixtures/guard.mjs'
+import { formatJsonSync } from '../../../scripts/prettier-sync.mjs'
 
 const REPO = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -15,14 +15,8 @@ const REPO = path.resolve(
   '..',
   '..'
 )
-const prettier = createRequire(path.join(REPO, 'package.json'))('prettier')
-
-const formatJson = (value, file) =>
-  prettier.format(JSON.stringify(value), {
-    ...(prettier.resolveConfig.sync(file) || {}),
-    filepath: file,
-    parser: 'json',
-  })
+// the repository's Prettier format (synchronous: scripts/prettier-sync.mjs)
+const formatJson = (value, file) => formatJsonSync(value, file)
 
 export const recordMode = (info = test.info()) =>
   process.env.RECORD === '1' ||

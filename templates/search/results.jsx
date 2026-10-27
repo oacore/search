@@ -33,8 +33,8 @@ const Results = ({ works, searchId }) =>
       const publicationDate = publishedDate
         ? formatDate(new Date(publishedDate))
         : yearPublished != null
-        ? String(yearPublished)
-        : null
+          ? String(yearPublished)
+          : null
 
       const checkBillingType = () =>
         memberType?.billing_type === 'supporting' ||
