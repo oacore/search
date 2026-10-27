@@ -24,7 +24,6 @@
     "bibtex-parse-js": "0.0.24",
     "core-js": "^3.8.1",
     "cssnano": "^4.1.10",
-    "filesize": "^6.1.0",
     "i18n-iso-countries": "^6.2.2",
     "js-file-download": "^0.4.12",
     "leaflet": "^1.8.0",
