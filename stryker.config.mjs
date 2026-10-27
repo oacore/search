@@ -1,5 +1,6 @@
-// stryker.config.mjs - C2 mutation score (55 C2, VF-08; 40 §10 `npm run mutation` = `stryker run stryker.config.mjs`,
-// workflow `.github/workflows/mutation.yml`). StrykerJS 10 with @stryker-mutator/jest-runner (02), on the tooling
+// stryker.config.mjs - C2 mutation score (55 C2, VF-08). The run is started locally with `npm run mutation`
+// (= `stryker run stryker.config.mjs`, 40 §10); the lean track runs one sampled pass at the stabilisation gate
+// (55 §0). StrykerJS 10 with @stryker-mutator/jest-runner (02), on the tooling
 // Node 24 (40 §2.1); the Jest projects `node` and `dom` of jest.config.js are the test suite.
 //
 // Mutated set (55 C2): api/ utils/ store/ hooks/ lib/ data/ templates/**/{utils,hooks}/ (.ts/.tsx included for 6.6).
