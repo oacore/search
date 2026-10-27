@@ -124,8 +124,8 @@ const renderPage = async (query) => {
   return { props, html, head, element, store }
 }
 
-const titleOf = (head) =>
-  head.find((el) => el.type === 'title').props.children.join('')
+// the <title> child: one string since CS-W0b-1 (AD-006; it was an array)
+const titleOf = (head) => head.find((el) => el.type === 'title').props.children
 
 describe('T-505 @P1 /data-providers getServerSideProps', () => {
   describe('T-505 c1 @P1 props, formap fixture', () => {
@@ -297,11 +297,12 @@ describe('T-505 @P1 /data-providers getServerSideProps', () => {
       const withQuery = await renderPage({ query: 'Eylul' })
       for (const page of [without, withQ, withNoMatch, withQuery]) {
         expect(titleOf(page.head)).toBe('Data providers search')
-        // the title is rendered as ['', 'Data providers search']: the prefix
-        // slot is empty because `query` is undefined
+        // the title is rendered as the one string 'Data providers search'
+        // (CS-W0b-1, AD-006; it was ['', 'Data providers search']): the
+        // prefix is empty because `query` is undefined
         expect(
           page.head.find((el) => el.type === 'title').props.children
-        ).toEqual(['', 'Data providers search'])
+        ).toStrictEqual('Data providers search')
       }
     })
 
