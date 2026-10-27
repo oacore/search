@@ -5,7 +5,10 @@
 //   node scripts/lock-immutable.mjs [--base <git ref>] [--old <lock>] [--new <lock>] [--old-pkg <package.json>]
 //                                   [--new-pkg <package.json>] [--no-npm-ls] [--json]
 //
-//   --base     reference commit (default: the first-parent merge whose subject ends with "(CS-W0-9)", i.e. <base'>)
+//   --base     reference commit (default, AD-005: the latest dependency step merge in the history of HEAD,
+//              i.e. a `Merge W<step> (...)` commit that changed package.json or package-lock.json against its
+//              first parent, latest in topological order (a branch that merged the jump branch sees the step
+//              merges it took); before the W0 merge, <base'>: the merge whose subject ends with "(CS-W0-9)")
 //   --old      old lockfile path (default: `git show <base>:package-lock.json`)
 //   --new      new lockfile path (default: ./package-lock.json)
 //   --no-npm-ls  skip the `npm ls --omit=dev --all --package-lock-only` comparison
@@ -38,13 +41,45 @@ const git = (...a) =>
     maxBuffer: 1 << 28,
   })
 
-export function findBasePrime() {
+// a step merge of the version track: `Merge W0 (CS-...)`, `Merge W0.5 (CS-...)`, `Merge W4c (CS-...)`
+const STEP_MERGE = /^\S+ Merge W\d[\w.]* \(/
+const changesDependencies = (sha) => {
+  try {
+    git(
+      'diff',
+      '--quiet',
+      `${sha}^1`,
+      sha,
+      '--',
+      'package.json',
+      'package-lock.json'
+    )
+    return false
+  } catch (e) {
+    if (e.status === 1) return true
+    throw e
+  }
+}
+
+// the reference (AD-005): the latest dependency step merge in the history of `rev`, else <base'>; topological
+// order shows a merge before its ancestors, so the latest step merge comes first
+export function findBasePrime(rev = 'HEAD') {
   if (process.env.BASE_PRIME) return process.env.BASE_PRIME
-  const out = git('log', '--first-parent', '--format=%H %s', 'HEAD').split('\n')
-  const hit = out.find((l) => / \(CS-W0-9\)$/.test(l) && /^\S+ Merge /.test(l))
+  const out = git(
+    'log',
+    '--merges',
+    '--topo-order',
+    '--format=%H %s',
+    rev
+  ).split('\n')
+  const hit = out.find(
+    (l) =>
+      (STEP_MERGE.test(l) && changesDependencies(l.split(' ')[0])) ||
+      (/ \(CS-W0-9\)$/.test(l) && /^\S+ Merge /.test(l))
+  )
   if (!hit)
     throw new Error(
-      'no <base\'> merge commit (subject ending "(CS-W0-9)") on the first-parent history; set BASE_PRIME'
+      'no dependency step merge and no <base\'> merge commit (subject ending "(CS-W0-9)") in the history of HEAD; set BASE_PRIME'
     )
   return hit.split(' ')[0]
 }

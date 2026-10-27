@@ -25,6 +25,8 @@ OQ-1..OQ-18 are DECIDED (2026-10-20, owner confirmed the recommended defaults), 
 |---|---|---|---|---|
 |Phase 1b approval|pending|docs PR|PR merge||
 |D18, D19, D20|lean target, scope rule, no CI (00 §4b)|2.8|=|2026-10-22 owner (in chat)|
+|AD-001..AD-009 (`test/baseline/ACCEPTED-DIFFS.yml`)|the rows as proposed in the jump 1 steps W0, W0b, W0.5; AD-007, AD-008 withdrawn, superseded by the T-610 frame normaliser; AD-001, AD-002 withdrawn 2026-10-28, superseded by the frozen W1 T-001 baseline (`test/baseline/t001-lint-w1.json`)|W0|`signedOffBy` `SIGNED: owner, 2026-10-27 (approved in the work session)`|2026-10-27 owner (in chat)|
+|T-610 c3 frame normaliser (40 §1, §8 rule 8)|line:column numbers of stack frames in the stdout/stderr census masked on both sides; function and file names compared|W0|`SIGNED:` in 40 §1|2026-10-27 owner (in chat)|
 |OQ-18|owner closes #389, #410 (§5)|-|owner|2026-10-20 owner (OQ-18); closing pending|
 |D15 / OD-31|re-baseline protocol, no freeze; data refreshes logged only (01 §2)|2.4|each AD row|2026-10-20 owner (OQ-2)|
 |D16 / OD-36|D16 WITHDRAWN; S-4 preserved, pinned by T-602 and T-113; no fix in this track|-|-|2026-10-20 owner (in chat)|

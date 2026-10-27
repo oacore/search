@@ -3,9 +3,11 @@
 // a diff passes only through a row with exact keys; the ledger is
 // append-only; `kind: delta` never covers pixels, a status code or a
 // Location; a delta row carries the repro run of the framework probe; every
-// row is signed by the owner's `SIGNED:` comment, which the checker looks up
-// through `gh api repos/oacore/search/issues/comments/<id>` (a fake `gh`
-// stands in here). An empty ledger passes offline.
+// row is signed: by the local signature of D20 (`SIGNED: owner, <YYYY-MM-DD>
+// (<note>)`, nothing to look up), or by the owner's `SIGNED:` comment, which
+// the checker looks up through
+// `gh api repos/oacore/search/issues/comments/<id>` (a fake `gh` stands in
+// here). An empty ledger passes offline.
 // Oracle: the expected violation codes are written out per case, not derived
 // from the script.
 const fs = require('fs')
@@ -251,7 +253,7 @@ describe('CI-1 accepted-diffs ledger', () => {
     )
   })
 
-  test('CI-1 c2 the committed ledger is valid (empty at B0)', () => {
+  test('CI-1 c2 the committed ledger passes the offline check, every row carries a valid signature (either form), and a malformed or missing one is refused', () => {
     const r = run(['--offline', '--base-file', NO_BASE(), '--json'])
     expect(r.code).toBe(0)
     expect(JSON.parse(r.out).violations).toEqual([])
@@ -259,7 +261,39 @@ describe('CI-1 accepted-diffs ledger', () => {
       path.join(ROOT, 'test/baseline/ACCEPTED-DIFFS.yml'),
       'utf8'
     )
-    expect(committed).toMatch(/^\[\]$/m)
+    const [rows] = callEach('parseLedger', [[committed]])
+    const forms = callEach(
+      'signatureForm',
+      rows.map((row) => [row.signedOffBy])
+    )
+    rows.forEach((row, i) =>
+      expect([row.id, forms[i]]).toEqual([
+        row.id,
+        expect.stringMatching(/^(github|local)$/),
+      ])
+    )
+    // the same rows, written back, pass; one bad signature fails them
+    expect(codes(check(rows))).toEqual([])
+    if (rows.length) {
+      const malformed = rows.map((row, i) =>
+        i === 0
+          ? { ...row, signedOffBy: 'SIGNED: owner 2026-10-27 (no comma)' }
+          : row
+      )
+      const missing = rows.map((row, i) =>
+        i === 0 ? { ...row, signedOffBy: undefined } : row
+      )
+      const bad = check(malformed)
+      expect(bad.code).toBe(1)
+      expect(bad.report.violations).toEqual([
+        expect.objectContaining({ code: 'bad-signature', id: rows[0].id }),
+      ])
+      const none = check(missing)
+      expect(none.code).toBe(1)
+      expect(none.report.violations).toEqual([
+        expect.objectContaining({ code: 'missing-key', id: rows[0].id }),
+      ])
+    }
   })
 
   test('CI-1 c3 a missing ledger fails', () => {
@@ -365,6 +399,47 @@ describe('CI-1 accepted-diffs ledger', () => {
         signedOffBy:
           'Jane, http://github.com/oacore/search/pull/1#issuecomment-1',
       },
+      'bad-signature',
+    ],
+    [
+      'a local signature of another signer',
+      {
+        signedOffBy: 'SIGNED: Jane, 2026-10-27 (approved in the work session)',
+      },
+      'bad-signature',
+    ],
+    [
+      'a local signature without SIGNED:',
+      { signedOffBy: 'owner, 2026-10-27 (approved in the work session)' },
+      'bad-signature',
+    ],
+    [
+      'a local signature with a day the month does not have',
+      {
+        signedOffBy: 'SIGNED: owner, 2026-02-30 (approved in the work session)',
+      },
+      'bad-signature',
+    ],
+    [
+      'a local signature dated in the future',
+      {
+        signedOffBy: 'SIGNED: owner, 2999-01-01 (approved in the work session)',
+      },
+      'bad-signature',
+    ],
+    [
+      'a local signature without a note',
+      { signedOffBy: 'SIGNED: owner, 2026-10-27' },
+      'bad-signature',
+    ],
+    [
+      'a local signature with an empty note',
+      { signedOffBy: 'SIGNED: owner, 2026-10-27 ( )' },
+      'bad-signature',
+    ],
+    [
+      'a local signature with text after the note',
+      { signedOffBy: 'SIGNED: owner, 2026-10-27 (approved) again' },
       'bad-signature',
     ],
     ['a delta row without repro', { repro: undefined }, 'missing-repro'],
@@ -896,5 +971,47 @@ describe('CI-1 accepted-diffs ledger', () => {
     expect(run(['--ledger']).code).toBe(2)
     expect(run(['--base', 'main', '--base-file', 'x']).code).toBe(2)
     expect(run(['positional']).code).toBe(2)
+  })
+
+  test('CI-1 c24 the local signature (D20) passes offline and online with no lookup and is listed in the notes', () => {
+    const local = 'SIGNED: owner, 2026-10-27 (approved in the work session)'
+    const rows = [
+      validRow({ signedOffBy: local }),
+      productRow({ signedOffBy: local }),
+    ]
+    const off = check(rows)
+    expect(off.code).toBe(0)
+    expect(off.report.violations).toEqual([])
+    expect(off.report.signatures).toEqual({ checked: 0, skipped: 0 })
+    expect(off.report.notes.join(' ')).toMatch(
+      /local signatures \(D20[^)]*\)[^:]*: AD-001, AD-002/
+    )
+    // online: nothing to look up, so gh is never called
+    const on = checkOnline(rows, {})
+    expect(on.code).toBe(0)
+    expect(on.report.violations).toEqual([])
+    expect(on.gh.calls()).toEqual([])
+    // a GitHub row beside it is still looked up
+    const mixed = checkOnline(
+      [validRow({ signedOffBy: local }), productRow()],
+      { 4002: comment('jane-owner', 'SIGNED: AD-002') }
+    )
+    expect(mixed.code).toBe(0)
+    expect(mixed.gh.calls()).toHaveLength(1)
+    // the form of each signature; a date after "today" is in the future
+    expect(
+      callEach('signatureForm', [
+        [local],
+        [validRow().signedOffBy],
+        ['SIGNED: owner, 2026-10-27'],
+        ['Jane Owner'],
+      ])
+    ).toEqual(['local', 'github', null, null])
+    expect(
+      callEach('localSignatureProblem', [
+        [local, '2026-10-27'],
+        ['SIGNED: owner, 2026-10-28 (approved)', '2026-10-27'],
+      ])
+    ).toEqual([null, '2026-10-28 is in the future'])
   })
 })
