@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-028-c",
+  "risk": "R-028",
+  "mechanism": "the CSV body q is cut at the first \" AND \", so the CSV of a filtered search is the CSV of its first term, the filters dropped (baseline: the E3 body carries the whole query)",
+  "checks": [],
+  "script": "R-028-c.mjs"
+}

@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "fault": "R-019-c",
+  "risk": "R-019",
+  "mechanism": "the pagination push drops sort from the router query, so page 2 of a list sorted by recent is page 2 of the relevance list (baseline: /search/?q=climate&sort=recent&page=2, Sort by recent)",
+  "checks": [],
+  "script": "R-019-c.mjs"
+}

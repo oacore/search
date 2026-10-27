@@ -887,7 +887,7 @@
       ],
       "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T14:34:17.925Z",
+      "at": "2026-10-27T10:55:11.727Z",
       "package": "run-faults.mjs --lean",
       "mode": "lean"
     },
@@ -929,29 +929,29 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-418", "T-006", "T-005", "T-721", "T-801"],
-      "redCount": 23,
+      "redDetectors": ["T-418", "T-005", "T-006", "T-721", "T-801"],
+      "redCount": 22,
       "red": [
-        {
-          "test": "T-418 @P0 icon ids T-418 @P0 the application source references exactly the 20 pinned icon ids",
-          "file": "test/static/t418-icon-ids.test.js",
-          "assertion": "Error: Command failed: git -C <scratch>/fr1/work-lean/R-022-b-8MyToe ls-files -- *.js *.jsx"
-        },
         {
           "test": "T-418 @P0 icon ids T-418 @P0 every app and design icon id is a <symbol> of the served production sprite /static/search/icons.svg",
           "file": "test/static/t418-icon-ids.test.js",
-          "assertion": "Error: ENOENT: no such file or directory, open '<scratch>/artifacts/builds/509b876c81d78bc0-lnR-022-b/public/icons.svg'"
+          "assertion": "Error: ENOENT: no such file or directory, open '<artifacts>/builds/2dcca855347eb615-lnR-022-b/public/icons.svg'"
         },
         {
-          "test": "T-006 @P0 design runtime config T-006 @P0 iconsPublicPath is /static/search/icons.svg in the built app",
-          "file": "test/static/t006-design-config.test.js",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+          "test": "T-005 @P0 static assets T-005 c1 @P0 prod sprite: 48 symbols, duplicate ids office-building, account, open-in-new (Q-067), byte hash = reference",
+          "file": "test/static/t005-static-assets.test.js",
+          "assertion": "Error: ENOENT: no such file or directory, open '<artifacts>/builds/2dcca855347eb615-lnR-022-b/public/icons.svg'"
+        },
+        {
+          "test": "T-005 @P0 static assets T-005 c2 @P0 next-images: 9 file URLs and 5 data URIs over the 14 import sites",
+          "file": "test/static/t005-static-assets.test.js",
+          "assertion": "Error: ENOENT: no such file or directory, open '<artifacts>/builds/2dcca855347eb615-lnR-022-b/public/icons.svg'"
         }
       ],
-      "plan": "detectors only, lean (owner notes section 0): installed reference build cloned (cp -Rc) + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:54:26.898Z",
-      "package": "FR-1",
+      "at": "2026-10-27T10:56:28.024Z",
+      "package": "run-faults.mjs --lean",
       "mode": "lean"
     },
     "R-023-a": {
@@ -2094,6 +2094,68 @@
       "package": "FR-2",
       "mode": "lean",
       "note": "T-011 red in the lean runner is a runner artifact (clone is not a git repository), not credited; control: T-005/T-006 green; T-901 not run"
+    },
+    "R-019-c": {
+      "risk": "R-019",
+      "clause": null,
+      "valid": true,
+      "killed": true,
+      "singleLayer": false,
+      "redDetectors": ["T-421", "T-706"],
+      "redCount": 3,
+      "red": [
+        {
+          "test": "T-421 @P1 URL state from a non-default state pagination T-421 c1 @P1 from a filtered and sorted list on page 3, Previous, Next, a number, \"first\" and \"last\" pus",
+          "file": "test/unit/templates/search/t421-url-state.test.jsx",
+          "assertion": "Error: expect(received).toStrictEqual(expected) // deep equality"
+        },
+        {
+          "test": "T-421 @P1 URL state from a non-default state pagination T-421 c1 @P1 from a sorted list (/search/?q=climate&sort=recent), page 2 and Next push /search with q an",
+          "file": "test/unit/templates/search/t421-url-state.test.jsx",
+          "assertion": "Error: expect(received).toStrictEqual(expected) // deep equality"
+        },
+        {
+          "test": "T-706 @P0 J4 pagination from a sorted list: page 2 of /search/?q=climate&sort=recent keeps sort=recent in the URL, the data request and the sort box",
+          "file": "journeys/t706-j4-pagination-sort.spec.mjs",
+          "assertion": "Error: expect(page).toHaveURL(expected) failed"
+        }
+      ],
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "reason": null,
+      "at": "2026-10-27T10:50:39.079Z",
+      "package": "run-faults.mjs --lean",
+      "mode": "lean"
+    },
+    "R-028-c": {
+      "risk": "R-028",
+      "clause": null,
+      "valid": true,
+      "killed": true,
+      "singleLayer": false,
+      "redDetectors": ["T-421", "T-711"],
+      "redCount": 5,
+      "red": [
+        {
+          "test": "T-421 @P1 URL state from a non-default state search page T-421 c3 @P1 the CSV download of a filtered page sends the whole query, filters included, as the E3 bod",
+          "file": "test/unit/templates/search/t421-url-state.test.jsx",
+          "assertion": "Error: expect(received).toStrictEqual(expected) // deep equality"
+        },
+        {
+          "test": "T-421 @P1 URL state from a non-default state search page T-421 c3 @P1 the CSV download of a filtered page sends the whole query, filters included, as the E3 bod",
+          "file": "test/unit/templates/search/t421-url-state.test.jsx",
+          "assertion": "Error: expect(received).toStrictEqual(expected) // deep equality"
+        },
+        {
+          "test": "T-421 @P1 URL state from a non-default state search page T-421 c3 @P1 the CSV download of a filtered page sends the whole query, filters included, as the E3 bod",
+          "file": "test/unit/templates/search/t421-url-state.test.jsx",
+          "assertion": "Error: expect(received).toStrictEqual(expected) // deep equality"
+        }
+      ],
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "reason": null,
+      "at": "2026-10-27T10:53:22.013Z",
+      "package": "run-faults.mjs --lean",
+      "mode": "lean"
     }
   }
 }
