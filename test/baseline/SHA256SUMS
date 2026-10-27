@@ -1216,10 +1216,12 @@ b6760258399b23f7395c5e13e58f40322c17b9dbc3a4ac95d726037e83e2b8c6  e2e/visual/t80
 61ffb5ebfed85bca4086b7f6e4c7d8fd3f2a2c2cac4e453ed1c8639737b21261  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-layers-visual-darwin.json
 7d6445d7a6a12d31dcf8a139d750ad78648b4b337bf47492858ffa7668760d77  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-probes-1440-visual-darwin.json
 ae2aa9b62fa8f4878ec2e84caf292c234ccdc5f77b4e3412e88f25d329c3f39f  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-probes-375-visual-darwin.json
-ebc39a23454b17313fa6e5cadeef82e23d982419a6e4434c28172ecbc99dba86  test/baseline/ACCEPTED-DIFFS.yml
+b826a452b3c209cb28ea762b7a02a46b3ea4dfb1118a8aa927f59674e391b8d5  test/baseline/ACCEPTED-DIFFS.yml
 cd1877606e52a83d605d02d4efa4ed2bfc7abe89c571959e821a681fd9a440ad  test/baseline/base-npm-ls-omit-dev.json
 039e1d937bf297e2259f7761c370bbbbdcfbf30f023added8aa3f5be9aa0054b  test/baseline/env.json
 f619edf192409fefc26b3dac8bbc957cc3d90805e413fc22342cc26e3d113bd8  test/baseline/npm-ls-all.json
+a1c0a067ac0883bc3cb3899e159dc5e9fdfa8b8b3fa2567f6adcce0ebf60e939  test/baseline/stylelint-ratchet.json
+95292e9903984dbacc2349c903eefe9592da6d97353df0b5a92c5ddcb38ed29f  test/baseline/t001-lint-w1.json
 5afecd423e1baffd0e202e6f724f8a1b46de1b5cc5704bbdce024d5eb7177dfd  test/baseline/t001-lint.json
 ab40bbc6b81165505f904b8aec2870885cef3ea33d6584f1e0f819a782a224a9  test/baseline/t805-exclusions.json
 e136de829a0d0dff4db9c47620e1c8ae27c3d88ff03f86676104f694d53b57c8  test/static/adapters/recorded/detector-t004-c6-core-js.json
@@ -1251,4 +1253,4 @@ f49805416a51593f1f91ecb4599b845139993fa67fa971d508956c4cbf01dd6a  test/unit/desi
 f3385ac93f9fd2661ad88ec03fe8fbdc96c389de63bb381a8f3aacce28dd2d40  test/unit/design/lib/P0-07/reference/Select.json
 26c25f6dd7ca4b04c0ad0e8577f2218291559aa1e7a8faac22c302e095a4b4e8  test/unit/design/lib/P0-07/reference/TextField.json
 6d45b05fcc95f0d289de9bab323760226304237317e5048535575edd8a3195dd  test/unit/store/__baseline__/t203-reactivity.json
-441efc681e9a03f50165797cd3447d9df14300b8cfc1906ac4857ba527c28093  test/baseline/manifest.json
+94e2ddf3c67a0d2a36d48c2e012d058ce1d1dff011ac5f97ac07e66de4156d1f  test/baseline/manifest.json
