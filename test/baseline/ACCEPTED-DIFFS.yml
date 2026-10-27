@@ -2,4 +2,58 @@
 # a diff passes only if a row matches test, key, from and to exactly (keys are exact literals, one row per
 # (test, key)); the only edit allowed adds `withdrawn: <reason, date>`. Rows need `signedOffBy` (the owner's
 # SIGNED: comment, checked by scripts/ad-ledger.mjs) and, for kind delta, `repro`. Empty at B0.
-[]
+- id: AD-001
+  kind: product
+  test: T-001
+  key: templates/output/hooks/index.js / import/prefer-default-export
+  from: '0'
+  to: '1'
+  reason: "CS-BAB-3 rewrites `export useX from './x'` as `export { default as useX } from './x'`. eslint-plugin-import counted the old form as a default export and counts the new one as a single named export, so the file reports import/prefer-default-export once (ESLint findings 13 -> 15 with AD-002); build output identical (183/183 files)."
+  ref: [R-060, OC-5, 42 §8, OD-31]
+  step: W0
+  signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
+  date: '2026-10-27'
+- id: AD-002
+  kind: product
+  test: T-001
+  key: templates/data-providers/hooks/index.js / import/prefer-default-export
+  from: '0'
+  to: '1'
+  reason: "Same cause as AD-001 (CS-BAB-3 named re-export): one import/prefer-default-export finding in this file; build output identical (183/183 files)."
+  ref: [R-060, OC-5, 42 §8, OD-31]
+  step: W0
+  signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
+  date: '2026-10-27'
+- id: AD-003
+  kind: product
+  test: T-008
+  key: npm ci --dry-run added (floor)
+  from: '> 2000'
+  to: '> 1900'
+  reason: "T-008 c1. CS-W0-2, CS-BIB-1 and CS-I18N-1 remove 452 lock entries by design; npm ci --dry-run adds 1958. The floor only proves that npm read a real tree; status 0, no errors and installed lock = committed lock still hold."
+  ref: [R-014, R-015, OD-17, OD-31]
+  step: W0
+  signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
+  date: '2026-10-27'
+- id: AD-004
+  kind: product
+  test: T-008
+  key: lock packages (floor)
+  from: '> 2300'
+  to: '> 1900'
+  reason: "T-008 c1. Same cause as AD-003: the lock holds 1959 packages entries after W0 (2411 before)."
+  ref: [R-014, R-015, OD-17, OD-31]
+  step: W0
+  signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
+  date: '2026-10-27'
+- id: AD-005
+  kind: product
+  test: T-013
+  key: reference tree <base'> (09eb636)
+  from: "the prod tree of <base'> 09eb636 (1760 lock entries)"
+  to: "the W0 merge 65f54c1, then each later dependency step merge (a `Merge W<step> (...)` commit that changes package.json or package-lock.json)"
+  reason: "T-013 c1..c4. W0 changes the prod tree on purpose (CS-W0-2, CS-BIB-1, CS-I18N-1): 436 <base'> entries gone, all in the removed packages' trees; npm ls --omit=dev differs only by the removed packages; 0 version, resolved or integrity changes on any remaining entry. T-013 keeps proving that test tooling leaves the prod tree untouched, against the latest dependency step merge; later steps move the reference with their merge, with no new row."
+  ref: [R-015, R-084, 42 §5, OD-31]
+  step: W0
+  signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
+  date: '2026-10-27'
