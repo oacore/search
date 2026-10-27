@@ -421,6 +421,10 @@ describe('T-001 @P0 lint parity', () => {
     const diffs = differences(ESLINT_FINDINGS, report.eslint.entries)
     expect(diffs.filter((d) => !coveredBy(d))).toEqual([])
     expect(report.eslint.ledger.uncovered).toEqual([])
+    // the script finds the same differences and accepts them by the same rows
+    expect(report.eslint.ledger.accepted).toEqual(
+      diffs.map((d) => ({ ...d, ad: coveredBy(d).id }))
+    )
     expect(report.eslint.findings).toBe(
       sum(ESLINT_FINDINGS) +
         diffs.reduce((n, d) => n + Number(d.to) - Number(d.from), 0)

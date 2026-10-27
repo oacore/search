@@ -6,7 +6,8 @@
 //    the `_next/data` JSON of any route, incl. the 404/500 answers and a page whose upstream error is serialised;
 // c3 the app's stdout/stderr line census over a serial sweep = baseline, on a sub-stack of its own (the package
 //    stack's log interleaves the parallel tests); console.time labels and durations normalised (40 §1), the Next
-//    13.5/16 listener allow-list is empty on Next 10;
+//    13.5/16 listener allow-list is empty on Next 10; the line:column numbers of stack frames are masked on both
+//    sides, function and file names compared (owner SIGNED: 2026-10-27, 40 §8 rule 8; it supersedes AD-007, AD-008);
 // c4 0 server Sentry events at the counting stub (the SSR stub answers the test DSN host o0.ingest.sentry.io and
 //    records each request) over the same sweep.
 import {
@@ -30,6 +31,7 @@ import {
   replaceStack,
   stackOrigins,
   normaliseLogLine,
+  maskFrameNumbers,
   serverOutputFindings,
   STACK_FRAME,
   NEXT_LISTENER_ALLOW,
@@ -228,8 +230,24 @@ test.describe('T-610 @P0 props and server output', () => {
     resolver,
   }) => {
     test.setTimeout(300000)
-    expect(NORMALISATIONS.serverOutput).toHaveLength(3)
+    expect(NORMALISATIONS.serverOutput).toHaveLength(4)
     expect(NEXT_LISTENER_ALLOW).toEqual([])
+    // masking frames changes only the trailing line:column of a frame line
+    expect(
+      [
+        '    at formatCitationDate (<build>/.next/server/pages/works/[id].js:2626:34)',
+        '    at <build>/.next/server/pages/data-providers.js:10021:31',
+        '    at decodeURI (<anonymous>)',
+        'fetchWorks:<reqId>: <duration>',
+        'Error: at 12:34',
+      ].map(maskFrameNumbers)
+    ).toEqual([
+      '    at formatCitationDate (<build>/.next/server/pages/works/[id].js:<line>:<col>)',
+      '    at <build>/.next/server/pages/data-providers.js:<line>:<col>',
+      '    at decodeURI (<anonymous>)',
+      'fetchWorks:<reqId>: <duration>',
+      'Error: at 12:34',
+    ])
     const id = sub.subId(p2Env, 't610-c3')
     const { env, offset } = await sub.up(id, p2Env)
     const census = { startup: [], sweep: [], after: [] }
@@ -278,10 +296,20 @@ test.describe('T-610 @P0 props and server output', () => {
           !NEXT_LISTENER_ALLOW.some((re) => re.test(l))
       )
     ).toEqual([])
+    // the baseline was recorded before frames were masked, so they are masked in it as well
+    const masked = (c) => ({
+      startup: c.startup.map(maskFrameNumbers),
+      sweep: c.sweep.map((s) => ({
+        ...s,
+        lines: s.lines.map(maskFrameNumbers),
+      })),
+      after: c.after.map(maskFrameNumbers),
+    })
     expectBaseline(
       't610-stdout-census',
       census,
-      'app stdout/stderr census = baseline'
+      'app stdout/stderr census = baseline',
+      masked
     )
   })
 

@@ -19,6 +19,12 @@ const DESIGN = {
   // 60-design-ownership.md §1: the published tarball, until DV9
   integrity:
     'sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ==',
+  // CS-DSN-1 (W0.5, AD-009): installed from the vendored copy of that
+  // tarball; the package.json spec, the lock's root spec and `resolved`
+  spec: 'file:vendor/oacore-design-5.0.74.tgz',
+  tarball: 'vendor/oacore-design-5.0.74.tgz',
+  // the published shasum (60 §1)
+  sha1: 'e6a401d74defeb09d828b10374ff35107a9324c4',
 }
 
 // 02 §1 rule 6: the strict-mode `npm ls --all` problems of the unchanged
@@ -272,12 +278,12 @@ function installedNative(dir, lock) {
 function designViolations(pkg, lock, dir) {
   const v = []
   const dep = (pkg.dependencies || {})[DESIGN.name]
-  if (dep !== DESIGN.version)
-    v.push(`package.json pins ${DESIGN.name} "${dep}", not ${DESIGN.version}`)
+  if (dep !== DESIGN.spec)
+    v.push(`package.json pins ${DESIGN.name} "${dep}", not ${DESIGN.spec}`)
 
   const root = (lock.packages[''].dependencies || {})[DESIGN.name]
-  if (root !== DESIGN.version)
-    v.push(`the lock's root entry has "${root}", not ${DESIGN.version}`)
+  if (root !== DESIGN.spec)
+    v.push(`the lock's root entry has "${root}", not ${DESIGN.spec}`)
 
   const e = lock.packages[`node_modules/${DESIGN.name}`]
   if (!e) v.push('the lock has no design entry')
@@ -288,10 +294,11 @@ function designViolations(pkg, lock, dir) {
     if (e.integrity !== DESIGN.integrity)
       v.push(`locked integrity ${e.integrity}, not ${DESIGN.integrity}`)
 
-    const tarball =
-      /^https:\/\/npm\.pkg\.github\.com\/download\/@oacore\/design\//
-    if (!tarball.test(e.resolved))
-      v.push(`resolved ${e.resolved} is not the GitHub Packages tarball`)
+    if (e.resolved !== DESIGN.spec) {
+      v.push(
+        `resolved ${e.resolved} is not the vendored tarball ${DESIGN.spec}`
+      )
+    }
   }
   if (dir) {
     const f = path.join(dir, 'node_modules', DESIGN.name, 'package.json')

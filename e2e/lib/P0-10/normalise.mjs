@@ -7,7 +7,9 @@
 //   hashes are removed; every other element is kept in document order (the corruption is the order and count).
 //   Classes (T-605): hash suffix -> [name]_[local].
 //   Server output (T-610): buildId, other Next-owned keys, console.time labels and durations
-//   (pages/search/index.jsx:49-66), allow-listed Next 13.5/16 uncaughtException lines.
+//   (pages/search/index.jsx:49-66), allow-listed Next 13.5/16 uncaughtException lines, the line:column numbers of
+//   stack frames in the stdout/stderr census (function and file names kept; owner SIGNED: 2026-10-27, 40 §8
+//   rule 8).
 // One harness artefact is normalised everywhere: the run's own stack origins (http://127.0.0.1:<port>, a
 // per-run port slot) become <stack>, because the resolver rewrites https://core.ac.uk links to the proxy origin
 // (40 §2.4) and the port differs per slot.
@@ -38,6 +40,7 @@ export const NORMALISATIONS = {
     'buildId and other Next-owned keys of __NEXT_DATA__ replaced',
     'console.time labels (request ids) and durations replaced',
     'allow-listed Next 13.5/16 uncaughtException listener lines (none on Next 10)',
+    'line:column numbers of stack frames in the stdout/stderr census replaced (function and file names kept)',
   ],
 }
 
@@ -305,6 +308,12 @@ export function normaliseFindings(html, messages, { origins = [] } = {}) {
 // list allows (40 §1); Next 10 prints none, so the list is empty until such a step adds entries via an AD row
 export const NEXT_LISTENER_ALLOW = []
 
+// a stack frame line of the census (`    at fn (<build>/file.js:12:34)`, `    at <build>/file.js:12:34`): its
+// trailing line:column becomes <line>:<col>; the function and the file stay (owner SIGNED: 2026-10-27, 40 §8
+// rule 8: a bundle change moves the numbers, not the frames). Other lines are left as they are.
+export const maskFrameNumbers = (line) =>
+  line.replace(/^(\s*at\s.*?):\d+:\d+(\)?)$/, '$1:<line>:<col>$2')
+
 export function normaliseLogLine(line, { buildDir = null, origins = [] } = {}) {
   let l = line
   if (buildDir) l = l.split(buildDir).join('<build>')
@@ -312,12 +321,13 @@ export function normaliseLogLine(line, { buildDir = null, origins = [] } = {}) {
   // the listen address of the run's port slot (`ready - started server on 127.0.0.1:<port>`)
   l = l.replace(/\b127\.0\.0\.1:\d+/g, '127.0.0.1:<port>')
   // console.time labels carry `${Date.now()}-${random5}` and a duration (pages/search/index.jsx:49-66)
-  // (the build directory is a harness artefact: one per parity build key; line and column stay)
+  // (the build directory is a harness artefact: one per parity build key)
   l = l.replace(
     /^(fetchWorks|transformDataProviders):\d+-[a-z0-9]{1,5}: [\d.]+(ms|s)$/,
     '$1:<reqId>: <duration>'
   )
-  return l
+  // stack frames: line and column masked, function and file kept
+  return maskFrameNumbers(l)
 }
 
 // census rows (dom.mjs censusReader) -> one line per element: DOM path, normalised class tokens, behaviour

@@ -18,7 +18,9 @@
 //   c3  the native-binary rule (musl and gnu `@next/swc-*`, sharp musl from
 //       15) holds for the locked next. None is locked at Next 10: the rule
 //       is asserted, and proven on synthetic locks, not the presence.
-//   c4  @oacore/design 5.0.74, integrity sha512-kwYolSk… (until DV9).
+//   c4  @oacore/design 5.0.74, integrity sha512-kwYolSk… (until DV9),
+//       installed from vendor/oacore-design-5.0.74.tgz (CS-DSN-1, AD-009),
+//       the file with that sha512 and the published sha1.
 //   c5  node-fetch, @mdi/svg, @babel/runtime and yargs resolve from the app
 //       root to the hoisted copy.
 // Needs APP_ROOT (or NEXT_DIR), like T-006, for the installed-tree checks.
@@ -70,8 +72,10 @@ describe('T-008 @P0 install', () => {
     // the lock and package.json are in sync, so `npm ci` has nothing to refuse
     expect(dryRun.errors).toEqual([])
     expect(dryRun.status).toBe(0)
-    expect(dryRun.added).toBeGreaterThan(2000)
-    expect(Object.keys(lock.packages).length).toBeGreaterThan(2300)
+    // floors of a real tree, lowered from > 2000 and > 2300 by AD-003 and
+    // AD-004 (W0 removes 452 lock entries)
+    expect(dryRun.added).toBeGreaterThan(1900)
+    expect(Object.keys(lock.packages).length).toBeGreaterThan(1900)
 
     // the tree under APP_ROOT came from `npm ci` and the install did not
     // rewrite the lock
@@ -182,24 +186,42 @@ describe('T-008 @P0 install', () => {
   })
 
   test('T-008 c4 @P0 @oacore/design is 5.0.74 with integrity sha512-kwYolSk…', () => {
-    expect(pkg.dependencies['@oacore/design']).toBe('5.0.74')
-    expect(lock.packages[''].dependencies['@oacore/design']).toBe('5.0.74')
+    // the vendored tarball spec (CS-DSN-1, AD-009; was 5.0.74 and the
+    // GitHub Packages URL)
+    const spec = 'file:vendor/oacore-design-5.0.74.tgz'
+    expect(checks.DESIGN.spec).toBe(spec)
+    expect(pkg.dependencies['@oacore/design']).toBe(spec)
+    expect(lock.packages[''].dependencies['@oacore/design']).toBe(spec)
     const e = lock.packages['node_modules/@oacore/design']
     expect(e.version).toBe('5.0.74')
+    expect(e.resolved).toBe(spec)
     expect(e.integrity).toMatch(/^sha512-kwYolSk\+PrJtJzSkh/)
     expect(e.integrity).toBe(checks.DESIGN.integrity)
+    // the vendored file is the published tarball: the locked sha512 and the
+    // published sha1 (60 §1)
+    const tgz = fs.readFileSync(path.join(ROOT, checks.DESIGN.tarball))
+    expect(
+      `sha512-${crypto.createHash('sha512').update(tgz).digest('base64')}`
+    ).toBe(checks.DESIGN.integrity)
+    expect(crypto.createHash('sha1').update(tgz).digest('hex')).toBe(
+      checks.DESIGN.sha1
+    )
     expect(checks.designViolations(pkg, lock, appRoot())).toEqual([])
-    // the check can fail: another version, another integrity
+    // the check can fail: another version, another integrity, the registry
+    // tarball
     const moved = JSON.parse(JSON.stringify(lock))
     moved.packages['node_modules/@oacore/design'].version = '5.0.75'
     moved.packages['node_modules/@oacore/design'].integrity = 'sha512-other'
+    moved.packages['node_modules/@oacore/design'].resolved =
+      'https://npm.pkg.github.com/download/@oacore/design/5.0.74/e6a401d74defeb09d828b10374ff35107a9324c4'
     expect(checks.designViolations(pkg, moved, null)).toEqual([
       'locked version 5.0.75, not 5.0.74',
       `locked integrity sha512-other, not ${checks.DESIGN.integrity}`,
+      `resolved ${moved.packages['node_modules/@oacore/design'].resolved} is not the vendored tarball ${spec}`,
     ])
     const floating = { dependencies: { '@oacore/design': 'latest' } }
     expect(checks.designViolations(floating, lock, null)).toEqual([
-      'package.json pins @oacore/design "latest", not 5.0.74',
+      `package.json pins @oacore/design "latest", not ${spec}`,
     ])
   })
 
