@@ -11,6 +11,8 @@ const nextConfig = {
   trailingSlash: true,
   env: envConfig,
   assetPrefix: helpers.getAssetsPath(''),
+  // `next build` lints from Next 11 on; linting stays in the lint script
+  eslint: { ignoreDuringBuilds: true },
 
   async rewrites() {
     const dataPath = helpers.rewriteDataPath()
