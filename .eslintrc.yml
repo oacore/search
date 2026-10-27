@@ -2,6 +2,10 @@ extends:
   - '@oacore/eslint-config-react'
 
 parser: babel-eslint
+
+# Vendored third-party files stay verbatim and are not linted (CS-W0-12)
+ignorePatterns:
+  - vendor/
 env:
   browser: true
 
