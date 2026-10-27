@@ -14,7 +14,7 @@
 #   bash test/ops/t008.sh [--ref <git ref>] [--image node:18-alpine[@sha256:<index digest>]]
 #       Docker mode: `git archive <ref>` (package.json, package-lock.json, design.config.js and the checks) is
 #       mounted read-only into the image, installed in /app and verified there. The GitHub Packages token comes
-#       from the user npm config (as scripts/build-image.sh), is passed by name only (-e NPM_TOKEN), is written
+#       from the user npm config, is passed by name only (-e NPM_TOKEN), is written
 #       to /app/.npmrc for the install and removed at once; it is never printed. Disabled: Docker is out of
 #       scope (owner rule of 2026-10-22), so this path always refuses (DEFERRED, exit 3).
 #   bash test/ops/t008.sh --tree <dir> [--lock-only]
