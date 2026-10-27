@@ -209,12 +209,11 @@ const HeaderSearchBar = ({ I, config, isHidden }) => {
 
 const selectState =
   (options, initial, props = {}) =>
-  (I) =>
-    (
-      <div style={{ minHeight: '40rem' }}>
-        <SelectHarness I={I} options={options} initial={initial} {...props} />
-      </div>
-    )
+  (I) => (
+    <div style={{ minHeight: '40rem' }}>
+      <SelectHarness I={I} options={options} initial={initial} {...props} />
+    </div>
+  )
 
 // state id -> render(I); ids carry the DU number (no "search" in a URL:
 // pages/_app.jsx:93 styles every page whose path matches /search/)
