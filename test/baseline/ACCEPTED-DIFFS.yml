@@ -14,6 +14,7 @@
   step: W0
   signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
   date: '2026-10-27'
+  withdrawn: 'superseded by the frozen W1 T-001 baseline (test/baseline/t001-lint-w1.json), which holds this finding, 2026-10-28'
 - id: AD-002
   kind: product
   test: T-001
@@ -25,6 +26,7 @@
   step: W0
   signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
   date: '2026-10-27'
+  withdrawn: 'superseded by the frozen W1 T-001 baseline (test/baseline/t001-lint-w1.json), which holds this finding, 2026-10-28'
 - id: AD-003
   kind: product
   test: T-008
