@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/oacore/search#readme",
   "dependencies": {
+    "@mdi/svg": "5.9.55",
     "@oacore/design": "5.0.74",
     "@oacore/stylelint-config-base": "^1.0.6",
     "@sentry/browser": "^5.28.0",
