@@ -2,10 +2,11 @@
 # ci-local.sh - the whole local test suite on a workstation (42 §10, owner rules of 2026-10-22: the tests are a
 # local safety net for the upgrade; no CI, no GitHub, no Docker). Host parity builds (scripts/build-parity.mjs)
 # and host stacks (scripts/e2e-stack.mjs), host Chromium. It runs offline: no network lookup, no install, no
-# build, and it reads no file under .github/.
+# build, and it reads no workflow file.
 #
 #   lint   lint parity (T-001), docs check, the accepted-diffs ledger (structural checks; the signature
-#          lookups are never made here); the dependency audit gate only with CI_LOCAL_AUDIT=1 (it asks the
+#          lookups are never made here), the fixture scrub check (40 §6: no secret or contact data in the
+#          committed fixtures, SHA256SUMS); the dependency audit gate only with CI_LOCAL_AUDIT=1 (it asks the
 #          registry; reported, blocking only with AUDIT_BLOCKING=true)
 #   unit   Jest node + dom on the runtime Node 18.20.8, TZ=UTC, V8 coverage into $ARTIFACT_DIR/coverage/jest
 #   image  on the parity build of HEAD and its twin (`--suffix ci-b`, T-014 (a)): test:harness and the browser
@@ -14,12 +15,18 @@
 #   e2e    tiers G-I on the host build: chromium + wire in one invocation, visual (all but T-802) in its own,
 #          the CS-OPS-1 overlay stack (T-604, T-702), the harness-variant stack (T-802); the variant without a
 #          Sentry DSN must exist too (T-608 c2 starts a stack of its own on it)
-#   gate   all four jobs green; only evaluated when lint, unit, image and e2e all ran
+#   ops    the ops tier: Jest ops project (T-902, T-903, T-904, T-908) on Node 18.20.8, then T-907 c2 and the
+#          c1/c3 rehearsal (Playwright ops project) on a stack of the parity build of HEAD
+#   gate   all five jobs green; only evaluated when lint, unit, image, e2e and ops all ran in this call
 # The builds are made beforehand and only reused here (owner notes section 0, lean: an APFS clone of the
 # repository tree that reuses its installed node_modules, then only the app build step; never `npm ci`): a
 # missing build fails its step and names the key (`node scripts/build-parity.mjs --key-only [--variant v]`).
+# The whole suite in one call needs four build trees of HEAD at once: the parity build, its twin
+# (`--suffix ci-b`, image only), the harness variant and the variant without a Sentry DSN (owner notes of
+# 2026-10-27: up to four trees). Where fewer trees are allowed, run `image` and `e2e ops` in separate calls,
+# with the twin present only for the first; the gate then has to be read from the summaries of both calls.
 #
-# Usage: ARTIFACT_DIR=<dir> bash scripts/ci-local.sh [lint|unit|image|e2e|gate ...]   (default: all five)
+# Usage: ARTIFACT_DIR=<dir> bash scripts/ci-local.sh [lint|unit|image|e2e|ops|gate ...]   (default: all six)
 # Env:   CI_LOCAL_AUDIT=1        run the dependency audit gate (network: the registry)
 #        AUDIT_BLOCKING=true     the audit gate fails the lint job (default: it is reported only)
 #        CI_LOCAL_LEDGER_BASE    the git ref whose merge base holds the previous ledger (default: master)
@@ -38,13 +45,13 @@ node24="$(nvm which 24)"
 dir18="$(dirname "$node18")"
 export PATH="$(dirname "$node24"):$PATH"
 jobs=("$@")
-[ ${#jobs[@]} -eq 0 ] && jobs=(lint unit image e2e gate)
+[ ${#jobs[@]} -eq 0 ] && jobs=(lint unit image e2e ops gate)
 stamp="$(date -u +%Y%m%dT%H%M%SZ)"
 out="$ARTIFACT_DIR/ci-local"
 mkdir -p "$out"
 results=()
 stacks=()
-rcs_lint="" rcs_unit="" rcs_image="" rcs_e2e=""
+rcs_lint="" rcs_unit="" rcs_image="" rcs_e2e="" rcs_ops=""
 
 down_all() {
   local s
@@ -106,6 +113,7 @@ job_lint() {
   step "Lint parity (T-001)" npm run lint:parity || return 1
   step "Docs check (40 §10)" npm run docs:check || return 1
   step "Accepted-diffs ledger, structural checks (42 §8)" node scripts/ad-ledger.mjs --base "${CI_LOCAL_LEDGER_BASE:-master}" --offline || return 1
+  step "Fixture scrub check and SHA256SUMS (40 §6)" npm run -s fixtures:scrub-check || return 1
   if [ "${CI_LOCAL_AUDIT:-}" != 1 ]; then
     echo "--- Dependency audit gate: skipped (it asks the registry; CI_LOCAL_AUDIT=1 runs it)"
     return 0
@@ -180,10 +188,24 @@ job_e2e() {
   return $rc
 }
 
+# ---------- ops ----------
+job_ops() {
+  local id="ci-local-$stamp-ops" rc=0
+  step "Jest ops project (T-902, T-903, T-904, T-908)" env PATH="$dir18:$PATH" TZ=UTC npm run -s test:ops -- --ci || rc=1
+  step "Parity build of HEAD" need_build - || return 1
+  stacks+=("$id")
+  if step "Stack" node scripts/e2e-stack.mjs up --run "$id"; then
+    step "T-907 c2" env P2_OPS=1 node scripts/e2e-stack.mjs test --run "$id" e2e/ops/t907-smoke.spec.mjs --project ops -g 'T-907 c2' || rc=1
+    step "T-907 c1 and c3, rehearsal" env P2_OPS=1 P2_OPS_REHEARSE=1 node scripts/e2e-stack.mjs test --run "$id" e2e/ops/t907-smoke.spec.mjs --project ops -g 'T-907 c[13]' || rc=1
+  else rc=1; fi
+  node scripts/e2e-stack.mjs down --run "$id"
+  return $rc
+}
+
 # ---------- gate ----------
 job_gate() {
   local j v ok=0
-  for j in lint unit image e2e; do
+  for j in lint unit image e2e ops; do
     v="$(eval "echo \$rcs_$j")"
     if [ "$v" = 0 ]; then echo "$j success"; else echo "$j failure (rc=${v:-not run})"; ok=1; fi
   done
@@ -192,11 +214,11 @@ job_gate() {
 
 for j in "${jobs[@]}"; do
   case "$j" in
-    lint | unit | image | e2e) run_job "$j" ;;
+    lint | unit | image | e2e | ops) run_job "$j" ;;
     gate)
-      if [ -n "$rcs_lint" ] && [ -n "$rcs_unit" ] && [ -n "$rcs_image" ] && [ -n "$rcs_e2e" ]; then run_job gate
-      else echo "=== gate: skipped (lint, unit, image and e2e must all run in this call)"; fi ;;
-    *) echo "unknown job $j (lint|unit|image|e2e|gate)" >&2; exit 2 ;;
+      if [ -n "$rcs_lint" ] && [ -n "$rcs_unit" ] && [ -n "$rcs_image" ] && [ -n "$rcs_e2e" ] && [ -n "$rcs_ops" ]; then run_job gate
+      else echo "=== gate: skipped (lint, unit, image, e2e and ops must all run in this call)"; fi ;;
+    *) echo "unknown job $j (lint|unit|image|e2e|ops|gate)" >&2; exit 2 ;;
   esac
 done
 printf '{"at":"%s","head":"%s","jobs":[%s]}\n' "$stamp" "$(git rev-parse HEAD)" "$(IFS=,; echo "${results[*]}")" >"$out/$stamp.json"
