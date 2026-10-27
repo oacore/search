@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-# baseline-capture.sh <golden|recapture|rebaseline> [options] - the local equivalent of
-# .github/workflows/baseline-capture.yml (42 §4, §6, §9). Local mode (owner notes §1): host parity builds
-# (scripts/build-parity.mjs) and host stacks (scripts/e2e-stack.mjs), host Chromium; the captures are this
-# machine's host baseline (macOS arm64). The workflow runs the same steps with E2E_MODE=docker.
+# baseline-capture.sh <golden|recapture|rebaseline> [options] - the baseline captures of 42 §4, §6, §9, run
+# locally (owner notes §1; there is no workflow): host parity builds (scripts/build-parity.mjs) and host stacks
+# (scripts/e2e-stack.mjs), host Chromium; the captures are this machine's host baseline (macOS arm64).
 #
 # Modes:
 #   golden      42 §4 + §6 items 1-2 on G = --ref (default p2-local/golden, the local stand-in for the

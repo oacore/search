@@ -1,8 +1,8 @@
 // T-006 (41 A, R-022, R-091): the design runtime config of the built app:
 // lib/config.js of @oacore/design (written by its postinstall from
 // design.config.js) points the icons at /static/search/icons.svg. APP_ROOT =
-// the app directory of the image (scripts/extract-next.sh) or of a local
-// `--install ci` build; default: the directory that holds NEXT_DIR.
+// the app directory of a local `--install ci` build (the layout of the image's
+// /app); default: the directory that holds NEXT_DIR.
 const fs = require('fs')
 const path = require('path')
 

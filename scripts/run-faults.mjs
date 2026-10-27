@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// run-faults.mjs - seeded faults (55 C1, C1-Q; 40 §10 `npm run faults`; workflow faults.yml).
+// run-faults.mjs - seeded faults (55 C1, C1-Q; 40 §10 `npm run faults`; run locally, there is no workflow).
 //
 //   npm run faults [-- --risk R-### | --clause Q-###-c<k> | --fault <file stem> | --sealed <gate>]
 //                  [--jobs N (<= 2)] [--tiers detectors,smoke | all | detectors] [--validate-only] [--index]
@@ -20,9 +20,8 @@
 //      patch (a stale patch fails; never a worktree of this repository). Design-path patches
 //      (<id>.design.patch, paths relative to the package root) are applied with
 //      `patch -p1 -d node_modules/@oacore/design` on the build's own copy of the package (55 C1-Q).
-//   2. Build: local mode = a host parity build of the faulted commit (scripts/build-parity.mjs); docker mode =
-//      scripts/build-image.sh on the faulted tree with the layer cache. Faults whose detectors are all Jest-tier
-//      skip the Next build (owner notes §2).
+//   2. Build: a host parity build of the faulted commit (scripts/build-parity.mjs, local mode, the only mode;
+//      Docker is out of scope). Faults whose detectors are all Jest-tier skip the Next build (owner notes §2).
 //   3. Own stack per fault (scripts/e2e-stack.mjs up --build <key>), validity per 55 C1: build ok; T-901 green
 //      unless it is a detector of the risk (local mode: T-901 needs the image, recorded not-run; the stack's
 //      /api/healthz/ readiness is recorded instead); the .expect holds; <= 20% of the P0 smoke subset red.

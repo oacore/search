@@ -14,7 +14,7 @@
 // design build output `public/design/icons.svg` (Dockerfile:25).
 //
 // Input: APP_ROOT = the app directory of the parity build (its .next is
-// NEXT_DIR; `scripts/extract-next.sh` writes the same layout from an image).
+// NEXT_DIR; the same layout as the image's /app).
 const fs = require('fs')
 const path = require('path')
 const { execFileSync } = require('child_process')
@@ -126,11 +126,7 @@ const appRoot = () => {
   const dir = process.env.APP_ROOT
     ? process.env.APP_ROOT
     : process.env.NEXT_DIR && path.dirname(process.env.NEXT_DIR)
-  if (!dir) {
-    throw new Error(
-      'T-418 needs APP_ROOT (the parity build directory, or the layout scripts/extract-next.sh writes from an image)'
-    )
-  }
+  if (!dir) throw new Error('T-418 needs APP_ROOT (the parity build directory)')
   return path.resolve(dir)
 }
 

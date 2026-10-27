@@ -1,8 +1,8 @@
 // Build-artefact adapters (40 §3 layer A, 40 §8 rule 7): readers of the
 // version-specific `.next` layout plus the version-independent views T-003,
 // T-004, T-005, T-010 (and T-007, read-only) compare. Input = the app
-// directory of the parity image or local parity build (APP_ROOT; its .next is
-// NEXT_DIR); `scripts/extract-next.sh` writes that layout from an image.
+// directory of the local parity build (APP_ROOT; its .next is NEXT_DIR), the
+// layout an image's /app has too.
 //
 // A reader is chosen by detect(); today only Next 10 (./next10.js). A new
 // reader must reproduce the recorded outputs on the golden build (the
@@ -52,7 +52,7 @@ const sortObject = (obj) =>
 function buildDirs(testId, env = process.env) {
   if (!env.NEXT_DIR) {
     throw new Error(
-      `${testId} needs NEXT_DIR (.next of the parity image via scripts/extract-next.sh, or of a local parity build) and APP_ROOT`
+      `${testId} needs NEXT_DIR (.next of a local parity build) and APP_ROOT`
     )
   }
   const nextDir = path.resolve(env.NEXT_DIR)

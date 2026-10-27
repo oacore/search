@@ -5,7 +5,7 @@
 // proxy, +2 app origin, +3 stub HTTP, +4 stub HTTPS, +5 stub control. A supervisor process owns the stack;
 // a slot whose supervisor is gone is reclaimed. The app is never built here (scripts/build-parity.mjs).
 //
-//   up      --run <id> [--mode host|docker] [--ref HEAD] [--variant default|nodsn|harness] [--overlay cs-ops-1]
+//   up      --run <id> [--mode host] [--ref HEAD] [--variant default|nodsn|harness] [--overlay cs-ops-1]
 //           [--build <key of $ARTIFACT_DIR/images.json>]
 //           [--app-env K=V]... (K= unsets K) [--mount <file>:<path>]...
 //   down    --run <id>
@@ -13,7 +13,7 @@
 //   gc
 //   test    --run <id> [--visual] [--record [--provisional]] [playwright args...]
 //
-// docker mode (evidence): compose project p2-<id>, label org.search.p2.run=<id>, e2e/compose.yml.
+// `--mode docker` refuses (Docker is out of scope, owner rule of 2026-10-22).
 // host mode (never evidence, manifest §5.3): next start of the host build on Node 18.20.8, the SSR stub and
 // e2e/proxy/node-proxy.mjs as host processes; other outbound hosts reach the stub via test/ssr/host-redirect.cjs.
 import fs from 'node:fs'
@@ -149,21 +149,6 @@ function killChildren(owner) {
       }
     }
   }
-  if (owner.mode === 'docker' && owner.project)
-    spawnSync(
-      'docker',
-      [
-        'compose',
-        '-p',
-        owner.project,
-        'down',
-        '-v',
-        '--remove-orphans',
-        '-t',
-        '5',
-      ],
-      { stdio: 'ignore' }
-    )
 }
 
 // ---------- helpers ----------
@@ -472,200 +457,6 @@ async function superviseHost(opts) {
   setInterval(() => {}, 1 << 30)
 }
 
-// ---------- supervise (docker) ----------
-async function superviseDocker(opts) {
-  const { run, slot, ports } = opts
-  const dir = runDir(run)
-  const project = `p2-${run.toLowerCase().replace(/[^a-z0-9_-]/g, '-')}`
-  const slotDir = path.join(SLOTS, String(slot))
-  const owner = {
-    run,
-    pid: process.pid,
-    mode: 'docker',
-    project,
-    children: [],
-    created: new Date().toISOString(),
-  }
-  writeJson(path.join(slotDir, 'owner.json'), owner)
-  const state = {
-    run,
-    mode: 'docker',
-    status: 'starting',
-    slot,
-    portBase: ports.base,
-    ports,
-    project,
-    evidence: true,
-  }
-  const save = () => writeJson(envFile(run), state)
-  save()
-  const compose = (...a) =>
-    spawnSync(
-      'docker',
-      [
-        'compose',
-        '-f',
-        path.join(REPO, 'e2e', 'compose.yml'),
-        '-f',
-        path.join(dir, 'compose.override.yml'),
-        '-p',
-        project,
-        ...a,
-      ],
-      { encoding: 'utf8', env: { ...process.env, ...composeEnv } }
-    )
-  let composeEnv = {}
-  let stopping = false
-  const stop = async (code = 0) => {
-    if (stopping) return
-    stopping = true
-    compose('down', '-v', '--remove-orphans', '-t', '10')
-    state.status = state.status === 'failed' ? 'failed' : 'stopped'
-    state.stoppedAt = new Date().toISOString()
-    save()
-    fs.rmSync(slotDir, { recursive: true, force: true })
-    process.exit(code)
-  }
-  process.on('SIGTERM', () => stop(0))
-  process.on('SIGINT', () => stop(0))
-  try {
-    if (spawnSync('docker', ['info'], { stdio: 'ignore' }).status !== 0)
-      throw new Error('docker daemon not reachable (I-01)')
-    const images = readJson(path.join(ARTIFACT_DIR, 'images.json'), {
-      builds: {},
-    })
-    const { runtimeKey } = await import('./build-parity.mjs')
-    const k = runtimeKey(opts.ref, opts.variant, 'docker')
-    const img = images.builds[k.key]
-    if (!img || !img.imageId)
-      throw new Error(
-        `no parity image for ${opts.ref} variant ${opts.variant}: run \`npm run build:parity -- --mode docker\` first`
-      )
-    const gen = spawnSync(
-      process.execPath,
-      [
-        path.join(REPO, 'e2e', 'proxy', 'generate.mjs'),
-        '--out',
-        path.join(dir, 'proxy'),
-        ...(opts.overlay ? ['--overlay', opts.overlay] : []),
-      ],
-      { encoding: 'utf8' }
-    )
-    if (gen.status !== 0)
-      throw new Error(`proxy generator failed: ${gen.stderr}`)
-    const env = appEnv({
-      ports,
-      run,
-      build: img,
-      variant: opts.variant,
-      extra: opts.appEnv,
-      mounts: [],
-      mode: 'docker',
-    })
-    // per-run override file: app env, mounts, labels
-    const override = [
-      'services:',
-      '  app:',
-      '    environment:',
-      ...Object.entries(env)
-        .filter(
-          ([key]) =>
-            ![
-              'SENTRY_DSN',
-              'GA_TRACKING_CODE',
-              'ICONS_PUBLIC_PATH',
-              'BUILD_TARGET',
-              'APP_ENV',
-              'NODE_ENV',
-              'P2_STUB_HTTP',
-            ].includes(key)
-        )
-        .map(([key, v]) => `      ${key}: ${JSON.stringify(v)}`),
-      ...(opts.mounts.length
-        ? [
-            '    volumes:',
-            ...opts.mounts.map(
-              (m) =>
-                `      - ${JSON.stringify(
-                  `${path.resolve(m.split(':')[0])}:${m.split(':')[1]}:ro`
-                )}`
-            ),
-          ]
-        : []),
-      '',
-    ].join('\n')
-    fs.writeFileSync(path.join(dir, 'compose.override.yml'), override)
-    composeEnv = {
-      APP_IMAGE: img.imageId,
-      P2_RUN: run,
-      P2_RUN_DIR: dir,
-      P2_REPO: REPO,
-      E2E_PORT_BASE: String(ports.base),
-      P2_NET: `172.30.${slot}`,
-      P2_PORT_GATEWAY: String(ports.gateway),
-      P2_PORT_ALLOW: String(ports.allow),
-      P2_PORT_APP: String(ports.app),
-      P2_PORT_STUB_HTTP: String(ports.stubHttp),
-      P2_PORT_STUB_HTTPS: String(ports.stubHttps),
-      P2_PORT_STUB_CONTROL: String(ports.stubControl),
-    }
-    state.image = {
-      tag: img.tag,
-      imageId: img.imageId,
-      commit: img.commit,
-      variant: opts.variant,
-    }
-    state.appEnv = env
-    save()
-    const up = compose('up', '-d', '--wait', 'app', 'stub', 'dns', 'proxy')
-    if (up.status !== 0)
-      throw new Error(`docker compose up failed: ${up.stderr.slice(-2000)}`)
-    const logs = spawn(
-      'docker',
-      [
-        'compose',
-        '-f',
-        path.join(REPO, 'e2e', 'compose.yml'),
-        '-f',
-        path.join(dir, 'compose.override.yml'),
-        '-p',
-        project,
-        'logs',
-        '-f',
-        '--no-color',
-      ],
-      {
-        stdio: [
-          'ignore',
-          fs.openSync(path.join(dir, 'compose.log'), 'a'),
-          'ignore',
-        ],
-        env: { ...process.env, ...composeEnv },
-      }
-    )
-    owner.children.push(logs.pid)
-    writeJson(path.join(slotDir, 'owner.json'), owner)
-    Object.assign(state, {
-      status: 'ready',
-      readyAt: new Date().toISOString(),
-      baseURL: `http://127.0.0.1:${ports.gateway}`,
-      allowURL: `http://127.0.0.1:${ports.allow}`,
-      appURL: `http://127.0.0.1:${ports.app}`,
-      controlURL: `http://127.0.0.1:${ports.stubControl}`,
-      runnerBaseURL: 'http://proxy:8080',
-      runDir: dir,
-      composeEnv,
-    })
-    save()
-  } catch (e) {
-    state.status = 'failed'
-    state.error = e.message
-    save()
-    await stop(1)
-  }
-  setInterval(() => {}, 1 << 30)
-}
-
 // ---------- commands ----------
 async function up(argv, opt) {
   const run = validId(opt('--run'))
@@ -794,50 +585,6 @@ function gc() {
   if (fs.existsSync(SLOTS))
     for (const s of fs.readdirSync(SLOTS))
       if (reclaimIfStale(path.join(SLOTS, s))) n++
-  // docker leftovers of runs that no longer hold a slot (docker mode only; never touched in local mode)
-  if (
-    (process.env.E2E_MODE || 'host') === 'docker' &&
-    spawnSync('docker', ['info'], { stdio: 'ignore' }).status === 0
-  ) {
-    const live = new Set(
-      (fs.existsSync(SLOTS) ? fs.readdirSync(SLOTS) : []).map(
-        (s) => (readJson(path.join(SLOTS, s, 'owner.json')) || {}).run
-      )
-    )
-    const out =
-      spawnSync(
-        'docker',
-        [
-          'ps',
-          '-a',
-          '--filter',
-          'label=org.search.p2.run',
-          '--format',
-          '{{.Label "org.search.p2.run"}} {{.Label "com.docker.compose.project"}}',
-        ],
-        { encoding: 'utf8' }
-      ).stdout || ''
-    for (const line of new Set(out.split('\n').filter(Boolean))) {
-      const [run, project] = line.split(' ')
-      if (!live.has(run)) {
-        spawnSync(
-          'docker',
-          [
-            'compose',
-            '-p',
-            project,
-            'down',
-            '-v',
-            '--remove-orphans',
-            '-t',
-            '5',
-          ],
-          { stdio: 'ignore' }
-        )
-        n++
-      }
-    }
-  }
   console.log(`gc: reclaimed ${n}`)
   return 0
 }
@@ -901,58 +648,19 @@ async function test(argv, opt) {
         }
       : {}),
   }
-  let r
-  if (s.mode === 'docker') {
-    r = spawnSync(
-      'docker',
-      [
-        'compose',
-        '-f',
-        path.join(REPO, 'e2e', 'compose.yml'),
-        '-f',
-        path.join(s.runDir, 'compose.override.yml'),
-        '-p',
-        s.project,
-        '--profile',
-        'test',
-        'run',
-        '--rm',
-        '-e',
-        `E2E_RUN=${run}`,
-        '-e',
-        'P2_IN_RUNNER=1',
-        ...(record ? ['-e', 'RECORD=1'] : []),
-        'runner',
-        'npx',
-        'playwright',
-        'test',
-        '--config',
-        '/repo/playwright.config.mjs',
-        ...pw,
-      ],
-      { stdio: 'inherit', env: { ...env, ...s.composeEnv } }
-    )
-  } else {
-    const cli = path.join(
-      REPO,
-      'e2e',
-      'node_modules',
-      '@playwright',
-      'test',
-      'cli.js'
-    )
-    r = spawnSync(
-      process.execPath,
-      [
-        cli,
-        'test',
-        '--config',
-        path.join(REPO, 'playwright.config.mjs'),
-        ...pw,
-      ],
-      { stdio: 'inherit', cwd: REPO, env }
-    )
-  }
+  const cli = path.join(
+    REPO,
+    'e2e',
+    'node_modules',
+    '@playwright',
+    'test',
+    'cli.js'
+  )
+  const r = spawnSync(
+    process.execPath,
+    [cli, 'test', '--config', path.join(REPO, 'playwright.config.mjs'), ...pw],
+    { stdio: 'inherit', cwd: REPO, env }
+  )
   return r.status ?? 1
 }
 
@@ -976,9 +684,11 @@ async function main(argv) {
       mounts: parseList(rest, '--mount'),
       noHealthWait: rest.includes('--no-health-wait'),
     }
-    return opt('--mode') === 'docker'
-      ? superviseDocker(opts)
-      : superviseHost(opts)
+    if (opt('--mode', 'host') !== 'host')
+      throw new Error(
+        'docker mode is disabled: the stacks are host stacks only (Docker is out of scope)'
+      )
+    return superviseHost(opts)
   }
   const cmds = { up, down, status, gc, test }
   if (!cmds[cmd]) {
