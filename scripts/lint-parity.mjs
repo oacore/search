@@ -24,15 +24,17 @@
 // Checks (exit 1 on any difference):
 //   c1 findings    ESLint findings of the application files (everything outside the harness scope) and all
 //                  stylelint findings equal the baselines (13 ESLint + 16 stylelint findings, OC-2); the 38 inline
-//                  `eslint-disable` directives of the application files are counted (INLINE_DISABLES)
+//                  `eslint-disable` directives of the application files are counted (INLINE_DISABLES). An ESLint
+//                  difference passes only as a T-001 row of test/baseline/ACCEPTED-DIFFS.yml (42 §8, default
+//                  deny): key `<path> / <rule>`, from and to the counts (0 = no finding), e.g. AD-001, AD-002
 //   c2 harness     no ESLint finding in the harness scope (test/**, e2e/**, jest.config.js: the .eslintrc.yml
 //                  overrides, 40 §7 rule 7); the report carries the effective config of a harness file and of an
 //                  application file, and a control run of the harness files with the overrides removed (it must
 //                  produce findings: the overrides are what keeps the harness clean)
 //   c3 untouched   no file the linters read changed during the run (R-049); a --fix flag is refused (exit 2)
 // Exit codes: 0 parity, 1 difference, 2 tool or usage error.
-// Node built-ins only, plus the installed ESLint (and its js-yaml) for the c2 evidence; the linters and their
-// configs are the ones installed in node_modules.
+// Node built-ins only, plus the installed ESLint (and its js-yaml) for the c2 evidence and the ledger; the linters
+// and their configs are the ones installed in node_modules.
 
 import fs from 'node:fs'
 import path from 'node:path'
@@ -40,6 +42,8 @@ import crypto from 'node:crypto'
 import { createRequire } from 'node:module'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
+
+import { DEFAULT_LEDGER, parseLedger } from './ad-ledger.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const require = createRequire(path.join(ROOT, 'package.json'))
@@ -135,6 +139,38 @@ export function diffEntries(baseline, current) {
 }
 export const isSame = (d) =>
   !d.added.length && !d.removed.length && !d.changed.length
+
+// the ledger key of a (path, rule) pair (T-001 rows of test/baseline/ACCEPTED-DIFFS.yml)
+export const ledgerKey = (file, rule) => `${file} / ${rule}`
+
+// a diff against the ledger rows: each difference as { key, from, to } (counts as strings, 0 = no finding) is
+// accepted only by a T-001 row in force (not withdrawn) whose key, from and to match exactly (42 §8, default deny)
+export function applyLedger(diff, rows) {
+  const inForce = (Array.isArray(rows) ? rows : []).filter(
+    (r) => r && r.test === 'T-001' && !('withdrawn' in r)
+  )
+  const out = { accepted: [], uncovered: [] }
+  const differences = [
+    ...diff.added.map(([f, r, n]) => [f, r, 0, n]),
+    ...diff.removed.map(([f, r, n]) => [f, r, n, 0]),
+    ...diff.changed,
+  ]
+    .map(([f, r, a, b]) => ({
+      key: ledgerKey(f, r),
+      from: String(a),
+      to: String(b),
+    }))
+    .sort((x, y) => (x.key < y.key ? -1 : x.key > y.key ? 1 : 0))
+  for (const d of differences) {
+    const row = inForce.find(
+      (r) =>
+        r.key === d.key && String(r.from) === d.from && String(r.to) === d.to
+    )
+    if (row) out.accepted.push({ ...d, ad: row.id })
+    else out.uncovered.push(d)
+  }
+  return out
+}
 
 // inline directives in a source text: one record per directive comment, { form, rules }; rules = ["*"] for a
 // blanket disable. Comments only (`//` and `/* */`, also inside JSX braces); `--` starts a description (ESLint 7)
@@ -319,6 +355,9 @@ export async function run(opts) {
     opts.stylelintBaseline || DEFAULT_STYLELINT_BASELINE
   const eslintBase = aggregateEslint(readJson(eslintBaselineFile))
   const stylelintBase = aggregateStylelint(readJson(stylelintBaselineFile))
+  const ledgerRows = fs.existsSync(DEFAULT_LEDGER)
+    ? parseLedger(fs.readFileSync(DEFAULT_LEDGER, 'utf8'))
+    : []
   // c3: a --fix run can only rewrite files that have findings
   const fixable = [...eslintBase, ...stylelintBase].map(([f]) => f)
 
@@ -376,6 +415,7 @@ export async function run(opts) {
       appFiles.find((f) => f.endsWith('.jsx'))
     )
 
+  const eslintDiff = diffEntries(eslintBase, eslintApp)
   const report = {
     schema: 1,
     node: process.version,
@@ -398,7 +438,8 @@ export async function run(opts) {
       harnessFiles: harnessFiles.length,
       findings: eslintApp.reduce((a, e) => a + e[2], 0),
       entries: eslintApp,
-      diff: diffEntries(eslintBase, eslintApp),
+      diff: eslintDiff,
+      ledger: applyLedger(eslintDiff, ledgerRows),
     },
     stylelint: {
       files: stylelintResults.length,
@@ -424,7 +465,7 @@ export async function run(opts) {
     outside,
   }
   const problems = []
-  if (!isSame(report.eslint.diff))
+  if (report.eslint.ledger.uncovered.length)
     problems.push('c1 ESLint findings differ from the baseline')
   if (!isSame(report.stylelint.diff))
     problems.push('c1 stylelint findings differ from the baseline')
@@ -467,16 +508,21 @@ function printText(r) {
         : ''
     }`
   )
-  for (const [name, d] of [
-    ['ESLint', r.eslint.diff],
-    ['stylelint', r.stylelint.diff],
+  for (const [name, d, ledger] of [
+    ['ESLint', r.eslint.diff, r.eslint.ledger],
+    ['stylelint', r.stylelint.diff, null],
   ]) {
+    const ad = (f, rule) => {
+      const a =
+        ledger && ledger.accepted.find((x) => x.key === ledgerKey(f, rule))
+      return a ? `; accepted by ${a.ad}` : ''
+    }
     for (const [f, rule, n] of d.added)
-      line(`  + ${name} ${f} ${rule} x${n} (not in the baseline)`)
+      line(`  + ${name} ${f} ${rule} x${n} (not in the baseline${ad(f, rule)})`)
     for (const [f, rule, n] of d.removed)
-      line(`  - ${name} ${f} ${rule} x${n} (gone)`)
+      line(`  - ${name} ${f} ${rule} x${n} (gone${ad(f, rule)})`)
     for (const [f, rule, a, b] of d.changed)
-      line(`  ~ ${name} ${f} ${rule} ${a} -> ${b}`)
+      line(`  ~ ${name} ${f} ${rule} ${a} -> ${b}${ad(f, rule)}`)
   }
   for (const [f, rule, n] of r.harness.entries)
     line(`  ! harness ${f} ${rule} x${n}`)
@@ -591,6 +637,48 @@ function selfTest() {
       ])
     )
   )
+
+  // the ledger (42 §8): exact key, from and to; another test, a withdrawn row or another count is no match
+  const row = (id, key, from, to, extra = {}) => ({
+    id,
+    test: 'T-001',
+    key,
+    from,
+    to,
+    ...extra,
+  })
+  const added = diffEntries(base, [...base, ['c.js', 'z', 1]])
+  ok('ledger key', ledgerKey('a/b.js', 'import/x') === 'a/b.js / import/x')
+  ok(
+    'ledger accepts an exact row',
+    eq(applyLedger(added, [row('AD-1', 'c.js / z', '0', '1')]), {
+      accepted: [{ key: 'c.js / z', from: '0', to: '1', ad: 'AD-1' }],
+      uncovered: [],
+    })
+  )
+  ok(
+    'ledger refuses another count, test, key or a withdrawn row',
+    eq(
+      applyLedger(added, [
+        row('AD-1', 'c.js / z', '0', '2'),
+        row('AD-2', 'c.js / z', '0', '1', { test: 'T-002' }),
+        row('AD-3', 'c.js / y', '0', '1'),
+        row('AD-4', 'c.js / z', '0', '1', { withdrawn: 'gone, 2026-10-27' }),
+      ]).uncovered,
+      [{ key: 'c.js / z', from: '0', to: '1' }]
+    )
+  )
+  ok(
+    'ledger covers removed and changed counts',
+    eq(
+      applyLedger(diffEntries(base, [['a.js', 'x', 3]]), [
+        row('AD-1', 'a.js / x', '2', '3'),
+        row('AD-2', 'b.js / y', '1', '0'),
+      ]).accepted.map((a) => a.ad),
+      ['AD-1', 'AD-2']
+    )
+  )
+  ok('ledger with no rows', applyLedger(added, []).uncovered.length === 1)
 
   const src = [
     '/* eslint-disable max-classes-per-file */',

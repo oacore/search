@@ -7,13 +7,17 @@
 // against the frozen baselines in docs/upgrade/findings/baselines/ and reduced
 // here by a second implementation.
 // c1: the application files and the CSS equal the baselines, 38 inline
-// `eslint-disable` directives. c2: the harness files (test/**, e2e/**,
+// `eslint-disable` directives; an ESLint difference passes only as a T-001
+// row of test/baseline/ACCEPTED-DIFFS.yml (42 §8, default deny; AD-001,
+// AD-002). c2: the harness files (test/**, e2e/**,
 // jest.config.js) are lint clean because of the .eslintrc.yml overrides
 // (40 §7 rule 7). After W1 the oracle is the new-tool baseline taken on
 // unchanged code (41 T-001).
 const fs = require('fs')
 const path = require('path')
 const { spawnSync, execFileSync } = require('child_process')
+
+const { ledgerRows } = require('./adapters/reference')
 
 const ROOT = path.resolve(__dirname, '..', '..')
 const BASELINES = path.join(ROOT, 'docs/upgrade/findings/baselines')
@@ -117,6 +121,29 @@ const tally = (pairs) => {
 }
 const baselineFile = (name) =>
   JSON.parse(fs.readFileSync(path.join(BASELINES, name), 'utf8'))
+
+// the differences of a run from a literal table as {key, from, to}: key
+// `<path> / <rule>`, counts as strings (0 = no finding)
+const differences = (table, entries) => {
+  const a = new Map(table.map(([f, r, n]) => [`${f} / ${r}`, n]))
+  const b = new Map(entries.map(([f, r, n]) => [`${f} / ${r}`, n]))
+  return [...new Set([...a.keys(), ...b.keys()])]
+    .sort(compare)
+    .filter((k) => (a.get(k) || 0) !== (b.get(k) || 0))
+    .map((k) => ({
+      key: k,
+      from: String(a.get(k) || 0),
+      to: String(b.get(k) || 0),
+    }))
+}
+// default deny (42 §8): a difference passes only by a T-001 row in force
+// whose key, from and to match exactly
+const coveredBy = (d) =>
+  ledgerRows('T-001').find(
+    (r) => r.key === d.key && String(r.from) === d.from && String(r.to) === d.to
+  )
+const countDelta = (diffs) =>
+  diffs.reduce((n, d) => n + Number(d.to) - Number(d.from), 0)
 
 // the application's inline directives, scanned line by line (the script scans
 // the whole text: two implementations)
@@ -223,9 +250,14 @@ describe('T-001 @P0 lint parity', () => {
   })
 
   test('T-001 c1 @P0 ESLint findings of the application files equal the baseline (path, rule, count)', () => {
-    expect(report.eslint.entries).toEqual(ESLINT_FINDINGS)
-    expect(report.eslint.findings).toBe(13)
-    expect(report.eslint.diff).toEqual({ added: [], removed: [], changed: [] })
+    const diffs = differences(ESLINT_FINDINGS, report.eslint.entries)
+    expect(diffs.filter((d) => !coveredBy(d))).toEqual([])
+    expect(report.eslint.findings).toBe(13 + countDelta(diffs))
+    // the script finds the same differences and accepts them by the same rows
+    expect(report.eslint.ledger.uncovered).toEqual([])
+    expect(report.eslint.ledger.accepted).toEqual(
+      diffs.map((d) => ({ ...d, ad: coveredBy(d).id }))
+    )
     // the baseline covered 156 files (docs/upgrade/findings/05 §2.3): the
     // whole application is linted, with no narrower scope
     expect(report.eslint.appFiles).toBeGreaterThanOrEqual(156)
@@ -293,7 +325,13 @@ describe('T-001 @P0 lint parity', () => {
   })
 
   test('T-001 c1 @P0 the run is a parity run: lint is red today, so parity and zero findings differ (OC-2)', () => {
-    expect(report.eslint.findings + report.stylelint.findings).toBe(29)
+    // 29 plus the counts the T-001 rows of the ledger accept (AD-001, AD-002)
+    const accepted = differences(ESLINT_FINDINGS, report.eslint.entries).filter(
+      coveredBy
+    )
+    expect(report.eslint.findings + report.stylelint.findings).toBe(
+      29 + countDelta(accepted)
+    )
     expect(report.baselines.eslint.findings).toBe(13)
     expect(report.baselines.stylelint.findings).toBe(16)
     // the report's own verdict for c1
