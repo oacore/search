@@ -17,6 +17,7 @@ import { createRequire } from 'node:module'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { mulberry32 } from './gate-stats.mjs'
+import { formatJsonSync } from './prettier-sync.mjs'
 
 export const REPO = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -47,17 +48,8 @@ export const writeJson = (f, obj) => {
 }
 // committed JSON goes through the repo's prettier config (npm run lint:json stays clean)
 export const writeJsonPretty = (f, obj) => {
-  const prettier = requireRepo('prettier')
-  const options = prettier.resolveConfig.sync(f) || {}
   fs.mkdirSync(path.dirname(f), { recursive: true })
-  fs.writeFileSync(
-    f,
-    prettier.format(JSON.stringify(obj), {
-      ...options,
-      filepath: f,
-      parser: 'json',
-    })
-  )
+  fs.writeFileSync(f, formatJsonSync(obj, f))
 }
 export const byCodePoint = (a, b) => (a < b ? -1 : Number(a > b))
 export const walk = (dir, base = dir) =>

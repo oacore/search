@@ -990,14 +990,11 @@ export async function run(opts) {
 
 async function loadPrettier() {
   try {
-    const p = require('prettier')
-    let cfg = {}
-    try {
-      cfg = require(path.join(REPO, 'prettier.config.js'))
-    } catch {
-      /* default options */
-    }
-    return (text) => p.format(text, { ...cfg, parser: 'json' })
+    // the repository's Prettier format, synchronously (Prettier 3 has no sync API)
+    const { formatSync } = await import('./prettier-sync.mjs')
+    require.resolve('prettier')
+    const file = path.join(REPO, 'test', 'fixtures', 'api', 'fixture.json')
+    return (text) => formatSync(text, file, 'json')
   } catch {
     return (text) => `${JSON.stringify(JSON.parse(text), null, 2)}\n`
   }
