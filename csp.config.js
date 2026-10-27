@@ -3,7 +3,7 @@
  */
 const SELF = "'self'"
 const PRODUCTION = '*.core.ac.uk core.ac.uk'
-const LOGROCKET = '*.logrocket.com *.lgrckt-in.com'
+const LOGROCKET = '*.logrocket.com *.lgrckt-in.com *.logr-in.com'
 
 const config = {
   'default-src': [SELF, PRODUCTION],
