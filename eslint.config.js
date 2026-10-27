@@ -24,6 +24,7 @@ const tseslint = require('typescript-eslint')
 const importPlugin = require('eslint-plugin-import-x')
 const jsxA11y = require('eslint-plugin-jsx-a11y')
 const react = require('eslint-plugin-react')
+const reactHooks = require('eslint-plugin-react-hooks')
 
 // .gitignore as ESLint 7's --ignore-path read it: a pattern with a slash
 // before its end is anchored at the repository root, any other pattern
@@ -1082,6 +1083,7 @@ module.exports = defineConfig([
       'import': importPlugin,
       'jsx-a11y': withContextMethods(jsxA11y),
       'react': withContextMethods(react),
+      'react-hooks': reactHooks,
     },
     settings: {
       'import-x/ignore': [
@@ -1107,6 +1109,12 @@ module.exports = defineConfig([
       ...importRules,
       ...reactRules,
       ...jsxA11yRules,
+      // rules-of-hooks only (CS-LINT-2, Q-047): its five findings on the
+      // existing code are bulk suppressions in eslint-suppressions.json and
+      // the source stays as it is; exhaustive-deps and the React Compiler
+      // rules stay off
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'off',
     },
   },
   {
