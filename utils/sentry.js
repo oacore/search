@@ -1,6 +1,7 @@
-// NOTE: This require will be replaced with `@sentry/browser`
-// client side thanks to the webpack config in next.config.js
-const Sentry = require('@sentry/node')
+// NOTE: This import will be replaced with `@sentry/browser`
+// client side thanks to the webpack config in next.config.js. The functions are
+// imported by name so that the client bundle holds only what they need.
+import { init, captureException, withScope } from '@sentry/node'
 
 // Default integrations of Sentry 7 that Sentry 5.30 did not have: Dedupe drops
 // repeated events, Undici records every server-side fetch as a breadcrumb,
@@ -21,8 +22,9 @@ if (process.env.SENTRY_DSN) {
   }
 }
 
-if (sentryOptions) Sentry.init(sentryOptions)
+if (sentryOptions) init(sentryOptions)
 
-module.exports = {
-  Sentry,
-}
+// the SDK functions the app calls (pages/_app.jsx), also as the default export
+export const Sentry = { captureException, withScope }
+
+export default Sentry
