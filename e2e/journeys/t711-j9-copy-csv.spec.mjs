@@ -8,9 +8,12 @@
 //     a request; "Top 100 results" + Download sends E3 `{q, accept: 'text/csv', limit: 100}` once, closes the
 //     modal before the answer arrives (Q-056) and downloads the answer as results.csv;
 //   - Q-077: reopened, the modal highlights "Current page" again, but Download sends the last choice (100).
+//   - from a filtered search (/search/?q=climate AND documentType:"thesis"), Download sends the whole query, the
+//     facet clause included, as the E3 body `q` (store/search.js:122); the CSV answer of that body is not
+//     recorded, so the recorded answer of the same body for "climate" stands in for it at a page route.
 // The share and download buttons have no accessible name (an icon only, the tooltip is a separate popover):
 // they are located by their sprite icon.
-// Fixtures: search-climate, search-csv (E3 limit 10 / 100 answered 200 text/csv), members.
+// Fixtures: search-climate (also the thesis page), search-csv (E3 limit 10 / 100 answered 200 text/csv), members.
 import { test } from '../fixtures/guard.mjs'
 import { installClock } from '../fixtures/guard.mjs'
 import {
@@ -34,7 +37,9 @@ test.use({
 test.describe.configure({ timeout: TEST_TIMEOUT })
 
 const E3_URL = `${API}/v3/search/works`
-const e3Body = (limit) => `{"q":"climate","accept":"text/csv","limit":${limit}}`
+const e3Body = (limit, q = 'climate') =>
+  JSON.stringify({ q, accept: 'text/csv', limit })
+const THESIS = 'climate AND documentType:"thesis"'
 const isE3 = (e) =>
   e.method === 'POST' &&
   e.url === E3_URL &&
@@ -166,5 +171,56 @@ test.describe('T-711 @P1 J9 copy link and CSV', () => {
     expect(e3().map((e) => e.bodyText)).toEqual([e3Body(100), e3Body(100)])
     // nothing else was sent for the CSV (the current-page answer, limit 10, was never asked for)
     expect(log.entries.filter((e) => e.bodyText === e3Body(10))).toEqual([])
+  })
+
+  test('T-711 @P1 J9 CSV of a filtered search: Download sends the whole query, the facet clause included, as the E3 body q, and downloads results.csv', async ({
+    page,
+    p2Env,
+    resolver,
+  }) => {
+    const log = netLog(page, p2Env)
+    // the stand-in answer: the recorded CSV of the same body for "climate" (only the request is asserted)
+    const standIns = []
+    await page.route(
+      (u) => u.href === E3_URL,
+      async (route) => {
+        const req = route.request()
+        const text = req.postData() || ''
+        if (req.method() !== 'POST' || !text.includes('"accept":"text/csv"'))
+          return route.fallback()
+        standIns.push(text)
+        const stand = resolver.resolve(
+          'POST',
+          E3_URL,
+          JSON.stringify({ ...JSON.parse(text), q: 'climate' })
+        )
+        const headers = {}
+        for (const [n, v] of stand.headers) headers[n.toLowerCase()] = v
+        const { origin } = await req.allHeaders()
+        headers['access-control-allow-origin'] = origin
+        headers['access-control-allow-credentials'] = 'true'
+        return route.fulfill({
+          status: stand.status,
+          headers,
+          body: stand.body,
+        })
+      }
+    )
+    await open(page, `/search/?q=${encodeURIComponent(THESIS)}`)
+    await expect(
+      page.getByText('132,192 research outputs found', { exact: true })
+    ).toBeVisible()
+    const modal = csvModal(page)
+    await downloadButton(page).click()
+    await expect(modal).toBeVisible()
+    expect(await sizeCards(modal)).toEqual(highlighted('Current page'))
+    const downloaded = page.waitForEvent('download', { timeout: NAV_TIMEOUT })
+    await modal.getByRole('button', { name: 'Download' }).click()
+    expect((await downloaded).suggestedFilename()).toBe('results.csv')
+    await expect(modal).toHaveCount(0)
+    await expect
+      .poll(() => log.entries.filter(isE3).map((e) => [e.bodyText, e.status]))
+      .toEqual([[e3Body(10, THESIS), 200]])
+    expect(standIns).toEqual([e3Body(10, THESIS)])
   })
 })
