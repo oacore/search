@@ -5,9 +5,10 @@
 //   node scripts/lock-immutable.mjs [--base <git ref>] [--old <lock>] [--new <lock>] [--old-pkg <package.json>]
 //                                   [--new-pkg <package.json>] [--no-npm-ls] [--json]
 //
-//   --base     reference commit (default, AD-005: the latest dependency step merge on the first-parent history,
+//   --base     reference commit (default, AD-005: the latest dependency step merge in the history of HEAD,
 //              i.e. a `Merge W<step> (...)` commit that changed package.json or package-lock.json against its
-//              first parent; before the W0 merge, <base'>: the merge whose subject ends with "(CS-W0-9)")
+//              first parent, latest in topological order (a branch that merged the jump branch sees the step
+//              merges it took); before the W0 merge, <base'>: the merge whose subject ends with "(CS-W0-9)")
 //   --old      old lockfile path (default: `git show <base>:package-lock.json`)
 //   --new      new lockfile path (default: ./package-lock.json)
 //   --no-npm-ls  skip the `npm ls --omit=dev --all --package-lock-only` comparison
@@ -60,10 +61,17 @@ const changesDependencies = (sha) => {
   }
 }
 
-// the reference (AD-005): the latest dependency step merge on the first-parent history of `rev`, else <base'>
+// the reference (AD-005): the latest dependency step merge in the history of `rev`, else <base'>; topological
+// order shows a merge before its ancestors, so the latest step merge comes first
 export function findBasePrime(rev = 'HEAD') {
   if (process.env.BASE_PRIME) return process.env.BASE_PRIME
-  const out = git('log', '--first-parent', '--format=%H %s', rev).split('\n')
+  const out = git(
+    'log',
+    '--merges',
+    '--topo-order',
+    '--format=%H %s',
+    rev
+  ).split('\n')
   const hit = out.find(
     (l) =>
       (STEP_MERGE.test(l) && changesDependencies(l.split(' ')[0])) ||
@@ -71,7 +79,7 @@ export function findBasePrime(rev = 'HEAD') {
   )
   if (!hit)
     throw new Error(
-      'no dependency step merge and no <base\'> merge commit (subject ending "(CS-W0-9)") on the first-parent history; set BASE_PRIME'
+      'no dependency step merge and no <base\'> merge commit (subject ending "(CS-W0-9)") in the history of HEAD; set BASE_PRIME'
     )
   return hit.split(' ')[0]
 }
