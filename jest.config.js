@@ -31,12 +31,12 @@ const shared = {
       '<rootDir>/test/transforms/file-url.js',
     '\\.[jt]sx?$': 'babel-jest',
   },
-  // the vendored bibtexParse.js is ignored by babel.config.js (CS-BIB-1) and
-  // babel-jest refuses a file Babel ignores: Jest loads it untransformed, as
-  // the build does
+  // one pattern (T-012 c2): node_modules except the ESM allow-list, and the
+  // vendored bibtexParse.js, which babel.config.js ignores (CS-BIB-1);
+  // babel-jest refuses a file Babel ignores, so Jest loads it untransformed,
+  // as the build does
   transformIgnorePatterns: [
-    `/node_modules/(?!(?:${allowed})/)`,
-    '<rootDir>/vendor/bibtex-parse-js/',
+    `/node_modules/(?!(?:${allowed})/)|/vendor/bibtex-parse-js/`,
   ],
   moduleNameMapper: {
     // synthetic copies with the real top-level shape (no `data` key in
