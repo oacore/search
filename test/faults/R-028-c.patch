@@ -1,0 +1,13 @@
+diff --git a/store/search.js b/store/search.js
+index 6531d91..69677f7 100644
+--- a/store/search.js
++++ b/store/search.js
+@@ -120,7 +120,7 @@ class Search {
+     try {
+       this.setIsLoading(true)
+       const body = {
+-        q: this.query,
++        q: this.query && this.query.split(' AND ')[0],
+         accept: 'text/csv',
+         limit: this.activeLimit,
+       }

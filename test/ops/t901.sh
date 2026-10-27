@@ -12,9 +12,8 @@
 #
 #   bash test/ops/t901.sh <image id or repo@sha256:digest> [--ref <git ref>]
 #       Docker mode (CI): the compose topology of e2e/compose.yml with the app container of the image
-#       (`mem_limit: 768m`), the stack of scripts/e2e-stack.mjs in docker mode. Disabled unless
-#       P2_DOCKER_MODE=enabled: owner notes, no Docker in the local run, so this path is DEFERRED (exit 3) and
-#       has never been run. Needs the image in images.json for the ref (`npm run build:parity -- --mode docker`).
+#       (`mem_limit: 768m`), the stack of scripts/e2e-stack.mjs in docker mode. Disabled: Docker is out of
+#       scope (owner rule of 2026-10-22), so this path always refuses (DEFERRED, exit 3); it has never been run.
 #   bash test/ops/t901.sh --host [--build <key of $ARTIFACT_DIR/images.json>] [--run <id>]
 #       Local mode: the same spec against the `next start` process of a host parity build (Node 18.20.8) behind
 #       the Node proxy, with the clauses only a container can answer replaced by their host equivalents (see the
@@ -48,10 +47,9 @@ if [ "$host" = 0 ]; then
     echo "usage: npm run test:image -- <image id or repo@sha256:digest> | --host [--build <key>]" >&2
     exit 2
   fi
-  if [ "${P2_DOCKER_MODE:-}" != enabled ]; then
-    echo "T-901 (image ${image}): DEFERRED, docker mode is disabled (local mode only); set P2_DOCKER_MODE=enabled in CI" >&2
-    exit 3
-  fi
+  # Docker is out of scope: the image path refuses whatever the environment says
+  echo "T-901 (image ${image}): DEFERRED, docker mode is disabled (Docker is out of scope; use --host)" >&2
+  exit 3
 fi
 
 [ "$(node -p 'process.versions.node.split(".")[0]')" -ge 20 ] || { echo "T-901: run with the tooling Node (24), not $(node -v)" >&2; exit 2; }

@@ -120,6 +120,7 @@ Transitions: 03 §5.1, 06 §7.2.
 | T-418 | P0 | Icon ids | Each `Icon` id (20 + design ids, 04 §3.3) is a `<symbol>` of the served prod sprite | R-022 | W0.5, W5, 6.9 |
 | T-419 | P1 | Output template | Similar states; related; Q-062, Q-076, Q-046, Q-064 | R-029 | W6a, 6.4 |
 | T-420 | P1 | Header search wiring | Q-057, Q-012; outputs push `/search/?q=` | R-051 | W4c, W6a |
+| T-421 | P1 | URL state from a non-default state | Pagination from a sorted and from a filtered + sorted list pushes `{...query, page}`, every key kept; sort, Clear all and a year range keep every other key, `page` 1 (Q-042); CSV of a filtered page: E3 body `q` = the whole query, for each filter kind and size; Copy url = `https://core.ac.uk` + `asPath` | R-019, R-028 | W4c, W4d, W6a, W6c, W7a, W7c, 6.3, 6.5 |
 
 ### F. In-process gSSP (Jest, node)
 
@@ -158,12 +159,12 @@ Transitions: 03 §5.1, 06 §7.2.
 | T-703 | P0 | J1 | | R-001, R-019 | all |
 | T-704 | P0 | J2, J21 | Q-042 | R-011, R-019, R-030 | all |
 | T-705 | P0 | J3, J21 | `setFixedTime` | R-012 | W7b, 6.1, 7.1 |
-| T-706 | P0 | J4 | | R-019, R-052 | all |
+| T-706 | P0 | J4 | From `sort=recent`, page 2 keeps `sort` in the URL, the data request and the sort box | R-019, R-052 | all |
 | T-707 | P0 | J5 | | R-051 | all |
 | T-708 | — | WITHDRAWN | Split into T-602 + T-729; "none removed" is red on the baseline (review:00 X40.8) | — | — |
 | T-709 | P1 | J7 | | R-053 | W0, W7b |
 | T-710 | P1 | J8 | Q-063 | R-021 | W4c |
-| T-711 | P1@2.7 | J9 | Toast via advancing `page.clock` (`install()` does not freeze) | R-028 | 6.3 |
+| T-711 | P1@2.7 | J9 | Toast via advancing `page.clock` (`install()` does not freeze), and the CSV of a filtered search sends the whole query as `q` | R-028 | 6.3 |
 | T-712 | P1@2.7 | J10 | Q-055; remount path with the E8 stub delayed 1 s (hard load A, client nav to search, Back to A): loader visible before E8 resolves, E8 = 1 per mount, T-801 loading-state capture 0 px; T-702's window events on the works page after settle: E8 count, DOM and URL = B0 | R-029 | 6.4 |
 | T-713 | P1 | J11 | Q-060, Q-082, Q-094 | R-037 | W7b, 6.5, 7.2 |
 | T-714 | P1 | J12, J27, J32 | Q-080, Q-084 | R-013, R-047, R-052 | W6a, W6c, 6.5, 7.2 |
@@ -417,7 +418,7 @@ Replaces the traceability matrix (review:00 X40.35). **C1** (55): **BR** = repro
 | R-016 | H | T-607, T-903 | T-103, T-104, T-122 | BR: Host override sent |
 | R-017 | H | T-901 | T-117 | UO |
 | R-018 | H | T-722, T-735, T-609 | T-107, T-208, T-209, T-302 | BR: first sync pushes |
-| R-019 | H | T-703, T-704, T-706 | T-202, T-204 | BR: drop `page:1` from the push |
+| R-019 | H | T-703, T-704, T-706 | T-202, T-204, T-421 | BR: drop `page:1` from the push |
 | R-020 | H | T-601, T-612, T-716, T-731 | T-010, T-506 | BR: `trailingSlash:false` |
 | R-021 | H | T-721, T-605 | T-005, T-010, T-110 | BR: wrong `assetPrefix` |
 | R-022 | H | T-721, T-801 | T-005, T-006, T-418 | BR: postinstall without `design.config.js` |
@@ -425,7 +426,7 @@ Replaces the traceability matrix (review:00 X40.35). **C1** (55): **BR** = repro
 | R-024 | H | T-802, T-801 | T-003, T-417 | BR: design CSS as a module |
 | R-025 | H | T-802 | T-417, T-016 | BR: `hooks` alias hit in design code |
 | R-026 | H | T-720, T-719, T-904 | T-116, T-603 | BR: drop `*.logrocket.com` (`csp.config.js:6`) |
-| R-028 | H | T-607, T-610, T-702 | T-101, T-102, T-115, T-122, T-205, T-501–T-504 | BR: JSON Content-Type on string bodies |
+| R-028 | H | T-607, T-610, T-702, T-711 | T-101, T-102, T-115, T-122, T-205, T-501–T-504, T-421 | BR: JSON Content-Type on string bodies |
 | R-029 | H | T-702, T-712 | T-201, T-207 | BR: SimilarWorks refetch on nav |
 | R-030 | H | T-703, T-704 | T-105, T-210, T-403 | BR: copy, not alias, suggestions |
 | R-031 | H | T-801 (1L) | T-108 | BR: 7.14.0 country data |
@@ -483,4 +484,4 @@ Replaces the traceability matrix (review:00 X40.35). **C1** (55): **BR** = repro
 
 ## 4. Counts
 
-Active tests: **P0 84, P1 62, P2 4 = 150** (P0: 76 plain, 8 P0@x; P1: 50 plain, 12 P1@x); "every plain P0 row" = the 76. Per layer (P0/P1/P2): A 14/4/0, B 12/8/0, C 7/5/0, D 4/2/1, E 9/11/0, F 5/1/0, G 10/2/0, H 19/20/2, I 2/4/0, J 2/5/1. Excludes T-708, T-111, T-112. 2026-10-20: 37 new; T-004, T-006, T-607 P1 → P0; T-724 P2 → P1 (RG-5, 70 §4); T-905 P2 → P1 (55 C6); also T-115, T-409, T-413, T-711, T-712 P1 → P1@2.7 and T-211 P2 → P1@2.7 (sole pins of Q-021, Q-038, Q-055, Q-056, Q-077; only tests of J9, J10, E3); T-414 P2 → P1@2.7 (sole pin of Q-058 c1, c3, c4). 2026-10-20, phase-2 detector review: clauses added to T-601 (Q-028 needs a G-layer pin, 30 §1 rule 6), T-609 (R-004), T-702 (R-028 string body, Q-011), T-716 (R-033, now in §3); V14 and the fixture rows 1005 and Providers extended (R-031, Q-097). 2026-10-22, 2.7 fault survivors: T-004 c6 (client core-js polyfill census, kills R-032-b `useBuiltIns: false`) and T-016 c4 (design require edges in the client module graph, kills R-025-a; R-025 → T-016) added. Every gate runs all tiers (§0).
+Active tests: **P0 84, P1 63, P2 4 = 151** (P0: 76 plain, 8 P0@x; P1: 51 plain, 12 P1@x); "every plain P0 row" = the 76. Per layer (P0/P1/P2): A 14/4/0, B 12/8/0, C 7/5/0, D 4/2/1, E 9/12/0, F 5/1/0, G 10/2/0, H 19/20/2, I 2/4/0, J 2/5/1. Excludes T-708, T-111, T-112. 2026-10-20: 37 new; T-004, T-006, T-607 P1 → P0; T-724 P2 → P1 (RG-5, 70 §4); T-905 P2 → P1 (55 C6); also T-115, T-409, T-413, T-711, T-712 P1 → P1@2.7 and T-211 P2 → P1@2.7 (sole pins of Q-021, Q-038, Q-055, Q-056, Q-077; only tests of J9, J10, E3); T-414 P2 → P1@2.7 (sole pin of Q-058 c1, c3, c4). 2026-10-20, phase-2 detector review: clauses added to T-601 (Q-028 needs a G-layer pin, 30 §1 rule 6), T-609 (R-004), T-702 (R-028 string body, Q-011), T-716 (R-033, now in §3); V14 and the fixture rows 1005 and Providers extended (R-031, Q-097). 2026-10-22, 2.7 fault survivors: T-004 c6 (client core-js polyfill census, kills R-032-b `useBuiltIns: false`) and T-016 c4 (design require edges in the client module graph, kills R-025-a; R-025 → T-016) added. 2026-10-27, review of the URL-state actions (each action was tested only from the default state): T-421 new (P1, layer E: pagination, sort, Clear all, year range, CSV and Copy url from a filtered, sorted state; kills R-019-c, the pagination push dropping `sort`, and R-028-c, the CSV body `q` cut at the first ` AND `); T-706 (from `sort=recent`, page 2) and T-711 (CSV of a filtered search) gained a journey each; R-019 → T-421, R-028 → T-711, T-421. Every gate runs all tiers (§0).

@@ -4,6 +4,8 @@
 //     filters call: E2 x0) and the window is at the top after it (Next's default scroll of a non-shallow push;
 //     the pushState entry of the guard shows the position before the scroll, > 0 here).
 //   - sort: "recent" pushes sort=recent with page 1.
+//   - pagination from a sorted list: on /search/?q=climate&sort=recent, page 2 pushes `{...query, page}`, so the
+//     URL, the data request and the sort box keep sort=recent (the page is page 2 of the recency list).
 //   - page 5 reads "first" and "last"; at 400 px (siblingCount 0) the list holds prev, first, dots, current,
 //     dots, last, next.
 //   - last page (Q-083): the active page and the disabled Next carry `pointer-events:none`, a pointer click
@@ -13,7 +15,7 @@
 // T-740's subject, never covers the pagination. Per step the URL, the DOM view, the request log, the history
 // log and the router events are asserted.
 // Fixtures: scenario search-climate (pages 1, 2, 3, 5, recency), req-P0-13 (the 85-hit search, pages 1, 8, 9, 10;
-// test/fixtures/requests/P0-13.json).
+// test/fixtures/requests/P0-13.json), req-P0-14 (page 2 of the recency list).
 import { test, expect } from '../lib/P0-13/harness-gaps.mjs'
 import { Journey } from '../lib/P0-13/journey.mjs'
 import { pointerReaches, clickCentre } from '../lib/P0-13/page.mjs'
@@ -76,6 +78,9 @@ const pagerAt = (n) => [
   '(next)',
 ]
 const Q76 = 'climate AND (yearPublished>=1952 AND yearPublished<=1952)'
+const KATEX_SB2 = 'couldn`t convert string \\sb2'
+// a page URL relative to the stack origin
+const rel = (p2Env, u) => u.split(new URL(p2Env.baseURL).origin).join('')
 
 test.use({ cookieState: 'essential' })
 
@@ -208,6 +213,62 @@ test.describe('T-706 @P0 J4 pagination and sort', () => {
     await expect(page.getByText('relevance', { exact: true })).toHaveCount(0)
     await expect(page.getByText('recent', { exact: true })).toHaveCount(1)
     expect(sorted.marker).toBe('kept')
+  })
+
+  test('T-706 @P0 J4 pagination from a sorted list: page 2 of /search/?q=climate&sort=recent keeps sort=recent in the URL, the data request and the sort box', async ({
+    page,
+    p2Env,
+    resolver,
+    guardLog,
+  }) => {
+    // one abstract of page 2 of the recency list holds `\sb2`, which the design's MathMarkdown logs as a KaTeX
+    // console.error (T-741 pin katex-convert): the console check is declared and the lines asserted below
+    test
+      .info()
+      .annotations.push({ type: 'guard-expect', description: 'console' })
+    const j = await Journey.open(page, p2Env, '/search/?q=climate&sort=recent')
+    const recent1 = answer(resolver, { q: 'climate', sort: 'recency' })
+    const recent2 = answer(resolver, {
+      q: 'climate',
+      offset: 10,
+      sort: 'recency',
+    })
+    const relevance2 = answer(resolver, { q: 'climate', offset: 10 })
+    expect(j.first.view).toMatchObject({
+      ids: recent1.ids,
+      sort: 'Sort by recent',
+    })
+    expect(pagerLabels(j.first.view)).toEqual(FIRST_OF_MANY)
+
+    const url = '/search/?q=climate&sort=recent&page=2'
+    const second = await j.act(
+      'page 2',
+      () => page.getByRole('button', { name: '2', exact: true }).click(),
+      { url }
+    )
+    expect(second.view).toMatchObject({
+      url,
+      hits: recent2.hits,
+      ids: recent2.ids,
+      sort: 'Sort by recent',
+    })
+    expect(second.view.ids).not.toEqual(relevance2.ids)
+    expect(pagerLabels(second.view)).toEqual(pagerAt(2))
+    expect(second.requests).toEqual(
+      nav({ q: 'climate', sort: 'recent', page: '2' })
+    )
+    expect(second.history).toEqual([pushedFrom(url)])
+    expect(second.router).toEqual(routeChange(url))
+    expect(second.scrollY).toBe(0)
+    expect(second.marker).toBe('kept')
+    // the only console errors are the KaTeX lines of that abstract, on page 2
+    expect(guardLog.pageErrors).toEqual([])
+    expect(
+      guardLog.consoleErrors.map((e) => [e.text, rel(p2Env, e.url)])
+    ).toEqual([
+      [KATEX_SB2, url],
+      [KATEX_SB2, url],
+    ])
   })
 
   test('T-706 @P0 J4 sort (Q-083): the active option is unreachable by pointer, a synthetic click on it pushes sort=relevance and page 1', async ({

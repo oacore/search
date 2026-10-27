@@ -269,7 +269,7 @@ export function stackUp(
     sandbox = null,
   } = {}
 ) {
-  // docker mode (CI, P2_DOCKER_MODE=enabled): the stack takes the image of images.json for the ref; local mode
+  // docker mode (DEFERRED, always refused): the stack takes the image of images.json for the ref; local mode
   // takes the host build by key
   const docker = (process.env.E2E_MODE || 'host') === 'docker'
   // a corpus stack (sandbox: <corpus name>) runs the harness copy whose fixture root is the replay root

@@ -348,7 +348,8 @@ export async function hostBuild({
         encoding: 'utf8',
       }).trim()} in ${dir}`
     )
-    // Dockerfile RUN line: npm run ${BUILD_SCRIPT} && the three public/ copies
+    // the Dockerfile RUN line (`npm run build` there; the parity build script here, with the frozen data) && the
+    // three public/ copies
     const cmd = `npm run ${env18.BUILD_SCRIPT} && cp public/design/icons.svg public/icons.svg && mkdir -p public/images && cp -r public/static/images/* public/images/`
     const out = fs.openSync(path.join(dir, 'build.log'), 'w')
     const r = spawnSync('sh', ['-c', cmd], {
@@ -578,9 +579,10 @@ async function main(argv) {
     console.log(JSON.stringify(runtimeKey(ref, variant, mode, install)))
     return
   }
-  if (mode === 'docker' && process.env.P2_DOCKER_MODE !== 'enabled')
+  // Docker is out of scope (owner rule of 2026-10-22): the docker path refuses whatever the environment says
+  if (mode === 'docker')
     throw new Error(
-      'docker mode is disabled (local mode only); set P2_DOCKER_MODE=enabled in CI'
+      'docker mode is disabled: the builds are host builds only (Docker is out of scope)'
     )
   if (opt('--alias-of')) {
     const res = aliasBuild({ ref, variant, from: opt('--alias-of') })

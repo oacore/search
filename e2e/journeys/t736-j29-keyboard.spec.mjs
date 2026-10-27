@@ -92,12 +92,32 @@ test.describe('T-736 @P1 J29 keyboard only', () => {
     await page.goto('/search/?q=climate')
     await watchRouter(page)
     await settle(page, tracker)
+    // the toolbar buttons have a tooltip each, shown while the button is focused and gone with the focus; the
+    // tooltip that loses the focus hides with a transition, so each Tab stop waits for its tooltip state
+    // (40 §5: timeouts, never retries) before the next Tab
+    const TIPS = [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      ['Download results in CSV:visible'],
+      ['Copy url:visible'],
+      [],
+      [],
+      [],
+      [],
+    ]
     const stops = []
-    const tips = []
     for (let i = 0; i < 12; i++) {
       await page.keyboard.press('Tab')
       stops.push(await focused(page, p2Env))
-      tips.push(await tooltips(page))
+      await expect
+        .poll(() => tooltips(page), {
+          message: `the tooltips at Tab stop ${i + 1}`,
+        })
+        .toEqual(TIPS[i])
     }
     const T = 'fafad9968b7cd268c5fd64342bf88a26-19211324'
     expect(stops).toEqual([
@@ -135,21 +155,6 @@ test.describe('T-736 @P1 J29 keyboard only', () => {
         text: 'Analysis and Policy Observatory (APO)',
         href: `/data-providers/713?t=${T}`,
       },
-    ])
-    // the toolbar buttons have a tooltip each, shown while the button is focused and gone with the focus
-    expect(tips).toEqual([
-      [],
-      [],
-      [],
-      [],
-      [],
-      [],
-      ['Download results in CSV:visible'],
-      ['Copy url:visible'],
-      [],
-      [],
-      [],
-      [],
     ])
     // Shift+Tab walks the same way back
     await page.keyboard.press('Shift+Tab')
