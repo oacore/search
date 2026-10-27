@@ -15,8 +15,8 @@
 #       Docker mode: `git archive <ref>` (package.json, package-lock.json, design.config.js and the checks) is
 #       mounted read-only into the image, installed in /app and verified there. The GitHub Packages token comes
 #       from the user npm config (as scripts/build-image.sh), is passed by name only (-e NPM_TOKEN), is written
-#       to /app/.npmrc for the install and removed at once; it is never printed. Disabled unless
-#       P2_DOCKER_MODE=enabled (owner notes: no Docker in the local run; DEFERRED, exit 3).
+#       to /app/.npmrc for the install and removed at once; it is never printed. Disabled: Docker is out of
+#       scope (owner rule of 2026-10-22), so this path always refuses (DEFERRED, exit 3).
 #   bash test/ops/t008.sh --tree <dir> [--lock-only]
 #       Local rehearsal, no container: the same checks on an installed tree (or, with --lock-only, on the
 #       package.json and package-lock.json of <dir>). Run with the runtime Node (18.20.8). Not evidence for
@@ -52,10 +52,9 @@ if [ -n "$tree" ]; then
   exec node "$repo/$checks" --verify-tree "$tree" ${lock_only[@]+"${lock_only[@]}"}
 fi
 
-if [ "${P2_DOCKER_MODE:-}" != enabled ]; then
-  echo "T-008 (alpine arm64): DEFERRED, docker mode is disabled (local mode only); set P2_DOCKER_MODE=enabled in CI" >&2
-  exit 3
-fi
+# Docker is out of scope: the container path refuses whatever the environment says
+echo "T-008 (alpine arm64): DEFERRED, docker mode is disabled (Docker is out of scope; run --tree <dir> instead)" >&2
+exit 3
 
 artifacts="${ARTIFACT_DIR:-$repo/../search-upgrade-artifacts}"
 commit="$(git -C "$repo" rev-parse "$ref^{commit}")"

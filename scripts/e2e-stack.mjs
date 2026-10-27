@@ -677,10 +677,10 @@ async function up(argv, opt) {
       )
   }
   const mode = opt('--mode', process.env.E2E_MODE || 'host')
-  // docker mode is for a future CI only (owner: local mode in this run); it never starts by accident
-  if (mode === 'docker' && process.env.P2_DOCKER_MODE !== 'enabled')
+  // Docker is out of scope (owner rule of 2026-10-22): the docker path refuses whatever the environment says
+  if (mode === 'docker')
     throw new Error(
-      'docker mode is disabled (local mode only); set P2_DOCKER_MODE=enabled in CI'
+      'docker mode is disabled: the stacks are host stacks only (Docker is out of scope)'
     )
   const { slot, ports } = await allocate(run)
   const dir = runDir(run)
