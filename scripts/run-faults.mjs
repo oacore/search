@@ -213,7 +213,10 @@ async function cloneBuild(tree, fault, opts, harness) {
       const flat = fs
         .readFileSync(path.join(tree.dir, 'Dockerfile'), 'utf8')
         .replace(/\\\n/g, ' ')
-      const m = flat.match(/^RUN npm run \$\{BUILD_SCRIPT\}(.*)$/m)
+      // today's recipe runs `npm run build` (the build-script ARG of the phase-2 recipe is reverted)
+      const m = flat.match(
+        /^RUN npm run (?:\$\{BUILD_SCRIPT\}|build)(?=\s|$)(.*)$/m
+      )
       if (!m) throw new Error('Dockerfile RUN line not recognised')
       after = m[1].trim().replace(/^&&/, '').trim() || 'true'
     }
@@ -698,7 +701,11 @@ function runJest(treeDir, testIds, { nextDir, projects = null } = {}) {
     : null
   const red = []
   let total = 0
-  for (const suite of (rep && rep.testResults) || [])
+  // a suite that failed to run has no assertion results: counted, so a tier that ran nothing shows it
+  let failedToRun = 0
+  for (const suite of (rep && rep.testResults) || []) {
+    if (suite.status === 'failed' && !suite.assertionResults.length)
+      failedToRun++
     for (const a of suite.assertionResults) {
       if (a.status === 'pending') continue
       total++
@@ -711,11 +718,13 @@ function runJest(treeDir, testIds, { nextDir, projects = null } = {}) {
           ),
         })
     }
+  }
   return {
     ran: true,
     exit: r.status,
     red,
     total,
+    failedToRun,
     ...(rep ? {} : { error: stripAnsi(r.stderr || '').slice(-400) }),
   }
 }
@@ -827,10 +836,20 @@ async function runFault(fault, opts) {
     rec.reason = tree.error
     return rec
   }
-  fs.symlinkSync(
+  // node_modules: an APFS clone (copy-on-write, removed with the tree) of the repository's, not a symlink: Jest
+  // resolves real paths, and the ESM allow-list resolver (test/esm-resolver.js) admits only the packages under
+  // the tree's own node_modules, so behind a symlink every suite that loads msw fails to run (no detector ran)
+  const nm = sh('cp', [
+    '-Rc',
     path.join(REPO, 'node_modules'),
-    path.join(tree.dir, 'node_modules')
-  )
+    path.join(tree.dir, 'node_modules'),
+  ])
+  if (nm.status !== 0) {
+    rec.valid = false
+    rec.reason = `node_modules clone failed: ${(nm.stderr || '').trim()}`
+    fs.rmSync(tree.dir, { recursive: true, force: true })
+    return rec
+  }
   if (fs.existsSync(path.join(REPO, 'e2e', 'node_modules')))
     fs.symlinkSync(
       path.join(REPO, 'e2e', 'node_modules'),
@@ -987,6 +1006,7 @@ async function runFault(fault, opts) {
       exit: x.exit,
       total: x.total,
       red: x.red.length,
+      ...(x.failedToRun ? { failedToRun: x.failedToRun } : {}),
       ...(x.error ? { error: x.error } : {}),
     })
     rec.tiers = {
