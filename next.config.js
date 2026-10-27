@@ -36,12 +36,26 @@ const nextConfig = {
     ]
   },
 
-  webpack(config, { isServer }) {
+  webpack(config, { isServer, dev }) {
     const { rules } = config.module
     if (!isServer) {
       config.node = {
         fs: 'empty',
       }
+    }
+
+    // logrocket 12 (171 KB of source) is larger than the 160 KB from which
+    // Next moves a node_modules module into a chunk of its own (the `lib`
+    // split chunk), which would add one more script to every page. Keep the
+    // SDK out of that chunk, so it stays in the shared chunk it was in before.
+    if (!isServer && !dev) {
+      const { lib } = config.optimization.splitChunks.cacheGroups
+      if (!lib || typeof lib.test !== 'function')
+        throw new Error('The client build has no lib split chunk to patch')
+      const { test } = lib
+      lib.test = (mod) =>
+        test(mod) &&
+        !/[\\/]node_modules[\\/]logrocket[\\/]/.test(mod.nameForCondition())
     }
 
     // TODO: Remove once https://github.com/zeit/next.js/issues/10584 is solved and released
