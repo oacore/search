@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useLayoutEffect, useRef } from 'react'
 import { Button, Header } from '@oacore/design'
-import { countries } from 'i18n-iso-countries/langs/en.json'
 
+import en from '../../vendor/i18n-iso-countries/en.json'
 import styles from './styles.module.css'
 import ResultCard from './result-card'
 import AddDataProviderForm from './form'
@@ -9,6 +9,8 @@ import AddDataProviderForm from './form'
 import { formatNumber } from 'utils/format-number'
 import Search from 'modules/search-layout'
 import Map from 'modules/map'
+
+const { countries } = en
 
 const filterAndMapDataProviders = (dataProviders) =>
   dataProviders

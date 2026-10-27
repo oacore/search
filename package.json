@@ -25,7 +25,6 @@
     "babel-plugin-add-react-displayname": "^0.0.5",
     "core-js": "^3.8.1",
     "cssnano": "^4.1.10",
-    "i18n-iso-countries": "^6.2.2",
     "js-file-download": "^0.4.12",
     "leaflet": "^1.8.0",
     "leaflet.markercluster": "^1.4.1",
