@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/oacore/search#readme",
   "dependencies": {
+    "@babel/runtime": "7.27.3",
     "@mdi/svg": "5.9.55",
     "@oacore/design": "5.0.74",
     "@oacore/stylelint-config-base": "^1.0.6",
