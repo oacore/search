@@ -57,3 +57,49 @@
   step: W0
   signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
   date: '2026-10-27'
+- id: AD-006
+  kind: product
+  test: T-505
+  key: pages/data-providers/index.jsx <title> children
+  from: "['', 'Data providers search']"
+  to: "'Data providers search'"
+  reason: "T-505 c2. CS-W0b-1 renders every page title as one template string (R-069), so the <title> child is the single string 'Data providers search' instead of the two-element array; the text, the rendered title and the SSR bytes are equal (T-602; SSR probe 44/44 routes)."
+  ref: [R-069, Q-080, OD-31]
+  step: W0b
+  signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
+  date: '2026-10-27'
+- id: AD-007
+  kind: product
+  test: T-610
+  key: 'sweep works-6948813 html: frames formatCitationDate, CitationMeta (<build>/.next/server/pages/works/[id].js)'
+  from: '2633:34, 2649:41'
+  to: '2626:34, 2642:41'
+  reason: "T-610 c3. CS-BIB-1 (W0) removed the 7-line external-module stub module.exports = require(\"bibtex-parse-js\") above these frames in the server bundle; message, functions and columns are unchanged."
+  ref: [OD-17, OD-31]
+  step: W0
+  signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
+  date: '2026-10-27'
+  withdrawn: 'superseded by the T-610 c3 stack-frame line:column normaliser (40 §1, owner SIGNED: 2026-10-27), which removes this diff, 2026-10-27'
+- id: AD-008
+  kind: product
+  test: T-610
+  key: 'sweep providers-q-100pct html: frame <build>/.next/server/pages/data-providers.js'
+  from: '10019:31'
+  to: '10021:31'
+  reason: "T-610 c3. The frame line moves by +1 with CS-I18N-1 (W0) and by +1 with CS-N13-2 (W0b: legacyBehavior: true on its own line in the result-card props); message, function and column are unchanged."
+  ref: [OD-17, OD-31]
+  step: W0b
+  signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
+  date: '2026-10-27'
+  withdrawn: 'superseded by the T-610 c3 stack-frame line:column normaliser (40 §1, owner SIGNED: 2026-10-27), which removes this diff, 2026-10-27'
+- id: AD-009
+  kind: product
+  test: T-008
+  key: '@oacore/design spec and resolved: package.json dependencies, lock packages[""].dependencies, lock packages["node_modules/@oacore/design"].resolved'
+  from: '5.0.74, 5.0.74, https://npm.pkg.github.com/download/@oacore/design/5.0.74/e6a401d74defeb09d828b10374ff35107a9324c4'
+  to: 'file:vendor/oacore-design-5.0.74.tgz, file:vendor/oacore-design-5.0.74.tgz, file:vendor/oacore-design-5.0.74.tgz'
+  reason: "T-008 c4. CS-DSN-1 (W0.5) installs the published tarball from vendor/ (lock diff = root spec + design resolved, integrity unchanged). Locked version 5.0.74, integrity sha512-kwYolSk…IagrQ== (= the vendored file, which npm ci verifies) and installed version 5.0.74 stay asserted; the test also checks that the vendored file has that sha512 and the 60 §1 sha1 e6a401d7…. W5 (CS-DSN-2) changes these keys again and needs its own row."
+  ref: [R-015, D17, OD-04, OD-31]
+  step: W0.5
+  signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
+  date: '2026-10-27'
