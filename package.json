@@ -61,10 +61,11 @@
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.1.1",
     "globals": "17.13.0",
-    "husky": "^4.3.0",
+    "husky": "9.1.7",
     "jest": "30.5.2",
     "jest-environment-jsdom": "30.5.2",
     "jest-fixed-jsdom": "0.0.11",
+    "lint-staged": "17.6.0",
     "msw": "2.15.0",
     "npm-run-all": "^4.1.5",
     "postcss": "8.4.14",
@@ -122,6 +123,7 @@
     }
   },
   "scripts": {
+    "prepare": "husky",
     "dev": "next dev",
     "build": "node ./data/data-loader.js && node ./node_modules/.bin/design build icons && next build",
     "build:test": "node ./node_modules/.bin/design build icons && next build",
@@ -157,5 +159,16 @@
     "coverage": "node scripts/merge-coverage.mjs",
     "outdated-at": "node scripts/outdated-at.mjs",
     "test:image": "bash test/ops/t901.sh"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --no-warn-ignored",
+      "prettier --write"
+    ],
+    "*.css": [
+      "stylelint",
+      "prettier --check"
+    ],
+    "*.json": "prettier --write"
   }
 }
