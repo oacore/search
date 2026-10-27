@@ -1,12 +1,12 @@
 // T-902 (41 J; R-048; 55 C6-CI rows 1-7, 01 §4 step 3a): the assertion layer
-// over the soak tool (scripts/soak.mjs = `npm run soak`, workflow
-// .github/workflows/soak.yml). The soak replays the C4 corpus through the SSR
-// stub against three parity builds at prod limits (reference, candidate and
-// golden), one arm loaded at a time in alternating blocks, and writes
-// $ARTIFACT_DIR/soak/<id>/report.json with the seven rows. This file checks,
-// without rerunning anything:
-//   c1 the arrangement the plan prescribes (workflow, tool defaults, prod
-//      limits, interleaved blocks) and the report of a pilot run
+// over the soak tool (scripts/soak.mjs = `npm run soak`, run on a
+// workstation; there is no workflow). The soak replays the C4 corpus through
+// the SSR stub against three parity builds at prod limits (reference,
+// candidate and golden), one arm loaded at a time in alternating blocks, and
+// writes $ARTIFACT_DIR/soak/<id>/report.json with the seven rows. This file
+// checks, without rerunning anything:
+//   c1 the arrangement the plan prescribes (tool defaults, prod limits,
+//      interleaved blocks) and the report of a pilot run
 //      (`npm run soak -- ... --smoke`, 1-minute blocks);
 //   c2 rows 1-7: every row of a report equals the verdict the 55 table gives
 //      for the arm figures it carries, with known-answer reports at each
@@ -14,8 +14,8 @@
 // DEFERRED: the tolerances' calibration (3 runs with the golden in all arms,
 // 2.8), the prod limits of a container (compose topology) and the row 4 slope
 // bound (no 2.8 record yet). A pilot row 3 breach on identical builds is the
-// false-breach rate that calibration measures. In CI after a full soak.yml
-// run, T902_REPORT=<report.json> T902_EXPECT_PASS=1 makes the verdict itself an
+// false-breach rate that calibration measures. After a full soak run,
+// T902_REPORT=<report.json> T902_EXPECT_PASS=1 makes the verdict itself an
 // assertion.
 // Ops test, outside the default Jest projects. Run:
 //  npx jest --config '{"testMatch":["**/ops/t902*.test.js"],"transform":{}}'
@@ -27,7 +27,7 @@ const ARTIFACT_DIR = path.resolve(
   process.env.ARTIFACT_DIR || path.join(REPO, '..', 'search-upgrade-artifacts')
 )
 const read = (rel) => fs.readFileSync(path.join(REPO, rel), 'utf8')
-// yaml 2 lives in e2e/package.json (the e2e install is part of the soak job)
+// yaml 2 lives in e2e/package.json (the e2e install)
 const YAML = require(path.join(REPO, 'e2e', 'node_modules', 'yaml'))
 
 const FACTOR = 1.1 // 55 C6-CI rows 3, 4, 7
@@ -203,64 +203,7 @@ const rowsAfter = (mutate, differing) => {
 }
 
 describe('T-902 @P1 pre-merge soak (C6-CI rows 1-7; calibration and prod limits DEFERRED)', () => {
-  test('T-902 c1 @P1 01 §4 step 3a: soak.yml dispatches reference, candidate and golden parity builds at prod limits through the stub, in interleaved 30-minute blocks (OD-47)', () => {
-    // --- the workflow ---
-    const wf = YAML.parse(read('.github/workflows/soak.yml'))
-    expect(Object.keys(wf.on)).toEqual(['workflow_dispatch'])
-    const { inputs } = wf.on.workflow_dispatch
-    expect(inputs.candidate.required).toBe(true)
-    expect(inputs.reference.required).toBe(true)
-    expect(inputs.golden).toMatchObject({
-      required: false,
-      default: 'upgrade-golden',
-    })
-    expect(inputs.corpus.default).toBe('c4')
-    expect(inputs.rps.default).toBe('10')
-    expect(inputs.block_min.default).toBe('30')
-    const job = wf.jobs.soak
-    expect(job['runs-on']).toBe('ubuntu-24.04-arm')
-    expect(job['timeout-minutes']).toBe(360)
-    expect(wf.permissions).toEqual({ contents: 'read' })
-    expect(wf.concurrency).toEqual({
-      'group': 'soak',
-      'cancel-in-progress': false,
-    })
-    expect(wf.env).toMatchObject({
-      E2E_MODE: 'docker',
-      P2_DOCKER_MODE: 'enabled',
-    })
-    const runs = job.steps
-      .filter((s) => s.run)
-      .map((s) => s.run)
-      .join('\n')
-    // the three arms are built as parity images of the three refs, then
-    // replayed by the tool
-    for (const input of ['reference', 'candidate', 'golden'])
-      expect(runs).toContain(`inputs.${input}`)
-    expect(runs).toMatch(/build-parity\.mjs --mode docker --ref/)
-    expect(runs).toMatch(/npm run soak -- /)
-    expect(runs).toMatch(/--blocks 3/)
-    for (const flag of [
-      '--reference',
-      '--candidate',
-      '--golden',
-      '--corpus',
-      '--rps',
-      '--block-min',
-    ])
-      expect(runs).toContain(flag)
-    // every action pinned to a commit
-    for (const s of job.steps.filter((x) => x.uses))
-      expect(s.uses).toMatch(/@[0-9a-f]{40}$/)
-    expect(
-      job.steps.some(
-        (s) =>
-          s.uses &&
-          s.uses.startsWith('actions/upload-artifact@') &&
-          s.with.name === 'soak'
-      )
-    ).toBe(true)
-
+  test('T-902 c1 @P1 01 §4 step 3a: the soak tool replays reference, candidate and golden parity builds through the stub at prod limits, in interleaved 30-minute blocks (OD-47)', () => {
     // --- the tool: defaults, the arm order and the interleaving ---
     const tool = read('scripts/soak.mjs')
     expect(tool).toMatch(/get\(\s*'--rps',\s*smoke \? 5 : 10\s*\)/)
@@ -276,26 +219,13 @@ describe('T-902 @P1 pre-merge soak (C6-CI rows 1-7; calibration and prod limits 
     )
     // the stub serves the corpus answers: no live API
     expect(tool).toMatch(/buildReplayRoot\(name, \{ base: 'fixtures' \}\)/)
-    // 3 blocks x 30 minutes x 3 arms = 270 minutes of load inside the
-    // 360-minute job
-    const minutes = 3 * 30 * 3
-    expect(minutes).toBe(270)
-    expect(job['timeout-minutes'] - minutes).toBeGreaterThanOrEqual(60)
 
-    // prod limits: the cluster's, the compose topology's, the tool's own
-    // statement
+    // prod limits: the cluster's and the tool's own statement
     const dep = YAML.parseAllDocuments(read('kube/prod/deployment.yaml'))
       .map((d) => d.toJS())
       .find((d) => d && d.kind === 'Deployment')
     const { limits } = dep.spec.template.spec.containers[0].resources
     expect(limits).toEqual({ cpu: '600m', memory: '768Mi' })
-    // the compose file carries ${...} substitutions, which are not YAML flow
-    // syntax: the app service is cut out of the text (two-space service keys)
-    const composeText = read('e2e/compose.yml')
-    const appService = /\n {2}app:\n([\s\S]*?)(?=\n {2}[a-z][\w-]*:\n|$)/.exec(
-      composeText
-    )[1]
-    expect(appService).toMatch(/^ {4}mem_limit: 768m$/m)
     expect(tool).toMatch(/mem_limit 768m, CPU 600m/)
 
     // the pilot report: three arms, blocks in order, one corpus, a stated

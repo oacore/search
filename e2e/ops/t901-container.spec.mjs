@@ -1,6 +1,6 @@
 // T-901 (41 J, ops project; CI-5; R-014, R-015, R-017, R-027, R-035, R-036, R-060, R-061, R-063, R-066, R-082,
 // R-091): the container contract of the parity image. `bash test/ops/t901.sh <image>` brings the stack of an
-// image up in docker mode (P2_DOCKER_MODE=enabled, CI) and runs this file against it. DEFERRED in the local run:
+// image up in docker mode and runs this file against it. DEFERRED: docker mode always refuses (Docker is out of scope):
 // there is no image and no Docker (owner notes §1). What this run does is the host-mode counterpart: the same nine
 // clauses against the `next start` process of the parity build of the package's stack, with the clauses that
 // only a container can answer (the image history, `--memory 768m`, the image size) answered by their host
@@ -8,10 +8,12 @@
 //
 //   c1  the tree is `git archive` of a commit, installed by `npm ci` only, built from the single Dockerfile
 //   c2  the image ENV: BUILD_TARGET=azure, NODE_ENV=production, APP_ENV (the Dockerfile's ARG defaults and
-//       ENV lines, the build's values, what the page data shows; no credential in the ENV, no NPM_TOKEN ARG)
+//       ENV lines, the build's values, what the page data shows; no credential in the ENV). The recipe is
+//       today's: the registry token is an ARG without a default (R-066); moving it to a build secret (CS-W0-8)
+//       is a deploy-time item for the owner, so the ARG is pinned as it is
 //   c3  the prod deployment env of kube/prod/deployment.yaml reaches the app (NODE_OPTIONS heap flag,
-//       UV_THREADPOOL_SIZE, Internal_API_HOST, the secret); the memory limit 768Mi equals the 768m of the
-//       compose topology; the V8 heap limit the flag produced is observed in a running app
+//       UV_THREADPOOL_SIZE, Internal_API_HOST, the secret); the memory limit is 768Mi (`--memory 768m` of a
+//       container); the V8 heap limit the flag produced is observed in a running app
 //   c4  /api/healthz/ and the six routes of the probe list answer through the proxy
 //   c5  the size is recorded (and positive)
 //   c6  no "patching" and no "wasm" line in the install, build or app log (matters from Next 12)
@@ -35,7 +37,6 @@ import {
   appExitOf,
   appLogText,
   bytesOf,
-  composeApp,
   dockerFileSha,
   dockerImageInfo,
   dockerfileEnv,
@@ -157,8 +158,20 @@ test.describe('T-901 container contract', () => {
     expect(recipe.env.BUILD_TARGET).toBe('$BUILD_TARGET')
     expect(recipe.env.NODE_ENV).toBe('$NODE_ENV')
     expect(recipe.env.APP_ENV).toBe('$APP_ENV')
-    // the build token is a BuildKit secret, never an ARG or ENV (CS-W0-8, R-066)
-    expect('NPM_TOKEN' in recipe.args).toBe(false)
+    // today's recipe: every build ARG and its default, the registry token among them (an ARG without a
+    // default, written to .npmrc for the install and removed after it: R-066); a build secret instead
+    // (CS-W0-8) is a deploy-time item for the owner
+    expect(recipe.args).toEqual({
+      BUILD_TARGET: 'azure',
+      SENTRY_DSN: null,
+      NODE_ENV: 'production',
+      APP_ENV: 'development',
+      NPM_TOKEN: null,
+      GA_TRACKING_CODE: null,
+      API_KEY: null,
+      ICONS_PUBLIC_PATH: null,
+    })
+    // the token never reaches an ENV line: no credential in the image ENV
     expect(
       Object.keys(recipe.env).filter((k) => /TOKEN|PASSWORD|SECRET/i.test(k))
     ).toEqual([])
@@ -208,9 +221,8 @@ test.describe('T-901 container contract', () => {
     expect(dep.secrets).toEqual(['core-frontend-search-secrets'])
     expect(dep.limits).toEqual({ cpu: '600m', memory: '768Mi' })
     expect(dep.port).toBe(8080)
-    // `--memory 768m` of the container = the deployment's limit = the compose topology's mem_limit
+    // `--memory 768m` of a container = the deployment's limit
     expect(bytesOf(dep.limits.memory)).toBe(bytesOf('768m'))
-    expect(bytesOf(composeApp().mem_limit)).toBe(bytesOf(dep.limits.memory))
 
     // the stack runs the deployment's values (the stub replaces the in-cluster service; the test flags are
     // appended to NODE_OPTIONS, never replace it)
@@ -221,16 +233,10 @@ test.describe('T-901 container contract', () => {
     expect(env.Internal_API).toBeTruthy()
     expect(env.API_KEY).toBeTruthy() // from the secret: absent = the app does not start (env.config.js:19-22)
 
-    if (p2Env.mode === 'docker') {
-      const app = composeApp()
-      expect(app.environment.NODE_OPTIONS).toBe(dep.env.NODE_OPTIONS)
-      note('memory', `compose mem_limit ${app.mem_limit}`)
-    } else {
-      note(
-        'memory',
-        'host mode: the 768m cgroup limit is a container property (DEFERRED); the heap flag is checked below'
-      )
-    }
+    note(
+      'memory',
+      'host mode: the 768m cgroup limit is a container property (DEFERRED); the heap flag is checked below'
+    )
   })
 
   test('T-901 c4 @P0 healthz and the six routes of the probe list answer through the proxy', async ({

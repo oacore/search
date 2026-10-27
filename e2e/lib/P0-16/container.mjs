@@ -56,12 +56,6 @@ export function prodDeployment() {
   }
 }
 
-export function composeApp() {
-  // the file interpolates ${VARS}: only the fixed keys are read
-  const doc = YAML.parse(read('e2e/compose.yml').replace(/\$\{[^}]*\}/g, 'X'))
-  return doc.services.app
-}
-
 // ---------- the recipe (Dockerfile) ----------
 // ARG defaults and ENV lines: { args: {NAME: default}, env: {NAME: value or $ARG} }
 export function dockerfileEnv(text = read('Dockerfile')) {
@@ -156,7 +150,7 @@ export function startLoad({ origin, path: urlPath, rps = 20 }) {
 // ---------- the two kinds of stack ----------
 // host: the app is a `next start` process of a parity build (scripts/e2e-stack.mjs, local mode; the only mode
 // run in this run). docker: a container of the parity image in the compose topology (CI; written against the
-// compose recipe and the CLI, DEFERRED here: P2_DOCKER_MODE=enabled and a Docker daemon are needed).
+// compose recipe and the CLI, DEFERRED: docker mode always refuses, Docker is out of scope).
 const docker = (args) => exec('docker', args, { maxBuffer: 1 << 26 })
 
 export async function dockerImageInfo(imageId) {
