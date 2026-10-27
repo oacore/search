@@ -50,7 +50,10 @@ const provisionalNote = () => {
   }
 }
 
-export function expectBaseline(name, value, message) {
+// normalise: an optional normaliser of 40 §1 that the value has already been through, applied to the recorded
+// baseline before the comparison (a normaliser added after the recording masks both sides; the file stays as
+// recorded, 42 §8)
+export function expectBaseline(name, value, message, normalise = (v) => v) {
   const info = test.info()
   const file = name.endsWith('.json') ? name : `${name}.json`
   const snapshot = info.snapshotPath(file)
@@ -70,7 +73,7 @@ export function expectBaseline(name, value, message) {
       snapshot
     )}: record it with npm run e2e:record -- --run <id> --provisional`
   ).toBe(true)
-  const baseline = JSON.parse(fs.readFileSync(snapshot, 'utf8'))
+  const baseline = normalise(JSON.parse(fs.readFileSync(snapshot, 'utf8')))
   expect(
     JSON.parse(JSON.stringify(value)),
     message || `= baseline ${file}`
