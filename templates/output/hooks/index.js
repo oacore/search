@@ -1,1 +1,1 @@
-export useReportController from './use-report-controller'
+export { default as useReportController } from './use-report-controller'
