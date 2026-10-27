@@ -11,9 +11,8 @@
 # with B0 reads test/baseline/t901.json once it exists (2.5).
 #
 #   bash test/ops/t901.sh <image id or repo@sha256:digest> [--ref <git ref>]
-#       Docker mode (CI): the compose topology of e2e/compose.yml with the app container of the image
-#       (`mem_limit: 768m`), the stack of scripts/e2e-stack.mjs in docker mode. Disabled: Docker is out of
-#       scope (owner rule of 2026-10-22), so this path always refuses (DEFERRED, exit 3); it has never been run.
+#       The image path (a container of the image with `--memory 768m`). Disabled: Docker is out of scope
+#       (owner rule of 2026-10-22), so this path always refuses (DEFERRED, exit 3); it has never been run.
 #   bash test/ops/t901.sh --host [--build <key of $ARTIFACT_DIR/images.json>] [--run <id>]
 #       Local mode: the same spec against the `next start` process of a host parity build (Node 18.20.8) behind
 #       the Node proxy, with the clauses only a container can answer replaced by their host equivalents (see the
@@ -58,18 +57,8 @@ stack=(node scripts/e2e-stack.mjs)
 cleanup() { "${stack[@]}" down --run "$run" >/dev/null 2>&1 || true; }
 trap cleanup EXIT
 
-if [ "$host" = 1 ]; then
-  up=("${stack[@]}" up --run "$run")
-  [ -n "$build" ] && up+=(--build "$build")
-  "${up[@]}"
-else
-  id="$(docker image inspect --format '{{.Id}}' "$image")" || { echo "T-901: image $image is not available locally" >&2; exit 2; }
-  "${stack[@]}" up --run "$run" --mode docker --ref "$ref"
-  # the stack takes the image of images.json for the ref: it must be the image under test
-  running="$(node -e '
-    const s = JSON.parse(require("fs").readFileSync(process.env.ARTIFACT_DIR + "/runs/" + process.argv[1] + "/env.json", "utf8"))
-    process.stdout.write(s.image && s.image.imageId ? s.image.imageId : "")' "$run")"
-  [ "$running" = "$id" ] || { echo "T-901: the stack runs ${running:-no image}, not $image ($id)" >&2; exit 2; }
-fi
+up=("${stack[@]}" up --run "$run")
+[ -n "$build" ] && up+=(--build "$build")
+"${up[@]}"
 
 P2_OPS=1 "${stack[@]}" test --run "$run" e2e/ops/t901-container.spec.mjs --project ops

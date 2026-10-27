@@ -4,12 +4,12 @@
 // recorded in $ARTIFACT_DIR/images.json. Only the harness owner and the fault runner build; `npm run e2e`
 // refuses to start without an existing build.
 //
-//   docker mode (evidence): scripts/build-image.sh parity|harness <ref> <tag> [--variant nodsn]
-//   host mode (fallback while docker is blocked, never evidence): git archive into
+//   host mode (the only mode; never evidence for the image): git archive into
 //     $ARTIFACT_DIR/builds/<key>/ with the repo node_modules linked, `npm run build:test` on Node 18.20.8 with
 //     the parity build env and NODE_OPTIONS=--openssl-legacy-provider, then the Dockerfile's post-build copies.
+//   `--mode docker` refuses (Docker is out of scope, owner rule of 2026-10-22); only `--key-only` answers for it.
 //
-// Usage: node scripts/build-parity.mjs [--mode host|docker] [--ref HEAD] [--variant default|nodsn|harness]
+// Usage: node scripts/build-parity.mjs [--mode host] [--ref HEAD] [--variant default|nodsn|harness]
 //                                      [--install link|ci] [--suffix <tag>] [--force] [--json] [--key-only]
 //                                      [--alias-of <key>]
 //
@@ -394,57 +394,6 @@ export async function hostBuild({
   })
 }
 
-export async function dockerBuild({
-  ref = 'HEAD',
-  variant = 'default',
-  force = false,
-  log = console.error,
-} = {}) {
-  const k = runtimeKey(ref, variant, 'docker')
-  const images = readImages()
-  const prev = images.builds[k.key]
-  if (!force && prev && prev.imageId) {
-    const ok =
-      spawnSync('docker', ['image', 'inspect', prev.imageId], {
-        stdio: 'ignore',
-      }).status === 0
-    if (ok) {
-      log(`reusing image ${prev.tag} ${prev.imageId}`)
-      return prev
-    }
-  }
-  const tag = `search-parity:${k.key}`
-  const mode = variant === 'harness' ? 'harness' : 'parity'
-  const args = [
-    path.join(REPO, 'scripts', 'build-image.sh'),
-    mode,
-    k.commit,
-    tag,
-    ...(variant === 'nodsn' ? ['--variant', 'nodsn'] : []),
-  ]
-  const r = spawnSync('bash', args, {
-    stdio: 'inherit',
-    env: { ...process.env, ARTIFACT_DIR },
-  })
-  if (r.status !== 0)
-    throw new Error(`build-image.sh failed (exit ${r.status})`)
-  const imageId = execFileSync(
-    'docker',
-    ['image', 'inspect', '--format', '{{.Id}}', tag],
-    { encoding: 'utf8' }
-  ).trim()
-  const result = {
-    ...k,
-    tag,
-    imageId,
-    builtAt: new Date().toISOString(),
-    evidence: true,
-  }
-  images.builds[k.key] = result
-  writeImages(images)
-  return result
-}
-
 const ALIAS_OK = (p) =>
   p === 'package.json' ||
   p === 'package-lock.json' ||
@@ -589,8 +538,7 @@ async function main(argv) {
     if (argv.includes('--json')) console.log(JSON.stringify(res, null, 1))
     return
   }
-  const fn = mode === 'docker' ? dockerBuild : hostBuild
-  const res = await fn({
+  const res = await hostBuild({
     ref,
     variant,
     install,

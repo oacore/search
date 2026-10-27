@@ -1,7 +1,7 @@
 // P0-16 helpers of T-901 (41 J, CI-5): the container contract. Pure readers of the deployment manifests and
-// the recipe, a request generator, and thin adapters for the two ways a stack exists: `host` (local mode, the
-// app is a `next start` process of a parity build: the only mode run in this run) and `docker` (a container of
-// the parity image: written for CI, DEFERRED here, never run locally).
+// the recipe, a request generator, readers of a parity image (the image clauses of the spec: DEFERRED, never run
+// locally), and thin adapters for the stack: `host` (local mode, the app is a `next start` process of a parity
+// build: the only mode there is; Docker is out of scope, owner rule of 2026-10-22).
 import fs from 'node:fs'
 import http from 'node:http'
 import path from 'node:path'
@@ -147,10 +147,9 @@ export function startLoad({ origin, path: urlPath, rps = 20 }) {
   }
 }
 
-// ---------- the two kinds of stack ----------
-// host: the app is a `next start` process of a parity build (scripts/e2e-stack.mjs, local mode; the only mode
-// run in this run). docker: a container of the parity image in the compose topology (CI; written against the
-// compose recipe and the CLI, DEFERRED: docker mode always refuses, Docker is out of scope).
+// ---------- the image and the stack ----------
+// The image readers answer the image clauses of the spec (DEFERRED: there is no image, Docker is out of scope).
+// The stack is a `next start` process of a parity build (scripts/e2e-stack.mjs, local mode, the only mode).
 const docker = (args) => exec('docker', args, { maxBuffer: 1 << 26 })
 
 export async function dockerImageInfo(imageId) {
@@ -189,24 +188,8 @@ export async function dockerFileSha(imageId, file) {
   return r.stdout.trim().split(/\s+/)[0]
 }
 
-async function dockerApp(env) {
-  const { stdout } = await docker([
-    'ps',
-    '-aq',
-    '--filter',
-    `label=org.search.p2.run=${env.run}`,
-    '--filter',
-    'label=com.docker.compose.service=app',
-  ])
-  return stdout.trim().split('\n')[0]
-}
-
 // the app's stdout and stderr
 export async function appLogText(env) {
-  if (env.mode === 'docker') {
-    const r = await docker(['logs', await dockerApp(env)])
-    return `${r.stdout}\n${r.stderr}`
-  }
   return readLog(path.join(env.runDir, 'app.log'))
 }
 
@@ -218,33 +201,11 @@ export async function preloadEventsOf(env) {
 }
 
 export async function signalApp(env, signal) {
-  if (env.mode === 'docker') {
-    await docker(['kill', '--signal', signal, await dockerApp(env)])
-    return
-  }
   process.kill(env.pids.app, signal)
 }
 
 // { code, signal, at (ms epoch) } once the app has exited, else null
 export async function appExitOf(env) {
-  if (env.mode === 'docker') {
-    const id = await dockerApp(env)
-    const { stdout } = await docker([
-      'inspect',
-      '-f',
-      '{{.State.Status}} {{.State.ExitCode}} {{.State.FinishedAt}} {{.State.OOMKilled}}',
-      id,
-    ])
-    const [status, code, finished, oom] = stdout.trim().split(' ')
-    return status === 'exited'
-      ? {
-          code: Number(code),
-          signal: null,
-          at: Date.parse(finished),
-          oom: oom === 'true',
-        }
-      : null
-  }
   try {
     const e = JSON.parse(
       fs.readFileSync(path.join(env.runDir, 'app-exit.json'), 'utf8')
@@ -255,7 +216,7 @@ export async function appExitOf(env) {
   }
 }
 
-// a short-lived stack of the package's build (host: scripts/e2e-stack.mjs; docker: the same CLI in docker mode)
+// a short-lived stack of the package's build (scripts/e2e-stack.mjs, host mode)
 export async function startStack(
   runId,
   parent,
@@ -271,9 +232,7 @@ export async function startStack(
       maxBuffer: 1 << 24,
     })
   await run(['down', '--run', runId]).catch(() => null)
-  const args = ['up', '--run', runId]
-  if (parent.mode === 'docker') args.push('--mode', 'docker')
-  else args.push('--build', parent.build.key)
+  const args = ['up', '--run', runId, '--build', parent.build.key]
   for (const kv of appEnv) args.push('--app-env', kv)
   for (const m of mounts) args.push('--mount', m)
   try {
