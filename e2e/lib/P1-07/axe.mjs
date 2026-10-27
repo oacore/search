@@ -14,10 +14,10 @@
 // `[name]_[local]`).
 import fs from 'node:fs'
 import path from 'node:path'
-import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { AxeBuilder } from '@axe-core/playwright'
 import { test } from '../../fixtures/guard.mjs'
+import { formatJsonSync } from '../../../scripts/prettier-sync.mjs'
 
 const REPO = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -25,7 +25,6 @@ const REPO = path.resolve(
   '..',
   '..'
 )
-const requireRoot = createRequire(path.join(REPO, 'package.json'))
 
 export const TAGS = [
   'wcag2a',
@@ -178,13 +177,7 @@ export const baselinePath = (id) => test.info().snapshotPath(`axe-${id}.json`)
 
 // committed JSON goes through prettier, so `npm run lint:json` stays clean (40 §7 rule 7)
 export function writeBaseline(file, obj) {
-  const prettier = requireRoot('prettier')
-  const options = prettier.resolveConfig.sync(file) || {}
-  const text = prettier.format(JSON.stringify(obj), {
-    ...options,
-    filepath: file,
-    parser: 'json',
-  })
+  const text = formatJsonSync(obj, file)
   fs.mkdirSync(path.dirname(file), { recursive: true })
   fs.writeFileSync(file, text)
 }

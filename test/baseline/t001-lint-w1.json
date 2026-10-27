@@ -1,0 +1,131 @@
+{
+  "test": "T-001",
+  "link": "W1",
+  "what": "lint parity of the W1 tools (ESLint 10 flat config, stylelint 17, Prettier 3): the findings of the application files and of the CSS as (path, rule, count), repo-relative, the bulk suppressions, the files Prettier would reformat, and the inline eslint-disable directives; taken on unchanged code (the application sources of fb0cacd with the W1 configs), then frozen (41 T-001). formatOnly: the one format-only commit that follows the capture and what it resolves",
+  "captured": {
+    "tree": "0dc1b3170f381f23214aafc64d58e107ac2e27a4",
+    "base": "fb0cacd",
+    "note": "unchanged application code; tools and configs of W1",
+    "node": "v24.18.1",
+    "date": "2026-10-28"
+  },
+  "tools": {
+    "eslint": "10.13.0",
+    "stylelint": "17.16.0",
+    "prettier": "3.9.10",
+    "parser": "typescript-eslint 8.72.1",
+    "plugins": {
+      "eslint-plugin-import-x": "4.17.1",
+      "eslint-plugin-jsx-a11y": "6.10.2",
+      "eslint-plugin-react": "7.37.5",
+      "eslint-plugin-react-hooks": "7.1.1",
+      "stylelint-order": "8.1.2",
+      "stylelint-config-css-modules": "4.6.0",
+      "stylelint-prettier": "5.0.3"
+    }
+  },
+  "eslint": {
+    "files": 272,
+    "appFiles": 157,
+    "harnessFiles": 115,
+    "status": 1,
+    "findings": 18,
+    "entries": [
+      ["api/data-provider.js", "camelcase", 1],
+      ["api/index.js", "import/no-named-as-default", 1],
+      ["api/sign-in.js", "camelcase", 1],
+      ["api/works.js", "camelcase", 1],
+      ["hooks/use-analytics.js", "no-console", 1],
+      ["lib/loader.js", "class-methods-use-this", 1],
+      ["lib/loader.js", "max-len", 2],
+      ["modules/dropdown/index.jsx", "no-unused-vars", 1],
+      ["modules/filters/loading-block.jsx", "no-use-before-define", 1],
+      ["pages/search/index.jsx", "no-console", 4],
+      [
+        "templates/data-providers/hooks/index.js",
+        "import/prefer-default-export",
+        1
+      ],
+      ["templates/output/hooks/index.js", "import/prefer-default-export", 1],
+      [
+        "templates/output/report/report-success-modal.jsx",
+        "no-use-before-define",
+        2
+      ]
+    ]
+  },
+  "suppressions": {
+    "file": "eslint-suppressions.json",
+    "entries": [
+      ["modules/dropdown/index.jsx", "react-hooks/rules-of-hooks", 1],
+      ["pages/_app.jsx", "react-hooks/rules-of-hooks", 1],
+      ["pages/search/index.jsx", "react-hooks/rules-of-hooks", 2],
+      ["templates/search/results.jsx", "react-hooks/rules-of-hooks", 1]
+    ]
+  },
+  "stylelint": {
+    "files": 28,
+    "status": 2,
+    "findings": 16,
+    "entries": [
+      ["modules/layout/styles.module.css", "order/properties-order", 1],
+      ["modules/layout/styles.module.css", "selector-class-pattern", 4],
+      ["templates/output/styles.module.css", "prettier/prettier", 1],
+      [
+        "templates/output/update/styles.module.css",
+        "order/properties-order",
+        3
+      ],
+      ["templates/output/update/styles.module.css", "prettier/prettier", 3],
+      ["templates/search/styles.module.css", "order/properties-order", 3],
+      [
+        "templates/search/styles.module.css",
+        "shorthand-property-no-redundant-values",
+        1
+      ]
+    ]
+  },
+  "prettier": {
+    "files": 300,
+    "unformatted": [
+      "babel.config.js",
+      "hooks/use-analytics.js",
+      "modules/dropdown/styles.module.css",
+      "templates/output/index.jsx",
+      "templates/output/similar-works.jsx",
+      "templates/output/styles.module.css",
+      "templates/output/update/styles.module.css",
+      "templates/search/results.jsx",
+      "test/harness-pages/[state].jsx"
+    ]
+  },
+  "disables": {
+    "total": 38,
+    "files": 30
+  },
+  "harness": {
+    "files": 115,
+    "findings": 0
+  },
+  "formatOnly": {
+    "commit": "2871579e93f1b54b07a6f0f75e1ab498b7eead40",
+    "files": [
+      "babel.config.js",
+      "hooks/use-analytics.js",
+      "modules/dropdown/styles.module.css",
+      "templates/output/index.jsx",
+      "templates/output/similar-works.jsx",
+      "templates/output/styles.module.css",
+      "templates/output/update/styles.module.css",
+      "templates/search/results.jsx",
+      "test/harness-pages/[state].jsx"
+    ],
+    "resolved": {
+      "stylelint": [
+        ["templates/output/styles.module.css", "prettier/prettier", 1],
+        ["templates/output/update/styles.module.css", "prettier/prettier", 3]
+      ]
+    },
+    "proof": "Babel AST (JS/JSX) and postcss AST (CSS; hex colours case-insensitive) of every file equal before and after, locations, comments and formatting ignored"
+  }
+}

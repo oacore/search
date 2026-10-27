@@ -60,8 +60,8 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
             const publicationDate = publishedDate
               ? formatDate(new Date(publishedDate))
               : yearPublished != null
-              ? String(yearPublished)
-              : null
+                ? String(yearPublished)
+                : null
 
             return (
               <SearchResult

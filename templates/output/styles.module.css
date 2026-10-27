@@ -165,7 +165,7 @@
 
 .navigation-trail a,
 .navigation-trail a:link:focus,
-.navigation-trail a:visited{
+.navigation-trail a:visited {
   color: #424242;
   cursor: pointer;
 }

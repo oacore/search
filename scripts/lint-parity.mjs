@@ -1,38 +1,41 @@
 #!/usr/bin/env node
-// lint-parity.mjs - lint parity of the installed tools against the frozen baselines (T-001, 41 §1 A; R-049, R-050;
-// OC-2: lint is red today, the gate is parity, not lint-zero).
+// lint-parity.mjs - lint parity of the installed tools against the frozen new-tool baseline (T-001, 41 §1 A; R-033,
+// R-049, R-050; OC-2: lint is red today, the gate is parity, not lint-zero). Since W1 the tools are ESLint 10 (flat
+// config eslint.config.js; the rules-of-hooks findings as bulk suppressions in eslint-suppressions.json, CS-LINT-2),
+// stylelint 17 (stylelint.config.js; ratchet test/baseline/stylelint-ratchet.json, CS-STY-1) and Prettier 3
+// (prettier.config.js, CS-PRET-1). The baseline, test/baseline/t001-lint-w1.json, was taken with them on unchanged
+// code and then frozen (41 T-001); the ESLint 7 / stylelint 13 baselines in docs/upgrade/findings/baselines/ were the
+// reference until W1 and stay as the source the configs were generated from.
 //
 // Usage:
-//   node scripts/lint-parity.mjs [--json] [--no-control]
-//                                [--eslint-baseline <file>] [--stylelint-baseline <file>] [--any-tool-version]
+//   node scripts/lint-parity.mjs [--json] [--no-control] [--baseline <file>]
+//   node scripts/lint-parity.mjs --capture <file>   write the baseline of the current tree (the W1 capture)
 //   node scripts/lint-parity.mjs --self-test
 //
-//   --json                 print the full report as JSON on stdout (nothing else)
-//   --no-control           skip the override control run (ESLint without the .eslintrc.yml overrides, c2)
-//   --eslint-baseline f    ESLint JSON result (default docs/upgrade/findings/baselines/eslint-baseline.json)
-//   --stylelint-baseline f stylelint JSON result (default docs/upgrade/findings/baselines/stylelint-baseline.json)
-//   --any-tool-version     do not require ESLint 7 and stylelint 13 (after W1 pass the new-tool baselines)
-//   --self-test            known-answer tests of the normaliser, the aggregation, the comparison and the
-//                          inline-disable scanner; runs no linter
-//
-// What it does (the commands of `npm run lint:js` and `npm run lint:css`, JSON formatter, never --fix, R-049):
-//   eslint --ignore-path .gitignore --ext .js,.jsx . --format json
-//   stylelint --ignore-path .gitignore '**/*.css' --formatter json
-// Both results are reduced to (path, rule, count) with repo-relative paths (ER-28: the tools print absolute paths,
-// the baselines are normalised) and compared with the baselines reduced the same way.
+// What it runs (never --fix, R-049):
+//   eslint . --format json                                          (= npm run lint:js)
+//   stylelint --ignore-path .gitignore '**/*.css' --formatter json  (= npm run lint:css, scripts/stylelint-ratchet.mjs)
+//   prettier --list-different <the files ESLint and stylelint lint> (the scope that eslint-plugin-prettier and
+//                                                                    stylelint-prettier checked before W1)
+// Results are reduced to (path, rule, count) with repo-relative paths (ER-28). ESLint messages without a rule count
+// as "(unused-directive)" (an unused eslint-disable comment) or "(fatal)" (a parse error).
 //
 // Checks (exit 1 on any difference):
-//   c1 findings    ESLint findings of the application files (everything outside the harness scope) and all
-//                  stylelint findings equal the baselines (13 ESLint + 16 stylelint findings, OC-2); the 38 inline
-//                  `eslint-disable` directives of the application files are counted (INLINE_DISABLES)
-//   c2 harness     no ESLint finding in the harness scope (test/**, e2e/**, jest.config.js: the .eslintrc.yml
-//                  overrides, 40 §7 rule 7); the report carries the effective config of a harness file and of an
-//                  application file, and a control run of the harness files with the overrides removed (it must
-//                  produce findings: the overrides are what keeps the harness clean)
+//   c1 findings    ESLint findings of the application files (everything outside the harness scope) equal the
+//                  baseline; a difference passes only as a T-001 row of test/baseline/ACCEPTED-DIFFS.yml (42 §8,
+//                  default deny: key `<path> / <rule>`, from and to the counts, 0 = no finding). The bulk
+//                  suppressions equal the baseline's and none is stale (ESLint exit 2). stylelint findings equal the
+//                  ratchet, and the ratchet equals the baseline less what the format-only commit resolved. Every
+//                  file of the lint scope is Prettier-formatted except the baseline's list less the format-only
+//                  commit's files. The 38 inline `eslint-disable` directives of the application files are counted.
+//   c2 harness     no ESLint finding in the harness scope (test/**, e2e/**, jest.config.js: the `search/test-harness`
+//                  block of eslint.config.js, 40 §7 rule 7); the report carries the effective config of harness
+//                  files and of an application file, and a control run of the harness files without that block (it
+//                  must produce findings: the block is what keeps the harness clean)
 //   c3 untouched   no file the linters read changed during the run (R-049); a --fix flag is refused (exit 2)
 // Exit codes: 0 parity, 1 difference, 2 tool or usage error.
-// Node built-ins only, plus the installed ESLint (and its js-yaml) for the c2 evidence; the linters and their
-// configs are the ones installed in node_modules.
+// ESLint 10 and stylelint 17 need Node >= 20.19: started on an older Node (the static Jest project runs on the
+// runtime Node) the script runs itself again on the tooling Node (scripts/lint-node.mjs); the report names both.
 
 import fs from 'node:fs'
 import path from 'node:path'
@@ -41,17 +44,20 @@ import { createRequire } from 'node:module'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
+import { DEFAULT_LEDGER, parseLedger } from './ad-ledger.mjs'
+import { reexecOnToolingNode } from './lint-node.mjs'
+import * as ratchet from './stylelint-ratchet.mjs'
+
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const require = createRequire(path.join(ROOT, 'package.json'))
 
-export const DEFAULT_ESLINT_BASELINE =
-  'docs/upgrade/findings/baselines/eslint-baseline.json'
-export const DEFAULT_STYLELINT_BASELINE =
-  'docs/upgrade/findings/baselines/stylelint-baseline.json'
+export const DEFAULT_BASELINE = 'test/baseline/t001-lint-w1.json'
+export const SUPPRESSIONS = 'eslint-suppressions.json'
 // 41 T-001, 02 (the 38 `eslint-disable` comments): inline directives in the application files
 export const INLINE_DISABLES = 38
-export const EXPECTED_MAJORS = { eslint: 7, stylelint: 13 }
-// the harness scope: .eslintrc.yml overrides (files: test/**/*.js, test/**/*.jsx, e2e/**/*.js, jest.config.js)
+export const EXPECTED_MAJORS = { eslint: 10, stylelint: 17, prettier: 3 }
+export const HARNESS_BLOCK = 'search/test-harness'
+// the harness scope: the `search/test-harness` block (files: test/**/*.js, test/**/*.jsx, e2e/**/*.js, jest.config.js)
 export const isHarnessPath = (p) =>
   /^(test|e2e)\//.test(p) || p === 'jest.config.js'
 
@@ -78,42 +84,41 @@ export function toRel(p, roots = [ROOT, realRoot]) {
 }
 
 const keyOf = (file, rule) => `${file}\u0000${rule}`
+const cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0)
 const sortEntries = (map) =>
   [...map.entries()]
     .map(([k, count]) => {
       const [file, rule] = k.split('\u0000')
       return [file, rule, count]
     })
-    .sort(
-      (a, b) =>
-        (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0) ||
-        (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0)
-    )
+    .sort((a, b) => cmp(a[0], b[0]) || cmp(a[1], b[1]))
 const bump = (map, file, rule, n = 1) =>
   map.set(keyOf(file, rule), (map.get(keyOf(file, rule)) || 0) + n)
+const sum = (entries) => entries.reduce((a, e) => a + e[2], 0)
 
-// ESLint JSON result -> [(path, rule, count)]; a parse error has no rule: "(fatal)"
-export function aggregateEslint(results) {
+// the rule of an ESLint message; messages without one are an unused directive or a parse error
+export const ruleOf = (m) => {
+  if (m.ruleId) return m.ruleId
+  return /eslint-disable|eslint-enable/i.test(m.message || '')
+    ? '(unused-directive)'
+    : '(fatal)'
+}
+
+// ESLint JSON result -> [(path, rule, count)]
+export function aggregateEslint(results, roots) {
   const m = new Map()
   for (const r of results)
     for (const msg of r.messages || [])
-      bump(m, toRel(r.filePath), msg.ruleId || '(fatal)')
+      bump(m, toRel(r.filePath, roots), ruleOf(msg))
   return sortEntries(m)
 }
 
-// stylelint JSON result -> [(path, rule, count)]; parse errors, invalid options and deprecations count too
-export function aggregateStylelint(results) {
+// eslint-suppressions.json -> [(path, rule, count)]
+export function suppressionEntries(json) {
   const m = new Map()
-  for (const r of results) {
-    const file = toRel(r.source)
-    for (const w of r.warnings || []) bump(m, file, w.rule || '(unknown)')
-    for (const w of r.parseErrors || [])
-      bump(m, file, w.rule || '(parse-error)')
-    const invalid = (r.invalidOptionWarnings || []).length
-    const deprecated = (r.deprecations || []).length
-    if (invalid) bump(m, file, '(invalid-option)', invalid)
-    if (deprecated) bump(m, file, '(deprecation)', deprecated)
-  }
+  for (const [file, rules] of Object.entries(json || {}))
+    for (const [rule, v] of Object.entries(rules || {}))
+      bump(m, file, rule, Number(v && v.count) || 0)
   return sortEntries(m)
 }
 
@@ -136,8 +141,53 @@ export function diffEntries(baseline, current) {
 export const isSame = (d) =>
   !d.added.length && !d.removed.length && !d.changed.length
 
+// entries less the (path, rule, count) a list removes; a removal that the entries do not hold is an error
+export function subtractEntries(entries, removed) {
+  const m = new Map(entries.map(([f, r, n]) => [keyOf(f, r), n]))
+  for (const [f, r, n] of removed) {
+    const k = keyOf(f, r)
+    if (!m.has(k) || m.get(k) < n)
+      throw new Error(`cannot remove ${f} ${r} x${n}: not in the entries`)
+    if (m.get(k) === n) m.delete(k)
+    else m.set(k, m.get(k) - n)
+  }
+  return sortEntries(m)
+}
+
+// the ledger key of a (path, rule) pair (T-001 rows of test/baseline/ACCEPTED-DIFFS.yml)
+export const ledgerKey = (file, rule) => `${file} / ${rule}`
+
+// a diff against the ledger rows: each difference as { key, from, to } (counts as strings, 0 = no finding) is
+// accepted only by a T-001 row in force (not withdrawn) whose key, from and to match exactly (42 §8, default deny)
+export function applyLedger(diff, rows) {
+  const inForce = (Array.isArray(rows) ? rows : []).filter(
+    (r) => r && r.test === 'T-001' && !('withdrawn' in r)
+  )
+  const out = { accepted: [], uncovered: [] }
+  const differences = [
+    ...diff.added.map(([f, r, n]) => [f, r, 0, n]),
+    ...diff.removed.map(([f, r, n]) => [f, r, n, 0]),
+    ...diff.changed,
+  ]
+    .map(([f, r, a, b]) => ({
+      key: ledgerKey(f, r),
+      from: String(a),
+      to: String(b),
+    }))
+    .sort((x, y) => cmp(x.key, y.key))
+  for (const d of differences) {
+    const row = inForce.find(
+      (r) =>
+        r.key === d.key && String(r.from) === d.from && String(r.to) === d.to
+    )
+    if (row) out.accepted.push({ ...d, ad: row.id })
+    else out.uncovered.push(d)
+  }
+  return out
+}
+
 // inline directives in a source text: one record per directive comment, { form, rules }; rules = ["*"] for a
-// blanket disable. Comments only (`//` and `/* */`, also inside JSX braces); `--` starts a description (ESLint 7)
+// blanket disable. Comments only (`//` and `/* */`, also inside JSX braces); `--` starts a description
 export function scanDisables(text) {
   const out = []
   const re =
@@ -173,30 +223,64 @@ const toolVersion = (name) =>
     )
   ).version
 
-function runTool(bin, args, okStatuses) {
-  const r = spawnSync(process.execPath, [bin, ...args], {
-    cwd: ROOT,
-    encoding: 'utf8',
-    maxBuffer: 1 << 28,
-    env: cleanEnv(),
-  })
-  if (r.error) throw new Error(`${path.basename(bin)}: ${r.error.message}`)
-  if (!okStatuses.includes(r.status)) {
+const readJson = (file) =>
+  JSON.parse(fs.readFileSync(path.resolve(ROOT, file), 'utf8'))
+
+// eslint . --format json; exit 0/1 = findings, 2 = stale suppressions (or a configuration error: no JSON)
+function runEslint() {
+  const r = spawnSync(
+    process.execPath,
+    [
+      path.join(ROOT, 'node_modules', 'eslint', 'bin', 'eslint.js'),
+      '.',
+      '--format',
+      'json',
+    ],
+    { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 28, env: cleanEnv() }
+  )
+  if (r.error) throw new Error(`eslint: ${r.error.message}`)
+  let results
+  try {
+    results = JSON.parse(r.stdout)
+  } catch {
     throw new Error(
-      `${path.basename(bin)} exited with ${r.status}: ${String(
+      `eslint exited with ${r.status} and printed no JSON: ${String(
         r.stderr || r.stdout
       ).slice(0, 600)}`
     )
   }
-  try {
-    return JSON.parse(r.stdout)
-  } catch (e) {
-    throw new Error(
-      `${path.basename(bin)} printed no JSON: ${String(
-        r.stdout || r.stderr
-      ).slice(0, 300)}`
-    )
+  if (![0, 1, 2].includes(r.status))
+    throw new Error(`eslint exited with ${r.status}: ${r.stderr.slice(0, 600)}`)
+  return {
+    status: r.status,
+    results,
+    staleSuppressions:
+      r.status === 2 && /suppressions left that do not occur/.test(r.stderr),
   }
+}
+
+// prettier --list-different over a file list: the files that are not formatted
+function runPrettier(files) {
+  const r = spawnSync(
+    process.execPath,
+    [
+      path.join(ROOT, 'node_modules', 'prettier', 'bin', 'prettier.cjs'),
+      '--list-different',
+      ...files,
+    ],
+    { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 26, env: cleanEnv() }
+  )
+  if (r.error) throw new Error(`prettier: ${r.error.message}`)
+  if (![0, 1].includes(r.status))
+    throw new Error(
+      `prettier exited with ${r.status}: ${r.stderr.slice(0, 600)}`
+    )
+  return r.stdout
+    .split('\n')
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .map((f) => toRel(f))
+    .sort()
 }
 
 // sha256 over the given files (repo-relative): the files a --fix run could rewrite are the ones with findings
@@ -215,13 +299,15 @@ function inputsHash(files) {
   return { files: list.length, sha256: h.digest('hex') }
 }
 
-const readJson = (file) =>
-  JSON.parse(fs.readFileSync(path.resolve(ROOT, file), 'utf8'))
+const configBlocks = () => require(path.join(ROOT, 'eslint.config.js'))
 
-// the effective configuration of one file, reduced to what the overrides change (c2)
+// the effective configuration of one file, reduced to what the harness block changes (c2)
 async function configProbe(eslint, file) {
   const cfg = await eslint.calculateConfigForFile(path.join(ROOT, file))
-  const sev = (v) => (Array.isArray(v) ? v[0] : v)
+  const sev = (v) => {
+    const s = Array.isArray(v) ? v[0] : v
+    return { off: 0, warn: 1, error: 2 }[s] ?? s
+  }
   const rules = {}
   for (const r of [
     'import/no-extraneous-dependencies',
@@ -233,12 +319,13 @@ async function configProbe(eslint, file) {
     'max-len',
   ])
     rules[r] = cfg.rules && r in cfg.rules ? sev(cfg.rules[r]) : null
+  const g = (cfg.languageOptions && cfg.languageOptions.globals) || {}
   return {
     file,
     env: {
-      jest: !!(cfg.env && cfg.env.jest),
-      node: !!(cfg.env && cfg.env.node),
-      browser: !!(cfg.env && cfg.env.browser),
+      jest: 'describe' in g && 'expect' in g && 'jest' in g,
+      node: 'require' in g && 'process' in g && '__dirname' in g,
+      browser: 'window' in g && 'document' in g,
     },
     rules,
   }
@@ -246,10 +333,8 @@ async function configProbe(eslint, file) {
 
 async function harnessEvidence(harnessFiles, appSample) {
   const { ESLint } = require('eslint')
-  const yaml = require('js-yaml')
-  const cfgFile = path.join(ROOT, '.eslintrc.yml')
-  const full = yaml.load(fs.readFileSync(cfgFile, 'utf8'))
-  const { overrides, ...withoutOverrides } = full
+  const blocks = configBlocks()
+  const harnessBlocks = blocks.filter((b) => b.name === HARNESS_BLOCK)
   const eslint = new ESLint({ cwd: ROOT })
   const sampleJs = harnessFiles.find(
     (f) => f.startsWith('test/') && f.endsWith('.js')
@@ -264,9 +349,8 @@ async function harnessEvidence(harnessFiles, appSample) {
   if (harnessFiles.length) {
     const eslint0 = new ESLint({
       cwd: ROOT,
-      useEslintrc: false,
-      baseConfig: withoutOverrides,
-      resolvePluginsRelativeTo: ROOT,
+      overrideConfigFile: true,
+      baseConfig: blocks.filter((b) => b.name !== HARNESS_BLOCK),
     })
     const res = await eslint0.lintFiles(harnessFiles)
     const byRule = {}
@@ -274,18 +358,21 @@ async function harnessEvidence(harnessFiles, appSample) {
     for (const r of res)
       for (const m of r.messages) {
         findings += 1
-        byRule[m.ruleId || '(fatal)'] = (byRule[m.ruleId || '(fatal)'] || 0) + 1
+        byRule[ruleOf(m)] = (byRule[ruleOf(m)] || 0) + 1
       }
     control = {
       files: res.length,
       findings,
       rules: Object.fromEntries(
-        Object.entries(byRule).sort(([a], [b]) => (a < b ? -1 : 1))
+        Object.entries(byRule).sort(([a], [b]) => cmp(a, b))
       ),
     }
   }
   return {
-    overridesDeclared: (overrides || []).map((o) => ({ files: o.files })),
+    overridesDeclared: harnessBlocks.map((b) => ({
+      name: b.name,
+      files: b.files,
+    })),
     probes,
     control,
   }
@@ -293,129 +380,199 @@ async function harnessEvidence(harnessFiles, appSample) {
 
 // ---------- the run ----------
 
-export async function run(opts) {
-  const eslintVersion = toolVersion('eslint')
-  const stylelintVersion = toolVersion('stylelint')
+export async function run(opts = {}) {
   const tools = {
-    eslint: eslintVersion,
-    stylelint: stylelintVersion,
-    configs: {
-      '@oacore/eslint-config-react': toolVersion('@oacore/eslint-config-react'),
-      '@oacore/stylelint-config-base': toolVersion(
-        '@oacore/stylelint-config-base'
+    eslint: toolVersion('eslint'),
+    stylelint: toolVersion('stylelint'),
+    prettier: toolVersion('prettier'),
+    parser: `typescript-eslint ${toolVersion('typescript-eslint')}`,
+    plugins: {
+      'eslint-plugin-import-x': toolVersion('eslint-plugin-import-x'),
+      'eslint-plugin-jsx-a11y': toolVersion('eslint-plugin-jsx-a11y'),
+      'eslint-plugin-react': toolVersion('eslint-plugin-react'),
+      'eslint-plugin-react-hooks': toolVersion('eslint-plugin-react-hooks'),
+      'stylelint-order': toolVersion('stylelint-order'),
+      'stylelint-config-css-modules': toolVersion(
+        'stylelint-config-css-modules'
       ),
+      'stylelint-prettier': toolVersion('stylelint-prettier'),
     },
+    // no private org config package is installed any more (CS-LINT-1, CS-PRET-1, CS-STY-1)
+    orgConfigs: fs.existsSync(path.join(ROOT, 'node_modules', '@oacore'))
+      ? fs
+          .readdirSync(path.join(ROOT, 'node_modules', '@oacore'))
+          .filter((d) => /config/.test(d))
+      : [],
   }
-  const toolsAsPlanned =
-    Number(eslintVersion.split('.')[0]) === EXPECTED_MAJORS.eslint &&
-    Number(stylelintVersion.split('.')[0]) === EXPECTED_MAJORS.stylelint
-  if (!toolsAsPlanned && !opts.anyToolVersion)
-    throw new Error(
-      `the baselines are for ESLint ${EXPECTED_MAJORS.eslint} and stylelint ${EXPECTED_MAJORS.stylelint}; installed ${eslintVersion} and ${stylelintVersion} (pass --any-tool-version with the new-tool baselines)`
-    )
+  const major = (v) => Number(String(v).split('.')[0])
+  for (const [name, m] of Object.entries(EXPECTED_MAJORS))
+    if (major(tools[name]) !== m)
+      throw new Error(
+        `the baseline is for ${name} ${m}; installed ${tools[name]}`
+      )
 
-  const eslintBaselineFile = opts.eslintBaseline || DEFAULT_ESLINT_BASELINE
-  const stylelintBaselineFile =
-    opts.stylelintBaseline || DEFAULT_STYLELINT_BASELINE
-  const eslintBase = aggregateEslint(readJson(eslintBaselineFile))
-  const stylelintBase = aggregateStylelint(readJson(stylelintBaselineFile))
-  // c3: a --fix run can only rewrite files that have findings
-  const fixable = [...eslintBase, ...stylelintBase].map(([f]) => f)
+  const capture = Boolean(opts.capture)
+  const baselineFile = opts.baseline || DEFAULT_BASELINE
+  const base = capture ? null : readJson(baselineFile)
+  const ratchetFile = ratchet.DEFAULT_RATCHET
+  const ledgerRows = fs.existsSync(DEFAULT_LEDGER)
+    ? parseLedger(fs.readFileSync(DEFAULT_LEDGER, 'utf8'))
+    : []
 
+  // c3: a --fix run can only rewrite files that have findings (or that Prettier would reformat)
+  const fixable = base
+    ? [
+        ...base.eslint.entries,
+        ...base.stylelint.entries,
+        ...base.prettier.unformatted.map((f) => [f]),
+      ].map(([f]) => f)
+    : []
   const before = inputsHash(fixable)
-  const eslintResults = runTool(
-    path.join(ROOT, 'node_modules', 'eslint', 'bin', 'eslint.js'),
-    [
-      '--ignore-path',
-      '.gitignore',
-      '--ext',
-      '.js,.jsx',
-      '.',
-      '--format',
-      'json',
-    ],
-    [0, 1]
-  )
-  const stylelintResults = runTool(
-    path.join(ROOT, 'node_modules', 'stylelint', 'bin', 'stylelint.js'),
-    ['--ignore-path', '.gitignore', '**/*.css', '--formatter', 'json'],
-    [0, 2]
-  )
+  const es = runEslint()
+  const st = ratchet.runStylelint()
+  const linted = es.results.map((r) => toRel(r.filePath)).sort()
+  const cssFiles = st.results.map((r) => toRel(r.source)).sort()
+  const unformatted = runPrettier([...linted, ...cssFiles])
   const after = inputsHash(fixable)
 
-  const eslintAll = aggregateEslint(eslintResults)
+  const eslintAll = aggregateEslint(es.results)
   const eslintApp = eslintAll.filter(([f]) => !isHarnessPath(f))
   const eslintHarness = eslintAll.filter(([f]) => isHarnessPath(f))
-  const stylelintAll = aggregateStylelint(stylelintResults)
-  const outside = [...eslintAll, ...stylelintAll]
+  const stylelintAll = ratchet.aggregate(st.results)
+  const suppressions = fs.existsSync(path.join(ROOT, SUPPRESSIONS))
+    ? suppressionEntries(readJson(SUPPRESSIONS))
+    : []
+  const outside = [
+    ...eslintAll,
+    ...stylelintAll,
+    ...unformatted.map((f) => [f]),
+  ]
     .map(([f]) => f)
     .filter((f) => path.isAbsolute(f) || f.startsWith('..'))
-
-  const linted = eslintResults.map((r) => toRel(r.filePath)).sort()
   const harnessFiles = linted.filter(isHarnessPath)
   const appFiles = linted.filter((f) => !isHarnessPath(f))
 
   // inline directives of the application files: one per comment; a comment naming n rules adds n entries
   const disables = new Map()
   let disableTotal = 0
-  for (const f of appFiles) {
+  for (const f of appFiles)
     for (const d of scanDisables(fs.readFileSync(path.join(ROOT, f), 'utf8'))) {
       disableTotal += 1
       for (const rule of d.rules) bump(disables, f, rule)
     }
-  }
   const harnessDisables = []
   for (const f of harnessFiles)
     for (const d of scanDisables(fs.readFileSync(path.join(ROOT, f), 'utf8')))
       harnessDisables.push([f, d.rules.join(','), d.form])
 
-  let harness = null
-  if (!opts.noControl)
-    harness = await harnessEvidence(
-      harnessFiles,
-      appFiles.find((f) => f.endsWith('.jsx'))
-    )
+  const harness = opts.noControl
+    ? null
+    : await harnessEvidence(
+        harnessFiles,
+        appFiles.find((f) => f.endsWith('.jsx'))
+      )
 
-  const report = {
-    schema: 1,
-    node: process.version,
-    tools,
-    baselines: {
-      eslint: {
-        file: eslintBaselineFile,
-        findings: eslintBase.reduce((a, e) => a + e[2], 0),
-        entries: eslintBase,
-      },
-      stylelint: {
-        file: stylelintBaselineFile,
-        findings: stylelintBase.reduce((a, e) => a + e[2], 0),
-        entries: stylelintBase,
-      },
-    },
+  const current = {
     eslint: {
       files: linted.length,
       appFiles: appFiles.length,
       harnessFiles: harnessFiles.length,
-      findings: eslintApp.reduce((a, e) => a + e[2], 0),
+      status: es.status,
+      findings: sum(eslintApp),
       entries: eslintApp,
-      diff: diffEntries(eslintBase, eslintApp),
+    },
+    suppressions: {
+      file: SUPPRESSIONS,
+      stale: es.staleSuppressions,
+      entries: suppressions,
     },
     stylelint: {
-      files: stylelintResults.length,
-      findings: stylelintAll.reduce((a, e) => a + e[2], 0),
+      files: st.results.length,
+      status: st.status,
+      findings: sum(stylelintAll),
       entries: stylelintAll,
-      diff: diffEntries(stylelintBase, stylelintAll),
     },
+    prettier: { files: linted.length + cssFiles.length, unformatted },
     disables: {
       expected: INLINE_DISABLES,
       total: disableTotal,
       files: new Set(sortEntries(disables).map((e) => e[0])).size,
       entries: sortEntries(disables),
     },
+  }
+  if (capture)
+    return {
+      schema: 2,
+      node: process.version,
+      invokedWith: process.env.LINT_INVOKED_WITH || process.version,
+      tools,
+      ...current,
+      harness: {
+        files: harnessFiles.length,
+        findings: sum(eslintHarness),
+        entries: eslintHarness,
+      },
+    }
+
+  // what the format-only commit resolved (empty before it lands)
+  const fmt = base.formatOnly || {
+    commit: null,
+    files: [],
+    resolved: { stylelint: [] },
+  }
+  const stylelintExpected = subtractEntries(
+    base.stylelint.entries,
+    fmt.resolved.stylelint
+  )
+  const unformattedExpected = base.prettier.unformatted.filter(
+    (f) => !fmt.files.includes(f)
+  )
+  const ratchetFindings = ratchet.readRatchet(ratchetFile).findings
+  const eslintDiff = diffEntries(base.eslint.entries, eslintApp)
+  const report = {
+    schema: 2,
+    node: process.version,
+    invokedWith: process.env.LINT_INVOKED_WITH || process.version,
+    tools,
+    baseline: {
+      file: baselineFile,
+      captured: base.captured,
+      eslint: {
+        findings: sum(base.eslint.entries),
+        entries: base.eslint.entries,
+      },
+      suppressions: base.suppressions.entries,
+      stylelint: {
+        findings: sum(base.stylelint.entries),
+        entries: base.stylelint.entries,
+      },
+      prettier: base.prettier.unformatted,
+      formatOnly: fmt,
+    },
+    eslint: {
+      ...current.eslint,
+      diff: eslintDiff,
+      ledger: applyLedger(eslintDiff, ledgerRows),
+    },
+    suppressions: {
+      ...current.suppressions,
+      diff: diffEntries(base.suppressions.entries, suppressions),
+    },
+    stylelint: {
+      ...current.stylelint,
+      expected: stylelintExpected,
+      diff: diffEntries(stylelintExpected, stylelintAll),
+      ratchet: {
+        file: ratchetFile,
+        diff: diffEntries(stylelintExpected, ratchetFindings),
+      },
+    },
+    prettier: { ...current.prettier, expected: unformattedExpected },
+    disables: current.disables,
     harness: {
       files: harnessFiles.length,
       list: harnessFiles,
-      findings: eslintHarness.reduce((a, e) => a + e[2], 0),
+      findings: sum(eslintHarness),
       entries: eslintHarness,
       disables: harnessDisables,
       evidence: harness,
@@ -424,10 +581,18 @@ export async function run(opts) {
     outside,
   }
   const problems = []
-  if (!isSame(report.eslint.diff))
+  if (report.eslint.ledger.uncovered.length)
     problems.push('c1 ESLint findings differ from the baseline')
+  if (!isSame(report.suppressions.diff))
+    problems.push('c1 the bulk suppressions differ from the baseline')
+  if (report.suppressions.stale)
+    problems.push('c1 a bulk suppression no longer occurs (ESLint exit 2)')
   if (!isSame(report.stylelint.diff))
     problems.push('c1 stylelint findings differ from the baseline')
+  if (!isSame(report.stylelint.ratchet.diff))
+    problems.push('c1 the stylelint ratchet differs from the baseline')
+  if (JSON.stringify(unformatted) !== JSON.stringify(unformattedExpected))
+    problems.push('c1 the Prettier-unformatted files differ from the baseline')
   if (report.disables.total !== INLINE_DISABLES)
     problems.push(
       `c1 ${report.disables.total} inline eslint-disable directives, expected ${INLINE_DISABLES}`
@@ -436,7 +601,7 @@ export async function run(opts) {
     problems.push('c2 ESLint findings in the harness scope')
   if (harness && harness.control && !harness.control.findings)
     problems.push(
-      'c2 the harness files are clean without the overrides: the overrides are not load-bearing'
+      'c2 the harness files are clean without the harness block: it is not load-bearing'
     )
   if (!report.untouched.same)
     problems.push('c3 a linted file changed during the run (R-049)')
@@ -449,13 +614,20 @@ export async function run(opts) {
 function printText(r) {
   const line = (s = '') => process.stdout.write(`${s}\n`)
   line(
-    `lint parity: ESLint ${r.tools.eslint}, stylelint ${r.tools.stylelint}, node ${r.node}`
+    `lint parity: ESLint ${r.tools.eslint}, stylelint ${r.tools.stylelint}, Prettier ${r.tools.prettier}, node ${r.node}`
   )
   line(
-    `  ESLint (application files): ${r.eslint.findings} findings (baseline ${r.baselines.eslint.findings}) in ${r.eslint.appFiles} files`
+    `  ESLint (application files): ${r.eslint.findings} findings (baseline ${r.baseline.eslint.findings}) in ${r.eslint.appFiles} files; ${sum(
+      r.suppressions.entries
+    )} bulk-suppressed`
   )
   line(
-    `  stylelint: ${r.stylelint.findings} findings (baseline ${r.baselines.stylelint.findings}) in ${r.stylelint.files} files`
+    `  stylelint: ${r.stylelint.findings} findings (baseline ${r.baseline.stylelint.findings}, after the format-only commit ${sum(
+      r.stylelint.expected
+    )}) in ${r.stylelint.files} files`
+  )
+  line(
+    `  Prettier: ${r.prettier.unformatted.length} of ${r.prettier.files} files not formatted (expected ${r.prettier.expected.length})`
   )
   line(
     `  inline eslint-disable directives (application files): ${r.disables.total} in ${r.disables.files} files (expected ${r.disables.expected})`
@@ -463,21 +635,35 @@ function printText(r) {
   line(
     `  harness scope: ${r.harness.files} files, ${r.harness.findings} findings${
       r.harness.evidence && r.harness.evidence.control
-        ? `; without the overrides ${r.harness.evidence.control.findings} findings`
+        ? `; without the harness block ${r.harness.evidence.control.findings} findings`
         : ''
     }`
   )
+  const ad = (f, rule) => {
+    const a = r.eslint.ledger.accepted.find((x) => x.key === ledgerKey(f, rule))
+    return a ? `; accepted by ${a.ad}` : ''
+  }
   for (const [name, d] of [
     ['ESLint', r.eslint.diff],
+    ['suppressions', r.suppressions.diff],
     ['stylelint', r.stylelint.diff],
+    ['ratchet', r.stylelint.ratchet.diff],
   ]) {
     for (const [f, rule, n] of d.added)
-      line(`  + ${name} ${f} ${rule} x${n} (not in the baseline)`)
+      line(`  + ${name} ${f} ${rule} x${n} (not in the baseline${ad(f, rule)})`)
     for (const [f, rule, n] of d.removed)
-      line(`  - ${name} ${f} ${rule} x${n} (gone)`)
+      line(`  - ${name} ${f} ${rule} x${n} (gone${ad(f, rule)})`)
     for (const [f, rule, a, b] of d.changed)
-      line(`  ~ ${name} ${f} ${rule} ${a} -> ${b}`)
+      line(`  ~ ${name} ${f} ${rule} ${a} -> ${b}${ad(f, rule)}`)
   }
+  for (const f of r.prettier.unformatted.filter(
+    (x) => !r.prettier.expected.includes(x)
+  ))
+    line(`  + Prettier ${f} (not formatted)`)
+  for (const f of r.prettier.expected.filter(
+    (x) => !r.prettier.unformatted.includes(x)
+  ))
+    line(`  - Prettier ${f} (formatted now)`)
   for (const [f, rule, n] of r.harness.entries)
     line(`  ! harness ${f} ${rule} x${n}`)
   for (const p of r.problems) line(`  FAIL ${p}`)
@@ -514,44 +700,45 @@ function selfTest() {
 
   const eres = [
     {
-      filePath: `${ROOT}/a.js`,
-      messages: [{ ruleId: 'x' }, { ruleId: 'x' }, { ruleId: 'y' }],
+      filePath: '/repo/a.js',
+      messages: [
+        { ruleId: 'x' },
+        { ruleId: 'x' },
+        { ruleId: 'y' },
+        {
+          ruleId: null,
+          message:
+            "Unused eslint-disable directive (no problems were reported from 'x').",
+        },
+      ],
     },
-    { filePath: 'b.js', messages: [{ ruleId: null }] },
+    {
+      filePath: 'b.js',
+      messages: [{ ruleId: null, message: 'Parsing error: Unexpected token' }],
+    },
     { filePath: 'c.js', messages: [] },
   ]
   ok(
     'aggregateEslint',
-    eq(aggregateEslint(eres), [
+    eq(aggregateEslint(eres, ['/repo']), [
+      ['a.js', '(unused-directive)', 1],
       ['a.js', 'x', 2],
       ['a.js', 'y', 1],
       ['b.js', '(fatal)', 1],
     ])
   )
-  const sres = [
-    {
-      source: `${ROOT}/m.css`,
-      warnings: [{ rule: 'r' }, { rule: 'r' }],
-      parseErrors: [],
-      invalidOptionWarnings: [],
-      deprecations: [],
-    },
-    {
-      source: 'n.css',
-      warnings: [],
-      parseErrors: [{}],
-      invalidOptionWarnings: [{}],
-      deprecations: [{}],
-    },
-  ]
   ok(
-    'aggregateStylelint',
-    eq(aggregateStylelint(sres), [
-      ['m.css', 'r', 2],
-      ['n.css', '(deprecation)', 1],
-      ['n.css', '(invalid-option)', 1],
-      ['n.css', '(parse-error)', 1],
-    ])
+    'suppressionEntries',
+    eq(
+      suppressionEntries({
+        'p/a.jsx': { 'react-hooks/rules-of-hooks': { count: 2 } },
+        'm/b.jsx': { 'react-hooks/rules-of-hooks': { count: 1 } },
+      }),
+      [
+        ['m/b.jsx', 'react-hooks/rules-of-hooks', 1],
+        ['p/a.jsx', 'react-hooks/rules-of-hooks', 2],
+      ]
+    )
   )
 
   const base = [
@@ -591,6 +778,56 @@ function selfTest() {
       ])
     )
   )
+  ok(
+    'subtract part of a count',
+    eq(subtractEntries(base, [['a.js', 'x', 1]]), [
+      ['a.js', 'x', 1],
+      ['b.js', 'y', 1],
+    ])
+  )
+  ok(
+    'subtract a whole entry',
+    eq(subtractEntries(base, [['b.js', 'y', 1]]), [['a.js', 'x', 2]])
+  )
+  let threw = false
+  try {
+    subtractEntries(base, [['c.js', 'z', 1]])
+  } catch {
+    threw = true
+  }
+  ok('subtract refuses what is not there', threw)
+
+  // the ledger (42 §8): exact key, from and to; another test, a withdrawn row or another count is no match
+  const row = (id, key, from, to, extra = {}) => ({
+    id,
+    test: 'T-001',
+    key,
+    from,
+    to,
+    ...extra,
+  })
+  const added = diffEntries(base, [...base, ['c.js', 'z', 1]])
+  ok('ledger key', ledgerKey('a/b.js', 'import/x') === 'a/b.js / import/x')
+  ok(
+    'ledger accepts an exact row',
+    eq(applyLedger(added, [row('AD-1', 'c.js / z', '0', '1')]), {
+      accepted: [{ key: 'c.js / z', from: '0', to: '1', ad: 'AD-1' }],
+      uncovered: [],
+    })
+  )
+  ok(
+    'ledger refuses another count, test, key or a withdrawn row',
+    eq(
+      applyLedger(added, [
+        row('AD-1', 'c.js / z', '0', '2'),
+        row('AD-2', 'c.js / z', '0', '1', { test: 'T-002' }),
+        row('AD-3', 'c.js / y', '0', '1'),
+        row('AD-4', 'c.js / z', '0', '1', { withdrawn: 'gone, 2026-10-27' }),
+      ]).uncovered,
+      [{ key: 'c.js / z', from: '0', to: '1' }]
+    )
+  )
+  ok('ledger with no rows', applyLedger(added, []).uncovered.length === 1)
 
   const src = [
     '/* eslint-disable max-classes-per-file */',
@@ -651,11 +888,19 @@ async function main(args) {
   }
   if (has('--self-test')) return selfTest()
   try {
+    if (has('--capture')) {
+      const out = await run({ capture: true, noControl: true })
+      const file = opt('--capture')
+      fs.writeFileSync(
+        path.resolve(ROOT, file),
+        `${JSON.stringify(out, null, 1)}\n`
+      )
+      process.stdout.write(`lint-parity: captured ${file}\n`)
+      return 0
+    }
     const report = await run({
       noControl: has('--no-control'),
-      eslintBaseline: opt('--eslint-baseline'),
-      stylelintBaseline: opt('--stylelint-baseline'),
-      anyToolVersion: has('--any-tool-version'),
+      baseline: opt('--baseline'),
     })
     if (has('--json'))
       process.stdout.write(`${JSON.stringify(report, null, 1)}\n`)
@@ -670,4 +915,12 @@ async function main(args) {
 const isMain =
   process.argv[1] &&
   path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
-if (isMain) process.exitCode = await main(process.argv.slice(2))
+if (isMain) {
+  const args = process.argv.slice(2)
+  const fixFlag = args.find((a) => a === '--fix' || a.startsWith('--fix-'))
+  const code =
+    fixFlag || args.includes('--self-test')
+      ? null
+      : reexecOnToolingNode(import.meta.url, args)
+  process.exitCode = code === null ? await main(args) : code
+}

@@ -13,10 +13,10 @@
 // again; issue P0-15-1). These helpers therefore read the array itself: with the empty gtag.js nothing consumes
 // or reorders it, so its contents are exactly the entries the app pushed.
 import path from 'node:path'
-import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { expect } from '../../fixtures/guard.mjs'
 import { settle, watchRouter } from './settle.mjs'
+import { formatJsonSync } from '../../../scripts/prettier-sync.mjs'
 
 const REPO = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -24,7 +24,6 @@ const REPO = path.resolve(
   '..',
   '..'
 )
-const prettier = createRequire(path.join(REPO, 'package.json'))('prettier')
 
 export const GA_ID = 'G-TEST000000'
 export const GTAG_URL = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
@@ -48,11 +47,7 @@ const CLOUDFLARE = /(^|\.)cloudflareinsights\.com$/
 // written in that format, so a re-capture is byte-identical
 export const stableJson = (v) => {
   const file = path.join(REPO, 'e2e', 'journeys', 'baseline.json')
-  return prettier.format(JSON.stringify(v), {
-    ...(prettier.resolveConfig.sync(file) || {}),
-    filepath: file,
-    parser: 'json',
-  })
+  return formatJsonSync(v, file)
 }
 
 // the third-party requests the page issued (guardLog.requests holds every request, also the ones the guard

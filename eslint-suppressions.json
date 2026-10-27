@@ -1,0 +1,22 @@
+{
+  "modules/dropdown/index.jsx": {
+    "react-hooks/rules-of-hooks": {
+      "count": 1
+    }
+  },
+  "pages/_app.jsx": {
+    "react-hooks/rules-of-hooks": {
+      "count": 1
+    }
+  },
+  "pages/search/index.jsx": {
+    "react-hooks/rules-of-hooks": {
+      "count": 2
+    }
+  },
+  "templates/search/results.jsx": {
+    "react-hooks/rules-of-hooks": {
+      "count": 1
+    }
+  }
+}

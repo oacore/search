@@ -2,8 +2,8 @@
 // 40 §7 rule 7) and the run's build facts.
 import fs from 'node:fs'
 import path from 'node:path'
-import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
+import { formatJsonSync } from '../../../scripts/prettier-sync.mjs'
 
 export const REPO = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -14,7 +14,6 @@ export const REPO = path.resolve(
 export const ARTIFACT_DIR = path.resolve(
   process.env.ARTIFACT_DIR || path.join(REPO, '..', 'search-upgrade-artifacts')
 )
-const requireRoot = createRequire(path.join(REPO, 'package.json'))
 
 export const readJson = (file, fallback) => {
   try {
@@ -26,13 +25,7 @@ export const readJson = (file, fallback) => {
 }
 
 export function writeJsonPretty(file, obj) {
-  const prettier = requireRoot('prettier')
-  const options = prettier.resolveConfig.sync(file) || {}
-  const text = prettier.format(JSON.stringify(obj), {
-    ...options,
-    filepath: file,
-    parser: 'json',
-  })
+  const text = formatJsonSync(obj, file)
   fs.mkdirSync(path.dirname(file), { recursive: true })
   fs.writeFileSync(file, text)
   return file
