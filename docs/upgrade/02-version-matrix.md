@@ -51,7 +51,7 @@ Installed: `next` 10.2.3, `react`/`react-dom` 17.0.2. Latest: `next` 16.4.2, `re
 |---|---|---|---|---|---|
 | mobx | 6.13.7 | 7.0.6 | 6.16.1 (W3) → removed 6.5 | EXCEPTION | mobx 7 drops legacy decorators (26 in `store/filters.js`; X02.8). Closes 6.5 (zustand, OD-13); fallback CS-MOBX-3 |
 | mobx-react-lite | 3.4.3 | 5.1.0 (mobx ^7, react ^18/^19) | 4.1.1 (W3) → removed 6.5 | EXCEPTION | 5.x needs mobx 7; 4.1.1 uses a `use-sync-external-store` shim on React 17. Closes 6.5 (OD-13) |
-| @sentry/browser, @sentry/node | 5.30.0 | 11.8.0 (Node ≥20.19/≥22.12) | 7.120.4 exact (W2a, CS-SEN-1) → removed 6.8 | EXCEPTION | 7.120.4 = last 7.x, fixes GHSA-593m-55hh-j8gv. 11.x needs Node ≥20.19 (runtime 18 until W4e); its Next SDK needs Next ≥14 (X02.7). Closes 6.8 (OD-14) |
+| @sentry/browser, @sentry/node | 5.30.0 | 11.9.0 (Node ≥20.19/≥22.12; re-resolved 2026-10-28) | 7.120.4 exact (W2a, CS-SEN-1, CS-SEN-3) → removed 6.8 | EXCEPTION | 7.120.4 = last 7.x (`v7` dist-tag, 2026-10-28), fixes GHSA-593m-55hh-j8gv. 11.x needs Node ≥20.19 (runtime 18 until W4e); its Next SDK needs Next ≥14 (X02.7). Closes 6.8 (OD-14) |
 | @sentry/nextjs | - | 11.8.0 (next ^14/^15/^16) | 11.8.0 (6.8, CS-SEN-2) | TARGET | replaces both rows above and the `@sentry/node` alias in `next.config.js` |
 | logrocket | 10.0.0 | 12.4.0 | 12.4.0 (W2b, CS-LR-1 + CS-LR-2) | TARGET | ≥11 talks to `logr-in.com`; the CSP allows only `lgrckt-in.com` (X20.6) |
 | logrocket-react | 6.0.3 | 7.0.1 | removed W0 (CS-W0-2) | REMOVED | 0 imports; its peer causes the only strict-peer ERESOLVE today (X20.9) |
