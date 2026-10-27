@@ -352,12 +352,32 @@ describe('T-001 @P0 lint parity', () => {
       expect.arrayContaining(['eslint-plugin-prettier'])
     )
     expect(fs.existsSync(path.join(ROOT, '.eslintrc.yml'))).toBe(false)
-    expect(
-      fs.readFileSync(path.join(ROOT, 'prettier.config.js'), 'utf8')
-    ).not.toMatch(/@oacore/)
-    expect(
-      fs.readFileSync(path.join(ROOT, 'stylelint.config.js'), 'utf8')
-    ).not.toMatch(/@oacore\/stylelint-config|require\(/)
+    // the org options inlined (CS-PRET-1), the org configs no longer loaded
+    // by any config file
+    expect(require(path.join(ROOT, 'prettier.config.js'))).toEqual({
+      trailingComma: 'es5',
+      semi: false,
+      singleQuote: true,
+      endOfLine: 'lf',
+      quoteProps: 'consistent',
+    })
+    const stylelintConfig = require(path.join(ROOT, 'stylelint.config.js'))
+    expect(stylelintConfig.extends).toEqual(['stylelint-config-css-modules'])
+    expect(stylelintConfig.plugins).toEqual([
+      'stylelint-order',
+      'stylelint-prettier',
+    ])
+    for (const f of [
+      'eslint.config.js',
+      'prettier.config.js',
+      'stylelint.config.js',
+    ]) {
+      const source = fs.readFileSync(path.join(ROOT, f), 'utf8')
+      expect([f, /require\(\s*['"`][^'"`]*@oacore/.test(source)]).toEqual([
+        f,
+        false,
+      ])
+    }
   })
 
   test('T-001 c1 @P0 the frozen baseline is the literal tables: 18 ESLint findings, 5 suppressions, 16 stylelint findings, 9 unformatted files', () => {
