@@ -69,7 +69,7 @@ const Pagination = ({ shallow, total, ...restProps }) => {
       </div>
       <div className={styles.arrowPagination}>
         <div>
-          <Link href={urlTo('FIRST')} passHref shallow={shallow}>
+          <Link href={urlTo('FIRST')} passHref shallow={shallow} legacyBehavior>
             <Button
               tag="a"
               className={classNames.use(
@@ -84,7 +84,12 @@ const Pagination = ({ shallow, total, ...restProps }) => {
             </Button>
           </Link>
 
-          <Link href={urlTo('PREVIOUS')} passHref shallow={shallow}>
+          <Link
+            href={urlTo('PREVIOUS')}
+            passHref
+            shallow={shallow}
+            legacyBehavior
+          >
             <Button
               tag="a"
               className={classNames.use(
@@ -98,7 +103,7 @@ const Pagination = ({ shallow, total, ...restProps }) => {
               <Icon src="#chevron-left" />
             </Button>
           </Link>
-          <Link href={urlTo('NEXT')} passHref shallow={shallow}>
+          <Link href={urlTo('NEXT')} passHref shallow={shallow} legacyBehavior>
             <Button
               tag="a"
               className={classNames.use(
@@ -112,7 +117,7 @@ const Pagination = ({ shallow, total, ...restProps }) => {
               <Icon src="#chevron-right" />
             </Button>
           </Link>
-          <Link href={urlTo('LAST')} passHref shallow={shallow}>
+          <Link href={urlTo('LAST')} passHref shallow={shallow} legacyBehavior>
             <Button
               tag="a"
               className={classNames.use(

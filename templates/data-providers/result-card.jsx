@@ -17,7 +17,7 @@ const ResultCard = ({
   <Search.Result className={styles.resultCard} {...restProps}>
     <span className={styles.resultHeading}>
       <Icon src={icon} aria-hidden />
-      <NextLink href={`/data-providers/${repoId}`}>
+      <NextLink href={`/data-providers/${repoId}`} legacyBehavior>
         <Link className={styles.resultTitle} href={`/data-providers/${repoId}`}>
           {title}
         </Link>

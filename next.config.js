@@ -11,6 +11,8 @@ const nextConfig = {
   trailingSlash: true,
   env: envConfig,
   assetPrefix: helpers.getAssetsPath(''),
+  // `next build` lints from Next 11 on; linting stays in the lint script
+  eslint: { ignoreDuringBuilds: true },
 
   async rewrites() {
     const dataPath = helpers.rewriteDataPath()
@@ -43,38 +45,39 @@ const nextConfig = {
     }
 
     // TODO: Remove once https://github.com/zeit/next.js/issues/10584 is solved and released
-    // Find the array of "style rules" in the webpack config.
-    // This is the array of webpack rules that:
-    // - is inside a 'oneOf' block
-    // - contains a rule that matches 'file.css'
-    const styleRules = (
-      rules.find(
-        (m) => m.oneOf && m.oneOf.find(({ test: reg }) => reg.test('file.css'))
-      ) || {}
-    ).oneOf
-    if (!styleRules) return config
-    // Find all the webpack rules that handle CSS modules
-    // Look for rules that match '.module.css'
-    // but aren't being used to generate
-    // error messages.
-    const cssModuleRules = [
-      styleRules.find(
-        ({ test: reg, use }) =>
-          reg.test('file.module.css') && use.loader !== 'error-loader'
-      ),
-    ].filter((n) => n) // remove 'undefined' values
-    // Add the 'localsConvention' config option to the CSS loader config
-    // in each of these rules.
-    cssModuleRules.forEach((cmr) => {
-      // Find the item inside the 'use' list that defines css-loader
-      const cssLoaderConfig = cmr.use.find(({ loader }) =>
-        loader.includes('css-loader')
+    // CSS modules also export every class under its camelCase name
+    // (css-loader `exportLocalsConvention`). Visit every rule, nested `oneOf`
+    // and `rules` lists included, and patch each css-loader with `modules`
+    // options in a rule whose RegExp `test` accepts 'file.module.css'. Rules
+    // with any other `test` (a string path, a function, none) are skipped. The
+    // build stops when nothing was patched, since the pages would otherwise
+    // lose most of their class names.
+    let cssModuleLoaders = 0
+    const patchCssModuleRule = (rule) => {
+      if (!rule || typeof rule !== 'object') return
+      const nested = [...(rule.oneOf || []), ...(rule.rules || [])]
+      nested.forEach(patchCssModuleRule)
+      const tests = Array.isArray(rule.test) ? rule.test : [rule.test]
+      const isCssModuleRule = tests.some(
+        (test) => test instanceof RegExp && test.test('file.module.css')
       )
-      if (cssLoaderConfig && cssLoaderConfig.options) {
-        // Patch it with the new config
-        cssLoaderConfig.options.modules.exportLocalsConvention = 'camelCase'
-      }
-    })
+      if (!isCssModuleRule || !Array.isArray(rule.use)) return
+      rule.use.forEach((use) => {
+        if (
+          use &&
+          typeof use.loader === 'string' &&
+          /[\\/]css-loader[\\/]/.test(use.loader) &&
+          use.options &&
+          use.options.modules
+        ) {
+          use.options.modules.exportLocalsConvention = 'camelCase'
+          cssModuleLoaders += 1
+        }
+      })
+    }
+    rules.forEach(patchCssModuleRule)
+    if (cssModuleLoaders === 0)
+      throw new Error('The camelCase CSS-module patch matched no css-loader')
 
     // TODO: Enable 3th party source maps once we use Sentry
     // config.module.rules.push({
@@ -94,7 +97,7 @@ const nextConfig = {
       'templates': path.join(__dirname, 'templates'),
       'modules': path.join(__dirname, 'modules'),
       'lib': path.join(__dirname, 'lib'),
-      '@sentry/node': config.isServer ? '@sentry/node' : '@sentry/browser',
+      '@sentry/node': isServer ? '@sentry/node' : '@sentry/browser',
       'react': path.join(__dirname, 'node_modules', 'react'),
       'react-dom': path.join(__dirname, 'node_modules', 'react-dom'),
     })
