@@ -6,13 +6,11 @@
   },
   "command": "stylelint --ignore-path .gitignore '**/*.css'",
   "files": 28,
-  "total": 16,
+  "total": 12,
   "findings": [
     ["modules/layout/styles.module.css", "order/properties-order", 1],
     ["modules/layout/styles.module.css", "selector-class-pattern", 4],
-    ["templates/output/styles.module.css", "prettier/prettier", 1],
     ["templates/output/update/styles.module.css", "order/properties-order", 3],
-    ["templates/output/update/styles.module.css", "prettier/prettier", 3],
     ["templates/search/styles.module.css", "order/properties-order", 3],
     [
       "templates/search/styles.module.css",
