@@ -9,7 +9,7 @@ const Title = ({ children, hidden = false, tag: Tag = 'h1' }) => {
   return (
     <>
       <Head>
-        <title>{children} - CORE</title>
+        <title>{`${children} - CORE`}</title>
       </Head>
       <Tag className={classNames.use(hidden && 'sr-only')}>{children}</Tag>
     </>

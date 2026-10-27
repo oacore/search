@@ -82,7 +82,7 @@ const SearchPage = observe(({ initialState }) => {
   return (
     <>
       <Head>
-        <title>{query ? `${query} - ` : ''}Data providers search</title>
+        <title>{`${query ? `${query} - ` : ''}Data providers search`}</title>
         <meta
           name="description"
           content={`Search over ${data.length} repositories and journals around the world`}

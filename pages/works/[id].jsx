@@ -141,7 +141,7 @@ const ScientificWorkPage = ({ serverError, data }) => {
   return (
     <>
       <Head>
-        <title>{data.title} - CORE</title>
+        <title>{`${data.title ?? ''} - CORE`}</title>
         <Meta data={data} />
       </Head>
       <Template data={data} useOtherVersions />
