@@ -1,42 +1,74 @@
-// T-001 (41 A; R-033, R-049, R-050; OC-2): lint parity. Lint is red today
-// (13 ESLint + 16 stylelint findings); the gate is parity, not lint-zero.
-// scripts/lint-parity.mjs runs the installed ESLint 7 and stylelint 13 with the
-// installed configs (the commands of `npm run lint:js` and `lint:css`, never
-// --fix) and reduces both results to (path, rule, count), repo-relative
-// (ER-28). This file holds the oracle: the findings as literal tables, checked
-// against the frozen baselines in docs/upgrade/findings/baselines/ and reduced
-// here by a second implementation.
-// c1: the application files and the CSS equal the baselines, 38 inline
-// `eslint-disable` directives. c2: the harness files (test/**, e2e/**,
-// jest.config.js) are lint clean because of the .eslintrc.yml overrides
-// (40 §7 rule 7). After W1 the oracle is the new-tool baseline taken on
-// unchanged code (41 T-001).
+// T-001 (41 A; R-033, R-049, R-050; OC-2): lint parity. Lint is red today;
+// the gate is parity, not lint-zero. Since W1 the tools are ESLint 10 (flat
+// eslint.config.js; the five rules-of-hooks findings as bulk suppressions,
+// CS-LINT-2), stylelint 17 (stylelint.config.js; the ratchet
+// test/baseline/stylelint-ratchet.json, CS-STY-1) and Prettier 3
+// (prettier.config.js, CS-PRET-1); the @oacore configs are gone. The oracle is
+// the new-tool baseline taken on unchanged code and then frozen
+// (test/baseline/t001-lint-w1.json, 41 T-001); this file holds it as literal
+// tables, checks the baseline file against them and reduces the results a
+// second time. The ESLint 7 / stylelint 13 baselines
+// (docs/upgrade/findings/baselines/) were the reference until W1: the step
+// from them to the new tables is a literal table here too.
+// c1: the application files, the bulk suppressions, the CSS and the Prettier
+// state equal the baseline (less what the format-only commit resolved), 38
+// inline `eslint-disable` directives; an ESLint difference passes only as a
+// T-001 row of test/baseline/ACCEPTED-DIFFS.yml (42 §8, default deny).
+// c2: the harness files (test/**, e2e/**, jest.config.js) are lint clean
+// because of the `search/test-harness` block of eslint.config.js (40 §7
+// rule 7). The linters need Node >= 20.19: scripts/lint-parity.mjs runs itself
+// on the tooling Node when Jest runs on the runtime Node.
 const fs = require('fs')
 const path = require('path')
 const { spawnSync, execFileSync } = require('child_process')
 
-const ROOT = path.resolve(__dirname, '..', '..')
-const BASELINES = path.join(ROOT, 'docs/upgrade/findings/baselines')
+const { ledgerRows } = require('./adapters/reference')
 
-const run = (args) =>
-  spawnSync(process.execPath, ['scripts/lint-parity.mjs', ...args], {
+const ROOT = path.resolve(__dirname, '..', '..')
+const OLD_BASELINES = path.join(ROOT, 'docs/upgrade/findings/baselines')
+const BASELINE = path.join(ROOT, 'test/baseline/t001-lint-w1.json')
+const RATCHET = path.join(ROOT, 'test/baseline/stylelint-ratchet.json')
+
+const run = (script, args) =>
+  spawnSync(process.execPath, [script, ...args], {
     cwd: ROOT,
     encoding: 'utf8',
     maxBuffer: 1 << 27,
   })
 
-// the frozen baselines (OC-2), as (path, rule, count)
+// the frozen new-tool baseline (ESLint 10, typescript-eslint parser), taken on
+// unchanged code: the application files as (path, rule, count)
 const ESLINT_FINDINGS = [
+  ['api/data-provider.js', 'camelcase', 1],
   ['api/index.js', 'import/no-named-as-default', 1],
-  ['babel.config.js', 'prettier/prettier', 1],
+  ['api/sign-in.js', 'camelcase', 1],
+  ['api/works.js', 'camelcase', 1],
   ['hooks/use-analytics.js', 'no-console', 1],
-  ['hooks/use-analytics.js', 'prettier/prettier', 1],
   ['lib/loader.js', 'class-methods-use-this', 1],
   ['lib/loader.js', 'max-len', 2],
   ['modules/dropdown/index.jsx', 'no-unused-vars', 1],
+  ['modules/filters/loading-block.jsx', 'no-use-before-define', 1],
   ['pages/search/index.jsx', 'no-console', 4],
-  ['templates/output/index.jsx', 'prettier/prettier', 1],
+  [
+    'templates/data-providers/hooks/index.js',
+    'import/prefer-default-export',
+    1,
+  ],
+  ['templates/output/hooks/index.js', 'import/prefer-default-export', 1],
+  [
+    'templates/output/report/report-success-modal.jsx',
+    'no-use-before-define',
+    2,
+  ],
 ]
+// rules-of-hooks (Q-047, R-033): bulk suppressions, source untouched
+const SUPPRESSIONS = [
+  ['modules/dropdown/index.jsx', 'react-hooks/rules-of-hooks', 1],
+  ['pages/_app.jsx', 'react-hooks/rules-of-hooks', 1],
+  ['pages/search/index.jsx', 'react-hooks/rules-of-hooks', 2],
+  ['templates/search/results.jsx', 'react-hooks/rules-of-hooks', 1],
+]
+// stylelint 17 on unchanged code: the same (path, rule, count) as stylelint 13
 const STYLELINT_FINDINGS = [
   ['modules/layout/styles.module.css', 'order/properties-order', 1],
   ['modules/layout/styles.module.css', 'selector-class-pattern', 4],
@@ -50,6 +82,69 @@ const STYLELINT_FINDINGS = [
     1,
   ],
 ]
+// the files Prettier 3 would reformat on unchanged code: the format-only
+// commit (.git-blame-ignore-revs) formats exactly these
+const PRETTIER_UNFORMATTED = [
+  'babel.config.js',
+  'hooks/use-analytics.js',
+  'modules/dropdown/styles.module.css',
+  'templates/output/index.jsx',
+  'templates/output/similar-works.jsx',
+  'templates/output/styles.module.css',
+  'templates/output/update/styles.module.css',
+  'templates/search/results.jsx',
+  'test/harness-pages/[state].jsx',
+]
+// what the format-only commit resolves: the stylelint-prettier findings of
+// the files it formats (nothing else changes)
+const FORMAT_RESOLVED_STYLELINT = [
+  ['templates/output/styles.module.css', 'prettier/prettier', 1],
+  ['templates/output/update/styles.module.css', 'prettier/prettier', 3],
+]
+
+// the ESLint 7 / stylelint 13 baselines (the T-001 reference until W1)
+const OLD_ESLINT_FINDINGS = [
+  ['api/index.js', 'import/no-named-as-default', 1],
+  ['babel.config.js', 'prettier/prettier', 1],
+  ['hooks/use-analytics.js', 'no-console', 1],
+  ['hooks/use-analytics.js', 'prettier/prettier', 1],
+  ['lib/loader.js', 'class-methods-use-this', 1],
+  ['lib/loader.js', 'max-len', 2],
+  ['modules/dropdown/index.jsx', 'no-unused-vars', 1],
+  ['pages/search/index.jsx', 'no-console', 4],
+  ['templates/output/index.jsx', 'prettier/prettier', 1],
+]
+// from the old table to the new one, each with its cause
+const OLD_TO_NEW = {
+  // eslint-plugin-prettier is gone (CS-LINT-1); Prettier checks on its own
+  removed: [
+    ['babel.config.js', 'prettier/prettier', 1],
+    ['hooks/use-analytics.js', 'prettier/prettier', 1],
+    ['templates/output/index.jsx', 'prettier/prettier', 1],
+  ],
+  added: [
+    // W0 CS-BAB-3 (AD-001, AD-002)
+    [
+      'templates/data-providers/hooks/index.js',
+      'import/prefer-default-export',
+      1,
+    ],
+    ['templates/output/hooks/index.js', 'import/prefer-default-export', 1],
+    // typescript-eslint scope analysis: the references in an optional chain
+    // and in a shorthand property, which babel-eslint did not give camelcase
+    ['api/data-provider.js', 'camelcase', 1],
+    ['api/sign-in.js', 'camelcase', 1],
+    ['api/works.js', 'camelcase', 1],
+    // JSX element names are references now (a component used in JSX above
+    // its const declaration)
+    ['modules/filters/loading-block.jsx', 'no-use-before-define', 1],
+    [
+      'templates/output/report/report-success-modal.jsx',
+      'no-use-before-define',
+      2,
+    ],
+  ],
+}
 // the 38 inline directives of the application files: (path, rule, count); a
 // comment that names two rules (modules/dropdown/index.jsx) adds two rows
 const INLINE_DISABLES = [
@@ -99,6 +194,22 @@ const compare = (a, b) => {
 const sortRows = (rows) =>
   [...rows].sort((x, y) => compare(x[0], y[0]) || compare(x[1], y[1]))
 const sum = (rows) => rows.reduce((n, r) => n + r[2], 0)
+const keyed = (rows) => new Map(rows.map(([f, r, n]) => [`${f}\u0000${r}`, n]))
+// a table less some rows, by this file's own rule
+const minus = (rows, removed) => {
+  const m = keyed(rows)
+  removed.forEach(([f, r, n]) => {
+    const k = `${f}\u0000${r}`
+    if (m.get(k) === n) m.delete(k)
+    else m.set(k, m.get(k) - n)
+  })
+  return sortRows(
+    [...m].map(([k, n]) => {
+      const [file, rule] = k.split('\u0000')
+      return [file, rule, n]
+    })
+  )
+}
 // path made repo-relative by this file's own rule (ER-28)
 const rel = (p) =>
   path.isAbsolute(p) ? path.relative(ROOT, p).split(path.sep).join('/') : p
@@ -115,8 +226,28 @@ const tally = (pairs) => {
     })
   )
 }
-const baselineFile = (name) =>
-  JSON.parse(fs.readFileSync(path.join(BASELINES, name), 'utf8'))
+const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8'))
+
+// the differences of a run from a literal table as {key, from, to}: key
+// `<path> / <rule>`, counts as strings (0 = no finding)
+const differences = (table, entries) => {
+  const a = new Map(table.map(([f, r, n]) => [`${f} / ${r}`, n]))
+  const b = new Map(entries.map(([f, r, n]) => [`${f} / ${r}`, n]))
+  return [...new Set([...a.keys(), ...b.keys()])]
+    .sort(compare)
+    .filter((k) => (a.get(k) || 0) !== (b.get(k) || 0))
+    .map((k) => ({
+      key: k,
+      from: String(a.get(k) || 0),
+      to: String(b.get(k) || 0),
+    }))
+}
+// default deny (42 §8): a difference passes only by a T-001 row in force
+// whose key, from and to match exactly
+const coveredBy = (d) =>
+  ledgerRows('T-001').find(
+    (r) => r.key === d.key && String(r.from) === d.from && String(r.to) === d.to
+  )
 
 // the application's inline directives, scanned line by line (the script scans
 // the whole text: two implementations)
@@ -173,8 +304,10 @@ const inlineDirectives = () => {
 describe('T-001 @P0 lint parity', () => {
   let report
   let raw
+  let base
   beforeAll(() => {
-    raw = run(['--json'])
+    base = readJson(BASELINE)
+    raw = run('scripts/lint-parity.mjs', ['--json'])
     try {
       report = JSON.parse(raw.stdout)
     } catch (e) {
@@ -186,68 +319,152 @@ describe('T-001 @P0 lint parity', () => {
     }
   }, 600000)
 
-  test('T-001 c1 @P0 the script itself: normaliser, aggregation, comparison and directive scanner known answers', () => {
-    const r = run(['--self-test'])
-    expect(r.stdout).not.toMatch(/FAIL/)
-    expect(r.stdout).toMatch(/self-test: (\d+)\/\1\n$/)
-    expect(r.status).toBe(0)
+  test('T-001 c1 @P0 the scripts themselves: normaliser, aggregation, comparison, ledger, ratchet and directive scanner known answers', () => {
+    for (const script of [
+      'scripts/lint-parity.mjs',
+      'scripts/stylelint-ratchet.mjs',
+    ]) {
+      const r = run(script, ['--self-test'])
+      expect(r.stdout).not.toMatch(/FAIL/)
+      expect(r.stdout).toMatch(/self-test: (\d+)\/\1\n$/)
+      expect(r.status).toBe(0)
+    }
   })
 
-  test('T-001 c1 @P0 installed tools are ESLint 7 and stylelint 13 with the @oacore configs', () => {
-    expect(report.tools.eslint).toMatch(/^7\./)
-    expect(report.tools.stylelint).toMatch(/^13\./)
-    expect(Object.keys(report.tools.configs).sort()).toEqual([
-      '@oacore/eslint-config-react',
-      '@oacore/stylelint-config-base',
-    ])
+  test('T-001 c1 @P0 installed tools are ESLint 10, stylelint 17 and Prettier 3, run on the tooling Node, with no @oacore config', () => {
+    expect(report.tools.eslint).toMatch(/^10\./)
+    expect(report.tools.stylelint).toMatch(/^17\./)
+    expect(report.tools.prettier).toMatch(/^3\./)
+    expect(report.tools.parser).toMatch(/^typescript-eslint 8\./)
+    expect(report.tools.orgConfigs).toEqual([])
+    expect(Number(report.node.slice(1).split('.')[0])).toBeGreaterThanOrEqual(
+      24
+    )
+    const pkg = readJson(path.join(ROOT, 'package.json'))
+    const deps = { ...pkg.dependencies, ...pkg.devDependencies }
+    expect(
+      Object.keys(deps).filter((d) => /^@oacore\/.*config/.test(d))
+    ).toEqual([])
+    expect(Object.keys(deps)).not.toEqual(
+      expect.arrayContaining(['babel-eslint'])
+    )
+    expect(Object.keys(deps)).not.toEqual(
+      expect.arrayContaining(['eslint-plugin-prettier'])
+    )
+    expect(fs.existsSync(path.join(ROOT, '.eslintrc.yml'))).toBe(false)
+    expect(
+      fs.readFileSync(path.join(ROOT, 'prettier.config.js'), 'utf8')
+    ).not.toMatch(/@oacore/)
+    expect(
+      fs.readFileSync(path.join(ROOT, 'stylelint.config.js'), 'utf8')
+    ).not.toMatch(/@oacore\/stylelint-config|require\(/)
   })
 
-  test('T-001 c1 @P0 baselines reduced to (path, rule, count) are the literal tables: 13 ESLint and 16 stylelint findings', () => {
-    const eslintBase = tally(
-      baselineFile('eslint-baseline.json').flatMap((r) =>
+  test('T-001 c1 @P0 the frozen baseline is the literal tables: 18 ESLint findings, 5 suppressions, 16 stylelint findings, 9 unformatted files', () => {
+    expect(base.test).toBe('T-001')
+    expect(base.eslint.entries).toEqual(ESLINT_FINDINGS)
+    expect(sum(base.eslint.entries)).toBe(18)
+    expect(base.suppressions.entries).toEqual(SUPPRESSIONS)
+    expect(base.stylelint.entries).toEqual(STYLELINT_FINDINGS)
+    expect(sum(base.stylelint.entries)).toBe(16)
+    expect(base.prettier.unformatted).toEqual(PRETTIER_UNFORMATTED)
+    expect(base.disables.total).toBe(38)
+    // taken with the W1 tools
+    expect(base.tools.eslint).toBe(report.tools.eslint)
+    expect(base.tools.stylelint).toBe(report.tools.stylelint)
+    expect(base.tools.prettier).toBe(report.tools.prettier)
+    // the script reads the same baseline
+    expect(report.baseline.eslint.entries).toEqual(ESLINT_FINDINGS)
+    expect(report.baseline.stylelint.entries).toEqual(STYLELINT_FINDINGS)
+  })
+
+  test('T-001 c1 @P0 the step from the ESLint 7 / stylelint 13 baselines to the new tables is the literal one', () => {
+    const oldEslint = tally(
+      readJson(path.join(OLD_BASELINES, 'eslint-baseline.json')).flatMap((r) =>
         r.messages.map((m) => [rel(r.filePath), m.ruleId])
       )
     )
-    const stylelintBase = tally(
-      baselineFile('stylelint-baseline.json').flatMap((r) =>
-        r.warnings.map((w) => [rel(r.source), w.rule])
+    const oldStylelint = tally(
+      readJson(path.join(OLD_BASELINES, 'stylelint-baseline.json')).flatMap(
+        (r) => r.warnings.map((w) => [rel(r.source), w.rule])
       )
     )
-    expect(eslintBase).toEqual(ESLINT_FINDINGS)
-    expect(sum(eslintBase)).toBe(13)
-    expect(stylelintBase).toEqual(STYLELINT_FINDINGS)
-    expect(sum(stylelintBase)).toBe(16)
-    // the script reduces the baselines the same way
-    expect(report.baselines.eslint.entries).toEqual(ESLINT_FINDINGS)
-    expect(report.baselines.stylelint.entries).toEqual(STYLELINT_FINDINGS)
+    expect(oldEslint).toEqual(OLD_ESLINT_FINDINGS)
+    expect(sum(oldEslint)).toBe(13)
+    expect(
+      sortRows([...minus(oldEslint, OLD_TO_NEW.removed), ...OLD_TO_NEW.added])
+    ).toEqual(ESLINT_FINDINGS)
+    expect(oldStylelint).toEqual(STYLELINT_FINDINGS)
   })
 
   test('T-001 c1 @P0 ESLint findings of the application files equal the baseline (path, rule, count)', () => {
-    expect(report.eslint.entries).toEqual(ESLINT_FINDINGS)
-    expect(report.eslint.findings).toBe(13)
-    expect(report.eslint.diff).toEqual({ added: [], removed: [], changed: [] })
-    // the baseline covered 156 files (docs/upgrade/findings/05 §2.3): the
-    // whole application is linted, with no narrower scope
-    expect(report.eslint.appFiles).toBeGreaterThanOrEqual(156)
+    const diffs = differences(ESLINT_FINDINGS, report.eslint.entries)
+    expect(diffs.filter((d) => !coveredBy(d))).toEqual([])
+    expect(report.eslint.ledger.uncovered).toEqual([])
+    expect(report.eslint.findings).toBe(
+      sum(ESLINT_FINDINGS) +
+        diffs.reduce((n, d) => n + Number(d.to) - Number(d.from), 0)
+    )
+    // `npm run lint:js` exits 1 while findings exist, as the ESLint 7
+    // script did (CS-LINT-3, CS-LINT-4)
+    expect(report.eslint.status).toBe(1)
+    // the whole application is linted, with no narrower scope (156 files
+    // before W1, plus eslint.config.js)
+    expect(report.eslint.appFiles).toBeGreaterThanOrEqual(157)
+  })
+
+  test('T-001 c1 @P0 the bulk suppressions are the five rules-of-hooks findings and none is stale (CS-LINT-2)', () => {
+    const file = readJson(path.join(ROOT, 'eslint-suppressions.json'))
+    const rows = sortRows(
+      Object.entries(file).flatMap(([f, rules]) =>
+        Object.entries(rules).map(([r, v]) => [f, r, v.count])
+      )
+    )
+    expect(rows).toEqual(SUPPRESSIONS)
+    expect(report.suppressions.entries).toEqual(SUPPRESSIONS)
+    expect(report.suppressions.stale).toBe(false)
   })
 
   test('T-001 c1 @P0 stylelint findings equal the baseline (path, rule, count)', () => {
-    expect(report.stylelint.entries).toEqual(STYLELINT_FINDINGS)
-    expect(report.stylelint.findings).toBe(16)
-    expect(report.stylelint.diff).toEqual({
-      added: [],
-      removed: [],
-      changed: [],
-    })
+    const expected = minus(
+      STYLELINT_FINDINGS,
+      base.formatOnly.resolved.stylelint
+    )
+    expect(report.stylelint.entries).toEqual(expected)
+    expect(report.stylelint.findings).toBe(sum(expected))
+    // the ratchet holds the same rows (it may only shrink, CS-STY-1)
+    expect(readJson(RATCHET).findings).toEqual(expected)
     expect(report.stylelint.files).toBeGreaterThanOrEqual(28)
+    // stylelint fails the run while findings exist, as stylelint 13 did
+    expect(report.stylelint.status).toBe(2)
+  })
+
+  test('T-001 c1 @P0 Prettier: every file in the lint scope is formatted after the format-only commit, which formats exactly the baseline list', () => {
+    expect(report.prettier.unformatted).toEqual([])
+    expect(report.prettier.files).toBeGreaterThanOrEqual(300)
+    const fmt = base.formatOnly
+    expect(fmt.files).toEqual(PRETTIER_UNFORMATTED)
+    expect(fmt.resolved.stylelint).toEqual(FORMAT_RESOLVED_STYLELINT)
+    // it resolves only stylelint-prettier findings of files it formats
+    for (const [f, rule] of fmt.resolved.stylelint) {
+      expect(rule).toBe('prettier/prettier')
+      expect(fmt.files).toContain(f)
+    }
+    // listed for `git blame --ignore-revs-file`
+    const revs = fs
+      .readFileSync(path.join(ROOT, '.git-blame-ignore-revs'), 'utf8')
+      .split('\n')
+      .filter((l) => /^[0-9a-f]{40}$/.test(l))
+    expect(revs).toContain(fmt.commit)
   })
 
   test('T-001 c1 @P0 every reported path is repo-relative (ER-28)', () => {
     const paths = [
       ...report.eslint.entries,
       ...report.stylelint.entries,
-      ...report.baselines.eslint.entries,
-      ...report.baselines.stylelint.entries,
+      ...report.baseline.eslint.entries,
+      ...report.baseline.stylelint.entries,
+      ...report.suppressions.entries,
       ...report.disables.entries,
       ...report.harness.entries,
     ].map((e) => e[0])
@@ -271,31 +488,48 @@ describe('T-001 @P0 lint parity', () => {
     expect(INLINE_DISABLES.filter((e) => e[1] === '*')).toEqual([])
   })
 
-  test('T-001 c1 @P0 no --fix anywhere: the lint scripts, the hooks and the script itself (R-049)', () => {
-    const pkg = JSON.parse(
-      fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')
-    )
-    expect(pkg.scripts['lint:js']).toBe(
-      'eslint --ignore-path .gitignore --ext .js,.jsx .'
-    )
+  test('T-001 c1 @P0 no --fix anywhere: the lint scripts, the hook and the scripts themselves (R-049)', () => {
+    const pkg = readJson(path.join(ROOT, 'package.json'))
+    expect(pkg.scripts['lint:js']).toBe('eslint .')
     expect(pkg.scripts['lint:css']).toBe(
       "stylelint --ignore-path .gitignore '**/*.css'"
     )
-    expect(JSON.stringify(pkg.scripts)).not.toMatch(/--fix|lint-staged/)
-    expect(pkg.husky).toBeUndefined()
-    expect(pkg['lint-staged']).toBeUndefined()
-    const refused = run(['--fix', '--json'])
-    expect(refused.status).toBe(2)
-    expect(refused.stderr).toMatch(/R-049/)
+    expect(JSON.stringify(pkg.scripts)).not.toMatch(/--fix/)
+    // the pre-commit hook (CS-HUS-1): ESLint and stylelint report, only
+    // Prettier writes, and only JS and JSON
+    expect(pkg.scripts.prepare).toBe('husky')
+    expect(
+      fs.readFileSync(path.join(ROOT, '.husky/pre-commit'), 'utf8').trim()
+    ).toBe('npx lint-staged')
+    expect(pkg['lint-staged']).toEqual({
+      '*.{js,jsx}': ['eslint --no-warn-ignored', 'prettier --write'],
+      '*.css': ['stylelint', 'prettier --check'],
+      '*.json': 'prettier --write',
+    })
+    expect(JSON.stringify(pkg['lint-staged'])).not.toMatch(/--fix/)
+    // vendored files stay verbatim under the hook's Prettier (CS-HUS-2)
+    expect(
+      fs.readFileSync(path.join(ROOT, '.prettierignore'), 'utf8').split('\n')
+    ).toContain('vendor/')
+    for (const script of [
+      'scripts/lint-parity.mjs',
+      'scripts/stylelint-ratchet.mjs',
+    ]) {
+      const refused = run(script, ['--fix', '--json'])
+      expect(refused.status).toBeGreaterThanOrEqual(2)
+      expect(refused.stderr).toMatch(/R-049/)
+    }
     // the lint inputs were not rewritten by the run
     expect(report.untouched.same).toBe(true)
     expect(report.untouched.after.files).toBeGreaterThanOrEqual(11)
   })
 
   test('T-001 c1 @P0 the run is a parity run: lint is red today, so parity and zero findings differ (OC-2)', () => {
-    expect(report.eslint.findings + report.stylelint.findings).toBe(29)
-    expect(report.baselines.eslint.findings).toBe(13)
-    expect(report.baselines.stylelint.findings).toBe(16)
+    expect(report.eslint.findings + report.stylelint.findings).toBeGreaterThan(
+      0
+    )
+    expect(report.baseline.eslint.findings).toBe(18)
+    expect(report.baseline.stylelint.findings).toBe(16)
     // the report's own verdict for c1
     expect(report.problems.filter((p) => /^c1/.test(p))).toEqual([])
   })
@@ -304,7 +538,7 @@ describe('T-001 @P0 lint parity', () => {
     expect(report.harness.entries).toEqual([])
     expect(report.harness.findings).toBe(0)
     expect(report.problems.filter((p) => /^c2/.test(p))).toEqual([])
-    // the override scope was linted, not ignored
+    // the harness scope was linted, not ignored
     expect(report.harness.list).toEqual(
       expect.arrayContaining([
         'jest.config.js',
@@ -315,10 +549,11 @@ describe('T-001 @P0 lint parity', () => {
     expect(report.harness.files).toBeGreaterThanOrEqual(30)
   })
 
-  test('T-001 c2 @P0 the .eslintrc.yml overrides are what keeps the harness clean (effective config and control run)', () => {
+  test('T-001 c2 @P0 the search/test-harness block of eslint.config.js is what keeps the harness clean (effective config and control run)', () => {
     const ev = report.harness.evidence
     expect(ev.overridesDeclared).toEqual([
       {
+        name: 'search/test-harness',
         files: [
           'test/**/*.js',
           'test/**/*.jsx',
@@ -327,7 +562,6 @@ describe('T-001 @P0 lint parity', () => {
         ],
       },
     ])
-    const level = (v) => ({ off: 0, warn: 1, error: 2 }[v] ?? v)
     const offInHarness = [
       'import/no-extraneous-dependencies',
       'global-require',
@@ -348,15 +582,15 @@ describe('T-001 @P0 lint parity', () => {
     for (const p of harnessProbes) {
       expect(p.env).toMatchObject({ jest: true, node: true })
       for (const r of offInHarness)
-        expect([p.file, r, level(p.rules[r])]).toEqual([p.file, r, 0])
+        expect([p.file, r, p.rules[r]]).toEqual([p.file, r, 0])
       // max-len stays an error (limit relaxed for strings, URLs and the like)
-      expect(level(p.rules['max-len'])).toBe(2)
+      expect(p.rules['max-len']).toBe(2)
     }
     // an application file keeps the strict rules
     expect(appProbe.env.jest).toBe(false)
-    for (const r of offInHarness)
-      expect([r, level(appProbe.rules[r])]).toEqual([r, 2])
-    // without the overrides the same files are not clean: they are load-bearing
+    expect(appProbe.env.browser).toBe(true)
+    for (const r of offInHarness) expect([r, appProbe.rules[r]]).toEqual([r, 2])
+    // without the block the same files are not clean: it is load-bearing
     expect(ev.control.files).toBe(report.harness.files)
     expect(ev.control.findings).toBeGreaterThan(100)
     expect(Object.keys(ev.control.rules)).toEqual(
