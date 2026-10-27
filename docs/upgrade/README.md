@@ -17,7 +17,7 @@
 
 ## 2. Binding decisions ([00](00-decisions.md))
 
-M1–M9 (owner requirements, verbatim) and D1–D17 are in 00; read it once before any step. D15 (re-baseline for product changes) was decided on 2026-10-20 (OQ-2); D16 (security fixes outside D1) was WITHDRAWN the same day (owner in chat: existing defects stay, S-4 included; 00 §6); D17 (design frozen at 5.0.74) stays PROVISIONAL (no owner question covered it). Scope (00 §6): today's deploy process is kept, no new infrastructure, and the owner alone signs.
+M1–M9 (owner requirements, verbatim) and D1–D20 are in 00; read it once before any step. D18–D20 (owner, 2026-10-22; 00 §4b) set the lean mode that applies now: "relatively sure" (the automated local suite green after each of five jumps, one deploy at the end, a 15-minute smoke check), the scope rule (version upgrades, stability and local tests only; no GitHub, CI, Docker or DevOps change; deploy-time items are recorded for the owner, never applied) and no CI (`bash scripts/ci-local.sh` is the full suite). D15 (re-baseline for product changes) was decided on 2026-10-20 (OQ-2); D16 (security fixes outside D1) was WITHDRAWN the same day (owner in chat: existing defects stay, S-4 included; 00 §6); D17 (design frozen at 5.0.74) stays PROVISIONAL (no owner question covered it). Scope (00 §6): today's deploy process is kept, no new infrastructure, and the owner alone signs.
 
 ## 3. Stack: today → end state
 
@@ -29,7 +29,7 @@ M1–M9 (owner requirements, verbatim) and D1–D17 are in 00; read it once befo
 | HTTP, data | `fetch` wrapper `api/index.js` | axios behind the wrapper; SWR only with request parity (OD-43) |
 | UI, CSS | `@oacore/design` 5.0.74; CSS Modules + camelCase patch; PostCSS chain | antd at 0 px + owned units (D5, D9); standard CSS, CSS Modules (OD-33) |
 | Language, lint | JS; ESLint 7, stylelint 13, Prettier 2, husky 4; lint red | TypeScript (OD-07); ESLint + typescript-eslint, stylelint, Prettier, husky + lint-staged |
-| Tests, CI | none; deploy on push and nightly | Jest + RTL, Playwright; `CI / gate` (42 §10) |
+| Tests, CI | none; deploy on push and nightly | Jest + RTL, Playwright, run locally by `bash scripts/ci-local.sh` (42 §10; no CI, D20) |
 | Observability | Sentry 5.30, LogRocket 10, react-ga4 2.1.0 | `@sentry/nextjs` (OD-14), LogRocket, react-ga4 |
 | Packages | npm, `--legacy-peer-deps`, install fallback | npm (OD-06), strict install |
 
@@ -42,7 +42,7 @@ The Critical rows of 10 §2, each with its change site and step; the security no
 | Doc | Owns (only here) |
 |---|---|
 | [STATUS](STATUS.md) | digests, owner confirmations, VF register, status ledger, PRs, log |
-| [00](00-decisions.md) | D1–D17, phase order (owner edits only) |
+| [00](00-decisions.md) | D1–D20, phase order (owner edits only) |
 | [01](01-playbook.md) | git and PR rules, step runbook, rollback, DoD, records, stop conditions, doc change control |
 | [02](02-version-matrix.md) | every version, exceptions, Node policy, re-resolution |
 | [10](10-risk-register.md) / [30](30-quirks-register.md) | risks / quirks, Q→T pins, security notes |
@@ -62,7 +62,7 @@ The Critical rows of 10 §2, each with its change site and step; the security no
 
 | IDs | Meaning | Owner |
 |---|---|---|
-| M1–M9; D1, D1a, D2–D5, D4a, D6–D17 | requirements; decisions, D(5+n) = Mn | 00 |
+| M1–M9; D1, D1a, D2–D5, D4a, D6–D20 | requirements; decisions, D(5+n) = Mn; D18–D20 the lean-mode rules of 2026-10-22 | 00 |
 | 2.0–2.8 (2.0a, 2.0b WITHDRAWN 2026-10-20: one step 2.0); W0, W0b, W0.5, W1, W2a–W2e, W3, W4a–W4e, W5, W5.5, W6a, W6c, W6d, W7a–W7c, W8; 6.0–6.10; 7.0, 7.1, 7.2.DU-nn, 7.F | steps. W4c is now Next 12.1.6 (was 11.1); W6b WITHDRAWN (→ W5.5); W9 = 6.7; L1 = 6.10; L2 in 7.F | 50, 70, 80 |
 | GATE-S/A/F, GATE-x.n; C1–C8; VG-1..7; RG-1..8 | gates, criteria, confidence, W5 checks, residual gaps | 55 |
 | OC-1..24 | ordering constraints (= old O1–O14 + new) | 50 |
@@ -117,18 +117,18 @@ Review labels (`X10.1`, `OQ-3`, `NE-02`) are cited, never redefined.
 
 ## 8. Status
 
-**Last updated:** 2026-10-20. Phase 1 DONE; Phase 1b review DONE, owner approval pending; OQ-1..OQ-18 DECIDED (2026-10-20, owner confirmed the recommended defaults); owner scope decisions of 2026-10-20 applied (00 §6: D16, OD-29, CS-SEC-1, CS-OPS-2..5, CS-IMG-1, CI-6, steps 2.0a/2.0b WITHDRAWN; OD-03, OD-24/OD-25, OD-36, OD-39, OD-41, OD-46, OD-47 re-decided); plan rewrite DONE on `docs/upgrade-plan` (local only): landing steps 1(a)–(e) done 2026-10-20, the next action is 1(f), by the owner. **Phase 2: NOT STARTED.**
+**Last updated:** 2026-10-27. Phase 1 DONE; Phase 1b review DONE, owner approval pending. OQ-1..OQ-18 DECIDED (2026-10-20, owner confirmed the recommended defaults) and the owner scope decisions of 2026-10-20 applied (00 §6). Owner decisions of 2026-10-22: D18 (lean target), D19 (scope rule), D20 (no CI), applied to the plan (00 §4b; 01 §10, 20 §Deploy-time items, 42 §10, 50 §4.0, 55 §0). **Phase 2: DONE in lean mode, with open items** (2026-10-27, [records/phase-2.md](records/phase-2.md)): one local full-suite run on `26a4c03` green in every job (Jest 1097/1097, static 91/91, chromium + wire 945/945, visual 386/386, T-802 73/73, ops 18 + 9); breakage catalogue 74/74 valid patches killed; steps 2.0 and 2.6 WITHDRAWN (D19, D20); nothing pushed or deployed. The record's open items are owner decisions or known limits; none blocks jump 1.
 
-**Owner decisions:** OQ-1..OQ-18 DECIDED (2026-10-20, owner confirmed the recommended defaults) and the scope decisions above: 90 and 00 hold them; STATUS §2 *Confirmed*. **Still pending** (STATUS §2 rows without a date): owner approval by merging the docs PR (Phase 1b), D17, the OPEN ODs; signatures (01 §3); the owner closing #389 and #410 (OQ-18). Nothing waits for anyone but the owner. The plan runs under the defaults; a gate needs the ODs due by it DECIDED (55 C8).
+**Owner decisions:** see 00 and 90; STATUS §2 *Confirmed*. **Still pending:** the owner's signature on `records/phase-2.md`; Phase 1b approval (the docs PR); D17 and the OPEN ODs; the owner closing #389 and #410 (OQ-18). Every push, PR, tag on origin and the deploy are the owner's (D20).
 
 **Next actions, in order:**
-1. **Open the docs PR** on `docs/upgrade-plan` (local only, so its history may be rewritten). **Done 2026-10-20, steps (a)–(e):** (a) the doc set is in `docs/upgrade/` and `docs/upgrade/60-design-copy-plan.md` is removed (replaced by 60-design-ownership.md); (b) `tools/check-docs.mjs` is added; (c) the evidence is scrubbed (`node tools/check-docs.mjs docs/upgrade --repo . --scan-findings` lists no `findings/` line that breaks the owner style rule) and `findings/review-2026-10-19/parts/` is deleted; (d) `node tools/check-docs.mjs docs/upgrade --repo .` reports ERROR 0; (e) the plan is committed on `docs/upgrade-plan` as one commit with a neutral message, replacing the two draft commits. **Next, by the owner: (f)** push and open the PR: `git fetch origin && git rebase --onto origin/main f5cfc20 docs/upgrade-plan && git push -u origin docs/upgrade-plan && gh pr create --base main` (its merge redeploys prod with an unchanged runtime tree, R-088: merge in working hours).
-2. **Owner** approves by merging (Phase 1b); D17 and the OPEN ODs are confirmed in STATUS §2 before the step that needs them. Then `git remote set-head origin --auto`; `git tag upgrade-baseline cc0e228 && git push origin upgrade-baseline`; a `docs/status-<date>` PR marks actions 1–2 done here and in STATUS §4 (01 §9).
-3. **Step 2.0** (50 §3). Reading list: 50 §3 row 2.0; 20 §2.0; 01 §1–§6; 55 C6; 90 OD-03, OD-32; STATUS §1 People, §2, §3 (VF-01, VF-04, VF-14, VF-16, VF-18, VF-26).
-4. **Step 2.1**: CS-W0-9 (= `<base'>`), the calibration-spike harness PRs, CS-W0-8/-7/-1/-10, inertness proof (42 §5; 20 §2.1 order); then 2.2–2.8 per 50.
+1. **Owner:** read `records/phase-2.md` (its deferred items and open items) and sign it.
+2. **Version track, jump 1** (50 §4.0: tooling, leaf libraries, design copy), **awaiting the owner's go-ahead**. Branch from `upgrade/p2-28-exit` (01 §10). Reading list: 50 §4.0 and the W0, W0b, W0.5, W1, W2a–W2e, W3, W5 rows; 20 sections W0, W0b, W1, W2a–W2e and W3; 60 §5; 02 §5; 01 §10; 55 §0. First, before the next full run: re-key the builds and re-record the T-728 dev inventory (the record's open item 7).
+3. **Later, by the owner:** pushing the local branches (after the wording-rule history check), the docs PR (action 1(f) of the first plan: `git rebase --onto origin/main f5cfc20 docs/upgrade-plan`, push, `gh pr create --base main`), and after GATE-S the single deploy with the deploy-time items (20 §Deploy-time items), the 48 h watch and the smoke check (55 §0).
 
 ## 9. Work-session protocol
 
+0. **Lean mode (D18–D20):** during the version track the protocol is [01](01-playbook.md) §10 (local branches, lean builds, disk budget, pacing); items 1–4 below apply to the owner's final deploy.
 1. **Start:** README → STATUS → the step's docs (§5); `nvm use 24`; `git fetch origin && git log --first-parent --format='%h %s' <head>..origin/main` (`<head>` = SHA in the last STATUS §6 row); classify each commit per 01 §2 (track merge, docs/test merge, data refresh, infra change, product change).
 2. Branch from `origin/main` (01 §2); never commit or push to `main` (`stage`: as today, optional, 01 §4).
 3. **Work:** one PR per CS group, one bump per commit, IDs in titles `[<step>][<CS-ID>]` (01 §3); run the 01 §4 runbook; stop per 01 §8.

@@ -8,14 +8,14 @@
 |Item|Value|
 |---|---|
 |People|Owner: _; Reviewer (second engineer): _ (name and GitHub login each, used by the 42 §8 signature check); channel: _ (owner fills before 2.0)|
-|Baseline|`<base>` = `origin/main@cc0e228`, tree `a825839` (moves only per 01 §2 before B0); `<base'>` (42 §5): not set (2.1); work-session start check: 01 §2. `f5cfc20`: same tree, on no remote (review:00 XRD.2)|
-|Branches|default `main`, also `stage`; legacy `master`, `main.old`; local `origin/HEAD` stale (fix: 01 §2)|
+|Baseline|`<base>` = `origin/main@cc0e228`, tree `a825839` (moves only per 01 §2 before B0); `<base'>` (42 §5) = `09eb636` (2.1, the merge of CS-W0-9; local); work-session start check: 01 §2. `f5cfc20`: same tree, on no remote (review:00 XRD.2)|
+|Branches|default `main`, also `stage`; legacy `master`, `main.old`; local `origin/HEAD` stale (fix: 01 §2). Phase 2 (local only, never pushed): `upgrade/p2-21-harness` … `upgrade/p2-27-p1-faults`, exit branch `upgrade/p2-28-exit` (§5)|
 |Stage|`origin/stage` = `6e0a370`, tree = `9b26dc9`'s, 2 commits behind `main` (#454, #455), 10 stage-only commits with a net-zero tree (checked 2026-10-20); stage is optional (01 §4 step 5): a step merged into it pulls in #454/#455|
-|Base images|`node:18-alpine` index digest: not set (2.1); `node:24-alpine` (W4e), `node:26-alpine` (6.10): not set (command 42 §2)|
+|Base images|deploy-time items (D19, 2026-10-22; 20 §Deploy-time items), not recorded in the track. `node:18-alpine` index digest: not set (2.1); `node:24-alpine` (W4e), `node:26-alpine` (6.10): not set (command 42 §2)|
 |Activity|32 commits on `origin/main` after 2026-07-01, 6 authors (R-089)|
 |Docs branch|`docs/upgrade-plan`, local only. Landing 1(a)–(e) done 2026-10-20 (README §8 action 1): doc set placed in `docs/upgrade/`, `60-design-copy-plan.md` removed, `tools/check-docs.mjs` added, `findings/` scrubbed, `findings/review-2026-10-19/parts/` deleted, checker ERROR 0, and the plan committed on the branch as one commit replacing the two draft commits. Next: 1(f), by the owner (rebase onto `origin/main`, push, open the PR). Tag `upgrade-baseline`: not created; set on origin at `cc0e228` after the docs PR (01 §2)|
-|Golden|G (tag `upgrade-golden`), first golden build digest, baseline/fixture/corpus SHA-256 sets (committed, 42 §7), and the C4 draw seeds (55 C4): not set (2.4, 2.4, 2.5/2.2, 2.5); the `t805-exclusions.json` sha256 (40 §1): ab40bbc6b81165505f904b8aec2870885cef3ea33d6584f1e0f819a782a224a9 (2.7, captured on the host baseline, macOS arm64); approved baseline chain B0..Bn: empty; formats [42](42-baselines-and-ci.md) §4, §7, §9|
-|Signals|Signals exports `test/signals/<tag>.json` and their SHA-256 (55 C6-NI, 42 §7): `2.0`, `W0`, `S`, `A`, `F`: not set (2.0 exit, W0 merge, end of each gate window)|
+|Golden|G = `689fec9` (2.4, local tag `p2-local/golden`; the tag `upgrade-golden` on origin: DEFERRED, owner); first golden build = host parity build `1fb7e5b548c5ae8c` of G (Node 18.20.8, 2026-10-21; the image digest is WITHDRAWN with Docker, D19); baseline, fixture and corpus SHA-256 sets committed in `test/baseline/manifest.json`, `test/baseline/SHA256SUMS`, `test/fixtures/SHA256SUMS` (42 §7); C4 draw seeds: not set (the real corpus is DEFERRED, VF-26); the `t805-exclusions.json` sha256 (40 §1): ab40bbc6b81165505f904b8aec2870885cef3ea33d6584f1e0f819a782a224a9 (2.7, captured on the host baseline, macOS arm64); approved baseline chain B0..Bn: B0-local (2.5, provisional host baseline, macOS arm64; owner signature pending); formats [42](42-baselines-and-ci.md) §4, §7, §9|
+|Signals|WITHDRAWN in the lean track (2026-10-22, D18; 55 §0). Was: signals exports `test/signals/<tag>.json` and their SHA-256 (55 C6-NI, 42 §7): `2.0`, `W0`, `S`, `A`, `F`: not set (2.0 exit, W0 merge, end of each gate window)|
 
 ## 2. Owner confirmations
 
@@ -24,6 +24,7 @@ OQ-1..OQ-18 are DECIDED (2026-10-20, owner confirmed the recommended defaults), 
 |Item|Default|From|Sign|Confirmed|
 |---|---|---|---|---|
 |Phase 1b approval|pending|docs PR|PR merge||
+|D18, D19, D20|lean target, scope rule, no CI (00 §4b)|2.8|=|2026-10-22 owner (in chat)|
 |OQ-18|owner closes #389, #410 (§5)|-|owner|2026-10-20 owner (OQ-18); closing pending|
 |D15 / OD-31|re-baseline protocol, no freeze; data refreshes logged only (01 §2)|2.4|each AD row|2026-10-20 owner (OQ-2)|
 |D16 / OD-36|D16 WITHDRAWN; S-4 preserved, pinned by T-602 and T-113; no fix in this track|-|-|2026-10-20 owner (in chat)|
@@ -112,11 +113,20 @@ Non-default statuses only; unlisted: risk OPEN, quirk UNPINNED (30 §E rows: CAN
 |Plan rewrite|DONE|2026-10-20|`docs/upgrade/`|
 |Landing 1(a)–(e)|DONE (1(f), the push and the PR, is the owner's next action)|2026-10-20|doc set in `docs/upgrade/`, `60-design-copy-plan.md` removed, `tools/check-docs.mjs` added, `findings/` scrubbed, `parts/` deleted, checker ERROR 0, commit on `docs/upgrade-plan`|
 |D16, OD-29, CS-SEC-1, CS-OPS-2..5, CS-IMG-1, CI-6, steps 2.0a/2.0b|WITHDRAWN|2026-10-20|owner scope decisions (00 §6); 20 §Withdrawn, 42 §10, 90|
+|D18, D19, D20|DECIDED|2026-10-22|owner in chat; 00 §4b; D10, D12, D14, phase order AMENDED|
+|Step 2.0; step 2.6; CS-OPS-1, CS-OPS-6, CS-NODE-4, CI-7|WITHDRAWN|2026-10-22|D19, D20; 20 §Deploy-time items, 42 §10|
+|Steps 2.1, 2.2, 2.3, 2.4, 2.5, 2.7|DONE (local, lean)|2026-10-20..2026-10-27|`records/phase-2.md`, sections 2.1–2.7|
+|Step 2.8, Phase 2|DONE in lean mode, with open items; owner signature pending|2026-10-27|`records/phase-2.md`, section 2.8 (final local run on `26a4c03` green, every job)|
+|CS-W0-1, CS-W0-10, CS-W0-9 (`build:test` script)|DONE|2026-10-20|`records/phase-2.md`, section 2.1; the Dockerfile parts of CS-W0-7/-8/-9 reverted (D19)|
+|P0 rows; P1 rows whose Wave starts in W0–W4e|DONE, except the DEFERRED halves the record lists|2026-10-27|`records/phase-2.md` (final local run)|
+|R fault patches (74 valid of 75)|FAULT-VERIFIED|2026-10-27|`test/faults/kill-summary.json`; `test/faults/R-###*.patch`|
+|Closed in Phase 2: VF-07, VF-08, VF-09, VF-22|CLOSED|2026-10-20..2026-10-22|VF-07: msw 2.15.0 works in Jest on Node 18 through the ESM resolver `test/esm-resolver.js` (exception row for 02 §3.5 still to write); VF-08: Stryker 10 on a staged copy without `babel.config.js` (02 §3.5); VF-09: two host parity builds of G identical; VF-22: a disabled filter value has no pointer and no keyboard path, facet values have no keyboard path (`records/phase-2.md`, sections 2.1–2.4)|
 
 ## 5. Open branches and PRs
 
 |Ref|Action|
 |---|---|
+|`upgrade/p2-21-harness` … `upgrade/p2-27-p1-faults`, `upgrade/p2-28-exit`|Phase 2, local only, never pushed (D20). Tip `upgrade/p2-28-exit`; the jump-1 branch starts from it (01 §10). Pushing (after the wording-rule history check) is the owner's call|
 |`docs/upgrade-plan`|landing 1(a)–(e) done 2026-10-20 (committed). Next 1(f), owner: rebase onto `origin/main`, push, open the PR to `main` (README §8 action 1). Its merge redeploys prod with an unchanged runtime tree (R-088, `aks_deploy.yml:3-5`): merge in working hours|
 |PR #389 (`master`, Node 24 / React 19), #410 (`main.old`, Next 15.5.14)|stale (review:00 XRD.2, not re-checked); OQ-18: owner closes both|
 
@@ -130,3 +140,5 @@ Non-default statuses only; unlisted: risk OPEN, quirk UNPINNED (30 §E rows: CAN
 |2026-10-20|rewrite|OQ-1..OQ-18 DECIDED (owner confirmed the recommended defaults): OQ-mapped ODs, D15, D16 DECIDED (90, 00, §2); review fixes (2.0 split into 2.0a/2.0b, gate statistics, pins)|`cc0e228`|plan team|
 |2026-10-20|1(a)–(e)|Landing: doc set placed in `docs/upgrade/`, `60-design-copy-plan.md` removed, `tools/check-docs.mjs` added, `findings/` scrubbed, `parts/` deleted, checker ERROR 0, plan committed on `docs/upgrade-plan`; next 1(f) (owner)|`cc0e228`|plan team|
 |2026-10-20|rewrite|Owner scope decisions applied (00 §6): S-4 preserved (D16, CS-SEC-1 WITHDRAWN); today's deploy process kept (OD-29, CS-OPS-2..4, CI-6, 2.0a/2.0b WITHDRAWN; one step 2.0); `_next/data` rule as an in-repo PR (OD-03); baselines and fixtures committed, no new infrastructure (OD-24/25, OD-46); image optimizer as today (OD-41, CS-OPS-5 and CS-IMG-1 WITHDRAWN); stage soak replaced by pre-merge C6-CI, split withdrawn (OD-47); owner-only sign-off|`cc0e228`|plan team|
+|2026-10-20..2026-10-22|2.1–2.7|Phase 2 locally: harness, fixtures, P0 tests, golden commit and host builds, B0-local baselines, P1 tests, breakage catalogue; owner decisions D18–D20 (2026-10-22): lean target, scope rule, no CI; DevOps and CI changes reverted|`cc0e228` (not re-fetched; local only)|implementer|
+|2026-10-27|2.7, 2.8|Review fixes, dependency sync of the repository's `node_modules` with the lock, final local full-suite run green on `26a4c03`; exit record `records/phase-2.md`, plan docs updated to D18–D20; next: jump 1, awaiting the owner's go-ahead|`cc0e228` (not re-fetched; local only)|implementer|
