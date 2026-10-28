@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/oacore/search#readme",
   "dependencies": {
-    "@babel/runtime": "7.27.3",
+    "@babel/runtime": "7.29.10",
     "@mdi/svg": "5.9.55",
     "@oacore/design": "file:vendor/oacore-design-5.0.74.tgz",
     "@sentry/browser": "7.120.4",
