@@ -12,6 +12,6 @@ Packages the design depends on are installed from npm and are not part of the re
 
 | Package | Version | Licence |
 |---|---|---|
-| `katex` | 0.16.47 | MIT, Copyright (c) 2013-2020 Khan Academy and other contributors (`node_modules/katex/LICENSE`); the licence of its font files is still to be confirmed (VF-27) |
+| `katex` | 0.16.47 | Code: MIT, Copyright (c) 2013-2020 Khan Academy and other contributors (`node_modules/katex/LICENSE`). Fonts (`dist/fonts/`, 20 families as `.ttf`, `.woff` and `.woff2`, all 60 copied into the build by the design CSS): SIL Open Font License 1.1, Copyright (c) 2009-2010 Design Science, Inc. and (c) 2014-2018 Khan Academy, Reserved Font Names `KaTeX_AMS`, `KaTeX_Caligraphic`, `KaTeX_Fraktur`, `KaTeX_Main`, `KaTeX_Math`, `KaTeX_SansSerif`, `KaTeX_Script`, `KaTeX_Size1` to `KaTeX_Size4` and `KaTeX_Typewriter`; the copyright and licence notice is in each font file's name table (records 0, 13 and 14, licence URL http://scripts.sil.org/OFL), which the font licence accepts as the notice for a copy shipped unchanged |
 | `d3-array` | 1.2.4 | BSD-3-Clause, Copyright 2010-2016 Mike Bostock |
 | `d3-scale` | 1.0.7 | BSD-3-Clause, Copyright 2010-2015 Mike Bostock |

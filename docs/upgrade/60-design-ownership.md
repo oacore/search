@@ -22,7 +22,7 @@ New files, outside the package dir so the installed copy stays at 466 files (VG-
 |---|---|---|
 | `vendor/PROVENANCE.md` | W0.5 | Tarball, hashes, `bbc35a0`, fetch command/date, §1 caveats, generated `lib/config.js` values (`/static/search`, `/static/search/icons.svg`), OD-21 |
 | `vendor/CHANGES.md` | DV1 (empty) | One row per §7 edit: `File \| Change \| CS/Q \| PR \| Test`. DV8 replays every row |
-| `THIRD_PARTY_NOTICES.md` | W5 | design MIT (OD-21); katex MIT, fonts [VERIFY: VF-27]; d3-array, d3-scale BSD-3. DV7 adds sanitize.css 12.0.1 CC0, @mdi/svg 5.9.55 Apache-2.0 (sprite paths), slick-carousel 1.8.1 MIT |
+| `THIRD_PARTY_NOTICES.md` | W5 | design MIT (OD-21); katex MIT, fonts SIL OFL 1.1 (VF-27, closed at W5: the notice is in each font's name table); d3-array, d3-scale BSD-3. DV7 adds sanitize.css 12.0.1 CC0, @mdi/svg 5.9.55 Apache-2.0 (sprite paths), slick-carousel 1.8.1 MIT |
 | `scripts/verify-design-verbatim.mjs` | 2.3 (T-016) | File-by-file comparison of the 5.0.74 tarball (read from the npm cache by the lock integrity, checked against the §1 sha1 and sha512, never downloaded; run after the job's `npm ci`) with `node_modules/@oacore/design` (from W5 also `vendor/oacore-design`); pass = diff set equals the CHANGES files (first table cell, relative to the package) (+ `lib/config.js` for installed copies until DV7). T-016, CI-3 ([42](42-baselines-and-ci.md)) |
 
 ## 3. Inventory and design units
