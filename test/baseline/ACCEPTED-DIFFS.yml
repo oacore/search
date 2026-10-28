@@ -38,6 +38,7 @@
   step: W0
   signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
   date: '2026-10-27'
+  withdrawn: 'superseded by AD-010, which lowers the same floor from > 1900 to > 1700 after W1, 2026-10-28'
 - id: AD-004
   kind: product
   test: T-008
@@ -49,6 +50,7 @@
   step: W0
   signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
   date: '2026-10-27'
+  withdrawn: 'superseded by AD-011, which lowers the same floor from > 1900 to > 1700 after W1, 2026-10-28'
 - id: AD-005
   kind: product
   test: T-013
@@ -106,3 +108,25 @@
   step: W0.5
   signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
   date: '2026-10-27'
+- id: AD-010
+  kind: product
+  test: T-008
+  key: npm ci --dry-run added (floor)
+  from: '> 1900'
+  to: '> 1700'
+  reason: "T-008 c1. W1 (CS-LINT-1, CS-STY-1, CS-HUS-1, CS-NRA-1, CS-PRET-1) replaces ESLint 7, babel-eslint, the airbnb and @oacore configs, eslint-plugin-import/prettier, stylelint 13 and its configs, husky 4, npm-run-all 4 and Prettier 2 by the W1 tools: npm ci --dry-run adds 1825 (W1; the lock has 1819 packages entries at the jump 1 tip), 277 lock entries removed and 144 added, production tree unchanged (0 version, resolved or integrity changes). The floor only proves that npm read a real tree; status 0, no errors and installed lock = committed lock still hold. Supersedes AD-003."
+  ref: [R-014, R-015, OD-17, OD-31]
+  step: W1
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-011
+  kind: product
+  test: T-008
+  key: lock packages (floor)
+  from: '> 1900'
+  to: '> 1700'
+  reason: "T-008 c1. Same cause as AD-010: the lock holds 1826 packages entries after W1 (1959 after W0) and 1819 at the jump 1 tip. Supersedes AD-004."
+  ref: [R-014, R-015, OD-17, OD-31]
+  step: W1
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
