@@ -1,0 +1,112 @@
+{
+  "state": "V26 /search/?q=climate",
+  "viewport": { "width": 375, "height": 812 },
+  "views": [
+    {
+      "scrollY": 0,
+      "layers": [
+        {
+          "name": "header#header.styles-container.styles-container.styles_header",
+          "position": "sticky",
+          "top": "0px",
+          "zIndex": "10000",
+          "box": [0, 0, 375, 50]
+        },
+        {
+          "name": "div.styles_container",
+          "position": "fixed",
+          "top": "50px",
+          "zIndex": "11",
+          "box": [0, 50, 375, 33.59]
+        }
+      ],
+      "hits": {
+        "middle of header#header.styles-container.styles-container.styles_header": [
+          "header#header.styles-container.styles-container.styles_header",
+          "header#header.styles-container.styles-container.styles_header",
+          "header#header.styles-container.styles-container.styles_header"
+        ],
+        "middle of div.styles_container": [
+          "div.styles_container",
+          "div.styles_container",
+          "div.styles_container"
+        ],
+        "below the layers": ["content", "content", "content"]
+      }
+    },
+    {
+      "scrollY": 900,
+      "layers": [
+        {
+          "name": "header#header.styles-container.styles-container.styles_header",
+          "position": "sticky",
+          "top": "0px",
+          "zIndex": "10000",
+          "box": [0, 0, 375, 50]
+        },
+        {
+          "name": "div.styles_container",
+          "position": "fixed",
+          "top": "50px",
+          "zIndex": "11",
+          "box": [0, 50, 375, 33.59]
+        }
+      ],
+      "hits": {
+        "middle of header#header.styles-container.styles-container.styles_header": [
+          "header#header.styles-container.styles-container.styles_header",
+          "header#header.styles-container.styles-container.styles_header",
+          "header#header.styles-container.styles-container.styles_header"
+        ],
+        "middle of div.styles_container": [
+          "div.styles_container",
+          "div.styles_container",
+          "div.styles_container"
+        ],
+        "below the layers": ["content", "content", "content"]
+      }
+    },
+    {
+      "header": "expanded",
+      "scrollY": 1050,
+      "layers": [
+        {
+          "name": "header#header.styles-container.styles-container.styles_header",
+          "position": "sticky",
+          "top": "0px",
+          "zIndex": "10000",
+          "box": [0, 0, 375, 200]
+        },
+        {
+          "name": "div.styles_container",
+          "position": "fixed",
+          "top": "200px",
+          "zIndex": "11",
+          "box": [0, 200, 375, 33.59]
+        }
+      ],
+      "hits": {
+        "middle of header#header.styles-container.styles-container.styles_header": [
+          "header#header.styles-container.styles-container.styles_header",
+          "header#header.styles-container.styles-container.styles_header",
+          "header#header.styles-container.styles-container.styles_header"
+        ],
+        "middle of div.styles_container": [
+          "div.styles_container",
+          "div.styles_container",
+          "div.styles_container"
+        ],
+        "below the layers": ["content", "content", "content"]
+      },
+      "open": {
+        "name": "nav#header-nav.styles-item.styles-nav.styles-expanded",
+        "box": [0, 50, 375, 150],
+        "hits": [
+          "header#header.styles-container.styles-container.styles_header",
+          "header#header.styles-container.styles-container.styles_header",
+          "header#header.styles-container.styles-container.styles_header"
+        ]
+      }
+    }
+  ]
+}
