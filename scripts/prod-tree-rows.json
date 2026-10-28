@@ -35,8 +35,8 @@
       },
       "core-js": {
         "from": "3.42.0",
-        "to": "3.51.0",
-        "row": "CS-CORE-1 (W2c)"
+        "to": "3.46.0",
+        "row": "CS-CORE-1 (W2c; held at 3.46.0 by the owner)"
       },
       "filesize": {
         "from": "6.4.0",
