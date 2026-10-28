@@ -58,8 +58,17 @@ const shared = {
     '<rootDir>/.next/',
   ],
   // git-excluded local work folders hold unpacked packages: a second
-  // package.json named like an installed one makes the haste map ambiguous
-  modulePathIgnorePatterns: ['<rootDir>/\\.p2-work/'],
+  // package.json named like an installed one makes the haste map ambiguous;
+  // the vendored design is such a package (CS-DSN-2: tests load the
+  // installed copy, node_modules/@oacore/design)
+  modulePathIgnorePatterns: [
+    '<rootDir>/\\.p2-work/',
+    '<rootDir>/vendor/oacore-design/',
+  ],
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    '<rootDir>/vendor/oacore-design/',
+  ],
 }
 
 module.exports = {
@@ -97,7 +106,14 @@ module.exports = {
       testEnvironment: 'node',
       testMatch: ['<rootDir>/test/ops/**/*.test.js'],
       transform: {},
-      modulePathIgnorePatterns: ['<rootDir>/\\.p2-work/'],
+      modulePathIgnorePatterns: [
+        '<rootDir>/\\.p2-work/',
+        '<rootDir>/vendor/oacore-design/',
+      ],
+      coveragePathIgnorePatterns: [
+        '/node_modules/',
+        '<rootDir>/vendor/oacore-design/',
+      ],
       testPathIgnorePatterns: ['/node_modules/', '<rootDir>/.next/'],
     },
   ],
