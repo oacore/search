@@ -385,3 +385,16 @@
   step: W2b
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'
+# AD-036 (T-003 c1, the KaTeX 0.16.47 rules) was proposed at W2e and is not needed: the owner held katex at
+# 0.16.22 (2026-10-28), so the built CSS equals the B0 reference again. The id stays unused.
+- id: AD-037
+  kind: product
+  test: T-610
+  key: "t610-stdout-census.json"
+  from: "    at _callee$ (<build>/.next/server/pages/_document.js:<line>:<col>)"
+  to: "    at <build>/.next/server/pages/_document.js:<line>:<col>"
+  reason: "T-610 c3 (app stdout/stderr line census): the renderPage frame of the six error-render requests that print a stack. CS-BAB-9: the regenerator transform of Babel 7.29 emits an anonymous state-machine function where 7.27 named it _callee$ (not configurable); every other census line and the counts are unchanged. Applied by the e2e baseline hook (e2e/lib/P0-10/baseline.mjs) to the masked baseline (line:column numbers are masked on both sides by the T-610 frame normaliser); the file stays as recorded."
+  ref: [OD-12, OD-31]
+  step: W2e
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
