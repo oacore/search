@@ -262,7 +262,7 @@ Applied in three change groups, merged as `e8902fd` "Merge W2 (02, CS-CORE-1, CS
 
 ## 6. Accepted-difference rows (42 §8)
 
-`test/baseline/ACCEPTED-DIFFS.yml` at the jump tip: 47 rows, 40 in force (all kind `product`, ref OD-31), 7 withdrawn. `node scripts/ad-ledger.mjs --base master --offline`: pass.
+`test/baseline/ACCEPTED-DIFFS.yml` at the jump tip: 47 rows, 40 in force (all kind `product`, ref OD-31), 7 withdrawn. `node scripts/ad-ledger.mjs --base master --offline`: pass. After the owner decisions after jump 1 (§11, 2026-10-29): 49 rows, 42 in force, 7 withdrawn (AD-050, AD-051 added); pass.
 
 **Local signature form, confirmed by the owner on 2026-10-28:** `SIGNED: owner, <YYYY-MM-DD> (<note>)` (D20; `scripts/ad-ledger.mjs` checks the form only: the exact prefix, a real date not in the future, a non-empty note; it never looks anything up). The owner's words: "... confirm the local signature form 'SIGNED: owner, <date> (<note>)'." The GitHub comment form stays for a later CI. Recorded in STATUS §2 and 42 §8.
 
@@ -283,6 +283,7 @@ Applied in three change groups, merged as `e8902fd` "Merge W2 (02, CS-CORE-1, CS
 | AD-037 | T-610 c3, the unnamed renderPage frame of the Babel 7.29 regenerator output | W2e | as above | in force |
 | AD-038..AD-047 | the vendored design directory: T-417 c1 identity, T-016 c3 and its file sets, T-008 c1/c2/c4 (spec, `--install-links`), T-001 c1 (`lint:css`, hook, directive scope), T-002 and T-418 source scope, T-016 c2/c4 108 modules | W5 | as above | in force |
 | AD-048, AD-049 | T-610 c3, the two minified mobx 6.16.1 frame names in the `URIError: URI malformed` stack of `DataProviders.search`: `i.It` -> `i.Kt` (`ComputedValue.computeValue_`), `i.O` -> `i.g` (`ObservableObjectAdministration.getObservablePropValue_`) | W3 (found by the AD batch) | `SIGNED: owner, 2026-10-28 (approved in the work session)`: "I sign AD-048 and AD-049 as proposed (T-610 c3: the mobx 6.16.1 minified frame names i.It -> i.Kt and i.O -> i.g)." | in force |
+| AD-050, AD-051 | T-727 (AD-050) and T-730 (AD-051), the quoted `connect-src` directive: AD-035's exact key, `from` and `to` (owner decision 1 after jump 1, §11); no assertion change | W2b | `SIGNED: owner, 2026-10-29 (approved in the work session)`: the owner's words of §11 | in force |
 
 - **Not added:** AD-019 (T-015 floor) and AD-036 (T-003 c1 KaTeX rules), not needed after the owner's decision; their ids stay unused (comments in the ledger).
 - **Acceptance change (40 §8 rule 8):** the T-610 c3 stack-frame line:column normaliser, approved by the owner on 2026-10-27 (the words of AD-006..AD-009 above); `SIGNED:` in 40 §1.
