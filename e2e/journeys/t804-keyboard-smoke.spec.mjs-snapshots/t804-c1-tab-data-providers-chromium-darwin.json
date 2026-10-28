@@ -1,0 +1,210 @@
+{
+  "route": "/data-providers/",
+  "stops": [
+    {
+      "tag": "a",
+      "text": "CORECOnnectingREpositories",
+      "icon": "core-symbol",
+      "href": "https://core.ac.uk/"
+    },
+    { "tag": "input", "role": "combobox", "id": "select-app-bar-search" },
+    {
+      "tag": "ul",
+      "role": "listbox",
+      "text": "Akademik Platform Helal Yaşam DergisiKul",
+      "icon": "magnify",
+      "id": "suggestion-results-app-bar-search"
+    },
+    {
+      "tag": "button",
+      "role": "button",
+      "text": "Services",
+      "id": "services-title"
+    },
+    {
+      "tag": "button",
+      "role": "button",
+      "text": "Support us",
+      "id": "communities-title"
+    },
+    { "tag": "button", "role": "button", "text": "About", "id": "about-title" },
+    {
+      "tag": "a",
+      "text": "Akademik Platform Helal Yaşam Dergisi",
+      "href": "/data-providers/22159"
+    },
+    {
+      "tag": "a",
+      "text": "https://dergipark.org.tr/api/public/oai/",
+      "href": "https://dergipark.org.tr/api/public/oai/apjhls/"
+    },
+    {
+      "tag": "a",
+      "text": "Kultury Wschodniosłowiańskie - Oblicza i",
+      "href": "/data-providers/2474"
+    },
+    {
+      "tag": "a",
+      "text": "http://pressto.amu.edu.pl",
+      "href": "http://pressto.amu.edu.pl"
+    },
+    {
+      "tag": "a",
+      "text": "Poznańskie Spotkania Językoznawcze",
+      "href": "/data-providers/2477"
+    },
+    {
+      "tag": "a",
+      "text": "http://pressto.amu.edu.pl",
+      "href": "http://pressto.amu.edu.pl"
+    },
+    {
+      "tag": "a",
+      "text": "Poznańskie Studia Polonistyczne. Seria J",
+      "href": "/data-providers/2478"
+    },
+    {
+      "tag": "a",
+      "text": "http://pressto.amu.edu.pl",
+      "href": "http://pressto.amu.edu.pl"
+    },
+    {
+      "tag": "a",
+      "text": "Poznańskie Studia Polonistyczne. Seria L",
+      "href": "/data-providers/2479"
+    },
+    {
+      "tag": "a",
+      "text": "http://pressto.amu.edu.pl",
+      "href": "http://pressto.amu.edu.pl"
+    },
+    {
+      "tag": "a",
+      "text": "Poznańskie Studia Slawistyczne",
+      "href": "/data-providers/2480"
+    },
+    {
+      "tag": "a",
+      "text": "http://pressto.amu.edu.pl",
+      "href": "http://pressto.amu.edu.pl"
+    },
+    {
+      "tag": "a",
+      "text": "Poznańskie Studia Teologiczne",
+      "href": "/data-providers/2481"
+    },
+    {
+      "tag": "a",
+      "text": "http://pressto.amu.edu.pl",
+      "href": "http://pressto.amu.edu.pl"
+    },
+    {
+      "tag": "a",
+      "text": "Przegląd Politologiczny",
+      "href": "/data-providers/2483"
+    },
+    {
+      "tag": "a",
+      "text": "http://pressto.amu.edu.pl",
+      "href": "http://pressto.amu.edu.pl"
+    },
+    {
+      "tag": "a",
+      "text": "Przegląd Strategiczny",
+      "href": "/data-providers/2485"
+    },
+    {
+      "tag": "a",
+      "text": "http://pressto.amu.edu.pl",
+      "href": "http://pressto.amu.edu.pl"
+    },
+    {
+      "tag": "a",
+      "text": "Refleksje. Pismo naukowe studentów i dok",
+      "href": "/data-providers/2487"
+    },
+    {
+      "tag": "a",
+      "text": "http://pressto.amu.edu.pl",
+      "href": "http://pressto.amu.edu.pl"
+    },
+    { "tag": "button", "text": "Load more" },
+    {
+      "tag": "a",
+      "text": "Add data provider",
+      "href": "https://core.ac.uk/benefits#join-core"
+    },
+    {
+      "tag": "div",
+      "text": "321065923130817118385+− Leaflet | © Open",
+      "id": "map"
+    },
+    { "tag": "div", "role": "button", "text": "3" },
+    { "tag": "div", "role": "button", "text": "210" },
+    { "tag": "div", "role": "button", "text": "659" },
+    { "tag": "div", "role": "button", "text": "23" },
+    { "tag": "div", "role": "button", "text": "1308" },
+    { "tag": "img", "role": "button" },
+    { "tag": "div", "role": "button", "text": "17" },
+    { "tag": "div", "role": "button", "text": "11" },
+    { "tag": "div", "role": "button", "text": "8385" },
+    {
+      "tag": "a",
+      "role": "button",
+      "label": "Zoom in",
+      "text": "+",
+      "href": "#"
+    },
+    {
+      "tag": "a",
+      "role": "button",
+      "label": "Zoom out",
+      "text": "−",
+      "href": "#"
+    },
+    { "tag": "a", "text": "Leaflet", "href": "https://leafletjs.com" },
+    {
+      "tag": "a",
+      "text": "OpenStreetMap",
+      "href": "https://www.openstreetmap.org/copyright"
+    },
+    {
+      "tag": "a",
+      "text": "Become a data provider",
+      "href": "https://core.ac.uk/benefits#join-core"
+    },
+    { "tag": "a", "icon": "coreLogo", "href": "https://core.ac.uk" },
+    {
+      "tag": "a",
+      "text": "CORE Members.",
+      "href": "https://core.ac.uk/governance/supporters#membership-list"
+    },
+    { "tag": "a", "text": "Services", "href": "/services" },
+    { "tag": "a", "text": "Membership", "href": "/membership" },
+    { "tag": "a", "text": "Sponsorship", "href": "/sponsorship" },
+    { "tag": "a", "text": "Labs", "href": "/innovations/labs" },
+    { "tag": "a", "text": "About us", "href": "/about" },
+    { "tag": "a", "text": "Governance", "href": "/about#our-mission" },
+    { "tag": "a", "text": "Team", "href": "/about#team" },
+    { "tag": "a", "text": "Data providers", "href": "/benefits" },
+    { "tag": "a", "text": "Terms", "href": "/terms" },
+    { "tag": "a", "text": "FAQs", "href": "/faq" },
+    { "tag": "a", "text": "Blog", "href": "https://blog.core.ac.uk/" },
+    { "tag": "a", "text": "Contact us", "href": "/about#contact" },
+    {
+      "tag": "a",
+      "text": "research outputs",
+      "href": "/about/research-outputs"
+    },
+    { "tag": "a", "icon": "twitter", "href": "https://twitter.com/oacore" },
+    {
+      "tag": "a",
+      "icon": "linkedin",
+      "href": "https://www.linkedin.com/company/coreoa"
+    },
+    { "tag": "a", "icon": "github", "href": "https://github.com/oacore" },
+    { "tag": "a", "text": "Accessibility", "href": "/accessibility" },
+    { "tag": "a", "text": "Cookies", "href": "/cookies" },
+    { "tag": "a", "text": "Privacy", "href": "/privacy" }
+  ]
+}

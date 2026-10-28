@@ -1,0 +1,307 @@
+{
+  "route": "/data-providers/86/",
+  "stops": [
+    {
+      "tag": "a",
+      "text": "CORECOnnectingREpositories",
+      "icon": "core-symbol",
+      "href": "https://core.ac.uk/"
+    },
+    {
+      "tag": "button",
+      "role": "button",
+      "text": "Services",
+      "id": "services-title"
+    },
+    {
+      "tag": "button",
+      "role": "button",
+      "text": "Support us",
+      "id": "communities-title"
+    },
+    { "tag": "button", "role": "button", "text": "About", "id": "about-title" },
+    {
+      "tag": "a",
+      "text": "sustaining member",
+      "href": "https://core.ac.uk/membership"
+    },
+    {
+      "tag": "input",
+      "role": "combobox",
+      "id": "select-data-providers-outputs-select"
+    },
+    {
+      "tag": "a",
+      "text": "Clinical Scholarship’s Contribution to t",
+      "href": "/outputs/672884869"
+    },
+    {
+      "tag": "a",
+      "text": "Wortham Leah",
+      "href": "/search?q=author:(Wortham, Leah)"
+    },
+    {
+      "tag": "a",
+      "text": "McFaul Hugh",
+      "href": "/search?q=author:(McFaul, Hugh)"
+    },
+    {
+      "tag": "a",
+      "text": "Mukwevho Tribe",
+      "href": "/search?q=author:(Mukwevho, Tribe)"
+    },
+    { "tag": "a", "text": "Digital humanities", "href": "/outputs/750693293" },
+    {
+      "tag": "a",
+      "text": "Benatti Francesca",
+      "href": "/search?q=author:(Benatti, Francesca)"
+    },
+    {
+      "tag": "a",
+      "text": "Picture This: A new sociocultural ‘layer",
+      "href": "/outputs/701292755"
+    },
+    {
+      "tag": "a",
+      "text": "Horsley Karen",
+      "href": "/search?q=author:(Horsley, Karen)"
+    },
+    {
+      "tag": "a",
+      "text": "Edmund Spenser: <i>The Faerie Queene</i>",
+      "href": "/outputs/648213547"
+    },
+    {
+      "tag": "a",
+      "text": "Brown Richard Danson",
+      "href": "/search?q=author:(Brown, Richard Danson)"
+    },
+    {
+      "tag": "a",
+      "text": "Building Sustainable Professional Develo",
+      "href": "/outputs/753685737"
+    },
+    {
+      "tag": "a",
+      "text": "Hendry Helen",
+      "href": "/search?q=author:(Hendry, Helen)"
+    },
+    {
+      "tag": "a",
+      "text": "Drew Sheila",
+      "href": "/search?q=author:(Drew, Sheila)"
+    },
+    {
+      "tag": "a",
+      "text": "Teria Ng'asike John",
+      "href": "/search?q=author:(Teria Ng'asike, John)"
+    },
+    {
+      "tag": "a",
+      "text": "Introduction to The Routledge Companion ",
+      "href": "/outputs/753685748"
+    },
+    {
+      "tag": "a",
+      "text": "Newall Diana",
+      "href": "/search?q=author:(Newall, Diana)"
+    },
+    {
+      "tag": "a",
+      "text": "Pooke Grant",
+      "href": "/search?q=author:(Pooke, Grant)"
+    },
+    {
+      "tag": "a",
+      "text": "Wainwright Leon",
+      "href": "/search?q=author:(Wainwright, Leon)"
+    },
+    {
+      "tag": "a",
+      "text": "Petrography, geochronology, and volatile",
+      "href": "/outputs/710737070"
+    },
+    {
+      "tag": "a",
+      "text": "Hayden Tara S.",
+      "href": "/search?q=author:(Hayden, Tara S.)"
+    },
+    {
+      "tag": "a",
+      "text": "Barrett Thomas J.",
+      "href": "/search?q=author:(Barrett, Thomas J.)"
+    },
+    {
+      "tag": "a",
+      "text": "Anand Mahesh",
+      "href": "/search?q=author:(Anand, Mahesh)"
+    },
+    {
+      "tag": "a",
+      "text": "Whitehouse Martin J.",
+      "href": "/search?q=author:(Whitehouse, Martin J.)"
+    },
+    {
+      "tag": "a",
+      "text": "Jeon Heejin",
+      "href": "/search?q=author:(Jeon, Heejin)"
+    },
+    {
+      "tag": "a",
+      "text": "Zhao Xuchao",
+      "href": "/search?q=author:(Zhao, Xuchao)"
+    },
+    {
+      "tag": "a",
+      "text": "Mechem Marc E.",
+      "href": "/search?q=author:(Mechem, Marc E.)"
+    },
+    {
+      "tag": "a",
+      "text": "Osinski Gordon R.",
+      "href": "/search?q=author:(Osinski, Gordon R.)"
+    },
+    {
+      "tag": "a",
+      "text": "Franchi Ian. A.",
+      "href": "/search?q=author:(Franchi, Ian. A.)"
+    },
+    { "tag": "a", "text": "Full text link", "href": "/download/710737070.pdf" },
+    {
+      "tag": "a",
+      "text": "The Innocence You Have Fought For",
+      "href": "/outputs/753685736"
+    },
+    {
+      "tag": "a",
+      "text": "Chappell Sophie-Grace",
+      "href": "/search?q=author:(Chappell, Sophie-Grace)"
+    },
+    {
+      "tag": "a",
+      "text": "The Routledge Companion to Global Art Hi",
+      "href": "/outputs/750693368"
+    },
+    {
+      "tag": "a",
+      "text": "Oxygen Isotopes of Anhydrous Minerals wi",
+      "href": "/outputs/750693466"
+    },
+    {
+      "tag": "a",
+      "text": "Sims R. C.",
+      "href": "/search?q=author:(Sims, R. C.)"
+    },
+    { "tag": "a", "text": "Bose M.", "href": "/search?q=author:(Bose, M.)" },
+    { "tag": "a", "text": "Guan Y.", "href": "/search?q=author:(Guan, Y.)" },
+    {
+      "tag": "a",
+      "text": "Suttle M.D.",
+      "href": "/search?q=author:(Suttle, M.D.)"
+    },
+    {
+      "tag": "a",
+      "text": "Genge M. J.",
+      "href": "/search?q=author:(Genge, M. J.)"
+    },
+    {
+      "tag": "a",
+      "text": "Wittmann A.",
+      "href": "/search?q=author:(Wittmann, A.)"
+    },
+    {
+      "tag": "a",
+      "text": "Joseph R.",
+      "href": "/search?q=author:(Joseph, R.)"
+    },
+    {
+      "tag": "a",
+      "label": "First",
+      "icon": "chevron-double-left",
+      "href": "/data-providers/86/?offset=0"
+    },
+    {
+      "tag": "a",
+      "label": "Previous",
+      "icon": "chevron-left",
+      "href": "/data-providers/86/?offset=0"
+    },
+    {
+      "tag": "a",
+      "label": "Next",
+      "icon": "chevron-right",
+      "href": "/data-providers/86/?offset=10"
+    },
+    {
+      "tag": "a",
+      "label": "Last",
+      "icon": "chevron-double-right",
+      "href": "/data-providers/86/?offset=66680"
+    },
+    {
+      "tag": "div",
+      "text": "+− Leaflet | © OpenStreetMap contributor",
+      "id": "map"
+    },
+    {
+      "tag": "a",
+      "role": "button",
+      "label": "Zoom in",
+      "text": "+",
+      "href": "#"
+    },
+    {
+      "tag": "a",
+      "role": "button",
+      "label": "Zoom out",
+      "text": "−",
+      "href": "#"
+    },
+    { "tag": "a", "text": "Leaflet", "href": "https://leafletjs.com" },
+    {
+      "tag": "a",
+      "text": "OpenStreetMap",
+      "href": "https://www.openstreetmap.org/copyright"
+    },
+    {
+      "tag": "a",
+      "text": "CORE Repository Dashboard!",
+      "href": "https://core.ac.uk/services/repository-dashboard"
+    },
+    { "tag": "button", "text": "SIGN IN" },
+    { "tag": "button", "text": "Create account" },
+    { "tag": "a", "icon": "coreLogo", "href": "https://core.ac.uk" },
+    {
+      "tag": "a",
+      "text": "CORE Members.",
+      "href": "https://core.ac.uk/governance/supporters#membership-list"
+    },
+    { "tag": "a", "text": "Services", "href": "/services" },
+    { "tag": "a", "text": "Membership", "href": "/membership" },
+    { "tag": "a", "text": "Sponsorship", "href": "/sponsorship" },
+    { "tag": "a", "text": "Labs", "href": "/innovations/labs" },
+    { "tag": "a", "text": "About us", "href": "/about" },
+    { "tag": "a", "text": "Governance", "href": "/about#our-mission" },
+    { "tag": "a", "text": "Team", "href": "/about#team" },
+    { "tag": "a", "text": "Data providers", "href": "/benefits" },
+    { "tag": "a", "text": "Terms", "href": "/terms" },
+    { "tag": "a", "text": "FAQs", "href": "/faq" },
+    { "tag": "a", "text": "Blog", "href": "https://blog.core.ac.uk/" },
+    { "tag": "a", "text": "Contact us", "href": "/about#contact" },
+    {
+      "tag": "a",
+      "text": "research outputs",
+      "href": "/about/research-outputs"
+    },
+    { "tag": "a", "icon": "twitter", "href": "https://twitter.com/oacore" },
+    {
+      "tag": "a",
+      "icon": "linkedin",
+      "href": "https://www.linkedin.com/company/coreoa"
+    },
+    { "tag": "a", "icon": "github", "href": "https://github.com/oacore" },
+    { "tag": "a", "text": "Accessibility", "href": "/accessibility" },
+    { "tag": "a", "text": "Cookies", "href": "/cookies" },
+    { "tag": "a", "text": "Privacy", "href": "/privacy" }
+  ]
+}

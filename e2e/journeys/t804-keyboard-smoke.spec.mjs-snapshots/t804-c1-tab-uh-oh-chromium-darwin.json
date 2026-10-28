@@ -1,0 +1,60 @@
+{
+  "route": "/works/4040/",
+  "stops": [
+    {
+      "tag": "a",
+      "text": "CORECOnnectingREpositories",
+      "icon": "core-symbol",
+      "href": "https://core.ac.uk/"
+    },
+    { "tag": "button", "icon": "magnify" },
+    {
+      "tag": "button",
+      "role": "button",
+      "text": "Services",
+      "id": "services-title"
+    },
+    {
+      "tag": "button",
+      "role": "button",
+      "text": "Support us",
+      "id": "communities-title"
+    },
+    { "tag": "button", "role": "button", "text": "About", "id": "about-title" },
+    { "tag": "a", "text": "Go to homepage", "href": "/" },
+    { "tag": "a", "text": "Contact us", "href": "/contact" },
+    { "tag": "a", "icon": "coreLogo", "href": "https://core.ac.uk" },
+    {
+      "tag": "a",
+      "text": "CORE Members.",
+      "href": "https://core.ac.uk/governance/supporters#membership-list"
+    },
+    { "tag": "a", "text": "Services", "href": "/services" },
+    { "tag": "a", "text": "Membership", "href": "/membership" },
+    { "tag": "a", "text": "Sponsorship", "href": "/sponsorship" },
+    { "tag": "a", "text": "Labs", "href": "/innovations/labs" },
+    { "tag": "a", "text": "About us", "href": "/about" },
+    { "tag": "a", "text": "Governance", "href": "/about#our-mission" },
+    { "tag": "a", "text": "Team", "href": "/about#team" },
+    { "tag": "a", "text": "Data providers", "href": "/benefits" },
+    { "tag": "a", "text": "Terms", "href": "/terms" },
+    { "tag": "a", "text": "FAQs", "href": "/faq" },
+    { "tag": "a", "text": "Blog", "href": "https://blog.core.ac.uk/" },
+    { "tag": "a", "text": "Contact us", "href": "/about#contact" },
+    {
+      "tag": "a",
+      "text": "research outputs",
+      "href": "/about/research-outputs"
+    },
+    { "tag": "a", "icon": "twitter", "href": "https://twitter.com/oacore" },
+    {
+      "tag": "a",
+      "icon": "linkedin",
+      "href": "https://www.linkedin.com/company/coreoa"
+    },
+    { "tag": "a", "icon": "github", "href": "https://github.com/oacore" },
+    { "tag": "a", "text": "Accessibility", "href": "/accessibility" },
+    { "tag": "a", "text": "Cookies", "href": "/cookies" },
+    { "tag": "a", "text": "Privacy", "href": "/privacy" }
+  ]
+}

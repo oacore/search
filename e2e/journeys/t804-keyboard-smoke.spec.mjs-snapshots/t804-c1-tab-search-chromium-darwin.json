@@ -1,0 +1,322 @@
+{
+  "route": "/search/?q=climate",
+  "stops": [
+    {
+      "tag": "a",
+      "text": "CORECOnnectingREpositories",
+      "icon": "core-symbol",
+      "href": "https://core.ac.uk/"
+    },
+    { "tag": "button", "icon": "window-close" },
+    { "tag": "input", "role": "combobox", "id": "select-app-bar-search" },
+    {
+      "tag": "button",
+      "role": "button",
+      "text": "Services",
+      "id": "services-title"
+    },
+    {
+      "tag": "button",
+      "role": "button",
+      "text": "Support us",
+      "id": "communities-title"
+    },
+    { "tag": "button", "role": "button", "text": "About", "id": "about-title" },
+    { "tag": "button", "icon": "download" },
+    { "tag": "button", "icon": "share-variant" },
+    {
+      "tag": "a",
+      "text": "Climate change 2015: growing risks, crit",
+      "href": "/works/19211324/?t=fafad9968b7cd268c5fd64342bf88a26-19211324&search=q=climate"
+    },
+    {
+      "tag": "a",
+      "text": "Climate Council",
+      "href": "/search?q=author:(Climate Council)&t=fafad9968b7cd268c5fd64342bf88a26-19211324"
+    },
+    { "tag": "a", "text": "Full text link", "href": "/download/30671329.pdf" },
+    {
+      "tag": "a",
+      "text": "Analysis and Policy Observatory (APO)",
+      "href": "/data-providers/713?t=fafad9968b7cd268c5fd64342bf88a26-19211324"
+    },
+    {
+      "tag": "a",
+      "text": "Climate and Airborne Pollutants",
+      "href": "/works/62704171/?t=fafad9968b7cd268c5fd64342bf88a26-62704171&search=q=climate"
+    },
+    {
+      "tag": "a",
+      "text": "Climate Change Science Program (U.S.)",
+      "href": "/search?q=author:(Climate Change Science Program (U.S.))&t=fafad9968b7cd268c5fd64342bf88a26-62704171"
+    },
+    { "tag": "a", "text": "Full text link", "href": "/download/216240794.pdf" },
+    {
+      "tag": "a",
+      "text": "UNT (University of North Texas) Digital ",
+      "href": "/data-providers/2313?t=fafad9968b7cd268c5fd64342bf88a26-62704171"
+    },
+    {
+      "tag": "a",
+      "text": "Thirsty country: climate change and drou",
+      "href": "/works/19212910/?t=fafad9968b7cd268c5fd64342bf88a26-19212910&search=q=climate"
+    },
+    {
+      "tag": "a",
+      "text": "Climate Council",
+      "href": "/search?q=author:(Climate Council)&t=fafad9968b7cd268c5fd64342bf88a26-19212910"
+    },
+    { "tag": "a", "text": "Full text link", "href": "/download/30672389.pdf" },
+    {
+      "tag": "a",
+      "text": "Analysis and Policy Observatory (APO)",
+      "href": "/data-providers/713?t=fafad9968b7cd268c5fd64342bf88a26-19212910"
+    },
+    {
+      "tag": "a",
+      "text": "Midwestern Regional Climate Center",
+      "href": "/works/18872441/?t=fafad9968b7cd268c5fd64342bf88a26-18872441&search=q=climate"
+    },
+    {
+      "tag": "a",
+      "text": "Midwestern Regional Climate Center",
+      "href": "/search?q=author:(Midwestern Regional Climate Center)&t=fafad9968b7cd268c5fd64342bf88a26-18872441"
+    },
+    { "tag": "a", "text": "Full text link", "href": "/download/158316893.pdf" },
+    {
+      "tag": "a",
+      "text": "Illinois Digital Environment for Access ",
+      "href": "/data-providers/198?t=fafad9968b7cd268c5fd64342bf88a26-18872441"
+    },
+    {
+      "tag": "a",
+      "text": "Seasonal Climate Forecasts and Risk Mana",
+      "href": "/works/17489114/?t=fafad9968b7cd268c5fd64342bf88a26-17489114&search=q=climate"
+    },
+    {
+      "tag": "a",
+      "text": "Hoogenhoom G.",
+      "href": "/search?q=author:(Hoogenhoom, G.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Broad K.",
+      "href": "/search?q=author:(Broad, K.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Breuer N.E",
+      "href": "/search?q=author:(Breuer, N.E)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Paz J.",
+      "href": "/search?q=author:(Paz, J.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Ingram K.T",
+      "href": "/search?q=author:(Ingram, K.T)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Roncoli C.",
+      "href": "/search?q=author:(Roncoli, C.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Ingram K.T.",
+      "href": "/search?q=author:(Ingram, K.T.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Crane T.A",
+      "href": "/search?q=author:(Crane, T.A)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Breuer N.E.",
+      "href": "/search?q=author:(Breuer, N.E.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Crane T.A.",
+      "href": "/search?q=author:(Crane, T.A.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Broad K",
+      "href": "/search?q=author:(Broad, K)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Roncoli C",
+      "href": "/search?q=author:(Roncoli, C)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Hoogenhoom G",
+      "href": "/search?q=author:(Hoogenhoom, G)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Paz J",
+      "href": "/search?q=author:(Paz, J)&t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    { "tag": "a", "text": "Full text link", "href": "/download/29255347.pdf" },
+    {
+      "tag": "a",
+      "text": "Wageningen University & Research Publica",
+      "href": "/data-providers/679?t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "University of Miami: Scholarship@Miami",
+      "href": "/data-providers/14567?t=fafad9968b7cd268c5fd64342bf88a26-17489114"
+    },
+    {
+      "tag": "a",
+      "text": "Going for zero: state decarbonisation st",
+      "href": "/works/19213079/?t=fafad9968b7cd268c5fd64342bf88a26-19213079&search=q=climate"
+    },
+    {
+      "tag": "a",
+      "text": "Climate Institute",
+      "href": "/search?q=author:(Climate Institute)&t=fafad9968b7cd268c5fd64342bf88a26-19213079"
+    },
+    { "tag": "a", "text": "Full text link", "href": "/download/30672404.pdf" },
+    {
+      "tag": "a",
+      "text": "Analysis and Policy Observatory (APO)",
+      "href": "/data-providers/713?t=fafad9968b7cd268c5fd64342bf88a26-19213079"
+    },
+    {
+      "tag": "a",
+      "text": "Sixth Oregon climate assessment",
+      "href": "/works/153927213/?t=fafad9968b7cd268c5fd64342bf88a26-153927213&search=q=climate"
+    },
+    {
+      "tag": "a",
+      "text": "Fleishman Erica",
+      "href": "/search?q=author:(Fleishman, Erica)&t=fafad9968b7cd268c5fd64342bf88a26-153927213"
+    },
+    {
+      "tag": "a",
+      "text": "Oregon Climate Change Research Institute",
+      "href": "/search?q=author:(Oregon Climate Change Research Institute)&t=fafad9968b7cd268c5fd64342bf88a26-153927213"
+    },
+    {
+      "tag": "a",
+      "text": "ScholarsArchive@OSU",
+      "href": "/data-providers/197?t=fafad9968b7cd268c5fd64342bf88a26-153927213"
+    },
+    {
+      "tag": "a",
+      "text": "Sixth Oregon climate assessment",
+      "href": "/works/385302858/?t=fafad9968b7cd268c5fd64342bf88a26-385302858&search=q=climate"
+    },
+    {
+      "tag": "a",
+      "text": "Fleishman Erica",
+      "href": "/search?q=author:(Fleishman, Erica)&t=fafad9968b7cd268c5fd64342bf88a26-385302858"
+    },
+    {
+      "tag": "a",
+      "text": "Oregon Climate Change Research Institute",
+      "href": "/search?q=author:(Oregon Climate Change Research Institute)&t=fafad9968b7cd268c5fd64342bf88a26-385302858"
+    },
+    {
+      "tag": "a",
+      "text": "ScholarsArchive@OSU",
+      "href": "/data-providers/197?t=fafad9968b7cd268c5fd64342bf88a26-385302858"
+    },
+    {
+      "tag": "a",
+      "text": "Sixth Oregon climate assessment",
+      "href": "/works/366588237/?t=fafad9968b7cd268c5fd64342bf88a26-366588237&search=q=climate"
+    },
+    {
+      "tag": "a",
+      "text": "Fleishman Erica",
+      "href": "/search?q=author:(Fleishman, Erica)&t=fafad9968b7cd268c5fd64342bf88a26-366588237"
+    },
+    {
+      "tag": "a",
+      "text": "Oregon Climate Change Research Institute",
+      "href": "/search?q=author:(Oregon Climate Change Research Institute)&t=fafad9968b7cd268c5fd64342bf88a26-366588237"
+    },
+    {
+      "tag": "a",
+      "text": "ScholarsArchive@OSU",
+      "href": "/data-providers/197?t=fafad9968b7cd268c5fd64342bf88a26-366588237"
+    },
+    {
+      "tag": "a",
+      "text": "Seventh Oregon climate assessment",
+      "href": "/works/164917271/?t=fafad9968b7cd268c5fd64342bf88a26-164917271&search=q=climate"
+    },
+    {
+      "tag": "a",
+      "text": "Fleishman Erica",
+      "href": "/search?q=author:(Fleishman, Erica)&t=fafad9968b7cd268c5fd64342bf88a26-164917271"
+    },
+    {
+      "tag": "a",
+      "text": "Oregon Climate Change Research Institute",
+      "href": "/search?q=author:(Oregon Climate Change Research Institute)&t=fafad9968b7cd268c5fd64342bf88a26-164917271"
+    },
+    {
+      "tag": "a",
+      "text": "ScholarsArchive@OSU",
+      "href": "/data-providers/197?t=fafad9968b7cd268c5fd64342bf88a26-164917271"
+    },
+    { "tag": "button", "text": "1" },
+    { "tag": "button", "text": "2" },
+    { "tag": "button", "text": "3" },
+    { "tag": "button", "text": "4" },
+    { "tag": "button", "text": "5" },
+    { "tag": "button", "text": "6" },
+    { "tag": "button", "text": "7" },
+    { "tag": "button", "text": "last" },
+    { "tag": "button", "icon": "chevron-right" },
+    {
+      "tag": "a",
+      "text": "CORE membershipSustaining memberOpen Uni",
+      "href": "https://core.ac.uk/data-providers/86"
+    },
+    { "tag": "a", "href": "https://www.core.ac.uk" },
+    { "tag": "a", "icon": "coreLogo", "href": "https://core.ac.uk" },
+    {
+      "tag": "a",
+      "text": "CORE Members.",
+      "href": "https://core.ac.uk/governance/supporters#membership-list"
+    },
+    { "tag": "a", "text": "Services", "href": "/services" },
+    { "tag": "a", "text": "Membership", "href": "/membership" },
+    { "tag": "a", "text": "Sponsorship", "href": "/sponsorship" },
+    { "tag": "a", "text": "Labs", "href": "/innovations/labs" },
+    { "tag": "a", "text": "About us", "href": "/about" },
+    { "tag": "a", "text": "Governance", "href": "/about#our-mission" },
+    { "tag": "a", "text": "Team", "href": "/about#team" },
+    { "tag": "a", "text": "Data providers", "href": "/benefits" },
+    { "tag": "a", "text": "Terms", "href": "/terms" },
+    { "tag": "a", "text": "FAQs", "href": "/faq" },
+    { "tag": "a", "text": "Blog", "href": "https://blog.core.ac.uk/" },
+    { "tag": "a", "text": "Contact us", "href": "/about#contact" },
+    {
+      "tag": "a",
+      "text": "research outputs",
+      "href": "/about/research-outputs"
+    },
+    { "tag": "a", "icon": "twitter", "href": "https://twitter.com/oacore" },
+    {
+      "tag": "a",
+      "icon": "linkedin",
+      "href": "https://www.linkedin.com/company/coreoa"
+    },
+    { "tag": "a", "icon": "github", "href": "https://github.com/oacore" },
+    { "tag": "a", "text": "Accessibility", "href": "/accessibility" },
+    { "tag": "a", "text": "Cookies", "href": "/cookies" },
+    { "tag": "a", "text": "Privacy", "href": "/privacy" }
+  ]
+}
