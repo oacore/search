@@ -81,10 +81,11 @@ const validDate = (s) => {
 // a glob is a pattern, a key is a literal (42 §8). The matchers compare keys exactly, so this is the guard against
 // a pattern that would never match (or one a future matcher would expand): `*` and `{a,b}` are refused. A `?` is
 // allowed: URL keys carry a query string and accessible names end in one. So is the wildcard group `(.*)` of a
-// Next route source (path-to-regexp), which is literal text of the key that names that route, e.g. T-010's
-// `header:/:path(.*)`; a `*` anywhere else is still refused.
+// Next route source (path-to-regexp) right after a route parameter name, `:<name>(.*)`, which is literal text of
+// the key that names that route, e.g. T-010's `header:/:path(.*)`; a `(.*)` without a parameter name before it, and
+// a `*` anywhere else, are still refused.
 export const hasGlob = (key) =>
-  /\*|\{[^}]*,[^}]*\}/.test(key.replace(/\(\.\*\)/g, ''))
+  /\*|\{[^}]*,[^}]*\}/.test(key.replace(/:[A-Za-z_]\w*\(\.\*\)/g, ''))
 // the keys a key lists: a composite key lists several, separated by `, ` (42 §8), as the hooks read it
 // (e2e/lib/P0-11/contract.mjs rowKeys, e2e/lib/P0-10/baseline.mjs ledgerRowsOf); every per-key rule holds for each
 export const keysOf = (key) => [...new Set(String(key).split(', '))]

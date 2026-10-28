@@ -801,6 +801,12 @@ describe('CI-1 accepted-diffs ledger', () => {
       ['header:/:path(.*)', false],
       ['header:/:path(.*)/*', true],
       ['header:/(.+)*', true],
+      // only after a route parameter name: a bare group is a pattern
+      ['(.*)', true],
+      ['x.json(.*)', true],
+      ['t610-stdout-census.json(.*)', true],
+      ['anything (.*) here', true],
+      ['header:/(.*)', true],
       ['*', true],
       ['**/etag', true],
       ['404-*@proxy/etag', true],
