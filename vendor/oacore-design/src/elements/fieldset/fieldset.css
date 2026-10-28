@@ -1,0 +1,52 @@
+.fieldset {
+  border: 1px solid var(--gray-300);
+}
+
+.title {
+  width: auto;
+  font-size: .8rem;
+  color: var(--primary);
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-item {
+  display: flex;
+  flex-basis: 32%;
+  align-items: center;
+  min-width: auto;
+  height: 60px;
+  margin: 0 .2rem;
+  cursor: pointer;
+}
+
+.box-item-active,
+.box-item:hover {
+  color: var(--white);
+  background-color: var(--primary);
+  transition-duration: 150ms;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: .5rem;
+}
+
+@media (--screen-until-desktop) {
+  .box-item {
+    flex-basis: 100%;
+  }
+
+  .box-item:not(:last-child) {
+    margin-bottom: .5rem;
+  }
+}

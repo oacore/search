@@ -14,7 +14,8 @@
 //
 // What it runs (never --fix, R-049):
 //   eslint . --format json                                          (= npm run lint:js)
-//   stylelint --ignore-path .gitignore '**/*.css' --formatter json  (= npm run lint:css, scripts/stylelint-ratchet.mjs)
+//   stylelint --ignore-path .gitignore --ignore-path .stylelintignore '**/*.css' --formatter json
+//                                                                   (= npm run lint:css, scripts/stylelint-ratchet.mjs)
 //   prettier --list-different <the files ESLint and stylelint lint> (the scope that eslint-plugin-prettier and
 //                                                                    stylelint-prettier checked before W1)
 // Results are reduced to (path, rule, count) with repo-relative paths (ER-28). ESLint messages without a rule count

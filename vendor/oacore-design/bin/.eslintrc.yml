@@ -1,0 +1,7 @@
+rules:
+  # enable console for scripting files
+  no-console: off
+
+  # enable Yargs
+  global-require: off
+  no-unused-expressions: off

@@ -12,15 +12,17 @@
 //   --version      the published version (default: the version of the lock entry, 5.0.74)
 //   --changes      the edit list of the copy (default <root>/vendor/CHANGES.md when it exists; 60 §2: a table whose
 //                  first column is the changed file, relative to the package)
-//   --tarball      use this tarball (it is verified against the lock integrity) instead of asking npm
+//   --tarball      use this tarball (it is verified against the reference integrity) instead of asking npm
 //   --tarball-dir  keep the tarball obtained from npm in this directory (default: a temporary directory, removed)
 //   --self-test    known-answer tests of the tar reader and the CHANGES parser; touches no tarball
 //
 // The tarball comes from the npm cache only, nothing is downloaded: `npm pack @oacore/design@<version> --offline`
-// (needs the packument in the cache); when that misses, the content-addressed cache entry of the lock integrity
+// (needs the packument in the cache); when that misses, the content-addressed cache entry of the reference integrity
 // (`npm ci` caches the tarball by integrity, not the packument). A miss of both exits 2.
-// The tarball is checked against the sha512 integrity of package-lock.json (and the sha1 of 60 §1 for 5.0.74),
-// read in memory (no extraction), and every file is compared byte for byte (sha256) with the copy.
+// The reference integrity is the sha512 integrity of the lock entry; from W5 (CS-DSN-2) the lock entry is the
+// directory `file:vendor/oacore-design`, which has no integrity, and the reference is the published integrity of
+// 60 §1 (5.0.74 only). The tarball is checked against it (and the sha1 of 60 §1 for 5.0.74), read in memory (no
+// extraction), and every file is compared byte for byte (sha256) with the copy.
 //
 // Pass = the set of files that differ (or exist on one side only) equals the allowed set:
 //   - the files named by CHANGES.md (60 §2; none before DV1), each of which must really differ, and
@@ -41,6 +43,9 @@ const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const NAME = '@oacore/design'
 // 60 §1: sha1 of @oacore/design@5.0.74 (package-lock.json:2365 before the lock was regenerated)
 const SHA1_5_0_74 = 'e6a401d74defeb09d828b10374ff35107a9324c4'
+// 60 §1: the published sha512 integrity of 5.0.74 (package-lock.json:2366 before the lock was regenerated)
+const SHA512_5_0_74 =
+  'sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=='
 // the postinstall of the installed package writes this file (bin build, from design.config.js)
 const INSTALL_GENERATED = ['lib/config.js']
 
@@ -206,7 +211,10 @@ function obtainTarball({ version, integrity, dir }) {
   }
   const cached = cacheEntry(integrity)
   if (cached)
-    return { file: cached, source: 'npm cache entry of the lock integrity' }
+    return {
+      file: cached,
+      source: 'npm cache entry of the reference integrity',
+    }
   const why = String(r.stderr || '')
     .split('\n')
     .filter((l) => /code|ENOTCACHED|cache/i.test(l))
@@ -221,6 +229,26 @@ function obtainTarball({ version, integrity, dir }) {
 }
 
 // ---------- the check ----------
+
+// the integrity the tarball must have: the lock entry's, or, for the directory entry of W5 (no integrity), the
+// published one of 60 §1 -> { integrity, source } or throws (exit 2)
+export function referenceIntegrity(lockEntry, version) {
+  if (lockEntry.integrity)
+    return { integrity: lockEntry.integrity, source: 'package-lock.json' }
+  const directory =
+    /^file:/.test(lockEntry.resolved || '') &&
+    !/\.(tgz|tar\.gz)$/.test(lockEntry.resolved)
+  if (directory && version === '5.0.74')
+    return { integrity: SHA512_5_0_74, source: '60 §1' }
+  throw Object.assign(
+    new Error(
+      directory
+        ? `the lock entry is the directory ${lockEntry.resolved} and 60 §1 names no integrity for ${version}`
+        : `the lock entry of ${NAME} has no integrity (resolved ${lockEntry.resolved})`
+    ),
+    { exitCode: 2 }
+  )
+}
 
 export function compare(tarFiles, copyFiles) {
   const differ = []
@@ -279,6 +307,7 @@ export function verify(opts) {
     ? { files: new Map(), symlinks: ['.'] }
     : readTree(target)
 
+  const reference = referenceIntegrity(lock, version)
   let tmp = null
   let tarball
   if (opts.tarball)
@@ -288,7 +317,7 @@ export function verify(opts) {
       ? path.resolve(opts.tarballDir)
       : (tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'design-pack-')))
     fs.mkdirSync(dir, { recursive: true })
-    tarball = obtainTarball({ version, integrity: lock.integrity, dir })
+    tarball = obtainTarball({ version, integrity: reference.integrity, dir })
     // a kept directory always holds the tarball, whichever way it was found
     if (opts.tarballDir && path.dirname(tarball.file) !== dir) {
       const kept = path.join(dir, `oacore-design-${version}.tgz`)
@@ -302,8 +331,8 @@ export function verify(opts) {
     const integrity = `sha512-${sha('sha512', bytes, 'base64')}`
     const sha1 = sha('sha1', bytes)
     const bad = []
-    if (version === lock.version && integrity !== lock.integrity)
-      bad.push('sha512 integrity differs from package-lock.json')
+    if (version === lock.version && integrity !== reference.integrity)
+      bad.push(`sha512 integrity differs from ${reference.source}`)
     if (version === '5.0.74' && sha1 !== SHA1_5_0_74)
       bad.push('sha1 differs from 60 §1')
     if (bad.length)
@@ -325,8 +354,8 @@ export function verify(opts) {
     const changesFile = opts.changes
       ? path.resolve(opts.changes)
       : fs.existsSync(path.join(root, 'vendor', 'CHANGES.md'))
-      ? path.join(root, 'vendor', 'CHANGES.md')
-      : null
+        ? path.join(root, 'vendor', 'CHANGES.md')
+        : null
     const changes = changesFile
       ? parseChanges(fs.readFileSync(changesFile, 'utf8'))
       : []
@@ -344,7 +373,12 @@ export function verify(opts) {
       schema: 1,
       target: path.relative(root, target) || '.',
       installedCopy,
-      lock: { version: lock.version, integrity: lock.integrity },
+      lock: {
+        version: lock.version,
+        integrity: lock.integrity,
+        resolved: lock.resolved,
+      },
+      reference,
       tarball: {
         spec: `${NAME}@${version}`,
         source: tarball.source,
@@ -502,6 +536,39 @@ function selfTest() {
     JSON.stringify(
       verdict(d, { allowed: ['y', 'x'], changes: ['x'] }).stale
     ) === JSON.stringify(['x'])
+  )
+  const ref = (entry, version) => {
+    try {
+      return referenceIntegrity(entry, version)
+    } catch (e) {
+      return { error: e.exitCode }
+    }
+  }
+  ok(
+    'referenceIntegrity: the lock integrity of a tarball entry',
+    ref(
+      {
+        resolved: 'file:vendor/oacore-design-5.0.74.tgz',
+        integrity: 'sha512-x',
+      },
+      '5.0.74'
+    ).integrity === 'sha512-x'
+  )
+  ok(
+    'referenceIntegrity: 60 §1 for the directory entry of 5.0.74',
+    ref({ resolved: 'file:vendor/oacore-design' }, '5.0.74').source ===
+      '60 §1' &&
+      ref({ resolved: 'file:vendor/oacore-design' }, '5.0.74').integrity ===
+        SHA512_5_0_74
+  )
+  ok(
+    'referenceIntegrity: a directory of another version exits 2',
+    ref({ resolved: 'file:vendor/oacore-design' }, '5.0.75').error === 2
+  )
+  ok(
+    'referenceIntegrity: a tarball entry without integrity exits 2',
+    ref({ resolved: 'file:vendor/oacore-design-5.0.74.tgz' }, '5.0.74')
+      .error === 2
   )
   let failed = 0
   for (const [name, pass] of results) {

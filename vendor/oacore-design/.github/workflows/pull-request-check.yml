@@ -1,0 +1,41 @@
+name: Pull request check
+
+on: push
+
+env:
+  NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '16.x'
+      - name: Install packages
+        run: npm ci
+      - name: Run build
+        run: npm run build
+
+  lint:
+    name: Code quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '16.x'
+      - name: Install packages
+        run: npm ci
+      - name: Lint everything
+        run: npm run lint

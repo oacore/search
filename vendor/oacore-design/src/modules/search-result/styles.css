@@ -1,0 +1,196 @@
+:root {
+  --search-result-thumbnail-width: 5rem;
+  --search-result-thumbnail-height: 7rem;
+  --search-result-thumbnail-border-radius: 2px;
+  --search-result-footnote-height: 2.2rem;
+}
+
+.container {
+  position: relative;
+  min-height: calc(var(--search-result-thumbnail-height) + var(--card-padding-y, 1rem) + 1rem);
+  padding-left: calc(2 * var(--card-padding-x, 1rem) + var(--search-result-thumbnail-width));
+  margin-bottom: var(--search-result-footnote-height);
+}
+
+.container-recommended {
+  margin-top: 1rem;
+  background-color: var(--gray-100);
+  border: solid var(--primary);
+  box-shadow: none;
+}
+
+.text-upper-header {
+  position: absolute;
+  top: -22px;
+  left: -2px;
+  padding: 2px 10px;
+  font-size: 12px;
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  margin-bottom: .5rem;
+}
+
+.thumbnail {
+  position: absolute;
+  top: var(--card-padding-y, 1rem);
+  left: var(--card-padding-x, 1rem);
+  margin: 0;
+}
+
+.thumbnail a {
+  display: block;
+  border-radius: var(--search-result-thumbnail-border-radius);
+  transition: box-shadow 150ms;
+
+  &:link:hover {
+    text-decoration: none;
+    box-shadow: var(--elevation-01);
+  }
+
+  &:link:focus {
+    text-decoration: none;
+    box-shadow: var(--elevation-04);
+  }
+
+  &:link:active {
+    box-shadow: none;
+  }
+}
+
+.thumbnail img {
+  display: block;
+  width: var(--search-result-thumbnail-width);
+  height: var(--search-result-thumbnail-height);
+  object-fit: cover;
+  border: 1px solid var(--primary);
+  border-bottom: 0;
+  border-radius:
+    var(--search-result-thumbnail-border-radius)
+    var(--search-result-thumbnail-border-radius)
+    0
+    0;
+
+  &:not([src]) {
+    border-color: var(--gray-300);
+  }
+
+  &::after,
+  &::before {
+    display: none;
+    content: 'a';
+  }
+}
+
+.thumbnail-caption {
+  display: block;
+  width: 100%;
+  padding: .125rem .25rem;
+  font-size: .75rem;
+  line-height: 1;
+  color: var(--white);
+  text-align: center;
+  background: var(--primary);
+  border-radius:
+    0
+    0
+    var(--search-result-thumbnail-border-radius)
+    var(--search-result-thumbnail-border-radius);
+}
+
+.thumbnail-caption-empty {
+  color: var(--gray-700);
+  background: var(--gray-300);
+}
+
+.content {
+  height: 3rem;
+  margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Loading states */
+[aria-busy='true'] .thumbnail-caption:empty {
+  display: none;
+}
+
+.link {
+  color: var(--gray-800);
+  text-decoration: underline;
+}
+
+/* stylelint-disable property-no-unknown */
+.footnote {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  height: max-content;
+  padding-top: .5rem;
+  margin: 0 1rem;
+  overflow: hidden;
+  font-size: .75rem;
+  text-overflow: ellipsis;
+  transform: translateY(100%);
+  line-clamp: 2;
+  box-orient: vertical;
+}
+
+.footnote span{
+  color: var(--gray-600);
+}
+
+.repository-link {
+  color: initial;
+}
+
+/* Variants */
+.full-text-hosted {
+  /* Preserving for the future use */
+}
+
+.full-text-linked {
+  & .thumbnail img{
+    border-color: var(--primary-light);
+  }
+
+  & .thumbnail-caption {
+    background-color: var(--primary-light);
+  }
+}
+
+.full-text-missing {
+  & .thumbnail {
+    filter: grayscale(100%);
+  }
+}
+
+.metadata-list {
+  color: var(--gray-700);
+}
+
+.metadata-list span{
+  color: var(--gray-700);
+}
+
+
+.data-provider {
+  display: inline-block;
+
+  &:not(:first-child)::before {
+    /**
+     * There is no particular reason to use the 'en quad' instead the 'en-space'
+     * but there is a reason to use spacer with length '1 en'
+     */
+    content: '\2000 and\2000';
+    opacity: .38;
+  }
+}

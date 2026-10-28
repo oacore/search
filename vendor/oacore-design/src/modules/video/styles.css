@@ -1,0 +1,11 @@
+.modal {
+  max-width: 70vw;
+  height: 100vh;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.video {
+  height: 100%;
+  margin-top: 2rem;
+}

@@ -1,0 +1,131 @@
+/**
+ * Colour system
+ *
+ * Design system colour palette. Contains shades of grey and our brand
+ * colours.
+ *
+ * Guidelines:
+ * 1. Colour values are defined as HSL triple. This includes both `--color`
+ *    and `--on-color` variables.
+ * 2. Emphasis values are defined as alpha channel value.
+ * 3. The usage may look like:
+ *    ```css
+ *    color: hsl(var(--on-primary) / var(--on-primary-medium-emphasis))
+ *    ```
+ *
+ * NOTE: For some reason, browsers don't support 0 values without a unit,
+ *       so colour values contain explicit units, i.e. 0% wherever
+ *       bare `0` would be enough. Pure integer is acceptable as a first
+ *       argument but 'deg' unit is used for the consistency.
+ *
+ * NOTE: Emphasis values are defined as a rational number between 0 and 1
+ *       instead the percentage to preserve the compatibility with the `opacity`
+ *       property.
+ */
+
+:root {
+  /**
+   * Fundamentals
+   *
+   * @deprecated, should be replaced with --background, --surface
+   *              and corresponding --on-* colours
+   */
+  --white: #fff;
+  --black: #000;
+
+  /**
+   * Grey shades
+   *
+   * Shades of grey reflect Material Gray palette.
+   * See more: https://material.io/design/color/
+   *
+   * @deprecated, should be replaced with --on-* colour accents
+   */
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #eee;
+  --gray-300: #e0e0e0;
+  --gray-400: #bdbdbd;
+  --gray-500: #9e9e9e;
+  --gray-600: #757575;
+  --gray-700: #616161;
+  --gray-800: #424242;
+  --gray-900: #212121;
+
+  /**
+   * Environment background
+   *
+   * Applies to <body> only.
+   */
+  --background: 0deg 0% 100%;
+  --on-background: 0deg 0% 0%;
+
+  /**
+   * Surface
+   *
+   * Apply to all surfaces: cards, lists, dialogues etc.
+   */
+  --surface: 0deg 0% 100%;
+  --on-surface: 0deg 0% 0%;
+  --on-surface-high-emphasis: .87;
+  --on-surface-medium-emphasis: .6;
+  --on-surface-disabled: .38;
+  --on-surface-overlay: var(--on-surface);
+
+  /**
+   * Primary brand accents
+   *
+   * @deprecated, should be replaced with the new --primary accents, see below.
+   */
+  --primary: #b75400;
+  --primary-light: #ef8237;
+  --primary-dark: #812700;
+
+  /**
+   * New primary brand accents
+   *
+   * Brand accents were generated with Material Color Tool.
+   * Access at: https://material.io/resources/color/
+   */
+  --primary-hsl: 28deg 100% 36%;
+  --primary-variant: 18deg 100% 25%;
+  --on-primary: 0deg 0% 100%;
+  --on-primary-high-emphasis: 1;
+  --on-primary-medium-emphasis: .74;
+  --on-primary-disabled: .38;
+  --on-primary-overlay: 0deg 0% 100%;
+
+  /**
+   * Success
+   *
+   * @deprecated, no replacement
+   */
+  --success: #8bc34a;/* @deprecated */
+  --success-light: #bef67a; /* @deprecated */
+  --success-dark: #5a9216; /* @deprecated */
+
+  /**
+   * Warning
+   *
+   * @deprecated, no replacement
+   */
+  --warning: #fdd835; /* @deprecated */
+  --warning-light: #ffff6b; /* @deprecated */
+  --warning-dark: #c6a700; /* @deprecated */
+
+  /**
+   * Danger
+   *
+   * @deprecated, should be replaced with Error, see below
+   */
+  --danger: #c62828; /* @deprecated */
+  --danger-light: #ff5f52; /* @deprecated */
+  --danger-light-background: #fff2f1; /* @deprecated */
+  --danger-dark: #8e0000; /* @deprecated */
+
+  /**
+   * Error
+   */
+  --error: .97deg 100% 35%;
+  --on-error: 0deg 0% 100%;
+}

@@ -1,0 +1,13 @@
+.group {
+  display: inline-flex;
+  flex-direction: row-reverse;
+}
+
+.group > div {
+  position: relative;
+}
+
+.group > div:not(:last-child) {
+  margin-left: -15px;
+}
+

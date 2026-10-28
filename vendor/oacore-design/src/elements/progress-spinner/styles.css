@@ -1,0 +1,51 @@
+:root {
+  --progress-spinner-color: var(--primary);
+  --progress-spinner-size: var(--icon-size, 1.5rem);
+}
+
+.spinner {
+  width: var(--progress-spinner-size);
+  height: var(--progress-spinner-size);
+}
+
+.spinner circle {
+  transition: stroke-dasharray 250ms linear;
+  fill: none;
+  stroke: var(--progress-spinner-color);
+  stroke-dashoffset: 14.14;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 64;
+  }
+
+  50% {
+    stroke-dashoffset: 16;
+    transform: rotate(90deg);
+  }
+
+  100% {
+    stroke-dashoffset: 64;
+    transform: rotate(360deg);
+  }
+}
+
+.indeterminate {
+  will-change: transform;
+  animation: rotate 7.5s linear infinite;
+}
+
+.indeterminate circle {
+  transform-origin: center;
+  will-change: stroke-dashoffset, transform;
+  animation: dash 1.5s ease-in-out infinite;
+  stroke-dasharray: 64;
+  stroke-dashoffset: 0;
+}

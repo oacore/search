@@ -1,0 +1,119 @@
+@keyframes busy {
+  from {
+    background-position-x: 100%;
+  }
+
+  to {
+    background-position-x: -100%;
+  }
+}
+
+/**
+ * The base structure for the loading element.
+ *
+ * 1. Assume, the element contains only one line of text
+ * 2. Adding loading stripe background
+ * 3. Applying the animation moving the background from the left to the right
+ */
+%busy {
+  min-height: calc(1.5 * 1em); /* 1 */
+  background: var(--gray-200) 100% 0 / 200% 100%; /* 2 */
+  background-image:
+    /* 2 */
+    linear-gradient(
+      to right,
+      transparent 45%,
+      var(--white) 50%,
+      transparent 55%
+    );
+  animation: busy 3s ease infinite; /* 3 */
+}
+
+/**
+ * Clipping masks.
+ *
+ * We clip background applied by %busy to display visual lines.
+ */
+
+/* We want to write clipping mask line by line, 4 points in each. */
+/* stylelint-disable function-comma-newline-after */
+
+
+%clip-paragraph {
+  clip-path:
+    polygon(
+      0  .25em, 98%  .25em, 98% 1.25em, 0 1.25em,
+      0 1.75em, 97% 1.75em, 97% 2.75em, 0 2.75em,
+      0 3.25em, 94% 3.25em, 94% 4.25em, 0 4.25em,
+      0 4.75em, 97% 4.75em, 97% 5.75em, 0 5.75em,
+      0 6.25em, 45% 6.25em, 45% 7.25em, 0 7.25em
+    );
+}
+
+/* Shorter clipping for headings looks better */
+%clip-heading {
+  clip-path:
+    polygon(
+      0  .25em, 58%  .25em, 58% 1.25em, 0 1.25em,
+      0 1.75em, 57% 1.75em, 57% 2.75em, 0 2.75em,
+      0 3.25em, 54% 3.25em, 54% 4.25em, 0 4.25em,
+      0 4.75em, 57% 4.75em, 57% 5.75em, 0 5.75em,
+      0 6.25em, 35% 6.25em, 35% 7.25em, 0 7.25em
+    );
+}
+/* stylelint-enable function-comma-newline-after */
+
+/**
+ * We apply loading state to only empty elements
+ * but we apply it to any empty element within `aria-busy='true'` area
+ * and to the ones that have `aria-busy='true'` directly.
+ */
+
+[aria-busy='true'] :empty,
+[aria-busy='true']:empty {
+  @extend %busy;
+}
+
+/* We completely rely on the type */
+/* stylelint-disable selector-no-qualifying-type */
+[aria-busy='true'] :matches(h1, h2, h3, h4, h5, h6):empty,
+:matches(h1, h2, h3, h4, h5, h6)[aria-busy='true']:empty {
+  @extend %clip-heading;
+}
+
+[aria-busy='true'] p:empty,
+p[aria-busy='true']:empty {
+  @extend %clip-paragraph;
+}
+
+[aria-busy='true'] img,
+img[aria-busy='true'] {
+  @extend %busy;
+}
+/* stylelint-enable selector-no-qualifying-type */
+
+
+/**
+ * An element in the loading state can have up to 5 lines.
+ * We enable this using `data-line-count` attribute.
+ */
+
+[aria-busy='true'][data-line-count='2']:empty,
+[aria-busy='true'] [data-line-count='2']:empty {
+  height: calc(1.5 * 2em);
+}
+
+[aria-busy='true'][data-line-count='3']:empty,
+[aria-busy='true'] [data-line-count='3']:empty {
+  height: calc(1.5 * 3em);
+}
+
+[aria-busy='true'][data-line-count='4']:empty,
+[aria-busy='true'] [data-line-count='4']:empty {
+  height: calc(1.5 * 4em);
+}
+
+[aria-busy='true'][data-line-count='5']:empty,
+[aria-busy='true'] [data-line-count='5']:empty {
+  height: calc(1.5 * 5em);
+}

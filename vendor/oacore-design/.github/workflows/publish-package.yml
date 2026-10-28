@@ -1,0 +1,54 @@
+name: oacore/design publish
+
+on:
+  release:
+    types: [published]
+
+env:
+  NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: write
+    steps:
+      - name: Get the version
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+
+      - name: Git Checkout
+        uses: actions/checkout@v5
+        with:
+          ref: master
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '16.x'
+          registry-url: https://npm.pkg.github.com/
+          scope: '@oacore/design'
+
+      - name: Lint & Build
+        run: |
+          npm ci
+          npm run lint
+          npm run build
+
+      - name: Bump version ${{ steps.get_version.outputs.VERSION }}
+        run: npm version ${{ steps.get_version.outputs.VERSION }} --git-tag-version=false
+
+      - name: Publish package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: Bump version ${{ steps.get_version.outputs.VERSION }}
+          title: Bump version ${{ steps.get_version.outputs.VERSION }}
+          body: Bump package.json version
+          branch: bump-version-${{ steps.get_version.outputs.VERSION }}

@@ -1,0 +1,108 @@
+:root {
+  /* Box model */
+  --button-padding-y: .5rem;
+  --button-padding-x: var(--component-padding-x, 1rem);
+
+  /* State changes */
+  --button-pressed-shadow: inset 0 1px 2px #0003, inset 0 0 4px #0001;
+  --button-focus-ring: 0 0 0 3px color-mod(var(--primary) alpha(25%));
+}
+
+%button {
+  display: inline-block;
+  padding:
+    calc(var(--button-padding-y) - 1px)
+    calc(var(--button-padding-x) - 1px);
+  font-family: var(--buton-font-family);
+  font-size: var(--button-font-size, .875rem);
+  font-weight: var(--button-font-weight);
+  line-height: var(--button-line-height, 1rem);
+  color: var(--button-color, var(--primary, inherit));
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: var(--button-letter-spacing, .08rem);
+  white-space: var(--button-white-space);
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background:
+    var(--button-background, transparent)
+    linear-gradient(
+      var(--button-overlay, transparent),
+      var(--button-overlay, transparent)
+    );
+  border: 1px solid var(--button-border, transparent);
+  border-radius: var(--button-corner-radius, 2px);
+  transition-duration: 150ms;
+  transition-property: color, background, border-color, box-shadow;
+
+  &:hover {
+    --button-overlay: #0001;
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.focus {
+    --button-overlay: #0001;
+    text-decoration: none;
+    outline: 0;
+    box-shadow: var(--button-focus-ring);
+  }
+
+  /* Disabled comes first so active can properly restyle */
+  &.disabled,
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .8;
+
+    &:hover,
+    &:focus {
+      --button-overlay: transparent;
+    }
+  }
+
+  &:not(:disabled, .disabled):active,
+  &:not(:disabled, .disabled).active {
+    box-shadow: var(--button-pressed-shadow);
+
+    &:focus {
+      box-shadow: var(--button-pressed-shadow), var(--button-focus-ring);
+    }
+  }
+}
+
+button,
+[type='button'],
+[type='submit'],
+[type='reset'] {
+  @extend %button;
+}
+
+.button,
+.button:link,
+.button:visited {
+  @extend %button;
+}
+
+/* Variants */
+.text {
+  /* Button is text-like by default */
+}
+
+.outlined {
+  --button-border: currentColor;
+}
+
+.contained {
+  --button-background: var(--primary);
+  --button-color: var(--white);
+  box-shadow: 0 1px 2px #0003;
+
+  &:hover {
+    box-shadow: 0 1px 2px #0003;
+  }
+
+  &:focus {
+    box-shadow: 0 1px 2px #0003, var(--button-focus-ring);
+  }
+}

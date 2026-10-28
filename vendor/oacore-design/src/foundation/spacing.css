@@ -1,0 +1,72 @@
+/*!
+ * Spacing
+ *
+ * Based on Bootstrap Reboot.
+ * Bootstrap is licensed MIT. https://github.com/twbs/bootstrap
+ */
+
+:root {
+  --spacer: 1.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: var(--spacer, 1rem) 0;
+}
+
+p {
+  margin: var(--spacer, 1rem) 0;
+}
+
+address {
+  margin: var(--spacer, 1rem) 0;
+}
+
+blockquote {
+  margin: var(--spacer, 1rem) 0;
+}
+
+/* Lists */
+ol,
+ul,
+dl {
+  margin: var(--spacer, 1rem) 0;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Code */
+pre {
+  display: block;
+  margin: var(--spacer, 1rem);
+  overflow: auto;
+}
+
+/* Figures */
+figure {
+  margin: var(--spacer, 1rem) 0;
+}
+
+img,
+svg {
+  vertical-align: middle;
+}
+
+/* Margin fix */
+:first-child {
+  margin-top: 0;
+}
+
+:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,62 @@
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  color:
+    hsl(
+      var(--app-bar-color, var(--component-color)) /
+      var(--app-bar-high-emphasis, var(--component-high-emphasis))
+    );
+  background-color: hsl(var(--app-bar-background, var(--component-background)));
+  box-shadow: var(--app-bar-elevation, var(--elevation-04));
+}
+
+/* Modifiers */
+.fixed {
+  position: fixed;
+  z-index: var(--app-bar-fixed-z-index, 1020);
+}
+
+/* Children */
+.item {
+  display: inline-block;
+  padding:
+    var(--app-bar-padding-y, var(--component-padding-y))
+    var(--app-bar-padding-x, var(--component-padding-x));
+  color: hsl(var(--app-bar-color, var(--component-color)) / var(--app-bar-high-emphasis, var(--component-high-emphasis)));
+  text-decoration: none;
+
+  /**
+   * We should find a generic way to work around buttons too.
+   *
+   * There are not many options:
+   * 1. Use :is(button) for button element and [type=button] and similar
+   *    for other button-like elements
+   * 2. Use some workaround like .interactive
+   */
+
+  &:link:hover,
+  &:visited:hover,
+  &:focus {
+    color: inherit;
+    text-decoration: none;
+    background-color:
+      hsl(
+        var(--app-bar-overlay, var(--component-overlay)) /
+        var(--app-bar-overlay-hover, var(--component-overlay-hover))
+      );
+    outline: none; /* May harm user experience */
+  }
+
+  &:focus {
+    background-color:
+      hsl(
+        var(--app-bar-overlay, var(--component-overlay)) /
+        var(--app-bar-overlay-focus, var(--component-overlay-focus))
+      );
+  }
+}
+
+.brand {
+  /* Is completely nested from item. Kept for the future */
+}

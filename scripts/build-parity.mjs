@@ -228,8 +228,9 @@ function linkNodeModules(dir) {
   }
 }
 
-// install: 'ci' (default) = `npm ci --include=dev --legacy-peer-deps` of the ref's own lock on Node 18.20.8,
-// as the Dockerfile does: its .next equals the image's (a linked tree resolves packages outside the build
+// install: 'ci' (default) = `npm ci --include=dev --legacy-peer-deps --install-links` of the ref's own lock on
+// Node 18.20.8, as the Dockerfile does (`--install-links`: from W5 the design is a `file:` directory, installed as
+// a copy, CS-DSN-2; a no-op for the refs before it, which have no directory dependency): its .next equals the image's (a linked tree resolves packages outside the build
 // directory, which changes webpack module ids and chunk names) | 'link' = the repo node_modules linked
 // (seconds faster; never for comparisons)
 export async function hostBuild({
@@ -310,6 +311,7 @@ export async function hostBuild({
           'ci',
           '--include=dev',
           '--legacy-peer-deps',
+          '--install-links',
           '--no-audit',
           '--no-fund',
           '--prefer-offline',

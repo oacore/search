@@ -1,0 +1,4 @@
+{
+  "camelCase": true,
+  "generateScopedName": "[name]-[local]-[hash:base64:5]"
+}

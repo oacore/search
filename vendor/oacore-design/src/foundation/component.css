@@ -1,0 +1,23 @@
+:root {
+  /* Layout */
+  --component-padding-x: 1rem;
+  --component-padding-y: 1rem;
+  --component-border-radius: 2px;
+
+  /* Colour system */
+  --component-background: var(--surface);
+  --component-color: var(--on-surface);
+  --component-overlay: var(--on-surface-overlay);
+
+  /* Text accents */
+  --component-high-emphasis: var(--on-surface-high-emphasis);
+  --component-medium-emphasis: var(--on-surface-medium-emphasis);
+  --component-disabled: var(--on-surface-disabled);
+
+  /* States */
+  --component-overlay-hover: .04;
+  --component-overlay-focus: .12;
+  --component-overlay-press: .1;
+  --component-overlay-drag: .08;
+  --component-overlay-select: .08;
+}
