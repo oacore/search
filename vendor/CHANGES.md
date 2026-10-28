@@ -7,3 +7,4 @@
 | File | Change | CS/Q | PR | Test |
 |---|---|---|---|---|
 | `package.json` | `peerDependencies`: `react` and `react-dom` `^17.0.1` → `^17.0.1 \|\| ^18.0.0 \|\| ^19.0.0` | CS-DSN-3 | W5 part 2 (local) | T-016 c3 (pinned: no difference before), T-008 c2 (strict `npm ls` problem set) |
+| `lib/elements/index.js` | The `Carousel` getter (`Object.defineProperty(exports, "Carousel", …)`, 6 lines) and `var _carousel = _interopRequireDefault(require("./carousel"))` deleted; `react-slick` dropped from the `package.json` dependencies. `lib/elements/carousel/**` and its CSS stay (the CSS is imported by `lib/elements/index.css`); `Carousel: true` in `_exportNames` stays | CS-DSN-4 | W5 part 2 (local) | T-016 c2 (pinned: 110 emitted design modules), T-016 c3, T-004 (no react-slick in either bundle) |
