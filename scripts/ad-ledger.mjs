@@ -19,7 +19,8 @@
 //   rows      the file is a YAML list of rows with exactly the keys id, kind, test, key, from, to, reason, ref,
 //             step, signedOffBy, date (+ repro for `kind: delta`, + withdrawn); every scalar is a string, so
 //             `from`/`to` are compared as the exact literals; keys are exact literals (no globs); one row per
-//             (test, key) among the rows in force; ids unique and never reused
+//             (test, key) among the rows in force, for each key a composite key lists (two rows may list one
+//             baseline file `<name>.json` when their literals do not overlap); ids unique and never reused
 //   never     `kind: delta` never covers T-801/T-802 (0 px, D7), a status code (sole exception: T-612's
 //             `/static/search/_next/image` row, OD-41), a `Location` (30 §1 rule 3), or the T-601/T-731 status
 //             cells (30 §1 rule 3)
@@ -84,6 +85,9 @@ const validDate = (s) => {
 // `header:/:path(.*)`; a `*` anywhere else is still refused.
 export const hasGlob = (key) =>
   /\*|\{[^}]*,[^}]*\}/.test(key.replace(/\(\.\*\)/g, ''))
+// the keys a key lists: a composite key lists several, separated by `, ` (42 §8), as the hooks read it
+// (e2e/lib/P0-11/contract.mjs rowKeys, e2e/lib/P0-10/baseline.mjs ledgerRowsOf); every per-key rule holds for each
+export const keysOf = (key) => [...new Set(String(key).split(', '))]
 
 // ---------- YAML ----------
 
@@ -248,7 +252,12 @@ export function checkRow(row, { repo = DEFAULT_REPO, today = todayOf() } = {}) {
         'missing-repro',
         'a kind: delta row needs repro: the CI run of the framework probe'
       )
-    const why = isText(row.test) && isText(row.key) ? deltaForbidden(row) : null
+    const why =
+      isText(row.test) && isText(row.key)
+        ? keysOf(row.key)
+            .map((key) => deltaForbidden({ ...row, key }))
+            .find(Boolean) || null
+        : null
     if (why) bad('delta-never-covers', why)
   }
   if ('repro' in row && (!isText(row.repro) || !reproRe(repo).test(row.repro)))
@@ -259,6 +268,25 @@ export function checkRow(row, { repo = DEFAULT_REPO, today = todayOf() } = {}) {
   if ('withdrawn' in row) text('withdrawn')
   return errors
 }
+
+// a key that names a recorded e2e baseline file: the hook replaces each row's literal `from` by its `to` in it
+export const isBaselineFileKey = (key) => /^[\w.-]+\.json$/.test(key)
+// two literals overlap when one holds the other or an end of one is the start of the other
+export function overlaps(a, b) {
+  if (a.includes(b) || b.includes(a)) return true
+  for (let k = 1; k < Math.min(a.length, b.length); k++)
+    if (a.endsWith(b.slice(0, k)) || b.endsWith(a.slice(0, k))) return true
+  return false
+}
+// may two rows in force of one test both list this key? Only a baseline file key, and only when each row
+// replaces a literal of its own: neither row's `from` overlaps the other row's `from` or `to`, so no row
+// hides, shares or creates the text another row replaces (42 §8)
+export const mayShareKey = (key, a, b) =>
+  isBaselineFileKey(key) &&
+  [a.from, a.to, b.from, b.to].every(isText) &&
+  !overlaps(a.from, b.from) &&
+  !overlaps(a.from, b.to) &&
+  !overlaps(b.from, a.to)
 
 // the rows -> violations across rows: [{ code, id, message }]
 export function checkRows(rows, { repo = DEFAULT_REPO } = {}) {
@@ -273,6 +301,7 @@ export function checkRows(rows, { repo = DEFAULT_REPO } = {}) {
   }
   const seen = new Map()
   const inForce = new Map()
+  const listed = new Map() // test + one key of a (composite) key -> the rows in force that list it
   rows.forEach((row, i) => {
     const id = isObject(row) && isText(row.id) ? row.id : `row ${i + 1}`
     for (const e of checkRow(row, { repo })) out.push({ ...e, id })
@@ -300,7 +329,35 @@ export function checkRows(rows, { repo = DEFAULT_REPO } = {}) {
             k
           )}): one row per (test, key)`,
         })
-      else inForce.set(k, row.id || i + 1)
+      else {
+        inForce.set(k, row.id || i + 1)
+        // a composite key lists several keys: the rule holds for each of them
+        const clash = keysOf(row.key)
+          .map((part) => [
+            part,
+            (listed.get(`${row.test}\u0000${part}`) || []).find(
+              (other) => !mayShareKey(part, other.row, row)
+            ),
+          ])
+          .find(([, other]) => other)
+        if (clash)
+          out.push({
+            code: 'duplicate-test-key',
+            id,
+            message: `${row.test} ${JSON.stringify(clash[0])} (listed in ${JSON.stringify(
+              row.key
+            )}) has a second row in force (${
+              clash[1].id
+            }): one row per (test, key), for each key of a composite key; rows may share a baseline file key (<name>.json) only when no row's from overlaps the other row's from or to`,
+          })
+      }
+      for (const part of keysOf(row.key)) {
+        const at = `${row.test}\u0000${part}`
+        listed.set(at, [
+          ...(listed.get(at) || []),
+          { id: row.id || i + 1, row },
+        ])
+      }
     }
   })
   return out
