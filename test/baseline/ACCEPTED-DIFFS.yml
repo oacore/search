@@ -108,6 +108,7 @@
   step: W0.5
   signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
   date: '2026-10-27'
+  withdrawn: 'superseded by AD-040: CS-DSN-2 installs the design from the directory vendor/oacore-design, so the tarball spec of this row no longer occurs, 2026-10-28'
 - id: AD-010
   kind: product
   test: T-008
@@ -396,5 +397,115 @@
   reason: "T-610 c3 (app stdout/stderr line census): the renderPage frame of the six error-render requests that print a stack. CS-BAB-9: the regenerator transform of Babel 7.29 emits an anonymous state-machine function where 7.27 named it _callee$ (not configurable); every other census line and the counts are unchanged. Applied by the e2e baseline hook (e2e/lib/P0-10/baseline.mjs) to the masked baseline (line:column numbers are masked on both sides by the T-610 frame normaliser); the file stays as recorded."
   ref: [OD-12, OD-31]
   step: W2e
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-038
+  kind: product
+  test: T-417
+  key: "package identity: integrity"
+  from: "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ== (the lock entry of @oacore/design)"
+  to: "<absent> (the lock entry is the directory file:vendor/oacore-design); read as the published sha512 of 60 §1"
+  reason: "T-417 c1 (23 tests, DOM, classes and mount effects of every state equal the package reference). CS-DSN-2 replaces the tarball entry by the directory entry, which has no integrity; the installed package is byte-identical to the one the references were taken from (diff -rq against the pre-step install; the verifier: the tarball except lib/config.js and the vendor/CHANGES.md edits). packageIdentity() (test/unit/design/lib/P0-07/reference.js) takes the published sha512 of 60 §1 for that entry, which T-016 c3 proves the directory and the installed copy match; the reference files stay unedited."
+  ref: [R-015, R-075, 60 §1, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-039
+  kind: product
+  test: T-016
+  key: "report.lock.integrity, report.changes.file"
+  from: "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ== (= the tarball integrity), null"
+  to: "<absent> (directory entry; the reference is report.reference, the published integrity of 60 §1), vendor/CHANGES.md"
+  reason: "T-016 c3 (verify-design-verbatim). CS-DSN-2: the lock entry is the directory file:vendor/oacore-design, so the verifier compares the tarball with the published integrity of 60 §1 (still sha512-kwYolSk…, sha1 e6a401d7…), and vendor/CHANGES.md exists from DV1 (60 §2). The test also runs the verifier on vendor/oacore-design itself. The changed-file sets of the same reports are AD-046."
+  ref: [R-015, 60 §2, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-040
+  kind: product
+  test: T-008
+  key: "@oacore/design spec, resolved and integrity: package.json dependencies, lock packages[\"\"].dependencies, lock packages[\"node_modules/@oacore/design\"].resolved, lock packages[\"node_modules/@oacore/design\"].integrity"
+  from: "file:vendor/oacore-design-5.0.74.tgz, file:vendor/oacore-design-5.0.74.tgz, file:vendor/oacore-design-5.0.74.tgz, sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  to: "file:vendor/oacore-design, file:vendor/oacore-design, file:vendor/oacore-design, <absent>"
+  reason: "T-008 c4 (and its shared check designViolations in test/static/lib/P0-16/install-checks.js). CS-DSN-2 (W5) installs the design from the vendored directory. Still asserted: locked and installed version 5.0.74; vendor/oacore-design-5.0.74.tgz has the published sha512 and sha1 (60 §1); the negative controls (another version, an integrity on the directory entry, the registry URL, latest). Supersedes AD-009."
+  ref: [R-015, D17, 60 §1, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-041
+  kind: product
+  test: T-008
+  key: "npm flags of the install checks (test/static/lib/P0-16/install-checks.js ciDryRun and strictProblems)"
+  from: "npm ci --dry-run --offline --ignore-scripts --include=dev --legacy-peer-deps on a copy of package.json and the lock; npm ls --all --no-legacy-peer-deps"
+  to: "the same plus --install-links, with vendor/oacore-design linked into the copy"
+  reason: "T-008 c1 and c2. CS-DSN-2 (4) makes --install-links part of every install (the image too: 20 Deploy-time items). Without it c1 gets EUSAGE (lock and package.json out of sync for the directory spec) and c2 the extra problem invalid:@oacore/design (npm expects a link for a directory spec); with it c1 has no error and status 0 and c2 the W3 problem set (the 02 allow-list and the two test-tooling problems)."
+  ref: [R-014, R-015, 60 §8, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-042
+  kind: product
+  test: T-001
+  key: "package.json scripts[\"lint:css\"], .husky/pre-commit"
+  from: "stylelint --ignore-path .gitignore '**/*.css', npx lint-staged"
+  to: "stylelint --ignore-path .gitignore --ignore-path .stylelintignore '**/*.css', npx lint-staged --config package.json"
+  reason: "T-001 c1 (no --fix anywhere). CS-DSN-2 (5): stylelint reads only the ignore files it is given and otherwise loads the vendored stylelint.config.js (ConfigurationError, lint parity exit 2); lint-staged otherwise uses the vendored .lintstagedrc (yarn lint:js --fix, git add) for vendored files. Still no --fix; the lint-staged config is unchanged."
+  ref: [R-049, R-061, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-043
+  kind: product
+  test: T-001
+  key: "inline directive scan scope (appFiles() of test/static/t001-lint-parity.test.js)"
+  from: "38 inline eslint-disable directives in 30 application files (git ls-files *.js and *.jsx outside test, e2e, docs, tools, node_modules)"
+  to: "111 directives (+73 in src/ and lib/ of the vendored package vendor/oacore-design)"
+  reason: "T-001 c1. CS-DSN-2 vendors the design source; ESLint ignores vendor/** (CS-W0-12) and scripts/lint-parity.mjs still counts 38 in 30. The test scan leaves vendor/oacore-design/ out, as ESLint does, so it pins 38 in 30 again."
+  ref: [R-049, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-044
+  kind: product
+  test: T-002
+  key: "application source scope (sourceFiles() of test/static/t002-css-module-keys.test.js)"
+  from: "the application files: 66 files import a *.module.css, 430 tokens and 221 camelCase tokens"
+  to: "application files and the vendored package vendor/oacore-design: another import list, 930 tokens"
+  reason: "T-002 (66 files import a *.module.css; the plan grep figures reconcile with the member reads). CS-DSN-2 vendors the design source, which is not application source; the scan already left out node_modules, where the same files are installed. The test leaves vendor/oacore-design/ out, so it pins 66 files, 26 modules, 430 and 221 tokens again."
+  ref: [R-001, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-045
+  kind: product
+  test: T-418
+  key: "application source scope (appSources() of test/static/t418-icon-ids.test.js)"
+  from: "the 20 pinned icon ids"
+  to: "34 ids (+14 of the vendored package: active-arrow, alert, alert-circle-outline, core-symbol, coreLogo, drop-arrow, github, information-outline, linkedin, menu, suggestion-result-, twitter, window-close, writing)"
+  reason: "T-418 (the application source references exactly the 20 pinned icon ids). CS-DSN-2 vendors the design source; the design ids stay checked by the clause on the rendered design components (14 pinned ids, installed copy) and the sprite clauses. The test leaves vendor/oacore-design/ out, so it pins the 20 ids again."
+  ref: [R-022, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-046
+  kind: product
+  test: T-016
+  key: "report.diff.differ (installed copy), report.changes.files, the vendored-directory diff, the negative controls' differ of a changed copy and their CHANGES table"
+  from: "['lib/config.js'], [], [], ['lib/config.js', 'lib/index.js'], a one-row table (lib/index.js)"
+  to: "['lib/config.js', 'lib/elements/index.js', 'package.json'], ['lib/elements/index.js', 'package.json'], ['lib/elements/index.js', 'package.json'], ['lib/config.js', 'lib/elements/index.js', 'lib/index.js', 'package.json'], that table plus the two vendor/CHANGES.md files"
+  reason: "T-016 c3 (verify-design-verbatim and its negative controls). The 60 §7 edits with their vendor/CHANGES.md rows (CS-DSN-3 package.json, CS-DSN-4 lib/elements/index.js, CS-DSN-5 package.json): the verifier passes exactly on the CHANGES set (ok true, no problem, on both copies); the negative controls copy the installed package, so its listed edits are in every copy. Every negative control still fails as before (status 1, the same problem messages)."
+  ref: [R-015, 60 §2, 60 §7, OD-31]
+  step: W5b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-047
+  kind: product
+  test: T-016
+  key: "bundled design modules (client): res.designSources, new Set(res.modules).size, res.designModules"
+  from: "110"
+  to: "108"
+  reason: "T-016 c2 and c4 (detector-t016-c4-design-requires.test.js). CS-DSN-4 deleted the Carousel getter and its require, so node_modules/@oacore/design/lib/elements/carousel/index.js and carousel.js are no longer bundled (predicted by the CS-DSN-4 row: the VG-5 diff is the carousel and react-slick modules only). Still asserted: 0 mismatched modules, 0 source differences, 0 added requires, the 7 server externals, nothing bundled on the server, edges > 0, 0 unresolved, 0 app targets; c2 also asserts that carousel.js is not among the modules. The titles say 108."
+  ref: [R-014, R-075, 60 §3, OD-31]
+  step: W5b
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'

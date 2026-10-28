@@ -341,7 +341,7 @@ describe('T-016 @P0 vendored design', () => {
     }
   })
 
-  test('T-016 c2 @P0 the 110 emitted design modules equal their files (modulo the minifier), no core-js import added', async () => {
+  test('T-016 c2 @P0 the 108 emitted design modules equal their files (modulo the minifier), no core-js import added', async () => {
     if (!process.env.NEXT_DIR) {
       throw new Error(
         'T-016 c2 needs NEXT_DIR (.next of the parity image or local parity build)'
@@ -350,10 +350,14 @@ describe('T-016 @P0 vendored design', () => {
     const nextDir = path.resolve(process.env.NEXT_DIR)
     const root = appRoot()
     const res = await analyseClient(nextDir, root)
-    // lib/index.js re-exports everything: 110 of the 114 lib modules are
-    // evaluated (60 §3)
-    expect(res.designSources).toBe(110)
-    expect(new Set(res.modules).size).toBe(110)
+    // lib/index.js re-exports everything: 108 of the 114 lib modules are
+    // evaluated (60 §3; 110 before CS-DSN-4 removed the require of
+    // lib/elements/carousel/index.js and carousel.js, AD-047)
+    expect(res.designSources).toBe(108)
+    expect(new Set(res.modules).size).toBe(108)
+    expect(res.modules).not.toContain(
+      'node_modules/@oacore/design/lib/elements/carousel/carousel.js'
+    )
     expect(res.mismatched).toEqual([])
     // the file webpack read is the installed file
     expect(res.sourceDiffers).toEqual([])
@@ -473,21 +477,50 @@ describe('T-016 @P0 vendored design', () => {
         expect(rep.tarball.sha1).toBe(
           'e6a401d74defeb09d828b10374ff35107a9324c4'
         )
-        expect(rep.tarball.integrity).toBe(rep.lock.integrity)
+        // the lock entry is the vendored directory (no integrity): the
+        // reference is the published integrity of 60 §1 (CS-DSN-2, AD-039)
+        expect(rep.lock.resolved).toBe('file:vendor/oacore-design')
+        expect(rep.lock.integrity).toBeUndefined()
+        expect(rep.reference.source).toBe('60 §1')
+        expect(rep.tarball.integrity).toBe(rep.reference.integrity)
         expect(rep.tarball.integrity).toMatch(/^sha512-kwYolSk\+PrJtJzSkhy/)
         expect(rep.installedCopy).toBe(true)
         expect(rep.installed.files).toBe(466)
         expect(rep.installed.symlinks).toEqual([])
-        // the whole difference: the file the postinstall writes
+        // the whole difference: the file the postinstall writes and the
+        // vendor/CHANGES.md edits (CS-DSN-3, -4, -5; AD-046)
         expect(rep.diff).toEqual({
-          differ: ['lib/config.js'],
+          differ: ['lib/config.js', 'lib/elements/index.js', 'package.json'],
           onlyTarball: [],
           onlyInstalled: [],
         })
-        expect(rep.changes).toEqual({ file: null, files: [] })
+        // the CHANGES file of 60 §2 (AD-039) and its rows (AD-046)
+        expect(rep.changes).toEqual({
+          file: 'vendor/CHANGES.md',
+          files: ['lib/elements/index.js', 'package.json'],
+        })
         expect(rep.problems).toEqual([])
         expect(rep.ok).toBe(true)
       })
+      // the vendored directory itself: the tarball except the CHANGES edits
+      // (AD-039, AD-046)
+      const d = verify([
+        '--target',
+        'vendor/oacore-design',
+        '--tarball-dir',
+        tarballDir,
+        '--json',
+      ])
+      if (d.status !== 0) throw new Error(d.stderr || d.stdout)
+      expect(d.report.installedCopy).toBe(false)
+      expect(d.report.installed.files).toBe(466)
+      expect(d.report.installed.symlinks).toEqual([])
+      expect(d.report.diff).toEqual({
+        differ: ['lib/elements/index.js', 'package.json'],
+        onlyTarball: [],
+        onlyInstalled: [],
+      })
+      expect(d.report.ok).toBe(true)
       expect(
         fs.readdirSync(tarballDir).filter((f) => f.endsWith('.tgz'))
       ).toEqual(['oacore-design-5.0.74.tgz'])
@@ -522,7 +555,13 @@ describe('T-016 @P0 vendored design', () => {
       fs.appendFileSync(path.join(changed, 'lib', 'index.js'), '\n// x\n')
       let r = run(changed)
       expect(r.status).toBe(1)
-      expect(r.report.diff.differ).toEqual(['lib/config.js', 'lib/index.js'])
+      // the copies carry the installed package's listed edits (AD-046)
+      expect(r.report.diff.differ).toEqual([
+        'lib/config.js',
+        'lib/elements/index.js',
+        'lib/index.js',
+        'package.json',
+      ])
       expect(r.report.problems.join()).toMatch(
         /not allowed to differ: lib\/index\.js/
       )
@@ -566,12 +605,24 @@ describe('T-016 @P0 vendored design', () => {
       const edited = fresh('edited')
       fs.appendFileSync(path.join(edited, 'lib', 'index.js'), '\n// x\n')
       const changes = path.join(tmp, 'CHANGES.md')
+      // the vendor/CHANGES.md rows (CS-DSN-3, -4, -5; AD-046) plus the row
+      // under test
       const table = (file) =>
-        `| File | Change | CS/Q | PR | Test |\n| --- | --- | --- | --- | --- |\n| \`${file}\` | x | CS-1 | 1 | T-016 |\n`
+        `| File | Change | CS/Q | PR | Test |\n| --- | --- | --- | --- | --- |\n${[
+          file,
+          'lib/elements/index.js',
+          'package.json',
+        ]
+          .map((x) => `| \`${x}\` | x | CS-1 | 1 | T-016 |\n`)
+          .join('')}`
       fs.writeFileSync(changes, table('lib/index.js'))
       r = run(edited, ['--changes', changes])
       expect(r.status).toBe(0)
-      expect(r.report.changes.files).toEqual(['lib/index.js'])
+      expect(r.report.changes.files).toEqual([
+        'lib/elements/index.js',
+        'lib/index.js',
+        'package.json',
+      ])
       fs.writeFileSync(changes, table('lib/elements/heading.js'))
       r = run(edited, ['--changes', changes])
       expect(r.status).toBe(1)

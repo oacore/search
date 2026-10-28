@@ -96,7 +96,11 @@ const appSources = () =>
   })
     .split('\n')
     .filter(Boolean)
-    .filter((p) => !/^(docs|test|e2e|scripts|tools)\//.test(p))
+    // the vendored design is not application source (CS-DSN-2, AD-045): its
+    // ids are checked on the rendered design components and the sprite
+    .filter(
+      (p) => !/^(docs|test|e2e|scripts|tools|vendor\/oacore-design)\//.test(p)
+    )
 
 const walk = (dir) =>
   fs

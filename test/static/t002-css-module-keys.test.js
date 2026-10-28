@@ -45,9 +45,12 @@ const sourceFiles = () =>
     '*.js',
     '*.jsx'
   ).filter(
+    // the vendored design is not application source (CS-DSN-2, AD-044); its
+    // installed copy under node_modules is left out as before
     (f) =>
-      !/^(test|e2e|scripts|tools|docs|node_modules)\//.test(f) &&
-      f !== 'jest.config.js'
+      !/^(test|e2e|scripts|tools|docs|node_modules|vendor\/oacore-design)\//.test(
+        f
+      ) && f !== 'jest.config.js'
   )
 const cssModules = () => git('ls-files', '-z', '--', '*.module.css')
 

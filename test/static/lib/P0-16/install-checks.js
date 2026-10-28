@@ -19,9 +19,10 @@ const DESIGN = {
   // 60-design-ownership.md §1: the published tarball, until DV9
   integrity:
     'sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ==',
-  // CS-DSN-1 (W0.5, AD-009): installed from the vendored copy of that
-  // tarball; the package.json spec, the lock's root spec and `resolved`
-  spec: 'file:vendor/oacore-design-5.0.74.tgz',
+  // CS-DSN-2 (W5, AD-040): installed from the vendored directory, the
+  // tarball extracted (the vendored tarball itself with CS-DSN-1, AD-009);
+  // the package.json spec, the lock's root spec and `resolved`
+  spec: 'file:vendor/oacore-design',
   tarball: 'vendor/oacore-design-5.0.74.tgz',
   // the published shasum (60 §1)
   sha1: 'e6a401d74defeb09d828b10374ff35107a9324c4',
@@ -96,12 +97,22 @@ function lockCopy(dir) {
   ;['package.json', 'package-lock.json'].forEach((f) =>
     fs.copyFileSync(path.join(dir, f), path.join(tmp, f))
   )
+  // the design is a file: directory (CS-DSN-2, AD-041): npm reads its
+  // package.json
+  fs.mkdirSync(path.join(tmp, 'vendor'))
+  fs.symlinkSync(
+    path.join(dir, 'vendor', 'oacore-design'),
+    path.join(tmp, 'vendor', 'oacore-design'),
+    'dir'
+  )
   return tmp
 }
 
-// `$ npm ci --include=dev --legacy-peer-deps` without its network (c1): the
-// lock must be in sync with package.json, otherwise `npm ci` refuses (the
-// case the Dockerfile's `|| npm install` fallback hides)
+// `$ npm ci --include=dev --legacy-peer-deps --install-links` without its
+// network (c1): the lock must be in sync with package.json, otherwise `npm ci`
+// refuses (the case the Dockerfile's `|| npm install` fallback hides). From W5
+// every install passes --install-links, so the design directory is installed
+// as a copy (CS-DSN-2, AD-041)
 function ciDryRun(dir) {
   const tmp = lockCopy(dir)
   try {
@@ -113,6 +124,7 @@ function ciDryRun(dir) {
         '--ignore-scripts',
         '--include=dev',
         '--legacy-peer-deps',
+        '--install-links',
         '--loglevel=notice',
       ],
       { cwd: tmp }
@@ -142,7 +154,9 @@ function problemKey(problem) {
 }
 
 // c2: the strict-mode problem list. lockOnly = npm's virtual tree from the
-// lock (platform independent), otherwise the installed tree of `dir`
+// lock (platform independent), otherwise the installed tree of `dir`; with
+// --install-links, as installed (without it npm expects a link for the design
+// directory: invalid:@oacore/design; CS-DSN-2, AD-041)
 function strictProblems(dir, { lockOnly = false } = {}) {
   const tmp = lockOnly ? lockCopy(dir) : null
   try {
@@ -151,6 +165,7 @@ function strictProblems(dir, { lockOnly = false } = {}) {
         'ls',
         '--all',
         '--no-legacy-peer-deps',
+        '--install-links',
         '--json',
         ...(lockOnly ? ['--package-lock-only'] : []),
       ],
@@ -291,8 +306,10 @@ function designViolations(pkg, lock, dir) {
     if (e.version !== DESIGN.version)
       v.push(`locked version ${e.version}, not ${DESIGN.version}`)
 
-    if (e.integrity !== DESIGN.integrity)
-      v.push(`locked integrity ${e.integrity}, not ${DESIGN.integrity}`)
+    // a directory entry has no integrity (CS-DSN-2, AD-040): the tarball's
+    // sha512 is checked on the file itself
+    if (e.integrity !== undefined)
+      v.push(`locked integrity ${e.integrity} on the directory entry`)
 
     if (e.resolved !== DESIGN.spec) {
       v.push(
