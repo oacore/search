@@ -6,8 +6,10 @@
 import { expect } from '../../fixtures/guard.mjs'
 import { firstLine, pageConsole } from './page.mjs'
 
+// Sentry 7 reports to the envelope endpoint (AD-023 for T-716 c3, AD-024 for T-727; Sentry 5.30:
+// .../api/0/store/?sentry_key=public&sentry_version=7)
 export const STORE =
-  'https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7'
+  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4'
 export const CSP_CONNECT =
   "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com"
 export const CSP_LINES = [

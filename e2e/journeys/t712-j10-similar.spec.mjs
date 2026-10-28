@@ -304,12 +304,14 @@ test.describe('T-712 @P1 remount path', () => {
   const HEIGHTS = { 1920: 1080, 1440: 900, 768: 1024, 767: 900, 375: 812 }
   const REACT_300 = /^Error: Minified React error #300;/
   const REACT_310 = /^Error: Minified React error #310;/
+  // the blocked browser report of Sentry 7 goes to the envelope endpoint (AD-025; Sentry 5.30:
+  // .../api/0/store/?sentry_key=public&sentry_version=7)
   const SENTRY_CSP =
-    /^Connecting to 'https:\/\/o0\.ingest\.sentry\.io\/api\/0\/store\/\?sentry_key=public&sentry_version=7' violates the following Content Security Policy directive: "connect-src /
+    /^Connecting to 'https:\/\/o0\.ingest\.sentry\.io\/api\/0\/envelope\/\?sentry_key=public&sentry_version=7&sentry_client=sentry\.javascript\.browser%2F7\.120\.4' violates the following Content Security Policy directive: "connect-src /
   const SENTRY_FETCH =
-    /^Fetch API cannot load https:\/\/o0\.ingest\.sentry\.io\/api\/0\/store\/\?sentry_key=public&sentry_version=7\. Refused to connect because it violates the document's Content Security Policy\.$/
+    /^Fetch API cannot load https:\/\/o0\.ingest\.sentry\.io\/api\/0\/envelope\/\?sentry_key=public&sentry_version=7&sentry_client=sentry\.javascript\.browser%2F7\.120\.4\. Refused to connect because it violates the document's Content Security Policy\.$/
   const SENTRY_URL =
-    'https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7'
+    'https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4'
   // insertions of the "Similar works" section (a client render mounts it into the DOM; the hydrated mount of a
   // hard load inserts nothing)
   const countMounts = (page) =>

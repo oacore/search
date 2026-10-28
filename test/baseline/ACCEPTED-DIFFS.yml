@@ -130,3 +130,170 @@
   step: W1
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'
+- id: AD-012
+  kind: product
+  test: T-120
+  key: utils/sentry.js exports
+  from: '{ Sentry: <the @sentry/node module> }'
+  to: '{ Sentry: { captureException, withScope }, default: <the same object> }'
+  reason: "T-120 c1, c2. CS-SEN-3 imports the SDK functions the app calls by name (a require of the whole Sentry 7 SDK bundles replay, feedback and tracing: +85.5 KB gzip and a 28th chunk); the default export keeps T-001 at 18 findings. Both functions are the SDK's own; Sentry.init is still not called without a DSN."
+  ref: [R-040, R-055, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-013
+  kind: product
+  test: T-120
+  key: Sentry.init options
+  from: '{ dsn }'
+  to: '{ dsn, autoSessionTracking: false, sendClientReports: false, tracePropagationTargets: [], integrations: <the default integrations without Dedupe, Undici, Context, Modules> }'
+  reason: "T-120 c2. CS-SEN-3 keeps what Sentry 5.30 sent: no session or client-report envelopes, no trace headers, the 5.30 integration set. Called once, the DSN passed on as it is."
+  ref: [R-040, R-055, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-014
+  kind: product
+  test: T-608
+  key: uncaughtException listener names at the throw
+  from: "['domainUncaughtExceptionClear', 'bound ', '']"
+  to: "['domainUncaughtExceptionClear', '', '']"
+  reason: "T-608 c1. Sentry 7's OnUncaughtException handler is an anonymous arrow function (5.30: a bound method); the count (3) is unchanged."
+  ref: [R-040, R-055, Q-009, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-015
+  kind: product
+  test: T-608
+  key: Sentry events after the throw
+  from: "2 POSTs to https://o0.ingest.sentry.io/api/0/store/, values ['T-608 preload: asynchronous throw', 'T-608 preload: asynchronous throw'] (the integration's, level fatal, and the app handler's), mechanism {handled: true, type: 'generic'}"
+  to: "1 POST to https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.node%2F7.120.4 with one event item: value 'T-608 preload: asynchronous throw', level fatal, mechanism {type: 'onuncaughtexception', handled: false}"
+  reason: "T-608 c1. Sentry 7 has no store transport, and it drops a second capture of the same Error object (checkOrSetAlreadyCaught in @sentry/core captureException, not configurable), so the app handler's copy is not sent. Unchanged: exit code 1, signal null, the exit within the 3 s bound, the flush before the exit."
+  ref: [R-040, R-055, Q-009, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-016
+  kind: product
+  test: T-608
+  key: unhandledRejection listener names
+  from: "['bound ', '']"
+  to: "['sendUnhandledPromise', '']"
+  reason: "T-608 c3. Sentry 7's OnUnhandledRejection handler is the named function sendUnhandledPromise (5.30: a bound method); the count (2) is unchanged."
+  ref: [R-040, R-055, Q-009, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-017
+  kind: product
+  test: T-608
+  key: Sentry events after the rejection
+  from: "2 store events of 'T-608 preload: unhandled rejection', both mechanism {handled: true, type: 'generic'}, unhandledPromiseRejection [false, true]"
+  to: "1 envelope (https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.node%2F7.120.4) with one event item of 'T-608 preload: unhandled rejection', mechanism {type: 'onunhandledrejection', handled: false}, unhandledPromiseRejection true"
+  reason: "T-608 c3. Same cause as AD-015. Unchanged: the process survives (healthz 200 for 6 s, then /search 200)."
+  ref: [R-040, R-055, Q-009, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-018
+  kind: product
+  test: T-004
+  key: client:sentry-packages
+  from: '@sentry/browser,@sentry/core,@sentry/hub,@sentry/minimal,@sentry/types,@sentry/utils'
+  to: '@sentry/browser,@sentry/core,@sentry/utils'
+  reason: "T-004 c1. CS-SEN-1 (the row names T-004): Sentry 7 has no hub or minimal package, and @sentry/types holds types only. Still asserted: one react and one react-dom copy, @sentry/browser bundled, @sentry/node aliased away from the client."
+  ref: [R-040, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+# AD-019 (T-015, FLOORS['10.2.3'] es2015 -> es2018) was proposed at W2a and is not needed: the owner kept the
+# floor (2026-10-28) and CS-SEN-4 compiles the @sentry/* modules of the client to it. The id stays unused.
+- id: AD-020
+  kind: product
+  test: T-602
+  key: sandbox CSP violation (connect-src) blockedURI
+  from: https://o0.ingest.sentry.io/api/0/store/
+  to: https://o0.ingest.sentry.io/api/0/envelope/
+  reason: "T-602 c5. The browser report of a client error goes to the envelope endpoint of the same host: Sentry 7 sends every event as an envelope and has no store transport (CS-SEN-3 Kept). One attempt, one connect-src violation, 0 requests at the stub, as before."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-021
+  kind: product
+  test: T-719
+  key: SENTRY_STORE (e2e/lib/P0-15/analytics.mjs), the blockedURI of the connect-src violation
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-719 c3 (absent, essential, essential+analytics). Same cause as AD-020; the counts are unchanged (one report attempt, one violation, three console errors, 0 Sentry requests at the stub)."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-022
+  kind: product
+  test: T-720
+  key: '[connect-src, SENTRY_STORE] of the control'
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-720 control. Same cause as AD-020; exactly one connect-src violation and no request at the stub, as before."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-023
+  kind: product
+  test: T-716
+  key: STORE (e2e/lib/P1-05/crash.mjs), in CSP_LINES and the connect-src blockedURI
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-716 c3 (works, outputs). Same cause as AD-020; the same two console lines and one violation per crash. The quoted connect-src directive of the first line is AD-035."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-024
+  kind: product
+  test: T-727
+  key: STORE (e2e/lib/P1-05/crash.mjs), in CSP_LINES and the connect-src blockedURI
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-727 (works, outputs, @wire). Same cause as AD-020; the same constant as AD-023. The quoted connect-src directive of the first line is AD-035."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-025
+  kind: product
+  test: T-712
+  key: SENTRY_CSP, SENTRY_FETCH and SENTRY_URL (e2e/journeys/t712-j10-similar.spec.mjs)
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-712 c2 (375, 767, 768, 1440, 1920). Same cause as AD-020; the patterns stop before the quoted directive, so AD-035 does not touch them."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-026
+  kind: product
+  test: T-730
+  key: STORE (e2e/journeys/t730-blank-pages.spec.mjs), in CSP_LINES and the connect-src blockedURI
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-730 (q074a..q074e). Same cause as AD-020. The quoted connect-src directive of the first line is AD-035."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-027
+  kind: product
+  test: T-728
+  key: q096-sentry-csp-dev-error text pattern (e2e/lib/P0-12/dev-inventory-map.mjs)
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-728 c4. Same cause as AD-020: the two console lines of the blocked report in the development inventory (count 9 on works-1001-t-repeated in both inventories); the pattern stops before the quoted directive."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'

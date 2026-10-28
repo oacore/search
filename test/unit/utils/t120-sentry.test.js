@@ -1,13 +1,34 @@
 // T-120 (41 B, R-040, R-055): utils/sentry.js. The module reads SENTRY_DSN once
 // at load: without a DSN it never calls `Sentry.init`; with a DSN it calls it
-// exactly once, with `{ dsn }` and no other option. `@sentry/node` is the
-// factory spy of test/setup/mocks.js (next.config.js aliases it to
-// `@sentry/browser` for the client bundle: T-004). Every case loads a fresh
-// copy with jest.isolateModules after setting the env, so each load gets its
-// own spy.
+// exactly once, with `{ dsn }` and the four options of CS-SEN-3 (AD-013; only
+// `{ dsn }` with Sentry 5.30). It exports the SDK functions the app calls,
+// imported by name, as `Sentry` and as the default export (AD-012; the whole
+// SDK object with Sentry 5.30). `@sentry/node` is the factory spy of
+// test/setup/mocks.js (next.config.js aliases it to `@sentry/browser` for the
+// client bundle: T-004). Every case loads a fresh copy with
+// jest.isolateModules after setting the env, so each load gets its own spy.
 
 // mixed case on purpose: any case folding of the value must show
 const DSN = 'https://PubKey1A2b@O0.ingest.sentry.io/4504'
+
+// the options of `Sentry.init` for a DSN (CS-SEN-3, AD-013): no session or
+// client-report envelopes, no trace headers, the integrations function
+const optionsFor = (dsn) => ({
+  dsn,
+  autoSessionTracking: false,
+  sendClientReports: false,
+  tracePropagationTargets: [],
+  integrations: expect.any(Function),
+})
+// Sentry 7 default integrations that Sentry 5.30 did not have (CS-SEN-3)
+const NOT_IN_5_30 = ['Dedupe', 'Undici', 'Context', 'Modules']
+
+// the SDK functions the app calls are this load's spy functions (AD-012)
+const expectSdkFunctions = (mod, sentry) => {
+  expect(mod.Sentry.captureException).toBe(sentry.captureException)
+  expect(mod.Sentry.withScope).toBe(sentry.withScope)
+  expect(Object.keys(mod.Sentry)).toEqual(['captureException', 'withScope'])
+}
 
 // undefined = variable absent
 const loadWith = (dsn) => {
@@ -33,7 +54,7 @@ describe('T-120 @P1 utils/sentry.js', () => {
   test('T-120 c1 @P1 without SENTRY_DSN (absent or empty) Sentry.init is not called', () => {
     ;[undefined, ''].forEach((dsn) => {
       const { mod, sentry } = loadWith(dsn)
-      expect(mod.Sentry).toBe(sentry)
+      expectSdkFunctions(mod, sentry)
       expect(sentry.init).toBeDefined()
       expect(sentry.init).not.toHaveBeenCalled()
     })
@@ -41,8 +62,10 @@ describe('T-120 @P1 utils/sentry.js', () => {
 
   test('T-120 c1 @P1 the module still exports the SDK object, and only it, without a DSN', () => {
     const { mod, sentry } = loadWith(undefined)
-    expect(Object.keys(mod)).toEqual(['Sentry'])
-    expect(mod.Sentry).toBe(sentry)
+    // the named export and the default export are the same object (AD-012)
+    expect(Object.keys(mod)).toEqual(['Sentry', 'default'])
+    expect(mod.default).toBe(mod.Sentry)
+    expectSdkFunctions(mod, sentry)
     expect(typeof mod.Sentry.captureException).toBe('function')
   })
 
@@ -58,11 +81,43 @@ describe('T-120 @P1 utils/sentry.js', () => {
 
   test('T-120 c2 @P1 with SENTRY_DSN Sentry.init is called once with exactly { dsn }', () => {
     const { mod, sentry } = loadWith(DSN)
-    expect(mod.Sentry).toBe(sentry)
+    expectSdkFunctions(mod, sentry)
     expect(sentry.init).toHaveBeenCalledTimes(1)
-    expect(sentry.init).toHaveBeenCalledWith({ dsn: DSN })
-    expect(Object.keys(sentry.init.mock.calls[0][0])).toEqual(['dsn'])
-    expect(Object.keys(mod)).toEqual(['Sentry'])
+    // `{ dsn }` plus the four options of CS-SEN-3 (AD-013)
+    expect(sentry.init).toHaveBeenCalledWith(optionsFor(DSN))
+    const options = sentry.init.mock.calls[0][0]
+    expect(Object.keys(options)).toEqual([
+      'dsn',
+      'autoSessionTracking',
+      'sendClientReports',
+      'tracePropagationTargets',
+      'integrations',
+    ])
+    // the integrations function returns its argument without the four
+    // integrations Sentry 5.30 did not have, the others as they are
+    const names = [
+      'InboundFilters',
+      'FunctionToString',
+      'Console',
+      'Http',
+      'Undici',
+      'OnUncaughtException',
+      'OnUnhandledRejection',
+      'ContextLines',
+      'LocalVariables',
+      'Context',
+      'Modules',
+      'RequestData',
+      'LinkedErrors',
+      'Dedupe',
+    ]
+    const defaults = names.map((name) => ({ name }))
+    const kept = options.integrations(defaults)
+    expect(kept.map(({ name }) => name)).toEqual(
+      names.filter((n) => !NOT_IN_5_30.includes(n))
+    )
+    kept.forEach((i) => expect(defaults).toContain(i))
+    expect(Object.keys(mod)).toEqual(['Sentry', 'default'])
   })
 
   test('T-120 c2 @P1 requiring the module again in the same registry does not initialise twice', () => {
@@ -88,7 +143,7 @@ describe('T-120 @P1 utils/sentry.js', () => {
   test('T-120 c2 @P1 a whitespace-only DSN is truthy and is passed on as it is', () => {
     const { sentry } = loadWith(' ')
     expect(sentry.init).toHaveBeenCalledTimes(1)
-    expect(sentry.init).toHaveBeenCalledWith({ dsn: ' ' })
+    expect(sentry.init).toHaveBeenCalledWith(optionsFor(' '))
   })
 
   test('T-120 c2 @P1 each fresh load initialises its own SDK instance once (no shared state between loads)', () => {

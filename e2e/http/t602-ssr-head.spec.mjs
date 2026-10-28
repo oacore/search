@@ -402,7 +402,8 @@ test.describe('T-602 @P0 SSR head', () => {
         .poll(() => sandboxLog.pageErrors.map((e) => e.message))
         .toEqual(["Cannot read properties of null (reading 'content')"])
       // no script-src violation: script-src-elem allows 'unsafe-inline'; the one violation is the browser
-      // Sentry report of that page error (connect-src, Q-096)
+      // Sentry report of that page error (connect-src, Q-096), to the envelope endpoint of Sentry 7 (AD-020;
+      // the store endpoint of Sentry 5.30 before)
       await expect
         .poll(() =>
           sandboxLog.csp.map((v) => [
@@ -410,7 +411,9 @@ test.describe('T-602 @P0 SSR head', () => {
             v.blockedURI.split('?')[0],
           ])
         )
-        .toEqual([['connect-src', 'https://o0.ingest.sentry.io/api/0/store/']])
+        .toEqual([
+          ['connect-src', 'https://o0.ingest.sentry.io/api/0/envelope/'],
+        ])
       expect(sandboxLog.unexpected).toEqual([])
       expect(sandboxLog.unmatched).toEqual([])
     } finally {

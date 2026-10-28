@@ -168,9 +168,10 @@ export const DEV_WARNING_MAP = [
   {
     id: 'q096-sentry-csp-dev-error',
     q: 'Q-096',
+    // the envelope endpoint of Sentry 7 (AD-027; Sentry 5.30: .../api/0/store/?sentry_key=public&sentry_version=7)
     match: {
       kind: 'console',
-      text: /^(Connecting to 'https:\/\/o0\.ingest\.sentry\.io\/api\/0\/store\/\?sentry_key=public&sentry_version=7' violates the following Content Security Policy directive|Fetch API cannot load https:\/\/o0\.ingest\.sentry\.io\/api\/0\/store\/\?sentry_key=public&sentry_version=7\. Refused to connect because it violates the document's Content Security Policy\.$)/,
+      text: /^(Connecting to 'https:\/\/o0\.ingest\.sentry\.io\/api\/0\/envelope\/\?sentry_key=public&sentry_version=7&sentry_client=sentry\.javascript\.browser%2F7\.120\.4' violates the following Content Security Policy directive|Fetch API cannot load https:\/\/o0\.ingest\.sentry\.io\/api\/0\/envelope\/\?sentry_key=public&sentry_version=7&sentry_client=sentry\.javascript\.browser%2F7\.120\.4\. Refused to connect because it violates the document's Content Security Policy\.$)/,
       route: /^works-1001-t-repeated$/,
     },
   },

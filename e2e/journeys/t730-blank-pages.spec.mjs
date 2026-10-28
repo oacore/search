@@ -21,8 +21,10 @@ const test = base.extend(p012Fixtures)
 // a hard load plus the settle wait can take minutes on a heavily loaded machine (40 §5: timeouts, never retries)
 test.describe.configure({ timeout: 300000 })
 
+// Sentry 7 reports to the envelope endpoint (AD-026; Sentry 5.30:
+// .../api/0/store/?sentry_key=public&sentry_version=7)
 const STORE =
-  'https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7'
+  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4'
 const CSP_CONNECT =
   "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com"
 const CSP_LINES = [
