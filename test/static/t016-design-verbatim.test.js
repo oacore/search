@@ -459,7 +459,7 @@ describe('T-016 @P0 vendored design', () => {
     }
   }, 300000)
 
-  test('T-016 c3 @P0 verify-design-verbatim: the installed design equals the 5.0.74 tarball except lib/config.js', () => {
+  test('T-016 c3 @P0 verify-design-verbatim: the installed design equals the 5.0.74 tarball except lib/config.js and the two files vendor/CHANGES.md lists', () => {
     const tarballDir = fs.mkdtempSync(path.join(os.tmpdir(), 't016-tgz-'))
     try {
       roots().forEach((root) => {
