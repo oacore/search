@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "link": "B0-local",
-  "kind": "golden",
-  "provisional": "host baseline, macOS arm64 (owner notes §1); provisional until the CI capture on ubuntu-24.04-arm and the owner-signed B0 PR (VF-10, I-06)",
+  "link": "B1-local",
+  "kind": "tool",
+  "provisional": "host baseline, macOS arm64 (owner notes §1); tool link B1-local on the B0-local reference: the W1 lint tools and test/baseline/t001-lint-w1.json (42 §9 tool re-capture, lean form; signed by the owner 2026-10-29, STATUS §1); provisional with B0-local until the CI capture on ubuntu-24.04-arm and the owner-signed B0 PR (VF-10, I-06)",
   "reference": {
     "G": "689fec94a2a194dcf90b40d3a02dd81cac112e75",
     "tag": "p2-local/golden",
