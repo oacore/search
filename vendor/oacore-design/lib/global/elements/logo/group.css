@@ -1,0 +1,15 @@
+.group{
+  display:inline-flex;
+  flex-direction:row-reverse;
+}
+
+.group>div{
+  position:relative;
+}
+
+.group>div:not(:last-child){
+  margin-left:-15px;
+}
+
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9lbGVtZW50cy9sb2dvL2dyb3VwLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG1CQUFvQjtFQUNwQiwwQkFBMkI7QUFDN0I7O0FBRUE7RUFDRSxpQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxpQkFBa0I7QUFDcEIiLCJmaWxlIjoiZ3JvdXAuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmdyb3VwIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3ctcmV2ZXJzZTtcbn1cblxuLmdyb3VwID4gZGl2IHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuXG4uZ3JvdXAgPiBkaXY6bm90KDpsYXN0LWNoaWxkKSB7XG4gIG1hcmdpbi1sZWZ0OiAtMTVweDtcbn1cblxuIl19 */

@@ -1,0 +1,39 @@
+.list {
+  display: block;
+  margin: 0 0 var(--spacer);
+}
+
+.group {
+  display: inline-block;
+
+  &:not(:first-child)::before {
+    /**
+     * There is no particular reason to use the 'en quad' instead the 'en-space'
+     * but there is a reason to use spacer with length '1 en'
+     */
+    content: '\2000•\2000';
+    opacity: .38;
+  }
+}
+
+.list > dt,
+.group > dt {
+  /* SR only */
+  display: none;
+}
+
+.list > dd,
+.group > dd {
+  display: inline-block;
+  margin: 0;
+}
+
+.empty {
+  display: none;
+}
+
+/* Loading states */
+[aria-busy='true'] .group::after,
+.group[aria-busy='true']::after {
+  content: '\2001';
+}

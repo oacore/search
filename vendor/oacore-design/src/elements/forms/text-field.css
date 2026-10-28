@@ -1,0 +1,79 @@
+:root {
+  /* Helper */
+  --form-helper-font-size: var(--body-font-size-small, .875em);
+  --form-helper-color: var(--gray-600);
+}
+
+%placeholder-shown {
+  opacity: .6;
+  transform: translateY(0);
+}
+
+.helper {
+  display: block;
+  order: 100;
+  width: 100%;
+  padding-right: var(--form-control-padding-x);
+  padding-left: var(--form-control-padding-x);
+  margin-top: calc(1.5rem - 1em);
+  font-size: var(--form-helper-font-size);
+  color: var(--form-helper-color);
+
+  &:empty {
+    display: none;
+  }
+}
+
+/* Size variations */
+.small {
+  --form-control-padding-y: calc(.5 * var(--component-padding, 1rem));
+  --form-control-font-size: var(--body-font-size-small);
+}
+
+.large {
+  --form-control-padding-y: var(--component-padding, 1rem);
+}
+
+/* Colour and shape variations */
+.pure {
+  /* Kepping screenreader-only tweak as is (with !important-s) for a safety */
+  /* stylelint-disable declaration-no-important */
+  & > label {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+  /* stylelint-enable declaration-no-important */
+  & > input::placeholder {
+    @extend %placeholder-shown;
+  }
+}
+
+.success {
+  --form-control-color: var(--success-dark);
+  --form-helper-color: var(--form-control-color);
+
+  /* For some reason --form-control-color change is not enough */
+  --form-label-color: var(--form-control-color);
+}
+
+.error {
+  --form-control-color: var(--danger-dark);
+  --form-helper-color: var(--form-control-color);
+
+  /* For some reason --form-control-color change is not enough */
+  --form-label-color: var(--form-control-color);
+}
+
+.touched:invalid,
+.touched:invalid ~ label {
+  --form-control-color: var(--danger-dark);
+  --form-label-color: var(--form-control-color);
+  --form-control-background-color: var(--danger-light-background);
+}

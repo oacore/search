@@ -1,0 +1,10 @@
+.logo {
+  position: relative;
+  line-height: 1;
+}
+
+.logo-icon {
+  margin-top: -.37rem;
+  margin-bottom: -.13rem;
+  vertical-align: -.0625rem;
+}

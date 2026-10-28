@@ -1,0 +1,3 @@
+```jsx
+<LoadingBar isLoading/>
+```

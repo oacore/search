@@ -1,0 +1,53 @@
+/**
+ * Elevation
+ *
+ * The full range of possible shadows can be applied to the elements.
+ * It's based on the Material Baseline Design Kit provided by Material Design
+ * via Figma Community.
+ *
+ * Credit: https://www.figma.com/community/file/778763161265841481/Material-Baseline-Design-Kit
+ */
+
+:root {
+  --elevation-00: none;
+  --elevation-01:
+    0  1px  3px hsl(0deg 0% 0% / .02),
+    0  2px  1px hsl(0deg 0% 0% / .12),
+    0  1px  1px hsl(0deg 0% 0% / .14);
+  --elevation-02:
+    0  1px  5px hsl(0deg 0% 0% / .02),
+    0  3px  1px hsl(0deg 0% 0% / .12),
+    0  2px  2px hsl(0deg 0% 0% / .14);
+  --elevation-03:
+    0  1px  8px hsl(0deg 0% 0% / .02),
+    0  3px  3px hsl(0deg 0% 0% / .12),
+    0  3px  4px hsl(0deg 0% 0% / .14);
+  --elevation-04:
+    0  2px  4px hsl(0deg 0% 0% / .02),
+    0  1px 10px hsl(0deg 0% 0% / .12),
+    0  4px  5px hsl(0deg 0% 0% / .14);
+  --elevation-06:
+    0  3px  5px hsl(0deg 0% 0% / .02),
+    0  1px 18px hsl(0deg 0% 0% / .12),
+    0  6px 10px hsl(0deg 0% 0% / .14);
+  --elevation-08:
+    0  5px  5px hsl(0deg 0% 0% / .02),
+    0  3px 14px hsl(0deg 0% 0% / .12),
+    0  8px 10px hsl(0deg 0% 0% / .14);
+  --elevation-09:
+    0  5px  6px hsl(0deg 0% 0% / .02),
+    0  3px 16px hsl(0deg 0% 0% / .12),
+    0  9px 12px hsl(0deg 0% 0% / .14);
+  --elevation-12:
+    0  7px  8px hsl(0deg 0% 0% / .02),
+    0  5px 22px hsl(0deg 0% 0% / .12),
+    0 12px 17px hsl(0deg 0% 0% / .14);
+  --elevation-16:
+    0  8px 10px hsl(0deg 0% 0% / .02),
+    0  6px 30px hsl(0deg 0% 0% / .12),
+    0 16px 24px hsl(0deg 0% 0% / .14);
+  --elevation-24:
+    0 11px 15px hsl(0deg 0% 0% / .02),
+    0  9px 46px hsl(0deg 0% 0% / .12),
+    0 24px 38px hsl(0deg 0% 0% / .14);
+}

@@ -1,0 +1,11 @@
+:root {
+  /* Smaller than a regular icon, 20px for the default 16px text */
+  --link-icon-size: 1.25em;
+}
+
+.icon {
+  width: var(--link-icon-size);
+  height: var(--link-icon-size);
+  margin-left: .25em;
+  vertical-align: text-bottom;
+}

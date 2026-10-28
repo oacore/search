@@ -1,0 +1,374 @@
+:root {
+  /* Control */
+  --form-control-corner-radius: var(--component-corner-radius, 2px);
+  --form-control-border-width: 1px;
+  --form-control-font-size: var(--body-font-size, 1rem);
+  --form-control-line-height: var(--line-height-base, 1.5);
+  --form-control-padding-x: var(--component-padding, 1rem);
+  --form-control-padding-y: var(--component-padding, .75rem);
+  --form-control-background-color: var(--white);
+  --form-control-color: var(--primary);
+
+  /* Label */
+  --form-label-color: var(--form-control-color);
+  --form-label-padding-x: .25em;
+  --form-label-padding-y: .125em;
+  --form-label-font-size: .75em;
+
+  /* Textarea */
+  --textarea-min-line-count: 1;
+  --textarea-line-count: 3;
+}
+
+/**
+ * Generics
+ * =============================================================================
+ */
+
+%label {
+  box-sizing: border-box;
+  display: block;
+  flex-grow: 1;
+  width: 100%;
+  margin-bottom: .5rem;
+  line-height: 1;
+  color: var(--form-label-color);
+  border-radius: var(--form-control-corner-radius, 2px);
+  transition: all 150ms ease -50ms;
+  transform-origin: left;
+}
+
+%label-overlay {
+  position: absolute;
+  z-index: 100;
+  width:
+    calc(
+      100% - 2 * calc(var(--form-control-padding-x) - var(--form-label-padding-x))
+    );
+  padding: var(--form-label-padding-y) var(--form-label-padding-x);
+  margin:
+    calc(var(--form-control-padding-y) - var(--form-label-padding-y))
+    calc(var(--form-control-padding-x) - var(--form-label-padding-x));
+  font-size: var(--form-control-font-size);
+  line-height: var(--form-control-line-height);
+  background-color: var(--form-control-background-color);
+}
+
+%label-overlay-focus {
+  width: auto;
+  padding: var(--form-label-padding-y) var(--form-label-padding-x);
+  font-size: var(--form-label-font-size);
+  background-color: var(--form-control-background-color);
+
+  /**
+   * A line on top of the input border
+   *
+   * If keep the background-color transparent this will only cover the border
+   * of the input and the text will be like on top of everything.
+   *
+   * However, such effect may be unwanted and leads to poor design on the
+   * non-white, especially image backgrounds. That is why we keep
+   * background-color at the moment.
+   */
+  background-image:
+    linear-gradient(
+      transparent calc(50% - calc(var(--form-control-border-width) / 2)),
+      var(--form-control-background-color)
+      calc(50% - calc(var(--form-control-border-width) / 2)),
+      var(--form-control-background-color)
+      calc(50% + calc(var(--form-control-border-width) / 2)),
+      transparent calc(50% + calc(var(--form-control-border-width) / 2))
+    );
+  transform:
+    translateY(
+      calc(
+        -.5em * var(--form-control-line-height) - var(--form-control-padding-y)
+      )
+    );
+}
+
+%control {
+  display: block;
+  flex-grow: 1;
+  height:
+    calc(
+      2 * var(--form-control-padding-y) + 1rem * var(--form-control-line-height)
+    );
+  padding-right:
+    calc(
+      var(--form-control-padding-x) - var(--form-control-border-width)
+    );
+  padding-left:
+    calc(
+      var(--form-control-padding-x) - var(--form-control-border-width)
+    );
+  font-size: var(--form-control-font-size);
+  line-height: var(--form-control-line-height);
+  background-color: var(--form-control-background-color);
+  border: var(--form-control-border-width) solid var(--form-control-color);
+  border-radius: var(--form-control-corner-radius);
+  caret-color: var(--form-control-color);
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+%placeholder {
+  transition: transform 150ms, opacity 150ms;
+}
+
+%placeholder-hidden {
+  opacity: 0;
+  transform: translateY(calc(1em + var(--form-control-padding-y)));
+}
+
+%placeholder-shown {
+  opacity: .6;
+  transform: translateY(0);
+}
+
+/**
+ * FormLabel
+ * =============================================================================
+ */
+
+.label {
+  @extend %label;
+}
+
+/**
+ * FormControl
+ * =============================================================================
+ *
+ * Also, some special logic for controls
+ */
+
+.control {
+  @extend %control;
+  order: 10;
+}
+
+/* Apply more specific rules for the <textarea> and <select> elements */
+/* stylelint-disable selector-no-qualifying-type */
+
+/* Restore <textarea> default height, add a min-height */
+textarea.control {
+  /* height:
+    calc(
+      2 * var(--form-control-padding-y) + var(--form-control-line-height) *
+      var(--textarea-line-count) * var(--form-control-font-size)
+    ); */
+  min-height:
+    calc(
+      2 * var(--form-control-padding-y) + var(--form-control-line-height) *
+      var(--textarea-min-line-count) * var(--form-control-font-size)
+    );
+  padding-top: calc(var(--form-control-padding-y) - 1px);
+  padding-bottom: calc(var(--form-control-padding-y) - 1px);
+  line-height: var(--line-height-base, 1.5);
+}
+
+/**
+ * Restore select colours from :read-only pseudo-class.
+ * This may be different or redundant after updating the TextField.
+ *
+ * TODO: Check colour after updating the TextField
+ */
+
+select.control,
+select.control ~ .label {
+  --form-control-color: var(--primary);
+  --form-label-color: var(--primary);
+}
+
+select.control:not([multiple]):not([size]) {
+  background-position: right center;
+  background-origin: content-box;
+}
+
+/* stylelint-enable selector-no-qualifying-type */
+.control::placeholder {
+  @extend %placeholder;
+  @extend %placeholder-hidden;
+}
+
+.control:focus::placeholder {
+  @extend %placeholder-shown;
+}
+
+.control ~ .label {
+  @extend %label-overlay;
+
+  &::before {
+    position: absolute;
+    top: calc(-1 * var(--form-control-padding-y) + var(--form-label-padding-y));
+    left:
+      calc(
+        -1 * var(--form-control-padding-x) + var(--form-label-padding-x)
+      );
+    z-index: 100;
+    width:
+      calc(
+        100% + -2 * var(--form-label-padding-x) + 2 *
+        var(--form-control-padding-x)
+      );
+    height:
+      calc(
+        2 * var(--form-control-padding-y) + 1rem * var(--form-control-line-height)
+      );
+    cursor: text;
+    content: '';
+    border-radius: var(--form-control-corner-radius);
+  }
+}
+
+.control:focus ~ .label::before,
+.control:not(:placeholder-shown) ~ .label::before {
+  display: none;
+}
+
+.control:matches(:focus, :not(:placeholder-shown)) ~ .label {
+  @extend %label-overlay-focus;
+}
+
+/**
+ * The following code is duplicated because @extend rule breaks the behaviour in
+ * Firefox. The browser does not take into account comma-separated selectors
+ * where is a `-webkit-` prefix.
+ */
+
+.control:-webkit-autofill ~ .label {
+  font-size: var(--form-label-font-size);
+  background-color: var(--form-control-background-color);
+  transform: translateY(calc(-.5em - var(--form-control-padding-y)));
+}
+
+.addon {
+  --icon-color: var(--form-control-color);
+  --progress-spinner-color: var(--form-control-color);
+
+  display: inline-flex;
+  padding:
+    calc(
+      var(--form-control-padding-y) - var(--form-control-border-width)
+    )
+    calc(var(--form-control-padding-x) - var(--form-control-border-width));
+  background-color: var(--form-control-background-color);
+  border: var(--form-control-border-width) solid var(--form-control-color);
+  border-radius: var(--form-control-corner-radius);
+}
+
+.addon.prepend {
+  order: 5;
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  & ~ .control {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.addon.append {
+  order: 15;
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  & ~ .control {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+/**
+ * Focussed control
+ *
+ * Artificially increase specificity to prevent global selectors override this
+ */
+
+.focus.focus {
+  & ~ .label {
+    @extend %label-overlay-focus;
+  }
+
+  &::placeholder {
+    @extend %placeholder-shown;
+  }
+}
+
+/**
+ * FormGroup
+ * =============================================================================
+ */
+
+.group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/**
+ * Global
+ * =============================================================================
+ */
+
+label {
+  @extend %label;
+}
+
+::placeholder {
+  @extend %placeholder;
+}
+
+input:not([type]),
+[type='text'],
+[type='search'],
+[type='password'],
+[type='email'],
+[type='number'],
+[type='tel'],
+[type='url'],
+[type='date'],
+[type='datetime-local'],
+[type='time'],
+[type='week'],
+[type='month'],
+select,
+textarea {
+  @extend %control;
+
+  & ~ label {
+    @extend %label;
+    @extend %label-overlay;
+  }
+
+  &:focus ~ label {
+    @extend %label-overlay-focus;
+  }
+
+  &::placeholder {
+    @extend %placeholder-hidden;
+  }
+
+  &:focus::placeholder {
+    @extend %placeholder-shown;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:disabled,
+  &:read-only,
+  &:disabled ~ label,
+  &:read-only ~ label {
+    --form-control-color: var(--gray-500);
+    --form-label-color: var(--gray-500);
+  }
+}

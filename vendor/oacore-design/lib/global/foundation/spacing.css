@@ -1,0 +1,42 @@
+/*!
+ * Spacing
+ *
+ * Based on Bootstrap Reboot.
+ * Bootstrap is licensed MIT. https://github.com/twbs/bootstrap
+ */
+
+:root{
+  --spacer:1.5rem;
+}
+address,blockquote,dl,h1,h2,h3,h4,h5,h6,ol,p,ul{
+  margin:1.5rem 0;
+  margin:var(--spacer, 1rem) 0;
+}
+
+ol ol,ol ul,ul ol,ul ul{
+  margin-top:0;
+  margin-bottom:0;
+}
+pre{
+  display:block;
+  margin:1.5rem;
+  margin:var(--spacer, 1rem);
+  overflow:auto;
+}
+figure{
+  margin:1.5rem 0;
+  margin:var(--spacer, 1rem) 0;
+}
+
+img,svg{
+  vertical-align:middle;
+}
+:first-child{
+  margin-top:0;
+}
+
+:last-child{
+  margin-bottom:0;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9mb3VuZGF0aW9uL3NwYWNpbmcuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7OztFQUtFOztBQUVGO0VBQ0UsZUFBZ0I7QUFDbEI7QUF3QkE7RUFHRSxlQUE2QjtFQUE3Qiw0QkFBNkI7QUFDL0I7O0FBRUE7RUFJRSxZQUFhO0VBQ2IsZUFBZ0I7QUFDbEI7QUFHQTtFQUNFLGFBQWM7RUFDZCxhQUEyQjtFQUEzQiwwQkFBMkI7RUFDM0IsYUFBYztBQUNoQjtBQUdBO0VBQ0UsZUFBNkI7RUFBN0IsNEJBQTZCO0FBQy9COztBQUVBO0VBRUUscUJBQXNCO0FBQ3hCO0FBR0E7RUFDRSxZQUFhO0FBQ2Y7O0FBRUE7RUFDRSxlQUFnQjtBQUNsQiIsImZpbGUiOiJzcGFjaW5nLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIVxuICogU3BhY2luZ1xuICpcbiAqIEJhc2VkIG9uIEJvb3RzdHJhcCBSZWJvb3QuXG4gKiBCb290c3RyYXAgaXMgbGljZW5zZWQgTUlULiBodHRwczovL2dpdGh1Yi5jb20vdHdicy9ib290c3RyYXBcbiAqL1xuXG46cm9vdCB7XG4gIC0tc3BhY2VyOiAxLjVyZW07XG59XG5cbmgxLFxuaDIsXG5oMyxcbmg0LFxuaDUsXG5oNiB7XG4gIG1hcmdpbjogdmFyKC0tc3BhY2VyLCAxcmVtKSAwO1xufVxuXG5wIHtcbiAgbWFyZ2luOiB2YXIoLS1zcGFjZXIsIDFyZW0pIDA7XG59XG5cbmFkZHJlc3Mge1xuICBtYXJnaW46IHZhcigtLXNwYWNlciwgMXJlbSkgMDtcbn1cblxuYmxvY2txdW90ZSB7XG4gIG1hcmdpbjogdmFyKC0tc3BhY2VyLCAxcmVtKSAwO1xufVxuXG4vKiBMaXN0cyAqL1xub2wsXG51bCxcbmRsIHtcbiAgbWFyZ2luOiB2YXIoLS1zcGFjZXIsIDFyZW0pIDA7XG59XG5cbm9sIG9sLFxudWwgdWwsXG5vbCB1bCxcbnVsIG9sIHtcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbn1cblxuLyogQ29kZSAqL1xucHJlIHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogdmFyKC0tc3BhY2VyLCAxcmVtKTtcbiAgb3ZlcmZsb3c6IGF1dG87XG59XG5cbi8qIEZpZ3VyZXMgKi9cbmZpZ3VyZSB7XG4gIG1hcmdpbjogdmFyKC0tc3BhY2VyLCAxcmVtKSAwO1xufVxuXG5pbWcsXG5zdmcge1xuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xufVxuXG4vKiBNYXJnaW4gZml4ICovXG46Zmlyc3QtY2hpbGQge1xuICBtYXJnaW4tdG9wOiAwO1xufVxuXG46bGFzdC1jaGlsZCB7XG4gIG1hcmdpbi1ib3R0b206IDA7XG59XG4iXX0= */

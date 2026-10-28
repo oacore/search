@@ -1,0 +1,9 @@
+.content {
+  --popover-content-min-width: 0;
+  min-width: var(--popover-content-min-width);
+  font-size: .9rem;
+  color: var(--white);
+  background-color: #000000e0;
+  border-radius: .3rem;
+  opacity: .8;
+}

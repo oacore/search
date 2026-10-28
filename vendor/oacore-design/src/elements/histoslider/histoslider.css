@@ -1,0 +1,96 @@
+.histoslider {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.range {
+  position: relative;
+}
+
+.range-dots {
+  cursor: move;
+  user-select: none;
+}
+
+.histograms {
+  cursor: pointer;
+}
+
+.histogram-item:hover {
+  pointer-events: all;
+  fill: var(--gray-500);
+}
+
+.label-left,
+.label-right {
+  position: absolute;
+  top: -1.5rem;
+  padding: .5rem 1rem;
+  color: var(--primary);
+  background-color: var(--gray-100);
+  border: 1px solid transparent;
+}
+
+.label-left {
+  left: -5.5rem;
+}
+
+.label-right {
+  right: -5.5rem;
+}
+
+.info {
+  position: absolute;
+  right: 0;
+  bottom: 2.3rem;
+  width: 100%;
+  text-align: center;
+}
+
+.info span {
+  display: block;
+  font-size: .9rem;
+  color: var(--gray-600);
+}
+
+.info-box {
+  position: relative;
+  top: .2rem;
+  display: inline-block;
+  padding: .1rem .5rem;
+  font-size: .8rem;
+  background-color: var(--gray-100);
+  border: 1px solid var(--primary);
+}
+
+.info-box::after,
+.info-box::before {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  content: ' ';
+  border: solid rgba(255, 0, 0, 0);
+}
+
+.info-box::after {
+  top: -10px;
+  left: 60%;
+  margin-left: -18px;
+  border-width: 5px;
+  border-bottom-color: var(--gray-100);
+}
+
+.info-box::before {
+  top: -11px;
+  left: 60%;
+  margin-left: -18px;
+  border-width: 5px;
+  border-bottom-color: var(--primary);
+}
+
+.info-box span {
+  display: inline-block;
+  font-size: .8rem;
+  color: var(--primary);
+}

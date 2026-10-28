@@ -1,0 +1,156 @@
+@custom-media --header-breakpoint-down (max-width: 767px);
+@custom-media --header-breakpoint-up (min-width: 767px);
+
+:root {
+  --select-background: var(--white);
+  --select-focused-background: var(--white);
+  --select-options-max-height: 20rem;
+  --select-border-radius: 2px;
+  --selected-option-color: var(--gray-200);
+  --select-option-icon-color: var(--form-control-color);
+  --select-clear-input-icon-color: var(--gray-700);
+  --select-z-index: 1000;
+}
+
+.select-wrapper {
+  --form-control-background-color: var(--select-background);
+  --form-control-padding-x: 12px;
+
+  position: relative;
+  z-index: var(--select-z-index);
+}
+
+.select-wrapper:focus-within,
+.select-wrapper.focused {
+  --form-control-background-color: var(--select-focused-background);
+  --select-z-index: 1001;
+}
+
+.select-menu {
+  position: absolute;
+  right: 0;
+  left: 0;
+  display: none;
+  max-height: var(--select-options-max-height);
+  padding: 0;
+  margin-top: 0;
+  overflow: auto;
+  list-style-type: none;
+  background: var(--select-focused-background);
+  border-radius: var(--select-border-radius);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .05), 0 1px 2px rgba(0, 0, 0, .25);
+}
+
+.option {
+  display: flex;
+  cursor: pointer;
+  outline: none;
+}
+
+.option-icon {
+  padding:
+    calc(
+      var(--form-control-padding-y) - var(--form-control-border-width)
+    )
+    calc(var(--form-control-padding-x) - var(--form-control-border-width));
+}
+
+.option:hover,
+.option-selected {
+  background: var(--selected-option-color);
+}
+
+.option-value,
+.option-icon {
+  padding:
+    calc(
+      var(--form-control-padding-y) - var(--form-control-border-width)
+    )
+    calc(var(--form-control-padding-x) - var(--form-control-border-width));
+  color: var(--select-option-icon-color);
+}
+
+.prepend-icon ~ input,
+.option-icon ~ .option-value {
+  padding:
+    calc(
+      var(--form-control-padding-y) - var(--form-control-border-width)
+    )
+    0;
+}
+
+.append-icon {
+  /* preserve border radius */
+  min-width: 1rem;
+  padding: 0;
+}
+
+.append-text{
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  color: var(--gray-700);
+  cursor: pointer;
+}
+
+.append-text:hover{
+  text-decoration: underline;
+}
+
+.clear-out-button,
+.info-append-button {
+  --icon-color: var(--select-clear-input-icon-color);
+  --button-padding-y: 0;
+  --button-padding-x: 0;
+
+  display: none;
+  padding:
+    calc(
+      var(--form-control-padding-y) - var(--form-control-border-width) - .2rem
+    )
+    calc(.75rem - var(--form-control-border-width) - .2rem);
+  margin: .2rem;
+  border: none;
+  border-radius: 2rem;
+}
+
+.select-menu.show,
+.clear-out-button.show {
+  display: block;
+}
+
+.pure > label {
+  transition: none;
+}
+
+.focused .pure > label,
+.select-wrapper:focus-within .pure > label,
+.pure input:not(:placeholder-shown) ~ label {
+  /* Keeping screenreader-only tweak as is (with !important-s) for a safety */
+  /* stylelint-disable declaration-no-important */
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (--header-breakpoint-down) {
+  .append-text{
+    display: none;
+  }
+
+  .info-append-button.show {
+    z-index: 101;
+    display: block;
+    background-color: var(--gray-200);
+  }
+}

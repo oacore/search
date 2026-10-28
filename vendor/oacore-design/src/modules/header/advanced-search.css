@@ -1,0 +1,120 @@
+@custom-media --header-breakpoint-down (max-width: 767px);
+
+:root{
+  --container-max-width: calc((100vw - var(--page-padding-x) * 2 ) * var(--main-content-ratio));
+}
+
+.container{
+  position: relative;
+  max-width: var(--container-max-width);
+  padding: 1rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+  background-color: var(--gray-200);
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+
+.title{
+  max-width: calc(var(--container-max-width) - 10vw);
+}
+
+.subtitle{
+  margin: 0;
+  font-weight: 500;
+
+}
+
+.variants{
+  margin-top: .5rem;
+}
+
+.variant{
+  margin-bottom: 1rem;
+}
+
+.variant span{
+  padding: .3rem;
+  font-family: 'Courier New', monospace;
+  font-size: .9rem;
+  background-color: var(--white);
+  border: 1px solid var(--gray-400);
+}
+
+.buttons{
+  display: flex;
+  margin-top: 1rem;
+}
+
+
+.button-container:not(:last-child){
+  margin-right: 1rem;
+}
+
+.button-container button{
+  min-width: 10rem;
+}
+
+.clear-out-button {
+  --icon-color: var(--select-clear-input-icon-color);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding:
+    calc(
+      var(--form-control-padding-y) - var(--form-control-border-width) - .2rem
+    )
+    calc(.75rem - var(--form-control-border-width) - .2rem);
+  border: none;
+  border-radius: 2rem;
+}
+
+.toggle-text{
+  display: none;
+}
+
+@media (max-width: 93rem) and (min-width: 768px){
+  .container {
+    max-width: calc((100vw - var(--page-padding-x) * 2 ) * var(--main-content-ratio) - var(--logo-min-width) + var(--page-padding-x));
+  }
+}
+
+@media (--header-breakpoint-down) {
+  .container{
+    position: absolute;
+    top: 3rem;
+    right: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow-y: scroll;
+    font-size: .8rem;
+  }
+
+  .title{
+    max-width: 100%;
+    margin-top: 3rem;
+  }
+
+  .buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .button-container {
+    width: 50%;
+    margin-bottom: 1rem;
+  }
+
+  .button-container:not(:last-child){
+    margin-right: 0;
+  }
+
+
+}

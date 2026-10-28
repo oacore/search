@@ -1,0 +1,28 @@
+:root {
+  --label-corder-radius: var(--component-corner-radius, 2px);
+  --label-padding-x: .5rem;
+  --label-padding-y: .25rem;
+  --label-background: var(--gray-700);
+  --label-color: var(--white);
+}
+
+.label {
+  display: inline-block;
+  padding: var(--label-padding-y) var(--label-padding-x);
+  line-height: 1;
+  color: var(--label-color);
+  background: var(--label-background);
+  border-radius: var(--label-corder-radius);
+}
+
+.primary {
+  --label-background: var(--primary);
+}
+
+.success {
+  --label-background: var(--success-dark);
+}
+
+.danger {
+  --label-background: var(--danger-dark);
+}

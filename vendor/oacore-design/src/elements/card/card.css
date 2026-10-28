@@ -1,0 +1,51 @@
+.container {
+  min-width: var(--card-min-width, 18rem);
+  padding:
+    var(--card-padding-y, var(--component-padding-y, 1rem))
+    var(--card-padding-x, var(--component-padding-x, 1rem));
+  background-color:
+    hsl(
+      var(--card-background, var(--component-background, 0 0 1))
+    );
+  border-radius: var(--card-border-radius, var(--component-border-radius, 2px));
+}
+
+.title {
+  margin-bottom: .5rem;
+  color: var(--card-title-color);
+}
+
+.description {
+  margin-top: 0;
+  font-size: .875rem;
+  color: var(--card-description-color);
+}
+
+.footer {
+  padding:
+    var(--card-padding-y, var(--component-padding-y, 1rem))
+    var(--card-padding-x, var(--component-padding-x, 1rem));
+  margin-right: calc(-1 * var(--card-padding-x, var(--component-padding-x)));
+  margin-left: calc(-1 * var(--card-padding-x, var(--component-padding-x)));
+
+  &:last-child {
+    margin-bottom: calc(-1 * var(--card-padding-y, var(--component-padding-y)));
+  }
+}
+
+/* Variants */
+.elevated {
+  box-shadow:
+    var(
+      --card-elevation,
+      var(--component-elevation, var(--elevation-01, none))
+    );
+}
+
+.outlined {
+  box-shadow: inset 0 0 0 1px hsl(var(--card-color, var(--on-surface)) / .12);
+}
+
+.pure{
+  box-shadow: none;
+}

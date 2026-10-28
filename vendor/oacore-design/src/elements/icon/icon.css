@@ -1,0 +1,18 @@
+:root {
+  --icon-color: currentColor;
+}
+
+.icon {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/**
+ * Increasing specificity artificially because the selector `svg:not([fill])`
+ * from `sanitize.css` takes precedence over our fill.
+ */
+
+.icon:not([fill]) {
+  fill: var(--icon-color);
+}

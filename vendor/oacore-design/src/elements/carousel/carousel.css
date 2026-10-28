@@ -1,0 +1,121 @@
+@import url('~slick-carousel/slick/slick.css');
+@import url('~slick-carousel/slick/slick-theme.css');
+
+:root {
+  --indicator-color: var(--gray-300);
+  --arrow-color: var(--primary);
+  --indicator-active-color: var(--arrow-color);
+  --indicator-label-width: 46rem;
+  --indicator-max-width: 2rem;
+  --indicator-height: .24rem;
+
+  /* --indicator-active-height: calc(var(--indicator-height) * 2); */
+  --indicator-label-margin: 2.5rem auto;
+  --arrow-line-width: var(--indicator-max-width);
+  --arrows-top-margin: 93.7%;
+}
+
+.carousel-indicators {
+  /* stylelint-disable */
+  position: absolute;
+  top:-2rem;
+  left:1rem;
+  width: 100%;
+  display: flex !important;
+  max-width: var(--indicator-label-width);
+  margin: var(--indicator-label-margin);
+}
+
+.carousel-indicators li {
+  flex: 1;
+  max-width: var(--indicator-max-width);
+  list-style: none;
+}
+
+.carousel-indicators li:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.carousel-indicator {
+  display: flex;
+  height: var(--indicator-height);
+  cursor: pointer;
+  opacity: 0.5;
+  background-color: var(--primary);
+
+}
+
+.carousel-indicator-active {
+opacity: 1;
+}
+
+.icon-prev,
+.icon-next {
+  top: var(--arrows-top-margin);
+  cursor: pointer;
+}
+
+.icon-prev {
+  left: 0;
+}
+
+.arrow-prev,
+.arrow-next {
+  position: absolute;
+  width: var(--arrow-line-width);
+  height: .18rem;
+  background-color: var(--primary);
+  transform: rotate(180deg);
+}
+
+.arrow-next {
+  right: 1.5rem;
+}
+
+.arrow-prev::after,
+.arrow-prev::before,
+.arrow-next::after,
+.arrow-next::before {
+  position: absolute;
+  width: 14%;
+  content: '';
+  height: .18rem;
+  background-color: var(--primary);
+}
+
+.arrow-prev::after,
+.arrow-prev::before {
+  left: 6.75rem;
+}
+
+.arrow-next::after,
+.arrow-next::before {
+  left: -.18rem;
+}
+
+.arrow-prev::after,
+.arrow-next::after{
+  top: -.31rem;
+
+}
+
+.arrow-prev::before,
+.arrow-next::before{
+  top: .31rem;
+}
+
+.arrow-prev::after {
+  transform: rotate(45deg);
+}
+
+.arrow-prev::before {
+  transform: rotate(-45deg);
+}
+
+.arrow-next::after {
+  transform: rotate(-45deg);
+}
+
+.arrow-next::before {
+  transform: rotate(45deg);
+}

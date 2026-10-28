@@ -1,0 +1,14 @@
+extends:
+  - '@oacore/eslint-config-react'
+
+parser: babel-eslint
+env:
+  browser: true
+settings:
+  import/resolver:
+    node:
+      paths: ['./src']
+      extensions: ['.js', '.jsx']
+rules:
+  react/require-default-props: off
+  react/react-in-jsx-scope: off

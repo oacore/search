@@ -1,0 +1,13 @@
+.modal{
+  max-width:70vw;
+  height:100vh;
+  background-color:transparent;
+  box-shadow:none;
+}
+
+.video{
+  height:100%;
+  margin-top:2rem;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9tb2R1bGVzL3ZpZGVvL3N0eWxlcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxjQUFlO0VBQ2YsWUFBYTtFQUNiLDRCQUE2QjtFQUM3QixlQUFnQjtBQUNsQjs7QUFFQTtFQUNFLFdBQVk7RUFDWixlQUFnQjtBQUNsQiIsImZpbGUiOiJzdHlsZXMuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1vZGFsIHtcbiAgbWF4LXdpZHRoOiA3MHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgYm94LXNoYWRvdzogbm9uZTtcbn1cblxuLnZpZGVvIHtcbiAgaGVpZ2h0OiAxMDAlO1xuICBtYXJnaW4tdG9wOiAycmVtO1xufVxuIl19 */

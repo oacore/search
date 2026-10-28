@@ -1,0 +1,52 @@
+.list {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.list li {
+  display: inline;
+
+  &:not(:last-child)::after {
+    content: ',\2000';
+    opacity: .38;
+  }
+}
+
+.show-more button {
+  position: relative;
+  padding: 0 .25rem;
+  margin: 0 .25rem;
+  color: var(--gray-700);
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: var(--gray-100);
+}
+
+.show-more.hide::after {
+  content: '';
+}
+
+.list .hide {
+  display: none;
+}
+
+/* Loading state */
+
+/* We want rectangles to be written in a single line */
+/* stylelint-disable function-comma-newline-after */
+[aria-busy='true'] .list:empty,
+.list[aria-busy='true']:empty {
+  position: relative;
+  bottom: -.15em;
+  min-width: 10em;
+  min-height: 1em;
+  clip-path:
+    polygon(
+      evenodd,
+      0 0, calc(40% + 1ch) 0, calc(40% + 1ch) 1em, 0 1em, 0 0,
+      40% 0, 100% 0, 100% 1em, 40% 1em, 40% 0
+    );
+}
+/* stylelint-enable function-comma-newline-after */

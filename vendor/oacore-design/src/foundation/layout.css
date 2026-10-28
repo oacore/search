@@ -1,0 +1,15 @@
+:root {
+  --main-content-max-width: 80rem;
+  --page-padding-x: calc((100vw - var(--main-content-max-width)) / 2);
+  --page-padding-y: 3rem;
+  --main-content-ratio: calc(2 / 3);
+  --main-content-aside-gap: 2rem;
+  --logo-min-width: 7rem;
+}
+
+/* should match --main-content-max-width */
+@media (max-width: 80rem) {
+  :root {
+    --page-padding-x: 1rem;
+  }
+}

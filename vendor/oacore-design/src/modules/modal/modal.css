@@ -1,0 +1,97 @@
+:root {
+  --modal-padding-x: var(--component-padding-x, 1rem);
+  --modal-padding-y: var(--component-padding-y, 1rem);
+  --modal-background: var(--white, #fff);
+  --modal-corner-radius: var(--component-corner-radius, 2px);
+  --modal-box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+  --modal-title-color: var(--gray-800);
+  --modal-overlay-color: rgba(0, 0, 0, .5);
+  --modal-bar-fixed-z-index: calc(var(--app-bar-fixed-z-index, 1020) + 10);
+  --modal-close-button-size: 2.5rem;
+  --modal-close-button-padding: .5rem;
+}
+
+.overlay-root {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--modal-bar-fixed-z-index);
+  background: var(--modal-overlay-color);
+}
+
+.overlay-root ~ .overlay-root {
+  background: none;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+}
+
+.title {
+  position: relative;
+  padding-bottom: 1rem;
+  margin: 0;
+  color: var(--modal-title-color);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.footer {
+  padding-top: 1rem;
+  margin: 0;
+  border-top: 1px solid var(--gray-200);
+}
+
+.content {
+  overflow-y: auto;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 42rem;
+  max-height: 80vh;
+  padding: var(--modal-padding-y) var(--modal-padding-x);
+  margin-right: auto;
+  margin-left: auto;
+  overflow: auto;
+  background: var(--modal-background);
+  border-radius: var(--modal-corner-radius);
+  box-shadow: var(--modal-box-shadow);
+  transform: translate(-50%, -50%);
+}
+
+.close-button {
+  --button-padding-y: var(--modal-close-button-padding);
+  --button-padding-x: var(--modal-close-button-padding);
+
+  position: absolute;
+  right: var(--modal-padding-x);
+  z-index: 5;
+  width: var(--modal-close-button-size);
+  height: var(--modal-close-button-size);
+  color: var(--gray-700);
+  border: none;
+  border-radius: 2rem;
+  transform: translateY(calc(-1 * var(--button-padding-x)));
+}
+
+/* Make sure when title is large that text flow around close button */
+.close-button ~ .title::before {
+  position: relative;
+  float: right;
+  width: var(--modal-close-button-size);
+  height: var(--modal-close-button-size);
+  content: '';
+}
+
+.close-button ~ .title {
+  /* Absolute value */
+  padding-bottom: max(calc(var(--modal-close-button-size) - var(--h1-font-size)), calc(var(--h1-font-size) - var(--modal-close-button-size)));
+}

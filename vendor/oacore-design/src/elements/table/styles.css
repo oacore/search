@@ -1,0 +1,109 @@
+:root {
+  --table-border-color: var(--gray-400);
+  --table-cell-padding-x: var(--component-padding-x, 1rem);
+  --table-cell-padding-y: .875rem; /* Assumes line-height 1.5, i.e. 24px-height text */
+}
+
+table {
+  width: 100%;
+}
+
+/* Partials */
+thead {
+  border-bottom: 2px solid var(--table-border-color);
+
+  & > :first-child {
+    margin-top: 0;
+    border-top-width: 0;
+  }
+}
+
+/* Rows */
+tr {
+  border: solid var(--table-border-color);
+  border-width: 1px 0;
+}
+
+/* Cells */
+
+%cell {
+  padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
+}
+
+td {
+  @extend %cell;
+}
+
+th {
+  @extend %cell;
+
+  --table-cell-padding-y: var(--component-padding-y, 1rem);
+  font-weight: var(--table-heading-font-weight, 600);
+  text-align: inherit;
+}
+
+tfoot {
+  border-top: 2px solid var(--table-border-color);
+}
+
+/* States */
+.sticky {
+  position: sticky;
+}
+
+.head-cell {
+  position: relative;
+  padding: 0;
+}
+
+.head-cell > button {
+  position: relative;
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
+  color: inherit;
+  text-align: inherit;
+  text-transform: inherit;
+  cursor: default;
+  user-select: text;
+
+  &:focus,
+  &:hover,
+  &:active {
+    cursor: default;
+    box-shadow: none;
+    opacity: 1;
+  }
+}
+
+.head-cell.sortable > button {
+  cursor: pointer;
+  user-select: text;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: inline-block;
+    font-weight: 400;
+    opacity: .6;
+    transform: translateY(-50%);
+  }
+
+  &:hover::after,
+  &:focus::after {
+    content: '\25b2';
+    opacity: 1;
+  }
+}
+
+.head-cell.sortable {
+  &.asc > button::after {
+    content: '\25b2';
+  }
+
+  &.desc > button::after {
+    content: '\25bc';
+  }
+}
