@@ -509,3 +509,25 @@
   step: W5b
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'
+- id: AD-048
+  kind: product
+  test: T-610
+  key: "t610-stdout-census.json, mobx frame It"
+  from: "    at i.It (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:<line>:<col>)"
+  to: "    at i.Kt (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:<line>:<col>)"
+  reason: "T-610 c3 (app stdout/stderr line census): one frame of the `URIError: URI malformed` stack of DataProviders.search (sweep providers-q-100pct), one occurrence. CS-MOBX-1 (W3, mobx 6.13.7 -> 6.16.1): the minifier of the mobx production bundle names ComputedValue.computeValue_ `Kt` where 6.13.7 named it `It` (the same method); the message, the app frames, the file names and the line count are unchanged. Applied by the e2e baseline hook (e2e/lib/P0-10/baseline.mjs) to the masked baseline (the key names the baseline file; the second part keeps one row per (test, key) beside AD-037 and AD-049); the file stays as recorded."
+  ref: [OD-13, OD-31]
+  step: W3
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-049
+  kind: product
+  test: T-610
+  key: "t610-stdout-census.json, mobx frame O"
+  from: "    at i.O (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:<line>:<col>)"
+  to: "    at i.g (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:<line>:<col>)"
+  reason: "T-610 c3 (app stdout/stderr line census): one frame of the same `URIError: URI malformed` stack of DataProviders.search (sweep providers-q-100pct), one occurrence. CS-MOBX-1 (W3, mobx 6.13.7 -> 6.16.1): the minifier of the mobx production bundle names ObservableObjectAdministration.getObservablePropValue_ `g` where 6.13.7 named it `O` (the same method; 6.16.1 adds a lazy key lookup before `.get()`, the T-203 reactivity table is identical); the message, the app frames, the file names and the line count are unchanged. Applied by the e2e baseline hook (e2e/lib/P0-10/baseline.mjs) to the masked baseline; the file stays as recorded."
+  ref: [OD-13, OD-31]
+  step: W3
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
