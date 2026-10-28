@@ -1,0 +1,256 @@
+# r3-works /works/1001/ 1440x900
+- banner:
+  - link "CORE CORE CO nnecting RE positories":
+    - /url: https://core.ac.uk/
+    - img "CORE"
+    - text: CORE CO nnecting RE positories
+  - button "Search icon":
+    - img "Search icon"
+  - navigation:
+    - button "Services"
+    - button "Support us"
+    - button "About"
+- main:
+  - link "Search results":
+    - /url: https://core.ac.uk/search/?/1001/
+  - text: ">"
+  - link "Research work":
+    - /url: "#"
+  - 'heading "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?" [level=1]'
+  - definition:
+    - list:
+      - listitem:
+        - link "Annalisa Savaresi":
+          - /url: https://core.ac.uk/search?q=authors:(Annalisa Savaresi)
+        - text: ","
+      - listitem:
+        - link "Mikko Rajavuori":
+          - /url: https://core.ac.uk/search?q=authors:(Mikko Rajavuori)
+        - text: ","
+      - listitem:
+        - button "+4 more"
+        - text: ","
+  - text: •
+  - definition: 14 March 2023
+  - text: •
+  - definition: Wiley
+  - text: •
+  - definition:
+    - list:
+      - listitem: "DOI: 10.1111/REGO.12518"
+  - button "Cite":
+    - img
+    - text: Cite
+  - heading "Abstract" [level=2]
+  - text: The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research
+  - list
+  - heading "Similar works" [level=2]
+  - 'heading "Climate change 2015: growing risks, critical choices" [level=3]'
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Climate Council":
+          - /url: /search?q=author:(Climate Council)
+  - text: •
+  - definition: "2015"
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/reader/30671329
+  - text: This latest Climate Council report provides an update of climate change science, impacts and risks. This report draws from the massive body of evidence that human activities - primarily from the burning of coal, oil and gas - are driving dramatic changes in our climate system. The report outlines how the changing climate poses substantial and escalating risks for health, property, infrastructure, agriculture and natural ecosystems in Australia. Compared to our understanding when the last Critical Decade report was published, the risks of climate change for our well-being now look more serious at lower levels of climate change, strengthening the case for urgent action. Finally, the report describes why it is in Australia’s national interest to play a leadership role in the global move for strong climate action leading up to the Paris climate conference at the end of 2015
+  - link "Analysis and Policy Observatory (APO)":
+    - /url: /data-providers/713
+  - heading "Climate and Airborne Pollutants" [level=3]
+  - img "UNT (University of North Texas) Digital Library"
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Climate Change Science Program (U.S.)":
+          - /url: /search?q=author:(Climate Change Science Program (U.S.))
+  - text: •
+  - definition: "2008"
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/reader/216240794
+  - text: Pamphlet describing climate projections based on emission scenarios for long-lived and short-lived radiatively active gases and aerosols
+  - link "UNT (University of North Texas) Digital Library":
+    - /url: /data-providers/2313
+  - 'heading "Thirsty country: climate change and drought in Australia" [level=3]'
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Climate Council":
+          - /url: /search?q=author:(Climate Council)
+  - text: •
+  - definition: "2015"
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/reader/30672389
+  - text: This report argues that climate change is likely making drought worse in the southeast and southwest of Australia, which are some of our most populous regions. Introduction Drought has deeply affected Australia throughout its history. The Millennium Drought from 1996-2010 serves as a recent reminder of the wide-reaching impacts that drought can have on Australia’s people and environment. Australia is the driest inhabited continent on Earth and drought is an important feature of Australia’s climate. Whilst Australians have always lived with drought and its consequences, it is likely that climate change is making drought worse in the southeast and southwest, some of our most populous regions. We begin this report by describing what a drought is, before considering its consequences for health, the economy, ecosystems and urban water supplies. We then outline the changing drought conditions and increasing drying trends in Australia and explore recent dry conditions in various parts of the country. We conclude by exploring how climate change is influencing drought conditions in the southeast and southwest of the continent as well as drying trends globally
+  - link "Analysis and Policy Observatory (APO)":
+    - /url: /data-providers/713
+  - heading "Midwestern Regional Climate Center" [level=3]
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Midwestern Regional Climate Center":
+          - /url: /search?q=author:(Midwestern Regional Climate Center)
+  - text: •
+  - definition: 01/01/2001
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/reader/158316893
+  - text: "Made available in DSpace on 2016-11-14T22:36:27Z (GMT). No. of bitstreams: 2 ISWSIEM2001-01.pdf: 146176 bytes, checksum: 791a8da476fabb8bec8c3d10ae0a0993 (MD5) license.txt: 3973 bytes, checksum: 6c1c5beee39794d995a5ff442f5bd9ab (MD5) Previous issue date: 2001Mode of access: Internet; current access through PURL.The Midwestern Regional Climate Center (MRCC) is a cooperative program between the National Climatic Data Center (NCDC) and the Illinois State Water Survey in Champaign, Illinois.Describes MRCC research and services which explain climate and its impact on the Midwest; provide practical solutions to specific climate problems; and develop issues based climate information for the Midwest region"
+  - link "Illinois Digital Environment for Access to Learning and Scholarship Repository":
+    - /url: /data-providers/198
+  - heading "Seasonal Climate Forecasts and Risk Management Among Georgia Farmers" [level=3]
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Hoogenhoom G.":
+          - /url: /search?q=author:(Hoogenhoom, G.)
+        - text: ","
+      - listitem:
+        - link "Broad K.":
+          - /url: /search?q=author:(Broad, K.)
+        - text: ","
+      - listitem:
+        - button "+12 more"
+        - text: ","
+  - text: •
+  - definition: 01/01/2008
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/reader/29255347
+  - text: Recent increases in the scientific robustness of seasonal climate forecasts have not led to substantial changes in farmers’ risk management strategies of actors, largely because there is poor integration of scientific forecasting into farmers’ decision-making processes. The goal of the research presented here is to explore the potentials and constraints for farmers’ application of seasonal climate forecasts through an analysis of the cultural contexts of their decision-making and information use. Semi-structured interviews were conducted with 38 farmers in southern Georgia, examining their approaches, risk-management, to livelihood goals and strategies, and interactions with weather and climate information. Findings indicate that farmers’ management of risks associated with climate variability is embedded within a broad array of social factors, including subjective construction of social and personal identities, goals, and values. These cultural contexts affect the ways that farmers interpret and might apply seasonal climate forecasts to agricultural decisions. These findings indicate that, rather than simply acting as a technical information input, seasonal climate forecasts and forecasters must gradually work theirway into farmers’ trusted social networks before their potential as risk management tools will be realized. Furthermore, while seeking to produce scientific information to support farmers’ adaptive practices, scientists themselves must adapt their own practices to better fit a coproduction of knowledge approach
+  - link "Wageningen University & Research Publications":
+    - /url: /data-providers/679
+  - text: and
+  - 'link "University of Miami: Scholarship@Miami"':
+    - /url: /data-providers/14567
+  - heading "Related searches" [level=2]
+  - img
+  - link "change":
+    - /url: //core.ac.uk/search?q=change
+  - text: •
+  - link "climate":
+    - /url: //core.ac.uk/search?q=climate
+  - text: •
+  - link "climate change":
+    - /url: //core.ac.uk/search?q=climate change
+  - heading "Full text" [level=2]
+  - link "Open in the Core reader":
+    - /url: http://<stack>/reader/566708785
+    - text: Open in the Core reader
+    - img
+  - text: Download PDF
+  - heading "Available Versions" [level=3]
+  - img
+  - heading "Stirling Online Research Repository (RIOXX)" [level=3]
+  - img "redirect"
+  - button "See this paper in CORE"
+  - link "Go to the repository landing page":
+    - /url: https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102
+    - button "Go to the repository landing page"
+  - button "Download from data provider"
+  - img "oai"
+  - link "oai:dspace.stir.ac.uk:1893/351...":
+    - /url: https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102
+  - img
+  - text: Last time updated on 25/05/2023
+  - img
+  - heading "Stirling Online Research Repository" [level=3]
+  - img "redirect"
+  - button "See this paper in CORE"
+  - link "Go to the repository landing page":
+    - /url: https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102
+    - button "Go to the repository landing page"
+  - button "Download from data provider"
+  - img "oai"
+  - link "oai:dspace.stir.ac.uk:1893/351...":
+    - /url: https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102
+  - img
+  - text: Last time updated on 25/05/2023
+  - img
+  - heading "Crossref" [level=3]
+  - img "redirect"
+  - button "See this paper in CORE"
+  - link "Go to the repository landing page":
+    - /url: https://doi.org/10.1111/rego.12518
+    - button "Go to the repository landing page"
+  - button "Download from data provider"
+  - text: Last time updated on 24/10/2023
+- contentinfo:
+  - link "core logo":
+    - /url: https://core.ac.uk
+    - img "core logo"
+  - paragraph:
+    - text: CORE (COnnecting REpositories) is a not-for-profit service supported by
+    - link "CORE Members.":
+      - /url: https://core.ac.uk/governance/supporters#membership-list
+  - list:
+    - heading "Product" [level=6]
+    - list:
+      - listitem:
+        - link "Services":
+          - /url: /services
+      - listitem:
+        - link "Membership":
+          - /url: /membership
+      - listitem:
+        - link "Sponsorship":
+          - /url: /sponsorship
+      - listitem:
+        - link "Labs":
+          - /url: /innovations/labs
+    - heading "Organisation" [level=6]
+    - list:
+      - listitem:
+        - link "About us":
+          - /url: /about
+      - listitem:
+        - link "Governance":
+          - /url: /about#our-mission
+      - listitem:
+        - link "Team":
+          - /url: /about#team
+      - listitem:
+        - link "Data providers":
+          - /url: /benefits
+    - heading "Support" [level=6]
+    - list:
+      - listitem:
+        - link "Terms":
+          - /url: /terms
+      - listitem:
+        - link "FAQs":
+          - /url: /faq
+      - listitem:
+        - link "Blog":
+          - /url: https://blog.core.ac.uk/
+      - listitem:
+        - link "Contact us":
+          - /url: /about#contact
+  - heading "Writing about CORE?" [level=6]
+  - paragraph:
+    - text: Discover our
+    - link "research outputs":
+      - /url: /about/research-outputs
+    - text: and cite our work.
+  - img "writing"
+  - text: "Follow us:"
+  - link "twitter":
+    - /url: https://twitter.com/oacore
+    - img "twitter"
+  - link "linkedin":
+    - /url: https://www.linkedin.com/company/coreoa
+    - img "linkedin"
+  - link "github":
+    - /url: https://github.com/oacore
+    - img "github"
+  - link "Accessibility":
+    - /url: /accessibility
+  - link "Cookies":
+    - /url: /cookies
+  - link "Privacy":
+    - /url: /privacy
+- alert

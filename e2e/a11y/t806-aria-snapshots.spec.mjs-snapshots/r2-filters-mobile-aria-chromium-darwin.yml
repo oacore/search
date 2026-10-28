@@ -1,0 +1,336 @@
+# r2-filters-mobile /search/?q=climate 375x812
+- banner:
+  - link "CORE CORE":
+    - /url: https://core.ac.uk/
+    - img "CORE"
+    - text: CORE
+  - img
+  - button:
+    - img
+  - combobox "Search more than 356 million from papers around the world": climate
+  - text: Search more than 356 million from papers around the world
+  - button "Toggle navigation"
+- main:
+  - button "Filters"
+  - list:
+    - listitem:
+      - paragraph: field
+      - img
+    - listitem:
+      - paragraph: year
+      - img
+    - listitem:
+      - paragraph: type
+      - img
+    - listitem:
+      - paragraph: author
+      - img
+    - listitem:
+      - paragraph: language
+      - img
+    - listitem:
+      - paragraph: publisher
+      - img
+  - paragraph: 1,956,781 research outputs found
+  - button:
+    - img
+  - button:
+    - img
+  - text: Sort by relevance
+  - img
+  - 'heading "Climate change 2015: growing risks, critical choices" [level=3]':
+    - 'link "Climate change 2015: growing risks, critical choices"':
+      - /url: http://<stack>/works/19211324/?t=fafad9968b7cd268c5fd64342bf88a26-19211324&search=q=climate
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Climate Council":
+          - /url: /search?q=author:(Climate Council)&t=fafad9968b7cd268c5fd64342bf88a26-19211324
+  - text: •
+  - definition: Climate Council
+  - text: •
+  - definition: "2015"
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/download/30671329.pdf
+  - text: This latest Climate Council report provides an update of climate change science, impacts and risks. This report draws from the massive body of evidence that human activities - primarily from the burning of coal, oil and gas - are driving dramatic changes in our climate system. The report outlines how the changing climate poses substantial and escalating risks for health, property, infrastructure, agriculture and natural ecosystems in Australia. Compared to our understanding when the last Critical Decade report was published, the risks of climate change for our well-being now look more serious at lower levels of climate change, strengthening the case for urgent action. Finally, the report describes why it is in Australia’s national interest to play a leadership role in the global move for strong climate action leading up to the Paris climate conference at the end of 2015
+  - link "Analysis and Policy Observatory (APO)":
+    - /url: /data-providers/713?t=fafad9968b7cd268c5fd64342bf88a26-19211324
+  - text: Recommended from our members
+  - heading "Climate and Airborne Pollutants" [level=3]:
+    - link "Climate and Airborne Pollutants":
+      - /url: http://<stack>/works/62704171/?t=fafad9968b7cd268c5fd64342bf88a26-62704171&search=q=climate
+  - img "UNT (University of North Texas) Digital Library"
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Climate Change Science Program (U.S.)":
+          - /url: /search?q=author:(Climate Change Science Program (U.S.))&t=fafad9968b7cd268c5fd64342bf88a26-62704171
+  - text: •
+  - definition: Climate Change Science Program (U.S.)
+  - text: •
+  - definition: "2008"
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/download/216240794.pdf
+  - text: Pamphlet describing climate projections based on emission scenarios for long-lived and short-lived radiatively active gases and aerosols
+  - link "UNT (University of North Texas) Digital Library":
+    - /url: /data-providers/2313?t=fafad9968b7cd268c5fd64342bf88a26-62704171
+  - 'heading "Thirsty country: climate change and drought in Australia" [level=3]':
+    - 'link "Thirsty country: climate change and drought in Australia"':
+      - /url: http://<stack>/works/19212910/?t=fafad9968b7cd268c5fd64342bf88a26-19212910&search=q=climate
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Climate Council":
+          - /url: /search?q=author:(Climate Council)&t=fafad9968b7cd268c5fd64342bf88a26-19212910
+  - text: •
+  - definition: Climate Council
+  - text: •
+  - definition: "2015"
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/download/30672389.pdf
+  - text: This report argues that climate change is likely making drought worse in the southeast and southwest of Australia, which are some of our most populous regions. Introduction Drought has deeply affected Australia throughout its history. The Millennium Drought from 1996-2010 serves as a recent reminder of the wide-reaching impacts that drought can have on Australia’s people and environment. Australia is the driest inhabited continent on Earth and drought is an important feature of Australia’s climate. Whilst Australians have always lived with drought and its consequences, it is likely that climate change is making drought worse in the southeast and southwest, some of our most populous regions. We begin this report by describing what a drought is, before considering its consequences for health, the economy, ecosystems and urban water supplies. We then outline the changing drought conditions and increasing drying trends in Australia and explore recent dry conditions in various parts of the country. We conclude by exploring how climate change is influencing drought conditions in the southeast and southwest of the continent as well as drying trends globally
+  - link "Analysis and Policy Observatory (APO)":
+    - /url: /data-providers/713?t=fafad9968b7cd268c5fd64342bf88a26-19212910
+  - heading "Midwestern Regional Climate Center" [level=3]:
+    - link "Midwestern Regional Climate Center":
+      - /url: http://<stack>/works/18872441/?t=fafad9968b7cd268c5fd64342bf88a26-18872441&search=q=climate
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Midwestern Regional Climate Center":
+          - /url: /search?q=author:(Midwestern Regional Climate Center)&t=fafad9968b7cd268c5fd64342bf88a26-18872441
+  - text: •
+  - definition: Midwestern Regional Climate Center
+  - text: •
+  - definition: 01/01/2001
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/download/158316893.pdf
+  - text: "Made available in DSpace on 2016-11-14T22:36:27Z (GMT). No. of bitstreams: 2 ISWSIEM2001-01.pdf: 146176 bytes, checksum: 791a8da476fabb8bec8c3d10ae0a0993 (MD5) license.txt: 3973 bytes, checksum: 6c1c5beee39794d995a5ff442f5bd9ab (MD5) Previous issue date: 2001Mode of access: Internet; current access through PURL.The Midwestern Regional Climate Center (MRCC) is a cooperative program between the National Climatic Data Center (NCDC) and the Illinois State Water Survey in Champaign, Illinois.Describes MRCC research and services which explain climate and its impact on the Midwest; provide practical solutions to specific climate problems; and develop issues based climate information for the Midwest region"
+  - link "Illinois Digital Environment for Access to Learning and Scholarship Repository":
+    - /url: /data-providers/198?t=fafad9968b7cd268c5fd64342bf88a26-18872441
+  - heading "Seasonal Climate Forecasts and Risk Management Among Georgia Farmers" [level=3]:
+    - link "Seasonal Climate Forecasts and Risk Management Among Georgia Farmers":
+      - /url: http://<stack>/works/17489114/?t=fafad9968b7cd268c5fd64342bf88a26-17489114&search=q=climate
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Hoogenhoom G.":
+          - /url: /search?q=author:(Hoogenhoom, G.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114
+        - text: ","
+      - listitem:
+        - link "Broad K.":
+          - /url: /search?q=author:(Broad, K.)&t=fafad9968b7cd268c5fd64342bf88a26-17489114
+        - text: ","
+      - listitem:
+        - button "+12 more"
+        - text: ","
+  - text: •
+  - definition: Southeast Climate Consortium
+  - text: •
+  - definition: 01/01/2008
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/download/29255347.pdf
+  - text: Recent increases in the scientific robustness of seasonal climate forecasts have not led to substantial changes in farmers’ risk management strategies of actors, largely because there is poor integration of scientific forecasting into farmers’ decision-making processes. The goal of the research presented here is to explore the potentials and constraints for farmers’ application of seasonal climate forecasts through an analysis of the cultural contexts of their decision-making and information use. Semi-structured interviews were conducted with 38 farmers in southern Georgia, examining their approaches, risk-management, to livelihood goals and strategies, and interactions with weather and climate information. Findings indicate that farmers’ management of risks associated with climate variability is embedded within a broad array of social factors, including subjective construction of social and personal identities, goals, and values. These cultural contexts affect the ways that farmers interpret and might apply seasonal climate forecasts to agricultural decisions. These findings indicate that, rather than simply acting as a technical information input, seasonal climate forecasts and forecasters must gradually work theirway into farmers’ trusted social networks before their potential as risk management tools will be realized. Furthermore, while seeking to produce scientific information to support farmers’ adaptive practices, scientists themselves must adapt their own practices to better fit a coproduction of knowledge approach
+  - link "Wageningen University & Research Publications":
+    - /url: /data-providers/679?t=fafad9968b7cd268c5fd64342bf88a26-17489114
+  - text: and
+  - 'link "University of Miami: Scholarship@Miami"':
+    - /url: /data-providers/14567?t=fafad9968b7cd268c5fd64342bf88a26-17489114
+  - 'heading "Going for zero: state decarbonisation strategies for prosperity in a zero-emission world" [level=3]':
+    - 'link "Going for zero: state decarbonisation strategies for prosperity in a zero-emission world"':
+      - /url: http://<stack>/works/19213079/?t=fafad9968b7cd268c5fd64342bf88a26-19213079&search=q=climate
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Climate Institute":
+          - /url: /search?q=author:(Climate Institute)&t=fafad9968b7cd268c5fd64342bf88a26-19213079
+  - text: •
+  - definition: Climate Institute
+  - text: •
+  - definition: "2015"
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/download/30672404.pdf
+  - text: "This paper explains why states should have a decarbonisation strategy and explores some key policy elements. Abstract Across the world, governments at all levels are implementing policies to reduce carbon emissions, address local air pollution, improve energy productivity, grow new industries and address energy security concerns. While these initiatives are as yet insufficient to avoid dangerous climate change or achieve the internationally agreed goal of avoiding 2°C warming above pre-industrial levels, the trend is clear. What is also clear is the ultimate destination or strategic objective that these policies need to have: the progressive phase-out of emissions to reach net zero levels, or ‘decarbonisation’. The OECD, World Bank and latest IPCC report have warned that avoiding irreversible and severe climate change impacts will require the global economy to be decarbonised before the end of the century. This requires energy systems, particularly electricity, to decarbonise well before then. Private sector actors are also moving forward. Leading multinational business groups and corporate leaders have called for action to achieve net zero global emissions by 2050. The financial sector is increasingly aware of the risks of ‘stranded assets’ resulting from both global decarbonisation efforts and the physical impacts of climate change. In Australia recent political and policy turmoil saw state governments retreat from many past climate policy initiatives. However some governments are now reconsidering their position and the risks posed to their economies and communities should they be left behind by this global trend toward decarbonisation. This paper explains why states should have a decarbonisation strategy and explores these key policy elements: Setting binding emission limits on major emitting facilities Incorporating carbon considerations into policy and planning processes Using procurement and management policies to help build markets for lower emission goods and services Continuing to develop and link energy efficiency policy frameworks Providing assistance: funding, technical, regulatory, trainin"
+  - link "Analysis and Policy Observatory (APO)":
+    - /url: /data-providers/713?t=fafad9968b7cd268c5fd64342bf88a26-19213079
+  - text: Recommended from our members
+  - heading "Sixth Oregon climate assessment" [level=3]:
+    - link "Sixth Oregon climate assessment":
+      - /url: http://<stack>/works/153927213/?t=fafad9968b7cd268c5fd64342bf88a26-153927213&search=q=climate
+  - img "ScholarsArchive@OSU"
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Fleishman Erica":
+          - /url: /search?q=author:(Fleishman, Erica)&t=fafad9968b7cd268c5fd64342bf88a26-153927213
+        - text: ","
+      - listitem:
+        - link "Oregon Climate Change Research Institute":
+          - /url: /search?q=author:(Oregon Climate Change Research Institute)&t=fafad9968b7cd268c5fd64342bf88a26-153927213
+  - text: •
+  - definition: "Corvallis, Oregon : Oregon Climate Change Research Institute, Oregon State University"
+  - figure: No full text
+  - text: Consistent with its charge under Oregon House Bill 3543, the Oregon Climate Change Research Institute (OCCRI) conducts a biennial assessment of the state of climate change science, including biological, physical, and social science, as it relates to Oregon and the likely effects of climate change on Oregon. This sixth Oregon Climate Assessment builds on the previous assessments by continuing to evaluate past and projected future changes in Oregon’s climate and water supply. Like the fifth assessment, it is structured with the goal of supporting the state’s mitigation planning for natural hazards and implementation of the 2021 Oregon Climate Change Adaptation Framework
+  - link "ScholarsArchive@OSU":
+    - /url: /data-providers/197?t=fafad9968b7cd268c5fd64342bf88a26-153927213
+  - text: Recommended from our members
+  - heading "Sixth Oregon climate assessment" [level=3]:
+    - link "Sixth Oregon climate assessment":
+      - /url: http://<stack>/works/385302858/?t=fafad9968b7cd268c5fd64342bf88a26-385302858&search=q=climate
+  - img "ScholarsArchive@OSU"
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Fleishman Erica":
+          - /url: /search?q=author:(Fleishman, Erica)&t=fafad9968b7cd268c5fd64342bf88a26-385302858
+        - text: ","
+      - listitem:
+        - link "Oregon Climate Change Research Institute":
+          - /url: /search?q=author:(Oregon Climate Change Research Institute)&t=fafad9968b7cd268c5fd64342bf88a26-385302858
+  - text: •
+  - definition: "Corvallis, Oregon : Oregon Climate Change Research Institute, Oregon State University"
+  - figure: No full text
+  - text: Consistent with its charge under Oregon House Bill 3543, the Oregon Climate Change Research Institute (OCCRI) conducts a biennial assessment of the state of climate change science, including biological, physical, and social science, as it relates to Oregon and the likely effects of climate change on Oregon. This sixth Oregon Climate Assessment builds on the previous assessments by continuing to evaluate past and projected future changes in Oregon’s climate and water supply. Like the fifth assessment, it is structured with the goal of supporting the state’s mitigation planning for natural hazards and implementation of the 2021 Oregon Climate Change Adaptation Framework
+  - link "ScholarsArchive@OSU":
+    - /url: /data-providers/197?t=fafad9968b7cd268c5fd64342bf88a26-385302858
+  - text: Recommended from our members
+  - heading "Sixth Oregon climate assessment" [level=3]:
+    - link "Sixth Oregon climate assessment":
+      - /url: http://<stack>/works/366588237/?t=fafad9968b7cd268c5fd64342bf88a26-366588237&search=q=climate
+  - img "ScholarsArchive@OSU"
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Fleishman Erica":
+          - /url: /search?q=author:(Fleishman, Erica)&t=fafad9968b7cd268c5fd64342bf88a26-366588237
+        - text: ","
+      - listitem:
+        - link "Oregon Climate Change Research Institute":
+          - /url: /search?q=author:(Oregon Climate Change Research Institute)&t=fafad9968b7cd268c5fd64342bf88a26-366588237
+  - text: •
+  - definition: "Corvallis, Oregon : Oregon Climate Change Research Institute, Oregon State University"
+  - figure: No full text
+  - text: Consistent with its charge under Oregon House Bill 3543, the Oregon Climate Change Research Institute (OCCRI) conducts a biennial assessment of the state of climate change science, including biological, physical, and social science, as it relates to Oregon and the likely effects of climate change on Oregon. This sixth Oregon Climate Assessment builds on the previous assessments by continuing to evaluate past and projected future changes in Oregon’s climate and water supply. Like the fifth assessment, it is structured with the goal of supporting the state’s mitigation planning for natural hazards and implementation of the 2021 Oregon Climate Change Adaptation Framework
+  - link "ScholarsArchive@OSU":
+    - /url: /data-providers/197?t=fafad9968b7cd268c5fd64342bf88a26-366588237
+  - text: Recommended from our members
+  - heading "Seventh Oregon climate assessment" [level=3]:
+    - link "Seventh Oregon climate assessment":
+      - /url: http://<stack>/works/164917271/?t=fafad9968b7cd268c5fd64342bf88a26-164917271&search=q=climate
+  - img "ScholarsArchive@OSU"
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Fleishman Erica":
+          - /url: /search?q=author:(Fleishman, Erica)&t=fafad9968b7cd268c5fd64342bf88a26-164917271
+        - text: ","
+      - listitem:
+        - link "Oregon Climate Change Research Institute":
+          - /url: /search?q=author:(Oregon Climate Change Research Institute)&t=fafad9968b7cd268c5fd64342bf88a26-164917271
+  - text: •
+  - definition: "Corvallis, Oregon : Oregon Climate Change Research Institute, Oregon State University"
+  - figure: No full text
+  - text: Consistent with its charge under Oregon House Bill 3543, the Oregon Climate Change Research Institute (OCCRI) conducts a biennial assessment of the state of climate change science, including biological, physical, and social science, as it relates to Oregon and the likely effects of climate change on Oregon. This seventh Oregon Climate Assessment, which builds on the previous assessments, is structured with the goal of supporting the state’s mitigation planning for natural hazards and implementation of the Oregon Climate Change Adaptation Framework
+  - link "ScholarsArchive@OSU":
+    - /url: /data-providers/197?t=fafad9968b7cd268c5fd64342bf88a26-164917271
+  - list:
+    - listitem:
+      - button [disabled]:
+        - img
+    - listitem:
+      - button "1"
+    - listitem:
+      - button "2"
+    - listitem:
+      - button "3"
+    - listitem: …
+    - listitem:
+      - button "last"
+    - listitem:
+      - button:
+        - img
+  - link:
+    - /url: https://core.ac.uk/data-providers/86
+  - link:
+    - /url: https://www.core.ac.uk
+- contentinfo:
+  - link "core logo":
+    - /url: https://core.ac.uk
+    - img "core logo"
+  - paragraph:
+    - text: CORE (COnnecting REpositories) is a not-for-profit service supported by
+    - link "CORE Members.":
+      - /url: https://core.ac.uk/governance/supporters#membership-list
+  - list:
+    - heading "Product" [level=6]
+    - list:
+      - listitem:
+        - link "Services":
+          - /url: /services
+      - listitem:
+        - link "Membership":
+          - /url: /membership
+      - listitem:
+        - link "Sponsorship":
+          - /url: /sponsorship
+      - listitem:
+        - link "Labs":
+          - /url: /innovations/labs
+    - heading "Organisation" [level=6]
+    - list:
+      - listitem:
+        - link "About us":
+          - /url: /about
+      - listitem:
+        - link "Governance":
+          - /url: /about#our-mission
+      - listitem:
+        - link "Team":
+          - /url: /about#team
+      - listitem:
+        - link "Data providers":
+          - /url: /benefits
+    - heading "Support" [level=6]
+    - list:
+      - listitem:
+        - link "Terms":
+          - /url: /terms
+      - listitem:
+        - link "FAQs":
+          - /url: /faq
+      - listitem:
+        - link "Blog":
+          - /url: https://blog.core.ac.uk/
+      - listitem:
+        - link "Contact us":
+          - /url: /about#contact
+  - heading "Writing about CORE?" [level=6]
+  - paragraph:
+    - text: Discover our
+    - link "research outputs":
+      - /url: /about/research-outputs
+    - text: and cite our work.
+  - img "writing"
+  - text: "Follow us:"
+  - link "twitter":
+    - /url: https://twitter.com/oacore
+    - img "twitter"
+  - link "linkedin":
+    - /url: https://www.linkedin.com/company/coreoa
+    - img "linkedin"
+  - link "github":
+    - /url: https://github.com/oacore
+    - img "github"
+  - link "Accessibility":
+    - /url: /accessibility
+  - link "Cookies":
+    - /url: /cookies
+  - link "Privacy":
+    - /url: /privacy
+- alert
