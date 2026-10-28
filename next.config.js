@@ -1,6 +1,5 @@
 const path = require('path')
 
-const babel = require('@babel/core')
 const withImages = require('next-images')
 const withSourceMaps = require('@zeit/next-source-maps')
 
@@ -59,7 +58,10 @@ const nextConfig = {
         use: {
           loader: path.join(__dirname, 'babel-syntax-loader.js'),
           options: {
-            babel,
+            // loaded here, not at the top of the file: `next start` reads
+            // this file too and never compiles, so the server process does
+            // not load Babel
+            babel: module.require('@babel/core'),
             cwd: __dirname,
             browserslistConfigFile: path.join(__dirname, '.browserslistrc'),
             presets: [
