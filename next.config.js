@@ -44,6 +44,34 @@ const nextConfig = {
       }
     }
 
+    // @sentry/browser 7 and the @sentry/core and @sentry/utils modules it
+    // brings ship ES2018 syntax (object spread), and Next 10 compiles no
+    // node_modules code but its own, so the client _app chunk would need
+    // ES2018. The client compilation compiles them to the syntax of the app's
+    // own code (.browserslistrc): syntax only, no polyfill, no helper import,
+    // ES modules kept for tree shaking. The server keeps @sentry/node as an
+    // external require.
+    if (!isServer) {
+      rules.push({
+        test: /\.m?js$/,
+        include: /[\\/]node_modules[\\/]@sentry[\\/]/,
+        use: {
+          loader: path.join(__dirname, 'babel-syntax-loader.js'),
+          options: {
+            // loaded here, not at the top of the file: `next start` reads
+            // this file too and never compiles, so the server process does
+            // not load Babel
+            babel: module.require('@babel/core'),
+            cwd: __dirname,
+            browserslistConfigFile: path.join(__dirname, '.browserslistrc'),
+            presets: [
+              ['@babel/preset-env', { modules: false, useBuiltIns: false }],
+            ],
+          },
+        },
+      })
+    }
+
     // logrocket 12 (171 KB of source) is larger than the 160 KB from which
     // Next moves a node_modules module into a chunk of its own (the `lib`
     // split chunk), which would add one more script to every page. Keep the
