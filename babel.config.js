@@ -19,7 +19,7 @@ module.exports = (api) => {
         legacy: true,
       },
     ],
-    '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-transform-class-properties',
     '@babel/plugin-syntax-dynamic-import',
     'add-react-displayname',
     '@babel/plugin-transform-runtime',
