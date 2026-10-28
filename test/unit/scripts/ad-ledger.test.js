@@ -621,6 +621,10 @@ describe('CI-1 accepted-diffs ledger', () => {
       ['a[href]', false],
       ['/static/search/_next/image?url=%2Fx.png&w=64&q=75', false],
       ['x{1}', false],
+      // the wildcard group of a Next route source is literal text (T-010)
+      ['header:/:path(.*)', false],
+      ['header:/:path(.*)/*', true],
+      ['header:/(.+)*', true],
       ['*', true],
       ['**/etag', true],
       ['404-*@proxy/etag', true],

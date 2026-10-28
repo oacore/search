@@ -79,8 +79,11 @@ const validDate = (s) => {
 }
 // a glob is a pattern, a key is a literal (42 §8). The matchers compare keys exactly, so this is the guard against
 // a pattern that would never match (or one a future matcher would expand): `*` and `{a,b}` are refused. A `?` is
-// allowed: URL keys carry a query string and accessible names end in one.
-export const hasGlob = (key) => /\*|\{[^}]*,[^}]*\}/.test(key)
+// allowed: URL keys carry a query string and accessible names end in one. So is the wildcard group `(.*)` of a
+// Next route source (path-to-regexp), which is literal text of the key that names that route, e.g. T-010's
+// `header:/:path(.*)`; a `*` anywhere else is still refused.
+export const hasGlob = (key) =>
+  /\*|\{[^}]*,[^}]*\}/.test(key.replace(/\(\.\*\)/g, ''))
 
 // ---------- YAML ----------
 
