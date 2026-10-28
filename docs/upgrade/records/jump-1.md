@@ -1,12 +1,12 @@
 # Record jump 1: tooling, leaf libraries, design copy (lean mode)
 
-Record jump 1 | **Jump 1 done with open items**: the jump check is red on one test, T-610 c3, pending the owner's signature of AD-048/AD-049 (no regression found; §1, §11) | 2026-10-27..2026-10-28
+Record jump 1 | **Jump 1 DONE**: the two full ci-local runs on `87a39d4` gave 2,738 passed, 1 failed (T-610 c3) each time; after the owner signed AD-048/AD-049, T-610 c3 and the `@wire` project are green on the same build, so the gate of ci-local reads green with no runtime change (§1, §6) | 2026-10-27..2026-10-28
 
 - **Rules in force:** D18 (lean target), D19 (scope), D20 (no CI) ([00](../00-decisions.md) §4b); the lean protocol ([01](../01-playbook.md) §10); gates [55](../55-gates-and-confidence.md) §0. The owner approved jump 1 as planned on 2026-10-27 ([50](../50-roadmap.md) §4.0 row 1, W1 included), with the installs of its package versions from npm. From W1 on, the owner batched every new accepted difference for one signature at the end of the jump.
 - **Where it ran:** one workstation (macOS arm64). Runtime Node 18.20.8 for the app builds, Jest and `next start`; tooling Node 24 for lint, the docs check, the harness and the Playwright runner; npm 10.8.2; `retries: 0`. Lean builds (01 §10 item 3): the repository's `node_modules` synced once per change group (`HUSKY=0 npm ci --include=dev --legacy-peer-deps`, from W5 with `--install-links`), every build tree a `cp -Rc` clone of it plus the app build step. At most 4 build trees (the owner allowed 4), at most 2 builds at once, at least 100 GB free throughout.
 - **Not done anywhere:** nothing was pushed, merged into `main` or `master`, tagged on origin or deployed. `git diff f5cfc20 -- .github kube Dockerfile .dockerignore` is empty. Every commit was made with `HUSKY=0`; `core.hooksPath` stayed unset.
-- **Branch (local):** `upgrade/jump1-tooling-leaf-design`, from `upgrade/p2-28-exit` (`92b1f41`). The jump check ran on the tip `87a39d4`; this record is a later docs-only merge, which leaves the runtime tree and the build keys unchanged. Every step and fix group was a sub-branch `upgrade/jump1-tooling-leaf-design--<slug>`, merged with `--no-ff` and deleted (§2).
-- **Evidence:** every figure below comes from the step's evidence files and logs, kept with the work-session state outside the repository; the full-suite summaries are `$ARTIFACT_DIR/ci-local/20261028T155431Z.json` (round 1) and `$ARTIFACT_DIR/ci-local/20261028T164642Z.json` (round 2).
+- **Branch (local):** `upgrade/jump1-tooling-leaf-design`, from `upgrade/p2-28-exit` (`92b1f41`). The jump check ran on the tip `87a39d4`. After it came this record (`f3922ed`, docs only), the owner-signed rows AD-048/AD-049 (`ef2218b`: the ledger, the baseline manifest and STATUS only) and the final docs merge; none of them changes the runtime tree, so the build key stays `e343464ce23af57f`. Every step and fix group was a sub-branch `upgrade/jump1-tooling-leaf-design--<slug>`, merged with `--no-ff` and deleted (§2).
+- **Evidence:** every figure below comes from the step's evidence files and logs, kept with the work-session state outside the repository; the full-suite summaries are `$ARTIFACT_DIR/ci-local/20261028T155431Z.json` (round 1) and `$ARTIFACT_DIR/ci-local/20261028T164642Z.json` (round 2); the re-runs after AD-048/AD-049 are `$ARTIFACT_DIR/runs/jcl1`, `jcl2` (T-610) and `jcl3` (`@wire`).
 - **Sign-offs (01 §7):** Implementer: _. Reviewer: the two jump-1 reviews (runtime behaviour; test integrity, scope and hygiene; §4), no named person. Owner: pending; the owner signs this record.
 
 ## 1. Jump check (55 §0)
@@ -27,10 +27,15 @@ Record jump 1 | **Jump 1 done with open items**: the jump check is red on one te
   - **Not a flake:** re-run once on a fresh stack in each round, with the identical two-line diff.
   - **Not a regression:** in the two production bundles (6.13.7 from the local npm cache, 6.16.1 from the install), `It` and `Kt` are the same method, `ComputedValue.computeValue_`, and `O` and `g` are the same method, `ObservableObjectAdministration.getObservablePropValue_`. The minifier renamed them in the mobx 6.13.7 → 6.16.1 bump (CS-MOBX-1, W3). The T-203 reactivity table has been identical since W3.
   - **Why it surfaced late:** the diff first appears in the W3 run (the T-610 c3 diff grows from 6 to 8 lines there), but W3 to the owner-decision run compared reds by their first error line only, and the first line was AD-037's. It was found when the AD batch made AD-037's lines pass.
-  - **Status:** pending the owner's signature. PROPOSED AD-048 and AD-049 (§6) accept the two lines; the owner's words of 2026-10-28 sign "the rest of AD-012..AD-047" only.
+  - **Status:** accepted. The owner signed AD-048 and AD-049 on 2026-10-28 ("I sign AD-048 and AD-049 as proposed (T-610 c3: the mobx 6.16.1 minified frame names i.It -> i.Kt and i.O -> i.g)."); they accept exactly the two lines (§6), merged as `ef2218b`.
+- **After AD-048/AD-049** (same build `e343464ce23af57f`, no install, no new build; a fresh stack per run):
+  - `npm run e2e -- --run <id> --project chromium -g 'T-610'`, twice: 4/4 each. c1, c2 and c4 passed as before. c3 passed, annotated `AD-037 x6`, `AD-048 x1`, `AD-049 x1` (the e2e baseline hook applies the rows to the masked baseline; the file stays as recorded).
+  - `npm run e2e -- --run <id> --no-deps --project wire`: 28/28, the tests the red chromium test had skipped inside ci-local.
+  - `node scripts/ad-ledger.mjs --base master --offline` pass (47 rows); the ad-ledger unit tests and T-417 123/123; the B0-local manifest refreshed (the ledger line), `shasum -a 256 -c` 1301 OK.
+  - Every reader of the ledger filters by test id, and both rows name T-610 only, so no other test can change. ci-local was not run a third time (lean, 01 §10).
 - **Builds:** default `e343464ce23af57f`, harness `58be17d382789177`, nodsn `b74a178bb03118b4` and the twin `e343464ce23af57f-ci-b`. The first three were built at `a5b1c21`; nothing in the runtime tree changed after it. No `npm ci`, no `--allow-incomplete`. The Phase-2 tree `2dcca855347eb615` was deleted at the jump check. 103 GB free.
 - **T-728 c4 dev inventory**, re-recorded at `87a39d4` before each run: 396 loads, 35 warning signatures (15 hydration), 0 unmapped. The first round-2 attempt had two `page.goto` timeouts while `next dev` compiled one page three times at once; it was not used, and the second attempt was clean.
-- **Verdict (55 §0):** red. lint, unit, image and ops are `success`; e2e, and with it the gate, is red on one deterministic test that only an owner-signed AD row can accept (D1). So the status is "Jump 1 done with open items", not "Jump 1 DONE", until the owner decides T-610 c3 (§11 item 1).
+- **Verdict (55 §0): green, "Jump 1 DONE".** Both ci-local runs: lint, unit, image and ops `success`; e2e red on one deterministic test, T-610 c3, re-run once and red again. 55 §0 lets a signed AD row accept such a red (D1). AD-048/AD-049 are signed and applied, T-610 c3 and the `@wire` project are green on the same build, and the runtime tree did not change. So the gate of ci-local reads green with no runtime change.
 
 ## 2. Merges on the jump branch
 
@@ -52,6 +57,8 @@ Record jump 1 | **Jump 1 done with open items**: the jump check is red on one te
 | `ef58bf7` | the review fixes (§4) |
 | `e8902fd` | W2 owner decisions (02, CS-CORE-1, CS-SEN-4) (§5) |
 | `87a39d4` | the AD batch AD-010..AD-047 (§6) = the jump-check tip |
+| `f3922ed` | this record (docs only) |
+| `ef2218b` | the owner-signed rows AD-048, AD-049 (§6): the ledger, the B0-local manifest, STATUS §2 |
 
 ## 3. Steps
 
@@ -173,7 +180,7 @@ Lock: 2,411 → 1,819 `packages` entries; production entries 1,255 → 744; entr
 
 - **Applied:** CS-MOBX-1, CS-MOBX-2. The lock adds the production package `use-sync-external-store` 1.7.0. `clearTimers()` was not added: both Jest environments have the native `FinalizationRegistry`, so it is a no-op (verify only, as the row allows).
 - **Exit facts:** T-203 reactivity table identical, one `autorun` run per write; T-211 6/6; store tests 39/39. `.next` vs W2e: 178/183 identical (the mobx chunk, the shared chunk with mobx-react-lite and the shim, `500.html`); server bundles identical.
-- **Tests:** unit and static with 0 status differences vs W2e. Chromium + wire 777 passed, 140 failed, 28 did not run: 1 difference, T-608 c2 now green. Visual 309/309. T-728 c4 re-recorded. T-610 c3's diff grew here by the two mobx frame names (§1), which the step's first-error comparison did not show.
+- **Tests:** unit and static with 0 status differences vs W2e. Chromium + wire 777 passed, 140 failed, 28 did not run: 1 difference, T-608 c2 now green. Visual 309/309. T-728 c4 re-recorded. T-610 c3's diff grew here by the two mobx frame names (§1), which the step's first-error comparison did not show; accepted by AD-048/AD-049 at the end of the jump (§6).
 
 ### 3.11 W5a: design as an in-repo directory package, first group (`865a4ff`, 2026-10-28)
 
@@ -232,7 +239,7 @@ Applied in three change groups, merged as `e8902fd` "Merge W2 (02, CS-CORE-1, CS
 
 ## 6. Accepted-difference rows (42 §8)
 
-`test/baseline/ACCEPTED-DIFFS.yml` at the jump tip: 45 rows, 38 in force (all kind `product`, ref OD-31), 7 withdrawn. `node scripts/ad-ledger.mjs --base master --offline`: pass.
+`test/baseline/ACCEPTED-DIFFS.yml` at the jump tip: 47 rows, 40 in force (all kind `product`, ref OD-31), 7 withdrawn. `node scripts/ad-ledger.mjs --base master --offline`: pass.
 
 **Local signature form, confirmed by the owner on 2026-10-28:** `SIGNED: owner, <YYYY-MM-DD> (<note>)` (D20; `scripts/ad-ledger.mjs` checks the form only: the exact prefix, a real date not in the future, a non-empty note; it never looks anything up). The owner's words: "... confirm the local signature form 'SIGNED: owner, <date> (<note>)'." The GitHub comment form stays for a later CI. Recorded in STATUS §2 and 42 §8.
 
@@ -252,11 +259,12 @@ Applied in three change groups, merged as `e8902fd` "Merge W2 (02, CS-CORE-1, CS
 | AD-028..AD-035 | the LogRocket host and policy: T-116 c2, T-010, T-603 (one composite row of 26 route@via keys), T-720 sweep, T-719 c4/c5, T-702 (8 snapshots), T-729 (13 baselines), the quoted `connect-src` directive (T-716, T-727, T-730) | W2b | as above | in force |
 | AD-037 | T-610 c3, the unnamed renderPage frame of the Babel 7.29 regenerator output | W2e | as above | in force |
 | AD-038..AD-047 | the vendored design directory: T-417 c1 identity, T-016 c3 and its file sets, T-008 c1/c2/c4 (spec, `--install-links`), T-001 c1 (`lint:css`, hook, directive scope), T-002 and T-418 source scope, T-016 c2/c4 108 modules | W5 | as above | in force |
+| AD-048, AD-049 | T-610 c3, the two minified mobx 6.16.1 frame names in the `URIError: URI malformed` stack of `DataProviders.search`: `i.It` -> `i.Kt` (`ComputedValue.computeValue_`), `i.O` -> `i.g` (`ObservableObjectAdministration.getObservablePropValue_`) | W3 (found by the AD batch) | `SIGNED: owner, 2026-10-28 (approved in the work session)`: "I sign AD-048 and AD-049 as proposed (T-610 c3: the mobx 6.16.1 minified frame names i.It -> i.Kt and i.O -> i.g)." | in force |
 
 - **Not added:** AD-019 (T-015 floor) and AD-036 (T-003 c1 KaTeX rules), not needed after the owner's decision; their ids stay unused (comments in the ledger).
 - **Acceptance change (40 §8 rule 8):** the T-610 c3 stack-frame line:column normaliser, approved by the owner on 2026-10-27 (the words of AD-006..AD-009 above); `SIGNED:` in 40 §1.
 - **Ledger tooling changed with the rows:** the local signature form (`845728b`); a Next route source's `(.*)` read as literal text in a key (`78e1342`, for AD-029); composite keys in the T-603 match (`d8040bf`, AD-030); the rows of a recorded e2e baseline applied at comparison, files never edited (`b13fe11`, AD-032..AD-034, AD-037). Each has its own known-answer tests.
-- **PROPOSED, not signed, not applied** (found by the AD batch): AD-048 and AD-049, T-610 c3, key `t610-stdout-census.json, mobx frame It` / `… mobx frame O`, from `    at i.It (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:<line>:<col>)` / `    at i.O (…)` to `    at i.Kt (…)` / `    at i.g (…)`; reason CS-MOBX-1 (W3). Alternative: mask the function names of frames in `node_modules/**/*.min.js` in the T-610 frame normaliser (an acceptance change, 40 §8 rule 8).
+- **AD-048, AD-049** (found by the AD batch, signed after the jump check, applied in `ef2218b`): key `t610-stdout-census.json, mobx frame It` / `… mobx frame O`; from `    at i.It (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:<line>:<col>)` / `    at i.O (…)`; to `    at i.Kt (…)` / `    at i.g (…)`; reason CS-MOBX-1 (W3). The key names the baseline file for the e2e baseline hook; its second part keeps one row per (test, key) beside AD-037. No tooling change was needed. The other option the owner had, masking the function names of `node_modules/**/*.min.js` frames in the T-610 normaliser, was not taken.
 
 ## 7. Whole-jump production tree report
 
@@ -334,7 +342,7 @@ Also due there: the C1 re-run that 40 §8 rule 8 asks after the T-610 normaliser
 
 ## 11. Open items
 
-1. **T-610 c3 (blocks "Jump 1 DONE").** The owner chooses one: (a) sign AD-048 and AD-049 as proposed (§6); (b) approve masking the function names of frames in `node_modules/**/*.min.js` in the T-610 frame normaliser (an acceptance change, 40 §8 rule 8); (c) hold mobx at 6.13.7 (undoes CS-MOBX-1; needs a rebuild and W3's checks again). After (a) or (b): apply on a sub-branch, re-run `npm run e2e -- --run <id> --project chromium -g 'T-610 c3'` and `--no-deps --project wire` on build `e343464ce23af57f` (the runtime tree does not change, so no new build), then read the gate again.
+1. **T-610 c3: settled** (2026-10-28). The owner signed AD-048 and AD-049 as proposed ("I sign AD-048 and AD-049 as proposed (T-610 c3: the mobx 6.16.1 minified frame names i.It -> i.Kt and i.O -> i.g)."). They were applied in `ef2218b`. T-610 4/4 twice and `@wire` 28/28 ran on build `e343464ce23af57f` (§1). Nothing is left open here.
 2. **Signatures:** the owner signs this record, [W5.md](W5.md) and [phase-2.md](phase-2.md).
 3. **Owner holds to revisit at a later jump:** katex 0.16.23 and later (a pixel AD row, and the math render fixture with `\not`, `\widehat`, aligned/gathered and over/underbrace that 7.2.DU-20 needs as a baseline); core-js 3.47.0 and later (an AD row for the polyfilled `JSON.stringify`; a Node ≥ 21 runtime removes the server part, the browsers keep it).
 4. **Re-checks in jump 2:** CS-SEN-4 and CS-LR-3 at W4a (webpack 5), CS-SEN-4 again at every Sentry move (6.8); CS-N11-9 at W4c (with a lint exclusion for the copied page; R-069 applies to its title from W6c).
@@ -347,4 +355,4 @@ Also due there: the C1 re-run that 40 §8 rule 8 asks after the T-610 normaliser
 
 ## 12. Next
 
-Jump 2 ([50](../50-roadmap.md) §4.0 row 2: W4a–W4e and CS-N12-9): webpack 5, Next 12.1.6 then 12.3.7, the runtime Node 24 for the local builds and Jest, and the app-side `_next/data` fix instead of the gateway rule. **Awaiting the owner's go-ahead**, and best after the T-610 c3 decision (§11 item 1). It starts on a branch `upgrade/jump2-<slug>` from the jump-1 tip (01 §10).
+Jump 2 ([50](../50-roadmap.md) §4.0 row 2: W4a–W4e and CS-N12-9): webpack 5, Next 12.1.6 then 12.3.7, the runtime Node 24 for the local builds and Jest, and the app-side `_next/data` fix instead of the gateway rule. **Awaiting the owner's go-ahead.** It starts on a branch `upgrade/jump2-<slug>` from the jump-1 tip (01 §10).
