@@ -8,6 +8,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { test, expect } from '../../fixtures/guard.mjs'
 import { formatJsonSync } from '../../../scripts/prettier-sync.mjs'
+import { readLedger } from '../P0-11/contract.mjs'
 
 const REPO = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -44,9 +45,43 @@ const provisionalNote = () => {
   }
 }
 
+// ---------- AD rows of a recorded baseline (42 §8) ----------
+// A row of the running test (the T-### id its title starts with) that is in force and whose key names the
+// baseline file (`<name>.json` as the spec names it; a composite key names several, separated by `, `) accepts
+// exactly one difference: its literal `from` in the baseline as compared becomes its literal `to`. The file stays
+// as recorded (baseline files are never edited), any other difference still fails (default deny), and a
+// withdrawn row stops applying. The rows applied are annotated with the number of replacements.
+export const testIdOf = (info = test.info()) =>
+  (info.title.match(/^T-\d{3}\b/) || [null])[0]
+
+export function ledgerRowsOf(file, info = test.info(), rows = null) {
+  const id = testIdOf(info)
+  return (rows || readLedger().rows).filter(
+    (r) =>
+      r &&
+      r.test === id &&
+      !r.withdrawn &&
+      String(r.key).split(', ').includes(file)
+  )
+}
+
+export function applyLedgerRows(text, rows, info = test.info()) {
+  let out = text
+  for (const r of rows) {
+    const parts = out.split(String(r.from))
+    out = parts.join(String(r.to))
+    info.annotations.push({
+      type: 'ledger',
+      description: `${r.id} x${parts.length - 1}`,
+    })
+  }
+  return out
+}
+
 // normalise: an optional normaliser of 40 §1 that the value has already been through, applied to the recorded
 // baseline before the comparison (a normaliser added after the recording masks both sides; the file stays as
-// recorded, 42 §8)
+// recorded, 42 §8). Then the AD rows of the file apply to the JSON text of the normalised baseline (their
+// `from` and `to` hold no quote or backslash, so they replace text inside the JSON strings only).
 export function expectBaseline(name, value, message, normalise = (v) => v) {
   const info = test.info()
   const file = name.endsWith('.json') ? name : `${name}.json`
@@ -67,9 +102,41 @@ export function expectBaseline(name, value, message, normalise = (v) => v) {
       snapshot
     )}: record it with npm run e2e:record -- --run <id> --provisional`
   ).toBe(true)
-  const baseline = normalise(JSON.parse(fs.readFileSync(snapshot, 'utf8')))
+  let baseline = normalise(JSON.parse(fs.readFileSync(snapshot, 'utf8')))
+  const rows = ledgerRowsOf(file, info)
+  if (rows.length) {
+    for (const r of rows)
+      if (/["\\]/.test(`${r.from}${r.to}`))
+        throw new Error(
+          `${r.id}: from/to of a JSON baseline row hold a quote or backslash`
+        )
+    baseline = JSON.parse(applyLedgerRows(JSON.stringify(baseline), rows, info))
+  }
   expect(
     JSON.parse(JSON.stringify(value)),
     message || `= baseline ${file}`
   ).toEqual(baseline)
+}
+
+// a text snapshot of Playwright's toMatchSnapshot (`<spec>-snapshots/<name>-<project>-<platform>.<ext>`) with
+// the AD rows of the file applied to the recorded text; without a row (and in record mode) it is
+// toMatchSnapshot itself
+export function expectSnapshot(text, name, message) {
+  const info = test.info()
+  const rows = recordMode(info) ? [] : ledgerRowsOf(name, info)
+  if (!rows.length) {
+    expect(text, message).toMatchSnapshot(name)
+    return
+  }
+  const snapshot = info.snapshotPath(name)
+  expect(
+    fs.existsSync(snapshot),
+    `missing baseline ${path.relative(process.cwd(), snapshot)}`
+  ).toBe(true)
+  const baseline = applyLedgerRows(
+    fs.readFileSync(snapshot, 'utf8'),
+    rows,
+    info
+  )
+  expect(text, message || `= baseline ${name}`).toBe(baseline)
 }
