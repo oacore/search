@@ -134,7 +134,7 @@ Absent unless the live payload has the exact keys (VF-03 sample): `citation_pdf_
 
 | ID | Quirk and what is observed | Where | Pinned by |
 |---|---|---|---|
-| Q-065 **WATCH** | **Sentry alias keyed on `config.isServer`** (always `undefined`): maps to `@sentry/browser`; the server is right only because Next 10 externalises `@sentry/node` first. Webpack 5 (W4b) would bundle the browser SDK into the server (R-040); CS-W0b-3 fixes it (W0b). | `next.config.js:97` | T-004 |
+| Q-065 **WATCH** | **Sentry alias keyed on `config.isServer`** (always `undefined`): maps to `@sentry/browser`; the server is right only because Next 10 externalises `@sentry/node` first. Webpack 5 (W4b) would bundle the browser SDK into the server (R-040). Fixed at W0b by CS-W0b-3 (8d10940): the alias is keyed on the destructured `isServer`; the 10.2.3 build output is byte-identical (the server `_app.js` still requires `@sentry/node` once), so this row describes the tree before W0b and T-004 watches the fixed alias at W4b. | `next.config.js:97` | T-004 |
 | Q-066 | **Button focus ring never renders** (`color-mod(...)` unresolved). | design `lib/elements/button/button.css:5` | T-003, T-801 |
 | Q-067 | **Duplicate sprite ids** (`office-building`, `account`, `open-in-new`; first wins); prod sprite 48 symbols (dev 49). | `public/design/icons.svg` (generated) | T-005 |
 | Q-068 | **Design global leaks, stale closures:** global `ul{...list-style:none}`; Modal uses the first-render `onClose`; Fieldset throws on empty `items`. | design `src/modules/header/advanced-search.css:16` | T-801, T-417 |
