@@ -1,12 +1,12 @@
 # Record jump 1: tooling, leaf libraries, design copy (lean mode)
 
-Record jump 1 | **Jump 1 DONE**: the two full ci-local runs on `87a39d4` gave 2,738 passed, 1 failed (T-610 c3) each time; after the owner signed AD-048/AD-049, T-610 c3 and the `@wire` project are green on the same build, so the gate of ci-local reads green with no runtime change (§1, §6) | 2026-10-27..2026-10-28
+Record jump 1 | **Jump 1 DONE**: the two full ci-local runs on `87a39d4` gave 2,710 passed, 1 failed (T-610 c3), 28 did not run each time (the 28 `@wire` tests passed separately); after the owner signed AD-048/AD-049, T-610 c3 and the `@wire` project are green on the same build, so the gate of ci-local reads green with no runtime change, and a third full ci-local on `855c09b` was green in every job, 2,739 passed, 0 failed (§1, §6) | 2026-10-27..2026-10-28
 
 - **Rules in force:** D18 (lean target), D19 (scope), D20 (no CI) ([00](../00-decisions.md) §4b); the lean protocol ([01](../01-playbook.md) §10); gates [55](../55-gates-and-confidence.md) §0. The owner approved jump 1 as planned on 2026-10-27 ([50](../50-roadmap.md) §4.0 row 1, W1 included), with the installs of its package versions from npm. From W1 on, the owner batched every new accepted difference for one signature at the end of the jump.
-- **Where it ran:** one workstation (macOS arm64). Runtime Node 18.20.8 for the app builds, Jest and `next start`; tooling Node 24 for lint, the docs check, the harness and the Playwright runner; npm 10.8.2; `retries: 0`. Lean builds (01 §10 item 3): the repository's `node_modules` synced once per change group (`HUSKY=0 npm ci --include=dev --legacy-peer-deps`, from W5 with `--install-links`), every build tree a `cp -Rc` clone of it plus the app build step. At most 4 build trees (the owner allowed 4), at most 2 builds at once, at least 100 GB free throughout.
+- **Where it ran:** one workstation (macOS arm64). Runtime Node 18.20.8 for the app builds, Jest and `next start`; tooling Node 24 for lint, the docs check, the harness and the Playwright runner; npm 10.8.2; `retries: 0`. Lean builds (01 §10 item 3): the repository's `node_modules` synced once per change group (`HUSKY=0 npm ci --include=dev --legacy-peer-deps`, from W5 with `--install-links`), every build tree a `cp -Rc` clone of it plus the app build step. At most 4 build trees (the owner allowed 4) except two brief moments with 5 (W0.5, W5b; §4, test-integrity item 9), at most 2 builds at once, at least 100 GB free throughout.
 - **Not done anywhere:** nothing was pushed, merged into `main` or `master`, tagged on origin or deployed. `git diff f5cfc20 -- .github kube Dockerfile .dockerignore` is empty. Every commit was made with `HUSKY=0`; `core.hooksPath` stayed unset.
-- **Branch (local):** `upgrade/jump1-tooling-leaf-design`, from `upgrade/p2-28-exit` (`92b1f41`). The jump check ran on the tip `87a39d4`. After it came this record (`f3922ed`, docs only), the owner-signed rows AD-048/AD-049 (`ef2218b`: the ledger, the baseline manifest and STATUS only) and the final docs merge; none of them changes the runtime tree, so the build key stays `e343464ce23af57f`. Every step and fix group was a sub-branch `upgrade/jump1-tooling-leaf-design--<slug>`, merged with `--no-ff` and deleted (§2).
-- **Evidence:** every figure below comes from the step's evidence files and logs, kept with the work-session state outside the repository; the full-suite summaries are `$ARTIFACT_DIR/ci-local/20261028T155431Z.json` (round 1) and `$ARTIFACT_DIR/ci-local/20261028T164642Z.json` (round 2); the re-runs after AD-048/AD-049 are `$ARTIFACT_DIR/runs/jcl1`, `jcl2` (T-610) and `jcl3` (`@wire`).
+- **Branch (local):** `upgrade/jump1-tooling-leaf-design`, from `upgrade/p2-28-exit` (`92b1f41`). The jump check ran on the tip `87a39d4`. After it came this record (`f3922ed`, docs only), the owner-signed rows AD-048/AD-049 (`ef2218b`: the ledger, the baseline manifest and STATUS only), the final docs merge (`855c09b`), the close-review fixes (`3fcd58d`: test tooling and docs) and the polish (test tooling, three test titles and docs); none of them changes the runtime tree, so the build key stays `e343464ce23af57f`. Every step and fix group was a sub-branch `upgrade/jump1-tooling-leaf-design--<slug>`, merged with `--no-ff` and deleted (§2).
+- **Evidence:** every figure below comes from the step's evidence files and logs, kept with the work-session state outside the repository; the full-suite summaries are `$ARTIFACT_DIR/ci-local/20261028T155431Z.json` (round 1) and `$ARTIFACT_DIR/ci-local/20261028T164642Z.json` (round 2); the re-runs after AD-048/AD-049 are `$ARTIFACT_DIR/runs/jcl1`, `jcl2` (T-610) and `jcl3` (`@wire`); the third full ci-local, run by the close review on `855c09b`, is `$ARTIFACT_DIR/ci-local/20261028T180016Z.json`.
 - **Sign-offs (01 §7):** Implementer: _. Reviewer: the two jump-1 reviews (runtime behaviour; test integrity, scope and hygiene; §4), no named person. Owner: pending; the owner signs this record.
 
 ## 1. Jump check (55 §0)
@@ -22,7 +22,7 @@ Record jump 1 | **Jump 1 DONE**: the two full ci-local runs on `87a39d4` gave 2,
 | ops (19 s) | success. Jest ops 18/18; T-907 c2 7/7; T-907 c1 + c3 rehearsal 2/2. |
 | gate | **failure** (e2e). |
 
-- **Totals:** 2,738 tests passed, 1 failed: unit 1,099; harness 25; static 94; T-901 11; T-721 3; chromium 960; visual 392; CS-OPS-1 26; T-802 73; Jest ops 18; T-907 9; and the 28 `@wire` tests, run separately with `--no-deps --project wire` on the same build (28/28).
+- **Totals, each run:** 2,710 tests passed, 1 failed, 28 did not run: unit 1,099; harness 25; static 94; T-901 11; T-721 3; chromium 960; visual 392; CS-OPS-1 26; T-802 73; Jest ops 18; T-907 9. The 28 `@wire` tests passed separately, with `--no-deps --project wire` on the same build (28/28): 2,738 passed with them, outside ci-local.
 - **The one red, T-610 c3** (`e2e/http/t610-props-output.spec.mjs:227`, the app's stdout/stderr census equals its baseline). Two lines differ in the `URIError: URI malformed` stack of `DataProviders.search` (sweep `providers-q-100pct`): `at i.It` became `at i.Kt` and `at i.O` became `at i.g`, both frames in `node_modules/mobx/dist/mobx.cjs.production.min.js`. The message, the app frames, the file names and the line count are unchanged.
   - **Not a flake:** re-run once on a fresh stack in each round, with the identical two-line diff.
   - **Not a regression:** in the two production bundles (6.13.7 from the local npm cache, 6.16.1 from the install), `It` and `Kt` are the same method, `ComputedValue.computeValue_`, and `O` and `g` are the same method, `ObservableObjectAdministration.getObservablePropValue_`. The minifier renamed them in the mobx 6.13.7 → 6.16.1 bump (CS-MOBX-1, W3). The T-203 reactivity table has been identical since W3.
@@ -32,10 +32,11 @@ Record jump 1 | **Jump 1 DONE**: the two full ci-local runs on `87a39d4` gave 2,
   - `npm run e2e -- --run <id> --project chromium -g 'T-610'`, twice: 4/4 each. c1, c2 and c4 passed as before. c3 passed, annotated `AD-037 x6`, `AD-048 x1`, `AD-049 x1` (the e2e baseline hook applies the rows to the masked baseline; the file stays as recorded).
   - `npm run e2e -- --run <id> --no-deps --project wire`: 28/28, the tests the red chromium test had skipped inside ci-local.
   - `node scripts/ad-ledger.mjs --base master --offline` pass (47 rows); the ad-ledger unit tests and T-417 123/123; the B0-local manifest refreshed (the ledger line), `shasum -a 256 -c` 1301 OK.
-  - Every reader of the ledger filters by test id, and both rows name T-610 only, so no other test can change. ci-local was not run a third time (lean, 01 §10).
+  - Every reader of the ledger filters by test id, and both rows name T-610 only, so no other test can change.
+  - **Third full ci-local** (run by the close review on `855c09b`, the same build and trees, `$ARTIFACT_DIR/ci-local/20261028T180016Z.json`): every job rc 0, gate rc 0; unit 1,099, harness 25, static 94, T-901 11, T-721 3, chromium + wire 989 in one call, visual 392, CS-OPS-1 26, T-802 73, ops 18 + 9: 2,739 passed, 0 failed.
 - **Builds:** default `e343464ce23af57f`, harness `58be17d382789177`, nodsn `b74a178bb03118b4` and the twin `e343464ce23af57f-ci-b`. The first three were built at `a5b1c21`; nothing in the runtime tree changed after it. No `npm ci`, no `--allow-incomplete`. The Phase-2 tree `2dcca855347eb615` was deleted at the jump check. 103 GB free.
 - **T-728 c4 dev inventory**, re-recorded at `87a39d4` before each run: 396 loads, 35 warning signatures (15 hydration), 0 unmapped. The first round-2 attempt had two `page.goto` timeouts while `next dev` compiled one page three times at once; it was not used, and the second attempt was clean.
-- **Verdict (55 §0): green, "Jump 1 DONE".** Both ci-local runs: lint, unit, image and ops `success`; e2e red on one deterministic test, T-610 c3, re-run once and red again. 55 §0 lets a signed AD row accept such a red (D1). AD-048/AD-049 are signed and applied, T-610 c3 and the `@wire` project are green on the same build, and the runtime tree did not change. So the gate of ci-local reads green with no runtime change.
+- **Verdict (55 §0): green, "Jump 1 DONE".** Both ci-local runs: lint, unit, image and ops `success`; e2e red on one deterministic test, T-610 c3, re-run once and red again. 55 §0 lets a signed AD row accept such a red (D1). AD-048/AD-049 are signed and applied, T-610 c3 and the `@wire` project are green on the same build, and the runtime tree did not change. So the gate of ci-local reads green with no runtime change; the third full ci-local on `855c09b` is green in every job.
 
 ## 2. Merges on the jump branch
 
@@ -59,7 +60,8 @@ Record jump 1 | **Jump 1 DONE**: the two full ci-local runs on `87a39d4` gave 2,
 | `87a39d4` | the AD batch AD-010..AD-047 (§6) = the jump-check tip |
 | `f3922ed` | this record (docs only) |
 | `ef2218b` | the owner-signed rows AD-048, AD-049 (§6): the ledger, the B0-local manifest, STATUS §2 |
-| `Merge the jump 1 close fixes (CI-1)` of `upgrade/jump1-tooling-leaf-design--close-fixes` | the close-review fixes (§4): the ledger checker per listed key, the known answers of the e2e baseline hook, 42 §8, W5.md and README §8 (no runtime change) |
+| `3fcd58d` | the close-review fixes (§4): the ledger checker per listed key, the known answers of the e2e baseline hook, 42 §8, W5.md and README §8 (no runtime change) |
+| `Merge the jump 1 polish (jump 1)` of `upgrade/jump1-tooling-leaf-design--polish` | the close-review LOW findings (§4): the ledger key guard for a bare `(.*)`, three test titles, the docs (no runtime change) |
 
 ## 3. Steps
 
@@ -76,7 +78,7 @@ Record jump 1 | **Jump 1 DONE**: the two full ci-local runs on `87a39d4` gave 2,
 | eslint (+ @eslint/js, globals) | 7.32.0 | 10.13.0 (10.0.1, 17.13.0) | W1, CS-LINT-1 |
 | typescript-eslint, typescript | - | 8.72.1, 6.0.3 | W1, CS-LINT-1 |
 | eslint-plugin-import | 2.x | eslint-plugin-import-x 4.17.1 | W1, CS-LINT-1 |
-| eslint-plugin-react, jsx-a11y, react-hooks | `^7.21.5`, `^6.4.1`, - | 7.37.5, 6.10.2, 7.1.1 exact | W1, CS-LINT-1, CS-LINT-2 |
+| eslint-plugin-react, jsx-a11y, react-hooks | `^7.21.5` (7.37.5), `^6.4.1` (6.10.2), - | 7.37.5, 6.10.2 (installed versions unchanged, now exact), 7.1.1 exact | W1, CS-LINT-1, CS-LINT-2 |
 | babel-eslint, eslint-plugin-prettier, @oacore/eslint-config-react, @oacore/prettier-config, @oacore/stylelint-config-base | 10.1.0, 3.4.1, 1.0.6 ×3 | removed | W1, CS-LINT-1, CS-PRET-1, CS-STY-1 |
 | prettier | 2.8.8 | 3.9.10 | W1, CS-PRET-1 |
 | stylelint, stylelint-order, stylelint-config-css-modules, stylelint-prettier | 13.13.1, 4.1.0, 2.3.0, 1.2.0 | 17.16.0, 8.1.2, 4.6.0, 5.0.3 | W1, CS-STY-1 |
@@ -88,14 +90,14 @@ Record jump 1 | **Jump 1 DONE**: the two full ci-local runs on `87a39d4` gave 2,
 | postcss (dev) | 8.4.14 | 8.5.32 | W2d, CS-PCSS-1 |
 | @babel/core, preset-env, preset-react, plugin-transform-runtime, plugin-proposal-decorators, plugin-proposal-export-default-from | 7.27.1..7.28.5 | 7.29.7 | W2e, CS-BAB-9 |
 | @babel/plugin-proposal-class-properties | 7.18.6 | replaced by @babel/plugin-transform-class-properties 7.29.7 | W2e, CS-BAB-9 |
-| `@babel/*`, `@jridgewell/*` override pins (17) | the 7.27 releases | the 7.29 releases | W2e, CS-BAB-10 |
+| `@babel/*`, `@jridgewell/*` override pins (17) | the 7.27/7.28 releases (@jridgewell 0.3.8, 0.3.25) | the 7.29 releases (0.3.13, 0.3.31) | W2e, CS-BAB-10 |
 | core-js-compat; babel-plugin-polyfill-corejs3, -corejs2, -regenerator | 3.46.0; 0.11.1, 0.4.14, 0.6.5 | 3.51.0; 0.14.2, 0.4.17, 0.6.8 (lock only) | W2e, CS-BAB-9 |
 | react-focus-lock | 2.13.6 | 2.13.7 (lock only) | W2e, 02 |
 | katex | 0.16.22 | 0.16.47 at W2e, **held at 0.16.22** by the owner | W2e, 02 |
 | mobx, mobx-react-lite | 6.13.7, 3.4.3 | 6.16.1, 4.1.1 (+ use-sync-external-store 1.7.0) | W3, CS-MOBX-1, CS-MOBX-2 |
 | react-slick, enquire.js, json2mq, resize-observer-polyfill, string-convert, body-scroll-lock | 0.28.1, 2.1.6, 0.2.0, 1.5.1, 0.2.1, 3.1.5 | removed | W5b, CS-DSN-4, CS-DSN-5 |
 
-Lock: 2,411 → 1,819 `packages` entries; production entries 1,255 → 744; entries from GitHub Packages 10 → 0. Tooling Node: `.nvmrc` 24 and `devEngines` (CS-W0-5); the runtime Node stays 18.20.8 until jump 2.
+Lock: 2,411 → 1,819 `packages` entries; production entries 1,255 → 744; entries from GitHub Packages 5 → 0 (`packages` entries; a `grep -c` of the lock counts 10, because lockfile v2 names each twice). Tooling Node: `.nvmrc` 24 and `devEngines` (CS-W0-5); the runtime Node stays 18.20.8 until jump 2.
 
 ### 3.1 W0: hygiene (`65f54c1`, 2026-10-27)
 
@@ -224,7 +226,7 @@ Both reviews read the range `upgrade/p2-28-exit..768c6b9` (W0 to W5b) and change
 | 6 LOW: two loosened T-001 assertions | Restored to exact values: findings 30 = 18 + 12, refusal exit codes 2 and 3 (`490a6be`). |
 | 7 LOW: an inert nested `.github/workflows` inside the vendored design | Not changed (no fix was asked for): it is part of the verbatim copy (60 §1), and nothing in this repository runs it. |
 | 8 LOW: 02 and 20 say 8 files for the format-only commit | Fixed (`f48e22b`). |
-| 9 LOW: four default merge subjects; the 4-tree budget exceeded briefly at W0.5 and W5b | Recorded; history is not rewritten. |
+| 9 LOW: four default merge subjects; the 4-tree budget exceeded briefly at W0.5 and W5b | Recorded; history is not rewritten. The close review found eight more non-merge subjects without the `(<CS-ID or AD-ID>)` suffix, three of them with no ID at all: `274f700` "Record the owner-signed rows AD-001 to AD-005 in the ledger", `f2ecad0` "Apply the AD-003/AD-004 floors and the AD-005 reference in T-008 and T-013", `9c35e23` "Record the owner-signed rows AD-006 to AD-009 in the ledger", `c369372` "Record the owner confirmations of AD-001 to AD-009 and the T-610 frame normaliser", `845728b` "Accept the local signature form of D20 in the ledger checker" (no ID), `782b6d8` "Refresh the ledger checksums in the B0-local manifest" (no ID), `dd5831c` "Withdraw AD-001 and AD-002, superseded by the frozen W1 T-001 baseline", `06f7044` "Refresh the B0-local manifest for the ledger and the W1 baseline files" (no ID); recorded, not rewritten. |
 | 10 LOW: the image cannot install the jump tip until the Dockerfile has `--install-links` | Deploy-time item "Design install flag" (§9). |
 
 **Close review (after `855c09b`).** Three reviewers read the jump tip and changed nothing; the three MEDIUM findings were fixed afterwards with no runtime change (the build key stays `e343464ce23af57f`).
@@ -237,6 +239,16 @@ Both reviews read the range `upgrade/p2-28-exit..768c6b9` (W0 to W5b) and change
 
 Not changed (the owner's call): the 42 §8 key-rule extensions (composite keys, the `(.*)` group, the e2e baseline hook, the per-key rule above) carry no owner signature as an acceptance change, and AD-048/AD-049 keep the label part of their keys (a change is a withdraw and re-add).
 
+**The close review's 15 LOW findings**, settled in the polish (no runtime change; the build key stays `e343464ce23af57f`):
+
+| Finding | Settled |
+|---|---|
+| `scripts/ad-ledger.mjs` `hasGlob` dropped a `(.*)` anywhere in a key, so `(.*)` alone or `x.json(.*)` passed the no-glob guard | Only a route parameter group `:<name>(.*)` is literal text now; CI-1 c13 refuses `(.*)`, `x.json(.*)` and three more, and still allows `header:/:path(.*)` (42 §8). The committed ledger passes unchanged. |
+| The T-120 c1, c2 and T-016 c3 titles described the behaviour before AD-012, AD-013 and AD-046 | The text after the clause id names what the assertions check; no assertion changed. |
+| Docs: the headline counts of the two ci-local runs; STATUS §4 rows of W0 to W1 still "owner decision open"; the §5 visual build; §3.0 (GitHub Packages entries, the override pins, the two eslint plugins); `core-js-compat` "3.46.0 in the lock" in 02, 20 and STATUS; the build-tree count; 20 CS-HUS-2 (`lint:json` gained `--ignore-path .prettierignore` at W5); the CS-PCSS-1 and CS-BAB-9 line anchors (tree `a825839` again, §8); eight commit subjects without the ID suffix (item 9 above) | Corrected as measured. |
+| Open items missing from §11 (the T-904 c3 checklist text, J1-W05-3, J1-W0-4, the dev-only stack-frame count) and the T-603 case-key gap that the close fixes found | Added to §11. |
+| AD-035 names one test for three; the W1 T-001 baseline has no signed tool link | Owner decisions (§11). |
+
 ## 5. Owner decisions of 2026-10-28
 
 The owner's words: "Keep everything identical: hold katex 0.16.22, hold core-js at the newest release with native JSON.stringify, compile @sentry/* for the client (no AD-019). I sign the rest of AD-012..AD-047 (AD-036 drops) and confirm the local signature form 'SIGNED: owner, <date> (<note>)'."
@@ -246,7 +258,7 @@ Applied in three change groups, merged as `e8902fd` "Merge W2 (02, CS-CORE-1, CS
 - **(a) katex 0.16.22** (`8e35c78`, `6a9125b`): both lock entries byte-equal to those before the W2e bump; 02 §3.7 records the hold. T-003 c1 and c2 green against the B0 reference again; T-005 green. The 283-construct probe: 0 differ against the Phase-2 build; the 0.16.47 control differs on 212.
 - **(b) core-js 3.46.0** (`b630dae`, `2d0ec3f`): from the registry tarballs, 3.47.0 is the first release whose `es.json.stringify` is forced when `JSON.rawJSON` is missing. On Node 18.20.8, after the 52 `core-js/modules/*` the server bundles require, `JSON.stringify` stays native and the replaced builtins equal 3.42.0's. Client: core-js module bodies only; the injected set is the 70 modules of the Phase-2 build (T-004 c6 green); the T-015 ladder is unchanged. 02 and CS-CORE-1 record the hold.
 - **(c) CS-SEN-4** (row first `7c54469`, then `36f4ac5`, `6b73772`, `a5b1c21`, `f94c487`): `next.config.js` runs `node_modules/@sentry` of the client compilation through `babel-syntax-loader.js` with preset-env, the `.browserslistrc` targets and `useBuiltIns: false`; `@babel/core` is required only in the client branch, so `next start` loads no Babel. Server bundles identical. T-015 green at `FLOORS['10.2.3']` = ES2015, no AD row. `.next` diff: `pages/_app` (+map) and `500.html`, every changed module under `@sentry`. The `_app` chunk grows 34,373 → 40,540 B gzip (+6,167 B on every route's first load; 179,804 B raw); T-007 within budget. In `next dev` only, the first Babel run raises `Error.stackTraceLimit` from 10 to 50, so the dev overlay requests 17 instead of 14 stack frames per load of one route (no test pins the count).
-- **Tests after the merge** (build `e343464ce23af57f`): unit 1,068/1,099, every status as at W5b; static T-003 and T-015 green again, every other red unchanged; chromium + wire 821 passed, 140 failed, 28 did not run, equal to W5b plus the 44 review-fix tests; visual 315 passed, every `diff-pixels` annotation 0; T-013 4/4 against `e8902fd`.
+- **Tests after the merge** (build `e343464ce23af57f`): unit 1,068/1,099, every status as at W5b; static T-003 and T-015 green again, every other red unchanged; chromium + wire 821 passed, 140 failed, 28 did not run, equal to W5b plus the 44 review-fix tests; visual 315 passed on build `9ccdd7af7701f88a` (`36f4ac5`; its `.next` is identical to `e343464ce23af57f`, 183/183), every `diff-pixels` annotation 0 except the informational T-801 c3 `header-colours 225`, as before (the value of the W5b and Phase-2 runs); T-013 4/4 against `e8902fd`.
 
 ## 6. Accepted-difference rows (42 §8)
 
@@ -319,7 +331,7 @@ The other removed and added items are the trees that came or went with a root ro
 
 ## 8. Change-site rows added in jump 1
 
-Each new row went into 20 before its code (01 §9): CS-W0-12 (W0), CS-HUS-2 (W1), CS-SEN-3 (W2a), CS-LR-3 (W2b), CS-BAB-10 (W2e), CS-SEN-4 (owner decision). Rows whose text was corrected to the measured result: CS-PCSS-1 (line 71, 8.5.32), CS-BAB-9 (proof), CS-MOBX-1/-2 (split, `clearTimers()` verify only), CS-DSN-2 (the folder argument of the lock command, J1-W5a-1), CS-PRET-1 (9 files).
+Each new row went into 20 before its code (01 §9): CS-W0-12 (W0), CS-HUS-2 (W1), CS-SEN-3 (W2a), CS-LR-3 (W2b), CS-BAB-10 (W2e), CS-SEN-4 (owner decision). Rows whose text was corrected to the measured result: CS-PCSS-1 (8.5.32), CS-BAB-9 (proof), CS-MOBX-1/-2 (split, `clearTimers()` verify only), CS-DSN-2 (the folder argument of the lock command, J1-W5a-1), CS-PRET-1 (9 files). The `path:line` anchors stay on tree `a825839` (20, Where): CS-PCSS-1 (`package.json:63`) and CS-BAB-9 (`package.json:44-51`, `@babel/runtime` new) had been moved to jump-tree lines and were set back in the polish.
 
 ## 9. Deploy-time items added to 20
 
@@ -354,15 +366,26 @@ Also due there: the C1 re-run that 40 §8 rule 8 asks after the T-610 normaliser
 ## 11. Open items
 
 1. **T-610 c3: settled** (2026-10-28). The owner signed AD-048 and AD-049 as proposed ("I sign AD-048 and AD-049 as proposed (T-610 c3: the mobx 6.16.1 minified frame names i.It -> i.Kt and i.O -> i.g)."). They were applied in `ef2218b`. T-610 4/4 twice and `@wire` 28/28 ran on build `e343464ce23af57f` (§1). Nothing is left open here.
-2. **Signatures:** the owner signs this record, [W5.md](W5.md) and [phase-2.md](phase-2.md).
+2. **Signatures:** the owner signs this record, [W5.md](W5.md) and [phase-2.md](phase-2.md) (owner decision 5 below).
 3. **Owner holds to revisit at a later jump:** katex 0.16.23 and later (a pixel AD row, and the math render fixture with `\not`, `\widehat`, aligned/gathered and over/underbrace that 7.2.DU-20 needs as a baseline); core-js 3.47.0 and later (an AD row for the polyfilled `JSON.stringify`; a Node ≥ 21 runtime removes the server part, the browsers keep it).
-4. **Re-checks in jump 2:** CS-SEN-4 and CS-LR-3 at W4a (webpack 5), CS-SEN-4 again at every Sentry move (6.8); CS-N11-9 at W4c (with a lint exclusion for the copied page; R-069 applies to its title from W6c).
+4. **Re-checks in jump 2:** CS-SEN-4 and CS-LR-3 at W4a (webpack 5; for CS-SEN-4 also its dev-only stack-frame count: in `next dev` the first Babel run raises `Error.stackTraceLimit` from 10 to 50, so the dev overlay requests 17 instead of 14 stack frames per load of one route, and the `/__nextjs_original-stack-frame` count of the T-728 inventory went 126 → 153; no test pins it, §5 (c)), CS-SEN-4 again at every Sentry move (6.8); CS-N11-9 at W4c (with a lint exclusion for the copied page; R-069 applies to its title from W6c).
 5. **Fault patches:** the 17 of §10 and the C1 re-run at the midpoint (end of jump 3).
 6. **02 §4 has no row** for the two test-tooling strict problems `invalid:@types/react` and `invalid:picomatch` (T-008 pins them apart; J1-W5b-3, Phase-2 open item 3).
 7. **`npm audit` still names postcss** through Next's own 8.2.13 and cssnano 4's 7.0.39 copies (W4c, CS-PCSS-4).
-8. **After the final deploy (DEFERRED):** the LogRocket recording check (CS-LR-1, T-904 c3), one Sentry test event per DSN on the envelope endpoint (VF-04), T-008's alpine half, T-901's container half, VF-05 (no Docker); the WebKit and Firefox legs (T-724) stay DEFERRED (no browser downloads approved).
-9. **Harness notes:** the `wire` project depends on `chromium`, so one red chromium test skips the 28 `@wire` tests in a single call; the T-728 c4 dev inventory flakes under load or machine sleep (`page.goto` timeouts), so it runs alone; `test/setup/jsdom-gaps.js` still names react-slick in a comment (J1-W5b-5); AD-035 names one test for three (one T-id per row).
-10. **Baselines:** the T-804 c1, T-738 and T-806 baselines are host baselines (darwin), recorded on the W5a build; whether the W1 lint baseline is a B-chain link (42 §9) is the owner's call (the manifest lists it under B0-local).
+8. **After the final deploy (DEFERRED):** the LogRocket recording check (CS-LR-1, T-904 c3), one Sentry test event per DSN on the envelope endpoint (VF-04), T-008's alpine half, T-901's container half, VF-05 (no Docker); the WebKit and Firefox legs (T-724) stay DEFERRED (no browser downloads approved). The T-904 c3 checklist (`test/ops/t904-checklist.json`) still says the policy does not list the logr-in.com hosts, which was true before W2b only: `csp.config.js` lists them since CS-LR-2 (J1-W2b-5). Rewording it is a test-text change (owner decision 4 below); the check itself is unchanged.
+9. **Harness notes:** the `wire` project depends on `chromium`, so one red chromium test skips the 28 `@wire` tests in a single call; the T-728 c4 dev inventory flakes under load or machine sleep (`page.goto` timeouts), so it runs alone; `test/setup/jsdom-gaps.js` still names react-slick in a comment (J1-W5b-5); AD-035 names one test for three (one T-id per row; owner decision 1 below); `test/faults/kill-summary.json` keeps the T-016 c3 title of the Phase-2 fault run (a run record; the next `run-faults` run rewrites it).
+10. **Baselines:** the T-804 c1, T-738 and T-806 baselines are host baselines (darwin), recorded on the W5a build; whether the W1 lint baseline is a B-chain link (42 §9) is the owner's call (the manifest lists it under B0-local; owner decision 2 below).
+11. **T-016 c3 verifier reference (harness, J1-W05-3):** `scripts/verify-design-verbatim.mjs` takes the 5.0.74 tarball only from the npm cache, although `vendor/oacore-design-5.0.74.tgz` is in the repository, so on a machine without that cache entry it exits 2. A fallback to the vendored tarball, still checked against the published integrity and sha1 of 60 §1, would remove the dependency.
+12. **`scripts/lock-immutable.mjs --json` (harness, J1-W0-4):** it calls `console.log` and then `process.exit`, so on a pipe its JSON can be cut and T-013 reports a parse error instead of its violations (diagnostics only; the verdict is red either way). Setting `process.exitCode` instead would fix it.
+13. **Ledger checker, T-603 keys (test tooling, older than the jump):** a T-603 case key `<route>@<via>.<case>/<header>` and the case-free key `<route>@<via>/<header>` of the same header are different strings, so two rows in force with different `to` both pass `checkRows`, and `applyLedger` accepts either (plain keys too). Found by the close fixes; a later test-tooling step closes it.
+
+**Owner decisions after jump 1** (each with its options; the recommended option is (a)):
+
+1. **AD-035, one row for three tests.** The quoted `connect-src` directive changed for T-716 c3, T-727 and T-730, and the owner's signed proposal named all three, but the row has `test: T-716`, so a reader filtering by test id finds no row for T-727 or T-730. (a) Sign two more rows, for T-727 and T-730, with AD-035's exact key, `from` and `to` (append-only, no assertion change; the comments beside the two constants then name the new ids). (b) Accept the one-row form as it is.
+2. **The W1 T-001 lint baseline** (`test/baseline/t001-lint-w1.json`, frozen on unchanged code: the findings of the withdrawn AD-001/AD-002 and 6 new typescript-eslint findings, camelcase ×3 and no-use-before-define ×3). 42 §9 has the owner sign a tool re-capture link. (a) Sign it as a tool link of the B chain (STATUS §1: kind tool, same reference, new baselines). (b) Keep it under B0-local as recorded, with 41 T-001's planned new-tool baseline as its authority.
+3. **The ledger key-rule extensions as an acceptance change (40 §8 rule 8).** None carries an owner signature as an acceptance change: composite keys (`d8040bf`, AD-030); a Next route source's `(.*)` read as literal text (`78e1342`, AD-029; only after a parameter name since the polish); the rows of a recorded e2e baseline applied at comparison (`b13fe11`, AD-032..AD-034, AD-037, AD-048, AD-049; its rules in `e2e/lib/P0-10/ledger-rows.mjs` since `f2fdfd6`); and the close fixes' per-key rule with its baseline-file exception (`362e233`: one row per (test, key) for each key a composite key lists; two rows may list one `<name>.json` key only when their literals do not overlap). AD-048/AD-049 keep the label part of their keys (`… mobx frame It`, `… mobx frame O`). (a) Sign the extensions as one acceptance change (a STATUS §2 row; their C1 re-run is due at the midpoint heavy check, §10) and keep the AD-048/AD-049 labels. (b) The same, but give AD-048/AD-049 the plain key `t610-stdout-census.json` (withdraw both and add two rows with the same `from`/`to`; the per-key rule allows it, the literals do not overlap). (c) Refuse them: the rows that rely on them (AD-029, AD-030, AD-032..AD-034, AD-037, AD-048, AD-049) then accept nothing, their tests go red, and jump 1 reopens.
+4. **The T-904 c3 checklist text** (item 8). (a) Reword the expect line to say that the policy lists the logr-in.com hosts since W2b (CS-LR-2, R-026); a test-text change, the check is unchanged. (b) Keep the text as it is.
+5. **Signatures** (item 2): [phase-2.md](phase-2.md), [W5.md](W5.md) and this record. (a) Sign the three as they stand, with decisions 1 to 4 beside them. (b) Return any of them with changes.
 
 ## 12. Next
 

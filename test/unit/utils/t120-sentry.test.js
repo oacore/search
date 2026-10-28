@@ -60,7 +60,7 @@ describe('T-120 @P1 utils/sentry.js', () => {
     })
   })
 
-  test('T-120 c1 @P1 the module still exports the SDK object, and only it, without a DSN', () => {
+  test('T-120 c1 @P1 without a DSN the module exports only Sentry, the two SDK functions the app calls, and the same object as default', () => {
     const { mod, sentry } = loadWith(undefined)
     // the named export and the default export are the same object (AD-012)
     expect(Object.keys(mod)).toEqual(['Sentry', 'default'])
@@ -79,7 +79,7 @@ describe('T-120 @P1 utils/sentry.js', () => {
     }
   })
 
-  test('T-120 c2 @P1 with SENTRY_DSN Sentry.init is called once with exactly { dsn }', () => {
+  test('T-120 c2 @P1 with SENTRY_DSN Sentry.init is called once with exactly { dsn } and the four options of CS-SEN-3', () => {
     const { mod, sentry } = loadWith(DSN)
     expectSdkFunctions(mod, sentry)
     expect(sentry.init).toHaveBeenCalledTimes(1)
