@@ -535,12 +535,14 @@ describe('T-001 @P0 lint parity', () => {
     expect(
       fs.readFileSync(path.join(ROOT, '.prettierignore'), 'utf8').split('\n')
     ).toContain('vendor/')
-    for (const script of [
-      'scripts/lint-parity.mjs',
-      'scripts/stylelint-ratchet.mjs',
+    // each script refuses --fix with its own usage exit code:
+    // lint-parity 2, stylelint-ratchet 3
+    for (const [script, status] of [
+      ['scripts/lint-parity.mjs', 2],
+      ['scripts/stylelint-ratchet.mjs', 3],
     ]) {
       const refused = run(script, ['--fix', '--json'])
-      expect(refused.status).toBeGreaterThanOrEqual(2)
+      expect(refused.status).toBe(status)
       expect(refused.stderr).toMatch(/R-049/)
     }
     // the lint inputs were not rewritten by the run
@@ -549,9 +551,11 @@ describe('T-001 @P0 lint parity', () => {
   })
 
   test('T-001 c1 @P0 the run is a parity run: lint is red today, so parity and zero findings differ (OC-2)', () => {
-    expect(report.eslint.findings + report.stylelint.findings).toBeGreaterThan(
-      0
-    )
+    // 18 ESLint findings (= the frozen baseline) and 12 stylelint
+    // findings (the baseline holds 16)
+    expect(report.eslint.findings + report.stylelint.findings).toBe(18 + 12)
+    expect(report.eslint.findings).toBe(18)
+    expect(report.stylelint.findings).toBe(12)
     expect(report.baseline.eslint.findings).toBe(18)
     expect(report.baseline.stylelint.findings).toBe(16)
     // the report's own verdict for c1
