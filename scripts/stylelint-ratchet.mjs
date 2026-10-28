@@ -9,7 +9,7 @@
 //   node scripts/stylelint-ratchet.mjs --self-test
 //
 // It runs the command of `npm run lint:css` with the JSON formatter (never --fix):
-//   stylelint --ignore-path .gitignore '**/*.css' --formatter json
+//   stylelint --ignore-path .gitignore --ignore-path .stylelintignore '**/*.css' --formatter json
 // reduces the result to (path, rule, count) with repo-relative paths (parse errors, invalid options and
 // deprecations count as findings) and compares it with the ratchet.
 // Exit codes: 0 equal; 1 a finding above the ratchet (a new (path, rule) or a higher count; wins over stale);
@@ -30,6 +30,8 @@ export const DEFAULT_RATCHET = 'test/baseline/stylelint-ratchet.json'
 export const STYLELINT_ARGS = [
   '--ignore-path',
   '.gitignore',
+  '--ignore-path',
+  '.stylelintignore',
   '**/*.css',
   '--formatter',
   'json',
