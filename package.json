@@ -17,7 +17,7 @@
   "dependencies": {
     "@babel/runtime": "7.29.10",
     "@mdi/svg": "5.9.55",
-    "@oacore/design": "file:vendor/oacore-design-5.0.74.tgz",
+    "@oacore/design": "file:vendor/oacore-design",
     "@sentry/browser": "7.120.4",
     "@sentry/node": "7.120.4",
     "@zeit/next-source-maps": "0.0.4",
