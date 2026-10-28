@@ -1,0 +1,109 @@
+# r6-form-error /data-providers/?q=zzzzqqq 1440x900
+- banner:
+  - link "CORE CORE CO nnecting RE positories":
+    - /url: https://core.ac.uk/
+    - img "CORE"
+    - text: CORE CO nnecting RE positories
+  - img
+  - combobox "Search data providers" [expanded]
+  - text: Search data providers
+  - navigation:
+    - button "Services"
+    - button "Support us"
+    - button "About"
+- main:
+  - heading "Is there a mistake?" [level=2]:
+    - text: Is there a mistake?
+    - img: 😔
+  - paragraph:
+    - text: We could not find any data provider matching your query. If there is an open access repository or a journal you think should be added to CORE, use the form below
+    - img: 👇
+  - heading "Suggest a new data provider" [level=3]
+  - textbox "Data provider URL" [invalid]:
+    - /placeholder: For example, https://oro.open.ac.uk
+    - text: https://broken.example.org/
+  - text: We cannot detect a repository or a journal at this address. Please, provide the exact OAI-PMH endpoint. If you are having trouble contact us at
+  - link "theteam@core.ac.uk":
+    - /url: mailto:t%68%65t%65am%40core%2e%61c%2eu%6b
+  - text: . Data provider URL
+  - button "Finish" [disabled]
+  - button "Cancel"
+  - paragraph: We aggregate research papers from data providers all over the world including institutional and subject repositories and journal publishers. This process, which is also called harvesting, allows us to offer search, text mining and analytical capabilities over not only metadata, but also the full text of the research papers making CORE a unique service in the research community.
+  - paragraph: Our dataset currently contains a lot of open access articles, from over tons of thousands journals, collected from over 15,672 repositories and journals around the world.
+  - link "Become a data provider":
+    - /url: https://core.ac.uk/benefits#join-core
+- contentinfo:
+  - link "core logo":
+    - /url: https://core.ac.uk
+    - img "core logo"
+  - paragraph:
+    - text: CORE (COnnecting REpositories) is a not-for-profit service supported by
+    - link "CORE Members.":
+      - /url: https://core.ac.uk/governance/supporters#membership-list
+  - list:
+    - heading "Product" [level=6]
+    - list:
+      - listitem:
+        - link "Services":
+          - /url: /services
+      - listitem:
+        - link "Membership":
+          - /url: /membership
+      - listitem:
+        - link "Sponsorship":
+          - /url: /sponsorship
+      - listitem:
+        - link "Labs":
+          - /url: /innovations/labs
+    - heading "Organisation" [level=6]
+    - list:
+      - listitem:
+        - link "About us":
+          - /url: /about
+      - listitem:
+        - link "Governance":
+          - /url: /about#our-mission
+      - listitem:
+        - link "Team":
+          - /url: /about#team
+      - listitem:
+        - link "Data providers":
+          - /url: /benefits
+    - heading "Support" [level=6]
+    - list:
+      - listitem:
+        - link "Terms":
+          - /url: /terms
+      - listitem:
+        - link "FAQs":
+          - /url: /faq
+      - listitem:
+        - link "Blog":
+          - /url: https://blog.core.ac.uk/
+      - listitem:
+        - link "Contact us":
+          - /url: /about#contact
+  - heading "Writing about CORE?" [level=6]
+  - paragraph:
+    - text: Discover our
+    - link "research outputs":
+      - /url: /about/research-outputs
+    - text: and cite our work.
+  - img "writing"
+  - text: "Follow us:"
+  - link "twitter":
+    - /url: https://twitter.com/oacore
+    - img "twitter"
+  - link "linkedin":
+    - /url: https://www.linkedin.com/company/coreoa
+    - img "linkedin"
+  - link "github":
+    - /url: https://github.com/oacore
+    - img "github"
+  - link "Accessibility":
+    - /url: /accessibility
+  - link "Cookies":
+    - /url: /cookies
+  - link "Privacy":
+    - /url: /privacy
+- alert: Data providers search

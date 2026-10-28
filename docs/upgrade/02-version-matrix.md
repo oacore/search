@@ -96,7 +96,7 @@ Installed: `next` 10.2.3, `react`/`react-dom` 17.0.2. Latest: `next` 16.4.2, `re
 | typescript-eslint | - | 8.72.0 (eslint ^10; **typescript <6.1.0**); 8.72.1 at W1 (re-resolved 2026-10-28, same peers) | 8.72.1 as JS/JSX parser (W1); TS rules at 6.2 | TARGET | `@babel/eslint-parser` crashes on ESLint 10 (7.x) or needs Babel 8: not used. Needs `typescript` at W1 (§3.6) |
 | @next/eslint-plugin-next | - | 16.4.2 | 16.4.2 (6.2, CS-LINT-5) | TARGET | Next 16 has no `next lint` |
 | babel-eslint; eslint-plugin-prettier; @oacore/eslint-config-react; @oacore/prettier-config; @oacore/stylelint-config-base | 10.1.0; 3.4.1; 1.0.6 ×3 | deprecated; 5.5.7; private | removed (CS-LINT-1, CS-PRET-1, CS-STY-1) | REMOVED | own configs, generated from the baseline resolved configs, replace them |
-| prettier | 2.8.8 | 3.9.10 | 3.9.10 | TARGET | own `prettier.config.js` (5 org options inlined); one format-only commit (8 files), listed in `.git-blame-ignore-revs` |
+| prettier | 2.8.8 | 3.9.10 | 3.9.10 | TARGET | own `prettier.config.js` (5 org options inlined); one format-only commit (9 files), listed in `.git-blame-ignore-revs` |
 | stylelint | 13.13.1 | 17.16.0 (Node ≥20.19) | 17.16.0 | TARGET | with stylelint-order 8.1.2, stylelint-config-css-modules 4.6.0, stylelint-prettier 5.0.3. `stylelint-config-standard` not adopted (adds 40 findings); explicit rules, no `--fix` (X02.2) |
 | husky; lint-staged | 4.3.8; - | 9.1.7; 17.6.0 (Node ≥22.22.1; ESM) | 9.1.7; 17.6.0 | TARGET | `HUSKY=0` in Docker (CS-W0-6) |
 | npm-run-all | 4.1.5 | npm-run-all2 9.0.3 (Node ^22.22.2/^24.15/≥26); 9.0.4 at W1 (re-resolved 2026-10-28) | npm-run-all2 9.0.4 (CS-NRA-1) | TARGET | 4.1.5 is the old package's last release |

@@ -1,0 +1,241 @@
+# r4-report-type /outputs/2001/ 1440x900
+- banner:
+  - link "CORE CORE CO nnecting RE positories":
+    - /url: https://core.ac.uk/
+    - img "CORE"
+    - text: CORE CO nnecting RE positories
+  - button "Search icon":
+    - img "Search icon"
+  - navigation:
+    - button "Services"
+    - button "Support us"
+    - button "About"
+- main:
+  - link "Search results":
+    - /url: https://core.ac.uk/search/?ts/2001/
+  - text: ">"
+  - link "Research output from Open Research Online (The Open University)":
+    - /url: "#"
+  - img "oai"
+  - link "oai:oro.open.ac.uk:90496":
+    - /url: https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496
+  - heading "Novel approach for deriving genome wide SNP analysis data from archived blood spots" [level=1]
+  - definition:
+    - list:
+      - listitem:
+        - link "Katie E. Fowler":
+          - /url: https://core.ac.uk/search?q=authors:(Fowler, Katie E.)
+        - text: ","
+      - listitem:
+        - link "Chris P Reitter":
+          - /url: https://core.ac.uk/search?q=authors:(Reitter, Chris P)
+        - text: ","
+      - listitem:
+        - link "Grant A Walling":
+          - /url: https://core.ac.uk/search?q=authors:(Walling, Grant A)
+        - text: ","
+      - listitem:
+        - link "Darren K Griffin":
+          - /url: https://core.ac.uk/search?q=authors:(Griffin, Darren K)
+  - text: •
+  - definition: 1 January 2012
+  - text: •
+  - definition:
+    - list:
+      - listitem: "DOI: 10.1186/1756-0500-5-503"
+  - button "Cite":
+    - img
+    - text: Cite
+  - heading "Abstract" [level=2]
+  - text: Background The ability to transport and store DNA at room temperature in low volumes has the advantage of optimising cost, time and storage space. Blood spots on adapted filter papers are popular for this, with FTA (Flinders Technology Associates) Whatman™ technology being one of the most recent. Plant material, plasmids, viral particles, bacteria and animal blood have been stored and transported successfully using this technology, however the method of porcine DNA extraction from FTA Whatman™ cards is a relatively new approach, allowing nucleic acids to be ready for downstream applications such as PCR, whole genome amplification, sequencing and subsequent application to single nucleotide polymorphism microarrays has hitherto been under-explored. Findings DNA was extracted from FTA Whatman™ cards (following adaptations of the manufacturer’s instructions), whole genome amplified and subsequently analysed to validate the integrity of the DNA for downstream SNP analysis. DNA was successfully extracted from 288/288 samples and amplified by WGA. Allele dropout post WGA, was observed in less than 2% of samples and there was no clear evidence of amplification bias nor contamination. Acceptable call rates on porcine SNP chips were also achieved using DNA extracted and amplified in this way. Conclusions DNA extracted from FTA Whatman cards is of a high enough quality and quantity following whole genomic amplification to perform meaningful SNP chip studies
+  - list
+  - heading "Similar works" [level=2]
+  - 'heading "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?" [level=3]'
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Rajavuori Mikko":
+          - /url: /search?q=author:(Rajavuori, Mikko)
+        - text: ","
+      - listitem:
+        - link "Savaresi Annalisa":
+          - /url: /search?q=author:(Savaresi, Annalisa)
+        - text: ","
+      - listitem:
+        - link "van Asselt Harro":
+          - /url: /search?q=author:(van Asselt, Harro)
+  - text: •
+  - definition: 14/03/2023
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/reader/566708785
+  - text: The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research
+  - link "Stirling Online Research Repository (RIOXX)":
+    - /url: /data-providers/10883
+  - 'heading "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?" [level=3]'
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Rajavuori Mikko":
+          - /url: /search?q=author:(Rajavuori, Mikko)
+        - text: ","
+      - listitem:
+        - link "Savaresi Annalisa":
+          - /url: /search?q=author:(Savaresi, Annalisa)
+        - text: ","
+      - listitem:
+        - link "van Asselt Harro":
+          - /url: /search?q=author:(van Asselt, Harro)
+  - text: •
+  - definition: 14/03/2023
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/reader/567714872
+  - text: The debate on corporate climate accountability has become increasingly prominent in recent years. Several countries, particularly in the Global North, have adopted mandatory human rights and/or environmental due diligence legislation. At the same time, judicial and quasi-judicial proceedings are helping to shape the contours of corporate climate accountability. This article considers how litigation against corporations and due diligence legislation interact, and thereby help develop and strengthen corporate climate accountability. While the practice in this area is still limited, there is scope to reflect on early developments and how they may influence both future climate litigation as well as ongoing and future law-making on due diligence. We first review recent developments in climate litigation against corporations, focusing on the extent to which they rely on climate due diligence obligations. We then survey existing and proposed due diligence legislation, examining the extent to which it addresses corporate climate accountability. Finally, we identify scenarios of how due diligence legislation and climate litigation may interact and possibly converge to strengthen corporate climate accountability. We furthermore identify knowledge gaps and areas for further research
+  - link "Stirling Online Research Repository":
+    - /url: /data-providers/107
+  - 'heading "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?" [level=3]'
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Mikko Rajavuori":
+          - /url: /search?q=author:(Mikko Rajavuori)
+        - text: ","
+      - listitem:
+        - link "Annalisa Savaresi":
+          - /url: /search?q=author:(Annalisa Savaresi)
+        - text: ","
+      - listitem:
+        - link "Harro van Asselt":
+          - /url: /search?q=author:(Harro van Asselt)
+  - text: •
+  - definition: "2023"
+  - figure: No full text
+  - link "Crossref":
+    - /url: /data-providers/4786
+  - heading "Related searches" [level=2]
+  - img
+  - text: No results
+  - heading "Full text" [level=2]
+  - link "Open in the Core reader":
+    - /url: http://<stack>/reader/571618880
+    - text: Open in the Core reader
+    - img
+  - text: Download PDF
+  - img "Open Research Online (The Open University)"
+  - heading "Open Research Online (The Open University)" [level=3]
+  - img "redirect"
+  - link "Go to the repository landing page":
+    - /url: https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496
+    - button "Go to the repository landing page"
+  - button "Download from data provider"
+  - img "oai"
+  - link "oai:oro.open.ac.uk:90496":
+    - /url: https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496
+  - img
+  - text: Last time updated on 10/07/2023
+  - link "Provided by our Sustaining member":
+    - /url: https://core.ac.uk/membership
+  - button "Zoom in"
+  - button "Zoom out"
+  - link "Leaflet":
+    - /url: https://leafletjs.com
+  - text: ©
+  - link "OpenStreetMap":
+    - /url: https://www.openstreetmap.org/copyright
+  - text: contributors
+  - paragraph:
+    - text: This paper was published in
+    - link "Open Research Online (The Open University)":
+      - /url: //core.ac.uk/data-providers/86
+    - text: .
+  - heading "Having an issue?" [level=1]
+  - paragraph: Is data on this page outdated, violates copyrights or anything else? Report the problem now and we will take corresponding actions after reviewing your request.
+  - button "Report"
+  - text: "Licence: http://creativecommons.org/licenses/by/4.0"
+- contentinfo:
+  - link "core logo":
+    - /url: https://core.ac.uk
+    - img "core logo"
+  - paragraph:
+    - text: CORE (COnnecting REpositories) is a not-for-profit service supported by
+    - link "CORE Members.":
+      - /url: https://core.ac.uk/governance/supporters#membership-list
+  - list:
+    - heading "Product" [level=6]
+    - list:
+      - listitem:
+        - link "Services":
+          - /url: /services
+      - listitem:
+        - link "Membership":
+          - /url: /membership
+      - listitem:
+        - link "Sponsorship":
+          - /url: /sponsorship
+      - listitem:
+        - link "Labs":
+          - /url: /innovations/labs
+    - heading "Organisation" [level=6]
+    - list:
+      - listitem:
+        - link "About us":
+          - /url: /about
+      - listitem:
+        - link "Governance":
+          - /url: /about#our-mission
+      - listitem:
+        - link "Team":
+          - /url: /about#team
+      - listitem:
+        - link "Data providers":
+          - /url: /benefits
+    - heading "Support" [level=6]
+    - list:
+      - listitem:
+        - link "Terms":
+          - /url: /terms
+      - listitem:
+        - link "FAQs":
+          - /url: /faq
+      - listitem:
+        - link "Blog":
+          - /url: https://blog.core.ac.uk/
+      - listitem:
+        - link "Contact us":
+          - /url: /about#contact
+  - heading "Writing about CORE?" [level=6]
+  - paragraph:
+    - text: Discover our
+    - link "research outputs":
+      - /url: /about/research-outputs
+    - text: and cite our work.
+  - img "writing"
+  - text: "Follow us:"
+  - link "twitter":
+    - /url: https://twitter.com/oacore
+    - img "twitter"
+  - link "linkedin":
+    - /url: https://www.linkedin.com/company/coreoa
+    - img "linkedin"
+  - link "github":
+    - /url: https://github.com/oacore
+    - img "github"
+  - link "Accessibility":
+    - /url: /accessibility
+  - link "Cookies":
+    - /url: /cookies
+  - link "Privacy":
+    - /url: /privacy
+- alert
+- dialog "Problem-type-modal":
+  - heading "Which issue are you reporting?" [level=3]
+  - paragraph:
+    - img
+    - text: The document should not be published
+  - paragraph:
+    - img
+    - text: The document is outdated
+  - contentinfo:
+    - button "Close"
+    - button "Continue" [disabled]

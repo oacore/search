@@ -1,0 +1,80 @@
+{
+  "state": "V27 /works/1001/",
+  "viewport": { "width": 1440, "height": 900 },
+  "views": [
+    {
+      "scrollY": 0,
+      "layers": [
+        {
+          "name": "header#header.styles-container.styles-container",
+          "position": "sticky",
+          "top": "0px",
+          "zIndex": "10000",
+          "box": [0, 0, 1440, 51.86]
+        }
+      ],
+      "hits": {
+        "middle of header#header.styles-container.styles-container": [
+          "header#header.styles-container.styles-container",
+          "header#header.styles-container.styles-container",
+          "header#header.styles-container.styles-container"
+        ],
+        "below the layers": ["content", "content", "content"]
+      }
+    },
+    {
+      "scrollY": 900,
+      "layers": [
+        {
+          "name": "header#header.styles-container.styles-container",
+          "position": "sticky",
+          "top": "0px",
+          "zIndex": "10000",
+          "box": [0, 0, 1440, 51.86]
+        }
+      ],
+      "hits": {
+        "middle of header#header.styles-container.styles-container": [
+          "header#header.styles-container.styles-container",
+          "header#header.styles-container.styles-container",
+          "header#header.styles-container.styles-container"
+        ],
+        "below the layers": ["content", "content", "content"]
+      }
+    },
+    {
+      "header": "expanded",
+      "scrollY": 900,
+      "layers": [
+        {
+          "name": "header#header.styles-container.styles-container.styles-expanded",
+          "position": "sticky",
+          "top": "0px",
+          "zIndex": "10000",
+          "box": [0, 0, 1440, 51.86]
+        }
+      ],
+      "hits": {
+        "middle of header#header.styles-container.styles-container.styles-expanded": [
+          "header#header.styles-container.styles-container.styles-expanded",
+          "header#header.styles-container.styles-container.styles-expanded",
+          "header#header.styles-container.styles-container.styles-expanded"
+        ],
+        "below the layers": [
+          "content",
+          "header#header.styles-container.styles-container.styles-expanded",
+          "content"
+        ]
+      },
+      "open": {
+        "name": "ul.styles-menu-list.styles-expanded",
+        "box": [603.47, 52.8, 600, 287],
+        "hits": [
+          "header#header.styles-container.styles-container.styles-expanded",
+          "header#header.styles-container.styles-container.styles-expanded",
+          "header#header.styles-container.styles-container.styles-expanded"
+        ]
+      }
+    }
+  ]
+}

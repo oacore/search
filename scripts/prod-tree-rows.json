@@ -1,0 +1,97 @@
+{
+  "default": "jump-1",
+  "jump-1": {
+    "base": "upgrade/p2-28-exit",
+    "roots": {
+      "@babel/runtime": {
+        "from": null,
+        "to": "7.29.10",
+        "row": "CS-W0-3 (declared, W0), CS-BAB-9 (7.29.10, W2e)"
+      },
+      "@mdi/svg": {
+        "from": null,
+        "to": "5.9.55",
+        "row": "CS-W0-3 (declared at the installed version, W0)"
+      },
+      "@oacore/stylelint-config-base": {
+        "from": "1.0.6",
+        "to": null,
+        "row": "CS-STY-1 (W1)"
+      },
+      "@sentry/browser": {
+        "from": "5.30.0",
+        "to": "7.120.4",
+        "row": "CS-SEN-1 (W2a)"
+      },
+      "@sentry/node": {
+        "from": "5.30.0",
+        "to": "7.120.4",
+        "row": "CS-SEN-1 (W2a)"
+      },
+      "bibtex-parse-js": {
+        "from": "0.0.24",
+        "to": null,
+        "row": "CS-BIB-1 (vendored, W0)"
+      },
+      "core-js": {
+        "from": "3.42.0",
+        "to": "3.51.0",
+        "row": "CS-CORE-1 (W2c)"
+      },
+      "filesize": {
+        "from": "6.4.0",
+        "to": null,
+        "row": "CS-W0-2 (W0)"
+      },
+      "i18n-iso-countries": {
+        "from": "6.8.0",
+        "to": null,
+        "row": "CS-I18N-1 (vendored map, W0)"
+      },
+      "logrocket": {
+        "from": "10.0.0",
+        "to": "12.4.0",
+        "row": "CS-LR-1 (W2b)"
+      },
+      "logrocket-react": {
+        "from": "6.0.3",
+        "to": null,
+        "row": "CS-W0-2 (W0)"
+      },
+      "mobx": {
+        "from": "6.13.7",
+        "to": "6.16.1",
+        "row": "CS-MOBX-1 (W3)"
+      },
+      "mobx-react-lite": {
+        "from": "3.4.3",
+        "to": "4.1.1",
+        "row": "CS-MOBX-2 (W3)"
+      },
+      "throttle-debounce": {
+        "from": "3.0.1",
+        "to": null,
+        "row": "CS-W0-2 (W0; the design keeps 3.0.1)"
+      }
+    },
+    "versions": {
+      "@babel/code-frame@7.27.1": "CS-BAB-10 (the override pins moved to the 7.29 releases, W2e; consumer: parse-json in the design's cosmiconfig, error paths only)",
+      "@babel/code-frame@7.29.7": "CS-BAB-10 (W2e)",
+      "@babel/helper-validator-identifier@7.27.1": "CS-BAB-10 (W2e; consumers: @babel/code-frame, Next's dev overlay)",
+      "@babel/helper-validator-identifier@7.29.7": "CS-BAB-10 (W2e)",
+      "@babel/runtime@7.27.3": "CS-BAB-9 (the root pin, W2e; the design's dependency resolves to it)",
+      "@babel/runtime@7.29.10": "CS-BAB-9 (W2e)",
+      "body-scroll-lock@3.1.5": "CS-DSN-5 (W5b)",
+      "enquire.js@2.1.6": "CS-DSN-4 (react-slick's dependency, W5b)",
+      "json2mq@0.2.0": "CS-DSN-4 (react-slick's dependency, W5b)",
+      "katex@0.16.22": "02 §3.7 katex (lock only, W2e 53525e2; AD-036)",
+      "katex@0.16.47": "02 §3.7 katex (lock only, W2e 53525e2; AD-036)",
+      "lodash.debounce@4.0.8": "CS-DSN-4 (react-slick's other dependency; stays dev-only for @babel/helper-define-polyfill-provider, W5b)",
+      "react-focus-lock@2.13.6": "02 §3.7 react-focus-lock (lock only, W2e ea406b0)",
+      "react-focus-lock@2.13.7": "02 §3.7 react-focus-lock (lock only, W2e ea406b0)",
+      "react-slick@0.28.1": "CS-DSN-4 (W5b)",
+      "resize-observer-polyfill@1.5.1": "CS-DSN-4 (react-slick's dependency, W5b)",
+      "string-convert@0.2.1": "CS-DSN-4 (json2mq's dependency, W5b)"
+    }
+  }
+}

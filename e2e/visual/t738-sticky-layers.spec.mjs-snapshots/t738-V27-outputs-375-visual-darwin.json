@@ -1,0 +1,76 @@
+{
+  "state": "V27 /outputs/2001/",
+  "viewport": { "width": 375, "height": 812 },
+  "views": [
+    {
+      "scrollY": 0,
+      "layers": [
+        {
+          "name": "header#header.styles-container.styles-container",
+          "position": "sticky",
+          "top": "0px",
+          "zIndex": "10000",
+          "box": [0, 0, 375, 51.25]
+        }
+      ],
+      "hits": {
+        "middle of header#header.styles-container.styles-container": [
+          "header#header.styles-container.styles-container",
+          "header#header.styles-container.styles-container",
+          "header#header.styles-container.styles-container"
+        ],
+        "below the layers": ["content", "content", "content"]
+      }
+    },
+    {
+      "scrollY": 900,
+      "layers": [
+        {
+          "name": "header#header.styles-container.styles-container",
+          "position": "sticky",
+          "top": "0px",
+          "zIndex": "10000",
+          "box": [0, 0, 375, 51.25]
+        }
+      ],
+      "hits": {
+        "middle of header#header.styles-container.styles-container": [
+          "header#header.styles-container.styles-container",
+          "header#header.styles-container.styles-container",
+          "header#header.styles-container.styles-container"
+        ],
+        "below the layers": ["content", "content", "content"]
+      }
+    },
+    {
+      "header": "expanded",
+      "scrollY": 1050,
+      "layers": [
+        {
+          "name": "header#header.styles-container.styles-container",
+          "position": "sticky",
+          "top": "0px",
+          "zIndex": "10000",
+          "box": [0, 0, 375, 201.25]
+        }
+      ],
+      "hits": {
+        "middle of header#header.styles-container.styles-container": [
+          "header#header.styles-container.styles-container",
+          "header#header.styles-container.styles-container",
+          "header#header.styles-container.styles-container"
+        ],
+        "below the layers": ["content", "content", "content"]
+      },
+      "open": {
+        "name": "nav#header-nav.styles-item.styles-nav.styles-expanded",
+        "box": [0, 51.25, 375, 150],
+        "hits": [
+          "header#header.styles-container.styles-container",
+          "header#header.styles-container.styles-container",
+          "header#header.styles-container.styles-container"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+# g-hamburger /outputs/update/ 375x812
+- banner:
+  - link "CORE CORE":
+    - /url: https://core.ac.uk/
+    - img "CORE"
+    - text: CORE
+  - button "Toggle navigation" [expanded]
+  - navigation:
+    - button "Services"
+    - button "Support us"
+    - button "About"
+- main:
+  - heading "Article Takedown Request" [level=2]
+  - img "takedown"
+  - paragraph: To remove a paper from CORE, please search for the paper using the search box at the top of this page.
+  - paragraph: When you have found the paper, please enter the URL of the paper from CORE into the form on the right and we will redirect you to the correct page.
+  - paragraph: "Put link to the article here:"
+  - textbox "CORE URL":
+    - /placeholder: e.g. https://core.ac.uk/display/1
+  - text: CORE URL
+  - button "SUBMIT"
+  - heading "Types of links you can use to fill up the CORE URL field" [level=4]
+  - paragraph:
+    - text: "For example, suppose you wanted to remove the paper:"
+    - 'link "CORE: aggregation use cases for open access"':
+      - /url: https://core.ac.uk/display/82976757?recSetID=
+    - text: .
+  - paragraph: "In the CORE URL box, you may enter one of the following:"
+  - list:
+    - listitem:
+      - text: A outputs page URL
+      - link "https://core.ac.uk/outputs/82976757":
+        - /url: https://core.ac.uk/outputs/82976757
+    - listitem:
+      - text: A fulltext URL
+      - link "https://core.ac.uk/download/82976757.pdf":
+        - /url: "https://core.ac.uk/download/82976757.pdf "
+  - paragraph:
+    - text: Please note that the form does not accept links which start with "https://core.ac.uk/
+    - strong: search
+    - text: "\" and \"https://core.ac.uk/"
+    - strong: works
+    - text: "\"."
+  - img "faq"
+  - paragraph:
+    - text: You can find out more information about deleting articles in the
+    - link "\"Removing full text or metadata\"":
+      - /url: https://core.ac.uk/faq
+    - text: section of the FAQs.
+- contentinfo:
+  - link "core logo":
+    - /url: https://core.ac.uk
+    - img "core logo"
+  - paragraph:
+    - text: CORE (COnnecting REpositories) is a not-for-profit service supported by
+    - link "CORE Members.":
+      - /url: https://core.ac.uk/governance/supporters#membership-list
+  - list:
+    - heading "Product" [level=6]
+    - list:
+      - listitem:
+        - link "Services":
+          - /url: /services
+      - listitem:
+        - link "Membership":
+          - /url: /membership
+      - listitem:
+        - link "Sponsorship":
+          - /url: /sponsorship
+      - listitem:
+        - link "Labs":
+          - /url: /innovations/labs
+    - heading "Organisation" [level=6]
+    - list:
+      - listitem:
+        - link "About us":
+          - /url: /about
+      - listitem:
+        - link "Governance":
+          - /url: /about#our-mission
+      - listitem:
+        - link "Team":
+          - /url: /about#team
+      - listitem:
+        - link "Data providers":
+          - /url: /benefits
+    - heading "Support" [level=6]
+    - list:
+      - listitem:
+        - link "Terms":
+          - /url: /terms
+      - listitem:
+        - link "FAQs":
+          - /url: /faq
+      - listitem:
+        - link "Blog":
+          - /url: https://blog.core.ac.uk/
+      - listitem:
+        - link "Contact us":
+          - /url: /about#contact
+  - heading "Writing about CORE?" [level=6]
+  - paragraph:
+    - text: Discover our
+    - link "research outputs":
+      - /url: /about/research-outputs
+    - text: and cite our work.
+  - img "writing"
+  - text: "Follow us:"
+  - link "twitter":
+    - /url: https://twitter.com/oacore
+    - img "twitter"
+  - link "linkedin":
+    - /url: https://www.linkedin.com/company/coreoa
+    - img "linkedin"
+  - link "github":
+    - /url: https://github.com/oacore
+    - img "github"
+  - link "Accessibility":
+    - /url: /accessibility
+  - link "Cookies":
+    - /url: /cookies
+  - link "Privacy":
+    - /url: /privacy
+- alert

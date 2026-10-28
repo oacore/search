@@ -1,0 +1,116 @@
+{
+  "state": "V26 /search/?q=climate",
+  "viewport": { "width": 1440, "height": 900 },
+  "views": [
+    {
+      "scrollY": 0,
+      "layers": [
+        {
+          "name": "header#header.styles-container.styles-container.styles_header",
+          "position": "sticky",
+          "top": "0px",
+          "zIndex": "10000",
+          "box": [0, 0, 1440, 51.86]
+        },
+        {
+          "name": "div.styles_container",
+          "position": "fixed",
+          "top": "51.8594px",
+          "zIndex": "11",
+          "box": [0, 51.86, 1440, 48.38]
+        }
+      ],
+      "hits": {
+        "middle of header#header.styles-container.styles-container.styles_header": [
+          "header#header.styles-container.styles-container.styles_header",
+          "header#header.styles-container.styles-container.styles_header",
+          "header#header.styles-container.styles-container.styles_header"
+        ],
+        "middle of div.styles_container": [
+          "div.styles_container",
+          "div.styles_container",
+          "div.styles_container"
+        ],
+        "below the layers": ["content", "content", "content"]
+      }
+    },
+    {
+      "scrollY": 900,
+      "layers": [
+        {
+          "name": "header#header.styles-container.styles-container.styles_header",
+          "position": "sticky",
+          "top": "0px",
+          "zIndex": "10000",
+          "box": [0, 0, 1440, 51.86]
+        },
+        {
+          "name": "div.styles_container",
+          "position": "fixed",
+          "top": "51.8594px",
+          "zIndex": "11",
+          "box": [0, 51.86, 1440, 48.38]
+        }
+      ],
+      "hits": {
+        "middle of header#header.styles-container.styles-container.styles_header": [
+          "header#header.styles-container.styles-container.styles_header",
+          "header#header.styles-container.styles-container.styles_header",
+          "header#header.styles-container.styles-container.styles_header"
+        ],
+        "middle of div.styles_container": [
+          "div.styles_container",
+          "div.styles_container",
+          "div.styles_container"
+        ],
+        "below the layers": ["content", "content", "content"]
+      }
+    },
+    {
+      "header": "expanded",
+      "scrollY": 900,
+      "layers": [
+        {
+          "name": "header#header.styles-container.styles-container.styles-expanded.styles_header",
+          "position": "sticky",
+          "top": "0px",
+          "zIndex": "10000",
+          "box": [0, 0, 1440, 51.86]
+        },
+        {
+          "name": "div.styles_container",
+          "position": "fixed",
+          "top": "51.8594px",
+          "zIndex": "11",
+          "box": [0, 51.86, 1440, 48.38]
+        }
+      ],
+      "hits": {
+        "middle of header#header.styles-container.styles-container.styles-expanded.styles_header": [
+          "header#header.styles-container.styles-container.styles-expanded.styles_header",
+          "header#header.styles-container.styles-container.styles-expanded.styles_header",
+          "header#header.styles-container.styles-container.styles-expanded.styles_header"
+        ],
+        "middle of div.styles_container": [
+          "div.styles_container",
+          "header#header.styles-container.styles-container.styles-expanded.styles_header",
+          "div.styles_container"
+        ],
+        "below the layers": [
+          "content",
+          "header#header.styles-container.styles-container.styles-expanded.styles_header",
+          "content"
+        ]
+      },
+      "open": {
+        "name": "ul.styles-menu-list.styles-expanded",
+        "box": [603.47, 52.8, 600, 287],
+        "hits": [
+          "header#header.styles-container.styles-container.styles-expanded.styles_header",
+          "header#header.styles-container.styles-container.styles-expanded.styles_header",
+          "header#header.styles-container.styles-container.styles-expanded.styles_header"
+        ]
+      }
+    }
+  ]
+}

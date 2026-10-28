@@ -1,0 +1,251 @@
+# r3-works-many-authors /works/1003/ 1440x900
+- banner:
+  - link "CORE CORE CO nnecting RE positories":
+    - /url: https://core.ac.uk/
+    - img "CORE"
+    - text: CORE CO nnecting RE positories
+  - button "Search icon":
+    - img "Search icon"
+  - navigation:
+    - button "Services"
+    - button "Support us"
+    - button "About"
+- main:
+  - link "Search results":
+    - /url: https://core.ac.uk/search/?/1003/
+  - text: ">"
+  - link "Research work":
+    - /url: "#"
+  - heading "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa" [level=1]
+  - definition:
+    - list:
+      - listitem:
+        - link "F. Kaspar":
+          - /url: https://core.ac.uk/search?q=authors:(F. Kaspar)
+        - text: ","
+      - listitem:
+        - link "M. Butale":
+          - /url: https://core.ac.uk/search?q=authors:(M. Butale)
+        - text: ","
+      - listitem:
+        - button "+28 more"
+        - text: ","
+  - text: •
+  - definition: 1 January 2015
+  - text: •
+  - definition: Copernicus-Ges.
+  - text: •
+  - definition:
+    - list:
+      - listitem: "DOI: 10.5194/ASR-12-171-2015,"
+      - listitem
+  - button "Cite":
+    - img
+    - text: Cite
+  - heading "Abstract" [level=2]
+  - text: A major task of the newly established "Southern African Science Service Centre for Climate Change and Adaptive Land Management" (SASSCAL; www.sasscal.org) and its partners is to provide science-based environmental information and knowledge which includes the provision of consistent and reliable climate data for Southern Africa. Hence, SASSCAL, in close cooperation with the national weather authorities of Angola, Botswana, Germany and Zambia as well as partner institutions in Namibia and South Africa, supports the extension of the regional meteorological observation network and the improvement of the climate archives at national level. With the ongoing rehabilitation of existing weather stations and the new installation of fully automated weather stations (AWS), altogether 105 AWS currently provide a set of climate variables at 15, 30 and 60 min intervals respectively. These records are made available through the SASSCAL WeatherNet, an online platform providing near-real time data as well as various statistics and graphics, all in open access. This effort is complemented by the harmonization and improvement of climate data management concepts at the national weather authorities, capacity building activities and an extension of the data bases with historical climate data which are still available from different sources. These activities are performed through cooperation between regional and German institutions and will provide important information for climate service related activities
+  - list
+  - heading "Similar works" [level=2]
+  - 'heading "Climate change 2015: growing risks, critical choices" [level=3]'
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Climate Council":
+          - /url: /search?q=author:(Climate Council)
+  - text: •
+  - definition: "2015"
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/reader/30671329
+  - text: This latest Climate Council report provides an update of climate change science, impacts and risks. This report draws from the massive body of evidence that human activities - primarily from the burning of coal, oil and gas - are driving dramatic changes in our climate system. The report outlines how the changing climate poses substantial and escalating risks for health, property, infrastructure, agriculture and natural ecosystems in Australia. Compared to our understanding when the last Critical Decade report was published, the risks of climate change for our well-being now look more serious at lower levels of climate change, strengthening the case for urgent action. Finally, the report describes why it is in Australia’s national interest to play a leadership role in the global move for strong climate action leading up to the Paris climate conference at the end of 2015
+  - link "Analysis and Policy Observatory (APO)":
+    - /url: /data-providers/713
+  - heading "Climate and Airborne Pollutants" [level=3]
+  - img "UNT (University of North Texas) Digital Library"
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Climate Change Science Program (U.S.)":
+          - /url: /search?q=author:(Climate Change Science Program (U.S.))
+  - text: •
+  - definition: "2008"
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/reader/216240794
+  - text: Pamphlet describing climate projections based on emission scenarios for long-lived and short-lived radiatively active gases and aerosols
+  - link "UNT (University of North Texas) Digital Library":
+    - /url: /data-providers/2313
+  - 'heading "Thirsty country: climate change and drought in Australia" [level=3]'
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Climate Council":
+          - /url: /search?q=author:(Climate Council)
+  - text: •
+  - definition: "2015"
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/reader/30672389
+  - text: This report argues that climate change is likely making drought worse in the southeast and southwest of Australia, which are some of our most populous regions. Introduction Drought has deeply affected Australia throughout its history. The Millennium Drought from 1996-2010 serves as a recent reminder of the wide-reaching impacts that drought can have on Australia’s people and environment. Australia is the driest inhabited continent on Earth and drought is an important feature of Australia’s climate. Whilst Australians have always lived with drought and its consequences, it is likely that climate change is making drought worse in the southeast and southwest, some of our most populous regions. We begin this report by describing what a drought is, before considering its consequences for health, the economy, ecosystems and urban water supplies. We then outline the changing drought conditions and increasing drying trends in Australia and explore recent dry conditions in various parts of the country. We conclude by exploring how climate change is influencing drought conditions in the southeast and southwest of the continent as well as drying trends globally
+  - link "Analysis and Policy Observatory (APO)":
+    - /url: /data-providers/713
+  - heading "Midwestern Regional Climate Center" [level=3]
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Midwestern Regional Climate Center":
+          - /url: /search?q=author:(Midwestern Regional Climate Center)
+  - text: •
+  - definition: 01/01/2001
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/reader/158316893
+  - text: "Made available in DSpace on 2016-11-14T22:36:27Z (GMT). No. of bitstreams: 2 ISWSIEM2001-01.pdf: 146176 bytes, checksum: 791a8da476fabb8bec8c3d10ae0a0993 (MD5) license.txt: 3973 bytes, checksum: 6c1c5beee39794d995a5ff442f5bd9ab (MD5) Previous issue date: 2001Mode of access: Internet; current access through PURL.The Midwestern Regional Climate Center (MRCC) is a cooperative program between the National Climatic Data Center (NCDC) and the Illinois State Water Survey in Champaign, Illinois.Describes MRCC research and services which explain climate and its impact on the Midwest; provide practical solutions to specific climate problems; and develop issues based climate information for the Midwest region"
+  - link "Illinois Digital Environment for Access to Learning and Scholarship Repository":
+    - /url: /data-providers/198
+  - heading "Seasonal Climate Forecasts and Risk Management Among Georgia Farmers" [level=3]
+  - definition:
+    - list "Author":
+      - listitem:
+        - link "Hoogenhoom G.":
+          - /url: /search?q=author:(Hoogenhoom, G.)
+        - text: ","
+      - listitem:
+        - link "Broad K.":
+          - /url: /search?q=author:(Broad, K.)
+        - text: ","
+      - listitem:
+        - button "+12 more"
+        - text: ","
+  - text: •
+  - definition: 01/01/2008
+  - figure:
+    - link "Full text link":
+      - /url: http://<stack>/reader/29255347
+  - text: Recent increases in the scientific robustness of seasonal climate forecasts have not led to substantial changes in farmers’ risk management strategies of actors, largely because there is poor integration of scientific forecasting into farmers’ decision-making processes. The goal of the research presented here is to explore the potentials and constraints for farmers’ application of seasonal climate forecasts through an analysis of the cultural contexts of their decision-making and information use. Semi-structured interviews were conducted with 38 farmers in southern Georgia, examining their approaches, risk-management, to livelihood goals and strategies, and interactions with weather and climate information. Findings indicate that farmers’ management of risks associated with climate variability is embedded within a broad array of social factors, including subjective construction of social and personal identities, goals, and values. These cultural contexts affect the ways that farmers interpret and might apply seasonal climate forecasts to agricultural decisions. These findings indicate that, rather than simply acting as a technical information input, seasonal climate forecasts and forecasters must gradually work theirway into farmers’ trusted social networks before their potential as risk management tools will be realized. Furthermore, while seeking to produce scientific information to support farmers’ adaptive practices, scientists themselves must adapt their own practices to better fit a coproduction of knowledge approach
+  - link "Wageningen University & Research Publications":
+    - /url: /data-providers/679
+  - text: and
+  - 'link "University of Miami: Scholarship@Miami"':
+    - /url: /data-providers/14567
+  - heading "Related searches" [level=2]
+  - img
+  - link "climate":
+    - /url: //core.ac.uk/search?q=climate
+  - heading "Full text" [level=2]
+  - link "Open in the Core reader":
+    - /url: http://<stack>/reader/33302804
+    - text: Open in the Core reader
+    - img
+  - text: Download PDF
+  - heading "Available Versions" [level=3]
+  - img
+  - heading "edoc" [level=3]
+  - img "redirect"
+  - button "See this paper in CORE"
+  - link "Go to the repository landing page":
+    - /url: https://api.core.ac.uk/oai/oai:edoc.unibas.ch:38987
+    - button "Go to the repository landing page"
+  - button "Download from data provider"
+  - img "oai"
+  - link "oai:edoc.unibas.ch:38987":
+    - /url: https://api.core.ac.uk/oai/oai:edoc.unibas.ch:38987
+  - img
+  - text: Last time updated on 31/12/2015
+  - img
+  - heading "Directory of Open Access Journals" [level=3]
+  - img "redirect"
+  - button "See this paper in CORE"
+  - link "Go to the repository landing page":
+    - /url: https://api.core.ac.uk/oai/oai:doaj.org/article:8b74ba855add4a3985bffa344b0dde5f
+    - button "Go to the repository landing page"
+  - button "Download from data provider"
+  - img "oai"
+  - link "oai:doaj.org/article:8b74ba855...":
+    - /url: https://api.core.ac.uk/oai/oai:doaj.org/article:8b74ba855add4a3985bffa344b0dde5f
+  - img
+  - text: Last time updated on 28/08/2025
+  - img
+  - heading "Crossref" [level=3]
+  - img "redirect"
+  - button "See this paper in CORE"
+  - link "Go to the repository landing page":
+    - /url: https://doi.org/
+    - button "Go to the repository landing page"
+  - button "Download from data provider"
+  - text: Last time updated on 26/01/2021
+- contentinfo:
+  - link "core logo":
+    - /url: https://core.ac.uk
+    - img "core logo"
+  - paragraph:
+    - text: CORE (COnnecting REpositories) is a not-for-profit service supported by
+    - link "CORE Members.":
+      - /url: https://core.ac.uk/governance/supporters#membership-list
+  - list:
+    - heading "Product" [level=6]
+    - list:
+      - listitem:
+        - link "Services":
+          - /url: /services
+      - listitem:
+        - link "Membership":
+          - /url: /membership
+      - listitem:
+        - link "Sponsorship":
+          - /url: /sponsorship
+      - listitem:
+        - link "Labs":
+          - /url: /innovations/labs
+    - heading "Organisation" [level=6]
+    - list:
+      - listitem:
+        - link "About us":
+          - /url: /about
+      - listitem:
+        - link "Governance":
+          - /url: /about#our-mission
+      - listitem:
+        - link "Team":
+          - /url: /about#team
+      - listitem:
+        - link "Data providers":
+          - /url: /benefits
+    - heading "Support" [level=6]
+    - list:
+      - listitem:
+        - link "Terms":
+          - /url: /terms
+      - listitem:
+        - link "FAQs":
+          - /url: /faq
+      - listitem:
+        - link "Blog":
+          - /url: https://blog.core.ac.uk/
+      - listitem:
+        - link "Contact us":
+          - /url: /about#contact
+  - heading "Writing about CORE?" [level=6]
+  - paragraph:
+    - text: Discover our
+    - link "research outputs":
+      - /url: /about/research-outputs
+    - text: and cite our work.
+  - img "writing"
+  - text: "Follow us:"
+  - link "twitter":
+    - /url: https://twitter.com/oacore
+    - img "twitter"
+  - link "linkedin":
+    - /url: https://www.linkedin.com/company/coreoa
+    - img "linkedin"
+  - link "github":
+    - /url: https://github.com/oacore
+    - img "github"
+  - link "Accessibility":
+    - /url: /accessibility
+  - link "Cookies":
+    - /url: /cookies
+  - link "Privacy":
+    - /url: /privacy
+- alert
