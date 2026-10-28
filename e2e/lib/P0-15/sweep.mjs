@@ -7,7 +7,9 @@ import { LOGROCKET_HOST, census } from './analytics.mjs'
 export const expectNoViolation = (guardLog, { consented }) => {
   expect(guardLog.csp, 'securitypolicyviolation events').toEqual([])
   const c = census(guardLog)
-  expect(c.logrocket).toEqual(['GET https://cdn.lgrckt-in.com/logger-1.min.js'])
+  // the recorder script of logrocket >= 11 (CS-LR-1, AD-031; https://cdn.lgrckt-in.com/logger-1.min.js with
+  // 10.0.0)
+  expect(c.logrocket).toEqual(['GET https://cdn.logr-in.com/logger-1.min.js'])
   expect(guardLog.aborted).toEqual({ [LOGROCKET_HOST]: 1 })
   expect(c.gtag).toHaveLength(consented ? 1 : 0)
   expect(c.google).toEqual([])

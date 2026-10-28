@@ -37,6 +37,8 @@ import {
   stableJson,
   storageKeys,
 } from '../lib/P0-15/analytics.mjs'
+// the LogRocket host of the census snapshots: AD-032
+import { expectSnapshot } from '../lib/P0-10/baseline.mjs'
 
 // a hard load plus the settle wait can take tens of seconds on a loaded machine (40 §5: timeouts, never retries)
 test.describe.configure({ timeout: 240000 })
@@ -300,7 +302,7 @@ for (const cookieState of COOKIE_STATES)
       const storage = await storageKeys(page)
       expect(storage).toEqual({ local: [], session: [] })
 
-      expect(
+      expectSnapshot(
         stableJson({
           counts: counts(guardLog),
           aborted: guardLog.aborted,
@@ -312,7 +314,8 @@ for (const cookieState of COOKIE_STATES)
             t,
             countText(messages, t),
           ]),
-        })
-      ).toMatchSnapshot(`t719-c5-census-${slug(cookieState)}.json`)
+        }),
+        `t719-c5-census-${slug(cookieState)}.json`
+      )
     })
   })

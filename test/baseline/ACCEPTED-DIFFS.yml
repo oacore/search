@@ -297,3 +297,91 @@
   step: W2a
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'
+- id: AD-028
+  kind: product
+  test: T-116
+  key: "csp.config.js policy, LogRocket host set"
+  from: "*.logrocket.com *.lgrckt-in.com in script-src, script-src-elem, worker-src, img-src, connect-src, media-src and child-src (production and development)"
+  to: "*.logrocket.com *.lgrckt-in.com *.logr-in.com in the same 7 directives"
+  reason: "T-116 c2 (production, development, the literal development directives, load twice). CS-LR-2 (R-026, OD-39: the row names this diff): logrocket >= 11 loads its recorder from cdn.logr-in.com and ingests at r.logr-in.com, so the host goes into every directive that lists the LogRocket hosts, in the same commit as the SDK; nothing else in the policy changes. The test keeps the policies spelled out, with the new host."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-029
+  kind: product
+  test: T-010
+  key: "header:/:path(.*)"
+  from: "[[\"Content-Security-Policy\",\"default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com\"]]"
+  to: "[[\"Content-Security-Policy\",\"default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com *.logr-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com *.logr-in.com\"]]"
+  reason: "T-010 c1, c2. The Content-Security-Policy value of the routes manifest is the T-116 string: the same policy with *.logr-in.com after *.lgrckt-in.com in the 7 directives (= AD-028). Accepted by the default-deny diff of the static reference (test/static/adapters/reference.js); nothing else in the routes manifest changes."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-030
+  kind: product
+  test: T-603
+  key: "html-gssp@origin/content-security-policy, html-gssp@proxy/content-security-policy, html-gip@origin/content-security-policy, html-gip@proxy/content-security-policy, next-data@origin/content-security-policy, next-data@proxy/content-security-policy, public@origin/content-security-policy, public@proxy/content-security-policy, next-static@origin/content-security-policy, next-static@proxy/content-security-policy, map@origin/content-security-policy, map@proxy/content-security-policy, icons-svg@origin/content-security-policy, icons-svg@proxy/content-security-policy, 308-slash@origin/content-security-policy, 308-slash@proxy/content-security-policy, 308-gssp@origin/content-security-policy, 308-gssp@proxy/content-security-policy, 404-page@origin/content-security-policy, 404-page@proxy/content-security-policy, 404-notfound@origin/content-security-policy, 404-notfound@proxy/content-security-policy, 500@origin/content-security-policy, 500@proxy/content-security-policy, healthz@origin/content-security-policy, healthz@proxy/content-security-policy"
+  from: "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+  to: "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com *.logr-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com *.logr-in.com"
+  reason: "T-603 c1. The content-security-policy header of the 92 contract rows that carry it (every route class, origin and proxy, GET, HEAD, br/gzip, and the conditional GET of html-gssp, html-gip, next-data, 404-page, 404-notfound, 500, healthz; the 8 static 304s carry none) is the AD-028 policy. One distinct value on each side; no other header, status or row changes; T-603 c3 (the production CSP on every class) holds. The composite key lists the 26 route@via keys of e2e/lib/P0-11/contract.mjs (applyLedger)."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-031
+  kind: product
+  test: T-720
+  key: "expectNoViolation census and aborted host (e2e/lib/P0-15/sweep.mjs)"
+  from: "['GET https://cdn.lgrckt-in.com/logger-1.min.js'], { 'cdn.lgrckt-in.com': 1 }"
+  to: "['GET https://cdn.logr-in.com/logger-1.min.js'], { 'cdn.logr-in.com': 1 }"
+  reason: "T-720 (91: the route sweep and the client navigation in both cookie states, the in-page states). guardLog.csp = [] in all of them (the W2b exit criterion). The npm package logrocket >= 11 loads its recorder from https://cdn.logr-in.com/logger-1.min.js (10.0.0: https://cdn.lgrckt-in.com/logger-1.min.js; CS-LR-1); the counts are unchanged: one script request per hard load, none on client navigation, aborted by the harness after the CSP check, one SDK warning, 0 ingest requests, 0 CSP violations."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-032
+  kind: product
+  test: T-719
+  key: "LOGROCKET_HOST, LOGROCKET_URL, t719-c5-census-absent.json, t719-c5-census-essential.json, t719-c5-census-essential-analytics.json"
+  from: "cdn.lgrckt-in.com"
+  to: "cdn.logr-in.com"
+  reason: "T-719 c4 (absent, essential, essential+analytics) and c5 (the three census states): the constants of e2e/lib/P0-15/analytics.mjs and, in the c5 census snapshots, the aborted host and the script URL (the e2e baseline hook of e2e/lib/P0-10/baseline.mjs replaces the host in the recorded snapshot; the files stay as recorded). The npm package logrocket >= 11 loads its recorder from https://cdn.logr-in.com/logger-1.min.js (10.0.0: https://cdn.lgrckt-in.com/logger-1.min.js; CS-LR-1); the counts are unchanged: one script request per hard load, none on client navigation, aborted by the harness after the CSP check, one SDK warning, 0 ingest requests, 0 CSP violations."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-033
+  kind: product
+  test: T-702
+  key: "t702-c2-search-log-absent.json, t702-c2-search-log-essential.json, t702-c2-search-log-essential-analytics.json, t702-c9-works-load.json, t702-c9-outputs-load.json, t702-c9-provider-load.json, t702-c9-data-providers-load.json, t702-c9-error-card-load.json"
+  from: "\"cdn.lgrckt-in.com\": 1"
+  to: "\"cdn.logr-in.com\": 1"
+  reason: "T-702 c2 (search log: absent, essential, essential+analytics) and c9 (works, outputs, provider, data-providers and error-card loads): the thirdParty count of the recorded logs (applied to the recorded snapshot text by the e2e baseline hook; the files stay as recorded). The npm package logrocket >= 11 loads its recorder from https://cdn.logr-in.com/logger-1.min.js (10.0.0: https://cdn.lgrckt-in.com/logger-1.min.js; CS-LR-1); the counts are unchanged: one script request per hard load, none on client navigation, aborted by the harness after the CSP check, one SDK warning, 0 ingest requests, 0 CSP violations."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-034
+  kind: product
+  test: T-729
+  key: "client-inserted script exemption (e2e/journeys/t729-post-hydration-head.spec.mjs), t729-head-works-1001.json, t729-head-works-1002.json, t729-head-works-1003.json, t729-head-works-1005.json, t729-head-outputs-2001.json, t729-head-outputs-2003.json, t729-head-outputs-2004.json, t729-head-outputs-2101.json, t729-head-outputs-2105.json, t729-head-outputs-2106.json, t729-nav-outputs-a-to-b.json, t729-nav-outputs-oai-to-yearstring.json, t729-nav-outputs-subjects.json"
+  from: "https://cdn.lgrckt-in.com/logger-1.min.js"
+  to: "https://cdn.logr-in.com/logger-1.min.js"
+  reason: "T-729 c1 (works 1001, 1002, 1003, 1005; outputs 2001, 2003, 2004, 2101, 2105, 2106) and c2 (outputs a-to-b, oai-to-yearstring, subjects): the script src of the LogRocket recorder in the post-hydration heads; position and count in the head unchanged. The npm package logrocket >= 11 loads its recorder from https://cdn.logr-in.com/logger-1.min.js (10.0.0: https://cdn.lgrckt-in.com/logger-1.min.js; CS-LR-1); the counts are unchanged: one script request per hard load, none on client navigation, aborted by the harness after the CSP check, one SDK warning, 0 ingest requests, 0 CSP violations."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-035
+  kind: product
+  test: T-716
+  key: "CSP_CONNECT (e2e/lib/P1-05/crash.mjs, read by T-716 c3 and T-727; e2e/journeys/t730-blank-pages.spec.mjs, read by T-730)"
+  from: "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com"
+  to: "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com"
+  reason: "T-716 c3 (works, outputs), T-727 (works, outputs, @wire) and T-730 (q074a..q074e): the connect-src directive Chromium quotes in the first console line of a blocked Sentry report (the second line, Fetch API cannot load ..., has no directive text). CS-LR-2. A row names one test, so this one row records the directive for the three tests that quote it; the Sentry URL of the same lines is AD-023 (T-716), AD-024 (T-727) and AD-026 (T-730). T-712 c2, T-719 c3, the T-720 control, T-602 c5 and the T-728 c4 map do not quote the directive."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'

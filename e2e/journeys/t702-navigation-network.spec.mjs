@@ -8,6 +8,8 @@
 import crypto from 'node:crypto'
 import { test, expect } from '../lib/P0-09/fixtures.mjs'
 import { historyLog } from '../fixtures/guard.mjs'
+// the LogRocket host of the load snapshots: AD-033
+import { expectSnapshot } from '../lib/P0-10/baseline.mjs'
 import {
   netLog,
   normalise,
@@ -118,7 +120,8 @@ test.describe('T-702 @P0 navigation network log', () => {
           action: a.name,
           ...normalise(a.entries, c),
         }))
-        expect(stableJson(snapshot)).toMatchSnapshot(
+        expectSnapshot(
+          stableJson(snapshot),
           `t702-c2-search-log-${cookieState.replace('+', '-')}.json`
         )
       })
@@ -325,9 +328,10 @@ test.describe('T-702 @P0 navigation network log', () => {
         ],
       ])
       expect(count(log.entries, isDocument)).toBe(1)
-      expect(
-        stableJson(normalise(log.entries, await ctx(page, p2Env)))
-      ).toMatchSnapshot('t702-c9-works-load.json')
+      expectSnapshot(
+        stableJson(normalise(log.entries, await ctx(page, p2Env))),
+        't702-c9-works-load.json'
+      )
     })
 
     test('T-702 c9 @P0 load /outputs/2001/: E8 x1, logos', async ({
@@ -340,9 +344,10 @@ test.describe('T-702 @P0 navigation network log', () => {
           .filter((e) => e.url === `${API}/v3/recommend`)
           .map((e) => [e.method, e.bodyText])
       ).toEqual([['POST', '{"identifier":"core:2001","limit":5}']])
-      expect(
-        stableJson(normalise(log.entries, await ctx(page, p2Env)))
-      ).toMatchSnapshot('t702-c9-outputs-load.json')
+      expectSnapshot(
+        stableJson(normalise(log.entries, await ctx(page, p2Env))),
+        't702-c9-outputs-load.json'
+      )
     })
 
     test('T-702 c9 @P0 client nav output A -> B: _next/data x1, E8 x0 (Q-055)', async ({
@@ -387,9 +392,10 @@ test.describe('T-702 @P0 navigation network log', () => {
         ['GET', `${API}/internal/data-providers/86/account`, 200],
         ['GET', `${API}/internal/data-providers/86/account`, 200],
       ])
-      expect(
-        stableJson(normalise(log.entries, await ctx(page, p2Env)))
-      ).toMatchSnapshot('t702-c9-provider-load.json')
+      expectSnapshot(
+        stableJson(normalise(log.entries, await ctx(page, p2Env))),
+        't702-c9-provider-load.json'
+      )
     })
 
     test('T-702 c9 @P0 type a URL on /data-providers/: E16 per settled value, string body text/plain (Q-019)', async ({
@@ -618,9 +624,10 @@ test.describe('T-702 @P0 navigation network log', () => {
       const { log, status } = await hardLoad(page, p2Env, '/data-providers/')
       expect(status).toBe(200)
       expect(apiOnly(log.entries)).toEqual([])
-      expect(
-        stableJson(normalise(log.entries, await ctx(page, p2Env)))
-      ).toMatchSnapshot('t702-c9-data-providers-load.json')
+      expectSnapshot(
+        stableJson(normalise(log.entries, await ctx(page, p2Env))),
+        't702-c9-data-providers-load.json'
+      )
     })
 
     test('T-702 c9 @P0 load /error-card/ (allow-all proxy): no API request', async ({
@@ -650,14 +657,15 @@ test.describe('T-702 @P0 navigation network log', () => {
       expect(
         appOnly(log.entries).map((e) => [e.kind, e.method, e.url, e.status])
       ).toEqual([['document', 'GET', `${p2Env.allowURL}/error-card/`, 200]])
-      expect(
+      expectSnapshot(
         stableJson(
           normalise(log.entries, {
             baseURL: p2Env.allowURL,
             buildId: await buildIdOf(page),
           })
-        )
-      ).toMatchSnapshot('t702-c9-error-card-load.json')
+        ),
+        't702-c9-error-card-load.json'
+      )
     })
   })
 })

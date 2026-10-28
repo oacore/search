@@ -10,8 +10,9 @@ import { firstLine, pageConsole } from './page.mjs'
 // .../api/0/store/?sentry_key=public&sentry_version=7)
 export const STORE =
   'https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4'
+// the connect-src directive as Chromium quotes it, with the LogRocket host of CS-LR-2 (AD-035)
 export const CSP_CONNECT =
-  "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com"
+  "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com"
 export const CSP_LINES = [
   `Connecting to '${STORE}' violates the following Content Security Policy directive: "${CSP_CONNECT}". The action has been blocked.`,
   `Fetch API cannot load ${STORE}. Refused to connect because it violates the document's Content Security Policy.`,

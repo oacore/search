@@ -3,7 +3,8 @@
 //   GA        react-ga4 2.1.0 loads https://www.googletagmanager.com/gtag/js?id=<GA_TRACKING_CODE> and pushes
 //             `js` and `config` once, only when `analytics_cookies_allowed` was set at mount (hooks/use-analytics.js).
 //             The guard answers gtag.js with an empty script, so `window.dataLayer` keeps every pushed entry.
-//   LogRocket `LogRocket.init` on every App render in production loads https://cdn.lgrckt-in.com/logger-1.min.js;
+//   LogRocket `LogRocket.init` on every App render in production loads https://cdn.logr-in.com/logger-1.min.js
+//             (logrocket >= 11; https://cdn.lgrckt-in.com/logger-1.min.js with 10.0.0);
 //             the guard aborts it and counts it in guardLog.aborted (after the CSP check, 40 §2.4).
 //   Sentry    `Sentry.init({ dsn, ... })` with the test DSN `https://public@o0.ingest.sentry.io/0` (prod host shape);
 //             a client error reports to .../api/0/envelope/ (Sentry 7; .../api/0/store/ with 5.30), which the CSP
@@ -28,7 +29,9 @@ const REPO = path.resolve(
 
 export const GA_ID = 'G-TEST000000'
 export const GTAG_URL = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
-export const LOGROCKET_HOST = 'cdn.lgrckt-in.com'
+// the recorder script host of logrocket >= 11 (CS-LR-1; AD-032 for T-719, AD-031 for the T-720 sweep;
+// cdn.lgrckt-in.com with 10.0.0)
+export const LOGROCKET_HOST = 'cdn.logr-in.com'
 export const LOGROCKET_URL = `https://${LOGROCKET_HOST}/logger-1.min.js`
 export const SENTRY_DSN = 'https://public@o0.ingest.sentry.io/0'
 // the browser report URL of a client error: Sentry 7 sends every event to the envelope endpoint (AD-021 for
