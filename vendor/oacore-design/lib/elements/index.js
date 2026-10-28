@@ -46,12 +46,6 @@ Object.defineProperty(exports, "Card", {
     return _card["default"];
   }
 });
-Object.defineProperty(exports, "Carousel", {
-  enumerable: true,
-  get: function get() {
-    return _carousel["default"];
-  }
-});
 Object.defineProperty(exports, "Cookies", {
   enumerable: true,
   get: function get() {
@@ -163,7 +157,6 @@ Object.defineProperty(exports, "Table", {
 var _appBar = _interopRequireDefault(require("./app-bar"));
 var _heading = _interopRequireDefault(require("./heading"));
 var _button = _interopRequireDefault(require("./button"));
-var _carousel = _interopRequireDefault(require("./carousel"));
 var _forms = require("./forms");
 Object.keys(_forms).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;

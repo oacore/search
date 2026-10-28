@@ -7,16 +7,12 @@ The project requires [__Node.js__][node-download] and
 [__NPM__][npm-install] package manager.
 
 
-After cloning this repository you will need to generate Github Token with package read permission [here][github-token] in order to download our @oacore packages from Github NPM registry.
-
-
 On windows small pre config
 ```sh
 export NODE_OPTIONS=--openssl-legacy-provider
 ```
 
 ```sh
-export NPM_TOKEN=<github_token_with_packages_read_permission>
 export API_KEY=<apikey_from_core>
 npm install --install-links      # to install all dependencies
 npm run dev      # to start simple development server
@@ -39,6 +35,5 @@ Fix broken dependencies:
 
 Server starts listen on `0.0.0.0:3000`
 
-[github-token]: https://github.com/settings/tokens
 [node-download]: https://nodejs.org/en/download/
 [npm-install]: https://www.npmjs.com/get-npm
