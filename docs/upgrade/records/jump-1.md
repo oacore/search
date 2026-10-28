@@ -59,6 +59,7 @@ Record jump 1 | **Jump 1 DONE**: the two full ci-local runs on `87a39d4` gave 2,
 | `87a39d4` | the AD batch AD-010..AD-047 (§6) = the jump-check tip |
 | `f3922ed` | this record (docs only) |
 | `ef2218b` | the owner-signed rows AD-048, AD-049 (§6): the ledger, the B0-local manifest, STATUS §2 |
+| `Merge the jump 1 close fixes (CI-1)` of `upgrade/jump1-tooling-leaf-design--close-fixes` | the close-review fixes (§4): the ledger checker per listed key, the known answers of the e2e baseline hook, 42 §8, W5.md and README §8 (no runtime change) |
 
 ## 3. Steps
 
@@ -225,6 +226,16 @@ Both reviews read the range `upgrade/p2-28-exit..768c6b9` (W0 to W5b) and change
 | 8 LOW: 02 and 20 say 8 files for the format-only commit | Fixed (`f48e22b`). |
 | 9 LOW: four default merge subjects; the 4-tree budget exceeded briefly at W0.5 and W5b | Recorded; history is not rewritten. |
 | 10 LOW: the image cannot install the jump tip until the Dockerfile has `--install-links` | Deploy-time item "Design install flag" (§9). |
+
+**Close review (after `855c09b`).** Three reviewers read the jump tip and changed nothing; the three MEDIUM findings were fixed afterwards with no runtime change (the build key stays `e343464ce23af57f`).
+
+| Finding | Settled |
+|---|---|
+| A composite key gets around the one-row-per-(test, key) guard of `scripts/ad-ledger.mjs`: two rows in force could list one T-603 key with different `to`, and the matcher accepts either | `362e233`: the checker applies the per-key rules to each key a composite key lists, the one row per (test, key) and the `kind: delta` prohibitions; two rows may list one baseline file only when neither row's `from` overlaps the other row's `from` or `to` (42 §8, `b3e5c87`). The committed ledger passes unchanged (AD-037, AD-048 and AD-049 replace literals that do not overlap). Known answers CI-1 c10b and c11; the new cases fail against the old checker. |
+| The e2e baseline hook (AD-032, AD-033, AD-034, AD-037, AD-048, AD-049) has no committed known answers or negative controls | `f2fdfd6`: its rules move unchanged to `e2e/lib/P0-10/ledger-rows.mjs`; `test/unit/harness/e2e-ledger-rows.test.js` (5 tests) checks the rows of a file, the replacement at every occurrence with its count, the quote and backslash refusal and the negative controls (missing, withdrawn, other-test and other-file rows, an extra difference, an old name left); six mutations of the module all fail it. On build `e343464ce23af57f` the hook users (T-602, T-605, T-610, T-702, T-719, T-729) gave 134/134 on a fresh stack and T-604 with T-702 on the CS-OPS-1 overlay 26/26, equal test by test, ledger annotations included, to the runs before the change (T-610 c3 now passes with AD-048 and AD-049). Jest 1105/1105, `test:harness` 25/25, lint parity and the ledger check pass. |
+| `records/W5.md` still called its rows PROPOSED and unsigned; README §8 did not list it among the pending signatures | `375dbb9`: the W5 status line and accepted-differences paragraph (signed 2026-10-28, applied in `87a39d4`); README §8. |
+
+Not changed (the owner's call): the 42 §8 key-rule extensions (composite keys, the `(.*)` group, the e2e baseline hook, the per-key rule above) carry no owner signature as an acceptance change, and AD-048/AD-049 keep the label part of their keys (a change is a withdraw and re-add).
 
 ## 5. Owner decisions of 2026-10-28
 

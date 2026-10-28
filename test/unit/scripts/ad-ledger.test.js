@@ -548,6 +548,169 @@ describe('CI-1 accepted-diffs ledger', () => {
     expect(otherTest.report.violations).toEqual([])
   })
 
+  test('CI-1 c10b one row per (test, key) holds for each key a composite key lists; two rows may list one baseline file only with literals that do not overlap', () => {
+    // T-603: a composite key that lists the key of a row in force is a second
+    // row for that key
+    const both = check([
+      validRow(),
+      validRow({
+        id: 'AD-003',
+        key: '500@proxy/cache-control, 404-page@proxy/cache-control',
+        to: 'no-store',
+      }),
+    ])
+    expect(both.code).toBe(1)
+    expect(codes(both)).toEqual(['duplicate-test-key'])
+    expect(both.report.violations[0].id).toBe('AD-003')
+    expect(both.report.violations[0].message).toContain(
+      '"404-page@proxy/cache-control"'
+    )
+    // a baseline file row: kind product of T-610, the key names the file
+    const census = (over = {}) =>
+      productRow({
+        id: 'AD-010',
+        test: 'T-610',
+        key: 'c.json',
+        from: '    at a (<build>/x.js)',
+        to: '    at <build>/x.js',
+        ...over,
+      })
+    const second = (over = {}) =>
+      census({
+        id: 'AD-011',
+        key: 'c.json, frame b',
+        from: '    at i.b (<build>/m.js)',
+        to: '    at i.c (<build>/m.js)',
+        ...over,
+      })
+    const cases = [
+      // two composite keys sharing a key: refused
+      [
+        [
+          validRow({ key: '404-page@proxy/etag, 500@proxy/cache-control' }),
+          validRow({
+            id: 'AD-003',
+            key: '500@proxy/cache-control, 404-page@origin/vary',
+            to: 'no-store',
+          }),
+        ],
+        [['duplicate-test-key', 'AD-003']],
+      ],
+      // composite keys without a common key; a shared key beside a withdrawn
+      // row or of another test: allowed
+      [
+        [
+          validRow({ key: '404-page@proxy/etag, 500@proxy/cache-control' }),
+          validRow({ id: 'AD-003', key: '500@origin/cache-control, x@y/z' }),
+        ],
+        [],
+      ],
+      [
+        [
+          validRow({ withdrawn: 'superseded, 2026-11-05' }),
+          validRow({
+            id: 'AD-003',
+            key: '500@proxy/cache-control, 404-page@proxy/cache-control',
+          }),
+        ],
+        [],
+      ],
+      [
+        [
+          validRow(),
+          validRow({
+            id: 'AD-003',
+            test: 'T-610',
+            key: '500@proxy/cache-control, 404-page@proxy/cache-control',
+          }),
+        ],
+        [],
+      ],
+      // a key that is not a baseline file stays one row per key, whatever the
+      // literals
+      [
+        [
+          census({ key: 'census lines' }),
+          second({ key: 'census lines, frame b' }),
+        ],
+        [['duplicate-test-key', 'AD-011']],
+      ],
+      // one baseline file, literals that do not overlap: allowed, also for a
+      // third row
+      [[census(), second()], []],
+      [
+        [
+          census(),
+          second(),
+          second({
+            id: 'AD-012',
+            key: 'c.json, frame d',
+            from: '    at i.d (<build>/m.js)',
+            to: '    at i.e (<build>/m.js)',
+          }),
+        ],
+        [],
+      ],
+      // the whole key repeated stays refused, whatever the literals
+      [
+        [census(), second({ key: 'c.json' })],
+        [['duplicate-test-key', 'AD-011']],
+      ],
+      // the same from; one from inside the other's from; a from inside the
+      // other's to (a chain): refused
+      [
+        [census(), second({ from: '    at a (<build>/x.js)' })],
+        [['duplicate-test-key', 'AD-011']],
+      ],
+      [
+        [census(), second({ from: 'at a (<build>/x' })],
+        [['duplicate-test-key', 'AD-011']],
+      ],
+      [
+        [census(), second({ from: 'at <build>' })],
+        [['duplicate-test-key', 'AD-011']],
+      ],
+      [
+        [
+          census(),
+          second({ to: '    at i.c (<build>/m.js)    at a (<build>/x.js)' }),
+        ],
+        [['duplicate-test-key', 'AD-011']],
+      ],
+      // the end of one literal is the start of the other: refused (the
+      // replacement can make the other's match)
+      [
+        [census(), second({ from: 'x.js) and more' })],
+        [['duplicate-test-key', 'AD-011']],
+      ],
+      [
+        [
+          census({ to: '    at <build>/x.js #' }),
+          second({ from: '#! (m.js)' }),
+        ],
+        [['duplicate-test-key', 'AD-011']],
+      ],
+    ]
+    const results = callEach(
+      'checkRows',
+      cases.map(([rows]) => [rows])
+    )
+    expect(results.map((vs) => vs.map((v) => [v.code, v.id]))).toEqual(
+      cases.map(([, expected]) => expected)
+    )
+    // the literal predicate itself
+    expect(
+      callEach('overlaps', [
+        ['abc', 'abc'],
+        ['abc', 'b'],
+        ['abc', 'cde'],
+        ['cde', 'abc'],
+        ['abc', 'def'],
+        ['    at i.It (m.js)', '    at i.Kt (m.js)'],
+      ])
+    ).toEqual([true, true, true, true, false, false])
+  })
+
   test('CI-1 c11 a delta row never covers pixels, a status code or a Location', () => {
     const cases = [
       [validRow({ test: 'T-801', key: 'V01@1440' }), 'delta-never-covers'],
@@ -571,6 +734,19 @@ describe('CI-1 accepted-diffs ledger', () => {
       ],
       [
         validRow({ test: 'T-731', key: '/works/1/ status' }),
+        'delta-never-covers',
+      ],
+      // each key of a composite key: a Location or a status code anywhere in
+      // the list
+      [
+        validRow({ key: '308-slash@origin/location, 404-page@proxy/etag' }),
+        'delta-never-covers',
+      ],
+      [
+        validRow({
+          test: 'T-612',
+          key: '/static/search/_next/image?url=%2Fx.png&w=64&q=75/:status, 404-page@proxy/:status',
+        }),
         'delta-never-covers',
       ],
     ]

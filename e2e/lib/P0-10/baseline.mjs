@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url'
 import { test, expect } from '../../fixtures/guard.mjs'
 import { formatJsonSync } from '../../../scripts/prettier-sync.mjs'
 import { readLedger } from '../P0-11/contract.mjs'
+import * as ledger from './ledger-rows.mjs'
 
 const REPO = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -46,37 +47,16 @@ const provisionalNote = () => {
 }
 
 // ---------- AD rows of a recorded baseline (42 §8) ----------
-// A row of the running test (the T-### id its title starts with) that is in force and whose key names the
-// baseline file (`<name>.json` as the spec names it; a composite key names several, separated by `, `) accepts
-// exactly one difference: its literal `from` in the baseline as compared becomes its literal `to`. The file stays
-// as recorded (baseline files are never edited), any other difference still fails (default deny), and a
-// withdrawn row stops applying. The rows applied are annotated with the number of replacements.
-export const testIdOf = (info = test.info()) =>
-  (info.title.match(/^T-\d{3}\b/) || [null])[0]
+// The rules are those of e2e/lib/P0-10/ledger-rows.mjs (a row of the running test, in force, whose key names the
+// baseline file, replaces its literal `from` by its `to`; any other difference still fails); here they take the
+// running test's info and the committed ledger.
+export const testIdOf = (info = test.info()) => ledger.testIdOf(info)
 
-export function ledgerRowsOf(file, info = test.info(), rows = null) {
-  const id = testIdOf(info)
-  return (rows || readLedger().rows).filter(
-    (r) =>
-      r &&
-      r.test === id &&
-      !r.withdrawn &&
-      String(r.key).split(', ').includes(file)
-  )
-}
+export const ledgerRowsOf = (file, info = test.info(), rows = null) =>
+  ledger.ledgerRowsOf(file, info, rows || readLedger().rows)
 
-export function applyLedgerRows(text, rows, info = test.info()) {
-  let out = text
-  for (const r of rows) {
-    const parts = out.split(String(r.from))
-    out = parts.join(String(r.to))
-    info.annotations.push({
-      type: 'ledger',
-      description: `${r.id} x${parts.length - 1}`,
-    })
-  }
-  return out
-}
+export const applyLedgerRows = (text, rows, info = test.info()) =>
+  ledger.applyLedgerRows(text, rows, info)
 
 // normalise: an optional normaliser of 40 §1 that the value has already been through, applied to the recorded
 // baseline before the comparison (a normaliser added after the recording masks both sides; the file stays as
@@ -104,14 +84,7 @@ export function expectBaseline(name, value, message, normalise = (v) => v) {
   ).toBe(true)
   let baseline = normalise(JSON.parse(fs.readFileSync(snapshot, 'utf8')))
   const rows = ledgerRowsOf(file, info)
-  if (rows.length) {
-    for (const r of rows)
-      if (/["\\]/.test(`${r.from}${r.to}`))
-        throw new Error(
-          `${r.id}: from/to of a JSON baseline row hold a quote or backslash`
-        )
-    baseline = JSON.parse(applyLedgerRows(JSON.stringify(baseline), rows, info))
-  }
+  if (rows.length) baseline = ledger.applyLedgerRowsToJson(baseline, rows, info)
   expect(
     JSON.parse(JSON.stringify(value)),
     message || `= baseline ${file}`
