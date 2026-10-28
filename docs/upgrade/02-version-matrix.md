@@ -29,7 +29,7 @@
 
 ## 3. Matrix
 
-Last item of *Target → step* = final.
+Last item of *Target → step* = final. Jump 1 (W0 to W5): old → new per row and the two owner holds (core-js, katex) in [records/jump-1.md](records/jump-1.md), its section 3.0 (§5 step 6).
 
 ### 3.1 Next.js and React
 
@@ -51,7 +51,7 @@ Installed: `next` 10.2.3, `react`/`react-dom` 17.0.2. Latest: `next` 16.4.2, `re
 |---|---|---|---|---|---|
 | mobx | 6.13.7 | 7.1.3 (`latest` dist-tag; no dependencies, peers or engines; re-resolved 2026-10-28) | 6.16.1 exact (W3, CS-MOBX-1; the last 6.x release, 2026-06-08; same entry points, ES5 syntax) → removed 6.5 | EXCEPTION | mobx 7 drops legacy decorators (26 in `store/filters.js`; X02.8). Closes 6.5 (zustand, OD-13); fallback CS-MOBX-3 |
 | mobx-react-lite | 3.4.3 | 5.1.2 (mobx ^7, react ^18/^19; re-resolved 2026-10-28) | 4.1.1 exact (W3, CS-MOBX-2; the last 4.x release, 2025-09-27; peers mobx ^6.9.0, react ^16.8/^17/^18/^19) → removed 6.5 | EXCEPTION | 5.x needs mobx 7; 4.1.1 uses a `use-sync-external-store` shim on React 17: its dependency `use-sync-external-store` `^1.4.0` resolves to 1.7.0 (`latest`, 2026-09-09; peer react ^16.8–^19; no dependencies), a new production package, removed with mobx-react-lite. Closes 6.5 (OD-13) |
-| @sentry/browser, @sentry/node | 5.30.0 | 11.9.0 (Node ≥20.19/≥22.12; re-resolved 2026-10-28) | 7.120.4 exact (W2a, CS-SEN-1, CS-SEN-3) → removed 6.8 | EXCEPTION | 7.120.4 = last 7.x (`v7` dist-tag, 2026-10-28), fixes GHSA-593m-55hh-j8gv. 11.x needs Node ≥20.19 (runtime 18 until W4e); its Next SDK needs Next ≥14 (X02.7). Closes 6.8 (OD-14) |
+| @sentry/browser, @sentry/node | 5.30.0 | 11.9.0 (Node ≥20.19/≥22.12; re-resolved 2026-10-28) | 7.120.4 exact (W2a, CS-SEN-1, CS-SEN-3; the client copies compiled to the app's ES2015 floor by CS-SEN-4, owner decision 2026-10-28) → removed 6.8 | EXCEPTION | 7.120.4 = last 7.x (`v7` dist-tag, 2026-10-28), fixes GHSA-593m-55hh-j8gv. Its npm builds are ES2018 (object spread in `@sentry/core`, `@sentry/utils`): the owner kept the client floor at ES2015 rather than raise it (no AD-019), so the client compilation runs `node_modules/@sentry` through a syntax-only Babel rule (+6,167 B gzip on the `_app` chunk). 11.x needs Node ≥20.19 (runtime 18 until W4e); its Next SDK needs Next ≥14 (X02.7). Closes 6.8 (OD-14) |
 | @sentry/nextjs | - | 11.8.0 (next ^14/^15/^16) | 11.8.0 (6.8, CS-SEN-2) | TARGET | replaces both rows above and the `@sentry/node` alias in `next.config.js` |
 | logrocket | 10.0.0 | 12.4.0 (`latest` dist-tag; 13.0.0-rc1 is a prerelease; no dependencies, peers or engines; re-resolved 2026-10-28) | 12.4.0 exact (W2b, CS-LR-1 + CS-LR-2) | TARGET | ≥11 talks to `logr-in.com` (the npm package loads `https://cdn.logr-in.com/logger-1.min.js` and sends to `https://r.logr-in.com`; 10.0.0: `cdn.lgrckt-in.com`, `r.lgrckt-in.com`); the CSP allows only `lgrckt-in.com` (X20.6), so the same commit adds `*.logr-in.com` (CS-LR-2) |
 | logrocket-react | 6.0.3 | 7.0.1 | removed W0 (CS-W0-2) | REMOVED | 0 imports; its peer causes the only strict-peer ERESOLVE today (X20.9) |
