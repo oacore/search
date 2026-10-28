@@ -38,6 +38,7 @@
   step: W0
   signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
   date: '2026-10-27'
+  withdrawn: 'superseded by AD-010, which lowers the same floor from > 1900 to > 1700 after W1, 2026-10-28'
 - id: AD-004
   kind: product
   test: T-008
@@ -49,6 +50,7 @@
   step: W0
   signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
   date: '2026-10-27'
+  withdrawn: 'superseded by AD-011, which lowers the same floor from > 1900 to > 1700 after W1, 2026-10-28'
 - id: AD-005
   kind: product
   test: T-013
@@ -106,3 +108,404 @@
   step: W0.5
   signedOffBy: 'SIGNED: owner, 2026-10-27 (approved in the work session)'
   date: '2026-10-27'
+  withdrawn: 'superseded by AD-040: CS-DSN-2 installs the design from the directory vendor/oacore-design, so the tarball spec of this row no longer occurs, 2026-10-28'
+- id: AD-010
+  kind: product
+  test: T-008
+  key: npm ci --dry-run added (floor)
+  from: '> 1900'
+  to: '> 1700'
+  reason: "T-008 c1. W1 (CS-LINT-1, CS-STY-1, CS-HUS-1, CS-NRA-1, CS-PRET-1) replaces ESLint 7, babel-eslint, the airbnb and @oacore configs, eslint-plugin-import/prettier, stylelint 13 and its configs, husky 4, npm-run-all 4 and Prettier 2 by the W1 tools: npm ci --dry-run adds 1825 (W1; the lock has 1819 packages entries at the jump 1 tip), 277 lock entries removed and 144 added, production tree unchanged (0 version, resolved or integrity changes). The floor only proves that npm read a real tree; status 0, no errors and installed lock = committed lock still hold. Supersedes AD-003."
+  ref: [R-014, R-015, OD-17, OD-31]
+  step: W1
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-011
+  kind: product
+  test: T-008
+  key: lock packages (floor)
+  from: '> 1900'
+  to: '> 1700'
+  reason: "T-008 c1. Same cause as AD-010: the lock holds 1826 packages entries after W1 (1959 after W0) and 1819 at the jump 1 tip. Supersedes AD-004."
+  ref: [R-014, R-015, OD-17, OD-31]
+  step: W1
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-012
+  kind: product
+  test: T-120
+  key: utils/sentry.js exports
+  from: '{ Sentry: <the @sentry/node module> }'
+  to: '{ Sentry: { captureException, withScope }, default: <the same object> }'
+  reason: "T-120 c1, c2. CS-SEN-3 imports the SDK functions the app calls by name (a require of the whole Sentry 7 SDK bundles replay, feedback and tracing: +85.5 KB gzip and a 28th chunk); the default export keeps T-001 at 18 findings. Both functions are the SDK's own; Sentry.init is still not called without a DSN."
+  ref: [R-040, R-055, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-013
+  kind: product
+  test: T-120
+  key: Sentry.init options
+  from: '{ dsn }'
+  to: '{ dsn, autoSessionTracking: false, sendClientReports: false, tracePropagationTargets: [], integrations: <the default integrations without Dedupe, Undici, Context, Modules> }'
+  reason: "T-120 c2. CS-SEN-3 keeps what Sentry 5.30 sent: no session or client-report envelopes, no trace headers, the 5.30 integration set. Called once, the DSN passed on as it is."
+  ref: [R-040, R-055, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-014
+  kind: product
+  test: T-608
+  key: uncaughtException listener names at the throw
+  from: "['domainUncaughtExceptionClear', 'bound ', '']"
+  to: "['domainUncaughtExceptionClear', '', '']"
+  reason: "T-608 c1. Sentry 7's OnUncaughtException handler is an anonymous arrow function (5.30: a bound method); the count (3) is unchanged."
+  ref: [R-040, R-055, Q-009, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-015
+  kind: product
+  test: T-608
+  key: Sentry events after the throw
+  from: "2 POSTs to https://o0.ingest.sentry.io/api/0/store/, values ['T-608 preload: asynchronous throw', 'T-608 preload: asynchronous throw'] (the integration's, level fatal, and the app handler's), mechanism {handled: true, type: 'generic'}"
+  to: "1 POST to https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.node%2F7.120.4 with one event item: value 'T-608 preload: asynchronous throw', level fatal, mechanism {type: 'onuncaughtexception', handled: false}"
+  reason: "T-608 c1. Sentry 7 has no store transport, and it drops a second capture of the same Error object (checkOrSetAlreadyCaught in @sentry/core captureException, not configurable), so the app handler's copy is not sent. Unchanged: exit code 1, signal null, the exit within the 3 s bound, the flush before the exit."
+  ref: [R-040, R-055, Q-009, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-016
+  kind: product
+  test: T-608
+  key: unhandledRejection listener names
+  from: "['bound ', '']"
+  to: "['sendUnhandledPromise', '']"
+  reason: "T-608 c3. Sentry 7's OnUnhandledRejection handler is the named function sendUnhandledPromise (5.30: a bound method); the count (2) is unchanged."
+  ref: [R-040, R-055, Q-009, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-017
+  kind: product
+  test: T-608
+  key: Sentry events after the rejection
+  from: "2 store events of 'T-608 preload: unhandled rejection', both mechanism {handled: true, type: 'generic'}, unhandledPromiseRejection [false, true]"
+  to: "1 envelope (https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.node%2F7.120.4) with one event item of 'T-608 preload: unhandled rejection', mechanism {type: 'onunhandledrejection', handled: false}, unhandledPromiseRejection true"
+  reason: "T-608 c3. Same cause as AD-015. Unchanged: the process survives (healthz 200 for 6 s, then /search 200)."
+  ref: [R-040, R-055, Q-009, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-018
+  kind: product
+  test: T-004
+  key: client:sentry-packages
+  from: '@sentry/browser,@sentry/core,@sentry/hub,@sentry/minimal,@sentry/types,@sentry/utils'
+  to: '@sentry/browser,@sentry/core,@sentry/utils'
+  reason: "T-004 c1. CS-SEN-1 (the row names T-004): Sentry 7 has no hub or minimal package, and @sentry/types holds types only. Still asserted: one react and one react-dom copy, @sentry/browser bundled, @sentry/node aliased away from the client."
+  ref: [R-040, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+# AD-019 (T-015, FLOORS['10.2.3'] es2015 -> es2018) was proposed at W2a and is not needed: the owner kept the
+# floor (2026-10-28) and CS-SEN-4 compiles the @sentry/* modules of the client to it. The id stays unused.
+- id: AD-020
+  kind: product
+  test: T-602
+  key: sandbox CSP violation (connect-src) blockedURI
+  from: https://o0.ingest.sentry.io/api/0/store/
+  to: https://o0.ingest.sentry.io/api/0/envelope/
+  reason: "T-602 c5. The browser report of a client error goes to the envelope endpoint of the same host: Sentry 7 sends every event as an envelope and has no store transport (CS-SEN-3 Kept). One attempt, one connect-src violation, 0 requests at the stub, as before."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-021
+  kind: product
+  test: T-719
+  key: SENTRY_STORE (e2e/lib/P0-15/analytics.mjs), the blockedURI of the connect-src violation
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-719 c3 (absent, essential, essential+analytics). Same cause as AD-020; the counts are unchanged (one report attempt, one violation, three console errors, 0 Sentry requests at the stub)."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-022
+  kind: product
+  test: T-720
+  key: '[connect-src, SENTRY_STORE] of the control'
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-720 control. Same cause as AD-020; exactly one connect-src violation and no request at the stub, as before."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-023
+  kind: product
+  test: T-716
+  key: STORE (e2e/lib/P1-05/crash.mjs), in CSP_LINES and the connect-src blockedURI
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-716 c3 (works, outputs). Same cause as AD-020; the same two console lines and one violation per crash. The quoted connect-src directive of the first line is AD-035."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-024
+  kind: product
+  test: T-727
+  key: STORE (e2e/lib/P1-05/crash.mjs), in CSP_LINES and the connect-src blockedURI
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-727 (works, outputs, @wire). Same cause as AD-020; the same constant as AD-023. The quoted connect-src directive of the first line is AD-035."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-025
+  kind: product
+  test: T-712
+  key: SENTRY_CSP, SENTRY_FETCH and SENTRY_URL (e2e/journeys/t712-j10-similar.spec.mjs)
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-712 c2 (375, 767, 768, 1440, 1920). Same cause as AD-020; the patterns stop before the quoted directive, so AD-035 does not touch them."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-026
+  kind: product
+  test: T-730
+  key: STORE (e2e/journeys/t730-blank-pages.spec.mjs), in CSP_LINES and the connect-src blockedURI
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-730 (q074a..q074e). Same cause as AD-020. The quoted connect-src directive of the first line is AD-035."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-027
+  kind: product
+  test: T-728
+  key: q096-sentry-csp-dev-error text pattern (e2e/lib/P0-12/dev-inventory-map.mjs)
+  from: https://o0.ingest.sentry.io/api/0/store/?sentry_key=public&sentry_version=7
+  to: https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4
+  reason: "T-728 c4. Same cause as AD-020: the two console lines of the blocked report in the development inventory (count 9 on works-1001-t-repeated in both inventories); the pattern stops before the quoted directive."
+  ref: [R-026, Q-096, OD-14, OD-31]
+  step: W2a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-028
+  kind: product
+  test: T-116
+  key: "csp.config.js policy, LogRocket host set"
+  from: "*.logrocket.com *.lgrckt-in.com in script-src, script-src-elem, worker-src, img-src, connect-src, media-src and child-src (production and development)"
+  to: "*.logrocket.com *.lgrckt-in.com *.logr-in.com in the same 7 directives"
+  reason: "T-116 c2 (production, development, the literal development directives, load twice). CS-LR-2 (R-026, OD-39: the row names this diff): logrocket >= 11 loads its recorder from cdn.logr-in.com and ingests at r.logr-in.com, so the host goes into every directive that lists the LogRocket hosts, in the same commit as the SDK; nothing else in the policy changes. The test keeps the policies spelled out, with the new host."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-029
+  kind: product
+  test: T-010
+  key: "header:/:path(.*)"
+  from: "[[\"Content-Security-Policy\",\"default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com\"]]"
+  to: "[[\"Content-Security-Policy\",\"default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com *.logr-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com *.logr-in.com\"]]"
+  reason: "T-010 c1, c2. The Content-Security-Policy value of the routes manifest is the T-116 string: the same policy with *.logr-in.com after *.lgrckt-in.com in the 7 directives (= AD-028). Accepted by the default-deny diff of the static reference (test/static/adapters/reference.js); nothing else in the routes manifest changes."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-030
+  kind: product
+  test: T-603
+  key: "html-gssp@origin/content-security-policy, html-gssp@proxy/content-security-policy, html-gip@origin/content-security-policy, html-gip@proxy/content-security-policy, next-data@origin/content-security-policy, next-data@proxy/content-security-policy, public@origin/content-security-policy, public@proxy/content-security-policy, next-static@origin/content-security-policy, next-static@proxy/content-security-policy, map@origin/content-security-policy, map@proxy/content-security-policy, icons-svg@origin/content-security-policy, icons-svg@proxy/content-security-policy, 308-slash@origin/content-security-policy, 308-slash@proxy/content-security-policy, 308-gssp@origin/content-security-policy, 308-gssp@proxy/content-security-policy, 404-page@origin/content-security-policy, 404-page@proxy/content-security-policy, 404-notfound@origin/content-security-policy, 404-notfound@proxy/content-security-policy, 500@origin/content-security-policy, 500@proxy/content-security-policy, healthz@origin/content-security-policy, healthz@proxy/content-security-policy"
+  from: "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+  to: "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com *.logr-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com *.logr-in.com"
+  reason: "T-603 c1. The content-security-policy header of the 92 contract rows that carry it (every route class, origin and proxy, GET, HEAD, br/gzip, and the conditional GET of html-gssp, html-gip, next-data, 404-page, 404-notfound, 500, healthz; the 8 static 304s carry none) is the AD-028 policy. One distinct value on each side; no other header, status or row changes; T-603 c3 (the production CSP on every class) holds. The composite key lists the 26 route@via keys of e2e/lib/P0-11/contract.mjs (applyLedger)."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-031
+  kind: product
+  test: T-720
+  key: "expectNoViolation census and aborted host (e2e/lib/P0-15/sweep.mjs)"
+  from: "['GET https://cdn.lgrckt-in.com/logger-1.min.js'], { 'cdn.lgrckt-in.com': 1 }"
+  to: "['GET https://cdn.logr-in.com/logger-1.min.js'], { 'cdn.logr-in.com': 1 }"
+  reason: "T-720 (91: the route sweep and the client navigation in both cookie states, the in-page states). guardLog.csp = [] in all of them (the W2b exit criterion). The npm package logrocket >= 11 loads its recorder from https://cdn.logr-in.com/logger-1.min.js (10.0.0: https://cdn.lgrckt-in.com/logger-1.min.js; CS-LR-1); the counts are unchanged: one script request per hard load, none on client navigation, aborted by the harness after the CSP check, one SDK warning, 0 ingest requests, 0 CSP violations."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-032
+  kind: product
+  test: T-719
+  key: "LOGROCKET_HOST, LOGROCKET_URL, t719-c5-census-absent.json, t719-c5-census-essential.json, t719-c5-census-essential-analytics.json"
+  from: "cdn.lgrckt-in.com"
+  to: "cdn.logr-in.com"
+  reason: "T-719 c4 (absent, essential, essential+analytics) and c5 (the three census states): the constants of e2e/lib/P0-15/analytics.mjs and, in the c5 census snapshots, the aborted host and the script URL (the e2e baseline hook of e2e/lib/P0-10/baseline.mjs replaces the host in the recorded snapshot; the files stay as recorded). The npm package logrocket >= 11 loads its recorder from https://cdn.logr-in.com/logger-1.min.js (10.0.0: https://cdn.lgrckt-in.com/logger-1.min.js; CS-LR-1); the counts are unchanged: one script request per hard load, none on client navigation, aborted by the harness after the CSP check, one SDK warning, 0 ingest requests, 0 CSP violations."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-033
+  kind: product
+  test: T-702
+  key: "t702-c2-search-log-absent.json, t702-c2-search-log-essential.json, t702-c2-search-log-essential-analytics.json, t702-c9-works-load.json, t702-c9-outputs-load.json, t702-c9-provider-load.json, t702-c9-data-providers-load.json, t702-c9-error-card-load.json"
+  from: "\"cdn.lgrckt-in.com\": 1"
+  to: "\"cdn.logr-in.com\": 1"
+  reason: "T-702 c2 (search log: absent, essential, essential+analytics) and c9 (works, outputs, provider, data-providers and error-card loads): the thirdParty count of the recorded logs (applied to the recorded snapshot text by the e2e baseline hook; the files stay as recorded). The npm package logrocket >= 11 loads its recorder from https://cdn.logr-in.com/logger-1.min.js (10.0.0: https://cdn.lgrckt-in.com/logger-1.min.js; CS-LR-1); the counts are unchanged: one script request per hard load, none on client navigation, aborted by the harness after the CSP check, one SDK warning, 0 ingest requests, 0 CSP violations."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-034
+  kind: product
+  test: T-729
+  key: "client-inserted script exemption (e2e/journeys/t729-post-hydration-head.spec.mjs), t729-head-works-1001.json, t729-head-works-1002.json, t729-head-works-1003.json, t729-head-works-1005.json, t729-head-outputs-2001.json, t729-head-outputs-2003.json, t729-head-outputs-2004.json, t729-head-outputs-2101.json, t729-head-outputs-2105.json, t729-head-outputs-2106.json, t729-nav-outputs-a-to-b.json, t729-nav-outputs-oai-to-yearstring.json, t729-nav-outputs-subjects.json"
+  from: "https://cdn.lgrckt-in.com/logger-1.min.js"
+  to: "https://cdn.logr-in.com/logger-1.min.js"
+  reason: "T-729 c1 (works 1001, 1002, 1003, 1005; outputs 2001, 2003, 2004, 2101, 2105, 2106) and c2 (outputs a-to-b, oai-to-yearstring, subjects): the script src of the LogRocket recorder in the post-hydration heads; position and count in the head unchanged. The npm package logrocket >= 11 loads its recorder from https://cdn.logr-in.com/logger-1.min.js (10.0.0: https://cdn.lgrckt-in.com/logger-1.min.js; CS-LR-1); the counts are unchanged: one script request per hard load, none on client navigation, aborted by the harness after the CSP check, one SDK warning, 0 ingest requests, 0 CSP violations."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-035
+  kind: product
+  test: T-716
+  key: "CSP_CONNECT (e2e/lib/P1-05/crash.mjs, read by T-716 c3 and T-727; e2e/journeys/t730-blank-pages.spec.mjs, read by T-730)"
+  from: "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com"
+  to: "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com"
+  reason: "T-716 c3 (works, outputs), T-727 (works, outputs, @wire) and T-730 (q074a..q074e): the connect-src directive Chromium quotes in the first console line of a blocked Sentry report (the second line, Fetch API cannot load ..., has no directive text). CS-LR-2. A row names one test, so this one row records the directive for the three tests that quote it; the Sentry URL of the same lines is AD-023 (T-716), AD-024 (T-727) and AD-026 (T-730). T-712 c2, T-719 c3, the T-720 control, T-602 c5 and the T-728 c4 map do not quote the directive."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+# AD-036 (T-003 c1, the KaTeX 0.16.47 rules) was proposed at W2e and is not needed: the owner held katex at
+# 0.16.22 (2026-10-28), so the built CSS equals the B0 reference again. The id stays unused.
+- id: AD-037
+  kind: product
+  test: T-610
+  key: "t610-stdout-census.json"
+  from: "    at _callee$ (<build>/.next/server/pages/_document.js:<line>:<col>)"
+  to: "    at <build>/.next/server/pages/_document.js:<line>:<col>"
+  reason: "T-610 c3 (app stdout/stderr line census): the renderPage frame of the six error-render requests that print a stack. CS-BAB-9: the regenerator transform of Babel 7.29 emits an anonymous state-machine function where 7.27 named it _callee$ (not configurable); every other census line and the counts are unchanged. Applied by the e2e baseline hook (e2e/lib/P0-10/baseline.mjs) to the masked baseline (line:column numbers are masked on both sides by the T-610 frame normaliser); the file stays as recorded."
+  ref: [OD-12, OD-31]
+  step: W2e
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-038
+  kind: product
+  test: T-417
+  key: "package identity: integrity"
+  from: "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ== (the lock entry of @oacore/design)"
+  to: "<absent> (the lock entry is the directory file:vendor/oacore-design); read as the published sha512 of 60 §1"
+  reason: "T-417 c1 (23 tests, DOM, classes and mount effects of every state equal the package reference). CS-DSN-2 replaces the tarball entry by the directory entry, which has no integrity; the installed package is byte-identical to the one the references were taken from (diff -rq against the pre-step install; the verifier: the tarball except lib/config.js and the vendor/CHANGES.md edits). packageIdentity() (test/unit/design/lib/P0-07/reference.js) takes the published sha512 of 60 §1 for that entry, which T-016 c3 proves the directory and the installed copy match; the reference files stay unedited."
+  ref: [R-015, R-075, 60 §1, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-039
+  kind: product
+  test: T-016
+  key: "report.lock.integrity, report.changes.file"
+  from: "sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ== (= the tarball integrity), null"
+  to: "<absent> (directory entry; the reference is report.reference, the published integrity of 60 §1), vendor/CHANGES.md"
+  reason: "T-016 c3 (verify-design-verbatim). CS-DSN-2: the lock entry is the directory file:vendor/oacore-design, so the verifier compares the tarball with the published integrity of 60 §1 (still sha512-kwYolSk…, sha1 e6a401d7…), and vendor/CHANGES.md exists from DV1 (60 §2). The test also runs the verifier on vendor/oacore-design itself. The changed-file sets of the same reports are AD-046."
+  ref: [R-015, 60 §2, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-040
+  kind: product
+  test: T-008
+  key: "@oacore/design spec, resolved and integrity: package.json dependencies, lock packages[\"\"].dependencies, lock packages[\"node_modules/@oacore/design\"].resolved, lock packages[\"node_modules/@oacore/design\"].integrity"
+  from: "file:vendor/oacore-design-5.0.74.tgz, file:vendor/oacore-design-5.0.74.tgz, file:vendor/oacore-design-5.0.74.tgz, sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=="
+  to: "file:vendor/oacore-design, file:vendor/oacore-design, file:vendor/oacore-design, <absent>"
+  reason: "T-008 c4 (and its shared check designViolations in test/static/lib/P0-16/install-checks.js). CS-DSN-2 (W5) installs the design from the vendored directory. Still asserted: locked and installed version 5.0.74; vendor/oacore-design-5.0.74.tgz has the published sha512 and sha1 (60 §1); the negative controls (another version, an integrity on the directory entry, the registry URL, latest). Supersedes AD-009."
+  ref: [R-015, D17, 60 §1, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-041
+  kind: product
+  test: T-008
+  key: "npm flags of the install checks (test/static/lib/P0-16/install-checks.js ciDryRun and strictProblems)"
+  from: "npm ci --dry-run --offline --ignore-scripts --include=dev --legacy-peer-deps on a copy of package.json and the lock; npm ls --all --no-legacy-peer-deps"
+  to: "the same plus --install-links, with vendor/oacore-design linked into the copy"
+  reason: "T-008 c1 and c2. CS-DSN-2 (4) makes --install-links part of every install (the image too: 20 Deploy-time items). Without it c1 gets EUSAGE (lock and package.json out of sync for the directory spec) and c2 the extra problem invalid:@oacore/design (npm expects a link for a directory spec); with it c1 has no error and status 0 and c2 the W3 problem set (the 02 allow-list and the two test-tooling problems)."
+  ref: [R-014, R-015, 60 §8, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-042
+  kind: product
+  test: T-001
+  key: "package.json scripts[\"lint:css\"], .husky/pre-commit"
+  from: "stylelint --ignore-path .gitignore '**/*.css', npx lint-staged"
+  to: "stylelint --ignore-path .gitignore --ignore-path .stylelintignore '**/*.css', npx lint-staged --config package.json"
+  reason: "T-001 c1 (no --fix anywhere). CS-DSN-2 (5): stylelint reads only the ignore files it is given and otherwise loads the vendored stylelint.config.js (ConfigurationError, lint parity exit 2); lint-staged otherwise uses the vendored .lintstagedrc (yarn lint:js --fix, git add) for vendored files. Still no --fix; the lint-staged config is unchanged."
+  ref: [R-049, R-061, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-043
+  kind: product
+  test: T-001
+  key: "inline directive scan scope (appFiles() of test/static/t001-lint-parity.test.js)"
+  from: "38 inline eslint-disable directives in 30 application files (git ls-files *.js and *.jsx outside test, e2e, docs, tools, node_modules)"
+  to: "111 directives (+73 in src/ and lib/ of the vendored package vendor/oacore-design)"
+  reason: "T-001 c1. CS-DSN-2 vendors the design source; ESLint ignores vendor/** (CS-W0-12) and scripts/lint-parity.mjs still counts 38 in 30. The test scan leaves vendor/oacore-design/ out, as ESLint does, so it pins 38 in 30 again."
+  ref: [R-049, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-044
+  kind: product
+  test: T-002
+  key: "application source scope (sourceFiles() of test/static/t002-css-module-keys.test.js)"
+  from: "the application files: 66 files import a *.module.css, 430 tokens and 221 camelCase tokens"
+  to: "application files and the vendored package vendor/oacore-design: another import list, 930 tokens"
+  reason: "T-002 (66 files import a *.module.css; the plan grep figures reconcile with the member reads). CS-DSN-2 vendors the design source, which is not application source; the scan already left out node_modules, where the same files are installed. The test leaves vendor/oacore-design/ out, so it pins 66 files, 26 modules, 430 and 221 tokens again."
+  ref: [R-001, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-045
+  kind: product
+  test: T-418
+  key: "application source scope (appSources() of test/static/t418-icon-ids.test.js)"
+  from: "the 20 pinned icon ids"
+  to: "34 ids (+14 of the vendored package: active-arrow, alert, alert-circle-outline, core-symbol, coreLogo, drop-arrow, github, information-outline, linkedin, menu, suggestion-result-, twitter, window-close, writing)"
+  reason: "T-418 (the application source references exactly the 20 pinned icon ids). CS-DSN-2 vendors the design source; the design ids stay checked by the clause on the rendered design components (14 pinned ids, installed copy) and the sprite clauses. The test leaves vendor/oacore-design/ out, so it pins the 20 ids again."
+  ref: [R-022, OD-31]
+  step: W5a
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-046
+  kind: product
+  test: T-016
+  key: "report.diff.differ (installed copy), report.changes.files, the vendored-directory diff, the negative controls' differ of a changed copy and their CHANGES table"
+  from: "['lib/config.js'], [], [], ['lib/config.js', 'lib/index.js'], a one-row table (lib/index.js)"
+  to: "['lib/config.js', 'lib/elements/index.js', 'package.json'], ['lib/elements/index.js', 'package.json'], ['lib/elements/index.js', 'package.json'], ['lib/config.js', 'lib/elements/index.js', 'lib/index.js', 'package.json'], that table plus the two vendor/CHANGES.md files"
+  reason: "T-016 c3 (verify-design-verbatim and its negative controls). The 60 §7 edits with their vendor/CHANGES.md rows (CS-DSN-3 package.json, CS-DSN-4 lib/elements/index.js, CS-DSN-5 package.json): the verifier passes exactly on the CHANGES set (ok true, no problem, on both copies); the negative controls copy the installed package, so its listed edits are in every copy. Every negative control still fails as before (status 1, the same problem messages)."
+  ref: [R-015, 60 §2, 60 §7, OD-31]
+  step: W5b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-047
+  kind: product
+  test: T-016
+  key: "bundled design modules (client): res.designSources, new Set(res.modules).size, res.designModules"
+  from: "110"
+  to: "108"
+  reason: "T-016 c2 and c4 (detector-t016-c4-design-requires.test.js). CS-DSN-4 deleted the Carousel getter and its require, so node_modules/@oacore/design/lib/elements/carousel/index.js and carousel.js are no longer bundled (predicted by the CS-DSN-4 row: the VG-5 diff is the carousel and react-slick modules only). Still asserted: 0 mismatched modules, 0 source differences, 0 added requires, the 7 server externals, nothing bundled on the server, edges > 0, 0 unresolved, 0 app targets; c2 also asserts that carousel.js is not among the modules. The titles say 108."
+  ref: [R-014, R-075, 60 §3, OD-31]
+  step: W5b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'

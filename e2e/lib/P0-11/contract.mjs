@@ -207,9 +207,9 @@ export const fill = (template, values) =>
   template.replace(/\{(buildId|framework)\}/g, (_, k) => values[k])
 
 export const listenerOrigin = (env, listener) =>
-  ({ 'app': env.appURL, 'gateway': env.baseURL, 'allow-all': env.allowURL }[
+  ({ 'app': env.appURL, 'gateway': env.baseURL, 'allow-all': env.allowURL })[
     listener
-  ])
+  ]
 
 // every (route, via, case) row of the contract, in a fixed order; the conditional case exists only when the
 // GET of that route and via returned an ETag
@@ -330,11 +330,13 @@ export function readLedger(file = LEDGER_FILE) {
 }
 
 // a ledger row covers a diff when test, key, from and to match exactly and the row is not withdrawn; key =
-// <route>@<via>/<header> (every case) or <route>@<via>.<case>/<header> (that case only)
+// <route>@<via>/<header> (every case) or <route>@<via>.<case>/<header> (that case only); a composite key lists
+// several such keys, separated by `, `, for one from/to pair (e.g. one header value on many route classes)
 export const diffKeys = (d) => [
   `${d.route}@${d.via}/${d.header}`,
   `${d.route}@${d.via}.${d.case}/${d.header}`,
 ]
+export const rowKeys = (r) => String(r.key).split(', ')
 export function applyLedger(diffs, ledgerRows, test = 'T-603') {
   const inForce = ledgerRows.filter((r) => r && r.test === test && !r.withdrawn)
   const used = new Map()
@@ -344,7 +346,7 @@ export function applyLedger(diffs, ledgerRows, test = 'T-603') {
       ? null
       : inForce.find(
           (r) =>
-            diffKeys(d).includes(String(r.key)) &&
+            diffKeys(d).some((k) => rowKeys(r).includes(k)) &&
             String(r.from) === d.from &&
             String(r.to) === d.to
         )

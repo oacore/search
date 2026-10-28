@@ -270,10 +270,13 @@ const appFiles = () =>
   )
     .split('\0')
     .filter(Boolean)
+    // the vendored design is outside the scan, as ESLint ignores vendor/**
+    // (CS-W0-12, AD-043)
     .filter(
       (f) =>
-        !/^(test|e2e|docs|tools|node_modules)\//.test(f) &&
-        f !== 'jest.config.js'
+        !/^(test|e2e|docs|tools|node_modules|vendor\/oacore-design)\//.test(
+          f
+        ) && f !== 'jest.config.js'
     )
 const inlineDirectives = () => {
   const pairs = []
@@ -515,16 +518,20 @@ describe('T-001 @P0 lint parity', () => {
   test('T-001 c1 @P0 no --fix anywhere: the lint scripts, the hook and the scripts themselves (R-049)', () => {
     const pkg = readJson(path.join(ROOT, 'package.json'))
     expect(pkg.scripts['lint:js']).toBe('eslint .')
+    // stylelint also reads .stylelintignore, which keeps the vendored design
+    // (and its stylelint.config.js) out (CS-DSN-2, AD-042)
     expect(pkg.scripts['lint:css']).toBe(
-      "stylelint --ignore-path .gitignore '**/*.css'"
+      "stylelint --ignore-path .gitignore --ignore-path .stylelintignore '**/*.css'"
     )
     expect(JSON.stringify(pkg.scripts)).not.toMatch(/--fix/)
     // the pre-commit hook (CS-HUS-1): ESLint and stylelint report, only
-    // Prettier writes, and only JS and JSON
+    // Prettier writes, and only JS and JSON; lint-staged reads the root
+    // config only, never the vendored design's .lintstagedrc (CS-DSN-2,
+    // AD-042)
     expect(pkg.scripts.prepare).toBe('husky')
     expect(
       fs.readFileSync(path.join(ROOT, '.husky/pre-commit'), 'utf8').trim()
-    ).toBe('npx lint-staged')
+    ).toBe('npx lint-staged --config package.json')
     expect(pkg['lint-staged']).toEqual({
       '*.{js,jsx}': ['eslint --no-warn-ignored', 'prettier --write'],
       '*.css': ['stylelint', 'prettier --check'],

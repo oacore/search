@@ -186,11 +186,12 @@ const syntheticChunk = (modules) => {
 }
 
 describe('T-016 @P0 vendored design: client require edges', () => {
-  test('T-016 c4 @P0 every require of the 110 bundled design modules resolves to a package module, none into the app tree (R-025 alias hit)', () => {
+  test('T-016 c4 @P0 every require of the 108 bundled design modules resolves to a package module, none into the app tree (R-025 alias hit)', () => {
     const build = openBuild(buildDirs('T-016'))
     const res = designEdges(build.clientScripts())
-    // the same 110 modules as c2 (lib/index.js re-exports everything)
-    expect(res.designModules).toBe(110)
+    // the same 108 modules as c2 (lib/index.js re-exports everything; 110
+    // before CS-DSN-4, AD-047)
+    expect(res.designModules).toBe(108)
     expect(res.edges).toBeGreaterThan(0)
     expect(res.unresolved).toEqual([])
     expect(res.appTargets).toEqual([])

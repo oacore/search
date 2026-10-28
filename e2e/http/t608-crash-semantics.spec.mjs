@@ -8,8 +8,8 @@
 //   c2: the same tree built without a DSN (nodsn variant, I-07): no Sentry handler, the app's handler
 //       listens, the process survives.
 //   c3: an unhandled rejection with the test DSN: the process survives and the counting stub receives the
-//       error events (I-35: two, one from @sentry/node's rejection integration and one from the app's
-//       handler; 41 says one).
+//       error events (I-35: two with 5.30, one from @sentry/node's rejection integration and one from the app's
+//       handler; 41 says one). Sentry 7 sends one envelope event per crash or rejection (AD-015, AD-017).
 // Local (host) mode only: the signal goes to the app process (env.json pids.app).
 import path from 'node:path'
 import { test, expect, stubControl } from '../fixtures/guard.mjs'
@@ -46,15 +46,38 @@ const EXIT_BOUND_MS = 3000
 // survival is observed for twice that bound after the trigger
 const SURVIVE_MS = 2 * EXIT_BOUND_MS
 const STORE = 'https://o0.ingest.sentry.io/api/0/store/'
+// Sentry 7 has no store transport: every event goes to the envelope endpoint (AD-015, AD-017)
+const ENVELOPE =
+  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.node%2F7.120.4'
 // listener function names as the preload reports them (Function.prototype.name)
 const DOMAIN_CLEAR = 'domainUncaughtExceptionClear'
+// the bound handler of @sentry/node 5.30's integrations
 const SENTRY_HANDLER = 'bound '
+// Sentry 7's handlers: an anonymous arrow function for uncaught exceptions (AD-014) and sendUnhandledPromise
+// for rejections (AD-016)
+const SENTRY_UNCAUGHT = ''
+const SENTRY_REJECTION = 'sendUnhandledPromise'
 const APP_HANDLER = ''
 
+// the Sentry requests at the counting stub (store or envelope endpoint)
 const sentryEvents = async (env, since) =>
   (await stubControl(env, 'GET', `/collect?since=${since}`)).records.filter(
-    (r) => r.method === 'POST' && r.url === STORE
+    (r) =>
+      r.method === 'POST' &&
+      (r.url === STORE ||
+        r.url.startsWith('https://o0.ingest.sentry.io/api/0/envelope/'))
   )
+// the error events of one request: the JSON body of a store request, each `event` item of an envelope (an
+// envelope header line, then an item header line and its payload line per item; 55 C6-NI counting rule)
+const eventsOf = (r) => {
+  if (r.url === STORE) return [JSON.parse(r.bodyText)]
+  const lines = r.bodyText.split('\n').filter(Boolean)
+  const events = []
+  for (let i = 1; i + 1 < lines.length; i += 2)
+    if (JSON.parse(lines[i]).type === 'event')
+      events.push(JSON.parse(lines[i + 1]))
+  return events
+}
 const fired = (env) =>
   preloadLines(env).find((l) => l.p011 === 'T-608 trigger') || null
 
@@ -102,9 +125,10 @@ test.describe('T-608 @P0 crash semantics', () => {
     try {
       const { env, mark, shot } = await armed(id, build, PRELOAD_THROW, 'throw')
       // node:domain's clear handler (domain is required by @sentry/node and put first), @sentry/node's
-      // OnUncaughtException integration (a bound anonymous handler) and the handler of pages/_app.jsx:25-27
+      // OnUncaughtException integration (an anonymous handler in Sentry 7, AD-014; bound in 5.30) and the
+      // handler of pages/_app.jsx:25-27
       expect(shot.listeners).toBe(3)
-      expect(shot.names).toEqual([DOMAIN_CLEAR, SENTRY_HANDLER, APP_HANDLER])
+      expect(shot.names).toEqual([DOMAIN_CLEAR, SENTRY_UNCAUGHT, APP_HANDLER])
       await expect.poll(() => appExit(env), { timeout: 15000 }).not.toBeNull()
       const exit = appExit(env)
       expect({ code: exit.code, signal: exit.signal }).toEqual({
@@ -115,17 +139,27 @@ test.describe('T-608 @P0 crash semantics', () => {
       const events = await sentryEvents(env, mark.seq)
       test.info().annotations.push({
         type: 'crash',
-        description: `exit 1 ${ms} ms after the throw; ${events.length} Sentry store requests`,
+        description: `exit 1 ${ms} ms after the throw; ${events.length} Sentry requests`,
       })
       expect(ms).toBeGreaterThanOrEqual(0)
       expect(ms).toBeLessThanOrEqual(EXIT_BOUND_MS)
-      // the exit comes after the flush (Q-009): the integration's event and the app handler's event, both
-      // for the thrown error, reached the counting stub before the process ended
+      // the exit comes after the flush (Q-009): the event for the thrown error reached the counting stub
+      // before the process ended. Sentry 7 sends one envelope with one event item, the integration's (level
+      // fatal, unhandled); it drops the app handler's second capture of the same Error object (AD-015; 5.30
+      // sent both to the store endpoint)
+      expect(events.map((r) => r.url)).toEqual([ENVELOPE])
       expect(
-        events.map((r) => JSON.parse(r.bodyText).exception.values[0].value)
+        events.flatMap(eventsOf).map((e) => ({
+          value: e.exception.values[0].value,
+          level: e.level,
+          mechanism: e.exception.values[0].mechanism,
+        }))
       ).toEqual([
-        'T-608 preload: asynchronous throw',
-        'T-608 preload: asynchronous throw',
+        {
+          value: 'T-608 preload: asynchronous throw',
+          level: 'fatal',
+          mechanism: { type: 'onuncaughtexception', handled: false },
+        },
       ])
     } finally {
       await down(id)
@@ -165,13 +199,15 @@ test.describe('T-608 @P0 crash semantics', () => {
         PRELOAD_REJECT,
         'reject'
       )
-      // @sentry/node's OnUnhandledRejection integration and the handler of pages/_app.jsx:21-23
+      // @sentry/node's OnUnhandledRejection integration (sendUnhandledPromise in Sentry 7, AD-016) and the
+      // handler of pages/_app.jsx:21-23
       expect(shot.listeners).toBe(2)
-      expect(shot.names).toEqual([SENTRY_HANDLER, APP_HANDLER])
+      expect(shot.names).toEqual([SENTRY_REJECTION, APP_HANDLER])
       await survives(env, shot.at)
       const events = await sentryEvents(env, mark.seq)
+      expect(events.map((r) => r.url)).toEqual([ENVELOPE])
       const summary = events
-        .map((r) => JSON.parse(r.bodyText))
+        .flatMap(eventsOf)
         .map((e) => ({
           value: e.exception.values[0].value,
           mechanism: e.exception.values[0].mechanism,
@@ -184,18 +220,13 @@ test.describe('T-608 @P0 crash semantics', () => {
         type: 'sentry',
         description: JSON.stringify(summary),
       })
-      // Q-009 as the app behaves (I-35): one event per listener for the same error, both with the generic
-      // handled mechanism of @sentry/node 5.30; the integration's own event carries the
-      // unhandledPromiseRejection extra
+      // Q-009 as the app behaves (I-35): Sentry 7 sends one event, the integration's, unhandled, with the
+      // unhandledPromiseRejection extra; it drops the app handler's second capture of the same error (AD-017;
+      // 5.30 sent one event per listener, both with the generic handled mechanism)
       expect(summary).toEqual([
         {
           value: 'T-608 preload: unhandled rejection',
-          mechanism: { handled: true, type: 'generic' },
-          unhandledPromiseRejection: false,
-        },
-        {
-          value: 'T-608 preload: unhandled rejection',
-          mechanism: { handled: true, type: 'generic' },
+          mechanism: { type: 'onunhandledrejection', handled: false },
           unhandledPromiseRejection: true,
         },
       ])

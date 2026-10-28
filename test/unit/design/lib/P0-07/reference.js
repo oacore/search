@@ -28,7 +28,14 @@ const packageIdentity = () => {
     name: installed.name,
     version: installed.version,
     lockVersion: entry.version,
-    integrity: entry.integrity,
+    // from W5 the lock entry is the vendored directory, which has no
+    // integrity: the published one (60 §1), which T-016 c3 proves the
+    // directory and the installed copy match file for file (CS-DSN-2, AD-038)
+    integrity:
+      entry.integrity ||
+      (entry.resolved === 'file:vendor/oacore-design'
+        ? 'sha512-kwYolSk+PrJtJzSkhyUz/YGJKDbPcf6UpALedXnhWhNeJL/xB8PDvgGjHYq+xOZi2V7SIB9h0tueAAgR6IagrQ=='
+        : undefined),
   }
 }
 

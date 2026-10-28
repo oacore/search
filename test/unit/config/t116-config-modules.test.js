@@ -126,7 +126,9 @@ describe('T-116 @P0 config modules', () => {
     const SELF = "'self'"
     const GA = '*.google-analytics.com *.doubleclick.net *.googletagmanager.com'
     const ANALYTICS = `${GA} *.cloudflareinsights.com`
-    const LOGROCKET = '*.logrocket.com *.lgrckt-in.com'
+    // the LogRocket hosts, with the ingest and CDN host of logrocket >= 11
+    // (CS-LR-2, AD-028; `*.logrocket.com *.lgrckt-in.com` before)
+    const LOGROCKET = '*.logrocket.com *.lgrckt-in.com *.logr-in.com'
     const CORE = '*.core.ac.uk core.ac.uk'
 
     // the policy as the module prints it, one directive per entry
@@ -178,13 +180,13 @@ describe('T-116 @P0 config modules', () => {
           .map((d) => [d.slice(0, d.indexOf(' ')), d.slice(d.indexOf(' ') + 1)])
       )
       expect(directives['script-src']).toBe(
-        "'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval'"
+        "'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data: 'unsafe-inline' 'unsafe-eval'"
       )
       expect(directives['script-src-elem']).toBe(
-        "'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval' 'unsafe-inline' 'unsafe-eval'"
+        "'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data: 'unsafe-inline' 'unsafe-eval' 'unsafe-inline' 'unsafe-eval'"
       )
       expect(directives['connect-src']).toBe(
-        "'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com localhost:* 127.0.0.1:* api-dev.core.ac.uk"
+        "'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com localhost:* 127.0.0.1:* api-dev.core.ac.uk"
       )
     })
 

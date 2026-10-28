@@ -211,6 +211,45 @@ test.describe('T-603 @P0 header contract', () => {
         ]
       )
     ).toEqual([':status', 'location'])
+    // a composite key covers each listed key exactly (here 404-page@origin), never one it does not list, and
+    // never a status code
+    const other = (header, from, to) => ({
+      ...d(header, from, to),
+      id: '404-page@proxy.GET',
+      via: 'proxy',
+    })
+    expect(
+      left(
+        [d('cache-control', '<absent>', cc)],
+        [
+          row({
+            key: '500@origin/cache-control, 404-page@origin/cache-control',
+          }),
+        ]
+      )
+    ).toEqual([])
+    expect(
+      left(
+        [other('cache-control', '<absent>', cc)],
+        [
+          row({
+            key: '500@origin/cache-control, 404-page@origin/cache-control',
+          }),
+        ]
+      )
+    ).toEqual(['cache-control'])
+    expect(
+      left(
+        [d(':status', '404', '200')],
+        [
+          row({
+            key: '404-page@origin/cache-control, 404-page@origin/:status',
+            from: '404',
+            to: '200',
+          }),
+        ]
+      )
+    ).toEqual([':status'])
     // a header the baseline lacks, or a row the capture lacks, is a diff too
     const base = [
       {

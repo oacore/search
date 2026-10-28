@@ -146,8 +146,10 @@ test.describe('T-729 @P0 post-hydration head', () => {
       expect(icons, `${fx.id} favicons`).toBeGreaterThan(5)
       expect(icons).toBeLessThanOrEqual(10)
       // nothing is added that the SSR head did not have
+      // except the LogRocket recorder script the client inserts (logrocket >= 11 loads it from
+      // cdn.logr-in.com, CS-LR-1, AD-034; cdn.lgrckt-in.com with 10.0.0)
       for (const n of new Set(l))
-        if (n !== 'script[src=https://cdn.lgrckt-in.com/logger-1.min.js]')
+        if (n !== 'script[src=https://cdn.logr-in.com/logger-1.min.js]')
           expect(s, `${fx.id} ${n} comes from the SSR head`).toContain(n)
       expectBaseline(
         `t729-head-${fx.id}`,
