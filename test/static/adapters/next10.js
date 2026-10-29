@@ -25,10 +25,12 @@ const walk = (dir, base = dir) =>
 const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8'))
 
 // webpack source names of Next 10 maps: client `webpack://_N_E/./x`, server
-// `webpack:///./x`, server externals `webpack:///external "x"`
+// `webpack:///./x`, server externals `webpack:///external "x"`; webpack 5 of
+// Next 12 names the external's type too: `webpack://search/external
+// commonjs "x"`
 function normaliseSource(raw) {
   const s = String(raw)
-  const ext = s.match(/^webpack:\/\/[^/]*\/external "(.+)"$/)
+  const ext = s.match(/^webpack:\/\/[^/]*\/external (?:[\w-]+ )?"(.+)"$/)
   if (ext) return { external: ext[1] }
   return {
     path: s
