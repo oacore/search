@@ -2,7 +2,7 @@ const { promises: fsPromises } = require('fs')
 const path = require('path')
 const fs = require('fs')
 
-const fetch = require('node-fetch')
+// fetch: the global fetch of Node (undici); node-fetch was never declared
 
 // Hack to avoid data retrieval in the all components
 // TODO: Implement Babel plugin instead
