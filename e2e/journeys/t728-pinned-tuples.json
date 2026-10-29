@@ -14,6 +14,14 @@
     "react-17.0+next-10.2": {
       "recorded": "2026-10-20 (2.3): React 17.0.2 production, Next 10.2.3; empty by observation on Chromium over the T-728 matrix (WebKit and Firefox: runner only, DEFERRED in local mode)",
       "entries": []
+    },
+    "react-17.0+next-12.1": {
+      "recorded": "2026-10-29, W4c (Next 12.1): a copy of the react-17.0+next-10.2 set, unchanged; owner decision 2026-10-29 (STATUS section 2): the console output and the hydration events of the app stay as they are on Next 12, so a message or tuple that Next 12 adds or drops is red, never added here",
+      "entries": []
+    },
+    "react-17.0+next-12.3": {
+      "recorded": "2026-10-29, W4c (Next 12.3): a copy of the react-17.0+next-10.2 set, unchanged; owner decision 2026-10-29 (STATUS section 2): the console output and the hydration events of the app stay as they are on Next 12, so a message or tuple that Next 12 adds or drops is red, never added here",
+      "entries": []
     }
   }
 }

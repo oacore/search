@@ -206,7 +206,9 @@ test('T-741 c2 @P0 pins are versioned per React/Next and the installed versions 
   const keys = Object.keys(file.versions)
   for (const k of keys) expect(k).toMatch(/^react-\d+\.\d+\+next-\d+\.\d+$/)
   const v = installedVersions()
-  expect(v).toEqual({ react: '17.0', next: '10.2' })
+  // the 10.2 set and its copies for Next 12.1 and 12.3 (owner, 2026-10-29)
+  expect(v.react).toBe('17.0')
+  expect(['10.2', '12.1', '12.3']).toContain(v.next)
   expect(keys).toContain(versionKey(v))
   // the guard's allow-list of this React version (e2e/console-allow/react-<major.minor>.json) allows only
   // console.error messages that T-741 pins
