@@ -274,7 +274,8 @@ function nativeRule(lock) {
 }
 
 // the binary that this platform needs, present in an installed tree
-// (alpine arm64 = linux-arm64-musl)
+// (alpine arm64 = linux-arm64-musl; a darwin host tree = darwin-<arch>, the
+// only @next/swc-* entry npm installs there)
 function installedNative(dir, lock) {
   const next = lock.packages['node_modules/next']
   const major = Number(next.version.split('.')[0])
@@ -282,7 +283,11 @@ function installedNative(dir, lock) {
 
   const libc = fs.existsSync('/etc/alpine-release') ? 'musl' : 'gnu'
   const arch = os.arch() === 'arm64' ? 'arm64' : 'x64'
-  const want = [`@next/swc-linux-${arch}-${libc}`]
+  const target =
+    process.platform === 'linux'
+      ? `linux-${arch}-${libc}`
+      : `${process.platform}-${arch}`
+  const want = [`@next/swc-${target}`]
   const missing = want.filter(
     (n) => !fs.existsSync(path.join(dir, 'node_modules', n, 'package.json'))
   )
