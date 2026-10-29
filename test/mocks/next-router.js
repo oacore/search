@@ -37,6 +37,7 @@ const defaults = () => ({
   locale: undefined,
   locales: undefined,
   defaultLocale: undefined,
+  domainLocales: undefined,
   readyCallbacks: [],
   push: jest.fn(() => Promise.resolve(true)),
   replace: jest.fn(() => Promise.resolve(true)),
@@ -48,19 +49,6 @@ const defaults = () => ({
 })
 
 const events = mitt()
-
-const reset = () => {
-  for (const k of Object.keys(router)) delete router[k]
-  Object.assign(router, defaults())
-  for (const k of Object.keys(events.all)) delete events.all[k]
-  router.events = events
-  router.router = router
-  return router
-}
-
-const setRouter = (partial = {}) => Object.assign(router, partial)
-
-reset()
 
 const useRouter = () => router
 const withRouter = (Component) => {
@@ -76,6 +64,29 @@ const makePublicRouterInstance = () => router
 class Router {}
 Router.events = events
 
+const reset = () => {
+  for (const k of Object.keys(router)) delete router[k]
+  Object.assign(router, defaults())
+  for (const k of Object.keys(events.all)) delete events.all[k]
+  router.events = events
+  router.router = router
+  // Next 12's singleton also carries the module's exports (client/router.js:
+  // Object.assign(exports.default, exports), then module.exports = it)
+  Object.assign(router, {
+    Router,
+    withRouter,
+    useRouter,
+    createRouter,
+    makePublicRouterInstance,
+    default: router,
+  })
+  return router
+}
+
+const setRouter = (partial = {}) => Object.assign(router, partial)
+
+reset()
+
 module.exports = {
   __esModule: true,
   default: router,
@@ -85,12 +96,38 @@ module.exports = {
   makePublicRouterInstance,
   Router,
   NextRouter: undefined,
+  // the singleton's members at the top level, as Next 12's module is the
+  // singleton itself
+  get readyCallbacks() {
+    return router.readyCallbacks
+  },
+  get ready() {
+    return router.ready
+  },
+  get push() {
+    return router.push
+  },
+  get replace() {
+    return router.replace
+  },
+  get reload() {
+    return router.reload
+  },
+  get back() {
+    return router.back
+  },
+  get prefetch() {
+    return router.prefetch
+  },
+  get beforePopState() {
+    return router.beforePopState
+  },
   // test helpers
   router,
   setRouter,
   resetRouter: reset,
-  // RouterContext of Next 10.2.3 (40 §2.1); 11-12:
-  // next/dist/shared/lib/router-context, 13.5-16:
+  // RouterContext of Next 11-12 (40 §2.1); 10.2.3:
+  // next/dist/next-server/lib/router-context, 13.5-16:
   // next/dist/shared/lib/router-context.shared-runtime
-  ROUTER_CONTEXT_PATH: 'next/dist/next-server/lib/router-context',
+  ROUTER_CONTEXT_PATH: 'next/dist/shared/lib/router-context',
 }
