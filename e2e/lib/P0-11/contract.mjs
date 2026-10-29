@@ -195,7 +195,8 @@ export async function placeholders(env) {
     /<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s.exec(
       html
     )
-  const fw = /\/_next\/static\/chunks\/(framework\.[0-9a-f]+\.js)"/.exec(html)
+  // webpack 4 names the chunk framework.<hash>.js, webpack 5 framework-<hash>.js
+  const fw = /\/_next\/static\/chunks\/(framework[.-][0-9a-f]+\.js)"/.exec(html)
   if (!data || !fw)
     throw new Error(
       'contract: /search/?q=climate has no __NEXT_DATA__ or framework chunk'
