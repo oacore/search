@@ -146,11 +146,13 @@ export async function routeChange(page, tracker, target) {
   await settle(page, tracker, { hydration: false })
 }
 
-// the SSR markup inside #__next of a raw HTML answer: Next 10 writes `<div id="__next">...</div>`, then (dev
-// only) script elements, then `<script id="__NEXT_DATA__"`
+// the SSR markup inside #__next of a raw HTML answer: Next 10 writes `<div id="__next">...</div>` (Next 12
+// with React 17: `<div id="__next" data-reactroot="">`, React renders the div itself), then (dev only) script
+// elements, then `<script id="__NEXT_DATA__"`
+const NEXT_OPEN = ['<div id="__next">', '<div id="__next" data-reactroot="">']
 export const ssrNextMarkup = (html) => {
-  const open = '<div id="__next">'
-  const start = html.indexOf(open)
+  const open = NEXT_OPEN.find((o) => html.includes(o))
+  const start = open ? html.indexOf(open) : -1
   const end = html.indexOf('<script id="__NEXT_DATA__"')
   if (start < 0 || end < start) return null
   let m = html.slice(start + open.length, end)
