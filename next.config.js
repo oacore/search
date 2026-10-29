@@ -13,6 +13,8 @@ const nextConfig = {
   assetPrefix: helpers.getAssetsPath(''),
   // `next build` lints from Next 11 on; linting stays in the lint script
   eslint: { ignoreDuringBuilds: true },
+  // build with webpack 5 on Next 10.2.3 (the default from Next 11 on)
+  future: { webpack5: true },
 
   async rewrites() {
     const dataPath = helpers.rewriteDataPath()
@@ -38,11 +40,10 @@ const nextConfig = {
 
   webpack(config, { isServer, dev }) {
     const { rules } = config.module
-    if (!isServer) {
-      config.node = {
-        fs: 'empty',
-      }
-    }
+    // `fs` resolves to an empty module in the client bundle (lib/loader.js
+    // imports it; its cache reads and writes are caught there)
+    if (!isServer)
+      config.resolve.fallback = { ...config.resolve.fallback, fs: false }
 
     // @sentry/browser 7 and the @sentry/core and @sentry/utils modules it
     // brings ship ES2018 syntax (object spread), and Next 10 compiles no
