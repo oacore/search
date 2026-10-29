@@ -1,15 +1,17 @@
 // T-010 (41 A; R-002, R-020, R-021, R-068): the routes-manifest of the parity
 // build as normalised (source, destination, headers) tuples (review:00
 // X40.10, review:http-contract HC-14): rewrites (source -> destination, in
-// order), headers (source -> ordered [key, value]) and redirects (source ->
-// status destination), never the regexes, the buildId-bearing data routes or
-// the manifest shape. The CSP value is the string T-116 pins: csp.config.js
+// order, and the phase of each when the manifest has phases), headers (source
+// -> ordered [key, value]) and redirects (source -> status destination), never
+// the regexes, the buildId-bearing data routes or the manifest shape. The CSP
+// value is the string T-116 pins: csp.config.js
 // evaluated with the build's NODE_ENV=production. Reference and diff rules:
 // test/static/adapters/reference.js.
 const fs = require('fs')
 const path = require('path')
 
 const { ROOT, buildDirs, openBuild } = require('./adapters')
+const { REWRITE_PHASES } = require('./adapters/next10')
 const {
   reference,
   diffEntries,
@@ -25,15 +27,37 @@ const INJECTED_FROM_15 = {
   fromMajor: 15,
 }
 
-function tuples(manifest) {
-  if (!Array.isArray(manifest.rewrites)) {
-    throw new Error(
-      'routes-manifest rewrites is not an array: another Next layout, needs its reader (40 §8 rule 7)'
-    )
+// The rewrites of the manifest in the order Next applies them. An array (Next
+// applies all of them after the pages) gives the entries it always gave. The
+// {beforeFiles, afterFiles, fallback} form (CS-N12-9) gives the same entries
+// for its rewrites in phase order, plus `phases:rewrites`, which names each
+// phase with its sources, so a rewrite that moves to another phase is a diff.
+function rewriteList(manifest) {
+  const { rewrites } = manifest
+  if (Array.isArray(rewrites)) return { list: rewrites, phases: null }
+  if (
+    rewrites !== null &&
+    typeof rewrites === 'object' &&
+    Object.keys(rewrites).length === REWRITE_PHASES.length &&
+    REWRITE_PHASES.every((p) => Array.isArray(rewrites[p]))
+  ) {
+    return {
+      list: REWRITE_PHASES.flatMap((p) => rewrites[p]),
+      phases: REWRITE_PHASES.map(
+        (p) => `${p}: ${rewrites[p].map((r) => r.source).join(' , ')}`
+      ).join(' | '),
+    }
   }
+  throw new Error(
+    'routes-manifest rewrites is neither an array nor {beforeFiles, afterFiles, fallback}: another Next layout, needs its reader (40 §8 rule 7)'
+  )
+}
+
+function tuples(manifest) {
+  const rewrites = rewriteList(manifest)
   const entries = {}
   const order = { rewrites: [], headers: [], redirects: [] }
-  for (const r of manifest.rewrites) {
+  for (const r of rewrites.list) {
     entries[`rewrite:${r.source}`] = r.destination
     order.rewrites.push(r.source)
   }
@@ -51,6 +75,7 @@ function tuples(manifest) {
   }
   for (const [k, v] of Object.entries(order))
     entries[`order:${k}`] = v.join(' , ')
+  if (rewrites.phases !== null) entries['phases:rewrites'] = rewrites.phases
   return entries
 }
 

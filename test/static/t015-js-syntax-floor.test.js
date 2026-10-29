@@ -37,6 +37,8 @@ const FLOORS = {
   '10.2.3': 'es2015',
   // W4c, first measurement on 12.1.6: unchanged
   '12.1.6': 'es2015',
+  // W4d, first measurement on 12.3.7: unchanged
+  '12.3.7': 'es2015',
 }
 
 const walk = (dir) =>

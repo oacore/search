@@ -24,4 +24,8 @@ const Head = () => (
   </NextHead>
 )
 
-export default Head
+// Next 12.3's head manager appends a <Head>'s children to the end of its list
+// again after every render of that <Head>, and the last title wins. Rendered
+// once, the default head keeps the first place it mounted in, so a page's
+// title stays in force when the app re-renders and the page does not.
+export default React.memo(Head)

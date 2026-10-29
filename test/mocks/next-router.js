@@ -71,8 +71,10 @@ const reset = () => {
   router.events = events
   router.router = router
   // Next 12's singleton also carries the module's exports (client/router.js:
-  // Object.assign(exports.default, exports), then module.exports = it)
+  // Object.assign(exports.default, exports), then module.exports = it), and
+  // on 12.3 the `__esModule` mark it defines on the singleton before that
   Object.assign(router, {
+    __esModule: true,
     Router,
     withRouter,
     useRouter,

@@ -48,6 +48,17 @@ function packageOf(sourcePath) {
   return m ? { name: m[2], root: m[1] } : null
 }
 
+// the phases of the object form of the routes-manifest rewrites, in the order
+// Next applies them
+const REWRITE_PHASES = ['beforeFiles', 'afterFiles', 'fallback']
+
+const isRewritesForm = (rewrites) =>
+  Array.isArray(rewrites) ||
+  (rewrites !== null &&
+    typeof rewrites === 'object' &&
+    Object.keys(rewrites).length === REWRITE_PHASES.length &&
+    REWRITE_PHASES.every((p) => Array.isArray(rewrites[p])))
+
 function detect(nextDir) {
   const has = (rel) => fs.existsSync(path.join(nextDir, rel))
   if (
@@ -58,11 +69,13 @@ function detect(nextDir) {
   )
     return false
   const routes = readJson(path.join(nextDir, 'routes-manifest.json'))
-  // Next 10: rewrites is an array; from 15 it is {beforeFiles, afterFiles,
-  // fallback} and needs another reader
+  // Next 10 and 12 write the rewrites as an array, or as {beforeFiles,
+  // afterFiles, fallback} when next.config.js returns that form (CS-N12-9 on
+  // Next 12.3); the rest of the layout is the same in both forms. Another
+  // Next major still needs its own reader.
   return (
     routes.version === 3 &&
-    Array.isArray(routes.rewrites) &&
+    isRewritesForm(routes.rewrites) &&
     has('server/pages') &&
     !has('server/app')
   )
@@ -172,4 +185,11 @@ function open(nextDir) {
   }
 }
 
-module.exports = { detect, open, normaliseSource, packageOf, walk }
+module.exports = {
+  REWRITE_PHASES,
+  detect,
+  open,
+  normaliseSource,
+  packageOf,
+  walk,
+}
