@@ -77,16 +77,20 @@ const nextConfig = {
       throw new Error('No rule runs the Babel loader that bibtexParse.js skips')
 
     // @sentry/browser 7 and the @sentry/core and @sentry/utils modules it
-    // brings ship ES2018 syntax (object spread), and Next 10 compiles no
-    // node_modules code but its own, so the client _app chunk would need
-    // ES2018. The client compilation compiles them to the syntax of the app's
-    // own code (.browserslistrc): syntax only, no polyfill, no helper import,
-    // ES modules kept for tree shaking. The server keeps @sentry/node as an
-    // external require.
+    // brings ship ES2018 syntax (object spread), react-ga4 3 ships ES2022
+    // (class fields), and Next compiles no node_modules code but its own, so
+    // the client _app chunk would need ES2022. The client compilation compiles
+    // them to the syntax of the app's own code (.browserslistrc): syntax only,
+    // no polyfill, no helper import, ES modules kept for tree shaking. The
+    // server keeps @sentry/node as an external require and react-ga4 as
+    // Next's external import.
     if (!isServer) {
       rules.push({
         test: /\.m?js$/,
-        include: /[\\/]node_modules[\\/]@sentry[\\/]/,
+        include: [
+          /[\\/]node_modules[\\/]@sentry[\\/]/,
+          /[\\/]node_modules[\\/]react-ga4[\\/]/,
+        ],
         use: {
           loader: path.join(__dirname, 'babel-syntax-loader.js'),
           options: {
