@@ -19,18 +19,26 @@ const nextConfig = {
   // wrapper gave them before (OD-42)
   productionBrowserSourceMaps: true,
 
+  // The page data of client navigations is fetched from /search/_next/data
+  // (pages/_app.jsx, useInterceptNextDataHref). From Next 12.2 a rewrite
+  // after the pages no longer reaches that path, so the data rule is checked
+  // before the pages; the other rewrites stay after them.
   async rewrites() {
     const dataPath = helpers.rewriteDataPath()
-    return [
-      {
-        source: dataPath.source,
-        destination: dataPath.destination,
-      },
-      {
-        source: `/static/:path*`,
-        destination: '/:path*',
-      },
-    ]
+    return {
+      beforeFiles: [
+        {
+          source: dataPath.source,
+          destination: dataPath.destination,
+        },
+      ],
+      afterFiles: [
+        {
+          source: `/static/:path*`,
+          destination: '/:path*',
+        },
+      ],
+    }
   },
   async headers() {
     return [
