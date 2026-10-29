@@ -57,7 +57,7 @@ OQ-1..OQ-18 are DECIDED (2026-10-20, owner confirmed the recommended defaults), 
 |OD-33|P1: standard CSS, Modules kept|6.9|=|2026-10-20 owner (OQ-10)|
 |OD-34|no `@oacore/core-ui` dependency|7.0|=|2026-10-20 owner (OQ-15)|
 |OD-35|M7 thresholds as in 55 (each statistic 95%, jointly ≥85%; B: α/3 each; C6-NI printed only); 2.8: C1-Q exempt list and `none` marks, C6-prod and C6-CI calibration re-sets|2.7|2.8|2026-10-20 owner (OQ-3)|
-|OD-37|B: minifier output accepted only at 0 px|W4c|AD rows|2026-10-20 owner (OQ-9)|
+|OD-37|A: `cssnano-simple` 2.0.0 as the CSS minimizer, closed at 6.9 (CS-N12-10, 02 §4); was B (minifier output accepted only at 0 px), which did not hold at W4c (T-801 not 0 px)|W4c|the CS-N12-10 and 02 rows and the W4c AD rows in the end-of-jump-2 batch|2026-10-29 owner (in the live work session; was 2026-10-20 owner, OQ-9)|
 |OD-39|owner signs the framework-delta ledger per step|W2b|AD rows|2026-10-20 owner (OQ-9; in chat)|
 |OD-41|no change: optimizer endpoint as today; no gateway block, no off-switch (CS-OPS-5, CS-IMG-1 WITHDRAWN)|W4c|=|2026-10-20 owner (OQ-16; in chat)|
 |OD-42|public source maps stay|W4c|=|2026-10-20 owner (OQ-16)|
