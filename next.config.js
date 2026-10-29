@@ -41,12 +41,35 @@ const nextConfig = {
     ]
   },
 
-  webpack(config, { isServer, dev }) {
+  webpack(config, { isServer, dev, defaultLoaders }) {
     const { rules } = config.module
     // `fs` resolves to an empty module in the client bundle (lib/loader.js
     // imports it; its cache reads and writes are caught there)
     if (!isServer)
       config.resolve.fallback = { ...config.resolve.fallback, fs: false }
+
+    // The vendored bibtexParse.js stays untransformed, as the node_modules
+    // copy was (CS-BIB-1, R-075). Next 12's Babel loader resolves one config
+    // per kind of file and reuses it, so the `ignore` of babel.config.js no
+    // longer reaches that file, and the injected core-js imports would turn it
+    // into an ES module without exports. Every rule that runs Next's Babel
+    // loader excludes the vendored directory; the build stops when there is
+    // none.
+    const bibtexDir = path.join(__dirname, 'vendor', 'bibtex-parse-js')
+    const babelLoader = defaultLoaders.babel.loader
+    let babelRules = 0
+    const excludeBibtex = (rule) => {
+      if (!rule || typeof rule !== 'object') return
+      const nested = [...(rule.oneOf || []), ...(rule.rules || [])]
+      nested.forEach(excludeBibtex)
+      const uses = Array.isArray(rule.use) ? rule.use : [rule.use]
+      if (!uses.some((use) => use && use.loader === babelLoader)) return
+      rule.exclude = rule.exclude ? [rule.exclude, bibtexDir] : bibtexDir
+      babelRules += 1
+    }
+    rules.forEach(excludeBibtex)
+    if (babelRules === 0)
+      throw new Error('No rule runs the Babel loader that bibtexParse.js skips')
 
     // @sentry/browser 7 and the @sentry/core and @sentry/utils modules it
     // brings ship ES2018 syntax (object spread), and Next 10 compiles no
