@@ -149,9 +149,23 @@ let statistics = {
   data: null,
 }
 
+// Next 12.3 runs App.getInitialProps again in the browser when it hydrates a
+// page the server rendered with an error (next/dist/client/index.js,
+// renderError: it reuses the server's props only when they carry `err`), and
+// the loaders then call the API from the browser. Next 10.2.3 and 12.1.6
+// reused the server's props there: give that first browser call the server's
+// props back (CS-N12-13). Every other call is unchanged.
+let firstBrowserCall = true
+
 // TODO: Replace with getStaticProps once this is solved
 //       https://github.com/vercel/next.js/discussions/10949
-App.getInitialProps = async () => {
+App.getInitialProps = async (appContext) => {
+  if (typeof window !== 'undefined' && firstBrowserCall) {
+    firstBrowserCall = false
+    const { __NEXT_DATA__: nextData } = window
+    if (appContext?.ctx?.err && nextData?.err) return nextData.props
+  }
+
   await getStatistics()
   await getDataProviders()
   await getMembers()
