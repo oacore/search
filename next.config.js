@@ -1,7 +1,6 @@
 const path = require('path')
 
 const withImages = require('next-images')
-const withSourceMaps = require('@zeit/next-source-maps')
 
 const envConfig = require('./env.config')
 const cspConfig = require('./csp.config')
@@ -16,6 +15,9 @@ const nextConfig = {
   // image imports stay URL strings of next-images (withImages below); Next's
   // own static image imports (from Next 11 on) would turn them into objects
   images: { disableStaticImages: true },
+  // public client source maps under /_next/static, as the next-source-maps
+  // wrapper gave them before (OD-42)
+  productionBrowserSourceMaps: true,
 
   async rewrites() {
     const dataPath = helpers.rewriteDataPath()
@@ -150,4 +152,4 @@ const nextConfig = {
   },
 }
 
-module.exports = withImages(withSourceMaps(nextConfig))
+module.exports = withImages(nextConfig)
