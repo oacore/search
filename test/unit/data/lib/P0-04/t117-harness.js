@@ -1,7 +1,7 @@
 // Helpers of T-117 (test/unit/data/t117-data-loader.test.js): run
 // data/data-loader.js as a child process on the Node that runs Jest, in a
 // temporary copy of data/ (the loader writes next to __dirname), with
-// t117-preload.cjs sending its three node-fetch URLs to a local stub.
+// t117-preload.cjs sending its three fetch URLs to a local stub.
 const crypto = require('crypto')
 const fs = require('fs')
 const http = require('http')

@@ -2,8 +2,9 @@
 // The loader runs as a child process on the Node that runs Jest (the step's
 // runtime Node, 40 §2.1), in a temporary copy of the real data/ files (it
 // writes next to __dirname). A --require preload sends the three URLs it hands
-// to node-fetch to a local stub (test/unit/data/lib/P0-04/t117-preload.cjs), so
-// the real node-fetch, status handling and file writes run. Q-026 says what is
+// to its fetch (node-fetch, or the global fetch of Node from CS-N12-1) to a
+// local stub (test/unit/data/lib/P0-04/t117-preload.cjs), so the real fetch,
+// status handling and file writes run. Q-026 says what is
 // pinned: API >= 400 or a network error -> exit 1 (unhandled rejection in a
 // promise nobody awaits); one failing URL leaves a partial write; a 200 `[]`
 // overwrites all three files with exit 0; no answer hangs the loader (no
