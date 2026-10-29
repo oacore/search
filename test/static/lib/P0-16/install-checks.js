@@ -332,12 +332,13 @@ function designViolations(pkg, lock, dir) {
 }
 
 // ---------- c5: undeclared packages that must resolve ----------
-const RESOLVES = ['node-fetch', '@mdi/svg', '@babel/runtime', 'yargs']
-// what each is resolved by in the build (data/data-loader.js:5 requires
-// node-fetch; the design's icon build reads @mdi/svg's files; the Babel
-// runtime transform emits helper requires; the design's bin uses yargs)
+// (node-fetch left the list with CS-N12-1: the data loader uses the global
+// fetch of Node since W4a, and Next 12 no longer brings node-fetch along)
+const RESOLVES = ['@mdi/svg', '@babel/runtime', 'yargs']
+// what each is resolved by in the build (the design's icon build reads
+// @mdi/svg's files; the Babel runtime transform emits helper requires; the
+// design's bin uses yargs)
 const PROBE = {
-  'node-fetch': 'node-fetch',
   '@mdi/svg': '@mdi/svg/package.json',
   '@babel/runtime': '@babel/runtime/helpers/interopRequireDefault',
   'yargs': 'yargs',
@@ -362,7 +363,7 @@ function resolveFrom(dir, name) {
     : { error: r.stderr.slice(0, 200) }
 }
 
-// R-054: the four packages the app uses without declaring them resolve from
+// R-054: the three packages the app uses without declaring them resolve from
 // the app root to the hoisted top-level copy, which is the lock's top-level
 // entry
 function resolveViolations(lock, dir) {

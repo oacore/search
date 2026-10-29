@@ -7,7 +7,7 @@
 #   c3  musl and gnu @next/swc-* follow the locked next (none at Next 10), the binary this platform needs is
 #       installed (sharp musl from 15);
 #   c4  @oacore/design 5.0.74 with integrity sha512-kwYolSk… (until DV9);
-#   c5  node-fetch, @mdi/svg, @babel/runtime and yargs resolve from the app root.
+#   c5  @mdi/svg, @babel/runtime and yargs resolve from the app root (node-fetch until W4a, CS-N12-1).
 # The checks are test/static/lib/P0-16/install-checks.js (the same code as test/static/t008-install.test.js,
 # which runs c1-c5 without a container).
 #
