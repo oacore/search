@@ -52,6 +52,7 @@
     "@testing-library/react": "12.1.5",
     "@testing-library/user-event": "14.6.8",
     "babel-jest": "30.5.2",
+    "cssnano-simple": "2.0.0",
     "es-check": "9.8.1",
     "eslint": "10.13.0",
     "eslint-plugin-import-x": "4.17.1",
