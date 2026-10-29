@@ -53,7 +53,7 @@ import {
   ARTIFACT_DIR,
   REPO,
   hostBuild,
-  node18,
+  runtimeNode,
   readImages,
   writeImages,
   withBuildSlot,
@@ -192,7 +192,7 @@ async function cloneBuild(tree, fault, opts, harness) {
     }
     const be = ref.rec.buildEnv
     const env = {
-      PATH: `${path.dirname(node18())}:${process.env.PATH}`,
+      PATH: `${path.dirname(runtimeNode())}:${process.env.PATH}`,
       HOME: process.env.HOME,
       TMPDIR: process.env.TMPDIR || os.tmpdir(),
       SENTRY_DSN: be.SENTRY_DSN,
@@ -684,7 +684,7 @@ function runJest(treeDir, testIds, { nextDir, projects = null } = {}) {
     ...(projects ? ['--selectProjects', ...projects] : []),
     ...(files.length ? ['--runTestsByPath', ...files] : []),
   ]
-  const r = sh(node18(), args, {
+  const r = sh(runtimeNode(), args, {
     cwd: treeDir,
     env: {
       ...process.env,

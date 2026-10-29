@@ -5,9 +5,10 @@
 // refuses to start without an existing build.
 //
 //   host mode (the only mode; never evidence for the image): git archive into
-//     $ARTIFACT_DIR/builds/<key>/ with the repo node_modules linked, `npm run build:test` on Node 18.20.8 with
-//     the parity build env, then the Dockerfile's post-build copies. No NODE_OPTIONS: from Next 12 the build needs
-//     no --openssl-legacy-provider (CS-N11-5; the Dockerfile:23 line is a deploy-time item).
+//     $ARTIFACT_DIR/builds/<key>/ with the repo node_modules linked, `npm run build:test` on the runtime Node
+//     (runtimeNode(): 24.18.1 from W4e, CS-N12-6; 18.20.8 before) with the parity build env, then the
+//     Dockerfile's post-build copies. No NODE_OPTIONS: from Next 12 the build needs no --openssl-legacy-provider
+//     (CS-N11-5; the Dockerfile:23 line is a deploy-time item).
 //   `--mode docker` refuses (Docker is out of scope, owner rule of 2026-10-22); only `--key-only` answers for it.
 //
 // Usage: node scripts/build-parity.mjs [--mode host] [--ref HEAD] [--variant default|nodsn|harness]
@@ -135,20 +136,31 @@ export function runtimeKey(
   }
 }
 
-export const node18 = () => {
-  if (process.env.NODE18_BIN) return process.env.NODE18_BIN
+const nvmNode = (version, envName) => {
+  if (process.env[envName]) return process.env[envName]
   const p = path.join(
     process.env.NVM_DIR || path.join(os.homedir(), '.nvm'),
     'versions',
     'node',
-    'v18.20.8',
+    `v${version}`,
     'bin',
     'node'
   )
   if (!fs.existsSync(p))
-    throw new Error(`Node 18.20.8 not found at ${p}; set NODE18_BIN`)
+    throw new Error(`Node ${version} not found at ${p}; set ${envName}`)
   return p
 }
+
+// the runtime Node of the app (02 §2): the parity builds, `next start` of the stacks, `next dev` of the T-728 c4
+// inventory, the fault builds and Jest. 24.18.1 from W4e (CS-N12-6, OD-05; 18.20.8 before); the image's
+// `FROM node:<v>-alpine` follows at the final deploy (20 §Deploy-time items)
+export const RUNTIME_NODE_VERSION = '24.18.1'
+export const runtimeNode = () =>
+  nvmNode(RUNTIME_NODE_VERSION, 'RUNTIME_NODE_BIN')
+
+// Node 18.20.8: the runtime of the golden commit G and the B0-local baselines (OD-05: they stay on today's Node 18,
+// 42 §4); only the baseline tools use it
+export const node18 = () => nvmNode('18.20.8', 'NODE18_BIN')
 
 const imagesFile = path.join(ARTIFACT_DIR, 'images.json')
 export const readImages = () =>
@@ -230,7 +242,7 @@ function linkNodeModules(dir) {
 }
 
 // install: 'ci' (default) = `npm ci --include=dev --legacy-peer-deps --install-links` of the ref's own lock on
-// Node 18.20.8, as the Dockerfile does (`--install-links`: from W5 the design is a `file:` directory, installed as
+// the runtime Node, as the Dockerfile does (`--install-links`: from W5 the design is a `file:` directory, installed as
 // a copy, CS-DSN-2; a no-op for the refs before it, which have no directory dependency): its .next equals the image's (a linked tree resolves packages outside the build
 // directory, which changes webpack module ids and chunk names) | 'link' = the repo node_modules linked
 // (seconds faster; never for comparisons)
@@ -291,7 +303,7 @@ export async function hostBuild({
     ])
       fs.rmSync(path.join(dir, d), { recursive: true, force: true })
     const env18 = variantEnv(variant)
-    const bin = node18()
+    const bin = runtimeNode()
     if (install === 'ci') {
       // Dockerfile: the ENV of :10-15 is set while npm ci runs; NODE_ENV only afterwards
       const ciEnv = {

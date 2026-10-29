@@ -1,5 +1,5 @@
 // T-108 (41 B, R-010, R-031, R-042): everything that depends on the runtime's
-// time zone and ICU data, on the Node that runs Jest (18.20.8: ICU 74.2).
+// time zone and ICU data, on the Node that runs Jest (24.18.1: ICU 78.3).
 //   c1 formatDate (utils/helpers.js, findings/06 §3.5) in UTC, America/New_York
 //      and Asia/Tokyo. process.env.TZ assigned in a Jest test does not reach
 //      the real process, so every zone is a child process started with TZ set.

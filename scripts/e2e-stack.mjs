@@ -14,7 +14,8 @@
 //   test    --run <id> [--visual] [--record [--provisional]] [playwright args...]
 //
 // `--mode docker` refuses (Docker is out of scope, owner rule of 2026-10-22).
-// host mode (never evidence, manifest §5.3): next start of the host build on Node 18.20.8, the SSR stub and
+// host mode (never evidence, manifest §5.3): next start of the host build on the runtime Node (24.18.1 from
+// W4e, runtimeNode() of scripts/build-parity.mjs; 18.20.8 before), the SSR stub and
 // e2e/proxy/node-proxy.mjs as host processes; other outbound hosts reach the stub via test/ssr/host-redirect.cjs.
 import fs from 'node:fs'
 import net from 'node:net'
@@ -27,7 +28,7 @@ import {
   PORT_STRIDE,
   PORT_OFFSETS,
 } from '../e2e/fixtures/constants.mjs'
-import { ARTIFACT_DIR, REPO, findBuild, node18 } from './build-parity.mjs'
+import { ARTIFACT_DIR, REPO, findBuild, runtimeNode } from './build-parity.mjs'
 
 const SELF = fileURLToPath(import.meta.url)
 const SLOTS = path.join(ARTIFACT_DIR, 'slots')
@@ -377,7 +378,7 @@ async function superviseHost(opts) {
     })
     state.appEnv = env
     save()
-    const bin = node18()
+    const bin = runtimeNode()
     start(
       'app',
       bin,

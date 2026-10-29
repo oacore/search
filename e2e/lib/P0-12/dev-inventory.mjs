@@ -5,7 +5,8 @@
 //   1. copies HEAD with `git archive` into $ARTIFACT_DIR/dev-inventory/tree (never a worktree; the repository
 //      is never touched), with node_modules and public/ cloned from the run's parity build (the Dockerfile
 //      copies of public/ included);
-//   2. starts `next dev` on Node 18.20.8 (no --openssl-legacy-provider from Next 12, CS-N11-5) and the
+//   2. starts `next dev` on the runtime Node (24.18.1 from W4e, runtimeNode() of scripts/build-parity.mjs;
+//      18.20.8 before; no --openssl-legacy-provider from Next 12, CS-N11-5) and the
 //      prod runtime env of the run, SSR traffic sent to the run's stub (test/ssr/host-redirect.cjs), and checks
 //      Q-052 c1: without the patch the dev server answers an empty #__next;
 //   3. applies test/hydration/dev-ssr.patch (NextApp = App) with `git apply` in the copy, restarts next dev,
@@ -61,7 +62,8 @@ if (!RUN) {
 const { guardContext } = await import('../../fixtures/guard.mjs')
 const { COOKIE_STATES, LOCALE } = await import('../../fixtures/constants.mjs')
 const { createResolver } = await import('../../../test/fixtures/resolve.mjs')
-const { node18 } = await import('../../../scripts/build-parity.mjs')
+const { node18, runtimeNode } =
+  await import('../../../scripts/build-parity.mjs')
 
 const ARTIFACT_DIR = process.env.ARTIFACT_DIR
 if (!ARTIFACT_DIR) throw new Error('ARTIFACT_DIR is not set')
@@ -192,6 +194,8 @@ const versions = {
 }
 
 // ---------- dev server and proxy ----------
+// next dev on the runtime Node; the proxy in front of it stays on Node 18.20.8 (startProxy)
+const RUNTIME_NODE = runtimeNode()
 const NODE18 = node18()
 const nodeOptions = `--max-old-space-size=4096 --require ${path.join(
   REPO,
@@ -203,7 +207,7 @@ const serverEnv = () => {
   const e = { ...env.appEnv }
   delete e.NODE_ENV // next dev sets development
   return {
-    PATH: `${path.dirname(NODE18)}:/usr/bin:/bin`,
+    PATH: `${path.dirname(RUNTIME_NODE)}:/usr/bin:/bin`,
     HOME: process.env.HOME,
     TZ: 'UTC',
     ...e,
@@ -216,7 +220,7 @@ async function startDev(label) {
   const out = fs.openSync(logFile, 'a')
   fs.writeSync(out, `\n===== ${label} ${new Date().toISOString()}\n`)
   const c = spawn(
-    NODE18,
+    RUNTIME_NODE,
     [
       path.join(TREE, 'node_modules', 'next', 'dist', 'bin', 'next'),
       'dev',
@@ -576,7 +580,9 @@ try {
       copy: 'git archive HEAD (no worktree)',
     },
     runtime: {
-      node: execFileSync(NODE18, ['--version'], { encoding: 'utf8' }).trim(),
+      node: execFileSync(RUNTIME_NODE, ['--version'], {
+        encoding: 'utf8',
+      }).trim(),
       nodeOptions,
       next: versions.next,
       react: versions.react,

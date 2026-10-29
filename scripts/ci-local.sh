@@ -8,14 +8,15 @@
 #          lookups are never made here), the fixture scrub check (40 §6: no secret or contact data in the
 #          committed fixtures, SHA256SUMS); the dependency audit gate only with CI_LOCAL_AUDIT=1 (it asks the
 #          registry; reported, blocking only with AUDIT_BLOCKING=true)
-#   unit   Jest node + dom on the runtime Node 18.20.8, TZ=UTC, V8 coverage into $ARTIFACT_DIR/coverage/jest
+#   unit   Jest node + dom on the runtime Node 24.18.1 (from W4e; 18.20.8 before), TZ=UTC, V8 coverage into
+#          $ARTIFACT_DIR/coverage/jest
 #   image  on the parity build of HEAD and its twin (`--suffix ci-b`, T-014 (a)): test:harness and the browser
 #          targets; layer A, the whole static project, on the first build's .next; T-008 on its installed
 #          tree; T-901 (host); the T-721 negative control
 #   e2e    tiers G-I on the host build: chromium + wire in one invocation, visual (all but T-802) in its own,
 #          the CS-OPS-1 overlay stack (T-604, T-702), the harness-variant stack (T-802); the variant without a
 #          Sentry DSN must exist too (T-608 c2 starts a stack of its own on it)
-#   ops    the ops tier: Jest ops project (T-902, T-903, T-904, T-908) on Node 18.20.8, then T-907 c2 and the
+#   ops    the ops tier: Jest ops project (T-902, T-903, T-904, T-908) on the runtime Node, then T-907 c2 and the
 #          c1/c3 rehearsal (Playwright ops project) on a stack of the parity build of HEAD
 #   gate   all five jobs green; only evaluated when lint, unit, image, e2e and ops all ran in this call
 # The builds are made beforehand and only reused here (owner notes section 0, lean: an APFS clone of the
@@ -40,9 +41,10 @@ cd "$repo"
 export ARTIFACT_DIR="${ARTIFACT_DIR:-$repo/../search-upgrade-artifacts}"
 export NEXT_TELEMETRY_DISABLED=1
 . "${NVM_DIR:-$HOME/.nvm}/nvm.sh" >/dev/null
-node18="$(nvm which 18.20.8)"
+# the runtime Node of Jest, the builds and the app (RUNTIME_NODE_VERSION of scripts/build-parity.mjs, 02 §2)
+noderun="$(nvm which 24.18.1)"
 node24="$(nvm which 24)"
-dir18="$(dirname "$node18")"
+dirrun="$(dirname "$noderun")"
 export PATH="$(dirname "$node24"):$PATH"
 jobs=("$@")
 [ ${#jobs[@]} -eq 0 ] && jobs=(lint unit image e2e ops gate)
@@ -133,7 +135,7 @@ job_lint() {
 
 # ---------- unit ----------
 job_unit() {
-  step "Jest, node and dom projects, V8 coverage (C3)" env PATH="$dir18:$PATH" TZ=UTC npm run test:unit -- --ci --coverage --coverageProvider=v8 \
+  step "Jest, node and dom projects, V8 coverage (C3)" env PATH="$dirrun:$PATH" TZ=UTC npm run test:unit -- --ci --coverage --coverageProvider=v8 \
     --coverageReporters=json --coverageDirectory="$ARTIFACT_DIR/coverage/jest"
 }
 
@@ -150,9 +152,9 @@ job_image() {
   echo "image build $a_key at $a_dir; twin at $b_dir"
   step "Harness self-tests (T-012, T-612 YAML, SSR stub)" npm run test:harness || return 1
   step "Browser targets equal the committed copy (CS-W0-10)" bash -c 'npx browserslist | diff - test/static/fixtures/browserslist.txt' || return 1
-  step "Layer A on the image .next, runtime Node (T-002 .. T-018)" env PATH="$dir18:$PATH" NEXT_DIR="$a_dir/.next" APP_ROOT="$a_dir" \
+  step "Layer A on the image .next, runtime Node (T-002 .. T-018)" env PATH="$dirrun:$PATH" NEXT_DIR="$a_dir/.next" APP_ROOT="$a_dir" \
     NEXT_DIR_A="$a_dir/.next" NEXT_DIR_B="$b_dir/.next" npm run test:static || return 1
-  step "T-008 on the installed tree (host equivalent of the alpine arm64 container)" env PATH="$dir18:$PATH" bash test/ops/t008.sh --tree "$a_dir" || return 1
+  step "T-008 on the installed tree (host equivalent of the alpine arm64 container)" env PATH="$dirrun:$PATH" bash test/ops/t008.sh --tree "$a_dir" || return 1
   stacks+=("$id-t901")
   step "T-901, the container contract (host equivalent)" bash test/ops/t901.sh --host --build "$a_key" --run "$id-t901" || return 1
   stacks+=("$id-t721")
@@ -191,7 +193,7 @@ job_e2e() {
 # ---------- ops ----------
 job_ops() {
   local id="ci-local-$stamp-ops" rc=0
-  step "Jest ops project (T-902, T-903, T-904, T-908)" env PATH="$dir18:$PATH" TZ=UTC npm run -s test:ops -- --ci || rc=1
+  step "Jest ops project (T-902, T-903, T-904, T-908)" env PATH="$dirrun:$PATH" TZ=UTC npm run -s test:ops -- --ci || rc=1
   step "Parity build of HEAD" need_build - || return 1
   stacks+=("$id")
   if step "Stack" node scripts/e2e-stack.mjs up --run "$id"; then

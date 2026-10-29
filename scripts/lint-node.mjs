@@ -1,7 +1,7 @@
 // lint-node.mjs - the Node the lint tools run on (W1). ESLint 10 and stylelint 17 need Node >= 20.19 and
 // lint-staged 17 >= 22.22.1; they run on the tooling Node (24: .nvmrc and the devEngines floor of package.json,
-// CS-W0-5), while Jest and the app stay on the runtime Node (18.20.8 until jump 2). A lint script started on an
-// older Node (the static Jest project, for one) runs itself again on the tooling Node.
+// CS-W0-5), while Jest and the app stay on the runtime Node (24.18.1 from W4e; 18.20.8 before). A lint script
+// started on an older Node (the static Jest project before W4e, for one) runs itself again on the tooling Node.
 // The tooling Node: LINT_NODE_BIN if set, else the running Node when it meets the floor, else the newest
 // $NVM_DIR/versions/node/v<major>.* that meets it.
 

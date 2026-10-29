@@ -11,7 +11,7 @@ import { spawn } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
-const { node18 } = await import(path.join(HERE, '..', '..', 'scripts', 'build-parity.mjs'))
+const { runtimeNode } = await import(path.join(HERE, '..', '..', 'scripts', 'build-parity.mjs'))
 
 const PRELOAD = `// seeded-fault probe: raise a fatal condition on SIGUSR2
 process.on('SIGUSR2', () => {
@@ -50,7 +50,7 @@ export async function crashProbe(env, kind, { settleMs = 5000 } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'fault-crash-'))
   const preload = path.join(dir, 'preload.cjs')
   fs.writeFileSync(preload, PRELOAD)
-  const bin = node18()
+  const bin = runtimeNode()
   const child = spawn(
     bin,
     [
