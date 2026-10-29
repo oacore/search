@@ -542,6 +542,7 @@
   step: W2b
   signedOffBy: 'SIGNED: owner, 2026-10-29 (approved in the work session)'
   date: '2026-10-29'
+  withdrawn: 'signature date given as 2026-10-29 by mistake; the message of the owner came on 2026-10-28; re-added as AD-052, 2026-10-29'
 - id: AD-051
   kind: product
   test: T-730
@@ -553,3 +554,26 @@
   step: W2b
   signedOffBy: 'SIGNED: owner, 2026-10-29 (approved in the work session)'
   date: '2026-10-29'
+  withdrawn: 'signature date given as 2026-10-29 by mistake; the message of the owner came on 2026-10-28; re-added as AD-053, 2026-10-29'
+- id: AD-052
+  kind: product
+  test: T-727
+  key: "CSP_CONNECT (e2e/lib/P1-05/crash.mjs, read by T-716 c3 and T-727; e2e/journeys/t730-blank-pages.spec.mjs, read by T-730)"
+  from: "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com"
+  to: "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com"
+  reason: "T-727 (works, outputs, @wire): the connect-src directive Chromium quotes in the first console line of a blocked Sentry report, from the constant CSP_CONNECT of e2e/lib/P1-05/crash.mjs that T-716 c3 also reads. CS-LR-2. The same change as AD-035, which names T-716 only (one test per row); this row records it for T-727 with AD-035's exact key, from and to, so a reader filtering by test id finds it (owner decision 1 after jump 1, records/jump-1.md section 11). No assertion change; the Sentry URL of the same lines is AD-024."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
+- id: AD-053
+  kind: product
+  test: T-730
+  key: "CSP_CONNECT (e2e/lib/P1-05/crash.mjs, read by T-716 c3 and T-727; e2e/journeys/t730-blank-pages.spec.mjs, read by T-730)"
+  from: "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com"
+  to: "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com"
+  reason: "T-730 (q074a..q074e): the connect-src directive Chromium quotes in the first console line of a blocked Sentry report, from the constant CSP_CONNECT of e2e/journeys/t730-blank-pages.spec.mjs. CS-LR-2. The same change as AD-035, which names T-716 only (one test per row); this row records it for T-730 with AD-035's exact key, from and to, so a reader filtering by test id finds it (owner decision 1 after jump 1, records/jump-1.md section 11). No assertion change; the Sentry URL of the same lines is AD-026."
+  ref: [R-026, OD-39, OD-31]
+  step: W2b
+  signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
+  date: '2026-10-28'
