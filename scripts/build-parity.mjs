@@ -6,7 +6,8 @@
 //
 //   host mode (the only mode; never evidence for the image): git archive into
 //     $ARTIFACT_DIR/builds/<key>/ with the repo node_modules linked, `npm run build:test` on Node 18.20.8 with
-//     the parity build env and NODE_OPTIONS=--openssl-legacy-provider, then the Dockerfile's post-build copies.
+//     the parity build env, then the Dockerfile's post-build copies. No NODE_OPTIONS: from Next 12 the build needs
+//     no --openssl-legacy-provider (CS-N11-5; the Dockerfile:23 line is a deploy-time item).
 //   `--mode docker` refuses (Docker is out of scope, owner rule of 2026-10-22); only `--key-only` answers for it.
 //
 // Usage: node scripts/build-parity.mjs [--mode host] [--ref HEAD] [--variant default|nodsn|harness]
@@ -339,7 +340,6 @@ export async function hostBuild({
       BUILD_TARGET: 'azure',
       APP_ENV: env18.APP_ENV,
       NODE_ENV: 'production',
-      NODE_OPTIONS: '--openssl-legacy-provider',
       NEXT_TELEMETRY_DISABLED: '1',
     }
     const started = Date.now()
@@ -378,7 +378,6 @@ export async function hostBuild({
         ...env18,
         BUILD_TARGET: 'azure',
         NODE_ENV: 'production',
-        NODE_OPTIONS: '--openssl-legacy-provider',
       },
       builtAt: new Date().toISOString(),
       durationS: Math.round((Date.now() - started) / 1000),
