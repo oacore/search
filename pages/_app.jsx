@@ -1,10 +1,12 @@
 import React, {
   Component as ReactComponent,
   useCallback,
+  useContext,
   useEffect,
   useState,
 } from 'react'
 import { useRouter } from 'next/router'
+import { HeadManagerContext } from 'next/dist/shared/lib/head-manager-context'
 import { CookiesProvider } from '@oacore/design'
 import LogRocket from 'logrocket'
 
@@ -41,6 +43,32 @@ class ErrorBoundary extends ReactComponent {
   render() {
     const { children } = this.props
     return children
+  }
+}
+
+// Next 12.3 applies the head elements synchronously inside a React effect
+// (next/dist/shared/lib/side-effect.js), so an error of the head manager
+// reaches ErrorBoundary above, which then renders nothing: a page whose JSON-LD
+// drops the next-head-count meta (S-4) went blank. Next 10.2.3 applied them in
+// a promise, outside React, and the page stayed. Keep that: the error leaves
+// the effect as a rejected promise, as it did then (CS-N12-12).
+const guardedHeadManagers = new WeakSet()
+const useHeadErrorsOutsideReact = () => {
+  const headManager = useContext(HeadManagerContext)
+  if (
+    typeof window === 'undefined' ||
+    typeof headManager?.updateHead !== 'function' ||
+    guardedHeadManagers.has(headManager)
+  )
+    return
+  guardedHeadManagers.add(headManager)
+  const { updateHead } = headManager
+  headManager.updateHead = (head) => {
+    try {
+      updateHead.call(headManager, head)
+    } catch (error) {
+      Promise.reject(error)
+    }
   }
 }
 
@@ -86,6 +114,7 @@ const App = ({
   router: approuter,
 }) => {
   const router = useRouter()
+  useHeadErrorsOutsideReact()
 
   if (process.env.NODE_ENV === 'production')
     LogRocket.init('cab1al/search-gfe6o')
