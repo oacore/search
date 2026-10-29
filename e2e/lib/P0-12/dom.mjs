@@ -126,11 +126,14 @@ export function serializeBodyInPage({ buildId, long }) {
   )
 }
 
-// MutationObserver init script (runs before any page script): it records nothing until the parser inserts
-// the first script loaded from /_next/static/ (by then #__next and __NEXT_DATA__ are fully parsed), then
-// every mutation under <body> with the DOM path of its target. Parser insertions of the remaining Next
-// script elements and anything inside a Next-owned script are not app mutations and are left out.
-// window.__p012.lastMutationAt feeds the settle check.
+// MutationObserver init script (runs before any page script): it records nothing until the server markup is
+// parsed, then every mutation under <body> with the DOM path of its target. Next 10 writes its scripts at the
+// end of <body>: the parser's insertion of the first script loaded from /_next/static/ inside <body> marks the
+// point (by then #__next and __NEXT_DATA__ are fully parsed). Next 12 writes them as deferred scripts in
+// <head>, which run once parsing is done: there the point is the end of parsing (readyState `interactive`,
+// before any deferred script runs), and the parser's records still queued then are dropped. Parser insertions
+// of the remaining Next script elements and anything inside a Next-owned script are not app mutations and are
+// left out. window.__p012.lastMutationAt feeds the settle check.
 export function moInitScript() {
   const s = (window.__p012 = {
     armed: false,
@@ -182,6 +185,7 @@ export function moInitScript() {
       if (!s.armed) {
         if (
           m.type === 'childList' &&
+          inBody(m.target) &&
           Array.from(m.addedNodes).some(isChunkScript)
         )
           s.armed = true
@@ -216,6 +220,11 @@ export function moInitScript() {
     childList: true,
     attributes: true,
     characterData: true,
+  })
+  document.addEventListener('readystatechange', () => {
+    if (document.readyState !== 'interactive' || s.armed) return
+    mo.takeRecords()
+    s.armed = true
   })
 }
 
