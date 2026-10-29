@@ -14,9 +14,9 @@
 #       The image path (a container of the image with `--memory 768m`). Disabled: Docker is out of scope
 #       (owner rule of 2026-10-22), so this path always refuses (DEFERRED, exit 3); it has never been run.
 #   bash test/ops/t901.sh --host [--build <key of $ARTIFACT_DIR/images.json>] [--run <id>]
-#       Local mode: the same spec against the `next start` process of a host parity build (Node 18.20.8) behind
-#       the Node proxy, with the clauses only a container can answer replaced by their host equivalents (see the
-#       header of the spec). Not evidence for the image.
+#       Local mode: the same spec against the `next start` process of a host parity build (the runtime Node,
+#       24.18.1 from W4e; 18.20.8 before) behind the Node proxy, with the clauses only a container can answer
+#       replaced by their host equivalents (see the header of the spec). Not evidence for the image.
 # Run with the tooling Node (24). Exit 0 only if every test is green.
 set -euo pipefail
 set +x

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // merge-coverage.mjs - C3 coverage (55 C3; 40 §10 `npm run coverage` = `node scripts/merge-coverage.mjs`, on the
 // tooling Node 24). Merged V8 coverage of the app from three sources:
-//   jest     Jest's V8 coverage of the `node` and `dom` projects (runtime Node 18.20.8, TZ=UTC, as test:unit runs)
+//   jest     Jest's V8 coverage of the `node` and `dom` projects (runtime Node 24.18.1 from W4e, TZ=UTC, as
+//            test:unit runs)
 //   browser  Chromium `page.coverage` of every page the Playwright tiers open (chromium, wire, visual projects)
 //   server   NODE_V8_COVERAGE of `next start` (the app process of the e2e stack, on the build of --ref)
 // Browser and server coverage are of webpack bundles; they are mapped to the app sources through the build's
@@ -55,7 +56,7 @@ import crypto from 'node:crypto'
 import { spawnSync, execFileSync } from 'node:child_process'
 import { createRequire } from 'node:module'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { ARTIFACT_DIR, REPO, findBuild, node18 } from './build-parity.mjs'
+import { ARTIFACT_DIR, REPO, findBuild, runtimeNode } from './build-parity.mjs'
 
 const requireRoot = createRequire(path.join(REPO, 'package.json'))
 export const APP_DIRS = [
@@ -448,7 +449,7 @@ function collect(o) {
     fs.rmSync(dir, { recursive: true, force: true })
     fs.mkdirSync(dir, { recursive: true })
     const code = run(
-      node18(),
+      runtimeNode(),
       [
         path.join(REPO, 'node_modules', 'jest', 'bin', 'jest.js'),
         '--selectProjects',
@@ -469,7 +470,7 @@ function collect(o) {
       // T-014 (a) compares two builds of one tree: the build of --ref and its rebuild (`<key>-vf09`, VF-09)
       const twin = `${o.build.dir}-vf09`
       const scode = run(
-        node18(),
+        runtimeNode(),
         [
           path.join(REPO, 'node_modules', 'jest', 'bin', 'jest.js'),
           '--selectProjects',

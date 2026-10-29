@@ -15,7 +15,7 @@
 //       cookie state), each vs its capture; Q-050 (dates: SSR in UTC, patched to browser-local). Tagged
 //       @engines: WebKit and Firefox run it in the runner container only (DEFERRED in local mode).
 //   c4  the React-17 dev inventory (40 §4 item 1): e2e/lib/P0-12/dev-inventory.mjs applies
-//       test/hydration/dev-ssr.patch in a git-archive copy, runs next dev on Node 18 against this stack's stub,
+//       test/hydration/dev-ssr.patch in a git-archive copy, runs next dev on runtime Node 24 against this stack's stub,
 //       sweeps routes x fixtures x TZ x cookie state and writes $ARTIFACT_DIR/hydration-dev-r17.json; the test
 //       checks that output: current tree and patch, full sweep, every warning mapped to a Q row of 30 (or an
 //       open issue), Q-052 c1 (dev without the patch serves an empty #__next).
@@ -197,7 +197,7 @@ for (const route of T728_ROUTES) {
         route.id.startsWith('display') ? 0 : 1
       )
     }
-    // Q-093: region text of the server ICU (Node 18.20.8) replaced by the browser's (Chromium 156)
+    // Q-093: region text of the server ICU (Node 24.18.1, ICU 78.3) replaced by the browser's (Chromium 156)
     if (route.id === 'provider-86-hk' && browserName === 'chromium') {
       expect(textLines(nojs.lines, /^"Hong Kong/)).toEqual([
         '"Hong Kong SAR China"',

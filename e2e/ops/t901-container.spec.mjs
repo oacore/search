@@ -24,7 +24,7 @@
 //       requests complete": that does not hold today and is pinned as it is (issue P0-16-3). The comparison of
 //       the exit time with B0 starts when B0 exists
 //   c8  time to ready (process start to the first /api/healthz/) is recorded; bound: the startup probe budget
-//   c9  keepAliveTimeout, headersTimeout (and requestTimeout, timeout) are recorded: Node 18's defaults today
+//   c9  keepAliveTimeout, headersTimeout (and requestTimeout, timeout) are recorded: the runtime Node 24's defaults
 // Records go to $ARTIFACT_DIR/t901/ (and T901_RECORD); test/baseline/t901.json, when it exists (B0, 2.5), is the
 // reference of the comparisons in c7 and c8.
 import fs from 'node:fs'
@@ -370,7 +370,7 @@ test.describe('T-901 process contract', () => {
     } else note('b0', `no B0 yet: readyMs ${first.uptimeMs} recorded`)
   })
 
-  test('T-901 c9 @P0 keepAliveTimeout and headersTimeout are recorded: Node 18 defaults', async ({
+  test('T-901 c9 @P0 keepAliveTimeout and headersTimeout are recorded: Node 24 defaults', async ({
     request,
   }) => {
     const l = eventOf('listening')
@@ -381,8 +381,8 @@ test.describe('T-901 process contract', () => {
       requestTimeout: l.requestTimeout,
       timeout: l.timeout,
     }
-    // Next 10's `next start` sets none of them; the values are the runtime Node's own (18.20.8)
-    expect(l.node).toMatch(/^v18\./)
+    // `next start` sets none of them (10.2.3 to 12.3.7); the values are the runtime Node's own (24.18.1)
+    expect(l.node).toMatch(/^v24\./)
     expect(l.keepAliveTimeout).toBe(5000)
     expect(l.headersTimeout).toBe(60000)
     expect(l.requestTimeout).toBe(300000)

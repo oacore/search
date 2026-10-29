@@ -11,7 +11,7 @@
 # The checks are test/static/lib/P0-16/install-checks.js (the same code as test/static/t008-install.test.js,
 # which runs c1-c5 without a container).
 #
-#   bash test/ops/t008.sh [--ref <git ref>] [--image node:18-alpine[@sha256:<index digest>]]
+#   bash test/ops/t008.sh [--ref <git ref>] [--image node:24-alpine[@sha256:<index digest>]]
 #       Docker mode: `git archive <ref>` (package.json, package-lock.json, design.config.js and the checks) is
 #       mounted read-only into the image, installed in /app and verified there. The GitHub Packages token comes
 #       from the user npm config, is passed by name only (-e NPM_TOKEN), is written
@@ -19,8 +19,8 @@
 #       scope (owner rule of 2026-10-22), so this path always refuses (DEFERRED, exit 3).
 #   bash test/ops/t008.sh --tree <dir> [--lock-only]
 #       Local rehearsal, no container: the same checks on an installed tree (or, with --lock-only, on the
-#       package.json and package-lock.json of <dir>). Run with the runtime Node (18.20.8). Not evidence for
-#       the alpine arm64 claim.
+#       package.json and package-lock.json of <dir>). Run with the runtime Node (24.18.1 from W4e; 18.20.8
+#       before). Not evidence for the alpine arm64 claim.
 # Output: the JSON report of the checks on stdout (and under $ARTIFACT_DIR/t008/ in Docker mode); exit 0 only
 # if every check holds.
 set -euo pipefail
@@ -29,7 +29,7 @@ set +x
 repo="$(cd "$(dirname "$0")/../.." && pwd)"
 checks="test/static/lib/P0-16/install-checks.js"
 ref=HEAD
-image="${T008_IMAGE:-node:18-alpine}"
+image="${T008_IMAGE:-node:24-alpine}"
 tree=""
 lock_only=()
 while [ $# -gt 0 ]; do
@@ -46,8 +46,8 @@ done
 if [ -n "$tree" ]; then
   [ -f "$tree/package.json" ] && [ -f "$tree/package-lock.json" ] || { echo "T-008: $tree has no package.json and package-lock.json" >&2; exit 2; }
   case "$(node -p 'process.versions.node')" in
-    18.*) ;;
-    *) echo "T-008: Node $(node -v), not the runtime Node 18: the strict-mode npm ls problems may differ" >&2 ;;
+    24.*) ;;
+    *) echo "T-008: Node $(node -v), not the runtime Node 24: the strict-mode npm ls problems may differ" >&2 ;;
   esac
   exec node "$repo/$checks" --verify-tree "$tree" ${lock_only[@]+"${lock_only[@]}"}
 fi

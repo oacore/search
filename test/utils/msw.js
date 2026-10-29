@@ -29,6 +29,18 @@ const resolverHandler = (resolver) =>
     })
   })
 
+// The url of a mocked response as Node's own fetch has it: msw puts the request
+// url into undici's internal state where it can reach it (Node 18), and else
+// (Node 24, whose undici keeps that state in private fields) defines an own
+// enumerable `url`, which `JSON.stringify` then writes ({"url": ...}) where a
+// real Response gives {} (T-504 c5, T-102 c2). Same value, not enumerable.
+const realUrl = (response) => {
+  const own = response && Object.getOwnPropertyDescriptor(response, 'url')
+  if (own && own.enumerable)
+    Object.defineProperty(response, 'url', { ...own, enumerable: false })
+  return response
+}
+
 const setupMsw = ({
   root = path.join(__dirname, '..', 'fixtures'),
   handlers = [],
@@ -36,7 +48,11 @@ const setupMsw = ({
 } = {}) => {
   const resolver = createResolver({ root, linkOrigin })
   const server = setupServer(...handlers, resolverHandler(resolver))
-  beforeAll(() => server.listen({ onUnhandledRequest: 'error' }))
+  beforeAll(() => {
+    server.listen({ onUnhandledRequest: 'error' })
+    const intercepted = global.fetch
+    global.fetch = async (...args) => realUrl(await intercepted(...args))
+  })
   afterEach(() => server.resetHandlers())
   afterAll(() => server.close())
   return { server, resolver, http, HttpResponse, passthrough }

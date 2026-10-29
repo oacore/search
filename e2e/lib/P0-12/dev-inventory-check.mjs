@@ -85,8 +85,9 @@ export function checkInventory(inv) {
     problems.push(
       'the inventory was made with another dev-ssr.patch: run it again'
     )
-  if (!/^v18\./.test(inv.runtime.node))
-    problems.push('next dev must run on Node 18')
+  // the runtime Node (24 from W4e, CS-N12-6; 18 before)
+  if (!/^v24\./.test(inv.runtime.node))
+    problems.push('next dev must run on the runtime Node 24')
   if (/--openssl-legacy-provider/.test(inv.runtime.nodeOptions))
     problems.push(
       'NODE_OPTIONS must not carry --openssl-legacy-provider (CS-N11-5: no local build or dev path sets it from Next 12)'
