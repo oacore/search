@@ -1298,4 +1298,4 @@ f49805416a51593f1f91ecb4599b845139993fa67fa971d508956c4cbf01dd6a  test/unit/desi
 f3385ac93f9fd2661ad88ec03fe8fbdc96c389de63bb381a8f3aacce28dd2d40  test/unit/design/lib/P0-07/reference/Select.json
 26c25f6dd7ca4b04c0ad0e8577f2218291559aa1e7a8faac22c302e095a4b4e8  test/unit/design/lib/P0-07/reference/TextField.json
 6d45b05fcc95f0d289de9bab323760226304237317e5048535575edd8a3195dd  test/unit/store/__baseline__/t203-reactivity.json
-088ceb2569ff2d62886b5b4197ba9037afd20b0c27456aa01b829aa1c5c9b6e8  test/baseline/manifest.json
+c64d955321a05bb5a3cd05e42cb6dec6003f2e387c5a6209caabb8b639703846  test/baseline/manifest.json
