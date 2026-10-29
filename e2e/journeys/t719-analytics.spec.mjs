@@ -1,6 +1,7 @@
 // T-719 (41, J17; R-026, R-041; Q-059, Q-071, Q-096): analytics per cookie state. The guard answers
 // https://www.googletagmanager.com/gtag/js with an empty script and aborts-and-counts LogRocket, so the page's
-// `window.dataLayer` holds exactly what react-ga4 2.1.0 pushed (e2e/lib/P0-15/analytics.mjs).
+// `window.dataLayer` holds exactly what react-ga4 pushed (2.1.0; 3.0.1 from W4c.2, the same pushes;
+// e2e/lib/P0-15/analytics.mjs).
 //   c1  0 gtag.js / dataLayer hits before consent (absent, essential), 1 `config` hit on a consented hard load,
 //       0 on client navigation (the `send({hitType:'search'})` call is a no-op that warns once per load and per
 //       route change, Q-071); consent given on a page applies at the next load (Q-059, Q-070).
@@ -51,7 +52,7 @@ const Q074A = '/works/7401/' // output with doi null: the page hydrates into an 
 const CONSENTED = (state) => state === 'essential+analytics'
 const slug = (state) => state.replace('+', '-')
 
-// the reference dataLayer per cookie state (react-ga4 2.1.0 `initialize`: `js` with the load time, then
+// the reference dataLayer per cookie state (react-ga4 2.1.0 and 3.0.1 `initialize`: `js` with the load time, then
 // `config`; nothing else is ever pushed, Q-071)
 const REFERENCE = {
   'absent': [],

@@ -1,6 +1,7 @@
 // P0-15 third-party views of one page (T-719, T-720, T-740; 40 §2.4 browser-host table). What the app does
 // today, per 30 Q-059, Q-070, Q-071, Q-096 and 10 R-026, R-041:
-//   GA        react-ga4 2.1.0 loads https://www.googletagmanager.com/gtag/js?id=<GA_TRACKING_CODE> and pushes
+//   GA        react-ga4 (2.1.0; 3.0.1 from W4c.2, the same calls) loads
+//             https://www.googletagmanager.com/gtag/js?id=<GA_TRACKING_CODE> and pushes
 //             `js` and `config` once, only when `analytics_cookies_allowed` was set at mount (hooks/use-analytics.js).
 //             The guard answers gtag.js with an empty script, so `window.dataLayer` keeps every pushed entry.
 //   LogRocket `LogRocket.init` on every App render in production loads https://cdn.logr-in.com/logger-1.min.js
