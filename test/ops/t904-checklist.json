@@ -111,7 +111,7 @@
       ],
       "expect": [
         "The session exists and replays the pages visited",
-        "No Content-Security-Policy violation for a LogRocket host (a newer LogRocket uses the logr-in.com hosts that the policy does not list, R-026)"
+        "No Content-Security-Policy violation for a LogRocket host (since W2b the policy lists the logr-in.com hosts that a newer LogRocket uses, CS-LR-2, R-026)"
       ],
       "evidence": {
         "kind": "link",

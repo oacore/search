@@ -1261,7 +1261,7 @@ b6760258399b23f7395c5e13e58f40322c17b9dbc3a4ac95d726037e83e2b8c6  e2e/visual/t80
 61ffb5ebfed85bca4086b7f6e4c7d8fd3f2a2c2cac4e453ed1c8639737b21261  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-layers-visual-darwin.json
 7d6445d7a6a12d31dcf8a139d750ad78648b4b337bf47492858ffa7668760d77  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-probes-1440-visual-darwin.json
 ae2aa9b62fa8f4878ec2e84caf292c234ccdc5f77b4e3412e88f25d329c3f39f  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-probes-375-visual-darwin.json
-47c75a020c41099af5f4c3818e644d5b06009bb7fc78d78fdd2993dc75e59a4e  test/baseline/ACCEPTED-DIFFS.yml
+f14075231aaa303439eab9f18a77e6c338aace4c2a3d6e0b7f02d88b171d29a9  test/baseline/ACCEPTED-DIFFS.yml
 cd1877606e52a83d605d02d4efa4ed2bfc7abe89c571959e821a681fd9a440ad  test/baseline/base-npm-ls-omit-dev.json
 039e1d937bf297e2259f7761c370bbbbdcfbf30f023added8aa3f5be9aa0054b  test/baseline/env.json
 f619edf192409fefc26b3dac8bbc957cc3d90805e413fc22342cc26e3d113bd8  test/baseline/npm-ls-all.json
@@ -1298,4 +1298,4 @@ f49805416a51593f1f91ecb4599b845139993fa67fa971d508956c4cbf01dd6a  test/unit/desi
 f3385ac93f9fd2661ad88ec03fe8fbdc96c389de63bb381a8f3aacce28dd2d40  test/unit/design/lib/P0-07/reference/Select.json
 26c25f6dd7ca4b04c0ad0e8577f2218291559aa1e7a8faac22c302e095a4b4e8  test/unit/design/lib/P0-07/reference/TextField.json
 6d45b05fcc95f0d289de9bab323760226304237317e5048535575edd8a3195dd  test/unit/store/__baseline__/t203-reactivity.json
-a1310b4adb94f8a033c46d30caf75e18a0ba263b7bba7b577b5f60bd1e10700f  test/baseline/manifest.json
+e163fb3df2ff19cc865d98684988f92a84c16df2c935202cf634b2918545949e  test/baseline/manifest.json
