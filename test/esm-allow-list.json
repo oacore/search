@@ -11,6 +11,7 @@
     "fast-string-width",
     "fast-string-truncated-width",
     "tagged-tag",
-    "type-fest"
+    "type-fest",
+    "react-ga4"
   ]
 }
