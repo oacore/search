@@ -202,7 +202,6 @@ async function cloneBuild(tree, fault, opts, harness) {
       BUILD_TARGET: 'azure',
       APP_ENV: be.APP_ENV,
       NODE_ENV: 'production',
-      NODE_OPTIONS: '--openssl-legacy-provider',
       NEXT_TELEMETRY_DISABLED: '1',
     }
     // the image recipe after the build script (Dockerfile copies); a faulted Dockerfile supplies its own

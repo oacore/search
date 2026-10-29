@@ -19,7 +19,7 @@ const React = require('react')
 const { renderToString } = require('react-dom/server')
 const {
   HeadManagerContext,
-} = require('next/dist/next-server/lib/head-manager-context')
+} = require('next/dist/shared/lib/head-manager-context')
 const { Header } = require('@oacore/design')
 
 const { setupMsw } = require('../../utils/msw')

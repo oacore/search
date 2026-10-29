@@ -81,6 +81,7 @@ Installed: `next` 10.2.3, `react`/`react-dom` 17.0.2. Latest: `next` 16.4.2, `re
 | postcss-custom-media; @csstools/postcss-global-data | 8.0.2; - | 12.0.3; 4.0.0 (ESM; Node ≥20.19) | 12.0.3 + 4.0.0 (W8) → removed 6.9 | TARGET | `importFrom` removed upstream; global-data replaces it |
 | postcss-extend-rule | 4.0.0 | 4.0.0 | keep → removed 6.9 | AT-LATEST | - |
 | cssnano | 4.1.11 | 9.9.0 (postcss ^8.5.29; Node ^22.22.3/^24.15; ESM) | 9.9.0 or removed (W8, decided by T-003 + T-801) | TARGET | - |
+| cssnano-simple | - (2.0.0 in the tree as a dependency of `next@10.2.3`, removed with it at W4c) | 3.0.2 (`latest`, published 2022-03-12; 2.0.0 of 2021-04-13 depends on `cssnano-preset-simple` ^2.0.0, whose only 2.x is 2.0.0 (`caniuse-lite` ^1.0.30001202, met by the pinned 1.0.30001754); peer `postcss` ^8.2.2, met by the root 8.5.32; re-resolved 2026-10-29) | 2.0.0 exact, devDependency (W4c, CS-N12-10, OD-37 A: Next 12's production CSS minimizer runs it as Next 10.2.3 did) → removed 6.9 | EXCEPTION | 3.x is Next 12's own minifier (cssnano 5 preset), whose output moves the headings (T-801 not 0 px, VF-06). Closes 6.9 (70 §3.8): the cascade 2.0.0 keeps is written as standard CSS and Next's own minifier runs (OD-37) |
 | caniuse-lite; browserslist | 1.0.30001754; 4.27.0 | 1.0.30001816; 4.29.4 | pin both at installed via `overrides`, plus Next 10's nested browserslist 4.16.6 (2.1, CS-W0-10) → latest (6.10, CS-W0-11) | EXCEPTION | lock regeneration re-resolves both and changes Babel/PostCSS output (R-065). Closes 6.10 (OD-16) |
 
 **W8 fallback.** A PostCSS plugin that cannot reach latest at 0 px stays at its installed major as an `EXCEPTION` (blocker = the failing T-003/T-801 run), closed at 6.9 when all plugins go (OD-33 P1).
@@ -165,13 +166,14 @@ Closure = packages the compiled lib and its `bin/` require (scan of `node_module
 | msw 2.15.0 | open | - | - | 6.0 (VF-07); if the re-test fails, a new OD |
 | caniuse-lite, browserslist pin | open | - | - | 6.10 |
 | PostCSS plugin fallback (only if W8 missed 0 px) | open | - | - | 6.9 |
+| cssnano-simple 2.0.0 (OD-37 A; Next 12's CSS minimizer, CS-N12-10) | open | - | - | 6.9 (70 §3.8) |
 | TypeScript 6.0.3 | open | open | - | step 6.1 `tsc` 7 CI step; plain 7.x at the step-6.10 or 7.F checkpoint (§3.6), else OD-07 DECIDED |
 | `--legacy-peer-deps`; allow-list: missing `jquery` (slick-carousel), missing `webpack` ×3 (next-images chain) | open (both) | open (`webpack` only) | - | 6.9 (`jquery`), 7.F (`webpack`, flag dropped; rule 6) |
 | Vendored: sanitize.css, svgo, yargs, cosmiconfig, deepmerge, svgstore, @mdi/svg, slick-carousel | open | - | - | 6.9 (DV7); @mdi/svg by 7.F |
 | Vendored: @babel/runtime, throttle-debounce, react-cookie, universal-cookie, d3-array, d3-scale, katex, react-markdown | open | open | - | 7.1 (DV8), 7.2.<DU>, 7.F |
 | Latest but unmaintained: next-images, @tippyjs/react, tippy.js, @popperjs/core | open | open | - | 7.2.DU-11 (tippy), 7.F |
 
-Rows closing before a gate (RTL 12.1.5, jest-dom 6.9.1, @types/node 24, react-slick) never appear. OD-37 option A (custom minimizer on `cssnano-simple` 2.0.0, [90](90-open-decisions.md)) would add a row; OD-37 must name its closing step before W4c merges.
+Rows closing before a gate (RTL 12.1.5, jest-dom 6.9.1, @types/node 24, react-slick) never appear. OD-37 option A (custom minimizer on `cssnano-simple` 2.0.0, [90](90-open-decisions.md)), the owner's choice of 2026-10-29, adds the `cssnano-simple` row above; its closing step is 6.9.
 
 ## 5. Re-resolution procedure
 

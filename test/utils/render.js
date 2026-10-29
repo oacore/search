@@ -8,7 +8,7 @@ const { act } = require('react-dom/test-utils')
 const dom = require('@testing-library/dom')
 const rtl = require('@testing-library/react')
 const userEventModule = require('@testing-library/user-event')
-const { RouterContext } = require('next/dist/next-server/lib/router-context')
+const { RouterContext } = require('next/dist/shared/lib/router-context')
 
 const { router: mockRouter } = require('../mocks/next-router')
 

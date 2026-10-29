@@ -53,7 +53,7 @@ Status lines: `OPEN (default: X)`: no owner answer, the plan runs under X. `DECI
 |OD-34|core-ui in phase 7|DECIDED|no dependency|X60.10, OQ-15|7.0|record|
 |OD-35|M7 thresholds|DECIDED|as in 55|X45.1, OQ-3|2.7|2.8|
 |OD-36|S-4 fix outside D1|DECIDED|S-4 preserved, no fix|X30.1, OQ-1|-|-|
-|OD-37|CSS minifier output|DECIDED|B: accept at 0 px|X10.5, OQ-9|W4c|AD rows|
+|OD-37|CSS minifier output|DECIDED|A: `cssnano-simple` 2.0.0 minimizer to 6.9 (2026-10-29; was B)|X10.5, OQ-9|W4c|02 §4 row; AD rows|
 |OD-38|Next `_error` page|OPEN|vendor Next 10's|X20.13|W0b|record|
 |OD-39|Framework-delta ledger|DECIDED|owner signs per step|X40.10, OQ-9|W2b|AD rows|
 |OD-40|Hydration ESCALATES|DECIDED|prove first (W5.5)|X30.6, OQ-8|W5.5|each CS-ESC PR|
@@ -177,7 +177,7 @@ Phase 2: OD-24, OD-25 and OD-28 gate 2.1-2.2 (X90.1). OD-03 and OD-32 are needed
 **DECIDED (2026-10-20, owner in chat): S-4 is preserved like any quirk and stays pinned by T-602 (fixture 1004, sandboxed browser) and T-113; no fix in this track; D16 and CS-SEC-1 WITHDRAWN.** Existing production defects are not this track's concern unless they directly affect the plan (00 §6). Was: DECIDED (OQ-1): a `security` PR, CS-SEC-1, escaping `<` in JSON-LD before the 2.5 baselines (D16); now option B. A fix belongs to a later, separate track (like OD-23).
 
 ### OD-37 CSS minifier output
-**DECIDED (2026-10-20, owner confirmed the recommended defaults): B, accept the Next ≥11 minifier output only if T-801 is 0 px on all three engines (41 §2.5), diff categories logged as AD rows; A is the fallback (OQ-9).** 13 rules differ from 10.2.3 (R-043); pixel effect VF-06. A: restore the 10.2.3 output with a custom minimizer on `cssnano-simple` 2.0.0 (an M1 exception, feasibility unconfirmed). If A is used, name its closing step here before W4c merges.
+**DECIDED (2026-10-29, owner in the live work session, after the W4c stop: "I accept option (a) for all five W4c decisions: (1) OD-37 A, cssnano-simple 2.0.0 as the CSS minimizer, closed at 6.9; …"): A, restore the 10.2.3 output with a custom minimizer on `cssnano-simple` 2.0.0, an M1 exception (02 §3.3, §4) closed at step 6.9 (70 §3.8); CS-N12-10. Was (2026-10-20, owner confirmed the recommended defaults): B, accept the Next ≥11 minifier output only if T-801 is 0 px on all three engines (41 §2.5), diff categories logged as AD rows; A the fallback (OQ-9).** 13 rules differ from 10.2.3 (R-043); pixel effect VF-06: on 12.1.6 T-801 was not 0 px (the `h2`/`h4` line-heights, W4c 2026-10-29), so B did not hold; a probe showed A feasible. Under A a byte-level T-003 difference the A build still shows is proposed as an AD row as usual.
 
 ### OD-38 Next `_error` page
 **OPEN (default: A, vendor Next 10's `_error` as `pages/_error.jsx` (CS-N11-9); ledger rows only for deltas code cannot preserve).** No `pages/_error` exists, so any uncaught SSR exception shows Next's built-in page, whose text and style change from Next 11 and again at 16 (Q-098, R-085). B: accept the change per Next version as AD rows (OD-39).

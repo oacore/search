@@ -91,5 +91,16 @@
       "resize-observer-polyfill@1.5.1": "CS-DSN-4 (react-slick's dependency, W5b)",
       "string-convert@0.2.1": "CS-DSN-4 (json2mq's dependency, W5b)"
     }
+  },
+  "jump-2": {
+    "base": "7b31c85",
+    "roots": {
+      "next": {
+        "from": "10.2.3",
+        "to": "12.1.6",
+        "row": "CS-N12-7 (W4c)"
+      }
+    },
+    "versions": {}
   }
 }

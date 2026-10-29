@@ -274,7 +274,8 @@ function nativeRule(lock) {
 }
 
 // the binary that this platform needs, present in an installed tree
-// (alpine arm64 = linux-arm64-musl)
+// (alpine arm64 = linux-arm64-musl; a darwin host tree = darwin-<arch>, the
+// only @next/swc-* entry npm installs there)
 function installedNative(dir, lock) {
   const next = lock.packages['node_modules/next']
   const major = Number(next.version.split('.')[0])
@@ -282,7 +283,11 @@ function installedNative(dir, lock) {
 
   const libc = fs.existsSync('/etc/alpine-release') ? 'musl' : 'gnu'
   const arch = os.arch() === 'arm64' ? 'arm64' : 'x64'
-  const want = [`@next/swc-linux-${arch}-${libc}`]
+  const target =
+    process.platform === 'linux'
+      ? `linux-${arch}-${libc}`
+      : `${process.platform}-${arch}`
+  const want = [`@next/swc-${target}`]
   const missing = want.filter(
     (n) => !fs.existsSync(path.join(dir, 'node_modules', n, 'package.json'))
   )
@@ -327,12 +332,13 @@ function designViolations(pkg, lock, dir) {
 }
 
 // ---------- c5: undeclared packages that must resolve ----------
-const RESOLVES = ['node-fetch', '@mdi/svg', '@babel/runtime', 'yargs']
-// what each is resolved by in the build (data/data-loader.js:5 requires
-// node-fetch; the design's icon build reads @mdi/svg's files; the Babel
-// runtime transform emits helper requires; the design's bin uses yargs)
+// (node-fetch left the list with CS-N12-1: the data loader uses the global
+// fetch of Node since W4a, and Next 12 no longer brings node-fetch along)
+const RESOLVES = ['@mdi/svg', '@babel/runtime', 'yargs']
+// what each is resolved by in the build (the design's icon build reads
+// @mdi/svg's files; the Babel runtime transform emits helper requires; the
+// design's bin uses yargs)
 const PROBE = {
-  'node-fetch': 'node-fetch',
   '@mdi/svg': '@mdi/svg/package.json',
   '@babel/runtime': '@babel/runtime/helpers/interopRequireDefault',
   'yargs': 'yargs',
@@ -357,7 +363,7 @@ function resolveFrom(dir, name) {
     : { error: r.stderr.slice(0, 200) }
 }
 
-// R-054: the four packages the app uses without declaring them resolve from
+// R-054: the three packages the app uses without declaring them resolve from
 // the app root to the hoisted top-level copy, which is the lock's top-level
 // entry
 function resolveViolations(lock, dir) {

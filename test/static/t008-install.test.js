@@ -24,8 +24,8 @@
 //       vendor/oacore-design (CS-DSN-2, AD-040; the vendored tarball with
 //       CS-DSN-1, AD-009); vendor/oacore-design-5.0.74.tgz has the published
 //       sha512 sha512-kwYolSk… (until DV9) and sha1.
-//   c5  node-fetch, @mdi/svg, @babel/runtime and yargs resolve from the app
-//       root to the hoisted copy.
+//   c5  @mdi/svg, @babel/runtime and yargs resolve from the app root to the
+//       hoisted copy (node-fetch until W4a, CS-N12-1).
 // Needs APP_ROOT (or NEXT_DIR), like T-006, for the installed-tree checks.
 const fs = require('fs')
 const path = require('path')
@@ -232,7 +232,7 @@ describe('T-008 @P0 install', () => {
     ])
   })
 
-  test('T-008 c5 @P0 the lock holds node-fetch, @mdi/svg, @babel/runtime and yargs at the top level', () => {
+  test('T-008 c5 @P0 the lock holds @mdi/svg, @babel/runtime and yargs at the top level', () => {
     checks.RESOLVES.forEach((name) => {
       const e = lock.packages[`node_modules/${name}`]
       expect([name, e !== undefined]).toEqual([name, true])

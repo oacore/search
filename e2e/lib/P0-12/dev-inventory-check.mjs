@@ -87,9 +87,9 @@ export function checkInventory(inv) {
     )
   if (!/^v18\./.test(inv.runtime.node))
     problems.push('next dev must run on Node 18')
-  if (!/--openssl-legacy-provider/.test(inv.runtime.nodeOptions))
+  if (/--openssl-legacy-provider/.test(inv.runtime.nodeOptions))
     problems.push(
-      'NODE_OPTIONS must carry --openssl-legacy-provider (Dockerfile:23)'
+      'NODE_OPTIONS must not carry --openssl-legacy-provider (CS-N11-5: no local build or dev path sets it from Next 12)'
     )
   if (inv.runtime.react !== '17.0.2') problems.push('React 17.0.2 expected')
   // the full sweep: routes x fixtures x TZ x cookie state

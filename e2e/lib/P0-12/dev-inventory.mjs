@@ -5,7 +5,7 @@
 //   1. copies HEAD with `git archive` into $ARTIFACT_DIR/dev-inventory/tree (never a worktree; the repository
 //      is never touched), with node_modules and public/ cloned from the run's parity build (the Dockerfile
 //      copies of public/ included);
-//   2. starts `next dev` on Node 18.20.8 with NODE_OPTIONS=--openssl-legacy-provider (Dockerfile:23) and the
+//   2. starts `next dev` on Node 18.20.8 (no --openssl-legacy-provider from Next 12, CS-N11-5) and the
 //      prod runtime env of the run, SSR traffic sent to the run's stub (test/ssr/host-redirect.cjs), and checks
 //      Q-052 c1: without the patch the dev server answers an empty #__next;
 //   3. applies test/hydration/dev-ssr.patch (NextApp = App) with `git apply` in the copy, restarts next dev,
@@ -193,7 +193,7 @@ const versions = {
 
 // ---------- dev server and proxy ----------
 const NODE18 = node18()
-const nodeOptions = `--openssl-legacy-provider --max-old-space-size=4096 --require ${path.join(
+const nodeOptions = `--max-old-space-size=4096 --require ${path.join(
   REPO,
   'test',
   'ssr',
