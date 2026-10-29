@@ -1057,6 +1057,9 @@ module.exports = defineConfig([
       // stay unlinted (CS-W0-12)
       'data/**',
       'vendor/**',
+      // the copy of Next 10.2.3's built-in error page stays as Next wrote it
+      // (CS-N11-9)
+      'pages/_error.jsx',
     ],
     'Not linted'
   ),
