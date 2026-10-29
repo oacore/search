@@ -1,6 +1,7 @@
 // T-305 (41 D, R-041): useAnalytics, findings/03 §4 and 30 Q-059 / Q-071.
-// react-ga4 is the real 2.1.0 module here (the harness spy is replaced by
-// jest.requireActual), so `send` and `initialize` behave as in production;
+// react-ga4 is the real module here (3.0.1 since W4c.2, ESM-only, loaded
+// through test/esm-allow-list.json; 2.1.0 before), the harness spy replaced
+// by jest.requireActual, so `send` and `initialize` behave as in production;
 // the consent cookie goes through the real useCookie of @oacore/design.
 // NODE_ENV and GA_TRACKING_CODE are read by the hook when its effect runs
 // (webpack inlines them in the build), so the production branch is entered by

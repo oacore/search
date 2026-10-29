@@ -1,12 +1,13 @@
 # Third-party notices
 
-The repository redistributes the third-party code below in `vendor/`. Each copy keeps its own licence file, verbatim.
+The repository redistributes the third-party code below in `vendor/`, and one page in `pages/`. Each copy keeps its own licence file, verbatim; the page carries its licence in its header.
 
 | Component | Version | Where | Licence | Licence file |
 |---|---|---|---|---|
 | `@oacore/design` | 5.0.74 | `vendor/oacore-design/` (directory package), `vendor/oacore-design-5.0.74.tgz` (published tarball) | MIT, Copyright (c) 2015 The Open University. Its `package.json` says `UNLICENSED`; the shipped MIT `LICENSE` applies (decision OD-21, `docs/upgrade/60-design-ownership.md` §2) | `vendor/oacore-design/LICENSE` |
 | `bibtex-parse-js` | 0.0.24 | `vendor/bibtex-parse-js/bibtexParse.js` | MIT, Copyright (c) 2013 ORCID, Inc. | `vendor/bibtex-parse-js/LICENSE` |
 | `i18n-iso-countries` | 6.8.0 (English names only) | `vendor/i18n-iso-countries/en.json` | MIT, Copyright (c) 2016 widdix GmbH | `vendor/i18n-iso-countries/LICENSE` |
+| `next` (the built-in error page only) | 10.2.3 | `pages/_error.jsx` (the source of `dist/pages/_error.js`, from its published source map; the types removed, `Head` from `next/head`) | MIT, Copyright (c) 2021 Vercel, Inc. | the header comment of the page (the package's `license.md`, verbatim) |
 
 Packages the design depends on are installed from npm and are not part of the repository. These ship files that the design's CSS and code bring into the built app:
 
