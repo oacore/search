@@ -48,7 +48,7 @@
     "@stryker-mutator/core": "10.0.0",
     "@stryker-mutator/jest-runner": "10.0.0",
     "@testing-library/dom": "10.4.2",
-    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "12.1.5",
     "@testing-library/user-event": "14.6.8",
     "babel-jest": "30.5.2",
