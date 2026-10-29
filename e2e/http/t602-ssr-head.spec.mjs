@@ -4,7 +4,8 @@
 // off, comments kept). c1 raw <title> bytes; c2 app-owned tags in order, set per page type (30 Q-053 table);
 // c3 the head with only the 40 §1 normalisations = baseline; c4 html-validate findings pinned (Q-072 nested
 // <a>, Q-089 duplicate ids); c5 work 1004's `</script>` payload runs (window.__PWN === 1) only in a throwaway
-// sandboxed context (S-4, preserved: OD-36), never in the default context of any test.
+// sandboxed context (S-4, preserved: OD-36), never in the default context of any test, and the page stays: after
+// hydration #__next holds what the server rendered (CS-N12-12).
 import { HtmlValidate } from 'html-validate'
 import { test, expect, guardContext } from '../fixtures/guard.mjs'
 import { TIMEZONE_ID, LOCALE } from '../fixtures/constants.mjs'
@@ -67,6 +68,18 @@ async function load(request, env, p) {
   expect(raw.status, `${p.id} status`).toBe(p.status)
   return raw
 }
+
+// what #__next holds: the first h1's text, the header and the main element (the cookie banner is added in the
+// browser, so the number of children differs between the served and the hydrated page on every build)
+const pageShape = (pg) =>
+  pg.evaluate(() => {
+    const root = document.getElementById('__next')
+    return {
+      h1: root?.querySelector('h1')?.textContent ?? null,
+      header: Boolean(root?.querySelector('#header')),
+      main: Boolean(root?.querySelector('main')),
+    }
+  })
 
 test.describe('T-602 @P0 SSR head', () => {
   // each clause loops over ~30 pages incl. two ~7 MB provider-map pages; stacks of parallel packages share the CPU
@@ -380,6 +393,7 @@ test.describe('T-602 @P0 SSR head', () => {
       preflights: 0,
       screenshots: 0,
     }
+    let hydrated
     const sandbox = await browser.newContext({
       baseURL,
       timezoneId: TIMEZONE_ID,
@@ -416,6 +430,9 @@ test.describe('T-602 @P0 SSR head', () => {
         ])
       expect(sandboxLog.unexpected).toEqual([])
       expect(sandboxLog.unmatched).toEqual([])
+      // the head error has happened (the page error above): the hydrated page, compared below with the
+      // server-rendered one
+      hydrated = await pageShape(s)
     } finally {
       await sandbox.close()
     }
@@ -425,5 +442,11 @@ test.describe('T-602 @P0 SSR head', () => {
     const off = await jsOffContext.newPage()
     await off.goto(p.path)
     expect(await off.evaluate(() => window.__PWN)).toBeUndefined()
+
+    // the page stays after hydration (S-4: the head is corrupted, the page is shown): #__next of the sandboxed
+    // page holds what the server rendered, as on Next 10.2.3 (CS-N12-12)
+    const served = await pageShape(off)
+    expect(served).toEqual({ h1: api.title, header: true, main: true })
+    expect(hydrated).toEqual(served)
   })
 })

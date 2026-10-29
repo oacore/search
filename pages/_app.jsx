@@ -1,10 +1,12 @@
 import React, {
   Component as ReactComponent,
   useCallback,
+  useContext,
   useEffect,
   useState,
 } from 'react'
 import { useRouter } from 'next/router'
+import { HeadManagerContext } from 'next/dist/shared/lib/head-manager-context'
 import { CookiesProvider } from '@oacore/design'
 import LogRocket from 'logrocket'
 
@@ -41,6 +43,32 @@ class ErrorBoundary extends ReactComponent {
   render() {
     const { children } = this.props
     return children
+  }
+}
+
+// Next 12.3 applies the head elements synchronously inside a React effect
+// (next/dist/shared/lib/side-effect.js), so an error of the head manager
+// reaches ErrorBoundary above, which then renders nothing: a page whose JSON-LD
+// drops the next-head-count meta (S-4) went blank. Next 10.2.3 applied them in
+// a promise, outside React, and the page stayed. Keep that: the error leaves
+// the effect as a rejected promise, as it did then (CS-N12-12).
+let guardedHeadManager = null
+const useHeadErrorsOutsideReact = () => {
+  const headManager = useContext(HeadManagerContext)
+  if (
+    typeof window === 'undefined' ||
+    typeof headManager?.updateHead !== 'function' ||
+    headManager === guardedHeadManager
+  )
+    return
+  guardedHeadManager = headManager
+  const { updateHead } = headManager
+  headManager.updateHead = (head) => {
+    try {
+      updateHead.call(headManager, head)
+    } catch (error) {
+      Promise.reject(error)
+    }
   }
 }
 
@@ -86,6 +114,7 @@ const App = ({
   router: approuter,
 }) => {
   const router = useRouter()
+  useHeadErrorsOutsideReact()
 
   if (process.env.NODE_ENV === 'production')
     LogRocket.init('cab1al/search-gfe6o')
@@ -120,9 +149,23 @@ let statistics = {
   data: null,
 }
 
+// Next 12.3 runs App.getInitialProps again in the browser when it hydrates a
+// page the server rendered with an error (next/dist/client/index.js,
+// renderError: it reuses the server's props only when they carry `err`), and
+// the loaders then call the API from the browser. Next 10.2.3 and 12.1.6
+// reused the server's props there: give that first browser call the server's
+// props back (CS-N12-13). Every other call is unchanged.
+let firstBrowserCall = true
+
 // TODO: Replace with getStaticProps once this is solved
 //       https://github.com/vercel/next.js/discussions/10949
-App.getInitialProps = async () => {
+App.getInitialProps = async (appContext) => {
+  if (typeof window !== 'undefined' && firstBrowserCall) {
+    firstBrowserCall = false
+    const { __NEXT_DATA__: nextData } = window
+    if (appContext?.ctx?.err && nextData?.err) return nextData.props
+  }
+
   await getStatistics()
   await getDataProviders()
   await getMembers()
