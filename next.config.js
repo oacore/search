@@ -13,8 +13,6 @@ const nextConfig = {
   assetPrefix: helpers.getAssetsPath(''),
   // `next build` lints from Next 11 on; linting stays in the lint script
   eslint: { ignoreDuringBuilds: true },
-  // build with webpack 5 on Next 10.2.3 (the default from Next 11 on)
-  future: { webpack5: true },
 
   async rewrites() {
     const dataPath = helpers.rewriteDataPath()
