@@ -52,16 +52,16 @@ class ErrorBoundary extends ReactComponent {
 // drops the next-head-count meta (S-4) went blank. Next 10.2.3 applied them in
 // a promise, outside React, and the page stayed. Keep that: the error leaves
 // the effect as a rejected promise, as it did then (CS-N12-12).
-const guardedHeadManagers = new WeakSet()
+let guardedHeadManager = null
 const useHeadErrorsOutsideReact = () => {
   const headManager = useContext(HeadManagerContext)
   if (
     typeof window === 'undefined' ||
     typeof headManager?.updateHead !== 'function' ||
-    guardedHeadManagers.has(headManager)
+    headManager === guardedHeadManager
   )
     return
-  guardedHeadManagers.add(headManager)
+  guardedHeadManager = headManager
   const { updateHead } = headManager
   headManager.updateHead = (head) => {
     try {
