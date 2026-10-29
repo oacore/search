@@ -175,6 +175,21 @@ export const DEV_WARNING_MAP = [
       route: /^works-1001-t-repeated$/,
     },
   },
+  // ---------- Next 12's development client ----------
+  {
+    // from Next 12 the development client opens its HMR connection as a WebSocket under the asset prefix
+    // (`/static/search/_next/webpack-hmr`); the stack's proxies (the gateway-faithful one and the allow-all
+    // listener) forward no WebSocket upgrade, so next dev answers a plain GET with its trailing-slash 308 and
+    // Chromium prints the failed handshake on every load. The port is the listener of the stack's slot.
+    // next dev only (owner decision of 2026-10-29, W4c; Next 10 used an EventSource and printed nothing)
+    id: 'next12-dev-hmr-websocket',
+    issue: 'P0-12-10',
+    devOnly: true,
+    match: {
+      kind: 'console',
+      text: /^WebSocket connection to 'ws:\/\/127\.0\.0\.1:\d+\/static\/search\/_next\/webpack-hmr' failed: Error during WebSocket handshake: Unexpected response code: 308$/,
+    },
+  },
   // ---------- printed in every mode (pinned in production by T-741) ----------
   {
     id: 'q071-ga-search',
