@@ -118,6 +118,65 @@ const nextConfig = {
         !/[\\/]node_modules[\\/]logrocket[\\/]/.test(mod.nameForCondition())
     }
 
+    // The production CSS keeps the output of Next 10.2.3's minifier,
+    // cssnano-simple 2.0.0, until step 6.9 (OD-37 A). Next 12's own minifier
+    // keeps the source order of the heading declarations that 2.0.0 merged
+    // after the h2 and h4 rules of the design's type.css, so the headings
+    // would take other line-heights and every page below them would move.
+    // Next's CSS minimizer plugin stays as it is (stage, cache, map options);
+    // only its PostCSS run is the one of 10.2.3. The build stops when there
+    // is no CSS minimizer to replace.
+    if (!isServer && !dev) {
+      const { minimizer } = config.optimization
+      const isCssMinimizer = (entry) =>
+        typeof entry === 'function' &&
+        String(entry).includes('CssMinimizerPlugin')
+      const cssMinimizerAt = minimizer.findIndex(isCssMinimizer)
+      if (cssMinimizerAt < 0 || minimizer.filter(isCssMinimizer).length > 1)
+        throw new Error('The client build has no CSS minimizer to replace')
+      minimizer[cssMinimizerAt] = (compiler) => {
+        const fromNext = (request) =>
+          module.require(
+            require.resolve(request, {
+              paths: [path.dirname(require.resolve('next/package.json'))],
+            })
+          )
+        const { CssMinimizerPlugin } = fromNext(
+          'next/dist/build/webpack/plugins/css-minimizer-plugin'
+        )
+        const postcss = fromNext('postcss')
+        const postcssScss = fromNext('next/dist/compiled/postcss-scss')
+        const cssnanoSimple = module.require('cssnano-simple')
+        const { SourceMapSource, RawSource } = compiler.webpack.sources
+        class Minimizer extends CssMinimizerPlugin {
+          optimizeAsset(file, asset) {
+            const postcssOptions = {
+              ...this.options.postcssOptions,
+              to: file,
+              from: file,
+              parser: postcssScss,
+            }
+            let input
+            if (postcssOptions.map && asset.sourceAndMap) {
+              const { source, map } = asset.sourceAndMap()
+              input = source
+              postcssOptions.map.prev = map || false
+            } else input = asset.source()
+            return postcss([cssnanoSimple])
+              .process(input, postcssOptions)
+              .then((res) =>
+                res.map
+                  ? new SourceMapSource(res.css, file, res.map.toJSON())
+                  : new RawSource(res.css)
+              )
+          }
+        }
+        new Minimizer({
+          postcssOptions: { map: { inline: false, annotation: false } },
+        }).apply(compiler)
+      }
+    }
+
     // TODO: Remove once https://github.com/zeit/next.js/issues/10584 is solved and released
     // CSS modules also export every class under its camelCase name
     // (css-loader `exportLocalsConvention`). Visit every rule, nested `oneOf`
