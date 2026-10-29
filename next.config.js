@@ -48,6 +48,11 @@ const nextConfig = {
     if (!isServer)
       config.resolve.fallback = { ...config.resolve.fallback, fs: false }
 
+    // The server maps the next-source-maps wrapper wrote: it set this devtool
+    // for both compilations, productionBrowserSourceMaps covers the client
+    // only. They are not served.
+    if (isServer && !dev) config.devtool = 'source-map'
+
     // The vendored bibtexParse.js stays untransformed, as the node_modules
     // copy was (CS-BIB-1, R-075). Next 12's Babel loader resolves one config
     // per kind of file and reuses it, so the `ignore` of babel.config.js no
