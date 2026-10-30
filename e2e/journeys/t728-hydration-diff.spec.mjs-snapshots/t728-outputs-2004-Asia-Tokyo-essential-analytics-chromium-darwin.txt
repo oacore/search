@@ -293,8 +293,8 @@
 @@ -290 +486 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[4] <div class="styles_license-wrapper">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] <div class="card-container-11P0y card-outlined-1ScI1 styles_report-card">
-@@ -411 +607 @@
-+ html[1]/body[1]/script[20] <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TEST000000">
+@@ -393 +589 @@
++ html[1]/body[1]/script[2] <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TEST000000">
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 ## MutationObserver (from the first Next chunk script)
