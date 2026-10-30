@@ -83,6 +83,7 @@ export async function startStub(options = {}) {
   let rules = []
   let ruleSeq = 0
   const marks = new Map()
+  let inFlight = 0
 
   const problem = (p) => {
     const entry = { seq: ++seq, ts: new Date().toISOString(), ...p }
@@ -92,6 +93,11 @@ export async function startStub(options = {}) {
   }
 
   const handle = (listener) => async (req, res) => {
+    // from the request's arrival until its answer is out or its socket is gone; GET /health reports the count
+    inFlight += 1
+    res.once('close', () => {
+      inFlight -= 1
+    })
     const body = await readBody(req)
     const forwardedHost =
       listener === 'http' ? req.headers['x-p2-forwarded-host'] : undefined
@@ -231,6 +237,7 @@ export async function startStub(options = {}) {
       return json(res, 200, {
         ok: true,
         seq,
+        inFlight,
         names,
         records: records.length,
         problems: problems.length,
@@ -502,8 +509,22 @@ export async function selfCheck() {
       latencyMs: 300,
     })
     const t0 = Date.now()
-    await request(http, { host: '127.0.0.1', port: ports.http, path: '/slow' })
+    const slow = request(http, {
+      host: '127.0.0.1',
+      port: ports.http,
+      path: '/slow',
+    })
+    await new Promise((r) => setTimeout(r, 100))
+    const during = await ctl('GET', '/health')
+    await slow
     ok('per-route latency', Date.now() - t0 >= 290, Date.now() - t0)
+    await new Promise((r) => setTimeout(r, 20))
+    const after = await ctl('GET', '/health')
+    ok(
+      'health: a request in flight until it is answered',
+      during.inFlight === 1 && after.inFlight === 0,
+      [during.inFlight, after.inFlight]
+    )
     await ctl('POST', '/rules', {
       urlPrefix: 'https://api.core.ac.uk/broken',
       fail: { status: 503, body: '{"message":"x"}' },
@@ -534,6 +555,13 @@ export async function selfCheck() {
       'mark/collect window',
       win.records.length === 3 && win.records.every((r) => r.seq > mark.seq),
       win.records.map((r) => r.rawUrl)
+    )
+    await new Promise((r) => setTimeout(r, 20))
+    const settled = await ctl('GET', '/health')
+    ok(
+      'health: none in flight after a failure rule cut the socket',
+      settled.inFlight === 0,
+      settled.inFlight
     )
     const reset = await ctl('POST', '/reset')
     ok(
