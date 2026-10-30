@@ -4,11 +4,11 @@
     "title": "Novel approach for deriving genome wide SNP analysis data from archived blood spots - CORE",
     "htmlAttrs": {},
     "head": [
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "meta",
         "attrs": { "content": "width=device-width", "name": "viewport" }
       },
-      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "link",
         "attrs": {
@@ -102,11 +102,11 @@
         "tag": "meta",
         "attrs": { "content": "Griffin, Darren K", "name": "DC.creator" }
       },
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "meta",
         "attrs": { "content": "width=device-width", "name": "viewport" }
       },
-      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "link",
         "attrs": {
@@ -156,7 +156,7 @@
         "tag": "script",
         "attrs": {
           "async": "",
-          "src": "https://cdn.lgrckt-in.com/logger-1.min.js"
+          "src": "https://cdn.logr-in.com/logger-1.min.js"
         }
       }
     ]
@@ -165,13 +165,13 @@
     "href": "/outputs/2106/",
     "url": "/outputs/2106/",
     "title": "Novel approach for deriving genome wide SNP analysis data from archived blood spots - CORE",
-    "htmlAttrs": {},
+    "htmlAttrs": { "style": "" },
     "head": [
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "meta",
         "attrs": { "content": "width=device-width", "name": "viewport" }
       },
-      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "link",
         "attrs": {
@@ -265,11 +265,11 @@
         "tag": "meta",
         "attrs": { "content": "Griffin, Darren K", "name": "DC.creator" }
       },
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "meta",
         "attrs": { "content": "width=device-width", "name": "viewport" }
       },
-      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "link",
         "attrs": {
@@ -319,7 +319,7 @@
         "tag": "script",
         "attrs": {
           "async": "",
-          "src": "https://cdn.lgrckt-in.com/logger-1.min.js"
+          "src": "https://cdn.logr-in.com/logger-1.min.js"
         }
       }
     ]
@@ -328,13 +328,13 @@
     "href": "/outputs/2001/",
     "url": "/outputs/2001/",
     "title": "Novel approach for deriving genome wide SNP analysis data from archived blood spots - CORE",
-    "htmlAttrs": {},
+    "htmlAttrs": { "style": "" },
     "head": [
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "meta",
         "attrs": { "content": "width=device-width", "name": "viewport" }
       },
-      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "link",
         "attrs": {
@@ -428,11 +428,11 @@
         "tag": "meta",
         "attrs": { "content": "Griffin, Darren K", "name": "DC.creator" }
       },
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "meta",
         "attrs": { "content": "width=device-width", "name": "viewport" }
       },
-      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "link",
         "attrs": {
@@ -482,7 +482,7 @@
         "tag": "script",
         "attrs": {
           "async": "",
-          "src": "https://cdn.lgrckt-in.com/logger-1.min.js"
+          "src": "https://cdn.logr-in.com/logger-1.min.js"
         }
       }
     ]
