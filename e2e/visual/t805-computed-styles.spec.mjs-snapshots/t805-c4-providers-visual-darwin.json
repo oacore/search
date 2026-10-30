@@ -373,11 +373,11 @@
           "condition": "(max-width: 767px)",
           "rules": 5,
           "children": [
-            ".styles_container__2YSuD",
-            ".styles_main__3YQAh, .styles_sidebar__VCDeH",
-            ".styles_sidebar__VCDeH",
-            ".styles_result__bqmmC",
-            ".styles_result__bqmmC:not(:first-child)"
+            ".styles_container__GixSW",
+            ".styles_main___X8gn, .styles_sidebar__ZWwfh",
+            ".styles_sidebar__ZWwfh",
+            ".styles_result__GKaJ9",
+            ".styles_result__GKaJ9:not(:first-child)"
           ]
         },
         {
@@ -385,7 +385,7 @@
           "within": "",
           "condition": "(orientation: portrait)",
           "rules": 1,
-          "children": [".styles_container__116_N"]
+          "children": [".styles_container__5ja5H"]
         }
       ]
     }

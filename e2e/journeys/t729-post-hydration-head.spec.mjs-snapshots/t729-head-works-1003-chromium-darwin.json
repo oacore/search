@@ -1,8 +1,8 @@
 {
   "path": "/works/1003/",
   "ssrNames": [
-    "meta[name=viewport]",
     "meta[charset]",
+    "meta[name=viewport]",
     "link[icon 64x64]",
     "link[icon 128x128]",
     "link[icon 256x256]",
@@ -77,11 +77,11 @@
   ],
   "htmlAttrs": {},
   "head": [
+    { "tag": "meta", "attrs": { "charset": "utf-8" } },
     {
       "tag": "meta",
       "attrs": { "content": "width=device-width", "name": "viewport" }
     },
-    { "tag": "meta", "attrs": { "charset": "utf-8" } },
     {
       "tag": "link",
       "attrs": {
@@ -350,11 +350,11 @@
       "attrs": { "content": "Riede, J.", "name": "DC.creator" }
     },
     { "tag": "meta", "attrs": { "content": "R. Vogt", "name": "DC.creator" } },
+    { "tag": "meta", "attrs": { "charset": "utf-8" } },
     {
       "tag": "meta",
       "attrs": { "content": "width=device-width", "name": "viewport" }
     },
-    { "tag": "meta", "attrs": { "charset": "utf-8" } },
     {
       "tag": "link",
       "attrs": {
@@ -402,10 +402,7 @@
     },
     {
       "tag": "script",
-      "attrs": {
-        "async": "",
-        "src": "https://cdn.lgrckt-in.com/logger-1.min.js"
-      }
+      "attrs": { "async": "", "src": "https://cdn.logr-in.com/logger-1.min.js" }
     }
   ]
 }

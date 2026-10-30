@@ -316,8 +316,8 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[2] <div>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[2]/svg[1] <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[2]/svg[1]/use[1] <use href="/static/search/icons.svg#content-copy">
-@@ -366 +649 @@
-+ html[1]/body[1]/script[20] <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TEST000000">
+@@ -348 +631 @@
++ html[1]/body[1]/script[2] <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TEST000000">
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 ## MutationObserver (from the first Next chunk script)

@@ -4,11 +4,11 @@
     "title": "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap? - CORE",
     "htmlAttrs": {},
     "head": [
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "meta",
         "attrs": { "content": "width=device-width", "name": "viewport" }
       },
-      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "link",
         "attrs": {
@@ -66,11 +66,11 @@
           "name": "citation_title"
         }
       },
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "meta",
         "attrs": { "content": "width=device-width", "name": "viewport" }
       },
-      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "link",
         "attrs": {
@@ -120,7 +120,7 @@
         "tag": "script",
         "attrs": {
           "async": "",
-          "src": "https://cdn.lgrckt-in.com/logger-1.min.js"
+          "src": "https://cdn.logr-in.com/logger-1.min.js"
         }
       }
     ]
@@ -129,13 +129,13 @@
     "href": "/outputs/2004/",
     "url": "/outputs/2004/",
     "title": "Novel approach for deriving genome wide SNP analysis data from archived blood spots - CORE",
-    "htmlAttrs": {},
+    "htmlAttrs": { "style": "" },
     "head": [
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "meta",
         "attrs": { "content": "width=device-width", "name": "viewport" }
       },
-      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "link",
         "attrs": {
@@ -193,11 +193,11 @@
           "name": "citation_title"
         }
       },
+      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "meta",
         "attrs": { "content": "width=device-width", "name": "viewport" }
       },
-      { "tag": "meta", "attrs": { "charset": "utf-8" } },
       {
         "tag": "link",
         "attrs": {
@@ -247,7 +247,7 @@
         "tag": "script",
         "attrs": {
           "async": "",
-          "src": "https://cdn.lgrckt-in.com/logger-1.min.js"
+          "src": "https://cdn.logr-in.com/logger-1.min.js"
         }
       }
     ]

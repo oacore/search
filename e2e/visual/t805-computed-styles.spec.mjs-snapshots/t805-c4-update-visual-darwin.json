@@ -378,10 +378,10 @@
           "condition": "(max-width: 767px)",
           "rules": 4,
           "children": [
-            ".styles_update-description__11uNO",
-            ".styles_update-link__TxX-t",
-            ".styles_update-link__TxX-t button",
-            ".styles_faq__3V4uW, .styles_header__1RXEc"
+            ".styles_update-description__hsvzS",
+            ".styles_update-link__2Guqu",
+            ".styles_update-link__2Guqu button",
+            ".styles_faq__MLikd, .styles_header___ichg"
           ]
         }
       ]

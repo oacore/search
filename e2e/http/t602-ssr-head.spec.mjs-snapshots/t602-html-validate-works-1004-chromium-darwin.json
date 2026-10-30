@@ -6,12 +6,6 @@
     "message": "<html> is missing required \"lang\" attribute"
   },
   {
-    "ruleId": "void-style",
-    "severity": 2,
-    "selector": "head > meta[name=viewport]",
-    "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
-  },
-  {
     "ruleId": "attr-case",
     "severity": 2,
     "selector": "head > meta[charset=utf-8]",
@@ -21,6 +15,12 @@
     "ruleId": "void-style",
     "severity": 2,
     "selector": "head > meta[charset=utf-8]",
+    "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > meta[name=viewport]",
     "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
   },
   {

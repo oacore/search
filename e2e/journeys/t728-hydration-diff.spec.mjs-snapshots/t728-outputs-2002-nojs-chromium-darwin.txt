@@ -1,5 +1,5 @@
 <body>
-  <div id="__next">
+  <div data-reactroot="" id="__next">
     <div class="styles_container">
       <header class="styles-container-2d0MF styles-container-1KefU" id="header">
         <div class="styles-item-1WhX8 styles-logo-container-261sh">
@@ -261,21 +261,3 @@
           <a class="footer-bottom-link-PaLMR" href="/privacy">
             "Privacy"
   <script next-owned="__NEXT_DATA__">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">
-  <script next-owned="chunk">

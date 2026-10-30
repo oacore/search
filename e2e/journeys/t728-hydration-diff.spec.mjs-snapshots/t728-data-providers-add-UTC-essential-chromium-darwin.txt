@@ -147,11 +147,12 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] <a href="https://www.openstreetmap.org/copyright">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] "OpenStreetMap"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1] " contributors"
-@@ -338 +470 @@
+@@ -322 +454 @@
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 + html[1]/body[1]/next-route-announcer[1]/p[1] "Data providers search"
-+ html[1]/body[1]/script[18] <script next-owned="chunk">
++ html[1]/body[1]/script[2] <script next-owned="chunk">
++ html[1]/body[1]/script[3] <script next-owned="chunk">
 ## MutationObserver (from the first Next chunk script)
 * attributes html[1]/body[1]/div[1]/div[1]/div[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/footer[1] @class
