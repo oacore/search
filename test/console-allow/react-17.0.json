@@ -1,5 +1,11 @@
 {
   "react": "17.0",
   "description": "console.error/console.warn messages allowed in Jest dom tests and Playwright journeys on React 17.0 (40 §8 rule 6: each entry cites an R/Q row and enters via an AD row)",
-  "entries": []
+  "entries": [
+    {
+      "pattern": "^Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format\\. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI\\. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client\\. See https:\\/\\/reactjs\\.org\\/link\\/uselayouteffect-ssr for common fixes\\.(\\n|$)",
+      "refs": ["R-038", "OD-39"],
+      "row": "W4d-4 of the owner's jump 2 batch round 1 (signed 2026-10-30, applied apart, no AD id): the 10 T-412 tests render the server markup with renderToString inside jsdom, where the loadable of next 12.3.7 (use-sync-external-store shim) prints this warning; the real server (no DOM) prints nothing"
+    }
+  ]
 }

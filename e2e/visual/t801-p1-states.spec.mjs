@@ -334,7 +334,11 @@ const open500 = async (page, guardLog) => {
   await expect(
     page.getByText('An unexpected error has occurred.')
   ).toBeVisible()
-  expect(consoleTexts(guardLog)).toEqual([CONSOLE_500, CONSOLE_500_PAGE])
+  expect(consoleTexts(guardLog)).toEqual([
+    CONSOLE_500,
+    CONSOLE_500_PAGE,
+    'A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred', // AD-117
+  ])
 }
 
 for (const w of [1440, 375])

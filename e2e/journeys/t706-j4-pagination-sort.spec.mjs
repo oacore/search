@@ -29,7 +29,7 @@ import {
 } from '../lib/P0-13/states.mjs'
 
 const NEXT_DATA = '/search/_next/data/<buildId>/search.json'
-const STATE_KEYS = ['__N', 'as', 'idx', 'options', 'url']
+const STATE_KEYS = ['__N', 'as', 'key', 'options', 'url'] // AD-125
 // a page or sort change fetches the data and nothing else (E2 x0, 41 §2.2)
 const nav = (query) => ({
   documents: 0,

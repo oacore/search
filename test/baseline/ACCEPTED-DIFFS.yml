@@ -120,6 +120,7 @@
   step: W1
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'
+  withdrawn: 'superseded by AD-134, which lowers the same floor from > 1700 to > 1500 (npm 11 of the runtime Node 24.18.1), 2026-10-30'
 - id: AD-011
   kind: product
   test: T-008
@@ -131,6 +132,7 @@
   step: W1
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'
+  withdrawn: 'superseded by AD-058, which lowers the same floor from > 1700 to > 1600 (Next 12 lock), 2026-10-30'
 - id: AD-012
   kind: product
   test: T-120
@@ -577,3 +579,894 @@
   step: W2b
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'
+- id: AD-054
+  kind: product
+  test: T-117
+  key: "c4 connection reset: the text the loader's stderr must contain"
+  from: "FetchError"
+  to: "TypeError: fetch failed"
+  reason: "T-117 c4. CS-N12-1 (OD-08 A): node-fetch rejected with `FetchError: request to <url> failed, reason: socket hang up` (errno and code ECONNRESET); undici rejects with `TypeError: fetch failed` whose cause is `SocketError: other side closed` (code 'UND_ERR_SOCKET', the socket addresses and byte counts printed with it). Unchanged: exit code 1, signal null, members not written, the `Fail. ==> ...` print (its stack lost the `process.processTicksAndRejections` frame after `retrieveStats`; no test compares it). Observation, no test compares it: in this clause the stub resets members at once, so how many of the two other files are written before the exit is a race in both loaders (20 runs each on Node 18.20.8: old 20/20 formap only; new 15/20 statistics and formap, 5/20 formap only); with the reset sent after the two others are written (the c3 order) both loaders write both, 10/10 each."
+  ref: [R-017, Q-026, OD-08, OD-31]
+  step: W4a
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-055
+  kind: product
+  test: T-117
+  key: "c5 no answer: the loader's own timeout (the clause title says `(it has no timeout of its own)`; the clause waits 2 s and stays green)"
+  from: "none: node-fetch has no timeout (default timeout 0); with all three requests unanswered the loader was still running at 330.1 s, nothing written, ended by SIGKILL"
+  to: "undici's headersTimeout of 300 s: the loader exits by itself after 301.5 s with code 1, signal null; stderr `TypeError: fetch failed` with `cause: HeadersTimeoutError: Headers Timeout Error` (code 'UND_ERR_HEADERS_TIMEOUT'), then the `Fail. ==> Statistics retrieval failed due to API Core instability.` print; no file written"
+  reason: "T-117 c5, Q-026 ('a hang never exits'), R-017. CS-N12-1 with OD-08 A (fail-fast kept): a hung API now fails the build after 5 minutes instead of hanging it. Nothing else of the clause changes: at 2 s the loader is still running, the three requests are out, no file is written. Once signed, the clause title and the file header should name this row instead of `(it has no timeout of its own)` (wording only, no assertion change)."
+  ref: [R-017, Q-026, OD-08, OD-31]
+  step: W4a
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-056
+  kind: product
+  test: T-601
+  key: "c5 number of maps of the empty CSS-extraction chunk `chunks/<hash>_CSS.<hash>.js.map` (e2e/http/t601-route-matrix.spec.mjs, `expect(maps.filter(isEmptyCssChunk).length).toBe(1)`)"
+  from: "1"
+  to: "0"
+  reason: "T-601 c5, S-9 ('the map of the empty CSS-extraction chunk has `sources: []`'). The empty `<hash>_CSS` chunk is a product of webpack 4's `shared` cache group (its CSS twin); webpack 5 on Next 10.2.3 emits no such chunk, so no map has `sources: []` (the probe found no empty map). The 8 CSS files and their maps are unchanged in number and serving. Not reached in the run (the clause stopped at the unfiled proposal W4b-1's assertion); value from the probe."
+  ref: [OD-39, S-9, OD-31]
+  step: W4b
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-057
+  kind: product
+  test: T-016
+  key: "c2 the emitted design modules that differ from their files after the test's transform"
+  from: "[]"
+  to: "[\"node_modules/@oacore/design/lib/config.js\", \"node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js\", \"node_modules/@oacore/design/lib/modules/header/context/actions.js\", \"node_modules/@oacore/design/lib/utils/can-use-dom.js\", \"node_modules/@oacore/design/lib/utils/class-names.js\"]"
+  reason: "T-016 c2 (VG-2), CS-N11-0. The reader is calibrated on webpack 4 output (its header: 'webpack 4 of Next 10.2.3 ... Build-artefact adapters are version specific (40 §8 rule 7)'). 103 of the 108 emitted design modules still equal their files. Four modules that require nothing (config.js, hasMathMLSupport.js, actions.js, can-use-dom.js) are emitted by webpack 5 as `function(e,i){...}`: webpack 5 leaves the unused `__webpack_require__` parameter out of the module factory where webpack 4 always wrote three (`function(e,t,n)`); the bodies are equal after the canonical renaming. class-names.js: the minified webpack 5 module has its local `useModule` inlined into `toString` (`return[(e=(0,u.default)(this.classList),i=this.module,\"string\"!=typeof e?...)` instead of a call of a separate `function(e,t)`): a terser decision on webpack 5's module code (the same terser and options; not reproduced by the file alone with string or numeric require ids, with or without the PURE comments); the same function. Checked with the test's own functions: 108 modules, `sourceDiffers` [] and `addedRequires` 0 on W4b as on W4a (the clause does not reach these assertions). Two ways to apply, the owner's choice: (a) the clause's expected list becomes `to` (as jump-1 rows were applied); (b) a webpack 5 reader for T-016 (40 §8 rule 7, proven on the webpack 4 build b03fe38c71dcaad9: the factory's parameter list taken from the emitted function), leaving class-names.js as the only entry of this row."
+  ref: [OD-39, R-015, R-075, VG-2, OD-31]
+  step: W4b
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-058
+  kind: product
+  test: T-008
+  key: "lock packages (floor)"
+  from: "> 1700"
+  to: "> 1600"
+  reason: "T-008 c1. Same cause as the dry-run floor row of W4c: 1639 packages entries in the lock after CS-N12-7, CS-N11-4 and CS-N12-10 (1819 at the jump-1 tip). From W4d (the jump tip af5e9f6) the lock has 1630 packages entries, still above the floor. Supersedes AD-011, withdrawn in the same batch."
+  ref: [R-014, R-015, R-027, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-059
+  kind: product
+  test: T-013
+  key: "c1 entries of the reference lock (floor) (test/static/t013-lock-immutable.test.js, `expect(report.oldEntries).toBeGreaterThan(1700)`)"
+  from: "> 1700"
+  to: "> 1600"
+  reason: "T-013 c1 (R-015, R-084). Since AD-005 the reference is the latest dependency step merge, from the W4c merge on the lock of Next 12.1.6: 1638 entries besides the root (1639 packages entries; 1819 at the jump-1 tip), after CS-N12-7 (-193 entries of Next 10's webpack 4 tree, +12 @next/swc-*), CS-N11-4 (-1) and CS-N12-10 (+2 dev). The floor only proves that the script read a real lock; every other assertion of c1 holds on the merged tip (no entry of the reference changed version, resolved or integrity, nothing moved), c2 and c4 green. From the W4d merge (the jump tip af5e9f6) the reference lock has 1629 entries, still above the floor. The same cause as the T-008 c1 floors (AD-134 and AD-058)."
+  ref: [R-015, R-084, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-060
+  kind: product
+  test: T-010
+  key: "c2 the installed Next major (test/static/t010-routes-manifest.test.js, `expect(major).toBe(10)` of the clause 'the rewrite Next injects from 15 is whitelisted (only that one, only from 15); none today')"
+  from: "10"
+  to: "12"
+  reason: "T-010 c2, CS-N12-7. The clause pins the major of the installed Next as 'today'. Below 15 the injected rewrite is not whitelisted, and none is in the 12.1.6 manifest (T-010 c1 green: every (source, destination, headers) tuple of the routes manifest equals the reference; the rewrites are still an array). Applying it changes the literal to 12 (W4d keeps 12)."
+  ref: [OD-39, R-068, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-061
+  kind: product
+  test: T-016
+  key: "c2 server bundles: the design sources counted as bundled"
+  from: "[]"
+  to: "[\"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements/logo\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/modules\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/modules\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/modules\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\"]"
+  reason: "T-016 c2 (R-015): the W4c value of the unfiled proposal W4b-12's key, which it supersedes (the W4b literal `webpack://search/external \"<name>\"` no longer occurs). Next 12's webpack 5 names the external's type in the server map source (`external commonjs \"x\"`); the test's reader matches only `webpack:///external \"...\"`, so the same 7 design externals count as bundled. Nothing of the design is compiled for the server. The build-artefact adapter reads them as externals since 5e05703 (T-004 c2 green); a T-016 reader that does the same would leave this row unused (40 §8 rule 7). Measured on the OD-37 A build, equal to the first W4c build 8cf40b0d86ae0a6e."
+  ref: [OD-39, R-015, VG-2, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-062
+  kind: product
+  test: T-004
+  key: "client:core-js:all-scripts"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), CS-N12-7: the core-js modules of the route's first-loaded scripts: added es.object.get-prototype-of, es.promise.finally, es.regexp.flags; removed es.weak-map, es.weak-map.constructor. Next compiles its own client runtime with the app's Babel config (webpack-config.js babelIncludeRegexes: next/dist/client, next/dist/shared/lib, next/dist/pages; Next 10.2.3 did the same for its client), so the usage-based core-js imports of babel.config.js (preset-env useBuiltIns usage, core-js 3.46.0, .browserslistrc) follow Next 12's client code: it uses Promise.prototype.finally (client/route-loader.js), Object.getPrototypeOf (shared/lib/is-plain-object.js) and RegExp flags, and no longer WeakMap; the app's own modules bring the same imports as before. The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS). The T-004 c6 detector names this whole-bundle entry `client:core-js:all-scripts`; before this row it was `client:core-js:*`, which the ledger refuses as a glob (renamed by the harness change of the same batch, 40 §8 rule 7)."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-063
+  kind: product
+  test: T-004
+  key: "client:core-js:/"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), CS-N12-7: the core-js modules of the route's first-loaded scripts: added es.object.get-prototype-of, es.promise.finally, es.regexp.flags; removed es.weak-map, es.weak-map.constructor. Next compiles its own client runtime with the app's Babel config (webpack-config.js babelIncludeRegexes: next/dist/client, next/dist/shared/lib, next/dist/pages; Next 10.2.3 did the same for its client), so the usage-based core-js imports of babel.config.js (preset-env useBuiltIns usage, core-js 3.46.0, .browserslistrc) follow Next 12's client code: it uses Promise.prototype.finally (client/route-loader.js), Object.getPrototypeOf (shared/lib/is-plain-object.js) and RegExp flags, and no longer WeakMap; the app's own modules bring the same imports as before. The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS)."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-064
+  kind: product
+  test: T-004
+  key: "client:core-js:/404"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), CS-N12-7: the core-js modules of the route's first-loaded scripts: added es.object.get-prototype-of, es.promise.finally, es.regexp.flags; removed es.weak-map, es.weak-map.constructor. Next compiles its own client runtime with the app's Babel config (webpack-config.js babelIncludeRegexes: next/dist/client, next/dist/shared/lib, next/dist/pages; Next 10.2.3 did the same for its client), so the usage-based core-js imports of babel.config.js (preset-env useBuiltIns usage, core-js 3.46.0, .browserslistrc) follow Next 12's client code: it uses Promise.prototype.finally (client/route-loader.js), Object.getPrototypeOf (shared/lib/is-plain-object.js) and RegExp flags, and no longer WeakMap; the app's own modules bring the same imports as before. The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS)."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-065
+  kind: product
+  test: T-004
+  key: "client:core-js:/_app"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), CS-N12-7: the core-js modules of the route's first-loaded scripts: added es.object.get-prototype-of, es.promise.finally, es.regexp.flags; removed es.weak-map, es.weak-map.constructor. Next compiles its own client runtime with the app's Babel config (webpack-config.js babelIncludeRegexes: next/dist/client, next/dist/shared/lib, next/dist/pages; Next 10.2.3 did the same for its client), so the usage-based core-js imports of babel.config.js (preset-env useBuiltIns usage, core-js 3.46.0, .browserslistrc) follow Next 12's client code: it uses Promise.prototype.finally (client/route-loader.js), Object.getPrototypeOf (shared/lib/is-plain-object.js) and RegExp flags, and no longer WeakMap; the app's own modules bring the same imports as before. The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS)."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-066
+  kind: product
+  test: T-004
+  key: "client:core-js:/_error"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), CS-N12-7: the core-js modules of the route's first-loaded scripts: added es.object.get-prototype-of, es.promise.finally, es.regexp.flags; removed es.weak-map, es.weak-map.constructor. Next compiles its own client runtime with the app's Babel config (webpack-config.js babelIncludeRegexes: next/dist/client, next/dist/shared/lib, next/dist/pages; Next 10.2.3 did the same for its client), so the usage-based core-js imports of babel.config.js (preset-env useBuiltIns usage, core-js 3.46.0, .browserslistrc) follow Next 12's client code: it uses Promise.prototype.finally (client/route-loader.js), Object.getPrototypeOf (shared/lib/is-plain-object.js) and RegExp flags, and no longer WeakMap; the app's own modules bring the same imports as before. The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS)."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-067
+  kind: product
+  test: T-004
+  key: "client:core-js:/data-providers"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), CS-N12-7: the core-js modules of the route's first-loaded scripts: added es.object.get-prototype-of, es.promise.finally, es.regexp.flags; removed es.weak-map, es.weak-map.constructor. Next compiles its own client runtime with the app's Babel config (webpack-config.js babelIncludeRegexes: next/dist/client, next/dist/shared/lib, next/dist/pages; Next 10.2.3 did the same for its client), so the usage-based core-js imports of babel.config.js (preset-env useBuiltIns usage, core-js 3.46.0, .browserslistrc) follow Next 12's client code: it uses Promise.prototype.finally (client/route-loader.js), Object.getPrototypeOf (shared/lib/is-plain-object.js) and RegExp flags, and no longer WeakMap; the app's own modules bring the same imports as before. The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS)."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-068
+  kind: product
+  test: T-004
+  key: "client:core-js:/data-providers/[id]"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), CS-N12-7: the core-js modules of the route's first-loaded scripts: added es.object.get-prototype-of, es.promise.finally, es.regexp.flags; removed es.weak-map, es.weak-map.constructor. Next compiles its own client runtime with the app's Babel config (webpack-config.js babelIncludeRegexes: next/dist/client, next/dist/shared/lib, next/dist/pages; Next 10.2.3 did the same for its client), so the usage-based core-js imports of babel.config.js (preset-env useBuiltIns usage, core-js 3.46.0, .browserslistrc) follow Next 12's client code: it uses Promise.prototype.finally (client/route-loader.js), Object.getPrototypeOf (shared/lib/is-plain-object.js) and RegExp flags, and no longer WeakMap; the app's own modules bring the same imports as before. The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS)."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-069
+  kind: product
+  test: T-004
+  key: "client:core-js:/error-card"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), CS-N12-7: the core-js modules of the route's first-loaded scripts: added es.object.get-prototype-of, es.promise.finally, es.regexp.flags; removed es.weak-map, es.weak-map.constructor. Next compiles its own client runtime with the app's Babel config (webpack-config.js babelIncludeRegexes: next/dist/client, next/dist/shared/lib, next/dist/pages; Next 10.2.3 did the same for its client), so the usage-based core-js imports of babel.config.js (preset-env useBuiltIns usage, core-js 3.46.0, .browserslistrc) follow Next 12's client code: it uses Promise.prototype.finally (client/route-loader.js), Object.getPrototypeOf (shared/lib/is-plain-object.js) and RegExp flags, and no longer WeakMap; the app's own modules bring the same imports as before. The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS)."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-070
+  kind: product
+  test: T-004
+  key: "client:core-js:/outputs/[id]"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), CS-N12-7: the core-js modules of the route's first-loaded scripts: added es.object.get-prototype-of, es.promise.finally, es.regexp.flags; removed es.weak-map, es.weak-map.constructor. Next compiles its own client runtime with the app's Babel config (webpack-config.js babelIncludeRegexes: next/dist/client, next/dist/shared/lib, next/dist/pages; Next 10.2.3 did the same for its client), so the usage-based core-js imports of babel.config.js (preset-env useBuiltIns usage, core-js 3.46.0, .browserslistrc) follow Next 12's client code: it uses Promise.prototype.finally (client/route-loader.js), Object.getPrototypeOf (shared/lib/is-plain-object.js) and RegExp flags, and no longer WeakMap; the app's own modules bring the same imports as before. The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS)."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-071
+  kind: product
+  test: T-004
+  key: "client:core-js:/outputs/update"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), CS-N12-7: the core-js modules of the route's first-loaded scripts: added es.object.get-prototype-of, es.promise.finally, es.regexp.flags; removed es.weak-map, es.weak-map.constructor. Next compiles its own client runtime with the app's Babel config (webpack-config.js babelIncludeRegexes: next/dist/client, next/dist/shared/lib, next/dist/pages; Next 10.2.3 did the same for its client), so the usage-based core-js imports of babel.config.js (preset-env useBuiltIns usage, core-js 3.46.0, .browserslistrc) follow Next 12's client code: it uses Promise.prototype.finally (client/route-loader.js), Object.getPrototypeOf (shared/lib/is-plain-object.js) and RegExp flags, and no longer WeakMap; the app's own modules bring the same imports as before. The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS)."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-072
+  kind: product
+  test: T-004
+  key: "client:core-js:/search"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), CS-N12-7: the core-js modules of the route's first-loaded scripts: added es.object.get-prototype-of, es.promise.finally, es.regexp.flags; removed es.weak-map, es.weak-map.constructor. Next compiles its own client runtime with the app's Babel config (webpack-config.js babelIncludeRegexes: next/dist/client, next/dist/shared/lib, next/dist/pages; Next 10.2.3 did the same for its client), so the usage-based core-js imports of babel.config.js (preset-env useBuiltIns usage, core-js 3.46.0, .browserslistrc) follow Next 12's client code: it uses Promise.prototype.finally (client/route-loader.js), Object.getPrototypeOf (shared/lib/is-plain-object.js) and RegExp flags, and no longer WeakMap; the app's own modules bring the same imports as before. The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS)."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-073
+  kind: product
+  test: T-004
+  key: "client:core-js:/works/[id]"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), CS-N12-7: the core-js modules of the route's first-loaded scripts: added es.object.get-prototype-of, es.promise.finally, es.regexp.flags; removed es.weak-map, es.weak-map.constructor. Next compiles its own client runtime with the app's Babel config (webpack-config.js babelIncludeRegexes: next/dist/client, next/dist/shared/lib, next/dist/pages; Next 10.2.3 did the same for its client), so the usage-based core-js imports of babel.config.js (preset-env useBuiltIns usage, core-js 3.46.0, .browserslistrc) follow Next 12's client code: it uses Promise.prototype.finally (client/route-loader.js), Object.getPrototypeOf (shared/lib/is-plain-object.js) and RegExp flags, and no longer WeakMap; the app's own modules bring the same imports as before. The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS)."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-074
+  kind: product
+  test: T-004
+  key: "client:scripts-without-map"
+  from: "0"
+  to: "1"
+  reason: "T-004 c6 (R-032), CS-N12-7: the polyfill script: Next 12 ships its precompiled polyfill-nomodule script (next/dist/build/polyfills/polyfill-nomodule.js) as static/chunks/polyfills-<hash>.js without a source map, where Next 10.2.3 built it from its sources with one (the map was public, 200; now 404, VF-24 notes it); the polyfill set it carries is Next's own, unchanged in purpose (nomodule browsers only). The same 13 keys and values on the first W4c build 8cf40b0d86ae0a6e and on the OD-37 A build (the CSS minimizer does not touch JS). Applied in the census and at test/static/detector-t004-c6-core-js.test.js, whose `expect(a['client:scripts-without-map']).toBe('0')` takes '1' with this AD id beside it."
+  ref: [OD-39, R-032, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-075
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 0"
+  from: "font-family:KaTeX_AMS;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_AMS-Regular.73ea273a72f4aca30ca528cf9117470a.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_AMS-Regular.d562e886c52f12660a41eea8d05af757.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9afe7a7c3e32fa.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_AMS;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_AMS-Regular.a79f1c31.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_AMS-Regular.1608a09b.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_AMS-Regular.4aafdb68.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-076
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 1"
+  from: "font-family:KaTeX_Caligraphic;font-style:normal;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_Caligraphic-Bold.a1abf90dfd72792a577a5a43382bb0e4.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Caligraphic-Bold.d757c535a2e5902f1325192d99e0c965.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Caligraphic-Bold.7489a2fbfb9bfe70442031a27fb57a21.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Caligraphic;font-style:normal;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_Caligraphic-Bold.ec17d132.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Caligraphic-Bold.b6770918.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Caligraphic-Bold.cce5b8ec.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-077
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 10"
+  from: "font-family:KaTeX_Math;font-style:italic;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Math-Italic.6d3d25f4820d0da8f01fa3d2c7cbb8c2.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Math-Italic.96759856b4e70f3a83385d07e0d33b03.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Math-Italic.8a5f936332e8028c7278a3a25db00925.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Math;font-style:italic;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Math-Italic.f28c23ac.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Math-Italic.5295ba48.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Math-Italic.939bc644.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-078
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 11"
+  from: "font-family:\"KaTeX_SansSerif\";font-style:normal;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_SansSerif-Bold.95591a929f0d32aa282a90ba5acf81f0.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Bold.b9cd458ac6d5889ff9c388cf91b8ad51.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Bold.5b49f4993ae22d7975b413caed1a4c01.ttf) format(\"truetype\")"
+  to: "font-family:\"KaTeX_SansSerif\";font-style:normal;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_SansSerif-Bold.8c5b5494.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Bold.bf59d231.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Bold.94e1e8dc.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-079
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 12"
+  from: "font-family:\"KaTeX_SansSerif\";font-style:italic;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_SansSerif-Italic.7d393d382f3e7fb1c637280a90a3434b.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Italic.8d593cfaa96238d5e2f8af9e11cc5a68.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Italic.b257a18c016f37ee45430f59757a0db9.ttf) format(\"truetype\")"
+  to: "font-family:\"KaTeX_SansSerif\";font-style:italic;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_SansSerif-Italic.3b1e59b3.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Italic.7c9bc82b.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Italic.b4c20c84.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-080
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 13"
+  from: "font-family:\"KaTeX_SansSerif\";font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_SansSerif-Regular.cd5e231e0cc53b2cb2c029b09b917782.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Regular.02271ec5cb9f5b4588ac53d7efbe6de8.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Regular.2f7bc363fc5424ebda5903f74c404a99.ttf) format(\"truetype\")"
+  to: "font-family:\"KaTeX_SansSerif\";font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_SansSerif-Regular.ba21ed5f.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Regular.74048478.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Regular.d4d7ba48.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-081
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 14"
+  from: "font-family:KaTeX_Script;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Script-Regular.c81d1b2a4b75d3eded6059a210910a6b.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Script-Regular.073b3402d036714b43709614d1da717a.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Script-Regular.fc9ba5249878cd8f8d885c1f42b0f43d.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Script;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Script-Regular.03e9641d.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Script-Regular.07505710.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Script-Regular.fe9cbbe1.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-082
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 15"
+  from: "font-family:KaTeX_Size1;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Size1-Regular.6eec866c69313624be6061a5c86f0944.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Size1-Regular.0108e89c9003e8c14ea3c4e99b09653e.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Size1-Regular.6de7d4b539221a49e9e241b734653ecf.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Size1;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Size1-Regular.eae34984.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Size1-Regular.e1e279cb.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Size1-Regular.fabc004a.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-083
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 16"
+  from: "font-family:KaTeX_Size2;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Size2-Regular.2960900c4f271311eb36d175a209aa0a.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Size2-Regular.3a99e70aee4076660d38b312c7cac2f9.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Size2-Regular.57f5c1837853986ea1dbadbb8f4f6074.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Size2;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Size2-Regular.5916a24f.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Size2-Regular.57727022.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Size2-Regular.d6b476ec.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-084
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 17"
+  from: "font-family:KaTeX_Size3;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Size3-Regular.e1951519f6f0596f735635e962d5b82c.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Size3-Regular.7947224e8a9914fa332b16515176ce0d.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Size3-Regular.8d6b6822586eea3d3b2076d171808949.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Size3;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Size3-Regular.b4230e7e.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Size3-Regular.9acaf01c.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Size3-Regular.a144ef58.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-085
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 18"
+  from: "font-family:KaTeX_Size4;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Size4-Regular.e418bf257af1052628d8c981d158674c.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Size4-Regular.aeffd8025cba3647f1a6c07f222d985e.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Size4-Regular.4ad7c7e8bb8d10a34bb7c4bb567cef92.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Size4;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Size4-Regular.10d95fd3.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Size4-Regular.7a996c9d.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Size4-Regular.fbccdabe.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-086
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 19"
+  from: "font-family:KaTeX_Typewriter;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Typewriter-Regular.c295e7f71970f03c0549228b1c18120a.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Typewriter-Regular.4c6b94fd1d07f8beff7cf3364d4d4555.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Typewriter-Regular.c5c02d763c89380dcb4ed359e15d0897.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Typewriter;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Typewriter-Regular.a8709e36.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Typewriter-Regular.6258592b.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Typewriter-Regular.d97aaf4a.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-087
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 2"
+  from: "font-family:KaTeX_Caligraphic;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Caligraphic-Regular.d6484fce1ef428d5bd94a903d7973395.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Caligraphic-Regular.db074fa22cf224af93d7b2122b1fab93.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Caligraphic-Regular.7e873d3833eb108a0758be45cd29e907.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Caligraphic;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Caligraphic-Regular.55fac258.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Caligraphic-Regular.dad44a7f.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Caligraphic-Regular.07ef19e7.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-088
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 3"
+  from: "font-family:KaTeX_Fraktur;font-style:normal;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_Fraktur-Bold.931d67ea207ab37ee693ff155ff4d7a6.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Fraktur-Bold.354501bac435c3264834b80301089bad.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Fraktur-Bold.4c761b3711973ab04edf7ea6f1fbacdc.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Fraktur;font-style:normal;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_Fraktur-Bold.d42a5579.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Fraktur-Bold.9f256b85.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Fraktur-Bold.b18f59e1.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-089
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 4"
+  from: "font-family:KaTeX_Fraktur;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Fraktur-Regular.172d3529b26f8cedef6b5ddef7546e02.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Fraktur-Regular.6fdf0ac577be0ba82a4c9a89b8eef91b.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Fraktur-Regular.ed305b5434865e06ffde7da0d28101af.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Fraktur;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Fraktur-Regular.d3c882a6.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Fraktur-Regular.7c187121.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Fraktur-Regular.ed38e79f.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-090
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 5"
+  from: "font-family:KaTeX_Main;font-style:normal;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_Main-Bold.39890742bc957b368704509bb2f4163c.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Main-Bold.0c3b8929d377c0e9b2f3a9c872e3337b.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Main-Bold.8169508bf58f8bd92ad8a768ede68a18.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Main;font-style:normal;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_Main-Bold.c3fb5ac2.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Main-Bold.d181c465.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Main-Bold.b74a1a8b.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-091
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 6"
+  from: "font-family:KaTeX_Main;font-style:italic;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_Main-BoldItalic.20f389c4120be058d80a3cd6a2f5a9b9.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Main-BoldItalic.428978dc7837d46de0916f266f5a43df.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Main-BoldItalic.828abcb200061cffbaae1f0498f821a8.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Main;font-style:italic;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_Main-BoldItalic.6f2bb1df.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Main-BoldItalic.e3f82f9d.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Main-BoldItalic.70d8b0a5.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-092
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 7"
+  from: "font-family:KaTeX_Main;font-style:italic;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Main-Italic.fe2176f79edaa716e6212cca53949439.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Main-Italic.fd947498bc16392e76c23adf58513fb3.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Main-Italic.fa675e5e4bec9eb250b6a8cac09b189b.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Main;font-style:italic;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Main-Italic.8916142b.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Main-Italic.9024d815.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Main-Italic.47373d1e.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-093
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 8"
+  from: "font-family:KaTeX_Main;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Main-Regular.f650f111a3b890d116f1ba740b7e3de3.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Main-Regular.4f35fbcc9ee8614c2bcc8c28314db234.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e823d52be546b.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Main;font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_Main-Regular.0462f03b.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Main-Regular.7f51fe03.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Main-Regular.b7f8fe9b.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-094
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 9"
+  from: "font-family:KaTeX_Math;font-style:italic;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_Math-BoldItalic.dcbcbd93bac0470b462db6f9708a658c.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Math-BoldItalic.3f07ed67f06c720120cedd0bad5f60e2.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Math-BoldItalic.bf2d440b3a42ea78a998ccd32eb09d88.ttf) format(\"truetype\")"
+  to: "font-family:KaTeX_Math;font-style:italic;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_Math-BoldItalic.572d331f.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_Math-BoldItalic.f1035d8d.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_Math-BoldItalic.a879cf83.ttf) format(\"truetype\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-095
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-control-layers-toggle | - | 0"
+  from: "background-image:url(/static/search/_next/static/media/layers.416d91365b44e4b4f4777663e6f009f3.png);width:36px;height:36px"
+  to: "background-image:url(/static/search/_next/static/media/layers.ef6db872.png);width:36px;height:36px"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-096
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-default-icon-path | - | 0"
+  from: "background-image:url(/static/search/_next/static/media/marker-icon.2b3e1faf89f94a4835397e7a43b4f77d.png)"
+  to: "background-image:url(/static/search/_next/static/media/marker-icon.d577052a.png)"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-097
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-retina .leaflet-control-layers-toggle | - | 0"
+  from: "background-image:url(/static/search/_next/static/media/layers-2x.8f2c4d11474275fbc1614b9098334eae.png);background-size:26px 26px"
+  to: "background-image:url(/static/search/_next/static/media/layers-2x.9859cd12.png);background-size:26px 26px"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-098
+  kind: product
+  test: T-003
+  key: "rule:node_modules/slick-carousel/slick/slick-theme.css | .slick-loading .slick-list | - | 0"
+  from: "background:#fff url(/static/search/_next/static/media/ajax-loader.fb6f3c230cb846e25247dfaa1da94d8f.gif) 50% no-repeat"
+  to: "background:#fff url(/static/search/_next/static/media/ajax-loader.0b80f665.gif) 50% no-repeat"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-099
+  kind: product
+  test: T-003
+  key: "rule:node_modules/slick-carousel/slick/slick-theme.css | @font-face | - | 0"
+  from: "font-family:slick;font-weight:400;font-style:normal;src:url(/static/search/_next/static/media/slick.a4e97f5a2a64f0ab132323fbeb33ae29.eot);src:url(/static/search/_next/static/media/slick.a4e97f5a2a64f0ab132323fbeb33ae29.eot?#iefix) format(\"embedded-opentype\"),url(/static/search/_next/static/media/slick.295183786cd8a138986521d9f388a286.woff) format(\"woff\"),url(/static/search/_next/static/media/slick.c94f7671dcc99dce43e22a89f486f7c2.ttf) format(\"truetype\"),url(/static/search/_next/static/media/slick.2630a3e3eab21c607e21576571b95b9d.svg#slick) format(\"svg\")"
+  to: "font-family:slick;font-weight:400;font-style:normal;src:url(/static/search/_next/static/media/slick.25572f22.eot);src:url(/static/search/_next/static/media/slick.25572f22.eot?#iefix) format(\"embedded-opentype\"),url(/static/search/_next/static/media/slick.653a4cbb.woff) format(\"woff\"),url(/static/search/_next/static/media/slick.6aa1ee46.ttf) format(\"truetype\"),url(/static/search/_next/static/media/slick.f895cfdf.svg#slick) format(\"svg\")"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-100
+  kind: product
+  test: T-003
+  key: "rule:templates/data-provider/styles.module.css | .styles_layout | - | 0"
+  from: "z-index:5;padding:var(--page-padding-y) var(--page-padding-x);background-image:url(/static/search/_next/static/media/map-background.76cf852e5bae7fcdc541f302c641c0bb.png);background-repeat:no-repeat;background-position:top;background-size:contain"
+  to: "z-index:5;padding:var(--page-padding-y) var(--page-padding-x);background-image:url(/static/search/_next/static/media/map-background.23c201b0.png);background-repeat:no-repeat;background-position:top;background-size:contain"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-101
+  kind: product
+  test: T-003
+  key: "rule:templates/search/styles.module.css | .styles_member-info | - | 0"
+  from: "position:relative;margin-top:3rem;text-align:left;background-color:#fff;background-image:url(/static/search/_next/static/media/repoBackground.e9b6ab7506846e526b8505a1426f0f06.svg);background-repeat:no-repeat;background-position:50%;background-size:cover;border:1px solid #b75400;border-radius:2px"
+  to: "position:relative;margin-top:3rem;text-align:left;background-color:#fff;background-image:url(/static/search/_next/static/media/repoBackground.605c8585.svg);background-repeat:no-repeat;background-position:50%;background-size:cover;border:1px solid #b75400;border-radius:2px"
+  reason: "T-003 c1 (category F1, the only category left under OD-37 A). CS-N12-7, Next 12.1.6 names the CSS assets it emits (the url() of fonts and images) `static/media/[name].[hash:8].[ext]` where Next 10.2.3 wrote `[name].[32-hex hash].[ext]`; a framework delta of Next's CSS asset handling, not of the minifier (OD-39). The declarations are otherwise byte-equal: with cssnano-simple 2.0.0 (CS-N12-10) the 8 CSS files of the build equal those of the W4b build 31051da057087487 byte for byte after the asset names, the CSS-module hashes and the map file name are normalised (probe/css-bytes-31051-vs-6172-r2.json); the files are served under the new names (T-005, T-721 green); T-801 0 px on Chromium (the WebKit and Firefox legs DEFERRED as in jump 1)."
+  ref: [OD-39, R-043, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-102
+  kind: product
+  test: T-601
+  key: "c5 map counts [.js.map, .css.map] under .next/static (e2e/http/t601-route-matrix.spec.mjs, `expect([...]).toEqual([27, 8])` of the clause '.map 200 (S-9)')"
+  from: "[27, 8]"
+  to: "[22, 8]"
+  reason: "T-601 c5, S-9, CS-N12-7 and CS-N11-4: the W4c value of the unfiled proposal W4b-1's key, which it supersedes ([21, 8] at W4b). Next 12.1.6 emits 26 client .js files under .next/static: 22 with a map (productionBrowserSourceMaps), 4 without (the three per-build manifests, `_middlewareManifest.js` new with Next 12, and the polyfill script, Next's precompiled copy). The 8 CSS maps stay. Probed on the W4c stack through the gateway-faithful proxy (every row of the clause): every asset 200 and ending with its sourceMappingURL comment, every map 200 `application/json; charset=UTF-8` with a complete sourcesContent, no empty map, no empty CSS-extraction chunk (AD-056 holds); the maps stay public (OD-42, VF-24)."
+  ref: [OD-39, S-9, OD-42, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-103
+  kind: product
+  test: T-602
+  key: "c1 search-empty (308 to /, Q-002): length of the redirect body (e2e/http/t602-ssr-head.spec.mjs, `expect(raw.body.length, 'search-empty empty body').toBe(0)`)"
+  from: "0"
+  to: "1"
+  reason: "T-602 c1, Q-002, CS-N12-7. Next 12 writes the destination of a getServerSideProps redirect as the response body (`/`, 1 byte; Next 10.2.3 sent an empty body). Status 308, `Location: /` and the CSP header of the answer are unchanged (the Location assertion just before passed; T-603 showed no header delta on the 308 routes at W4c, Next 12.1.6; on 12.3.7 the same answer also gains the no-store Cache-Control of AD-120; `Refresh: 0;url=/` as today, S-6). The clause stops at this page, so the later pages of its list are checked only after this row applies (T-602 c2, the app-owned tags of every page, green)."
+  ref: [OD-39, Q-002, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-104
+  kind: product
+  test: T-603
+  key: "html-gip@origin/cache-control, html-gip@proxy/cache-control, 404-page@origin/cache-control, 404-page@proxy/cache-control, 500@origin/cache-control, 500@proxy/cache-control"
+  from: "<absent>"
+  to: "private, no-cache, no-store, max-age=0, must-revalidate"
+  reason: "T-603 c1/c2 (OD-39 'Cache-Control on 404/500'), CS-N12-7: Next 12 sets `Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate` on the HTML of a page rendered with getInitialProps (html-gip, /outputs/update/), on the 404 page (404-page, /search/nope/) and on the 500 page, origin and proxy, every case (18 diffs: GET, HEAD, br/gzip; Next 10.2.3 sent no Cache-Control there). Edge-visible (T-904): the gateway and any cache in front of it see a no-store answer where there was none. The getServerSideProps HTML (html-gssp) keeps the header it had; no other header of any route class differs. The 500 page changes again with CS-N11-9 (W4c.2): its value is re-checked there. Not visible on the page; one browser effect: Chromium keeps no back/forward-cache copy of a no-store answer, so going Back to /outputs/update/, a 404 or a 500 page loads it again (the getServerSideProps pages already sent no-store on 10.2.3)."
+  ref: [OD-39, R-071, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-105
+  kind: product
+  test: T-603
+  key: "404-notfound@origin/cache-control, 404-notfound@proxy/cache-control"
+  from: "no-cache, no-store, max-age=0, must-revalidate"
+  to: "private, no-cache, no-store, max-age=0, must-revalidate"
+  reason: "T-603 c1/c2 (OD-39), CS-N12-7: the 404 answer of a getServerSideProps page that returns notFound (404-notfound) had Next 10.2.3's `no-cache, no-store, max-age=0, must-revalidate`; Next 12 prefixes `private,` (8 diffs: origin and proxy; GET, HEAD, conditional GET, br/gzip). Edge-visible (T-904). The same back/forward-cache effect as the html-gip, 404 and 500 rows."
+  ref: [OD-39, R-071, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-106
+  kind: product
+  test: T-612
+  key: "c2 /works//1 through the gateway-faithful proxy: a CSP header on the app's answer (e2e/http/t612-gateway-proxy.spec.mjs, `expect([row.target, h['content-security-policy'] !== undefined]).toEqual([row.target, true])`)"
+  from: "[\"/works//1\", true]"
+  to: "[\"/works//1\", false]"
+  reason: "T-612 c2 (OD-39 'CSP on 308'), CS-N12-7. What changed: a path with a repeated slash or a backslash is now answered by Next itself, in its server before any app code or custom header of next.config.js runs (next/dist/server/base-server.js redirects such a path with 308 to the path with the slashes normalised): `/works//1` -> 308 `Location: /works/1`, `Refresh: 0;url=/works/1`, body `/works/1`, no Content-Security-Policy; `/works/1` then gets the trailing-slash 308 to `/works/1/`, the work page. Next 10.2.3 let the app answer `/works//1` with its 404 page: status 404, with the CSP (the W4b run, Next 10.2.3 with the same server code: T-612 c2 green, its statuses list `/works//1` 404). So the status and the landing page change: a malformed link that showed the 404 page now opens the work page; the owner decides it with this signature. Why accepted: Next 12 normalises such paths before the app sees the request, so no app-side change keeps the 404 (the app runs `next start` without a custom server). No test pins the status: the status table at the end of the clause has no `/works//1` entry and holds (`//works/1` 404, `/display` 308, ...), and as a product row the checker's status guard (42 §8, kind: delta) does not apply. The route and upstream of the row are unchanged (x-p2-route /works). The clause stops at this row; all 34 rows probed on the W4c and W4d stacks: no other row differs. Edge-visible (T-904). The same pre-header 308, without the CSP, answers a path that holds a backslash; its status on 10.2.3 was not measured, and no T-612 row has such a path. Constant."
+  ref: [OD-39, R-083, S-6, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-109
+  kind: product
+  test: T-728
+  key: "c4 dev inventory, works-1001-t-repeated (Q-016 dev path, next dev 12.1.6): the load status of its 9 loads and the browser's console line of that status (e2e/lib/P0-12/dev-inventory-check.mjs checkInventory: `<label>: status <n>` and the warning mapping; test `expect(checkInventory(inventory)).toEqual([])`)"
+  from: "[]"
+  to: "[\"works-1001-t-repeated America/Los_Angeles absent: status 500\",\"works-1001-t-repeated America/Los_Angeles essential: status 500\",\"works-1001-t-repeated America/Los_Angeles essential+analytics: status 500\",\"works-1001-t-repeated Asia/Tokyo absent: status 500\",\"works-1001-t-repeated Asia/Tokyo essential: status 500\",\"works-1001-t-repeated Asia/Tokyo essential+analytics: status 500\",\"works-1001-t-repeated UTC absent: status 500\",\"works-1001-t-repeated UTC essential: status 500\",\"works-1001-t-repeated UTC essential+analytics: status 500\",\"warning console | Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ /works/1001/ |  (console) maps to no Q row: Failed to load resource: the server responded with a status of 500 (Internal Server Error)\"]"
+  reason: "T-728 c4, Q-016 (development only), CS-N12-7; owner decision 5 on the W4c halt (2026-10-29): next dev 12.1.6 answers the repeated-`t` works page with status 500 where next dev 10.2.3 answered 200; both serve the same empty #__next with the development error overlay (`Error serializing .serverError.code`, mapped by q016-dev-props-serialization, still emptySsr), and the browser prints its line for the 500 document. Production is unchanged: the soft 404 with status 200 and 0 upstream calls (T-501, T-502, T-504, T-607; T-601 green for works-1001-t-repeated). These are the 10 problems the check reports on the W4c inventory, nothing else (the two HMR WebSocket lines map to next12-dev-hmr-websocket, owner decision 5, 568da69). checkInventory has no ledger hook: applying the row needs the expected status of this route on next dev 12 and a q016 map rule for the console line (both acceptance changes) or the owner's other choice. Applied as the expected value of `expect(checkInventory(inventory)).toEqual([])` (e2e/journeys/t728-hydration-diff.spec.mjs, T-728 c4), with this AD id beside it."
+  ref: [OD-39, Q-016, OD-31]
+  step: W4c
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-110
+  kind: product
+  test: T-002
+  key: "the grep token count of `styles.<letters>` over the application sources (test/static/t002-css-module-keys.test.js, `expect(s.tokens.all).toBe(430)` of the clause 'the plan's grep figures reconcile with the member reads: 430 tokens and 221 camelCase tokens')"
+  from: "430"
+  to: "434"
+  reason: "T-002 (R-001), CS-N11-9 (OD-38 A): the copy of next 10.2.3's error page, pages/_error.jsx, is a new application source (sourceFiles() takes every tracked .js/.jsx outside test, e2e, scripts, tools, docs, node_modules and vendor/oacore-design). Its render reads a local style object, not a CSS module: `styles.error`, `styles.desc`, `styles.h1`, `styles.h2`, which the clause's regex `styles\\.[A-Za-z_]+` counts as 4 tokens (`styles.h` twice). No CSS-module import, read or key changes: the 66 importers, 26 modules, the member reads, the 24 pinned dangling reads are unchanged (the other T-002 clauses green), and none of the 4 tokens is camelCase, so the 221 camelCase tokens stay. The clause stops at this assertion; the next one it reaches is AD-111. The owner's other choice, as AD-044 did for the vendored design: leave pages/_error.jsx (vendored third-party code, not application source) out of sourceFiles(), which changes the test's scope (an acceptance change, 40 §8 rule 8) and keeps 430 and 2."
+  ref: [R-001, OD-38, OD-31]
+  step: W4c.2
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-111
+  kind: product
+  test: T-002
+  key: "the grep tokens in application files that import no CSS module"
+  from: "2"
+  to: "6"
+  reason: "T-002 (R-001), CS-N11-9 (OD-38 A): the same 4 tokens as AD-110, all in pages/_error.jsx, which imports no CSS module (so scan() adds them to outsideImporters); the 2 tokens of api/outputs.js (styles.length, styles.map) stay. Not reached in the run (the clause stops at the 430 assertion before it); the value is the clause's own arithmetic on the unchanged member reads: the next assertion, reads + 4 + 61 + 2 = 430, still holds, since no member read of a CSS module was added. Same alternative as AD-110 (scope, AD-044)."
+  ref: [R-001, OD-38, OD-31]
+  step: W4c.2
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-112
+  kind: product
+  test: T-721
+  key: "c1 route works-4100-500: the console.error lines outside the route's pins DOC_500 and ERR_500 (e2e/journeys/t721-asset-4xx.spec.mjs, `expect(guardLog.consoleErrors...filter((t) => !pinned.some((re) => re.test(t)))).toEqual([])`)"
+  from: "[]"
+  to: "[\"A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred\"]"
+  reason: "T-721 c1 (R-007, R-021, R-082), the route works-4100-500 (Q-001). Next 12's client (node_modules/next/dist/client/index.js, renderError: line 465 in 12.1.6, line 235 in 12.3.7) prints this console.error right after the initial error object whenever it hydrates a page rendered with an error (`__NEXT_DATA__.err`, every SSR 500); Next 10.2.3's renderError printed only the error object (its dist/client/index.js:56, `console.error(err)`, in the jump-1 tip build b03fe38c71dcaad9). It does not depend on the error page: the W4c run with Next 12's built-in page printed the same line (T-721 c1). Code cannot preserve it (OD-38 A): the line comes from Next's client before the error page renders, and only patching Next or the console would remove it. Everything else of the 500 page equals 10.2.3 with pages/_error.jsx (CS-N11-9): status, title ': An unexpected error has occurred', the marker and h2, `__NEXT_DATA__` page /_error and err, the request list, the pixel captures at 0 px, the axe and ARIA results; a probe from a patched copy of the repository, in which each console expectation of the 500 page also lists the line (never committed), passed 10/10: T-721 c1 works-4100-500, T-731 c1, T-803 c1 500, T-806 500, T-801 V23-none x2 and V31 x4. No ledger hook applies to this literal: after the signature the test's expected list takes the row's `to`, or one entry for this exact line in e2e/console-allow/react-17.0.json takes it for every test at once (40 §8 rule 6: a framework message of an existing Q/R row, Q-098, R-085, with an AD row; an acceptance change, 40 §8 rule 8): the owner's choice. The asset census of the route is unchanged: no image, icon, CSS or JS response >= 400 (the probe ran the rest of the test)."
+  ref: [OD-38, OD-39, Q-098, R-085, OD-31]
+  step: W4c.2
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-113
+  kind: product
+  test: T-731
+  key: "c1 the console member of each of the 8 rows of the SSR failure matrix (e2e/journeys/t731-ssr-failure.spec.mjs, `console: [[RESOURCE_500, '<document>'], [INITIAL_ERR, '<script>']]` in the expected rows)"
+  from: "[[\"Failed to load resource: the server responded with a status of 500 (Internal Server Error)\", \"<document>\"], [\"{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}\", \"<script>\"]] on each of /works/4101/, /works/4102/, /works/6948813/, /works/4200/, /outputs/2102/, /outputs/2103/, /works/4100/, /data-providers/?q=100%25"
+  to: "[[\"Failed to load resource: the server responded with a status of 500 (Internal Server Error)\", \"<document>\"], [\"{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}\", \"<script>\"], [\"A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred\", \"<script>\"]] on each of the 8 rows"
+  reason: "T-731 c1 (R-045, R-085, Q-098). Next 12's client (node_modules/next/dist/client/index.js, renderError: line 465 in 12.1.6, line 235 in 12.3.7) prints this console.error right after the initial error object whenever it hydrates a page rendered with an error (`__NEXT_DATA__.err`, every SSR 500); Next 10.2.3's renderError printed only the error object (its dist/client/index.js:56, `console.error(err)`, in the jump-1 tip build b03fe38c71dcaad9). It does not depend on the error page: the W4c run with Next 12's built-in page printed the same line (T-721 c1). Code cannot preserve it (OD-38 A): the line comes from Next's client before the error page renders, and only patching Next or the console would remove it. Everything else of the 500 page equals 10.2.3 with pages/_error.jsx (CS-N11-9): status, title ': An unexpected error has occurred', the marker and h2, `__NEXT_DATA__` page /_error and err, the request list, the pixel captures at 0 px, the axe and ARIA results; a probe from a patched copy of the repository, in which each console expectation of the 500 page also lists the line (never committed), passed 10/10: T-721 c1 works-4100-500, T-731 c1, T-803 c1 500, T-806 500, T-801 V23-none x2 and V31 x4. No ledger hook applies to this literal: after the signature the test's expected list takes the row's `to`, or one entry for this exact line in e2e/console-allow/react-17.0.json takes it for every test at once (40 §8 rule 6: a framework message of an existing Q/R row, Q-098, R-085, with an AD row; an acceptance change, 40 §8 rule 8): the owner's choice. The rest of each row is equal (status 500, the title, page /_error, err {name 'Internal Server Error.', statusCode 500}, pageProps [], header 1, footer 1, h2 ['An unexpected error has occurred.'], one document request): the diff of the run is exactly the 8 added console entries (+32 lines)."
+  ref: [OD-38, OD-39, Q-098, R-085, OD-31]
+  step: W4c.2
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-114
+  kind: product
+  test: T-803
+  key: "c1 'axe global 500 page': the console lines (e2e/a11y/t803-axe.spec.mjs, `expect(consoleTexts(guardLog)).toEqual([CONSOLE_500, CONSOLE_500_PAGE])`)"
+  from: "[\"Failed to load resource: the server responded with a status of 500 (Internal Server Error)\", \"{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}\"]"
+  to: "[\"Failed to load resource: the server responded with a status of 500 (Internal Server Error)\", \"{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}\", \"A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred\"]"
+  reason: "T-803 c1 (P1), the global 500 page (/works/6948813/, Q-073 a). Next 12's client (node_modules/next/dist/client/index.js, renderError: line 465 in 12.1.6, line 235 in 12.3.7) prints this console.error right after the initial error object whenever it hydrates a page rendered with an error (`__NEXT_DATA__.err`, every SSR 500); Next 10.2.3's renderError printed only the error object (its dist/client/index.js:56, `console.error(err)`, in the jump-1 tip build b03fe38c71dcaad9). It does not depend on the error page: the W4c run with Next 12's built-in page printed the same line (T-721 c1). Code cannot preserve it (OD-38 A): the line comes from Next's client before the error page renders, and only patching Next or the console would remove it. Everything else of the 500 page equals 10.2.3 with pages/_error.jsx (CS-N11-9): status, title ': An unexpected error has occurred', the marker and h2, `__NEXT_DATA__` page /_error and err, the request list, the pixel captures at 0 px, the axe and ARIA results; a probe from a patched copy of the repository, in which each console expectation of the 500 page also lists the line (never committed), passed 10/10: T-721 c1 works-4100-500, T-731 c1, T-803 c1 500, T-806 500, T-801 V23-none x2 and V31 x4. No ledger hook applies to this literal: after the signature the test's expected list takes the row's `to`, or one entry for this exact line in e2e/console-allow/react-17.0.json takes it for every test at once (40 §8 rule 6: a framework message of an existing Q/R row, Q-098, R-085, with an AD row; an acceptance change, 40 §8 rule 8): the owner's choice. With the line accepted, the axe check g-500 equals its baseline (the probe)."
+  ref: [OD-38, OD-39, Q-098, R-085, OD-31]
+  step: W4c.2
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-115
+  kind: product
+  test: T-806
+  key: "'ARIA global 500 page': the console lines (e2e/a11y/t806-aria-snapshots.spec.mjs, `expect(consoleTexts(guardLog)).toEqual([CONSOLE_500, CONSOLE_500_PAGE])`)"
+  from: "[\"Failed to load resource: the server responded with a status of 500 (Internal Server Error)\", \"{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}\"]"
+  to: "[\"Failed to load resource: the server responded with a status of 500 (Internal Server Error)\", \"{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}\", \"A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred\"]"
+  reason: "T-806 (P1), the global 500 page. Next 12's client (node_modules/next/dist/client/index.js, renderError: line 465 in 12.1.6, line 235 in 12.3.7) prints this console.error right after the initial error object whenever it hydrates a page rendered with an error (`__NEXT_DATA__.err`, every SSR 500); Next 10.2.3's renderError printed only the error object (its dist/client/index.js:56, `console.error(err)`, in the jump-1 tip build b03fe38c71dcaad9). It does not depend on the error page: the W4c run with Next 12's built-in page printed the same line (T-721 c1). Code cannot preserve it (OD-38 A): the line comes from Next's client before the error page renders, and only patching Next or the console would remove it. Everything else of the 500 page equals 10.2.3 with pages/_error.jsx (CS-N11-9): status, title ': An unexpected error has occurred', the marker and h2, `__NEXT_DATA__` page /_error and err, the request list, the pixel captures at 0 px, the axe and ARIA results; a probe from a patched copy of the repository, in which each console expectation of the 500 page also lists the line (never committed), passed 10/10: T-721 c1 works-4100-500, T-731 c1, T-803 c1 500, T-806 500, T-801 V23-none x2 and V31 x4. No ledger hook applies to this literal: after the signature the test's expected list takes the row's `to`, or one entry for this exact line in e2e/console-allow/react-17.0.json takes it for every test at once (40 §8 rule 6: a framework message of an existing Q/R row, Q-098, R-085, with an AD row; an acceptance change, 40 §8 rule 8): the owner's choice. With the line accepted, the ARIA snapshot g-500 equals its baseline (the probe)."
+  ref: [OD-38, OD-39, Q-098, R-085, OD-31]
+  step: W4c.2
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-116
+  kind: product
+  test: T-801
+  key: "c1 V23-none 1440 and 375: the console lines of the five routes (e2e/visual/t801-search.spec.mjs, `expect(guardLog.consoleErrors.map(...)).toEqual([CONSOLE_404, CONSOLE_500, '{name: ...}'])`)"
+  from: "[\"Failed to load resource: the server responded with a status of 404 (Not Found)\", \"Failed to load resource: the server responded with a status of 500 (Internal Server Error)\", \"{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}\"]"
+  to: "[\"Failed to load resource: the server responded with a status of 404 (Not Found)\", \"Failed to load resource: the server responded with a status of 500 (Internal Server Error)\", \"{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}\", \"A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred\"]"
+  reason: "T-801 c1 V23-none (P0). Next 12's client (node_modules/next/dist/client/index.js, renderError: line 465 in 12.1.6, line 235 in 12.3.7) prints this console.error right after the initial error object whenever it hydrates a page rendered with an error (`__NEXT_DATA__.err`, every SSR 500); Next 10.2.3's renderError printed only the error object (its dist/client/index.js:56, `console.error(err)`, in the jump-1 tip build b03fe38c71dcaad9). It does not depend on the error page: the W4c run with Next 12's built-in page printed the same line (T-721 c1). Code cannot preserve it (OD-38 A): the line comes from Next's client before the error page renders, and only patching Next or the console would remove it. Everything else of the 500 page equals 10.2.3 with pages/_error.jsx (CS-N11-9): status, title ': An unexpected error has occurred', the marker and h2, `__NEXT_DATA__` page /_error and err, the request list, the pixel captures at 0 px, the axe and ARIA results; a probe from a patched copy of the repository, in which each console expectation of the 500 page also lists the line (never committed), passed 10/10: T-721 c1 works-4100-500, T-731 c1, T-803 c1 500, T-806 500, T-801 V23-none x2 and V31 x4. No ledger hook applies to this literal: after the signature the test's expected list takes the row's `to`, or one entry for this exact line in e2e/console-allow/react-17.0.json takes it for every test at once (40 §8 rule 6: a framework message of an existing Q/R row, Q-098, R-085, with an AD row; an acceptance change, 40 §8 rule 8): the owner's choice. The assertion runs after the captures: all 10 of V23-none (update, provider, 404, 500, error-card at 1440 and 375) are 0 px in the run, the V23-500 pair included (W4c: 4185 / 4156 px with Next 12's built-in page)."
+  ref: [OD-38, OD-39, Q-098, R-085, OD-31]
+  step: W4c.2
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-117
+  kind: product
+  test: T-801
+  key: "c1 V31 500 page (1440, 375, dark 1440, dark 375): the console lines asserted before the capture (e2e/visual/t801-p1-states.spec.mjs open500, `expect(consoleTexts(guardLog)).toEqual([CONSOLE_500, CONSOLE_500_PAGE])`)"
+  from: "[\"Failed to load resource: the server responded with a status of 500 (Internal Server Error)\", \"{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}\"]"
+  to: "[\"Failed to load resource: the server responded with a status of 500 (Internal Server Error)\", \"{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}\", \"A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred\"]"
+  reason: "T-801 c1 V31 (P1). Next 12's client (node_modules/next/dist/client/index.js, renderError: line 465 in 12.1.6, line 235 in 12.3.7) prints this console.error right after the initial error object whenever it hydrates a page rendered with an error (`__NEXT_DATA__.err`, every SSR 500); Next 10.2.3's renderError printed only the error object (its dist/client/index.js:56, `console.error(err)`, in the jump-1 tip build b03fe38c71dcaad9). It does not depend on the error page: the W4c run with Next 12's built-in page printed the same line (T-721 c1). Code cannot preserve it (OD-38 A): the line comes from Next's client before the error page renders, and only patching Next or the console would remove it. Everything else of the 500 page equals 10.2.3 with pages/_error.jsx (CS-N11-9): status, title ': An unexpected error has occurred', the marker and h2, `__NEXT_DATA__` page /_error and err, the request list, the pixel captures at 0 px, the axe and ARIA results; a probe from a patched copy of the repository, in which each console expectation of the 500 page also lists the line (never committed), passed 10/10: T-721 c1 works-4100-500, T-731 c1, T-803 c1 500, T-806 500, T-801 V23-none x2 and V31 x4. No ledger hook applies to this literal: after the signature the test's expected list takes the row's `to`, or one entry for this exact line in e2e/console-allow/react-17.0.json takes it for every test at once (40 §8 rule 6: a framework message of an existing Q/R row, Q-098, R-085, with an AD row; an acceptance change, 40 §8 rule 8): the owner's choice. The assertion runs before the capture, so the run has no V31 annotation; with the line accepted the probe captures V31-500-1440 and V31-500-375 at 0 px and the dark variants equal the light baselines at 0 px."
+  ref: [OD-38, OD-39, Q-098, R-085, OD-31]
+  step: W4c.2
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-118
+  kind: product
+  test: T-010
+  key: "phases:rewrites"
+  from: "<absent>"
+  to: "beforeFiles: /search/_next/data/:path* | afterFiles: /static/:path* | fallback: "
+  reason: "T-010 c1 (R-002, R-068), CS-N12-9 (OD-03 D, D19): next.config.js rewrites() returns {beforeFiles: [the data rule], afterFiles: [the /static rule]} instead of an array, so the routes-manifest writes its rewrites as {beforeFiles, afterFiles, fallback}. The reader of 014e37d reads that form and gives the same entries as before (rewrite:/search/_next/data/:path* -> /_next/data/:path*, rewrite:/static/:path* -> /:path*, order:rewrites '/search/_next/data/:path* , /static/:path*', headers, redirects: all equal to the reference) plus this one key, which names each phase with its sources; an array (every reference and every build before W4d) gives no such key. The only change is the phase of the data rewrite: it is now checked before the pages, the reason for CS-N12-9 (from 12.2 the afterFiles rule no longer reaches /search/_next/data: the bump-only build ba2fe12789409dc5 answers it with the 404 page, T-604/T-702 14 red without the CS-OPS-1 overlay; with CS-N12-9 the same tests pass without the overlay). Rule 7 for the reader: on b03fe38c71dcaad9 (= the jump-1 tip e343464ce23af57f), 3f1b4e020c050d4e and ba2fe12789409dc5 the old and the new readers write byte-identical recorded outputs of T-003, T-004, T-005, T-010 and the T-004 c6 detector, and the whole static suite on b03f gives the same result per test."
+  ref: [OD-03, OD-39, R-068, R-002, OD-31]
+  step: W4d
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-119
+  kind: product
+  test: T-008
+  key: "c3 the violations of the native SWC rule"
+  from: "[]"
+  to: "[\"@next/swc-linux-arm64-gnu 12.3.4 is not next's 12.3.7\", \"@next/swc-linux-arm64-musl 12.3.4 is not next's 12.3.7\", \"@next/swc-linux-x64-gnu 12.3.4 is not next's 12.3.7\", \"@next/swc-linux-x64-musl 12.3.4 is not next's 12.3.7\"]"
+  reason: "T-008 c3 (R-027, CS-N12-4), CS-N12-5. next 12.3.7 declares its 13 @next/swc-* binaries at 12.3.4 in dependencies and optionalDependencies (the releases 12.3.5..12.3.7 of 2025-03 published no new binaries; npm view next@12.3.7 optionalDependencies), so the lock holds them at 12.3.4, exactly what next requires: all 13 in packages and in dependencies (lockfileVersion 2), gnu and musl of both linux arches, and Next's own lockfile check finds nothing missing (no 'patching' line in the build log). The rule compares each linux binary with next's own version, which 10.2.3 (none) and 12.1.6 (all 12.1.6) met. The rest of the clause: rule.next = the lock's next (12.3.7) and the installed tree holds its platform binary (@next/swc-darwin-arm64 12.3.4). Alternative (an acceptance change, 40 §8 rule 8, owner): compare each binary with the version next declares for it in optionalDependencies, which is what the clause title says; then this row is not needed. The same rule runs in test/static/lib/P0-16/install-checks.js verifyTree (bash test/ops/t008.sh --tree, the host form of the alpine container check), whose `ok` requires `native.violations.length === 0` (it has no accepted list): applied there by a new list `C3_ACCEPTED` of these four exact lines above verifyTree, under a comment that names this AD id (two lines, within max-len 80: the file is a harness file under T-001 c2), filtered out only in verifyTree's `ok` (`native.violations.filter((x) => !C3_ACCEPTED.includes(x)).length === 0`), with nativeRule unchanged, so the report's c3 and the Jest clause still see the four lines (the dry-run clone: t008 --tree ok with c3 listing the four lines, T-008 and T-001 green)."
+  ref: [OD-39, R-027, CS-N12-4, OD-31]
+  step: W4d
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-120
+  kind: product
+  test: T-603
+  key: "308-gssp@origin/cache-control, 308-gssp@proxy/cache-control"
+  from: "<absent>"
+  to: "private, no-cache, no-store, max-age=0, must-revalidate"
+  reason: "T-603 c1 (OD-39 'Cache-Control on 308', R-083), CS-N12-5. Route class 308-gssp is `/search/` with an empty query, which the page's getServerSideProps answers with a 308 to `/` (Q-002; e2e/lib/P0-11/contract.mjs, url /search/ in e2e/http/contract.baseline.json): the same answer as AD-103. Next 12.3.7 sends `Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate` with it (GET, HEAD and br/gzip, origin and through the proxy); Next 10.2.3 and 12.1.6 sent none. Status, Location and every other header of the class unchanged; the trailing-slash class 308-slash (/search?q=x) has no diff. The other T-603 c1 diffs of the run are those of AD-104 and AD-105, unchanged. A Next 12.3 framework header; an absent header cannot be kept by setting one. Edge-visible (T-904). Browser effect: a browser may keep a permanent redirect sent without Cache-Control (308 is cacheable by default; Chromium does so for 301 and 308; not measured here); with no-store it asks the server again each time. A redirect is never kept in the back/forward cache, so there is no bfcache effect."
+  ref: [OD-39, R-083, OD-31]
+  step: W4d
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-121
+  kind: product
+  test: T-702
+  key: "c7 the state keys of every pushState/replaceState entry (e2e/journeys/t702-navigation-network.spec.mjs, `expect(h.stateKeys).toEqual(['__N', 'as', 'idx', 'options', 'url'])`)"
+  from: "['__N', 'as', 'idx', 'options', 'url']"
+  to: "['__N', 'as', 'key', 'options', 'url']"
+  reason: "T-702 c7 (R-002, R-018), CS-N12-5. From 12.2 Next's router writes a random 'key' into history.state instead of the numeric 'idx' (router.js changeState: key: this._key = method !== 'pushState' ? this._key : createKey()); the app never reads either, Next uses the key only for its experimental scroll restoration, which is off. The method/URL sequence, scrollRestoration 'auto' and the scroll positions after Back and Forward are unchanged: a probe from a patched copy of the repository (the expected keys and the recorded t702-c7-history.json with 'key'; never committed) passes the clause. Identical with and without the CS-OPS-1 overlay."
+  ref: [OD-39, R-002, R-018, OD-31]
+  step: W4d
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-122
+  kind: product
+  test: T-703
+  key: "STATE_KEYS, the expected state keys of each history entry (e2e/journeys/t703-j1-search.spec.mjs:24)"
+  from: "['__N', 'as', 'idx', 'options', 'url']"
+  to: "['__N', 'as', 'key', 'options', 'url']"
+  reason: "T-703 J1 header search (R-018): Next 12.2+ writes 'key' instead of 'idx' into history.state (as AD-121); the pushState, its URL, scroll position and every other assertion of the test pass in the probe from the patched copy."
+  ref: [OD-39, R-018, OD-31]
+  step: W4d
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-123
+  kind: product
+  test: T-704
+  key: "STATE_KEYS, the expected state keys of each history entry (e2e/journeys/t704-j2-filter-back.spec.mjs:31)"
+  from: "['__N', 'as', 'idx', 'options', 'url']"
+  to: "['__N', 'as', 'key', 'options', 'url']"
+  reason: "T-704 (3 tests: J2 type facet, Q-042 Clear all, J21 two facets; R-018, R-019): the same change as AD-121; every other assertion of the 3 tests passes in the probe from the patched copy."
+  ref: [OD-39, R-018, R-019, OD-31]
+  step: W4d
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-124
+  kind: product
+  test: T-705
+  key: "STATE_KEYS, the expected state keys of each history entry (e2e/journeys/t705-j3-year.spec.mjs:28)"
+  from: "['__N', 'as', 'idx', 'options', 'url']"
+  to: "['__N', 'as', 'key', 'options', 'url']"
+  reason: "T-705 (2 tests: J3 year facet, J21 year selects at 767 px; R-018): the same change as AD-121; every other assertion passes in the probe from the patched copy."
+  ref: [OD-39, R-018, OD-31]
+  step: W4d
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-125
+  kind: product
+  test: T-706
+  key: "STATE_KEYS, the expected state keys of each history entry (e2e/journeys/t706-j4-pagination-sort.spec.mjs:32)"
+  from: "['__N', 'as', 'idx', 'options', 'url']"
+  to: "['__N', 'as', 'key', 'options', 'url']"
+  reason: "T-706 (5 tests: J4 pagination, sort, pagination from a sorted list, Q-083 sort, Q-083 last page; R-018, R-019): the same change as AD-121; every other assertion passes in the probe from the patched copy."
+  ref: [OD-39, R-018, R-019, OD-31]
+  step: W4d
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-126
+  kind: product
+  test: T-727
+  key: "stateKeys of the expected pushState entry (e2e/journeys/t727-j20-collapsed-search.spec.mjs:96)"
+  from: "['__N', 'as', 'idx', 'options', 'url']"
+  to: "['__N', 'as', 'key', 'options', 'url']"
+  reason: "T-727 @wire (2 tests: works page, outputs page; Q-057): the same change as AD-121; both pass in the probe from the patched copy (--no-deps --project wire)."
+  ref: [OD-39, Q-057, OD-31]
+  step: W4d
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-127
+  kind: product
+  test: T-723
+  key: "render: the router state url of /display/2001/"
+  from: "/outputs/[id]?id=2001"
+  to: "/outputs/[id]/?id=2001"
+  reason: "T-723 render (Q-075, R-010, R-020): with trailingSlash: true Next 12.3.7's router keeps the trailing slash of the page path in history.state.url; asPath, route, query and 'as' unchanged, server HTML and the hydrated trail as before (the test passes in the probe from the patched copy)."
+  ref: [OD-39, Q-075, OD-31]
+  step: W4d
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-128
+  kind: product
+  test: T-608
+  key: "c1 the uncaughtException listeners at the throw"
+  from: "3; ['domainUncaughtExceptionClear', '', '']"
+  to: "4; ['domainUncaughtExceptionClear', 'invokeErrorHandlers', '', '']"
+  reason: "T-608 c1 (R-040, R-055), CS-N12-5: next-server.js of 12.3.7 requires ./web/sandbox, which loads Next's compiled edge runtime (next/dist/compiled/edge-runtime/index.js); at load it registers process.on('uncaughtException', function invokeErrorHandlers) and process.on('unhandledRejection', function invokeRejectionHandlers), which only forward to edge-runtime handlers (none: the app has no middleware or edge route). The crash semantics are unchanged: with the prod-shaped DSN the app still exits 1 within ~3 s (Sentry 7's handler exits even with other handlers, AD-014), and the probe from a patched copy with this count and these names passes the whole clause; c2 (no DSN: survives) green as before."
+  ref: [OD-39, R-040, R-055, OD-31]
+  step: W4d
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-129
+  kind: product
+  test: T-608
+  key: "c3 the unhandledRejection listeners at the rejection"
+  from: "2; ['sendUnhandledPromise', '']"
+  to: "3; ['invokeRejectionHandlers', 'sendUnhandledPromise', '']"
+  reason: "T-608 c3 (R-040, R-055): the edge runtime's unhandledRejection forwarder of AD-128, registered first. The process still survives and the counting stub receives one event per handler as before (probe from a patched copy: the clause passes)."
+  ref: [OD-39, R-040, R-055, OD-31]
+  step: W4d
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-133
+  kind: product
+  test: T-117
+  key: "c4 HTML answer with status 200: the text the loader's stderr must contain"
+  from: "invalid json response body"
+  to: "SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+  reason: "T-117 c4, the W4e value of the unfiled proposal W4a-1's key, which it supersedes (W4a open item 1). CS-N12-1 (OD-08 A) with the runtime Node 24.18.1 (CS-N12-6, OD-05): V8 of Node 24 words the JSON.parse error of undici's res.json() as `SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON` (Node 18.20.8: `SyntaxError: Unexpected token < in JSON at position 0`). Everything else of the clause unchanged on the same stub, Node 18.20.8 against 24.18.1: exit code 1, signal null, the requests, the files, the `Fail. ==> ...` print (data-loader.js:86)."
+  ref: [R-017, Q-026, OD-08, OD-31, OD-05]
+  step: W4e
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-134
+  kind: product
+  test: T-008
+  key: "npm ci --dry-run added (floor)"
+  from: "> 1700"
+  to: "> 1500"
+  reason: "T-008 c1, the W4e value of the unfiled proposal W4c-1's key, which it supersedes. The clause runs `npm ci --dry-run` with the npm of the Node that runs Jest; from W4e that is npm 11.16.0 of Node 24.18.1 (CS-N12-6), which reports 1580 added packages for the same lock where npm 10.8.2 reported 1629: npm 11 leaves out the 49 optional packages of other platforms (@next/swc-* but darwin-arm64, @parcel/watcher-*, @unrs/resolver-binding-*, @emnapi/*, @napi-rs/wasm-runtime, @tybys/wasm-util), which npm 10 listed although it never installs them. The lock is unchanged in packages (1630 entries; AD-058's lock floor > 1600 holds); status 0, no error and installed lock = committed lock still hold (the rest of c1 green). 1580 also after the jest-dom bump (one entry changed). Supersedes AD-010, withdrawn in the same batch."
+  ref: [R-014, R-015, R-027, OD-31, OD-05, OD-39]
+  step: W4e
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-136
+  kind: product
+  test: T-602
+  key: "c5 work 1004 in the sandboxed context: the page errors and the CSP reports after the payload"
+  from: "pageErrors [\"Cannot read properties of null (reading 'content')\"]; csp [[\"connect-src\", \"https://o0.ingest.sentry.io/api/0/envelope/\"]]"
+  to: "pageErrors [\"Cannot read properties of null (reading 'content')\", \"Cannot read properties of null (reading 'content')\"]; csp [[\"connect-src\", \"https://o0.ingest.sentry.io/api/0/envelope/\"], [\"connect-src\", \"https://o0.ingest.sentry.io/api/0/envelope/\"]]"
+  reason: "T-602 c5 (S-4, OD-36, Q-096), with CS-N12-12; supersedes the unfiled proposal W4d-23, whose text did not say what it accepted: on 12.3.7 without CS-N12-12 the work page is blank after hydration (#__next empty, no h1): Next 12.3 applies the head synchronously inside a React effect (next/dist/shared/lib/side-effect.js) and the TypeError of the missing next-head-count meta reached the app's ErrorBoundary (componentDidCatch only, Q-010), which renders nothing (with W4d-23's values the strengthened c5 fails on 0c684d426be701d7 at its new assertion: h1 null, header false, main false). With CS-N12-12 the head-manager error leaves the effect as a rejected promise, the failure mode of 10.2.3, and the page stays: #__next after hydration equals the served page (the new assertion of c5) with 2 children and 81,619 characters, the same as on 10.2.3 (probe). S-4 holds as before: window.__PWN === 1 in the sandboxed context, inert with JS off. What remains is the count. 12.3.7 applies the head twice after hydration: the passive effect of next/head's SideEffect on the first commit and its cleanup on a second commit (about 50 ms later; on /works/1001/ too: 2 rounds of updateElements against 1 on 10.2.3, probes), so on the S-4 page the TypeError comes twice as an unhandled rejection and the browser Sentry SDK tries to report both (two blocked connect-src requests, Q-096: no report reaches Sentry, as before). Deferring the update to a microtask as 10.2.3 did would not merge two rounds about 50 ms apart, and dropping repeated errors would change what 10.2.3 reports on later navigations, so no small app-side change gives one. Not user-visible: the page, its title and the S-4 behaviour equal 10.2.3. Row probe (a patched copy with these values, never committed): c5 green, including the new assertion. Applied by changing the two expected lists of c5, with the AD id in a comment."
+  ref: [OD-39, OD-31, S-4, OD-36, Q-096, Q-010, CS-N12-12]
+  step: jump 2 review fixes
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-137
+  kind: product
+  test: T-604
+  key: "c4 the console lines of the stale-buildId client navigation"
+  from: "[[\"Failed to load resource: the server responded with a status of 404 (Not Found)\", \"<baseURL>/search/_next/data/stale-build-id/works/1001.json?id=1001\"]]"
+  to: "[[\"Failed to load resource: the server responded with a status of 404 (Not Found)\", \"<baseURL>/search/_next/data/stale-build-id/works/1001.json?id=1001\"], [\"Error: Failed to load static props\", \"<baseURL>/static/search/_next/static/chunks/pages/_app-27b450bed34a5b50.js\"]]"
+  reason: "T-604 c4 (R-002, R-068), the value of the unfiled proposal W4d-7's key on build 702da38d9a6e7005, which it supersedes: CS-N12-12 and CS-N12-13 change pages/_app.jsx, so the client _app chunk that prints the router's route-info error (next/dist/shared/lib/router/router.js, handleRouteInfoError: console.error(err)) is now _app-27b450bed34a5b50.js. Everything else as W4d-7: <baseURL> = p2Env.baseURL; the stale build ID still gets the 404 HTML and the client still falls back to one full navigation to /works/1001/ (status, content type, the nav entries, the title: asserted before and green). The literal holds for this build's chunk hash only: any later change of the client _app chunk changes it."
+  ref: [OD-39, OD-31, R-002, R-068, CS-N12-5]
+  step: jump 2 review fixes
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-138
+  kind: product
+  test: T-016
+  key: "c4 design require edges into a module the reader does not attribute to a package"
+  from: "[]"
+  to: "[\"node_modules/@oacore/design/lib/elements/cookies/cookies-provider.js -> <unmapped:static/chunks/pages/_app-27b450bed34a5b50.js:13456>\", \"node_modules/@oacore/design/lib/hooks/use-cookies.js -> <unmapped:static/chunks/pages/_app-27b450bed34a5b50.js:13456>\"]"
+  reason: "T-016 c4 (VG-2, R-025): the value of the unfiled proposal W4d-5's key on build 702da38d9a6e7005, which it supersedes: the same two edges into module 13456 (the react-cookie re-export index); only the content hash of the client _app chunk changed (_app-b0da778ff8b30d84.js -> _app-27b450bed34a5b50.js: CS-N12-12 and CS-N12-13 edit pages/_app.jsx). The literal holds for this build's chunk hash only."
+  ref: [OD-39, R-025, VG-2, OD-31]
+  step: jump 2 review fixes
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-139
+  kind: product
+  test: T-016
+  key: "c2 negative control: the mismatched list of the tampered chunk"
+  from: "[\"node_modules/@oacore/design/lib/context.js\"]"
+  to: "[\"node_modules/@oacore/design/lib/config.js\", \"node_modules/@oacore/design/lib/context.js\", \"node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js\", \"node_modules/@oacore/design/lib/modules/header/context/actions.js\", \"node_modules/@oacore/design/lib/utils/can-use-dom.js\", \"node_modules/@oacore/design/lib/utils/class-names.js\"]"
+  reason: "T-016 c2 negative control (VG-2), the second assertion AD-057 named but could not cover with its literal: the clause tampers the first chunk with design sources and expects only its victim module (node_modules/@oacore/design/lib/context.js on this build) to be flagged; with webpack 5's emitted factories the 5 modules of W4b-11 are flagged as well, so the list is those 5 and the victim. Applied by changing the expected value of the assertion (the AD id in a comment); option (b) of W4b-11, a webpack 5 reader under 40 §8 rule 7, would make it and W4b-11 unused."
+  ref: [OD-39, OD-31, R-015, R-075, VG-2, CS-N11-0]
+  step: jump 2 review fixes
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-140
+  kind: product
+  test: T-016
+  key: "c2 server bundles: the design externals"
+  from: "[\"@oacore/design\", \"@oacore/design/lib\", \"@oacore/design/lib/elements\", \"@oacore/design/lib/elements/logo\", \"@oacore/design/lib/modules\", \"@oacore/design/lib/utils\", \"@oacore/design/lib/utils/class-names\"]"
+  to: "[]"
+  reason: "T-016 c2 (R-015, VG-2), the second assertion of AD-061's old key: Next 12's webpack 5 names the external's type in the server map source (`webpack://search/external commonjs \"<name>\"`), which the test's reader does not match as an external, so its external list is empty and the same 7 names are counted under `bundled` (AD-061). Nothing of the design is compiled for the server. A T-016 reader that reads both forms (40 §8 rule 7) would leave this row and W4c-4 unused."
+  ref: [OD-39, OD-31, R-015, VG-2]
+  step: jump 2 review fixes
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
+  date: '2026-10-30'

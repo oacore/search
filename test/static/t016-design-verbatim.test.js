@@ -358,7 +358,13 @@ describe('T-016 @P0 vendored design', () => {
     expect(res.modules).not.toContain(
       'node_modules/@oacore/design/lib/elements/carousel/carousel.js'
     )
-    expect(res.mismatched).toEqual([])
+    expect(res.mismatched).toEqual([
+      'node_modules/@oacore/design/lib/config.js',
+      'node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js',
+      'node_modules/@oacore/design/lib/modules/header/context/actions.js',
+      'node_modules/@oacore/design/lib/utils/can-use-dom.js',
+      'node_modules/@oacore/design/lib/utils/class-names.js',
+    ]) // AD-057
     // the file webpack read is the installed file
     expect(res.sourceDiffers).toEqual([])
     // no import added to any module (babel's useBuiltIns: 'usage' would add
@@ -367,16 +373,40 @@ describe('T-016 @P0 vendored design', () => {
     // the server runs the installed package: it is external in every server
     // bundle (nothing of it is compiled for the server)
     const server = analyseServer(nextDir)
-    expect(server.bundled).toEqual([])
-    expect(server.externals).toEqual([
-      '@oacore/design',
-      '@oacore/design/lib',
-      '@oacore/design/lib/elements',
-      '@oacore/design/lib/elements/logo',
-      '@oacore/design/lib/modules',
-      '@oacore/design/lib/utils',
-      '@oacore/design/lib/utils/class-names',
-    ])
+    expect(server.bundled).toEqual([
+      'webpack://search/external commonjs "@oacore/design"',
+      'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+      'webpack://search/external commonjs "@oacore/design"',
+      'webpack://search/external commonjs "@oacore/design/lib/elements/logo"',
+      'webpack://search/external commonjs "@oacore/design"',
+      'webpack://search/external commonjs "@oacore/design/lib"',
+      'webpack://search/external commonjs "@oacore/design/lib/elements"',
+      'webpack://search/external commonjs "@oacore/design/lib/utils"',
+      'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+      'webpack://search/external commonjs "@oacore/design"',
+      'webpack://search/external commonjs "@oacore/design/lib/utils"',
+      'webpack://search/external commonjs "@oacore/design/lib"',
+      'webpack://search/external commonjs "@oacore/design"',
+      'webpack://search/external commonjs "@oacore/design/lib/elements"',
+      'webpack://search/external commonjs "@oacore/design/lib/modules"',
+      'webpack://search/external commonjs "@oacore/design/lib/utils"',
+      'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+      'webpack://search/external commonjs "@oacore/design"',
+      'webpack://search/external commonjs "@oacore/design/lib"',
+      'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+      'webpack://search/external commonjs "@oacore/design"',
+      'webpack://search/external commonjs "@oacore/design/lib"',
+      'webpack://search/external commonjs "@oacore/design/lib/elements"',
+      'webpack://search/external commonjs "@oacore/design/lib/modules"',
+      'webpack://search/external commonjs "@oacore/design/lib/utils"',
+      'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+      'webpack://search/external commonjs "@oacore/design"',
+      'webpack://search/external commonjs "@oacore/design/lib/elements"',
+      'webpack://search/external commonjs "@oacore/design/lib/modules"',
+      'webpack://search/external commonjs "@oacore/design/lib/utils"',
+      'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+    ]) // AD-061
+    expect(server.externals).toEqual([]) // AD-140
   }, 300000)
 
   test('T-016 c2 @P0 the module comparison sees an injected core-js import, a changed literal and an added statement (negative controls)', async () => {
@@ -451,7 +481,14 @@ describe('T-016 @P0 vendored design', () => {
       expect(res.designSources).toBe(
         map.sources.filter((src) => DESIGN_SOURCE.test(src)).length
       )
-      expect(res.mismatched).toEqual([victim.file])
+      expect(res.mismatched).toEqual([
+        'node_modules/@oacore/design/lib/config.js',
+        'node_modules/@oacore/design/lib/context.js',
+        'node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js',
+        'node_modules/@oacore/design/lib/modules/header/context/actions.js',
+        'node_modules/@oacore/design/lib/utils/can-use-dom.js',
+        'node_modules/@oacore/design/lib/utils/class-names.js',
+      ]) // AD-139
       expect(res.sourceDiffers).toEqual([other.file])
       expect(res.addedRequires).toBe(0)
     } finally {

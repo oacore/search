@@ -191,7 +191,7 @@ test.describe('T-601 @P0 route/status matrix', () => {
     expect([
       maps.filter((m) => m.endsWith('.js.map')).length,
       maps.filter((m) => m.endsWith('.css.map')).length,
-    ]).toEqual([27, 8])
+    ]).toEqual([22, 8]) // AD-102
     const rows = []
     for (const m of maps) {
       const asset = `/static/search/_next/static/${m.slice(0, -'.map'.length)}`
@@ -228,7 +228,7 @@ test.describe('T-601 @P0 route/status matrix', () => {
     // empty CSS-extraction chunk `<hash>_CSS.<hash>.js` (no sources, no sourcesContent; P0-09 issues)
     const isEmptyCssChunk = (m) =>
       /^chunks\/[0-9a-f]+_CSS\.[0-9a-f]+\.js\.map$/.test(m)
-    expect(maps.filter(isEmptyCssChunk).length).toBe(1)
+    expect(maps.filter(isEmptyCssChunk).length).toBe(0) // AD-056
     expect(rows).toEqual(
       maps.map((m) => [
         m,

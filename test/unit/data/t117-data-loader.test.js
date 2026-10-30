@@ -8,7 +8,7 @@
 // pinned: API >= 400 or a network error -> exit 1 (unhandled rejection in a
 // promise nobody awaits); one failing URL leaves a partial write; a 200 `[]`
 // overwrites all three files with exit 0; no answer hangs the loader (no
-// timeout).
+// timeout before CS-N12-1; undici's 300 s since then, AD-055).
 //
 // "Same after W4a (OD-08)": CS-N12-1 changes the log text and adds a 300 s
 // timeout, so only the log text assertions and the hang case change there.
@@ -235,7 +235,9 @@ describe('T-117 @P0 data/data-loader.js (child process, temp data/, stub)', () =
     })
     const result = await exited
     expect(result.code).toBe(1)
-    expect(result.stderr).toContain('invalid json response body')
+    expect(result.stderr).toContain(
+      'SyntaxError: Unexpected token \'<\', "<!DOCTYPE "... is not valid JSON'
+    ) // AD-133
     expect(result.stderr).toContain(FAIL_TEXT)
     unchanged('statistics')
   })
@@ -248,12 +250,12 @@ describe('T-117 @P0 data/data-loader.js (child process, temp data/, stub)', () =
     })
     const result = await exited
     expect(result.code).toBe(1)
-    expect(result.stderr).toContain('FetchError')
+    expect(result.stderr).toContain('TypeError: fetch failed') // AD-054
     expect(result.stderr).toContain(FAIL_TEXT)
     unchanged('members')
   })
 
-  test('T-117 c5 @P0 Q-026 no answer -> the loader is still running at the timeout and wrote nothing (it has no timeout of its own)', async () => {
+  test('T-117 c5 @P0 Q-026 no answer -> the loader is still running at the timeout and wrote nothing (its own timeout is the 300 s of undici, AD-055)', async () => {
     const { stub, child, exited } = await run({
       statistics: () => 'hang',
       formap: () => 'hang',

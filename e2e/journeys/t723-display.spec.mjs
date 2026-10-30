@@ -110,7 +110,7 @@ test.describe('T-723 @P1 /display/:id/', () => {
       asPath: '/display/2001/',
       route: '/outputs/[id]',
       query: { id: '2001' },
-      state: { url: '/outputs/[id]?id=2001', as: '/display/2001/' },
+      state: { url: '/outputs/[id]/?id=2001', as: '/display/2001/' }, // AD-127
     })
     expect(await trailOf(page)).toEqual([outputsTrail(2001)[0]])
     await expect(page.getByText(TAIL, { exact: true })).toHaveCount(0)
@@ -132,7 +132,14 @@ test.describe('T-723 @P1 /display/:id/', () => {
   test('T-723 @P1 client nav from /display/2001/: router.push /outputs/2004/ = _next/data, outputs trail; router.push /display/2004/ = a document load, in place', async ({
     page,
     p2Env,
+    guardLog,
   }) => {
+    // row W4d-18 of the owner's jump 2 batch round 1 (signed 2026-10-30, applied apart): Next 12.3.7 prints the
+    // route lookup error of the push to /display/2004/ before its document-load fallback; declared here and
+    // asserted exactly below (no console line before that push, exactly that one line after it)
+    test
+      .info()
+      .annotations.push({ type: 'guard-expect', description: 'console' })
     const log = netLog(page, p2Env)
     const tracker = await open(page, '/display/2001/')
     const buildId = await buildIdOf(page)
@@ -153,6 +160,7 @@ test.describe('T-723 @P1 /display/:id/', () => {
     )
     expect(await trailOf(page)).toEqual(outputsTrail(2004))
 
+    expect(guardLog.consoleErrors.map((x) => x.text.split('\n')[0])).toEqual([])
     m = log.mark()
     await page.evaluate(() => window.next.router.push('/display/2004/'))
     await expect(page).toHaveURL(`${p2Env.baseURL}/display/2004/`)
@@ -165,5 +173,9 @@ test.describe('T-723 @P1 /display/:id/', () => {
       '/display/2004/'
     )
     expect(await trailOf(page)).toEqual([outputsTrail(2004)[0]])
+    // W4d-18
+    expect(guardLog.consoleErrors.map((x) => x.text.split('\n')[0])).toEqual([
+      'Error: Failed to lookup route: /display/2004',
+    ])
   })
 })

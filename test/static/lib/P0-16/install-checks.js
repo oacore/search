@@ -396,6 +396,15 @@ function resolveViolations(lock, dir) {
   return { violations: v, found }
 }
 
+// AD-119: the c3 violations accepted for next 12.3.7 (its linux SWC
+// binaries are declared at 12.3.4)
+const C3_ACCEPTED = [
+  "@next/swc-linux-arm64-gnu 12.3.4 is not next's 12.3.7",
+  "@next/swc-linux-arm64-musl 12.3.4 is not next's 12.3.7",
+  "@next/swc-linux-x64-gnu 12.3.4 is not next's 12.3.7",
+  "@next/swc-linux-x64-musl 12.3.4 is not next's 12.3.7",
+]
+
 function verifyTree(dir, { lockOnly = false } = {}) {
   const pkg = readJson(path.join(dir, 'package.json'))
   const lock = readJson(path.join(dir, 'package-lock.json'))
@@ -419,7 +428,7 @@ function verifyTree(dir, { lockOnly = false } = {}) {
     c5: resolves,
     ok:
       cls.unexpected.length === 0 &&
-      native.violations.length === 0 &&
+      native.violations.filter((x) => !C3_ACCEPTED.includes(x)).length === 0 &&
       nativeInstalled.missing.length === 0 &&
       design.length === 0 &&
       resolves.violations.length === 0,

@@ -132,7 +132,17 @@ export async function routeChange(page, tracker, target) {
           ev.off('routeChangeError', bad)
           resolve()
         }
-        const bad = (err) => {
+        const bad = (err, url) => {
+          // row W4d-21 of the owner's jump 2 batch round 1 (signed 2026-10-30, applied apart; 40 §8 rule 8):
+          // Next 12.3.7 first cancels the finished shallow route of the URL sync (routeChangeError 'Route
+          // Cancelled' of another url), then routes to the target as before; any other error still rejects
+          if (
+            err &&
+            err.cancelled &&
+            err.message === 'Route Cancelled' &&
+            url !== u
+          )
+            return
           ev.off('routeChangeComplete', ok)
           ev.off('routeChangeError', bad)
           reject(new Error(`routeChangeError ${err && err.message}`))

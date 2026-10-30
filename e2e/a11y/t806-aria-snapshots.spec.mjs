@@ -395,7 +395,11 @@ test.describe('T-806 global desktop', () => {
     await expect(
       page.getByText('An unexpected error has occurred.')
     ).toBeVisible()
-    expect(consoleTexts(guardLog)).toEqual([CONSOLE_500, CONSOLE_500_PAGE])
+    expect(consoleTexts(guardLog)).toEqual([
+      CONSOLE_500,
+      CONSOLE_500_PAGE,
+      'A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred', // AD-115
+    ])
     await check(page, 'g-500', '/works/6948813/', DESKTOP)
   })
 
