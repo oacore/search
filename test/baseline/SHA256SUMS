@@ -671,6 +671,11 @@ bb941bf83b684cdb4e5c37721a1bbe1d7d569feee982f806f255f434605bc48a  e2e/journeys/t
 96b9dfde0f93a4557697badd108c27f45906a558457b8c07921d0fd52267cba4  e2e/journeys/t729-post-hydration-head.spec.mjs-snapshots/t729-nav-outputs-a-to-b-chromium-darwin.json
 4f2ba4888921c6188a2256f706b7c4a33cd260df59b57a2c5755b23c50773353  e2e/journeys/t729-post-hydration-head.spec.mjs-snapshots/t729-nav-outputs-oai-to-yearstring-chromium-darwin.json
 8cad5358657962aa93d39163ca57c1eac39e18afd8270f34fe7b76eea6bcddde  e2e/journeys/t729-post-hydration-head.spec.mjs-snapshots/t729-nav-outputs-subjects-chromium-darwin.json
+ad530de9afa41a51eab3ffedeab48d03d85f22283f97cb9b9d6920cb14d5eacc  e2e/journeys/t743-route-announcer.spec.mjs-snapshots/t743-outputs-2001-to-works-1001-chromium-darwin.json
+136414dfdc349b66eef6942dbad5afd1cd166b5d5937197e452b119fdc281737  e2e/journeys/t743-route-announcer.spec.mjs-snapshots/t743-provider-8-pager-next-chromium-darwin.json
+4c25fd88f0805e45890e7c6b537cef3e6f0b2d794a6567ed0e5292feb4719370  e2e/journeys/t743-route-announcer.spec.mjs-snapshots/t743-search-climate-page-2-chromium-darwin.json
+a5b87e5a9d27f82844475fdc9a163612dfb2670e00743cf19914a0e66d1dd532  e2e/journeys/t743-route-announcer.spec.mjs-snapshots/t743-works-1001-to-outputs-2001-chromium-darwin.json
+01499913fccbe9d92325ea0a8594ac543396452b6ca8a814bb89e0f39f5e75a5  e2e/journeys/t743-route-announcer.spec.mjs-snapshots/t743-works-1001-to-provider-86-chromium-darwin.json
 8d0717c35013e0730b20db5aa31c2477811618b70997c0b46088c955874a339e  e2e/journeys/t804-keyboard-smoke.spec.mjs-snapshots/t804-c1-tab-data-providers-chromium-darwin.json
 3d542ee77a3091ad7e49b54d431cbfd5694c1cf1fe40b6f143b62a68b36fad02  e2e/journeys/t804-keyboard-smoke.spec.mjs-snapshots/t804-c1-tab-outputs-chromium-darwin.json
 a57926a795257cfe102fe84717ae66ff0a21400527adab47d7fb6ac0557feaaa  e2e/journeys/t804-keyboard-smoke.spec.mjs-snapshots/t804-c1-tab-provider-chromium-darwin.json
@@ -1298,4 +1303,4 @@ f49805416a51593f1f91ecb4599b845139993fa67fa971d508956c4cbf01dd6a  test/unit/desi
 f3385ac93f9fd2661ad88ec03fe8fbdc96c389de63bb381a8f3aacce28dd2d40  test/unit/design/lib/P0-07/reference/Select.json
 26c25f6dd7ca4b04c0ad0e8577f2218291559aa1e7a8faac22c302e095a4b4e8  test/unit/design/lib/P0-07/reference/TextField.json
 6d45b05fcc95f0d289de9bab323760226304237317e5048535575edd8a3195dd  test/unit/store/__baseline__/t203-reactivity.json
-bcfd50a8c0bf2d90a5383d930644106ab017a564ed7b1a7acd171ea7e52a0b76  test/baseline/manifest.json
+c194d214534baf4a0b9ff303614e4cff2b07c43c8e99261dfac2b0578937b12a  test/baseline/manifest.json
