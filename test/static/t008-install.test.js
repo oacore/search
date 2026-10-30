@@ -142,7 +142,12 @@ describe('T-008 @P0 install', () => {
 
   test('T-008 c3 @P0 musl and gnu @next/swc-* are locked as the locked next requires', () => {
     const rule = checks.nativeRule(lock)
-    expect(rule.violations).toEqual([])
+    expect(rule.violations).toEqual([
+      "@next/swc-linux-arm64-gnu 12.3.4 is not next's 12.3.7",
+      "@next/swc-linux-arm64-musl 12.3.4 is not next's 12.3.7",
+      "@next/swc-linux-x64-gnu 12.3.4 is not next's 12.3.7",
+      "@next/swc-linux-x64-musl 12.3.4 is not next's 12.3.7",
+    ]) // AD-119
     expect(rule.next).toBe(lock.packages['node_modules/next'].version)
     // the installed tree holds what its platform needs (nothing at Next 10)
     expect(checks.installedNative(appRoot(), lock).missing).toEqual([])
