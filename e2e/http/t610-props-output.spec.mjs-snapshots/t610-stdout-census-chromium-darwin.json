@@ -1,7 +1,8 @@
 {
   "startup": [
     "ready - started server on 127.0.0.1:<port>, url: <stack>",
-    "info  - Using webpack 4. Reason: custom webpack configuration in next.config.js https://nextjs.org/docs/messages/webpack5"
+    "warn  - You have enabled experimental feature (largePageDataBytes) in next.config.js.",
+    "warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk."
   ],
   "sweep": [
     {
@@ -115,16 +116,16 @@
       "kind": "html",
       "lines": [
         "Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=%5Bobject%20Blob%5D for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
-        "    at O (<build>/node_modules/react/cjs/react.production.min.js:17:207)",
-        "    at P (<build>/node_modules/react/cjs/react.production.min.js:17:355)",
-        "    at toArray (<build>/node_modules/react/cjs/react.production.min.js:19:177)",
-        "    at b.renderDOM (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:49:412)",
-        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:42:399)",
-        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:41:83)",
-        "    at exports.renderToString (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:52:138)",
-        "    at Object.renderPage (<build>/node_modules/next/dist/next-server/server/render.js:54:854)",
-        "    at _callee$ (<build>/.next/server/pages/_document.js:1243:26)",
-        "    at tryCatch (<build>/.next/server/pages/_document.js:1933:40)"
+        "    at O (<build>/node_modules/react/cjs/react.production.min.js:<line>:<col>)",
+        "    at P (<build>/node_modules/react/cjs/react.production.min.js:<line>:<col>)",
+        "    at toArray (<build>/node_modules/react/cjs/react.production.min.js:<line>:<col>)",
+        "    at b.renderDOM (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at exports.renderToString (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at Object.renderPage (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at Object.defaultGetInitialProps (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at Document.getInitialProps (<build>/.next/server/chunks/613.js:<line>:<col>)"
       ]
     },
     { "id": "works-4100", "kind": "data", "lines": [] },
@@ -133,16 +134,16 @@
       "kind": "html",
       "lines": [
         "Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=object%20with%20keys%20%7Bmessage%7D for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
-        "    at O (<build>/node_modules/react/cjs/react.production.min.js:17:207)",
-        "    at P (<build>/node_modules/react/cjs/react.production.min.js:17:355)",
-        "    at toArray (<build>/node_modules/react/cjs/react.production.min.js:19:177)",
-        "    at b.renderDOM (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:49:412)",
-        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:42:399)",
-        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:41:83)",
-        "    at exports.renderToString (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:52:138)",
-        "    at Object.renderPage (<build>/node_modules/next/dist/next-server/server/render.js:54:854)",
-        "    at _callee$ (<build>/.next/server/pages/_document.js:1243:26)",
-        "    at tryCatch (<build>/.next/server/pages/_document.js:1933:40)"
+        "    at O (<build>/node_modules/react/cjs/react.production.min.js:<line>:<col>)",
+        "    at P (<build>/node_modules/react/cjs/react.production.min.js:<line>:<col>)",
+        "    at toArray (<build>/node_modules/react/cjs/react.production.min.js:<line>:<col>)",
+        "    at b.renderDOM (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at exports.renderToString (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at Object.renderPage (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at Object.defaultGetInitialProps (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at Document.getInitialProps (<build>/.next/server/chunks/613.js:<line>:<col>)"
       ]
     },
     { "id": "works-4101", "kind": "data", "lines": [] },
@@ -151,16 +152,16 @@
       "kind": "html",
       "lines": [
         "Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=%5Bobject%20Blob%5D for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
-        "    at O (<build>/node_modules/react/cjs/react.production.min.js:17:207)",
-        "    at P (<build>/node_modules/react/cjs/react.production.min.js:17:355)",
-        "    at toArray (<build>/node_modules/react/cjs/react.production.min.js:19:177)",
-        "    at b.renderDOM (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:49:412)",
-        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:42:399)",
-        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:41:83)",
-        "    at exports.renderToString (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:52:138)",
-        "    at Object.renderPage (<build>/node_modules/next/dist/next-server/server/render.js:54:854)",
-        "    at _callee$ (<build>/.next/server/pages/_document.js:1243:26)",
-        "    at tryCatch (<build>/.next/server/pages/_document.js:1933:40)"
+        "    at O (<build>/node_modules/react/cjs/react.production.min.js:<line>:<col>)",
+        "    at P (<build>/node_modules/react/cjs/react.production.min.js:<line>:<col>)",
+        "    at toArray (<build>/node_modules/react/cjs/react.production.min.js:<line>:<col>)",
+        "    at b.renderDOM (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at exports.renderToString (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at Object.renderPage (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at Object.defaultGetInitialProps (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at Document.getInitialProps (<build>/.next/server/chunks/613.js:<line>:<col>)"
       ]
     },
     { "id": "works-4102", "kind": "data", "lines": [] },
@@ -169,16 +170,16 @@
       "kind": "html",
       "lines": [
         "TypeError: Cannot read properties of undefined (reading 'logo')",
-        "    at ScientificOutputTemplate (<build>/.next/server/pages/works/[id].js:2322:38)",
-        "    at d (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:33:498)",
-        "    at bb (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:36:16)",
-        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:42:43)",
-        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:41:83)",
-        "    at exports.renderToString (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:52:138)",
-        "    at Object.renderPage (<build>/node_modules/next/dist/next-server/server/render.js:54:854)",
-        "    at _callee$ (<build>/.next/server/pages/_document.js:1243:26)",
-        "    at tryCatch (<build>/.next/server/pages/_document.js:1933:40)",
-        "    at Generator.invoke (<build>/.next/server/pages/_document.js:2168:22)"
+        "    at ScientificOutputTemplate (<build>/.next/server/chunks/508.js:<line>:<col>)",
+        "    at d (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at bb (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at exports.renderToString (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at Object.renderPage (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at Object.defaultGetInitialProps (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at Document.getInitialProps (<build>/.next/server/chunks/613.js:<line>:<col>)",
+        "    at Object.<anonymous> (<build>/node_modules/next/dist/shared/lib/utils.js:<line>:<col>)"
       ]
     },
     { "id": "works-4200", "kind": "data", "lines": [] },
@@ -187,16 +188,16 @@
       "kind": "html",
       "lines": [
         "TypeError: date.split is not a function",
-        "    at formatCitationDate (<build>/.next/server/pages/works/[id].js:2633:34)",
-        "    at CitationMeta (<build>/.next/server/pages/works/[id].js:2649:41)",
-        "    at d (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:33:498)",
-        "    at bb (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:36:16)",
-        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:42:43)",
-        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:41:83)",
-        "    at exports.renderToStaticMarkup (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:51:446)",
-        "    at renderDocument (<build>/node_modules/next/dist/next-server/server/render.js:3:749)",
-        "    at renderToHTML (<build>/node_modules/next/dist/next-server/server/render.js:55:698)",
-        "    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+        "    at formatCitationDate (<build>/.next/server/chunks/508.js:<line>:<col>)",
+        "    at CitationMeta (<build>/.next/server/chunks/508.js:<line>:<col>)",
+        "    at d (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at bb (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at exports.renderToStaticMarkup (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at Object.renderToHTML (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at process.processTicksAndRejections (node:internal/process/task_queues:<line>:<col>)",
+        "    at async doRender (<build>/node_modules/next/dist/server/base-server.js:<line>:<col>)"
       ]
     },
     { "id": "works-6948813", "kind": "data", "lines": [] },
@@ -205,16 +206,16 @@
       "kind": "html",
       "lines": [
         "TypeError: Cannot read properties of null (reading 'length')",
-        "    at CardDropdown (<build>/.next/server/pages/works/[id].js:1598:139)",
-        "    at d (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:33:498)",
-        "    at bb (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:36:16)",
-        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:42:43)",
-        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:41:83)",
-        "    at exports.renderToString (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:52:138)",
-        "    at Object.renderPage (<build>/node_modules/next/dist/next-server/server/render.js:54:854)",
-        "    at _callee$ (<build>/.next/server/pages/_document.js:1243:26)",
-        "    at tryCatch (<build>/.next/server/pages/_document.js:1933:40)",
-        "    at Generator.invoke (<build>/.next/server/pages/_document.js:2168:22)"
+        "    at CardDropdown (<build>/.next/server/chunks/508.js:<line>:<col>)",
+        "    at d (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at bb (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at exports.renderToString (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at Object.renderPage (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at Object.defaultGetInitialProps (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at Document.getInitialProps (<build>/.next/server/chunks/613.js:<line>:<col>)",
+        "    at Object.<anonymous> (<build>/node_modules/next/dist/shared/lib/utils.js:<line>:<col>)"
       ]
     },
     { "id": "outputs-2102", "kind": "data", "lines": [] },
@@ -223,16 +224,16 @@
       "kind": "html",
       "lines": [
         "TypeError: Cannot read properties of undefined (reading 'match')",
-        "    at httpsValidate (<build>/.next/server/pages/works/[id].js:1540:11)",
-        "    at CardDropdown (<build>/.next/server/pages/works/[id].js:1591:31)",
-        "    at d (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:33:498)",
-        "    at bb (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:36:16)",
-        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:42:43)",
-        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:41:83)",
-        "    at exports.renderToString (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:52:138)",
-        "    at Object.renderPage (<build>/node_modules/next/dist/next-server/server/render.js:54:854)",
-        "    at _callee$ (<build>/.next/server/pages/_document.js:1243:26)",
-        "    at tryCatch (<build>/.next/server/pages/_document.js:1933:40)"
+        "    at httpsValidate (<build>/.next/server/chunks/508.js:<line>:<col>)",
+        "    at CardDropdown (<build>/.next/server/chunks/508.js:<line>:<col>)",
+        "    at d (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at bb (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.render (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at b.read (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at exports.renderToString (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at Object.renderPage (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at Object.defaultGetInitialProps (<build>/node_modules/next/dist/server/render.js:<line>:<col>)",
+        "    at Document.getInitialProps (<build>/.next/server/chunks/613.js:<line>:<col>)"
       ]
     },
     { "id": "outputs-2103", "kind": "data", "lines": [] },
@@ -242,15 +243,15 @@
       "lines": [
         "URIError: URI malformed",
         "    at decodeURI (<anonymous>)",
-        "    at DataProviders.search (<build>/.next/server/pages/_app.js:1509:24)",
-        "    at DataProviders.get (<build>/.next/server/pages/_app.js:1504:19)",
-        "    at i.It (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:1:25873)",
-        "    at i.get (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:1:25321)",
-        "    at i.O (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:1:44397)",
-        "    at DataProviders.get (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:1:16762)",
-        "    at <build>/.next/server/pages/data-providers.js:10019:31",
-        "    at d (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:33:498)",
-        "    at bb (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:36:16)"
+        "    at DataProviders.search (<build>/.next/server/chunks/375.js:<line>:<col>)",
+        "    at DataProviders.get (<build>/.next/server/chunks/375.js:<line>:<col>)",
+        "    at i.Kt (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:<line>:<col>)",
+        "    at i.get (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:<line>:<col>)",
+        "    at i.g (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:<line>:<col>)",
+        "    at DataProviders.get (<build>/node_modules/mobx/dist/mobx.cjs.production.min.js:<line>:<col>)",
+        "    at <build>/.next/server/pages/data-providers.js:<line>:<col>",
+        "    at d (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)",
+        "    at bb (<build>/node_modules/react-dom/cjs/react-dom-server.node.production.min.js:<line>:<col>)"
       ]
     },
     { "id": "providers-q-100pct", "kind": "data", "lines": [] },

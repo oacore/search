@@ -3,8 +3,8 @@
   "reference": {
     "test": "T-607",
     "mode": "host",
-    "commit": "689fec94a2a194dcf90b40d3a02dd81cac112e75",
-    "build": "1fb7e5b548c5ae8c",
+    "commit": "91012280681d8d6d11eb32b2ee690b0c1e4b11b1",
+    "build": "e9c353c5d1f87f02",
     "variant": "default",
     "proxyOverlay": null
   },
@@ -114,8 +114,8 @@
           "headers": [
             ["host", "<redirected>"],
             ["connection", "keep-alive"],
-            ["accept", "text/x-bibliography; style=apa; locale=en-GB"],
-            ["authorization", "Bearer <API_KEY>"],
+            ["Accept", "text/x-bibliography; style=apa; locale=en-GB"],
+            ["Authorization", "Bearer <API_KEY>"],
             ["accept-language", "*"],
             ["sec-fetch-mode", "cors"],
             ["user-agent", "node"],
@@ -131,8 +131,8 @@
           "headers": [
             ["host", "<redirected>"],
             ["connection", "keep-alive"],
-            ["accept", "text/x-bibliography; style=bibtex; locale=en-GB"],
-            ["authorization", "Bearer <API_KEY>"],
+            ["Accept", "text/x-bibliography; style=bibtex; locale=en-GB"],
+            ["Authorization", "Bearer <API_KEY>"],
             ["accept-language", "*"],
             ["sec-fetch-mode", "cors"],
             ["user-agent", "node"],
@@ -188,8 +188,8 @@
           "headers": [
             ["host", "<redirected>"],
             ["connection", "keep-alive"],
-            ["accept", "text/x-bibliography; style=apa; locale=en-GB"],
-            ["authorization", "Bearer <API_KEY>"],
+            ["Accept", "text/x-bibliography; style=apa; locale=en-GB"],
+            ["Authorization", "Bearer <API_KEY>"],
             ["accept-language", "*"],
             ["sec-fetch-mode", "cors"],
             ["user-agent", "node"],
@@ -205,8 +205,8 @@
           "headers": [
             ["host", "<redirected>"],
             ["connection", "keep-alive"],
-            ["accept", "text/x-bibliography; style=bibtex; locale=en-GB"],
-            ["authorization", "Bearer <API_KEY>"],
+            ["Accept", "text/x-bibliography; style=bibtex; locale=en-GB"],
+            ["Authorization", "Bearer <API_KEY>"],
             ["accept-language", "*"],
             ["sec-fetch-mode", "cors"],
             ["user-agent", "node"],
@@ -336,8 +336,8 @@
           "headers": [
             ["host", "<redirected>"],
             ["connection", "keep-alive"],
-            ["accept", "text/x-bibliography; style=apa; locale=en-GB"],
-            ["authorization", "Bearer <API_KEY>"],
+            ["Accept", "text/x-bibliography; style=apa; locale=en-GB"],
+            ["Authorization", "Bearer <API_KEY>"],
             ["accept-language", "*"],
             ["sec-fetch-mode", "cors"],
             ["user-agent", "node"],
@@ -353,8 +353,8 @@
           "headers": [
             ["host", "<redirected>"],
             ["connection", "keep-alive"],
-            ["accept", "text/x-bibliography; style=bibtex; locale=en-GB"],
-            ["authorization", "Bearer <API_KEY>"],
+            ["Accept", "text/x-bibliography; style=bibtex; locale=en-GB"],
+            ["Authorization", "Bearer <API_KEY>"],
             ["accept-language", "*"],
             ["sec-fetch-mode", "cors"],
             ["user-agent", "node"],

@@ -401,6 +401,7 @@
   step: W2e
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'
+  withdrawn: 'superseded by the re-captured T-610 census baseline (e2e/http/t610-props-output.spec.mjs-snapshots/t610-stdout-census-chromium-darwin.json), which holds the Next 12 frame of this line, 2026-10-30'
 - id: AD-038
   kind: product
   test: T-417
@@ -522,6 +523,7 @@
   step: W3
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'
+  withdrawn: 'superseded by the re-captured T-610 census baseline (e2e/http/t610-props-output.spec.mjs-snapshots/t610-stdout-census-chromium-darwin.json), which holds this frame, 2026-10-30'
 - id: AD-049
   kind: product
   test: T-610
@@ -533,6 +535,7 @@
   step: W3
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'
+  withdrawn: 'superseded by the re-captured T-610 census baseline (e2e/http/t610-props-output.spec.mjs-snapshots/t610-stdout-census-chromium-darwin.json), which holds this frame, 2026-10-30'
 - id: AD-050
   kind: product
   test: T-727

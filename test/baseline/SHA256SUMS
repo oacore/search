@@ -190,7 +190,7 @@ bfbf8b35d70647ff21e2f7419093b6b68cf3ec67375f2d190908f81b69f5409c  e2e/http/t605-
 e875f696e21978a25bb291e2140c586229fa5a2d0ec51fc570069619a14e5c37  e2e/http/t605-class-census.spec.mjs-snapshots/t605-ssr-works-4040-chromium-darwin.json
 e875f696e21978a25bb291e2140c586229fa5a2d0ec51fc570069619a14e5c37  e2e/http/t605-class-census.spec.mjs-snapshots/t605-ssr-works-5000-chromium-darwin.json
 8fcf2acca33b595d259fc36c2b2bd3d69cc036c87911ecdc2c131aa7d0d178ef  e2e/http/t610-props-output.spec.mjs-snapshots/t610-next-data-chromium-darwin.json
-5f6ab59acc9a28c9ff8e6c168ae02b906e096f987deb91cfc02f3b36d87b58e2  e2e/http/t610-props-output.spec.mjs-snapshots/t610-stdout-census-chromium-darwin.json
+23475f69f8feb16f4d1f1c7f2ccb1937557cf5cf5a08b02dc3ba853ea74f50a8  e2e/http/t610-props-output.spec.mjs-snapshots/t610-stdout-census-chromium-darwin.json
 56a245bb5087a4958037fba06beb8c6f4cbc22775d754cb320d263e5846dc7ba  e2e/journeys/t702-navigation-network.spec.mjs-snapshots/t702-c2-search-log-absent-chromium-darwin.json
 442bd923060c1234448eb4b9e747aba3398360ccbd59306a136b3525e9838435  e2e/journeys/t702-navigation-network.spec.mjs-snapshots/t702-c2-search-log-essential-analytics-chromium-darwin.json
 56a245bb5087a4958037fba06beb8c6f4cbc22775d754cb320d263e5846dc7ba  e2e/journeys/t702-navigation-network.spec.mjs-snapshots/t702-c2-search-log-essential-chromium-darwin.json
@@ -683,7 +683,7 @@ a57926a795257cfe102fe84717ae66ff0a21400527adab47d7fb6ac0557feaaa  e2e/journeys/t
 08c4cba85dc2c49688bb1e918fdd93666afd52403dd9cfefc1417a9b62acf421  e2e/journeys/t804-keyboard-smoke.spec.mjs-snapshots/t804-c1-tab-uh-oh-chromium-darwin.json
 b123ba56c6e588accb05f29053b0276f49eaab576de787d1447426bf90426d36  e2e/journeys/t804-keyboard-smoke.spec.mjs-snapshots/t804-c1-tab-update-chromium-darwin.json
 ec8caf429d644aa1705b21bf159529fdb91bf4ce751f30947d90667efe4c72f2  e2e/journeys/t804-keyboard-smoke.spec.mjs-snapshots/t804-c1-tab-works-chromium-darwin.json
-f668216d0d915aec3f3fc17346d7f3cc9af53148e24313231c8090bfa9473a54  e2e/lib/P0-11/t607-wire.baseline.json
+b252f947a972ebcf2bf7f431a4e0f1256689aeee7d310280ded33dae5a1c3fed  e2e/lib/P0-11/t607-wire.baseline.json
 2cdb78d15e33c4abb9224a04110abb59239fd69aa05d5a24b4b052377ecb6930  e2e/lib/P0-12/t741-console-pins.json
 31d2450422e1d1443cfab679ac0f8206be323f75e23226a71c633aeaac76dd3f  e2e/visual/t738-sticky-layers.spec.mjs-snapshots/t738-V26-search-1440-visual-darwin.json
 af9da60bb99812dda6935c23903d917c0998f8a5f5ff9a0f6fd55e7e7d219696  e2e/visual/t738-sticky-layers.spec.mjs-snapshots/t738-V26-search-375-visual-darwin.json
@@ -1266,7 +1266,7 @@ a4be95d19b50984153e843bf254ec7df27e42711358666880092644cc61fda9d  e2e/visual/t80
 61ffb5ebfed85bca4086b7f6e4c7d8fd3f2a2c2cac4e453ed1c8639737b21261  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-layers-visual-darwin.json
 7d6445d7a6a12d31dcf8a139d750ad78648b4b337bf47492858ffa7668760d77  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-probes-1440-visual-darwin.json
 ae2aa9b62fa8f4878ec2e84caf292c234ccdc5f77b4e3412e88f25d329c3f39f  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-probes-375-visual-darwin.json
-e2f8d5e7228deda26e2758678a0f2f76b85cc855124fe5af088434da5f9bdfcd  test/baseline/ACCEPTED-DIFFS.yml
+945b71d65bbd48f40ab0619424c3c4a8c345289b8c1596a1e5b6d58da8f9a74e  test/baseline/ACCEPTED-DIFFS.yml
 cd1877606e52a83d605d02d4efa4ed2bfc7abe89c571959e821a681fd9a440ad  test/baseline/base-npm-ls-omit-dev.json
 039e1d937bf297e2259f7761c370bbbbdcfbf30f023added8aa3f5be9aa0054b  test/baseline/env.json
 f619edf192409fefc26b3dac8bbc957cc3d90805e413fc22342cc26e3d113bd8  test/baseline/npm-ls-all.json
@@ -1303,4 +1303,4 @@ f49805416a51593f1f91ecb4599b845139993fa67fa971d508956c4cbf01dd6a  test/unit/desi
 f3385ac93f9fd2661ad88ec03fe8fbdc96c389de63bb381a8f3aacce28dd2d40  test/unit/design/lib/P0-07/reference/Select.json
 26c25f6dd7ca4b04c0ad0e8577f2218291559aa1e7a8faac22c302e095a4b4e8  test/unit/design/lib/P0-07/reference/TextField.json
 6d45b05fcc95f0d289de9bab323760226304237317e5048535575edd8a3195dd  test/unit/store/__baseline__/t203-reactivity.json
-61fb9fd3fd711be9499a65ed484adc311c6ccb016dd2c811318585e36ba8ee44  test/baseline/manifest.json
+445c7ae17db8b69a89e9516db23df386da6a39c9b1cfbc10708befbe16656f4c  test/baseline/manifest.json
