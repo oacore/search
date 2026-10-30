@@ -18,6 +18,10 @@ const nextConfig = {
   // public client source maps under /_next/static, as the next-source-maps
   // wrapper gave them before (OD-42)
   productionBrowserSourceMaps: true,
+  // From Next 12.2 the server logs each page whose data is over 128 kB, with
+  // its path and query string; 0 skips that check, so the log stays as on
+  // 10.2.3 (CS-N12-14)
+  experimental: { largePageDataBytes: 0 },
 
   // The page data of client navigations is fetched from /search/_next/data
   // (pages/_app.jsx, useInterceptNextDataHref). From Next 12.2 a rewrite
