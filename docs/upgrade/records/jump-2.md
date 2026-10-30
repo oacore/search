@@ -1,0 +1,363 @@
+# Record jump 2: webpack 5, Next 12.1.6 then 12.3.7, runtime Node 24 (lean mode)
+
+Record jump 2 | **Jump 2 done, round 2 open** (2026-10-30): the one-call ci-local on the tip `d344247` gave 2,714 passed, 8 failed, 28 did not run (the 28 `@wire` tests ran apart on the same build: 27 passed, 1 failed); the 9 reds are all expected, none is flaky and none is a regression (§1). Round 2 of the owner's signatures turns 8 of them green (T-606 c1, T-610 c3, T-743 c1..c4, T-611 c1, T-607 c2); the final deploy turns the ninth green (T-104 c2, the gate of the Node base image) | 2026-10-29..2026-10-30
+
+- **Rules in force:** D18 (lean target), D19 (scope), D20 (no CI) ([00](../00-decisions.md) §4b); the lean protocol ([01](../01-playbook.md) §10); gates [55](../55-gates-and-confidence.md) §0. The owner's go-ahead of 2026-10-29 covers W4a, W4b, W4c, W4c.2, W4d (with CS-N12-9) and W4e "under the same rules as jump 1" ([50](../50-roadmap.md) §4.0 row 2), with the installs of each step's package versions from npm; every new accepted difference was batched for one signature at the end of the jump (§5).
+- **Where it ran:** one workstation (macOS arm64). Runtime Node 18.20.8 (npm 10.8.2) for the app builds, `next start`, `next dev` and Jest in W4a..W4d, Node 24.18.1 (npm 11.16.0) from W4e; tooling Node 24.18.1 for lint, the docs check, the harness and the Playwright runner; `retries: 0`. Lean builds (01 §10 item 3): the repository's `node_modules` synced once per change group, every build tree a `cp -Rc` clone of it plus the app build step. At most 4 build trees (the owner's limit). From 2026-10-29 13:57 the owner's throttle: at most one app build and at most one Playwright run at a time, never both, Jest only when neither runs (§5); the first W4c attempt did not follow it in full (§4, issue J2-W4c-1). At least 84 GB free throughout.
+- **Not done anywhere:** nothing was pushed, merged into `main` or `master`, tagged on origin or deployed. `git diff f5cfc20 -- .github kube Dockerfile .dockerignore` is empty. No Docker was used. Every commit and install ran with `HUSKY=0`; `core.hooksPath` stayed unset.
+- **Branch (local):** `upgrade/jump2-webpack5-next12-node24`, from the jump-1 tip `7b31c85` (`upgrade/jump1-tooling-leaf-design`). Every step and fix group was a sub-branch `upgrade/jump2-webpack5-next12-node24--<slug>`, merged with `--no-ff` and deleted (§2). The jump check ran on the tip `d344247`; after it came this record (docs only). From `7b31c85` to `d344247`: 106 commits, 93 of them non-merge.
+- **Evidence:** every figure below comes from the step's evidence files and logs, kept with the work-session state outside the repository; the full-suite summaries are `$ARTIFACT_DIR/ci-local/20261029T215144Z.json` (census round 1 on `af5e9f6`) and `$ARTIFACT_DIR/ci-local/20261030T085301Z.json` (the jump check on `d344247`; Playwright runs `$ARTIFACT_DIR/runs/ci-local-20261030T085301Z` and, for the `@wire` tests run apart, `$ARTIFACT_DIR/runs/jc1-wire`).
+- **Sign-offs (01 §7):** Implementer: _. Reviewer: the three jump-2 reviews (runtime behaviour; test integrity, scope and hygiene; the proposed AD rows; §4), no named person. Owner: jump 2 batch round 1 SIGNED 2026-10-30 10:40 +0400 (06:40 UTC, the same date), in the live work session (§5); this record: not signed yet (it goes to the owner with round 2, §14).
+
+## 1. Jump check (55 §0)
+
+`CI_LOCAL_KEEP_GOING=1 bash scripts/ci-local.sh` ran once on the tip `d344247`, as one call with all six jobs, 12:53 to 13:19 +0400 (heavy lock held; `CI_LOCAL_KEEP_GOING=1` is the script's documented switch that lists every red step of a job instead of stopping at the first; the job stays red).
+
+| Job | Result |
+|---|---|
+| lint (31 s) | success. Lint parity: ESLint 18 findings (= the frozen W1 baseline), stylelint 12.<br>Docs check ERROR 0, WARN 20.<br>Ledger (offline structural checks) pass.<br>Fixture scrub and `test/baseline/SHA256SUMS` checks pass. |
+| unit (254 s) | **failure.** Jest `node` + `dom`: 1,104 of 1,105 tests, 59 of 60 suites; 1 red, T-104 c2. |
+| image (72 s) | success. Harness self-tests 25/25.<br>Browser targets = the committed copy.<br>Layer A on build `e9c353c5d1f87f02` with its twin `-ci-b`: 19 suites, 94/94, T-014 (a) included.<br>T-008 on the installed tree green; T-901 11/11; T-721 negative control 3/3. |
+| e2e (1,209 s) | **failure.** chromium 959 passed, 7 failed, 28 did not run (the `@wire` tests depend on the `chromium` project).<br>visual (all but T-802) 392 passed; CS-OPS-1 overlay (T-604, T-702) 26 passed; T-802 on the harness variant 73 passed. T-728 c4 green. |
+| ops (19 s) | success. Jest ops 18/18; T-907 c2 7/7; T-907 c1 + c3 rehearsal 2/2. |
+| gate | **failure** (unit, e2e). |
+
+- **Totals:** 2,714 tests passed, 8 failed, 28 did not run: unit 1,104 + 1; harness 25; static 94; T-901 11; T-721 3; chromium 959 + 7; visual 392; CS-OPS-1 26; T-802 73; Jest ops 18; T-907 9. The 28 `@wire` tests ran apart on the same build with `--no-deps --project wire` (a stack of their own, the e2e job's command shape): 27 passed, 1 failed (T-607 c2). With them: 2,741 passed, 9 failed. This fills the gap the one call cannot reach while chromium has a red (issue J2-JC1-1); it is not a re-run.
+- **The 9 reds, each deterministic, each with the text the earlier steps recorded (no re-run was needed to classify them), and what turns each green:**
+
+| Red | What differs | Turns green with |
+|---|---|---|
+| T-104 c2 (`test/unit/api/t104-wire-headers.test.js:160`) | Jest runs on Node major 24, the Dockerfile says `FROM node:18`: Expected "18", Received "24" | the final deploy: the Node base-image deploy-time item (§11). Batch decision 5 (c) keeps it red as that item's gate; AD-141 is not filed |
+| T-606 c1 (`e2e/http/t606-ssr-resilience.spec.mjs:291`) | the app log has exactly the two lines of Next's experimental-feature notice that CS-N12-14 brings (§8.2), where `[]` is expected | round 2: the T-606 c1 row of the notice |
+| T-610 c3 (`e2e/http/t610-props-output.spec.mjs`) | the census differs by 65 lines (Expected -31, Received +32), byte-identical to the diff the large page data fix step proved to equal the committed baseline after exactly the notice lines, W4c-71, the six T-610 rows (AD-107, AD-108, AD-130, AD-131, AD-132, AD-135) and AD-048/AD-049, with AD-037 withdrawn | round 2: the T-610 census re-capture on the jump-check build (its declared rows, and the withdrawals of AD-037, AD-048, AD-049) |
+| T-743 c1..c4 (`e2e/journeys/t743-route-announcer.spec.mjs`) | only the `announced` value: Next 12.3.7 announces `document.title`, not the h1 (§8.1) | round 2: the four T-743 rows |
+| T-611 c1 (`e2e/http/t611-size-budgets.spec.mjs:183`) | works-4040 raw 52,488 B / gzip 13,059 B, outputs-2002 raw 52,436 B / gzip 13,024 B: raw as AD-143 declares, gzip 1 B above its 13,058 / 13,023 (the random buildId; issue J2-RC-1) | round 2: the owner's answer on AD-143's gzip literals, then the B0 re-baseline of the two routes (batch decision 7 (c)) |
+| T-607 c2 (`e2e/http/t607-wire-headers.spec.mjs:61`, `@wire`) | 12 diff lines, exactly 6 × `accept` → `Accept` and 6 × `authorization` → `Authorization` (the doi.org records, W4e-5/W4e-6) | round 2: the owner's answer on the capture race (issue J2-RC-2), then the re-capture of `e2e/lib/P0-11/t607-wire.baseline.json` |
+
+- **Not red:** T-014 (a) (no server module-id swap on this twin pair, §14), T-728 c4 (AD-109), T-608 c2 (on the nodsn build), T-729, T-723, T-412, T-741 c2, T-802, T-901, every edit of batch decision 6 (ii), and the build-bound AD-137 and AD-138.
+- **Builds:** the key of the tip is `e9c353c5d1f87f02` (runtime tree unchanged since `9101228`: docs, test and e2e commits do not enter it), so the build the large page data fix step made (buildId `O-QfFf9PaqW9ye_dKcHYI`, Node 24.18.1) is the jump-check build. Made for the run with the lean tool, 23 s each: twin `e9c353c5d1f87f02-ci-b`, nodsn `d5dd744cdff24afd`, harness `94bdd9e7809457fa`; deleted after it (they rebuild in about 23 s). The stale census build `702da38d9a6e7005` was deleted. To stay at 4 trees the rebuilt jump-1 pair (`e343464ce23af57f`, `-ci-b`) was moved out of the build directory for the run and back after (content untouched). At rest: `e9c353c5d1f87f02`, `e343464ce23af57f`, `e343464ce23af57f-ci-b`; 84 GB free.
+- **T-728 c4 dev inventory:** not re-recorded for the run: its app-tree hash equals the tip's (recorded by the large page data fix step on the same runtime tree: 396 loads, 38 warning signatures, 1 unmapped line, the Q-016 dev 500 of AD-109).
+- **Verdict (55 §0): "Jump 2 done, round 2 open".** The only reds are of kind "expected": each is the declared object of a round-2 item the owner's signature of 2026-10-30 left for a later round (the announcer test's four rows, the notice rows of CS-N12-14 and the T-610 re-capture, the two stopped re-capture groups of batch decisions 6 (i) and 7 (c)) or the deploy-time gate of batch decision 5 (c). No regression, no flake, no runtime change pending.
+
+## 2. Merges on the jump branch
+
+| Merge | Content |
+|---|---|
+| `cc137cd` | W4a (CS-N12-1) |
+| `9391c55` | W4b (CS-N11-0, CS-N11-1) |
+| `0570a3f` | W4c (CS-N12-7, CS-N12-4, CS-N11-3, CS-N11-4, CS-N11-5 local part, CS-BIB-2, CS-N12-10), after the owner decisions of 2026-10-29 17:31 (§5) |
+| `26fde5a` | W4c follow-up: the inert `overrides.next.browserslist` key removed (CS-N12-7) |
+| `0164f7a` | W4c.2 (CS-GA-1, CS-GA-2, CS-N11-9) |
+| `f5bba91` | W4d (CS-N12-5, CS-N12-3, CS-N12-9, CS-N12-11) |
+| `229b892` | W4e (CS-N12-6) |
+| `af5e9f6` | the jump 2 review fixes (CS-N12-12, CS-N12-13, the "Memory on Node 24" deploy-time row, the proposals reworked; §4) |
+| `551270b` | the jump 2 batch round 1 under the owner's signature: AD-054..AD-140 (81 rows), AD-010/AD-011 withdrawn, the constants at their sites, batch decisions 4, 6 (ii), 6 (iii), 8, 9 and 14 (§7) |
+| `c5e7b5f` | the large page data fix of batch decision 2 (b) (CS-N12-14; §8.2) |
+| `2fa27fe` | the rule 7 proofs of batch decisions 4 (a), 6 (iii) and 8 (a) on the rebuilt jump-1 tip (§8.3; docs only) |
+| `62e1ede` | the route announcer test of batch decision 1 (a) (T-743; §8.1) |
+| `d344247` | the B2-local re-captures of batch decision 6 (i) (T-805, T-728, T-729, T-602, T-702; §7) = the jump-check tip |
+| `Merge the jump 2 record (AD-054..AD-140)` of `upgrade/jump2-webpack5-next12-node24--record` | this record, the S-6 text of 30, STATUS, README §8, the jump-2 rows of 02 and 20 (docs only) |
+
+## 3. Steps
+
+### 3.0 Versions, old → new (02 §5 step 6)
+
+| Row (02) | Old (jump-1 tip `7b31c85`) | New (jump tip) | Step, CS |
+|---|---|---|---|
+| next | `^10.0.3` (10.2.3) | 12.1.6 exact at W4c, then **12.3.7** exact | W4c CS-N12-7; W4d CS-N12-5 |
+| webpack | 4 (Next 10's compiled copy) | 5: `future.webpack5` on 10.2.3, then Next 12's own | W4b CS-N11-0; W4c CS-N12-7 |
+| node-fetch (undeclared, hoisted by Next 10) | 2.6.1, required by `data/data-loader.js` | not required (global `fetch` of Node); left the tree with Next 10 at W4c | W4a CS-N12-1 |
+| @zeit/next-source-maps | 0.0.4 (dependencies, unpublished spec), 0.0.3 (dev) | removed; `productionBrowserSourceMaps: true` | W4c CS-N11-4 |
+| cssnano-simple (+ cssnano-preset-simple) | - (2.0.0 inside Next 10's tree) | 2.0.0 exact, devDependency, Next 12's production CSS minimizer (an M1 exception closing at 6.9) | W4c CS-N12-10 (OD-37 A) |
+| react-ga4 | `^2.1.0` (2.1.0) | 3.0.1 exact (ESM-only; its ES2022 syntax compiled for the client) | W4c.2 CS-GA-1, CS-GA-2 |
+| @testing-library/jest-dom | 6.9.1 | 7.0.1 exact | W4e (02 row) |
+| `overrides.next.browserslist` | 4.16.6 | removed (12.1.6 declares no browserslist) | W4c CS-N12-7 |
+| `engines.node` | `>=16.18.1` | `>=24.15.0` | W4e CS-N12-6 |
+| runtime Node (local builds, `next start`, `next dev`, Jest) | 18.20.8, npm 10.8.2 | 24.18.1, npm 11.16.0 (the image stays `node:18-alpine` until the deploy-time item) | W4e CS-N12-6 |
+
+Inside Next (lock only, reached from `next`): 12 `@next/swc-*` binaries at 12.1.6, then 13 at 12.3.4 (12.3.7 declares them so; freebsd-x64 new); `styled-jsx` 3.3.2 → 5.0.2 → 5.0.7; Next's nested `postcss` 8.2.13 → 8.4.5 → 8.4.14; new `@swc/helpers` 0.4.11 and Next's nested `use-sync-external-store` 1.2.0; `tslib` 2.8.1 hoisted to the root from 13 nested copies; `nanoid` 3.3.11 → 3.3.20 (npm's dedupe onto a copy already in the lock). Lock: `lockfileVersion` 2 kept (the 12.1.6 lockfile patcher finds all `@next/swc-*` keys in the v2 `dependencies` section, so it prints no "patching" line); 1,819 → 1,630 `packages` entries. Production tree: 580 → 400 `name@version` (§9).
+
+### 3.1 W4a: the data loader on Node's own fetch (`cc137cd`, 2026-10-29)
+
+- **Applied:** CS-N12-1 (`4ce9b03`): the `require('node-fetch')` line of `data/data-loader.js` became a comment, so every line number of the file stays; the T-117 child's preload wraps the global `fetch` as it wrapped `node-fetch` (`f710926`, test tooling; any other URL is still refused).
+- **Exit facts:** T-117's four cases equal between the old and the new loader on the same harness and stub (exit codes, signals, requests, files; stderr byte-equal in c1..c3); only the fetch error texts differ (c4: `TypeError: fetch failed` for a reset, the JSON parser's text for an HTML answer). With no answer the new loader exits by itself after 301.5 s (undici's 300 s header timeout, `HeadersTimeoutError`), where the old one ran on; recorded as AD-055 (OD-08 A). `.next` identical to the jump-1 tip build (183/183, T-014 (a) green). The loader's request headers change with the client (`user-agent: node`, keep-alive, `accept-language: *`, `sec-fetch-mode: cors` instead of node-fetch's; §11).
+- **Tests:** unit 1,103/1,105 (T-117 c4 ×2, later AD-054 and AD-133); Layer A 94/94; T-606 4/4, T-607 3/3, T-728 90/90. Harness oracle (40 §8 rule 2): the new preload on the unchanged loader 9/9.
+- **Deferred:** the live-loader halves (T-009 release recipe, T-014 (b)): the first live build of the final deploy is the first real run of the new loader against the API.
+
+### 3.2 W4b: webpack 5 on Next 10.2.3 (`9391c55`, 2026-10-29)
+
+- **Applied:** CS-N11-0 and CS-N11-1 in one commit (`768ca4f`: `future: { webpack5: true }`; `config.node = { fs: 'empty' }` → `config.resolve.fallback = { ...config.resolve.fallback, fs: false }`, since webpack 4 rejects the one and webpack 5 the other); the header contract finds the framework chunk under its webpack 5 name (`339e490`, test tooling; oracle on the webpack 4 build: T-603 4/4, T-607 3/3).
+- **Exit facts:** 0 HTML diffs (T-602 5/5) and 0 CSS diffs (T-003 c1/c2); T-801 0 px; T-901 11/11 on Node 18.20.8 with the OpenSSL flag; without the flag the build stops with `ERR_OSSL_EVP_UNSUPPORTED` (md4 in webpack 5), so the Dockerfile line stays until the image builds Next 12 (§11). T-015 floor ES2015 unchanged. `.next` 183 → 213 files (server split into page entries, `server/chunks/*.js` and a webpack runtime); webpack 5 on 10.2.3 never splits `pages/_app`, so the shared vendor code moved into it; first-load JS per route 1.6 to 1.9 % lower than B0. Node built-ins on the client: `fs` an empty module as before, `path` Next's `path-browserify` 1.0.1 (was 0.0.1; the same results for the three loader paths), `process` the same `process/browser.js`; no other polyfill in either build. Re-checks carried from jump 1: CS-SEN-4 holds (T-015 ES2015 on every client chunk; `next start` loads no `@babel/core`); its dev-only stack-frame count fell back from 153 to 126, most likely through webpack 5's persistent cache in the inventory's second `next dev` start (issue J2-W4b-4); CS-LR-3 holds.
+- **Tests:** Layer A 91/94 (T-016 c2 ×2, c4: webpack 4 specific readers); unit 1,103/1,105; chromium + wire 866 passed, 95 failed, 28 did not run, every red a proposal (most superseded at W4c); visual 392/392; CS-OPS-1 overlay 26/26; T-608 3/3; T-901 11/11. Re-run once: identical messages.
+
+### 3.3 W4c: Next 12.1.6 (`0570a3f`, `26fde5a`, 2026-10-29)
+
+- **First attempt, stopped:** 19 commits: `d903ad1` (next 12.1.6, `future` deleted; CS-N12-7, CS-N12-4), `433b311` (CS-N11-3, `images.disableStaticImages`), `a79d6f8` and `ecd710d` (CS-N11-4: the wrapper out, `productionBrowserSourceMaps`, the server `devtool` kept so `.next/server` keeps its maps), `21b0c57` (CS-N11-5 local part: no OpenSSL flag in the parity build, the fault builds and `next dev`), `7905aa8` + `dc51c16` (new row CS-BIB-2: Next 12's Babel loader caches one config per file kind, so the vendored `bibtexParse.js` lost its CS-BIB-1 `ignore` and broke at evaluation; it is now excluded from every Babel rule), test tooling for Next 12's layout (`4733845` Jest router harness, `5ecd3aa` T-008's host SWC binary, `5e05703` the adapter's typed externals with its rule 7 proof, `5c0bcb5` T-015 floor of 12.1.6, `789378d` the SSR markup reader), `fdce3b7` (the jump-2 section of `scripts/prod-tree-rows.json`), docs. It stopped on OD-37 B: with Next 12's own CSS minifier T-801 was not 0 px (217 of 442 annotations; the design's `%heading` declarations: 10.2.3's cssnano-simple 2.0.0 had merged them into rules after the h2/h4 rules, so today h2 renders at line-height 1.25, and Next 12's minifier keeps the source cascade, which moves everything below an h2 by 1 px). Also found: the two version-keyed pin files are baselines whose loaders throw when the installed React/Next key has no set, so the chromium project of the repository could not start on Next 12.
+- **Resumed after the owner decisions of 2026-10-29 17:31 (§5):** CS-N12-10 (row `8e07afb` first; `c74e07b` `cssnano-simple` 2.0.0 as a devDependency; `7dcf699` Next's own `CssMinimizerPlugin` with 10.2.3's PostCSS run, throwing unless exactly one CSS minimizer exists); the pin sets `react-17.0+next-12.1` and `-12.3` as exact copies of the 10.2 sets with the T-741 c2 / T-728 c2 anchors (`36b8244`, signed by the owner at once, recorded `b2fc31e`); T-008 c5 without node-fetch (`a3817cd`); `next-diff.mjs` sorts the `files` of `*.nft.json` (`a766c0e`, rule 7 on the W4a/W4b pair); the T-728 c4 map rule `next12-dev-hmr-websocket` (`568da69`, rule 7: 0 changed mappings on two W4b inventories); T-728's observer armed at the first body script (`950a66f`, oracle on the webpack 4 build 88/88). After the merge T-013 flagged the inert `overrides.next.browserslist` key: removed in `953dba1` (lock and `node_modules` unchanged), merged as `26fde5a`.
+- **Exit facts:** the 8 production CSS files equal the W4b build's byte for byte after three framework renames only (the CSS file name in the map comment, `static/media` asset names, the 5-character CSS-module hash); T-801 440 of 442 annotations 0 px, the other two the 500 page (W4c.2); T-003 c1 only the 27 asset-name keys (AD-075..AD-101); VF-06 recorded, VF-24 settled (8 CSS and 22 JS maps served with `sourcesContent`), VF-05 local half settled (lock v2 kept, no patcher line; container half DEFERRED); the revert check restores the pre-step tree exactly; CS-N12-3: `getDataHref` present; T-604/T-702 green without the CS-OPS-1 overlay (the app's own rewrite still matches below 12.2). CS-SEN-4, CS-LR-3 hold; CS-N12-2 and CS-N11-7 verified in the build log. `npm audit`: 89 vulnerable packages (1 critical); next 12.1.6: 15 advisories, 3 critical.
+- **Tests:** Layer A 86/94 on the tip build; unit 1,103/1,105; chromium + wire 859 passed, 102 failed, 28 did not run; `@wire` alone 27/28; visual 371 passed, 21 failed (the 500 page, T-805 renames); T-901 11/11 without the flag; CS-OPS-1 overlay 26/26; T-608 3/3; T-008 `--tree` ok; harness green. Every red a proposal (W4c-1..76) or the 500-page group of W4c.2. Re-run once: identical.
+- **History note (integrity review):** `d6abeef` added the 12.1 pin set without the owner's signature and without refreshing `test/baseline/SHA256SUMS`; `77d177c` removed it 85 s later; the signed re-add is `36b8244`. The tip content is correct and signed; history is not rewritten.
+
+### 3.4 W4c.2: react-ga4 3, the vendored error page (`0164f7a`, 2026-10-29)
+
+- **Applied:** CS-GA-1 (`4919160` Jest loads the ESM-only package through the ESM allow-list, oracle on 2.1.0 28/28 with and without the entry; `6185167` react-ga4 3.0.1 exact); new row CS-GA-2 (`ffb9a9e` row first, `68247e1`: the CS-SEN-4 client rule also compiles `node_modules/react-ga4`; without it T-015 measured ES2022 on the `_app` chunk); CS-N11-9 (`cb01566`: `pages/_error.jsx` = Next 10.2.3's own error page, types removed, the MIT notice in its header and in `THIRD_PARTY_NOTICES.md`, ESLint ignore; OD-38 A).
+- **Exit facts:** T-305 and T-719 equal on 3.0.1 (no stop for OD-27); react-ga4 SDK calibration (lean record): 195 = 195 gtag requests and `GA` logs per test, Sentry captures 0 = 0. The copied error page renders as 10.2.3's in 12 of 12 prop cases; the 500 page equals 10.2.3's apart from Next 12's client line "A client-side exception has occurred, see here for more info: …" (AD-112..AD-117); T-801 0 px on all 444 annotations, the 500-page pair included. The server build differs beyond the page entry (two shared helper chunks regroup), as W0b found on 10.2.3.
+- **Tests:** unit 1,103/1,105; Layer A 84/94; chromium + wire 862 passed, 99 failed, 28 did not run; `@wire` alone 28/28; visual 371 passed (T-805 and the console line of V23-none, V31). Re-run once: identical.
+
+### 3.5 W4d: Next 12.3.7 with the app-side `_next/data` rule (`f5bba91`, 2026-10-29)
+
+- **Applied:** CS-N12-5 (`429a7f9` next 12.3.7 exact); CS-N12-9 (`16ccc3f`: `rewrites()` returns `{ beforeFiles: [the /search/_next/data rule], afterFiles: [the /static rule] }`, OD-03 D, in place of the gateway rule); the static readers read the object form of the routes-manifest rewrites (`014e37d`, rule 7 on three older builds: recorded outputs byte-identical, the whole static suite identical per test); T-015 floor of 12.3.7 (`e559394`, ES2015); the router mock carries 12.3's `__esModule` mark (`24a5d18`, oracle on the 12.1.6 tree: the W4c.2 pass set); new row CS-N12-11 (`ae28a95` row first, `db3e522`: the default head is a `React.memo` component, so the page title stays in force after the URL sync of `/data-providers/`, as on 12.1.6; Next 12.3's `next/head` re-appends a re-rendered `<Head>`).
+- **Exit facts (50 W4d row):** T-604 and T-702 through the gateway-faithful proxy WITHOUT the CS-OPS-1 overlay: JSON with `pageProps`, 1 document, client navigations on `/search/_next/data/` 200 (24/26; the two reds are framework deltas, later AD-137 and AD-121 with the re-captured T-702 c7 snapshot of W4d-9, identical with the overlay); control: the bump alone without the overlay is 14 red (the app origin answers `_next/data` with 404 HTML, R-068). `getDataHref` still present (CS-N12-3 unchanged, no stop for OD-03). T-901 no "patching" or "wasm" line. T-801 0 px on all 445 annotations. VF-25 (12.3 part) settled locally: the floor did not rise. `npm audit`: next 12.3.7 has 16 advisories, 2 critical, both the image optimizer that OD-41 keeps as today (§11).
+- **Tests:** unit 1,093/1,105 (new: T-412 ×10, the `useSyncExternalStore` shim warning under `renderToString` in jsdom); Layer A 79/94; chromium + wire 821 passed, 140 failed, 28 did not run; `@wire` alone 26/28; visual 371/21; T-901 11/11. Fixed by CS-N12-11: T-714 ×3, T-722 ×4, T-724. Every other red a proposal (W4d-1..33). Re-run once: identical.
+
+### 3.6 W4e: runtime Node 24.18.1 (`229b892`, 2026-10-30)
+
+- **Applied:** CS-N12-6 track part: the harness moves the runtime Node to 24.18.1 (`04d264c`: the parity builds, `next start`, `next dev`, the fault runs and Jest; the runtime pins of the T-728 c4 check and T-901 c9 move to 24; the golden baseline tools stay on Node 18, 42 §4); `engines.node` `>=24.15.0` (`cf448ad`, the lock changes only that field); `node_modules` synced once with `npm ci` on 24.18.1 (N-API prebuilds only, no ABI rebuild; npm 11 also installs 12 dev-optional `stylelint-scss` entries); jest-dom 7.0.1 (`ad21995`); the msw response `url` made non-enumerable as on a real Node 24 response (`b585393`, a harness fix: on 18 nothing changes, on 24 only T-504 c5 turns green).
+- **Exit facts (lean oracle, 40 §8 rule 2):** the W4d tip build served and tested on Node 18 with the old harness and on Node 24 with the new one gives the same statuses and messages, except: the JSON error wording of T-117 (AD-133), a static-method frame name of T-610 c3 (`Document.getInitialProps`; AD-135, a declared row of the T-610 re-capture), the header-name case of a `Headers` object in the host-mode doi.org path of T-607 c2 (undici 7; the production path writes `Accept`/`Authorization` on both Nodes; W4e-5/-6), npm 11's dry-run count of T-008 c1 (AD-134) and T-104 c2 (the Dockerfile major). ICU (T-108, CLDR 48), the Intl formats and the T-901 runtime values are unchanged; no deprecation line in the server output. T-901 11/11 on Node 24 (JavaScript heap limit 1,216 MiB with the deployment's `--max-old-space-size=1024`), T-908 5/5 (the stub TLS endpoint; live hosts DEFERRED). The sweep's peak RSS 465 → 625/662 MiB (§11). One of 8 builds of one tree swapped two server module ids (issue J2-W4e-3).
+- **Tests:** unit 1,092/1,105; Layer A 82/94; chromium + wire 821 passed, 140 failed, 28 did not run; visual 371/21; `@wire` alone 25/3; ops 18/18. Every red a proposal (W4e-1..7) or an earlier one.
+
+## 4. The three reviews and how each finding was settled
+
+Three reviewers read `upgrade/jump1-tooling-leaf-design..229b892` (W4a to W4e) and changed nothing. The review fixes (`af5e9f6`) settled what an app-side change or a docs row could settle; the batch (§5, §7) settled the rest with the owner.
+
+**Runtime behaviour.** Every changed app file maps to a CS row; CS-N12-9 and CS-N11-9 hold; no quirk was fixed.
+
+| Finding | Settled |
+|---|---|
+| F1 CRITICAL: on 12.3.7 the S-4 work page `/works/1004/` is blank after hydration (12.3's `next/head` applies the head inside a React effect; the TypeError of the missing `next-head-count` meta reaches the app's `ErrorBoundary`, Q-010); PROPOSED-W4d-23 did not describe it | Fixed at a new site, CS-N12-12 (`f5005ac` row, `4c0af86`, `ab7be7e`: one module variable instead of a `WeakSet`, so Babel adds no `es.weak-set` polyfill): a head-manager error stays outside React, as on 10.2.3, and the page stays (81,619 characters, as on 10.2.3). T-602 c5 now asserts the hydrated page equals the served one (`0409929`; green on 10.2.3, red on the unfixed 12.3.7). The two page errors and two blocked Sentry reports are AD-136 (W4d-23 superseded, not signed). S-4 holds (`window.__PWN === 1`) |
+| F2 HIGH: Next's route announcer reads `document.title` before the h1; no test pins it | Batch decision 1 (a): a new test, T-743, pins the announcement (§8.1); its four rows go to round 2 |
+| F3 HIGH: the large-page-data warning writes users' request paths and query strings to the production log | Batch decision 2 (b): CS-N12-14, `experimental.largePageDataBytes: 0` (§8.2); AD-142 and W4d-31 not applied; the notice rows go to round 2 |
+| F4 MEDIUM: on 12.3.7 every SSR 500 view runs `App.getInitialProps` in the browser (three internal API GETs; PROPOSED-W4d-33 widened Q-011 without saying so) | Fixed at a new site, CS-N12-13 (`f570fea`): the first browser call on an SSR error page returns the server's props, as on 10.2.3 and 12.1.6; T-731 c1 requests back to the document alone; W4d-33 withdrawn |
+| F5 LOW: a new `x-nextjs-data: 1` request header on every client `_next/data` fetch | Batch decision 13 (i): for the T-904 edge checklist (WAF/CDN rules) with VF-01 part 2 at the final deploy (§11, §14) |
+| F6 LOW: the pre-header 308 of Next 12 also answers backslash paths, without the CSP; S-6 says "from Next 13.5" | In AD-106's reason; batch decision 14; the S-6 text of 30 corrected with this record |
+
+**Test integrity, scope and hygiene.** Integrity holds: every test, baseline and harness change is covered by an owner decision, a CS row, a rule 7 proof or a lean oracle; no skip, only, retry, timeout, mask or allow-list entry was added up to `229b892` (the batch later added one signed allow-list entry, §7 (b2)); the scope diff is empty.
+
+| Finding | Settled |
+|---|---|
+| 1 MEDIUM: the Node 24 memory profile was not a deploy-time row | Row "Memory on Node 24" of 20 §Deploy-time items (`3eecc38`; §11) |
+| 2 LOW: Node-18 statements left after W4e (a T-504 comment, the Stryker exclusion of T-504 c5, `e2e/lib/P0-12/no-keepalive.cjs`, a second runtime pin in `scripts/ci-local.sh`) | Open (§14, issue J2-W4e-8); the Stryker scope is the owner's call |
+| 3 LOW: the acceptance changes of owner items 3, 4, 5 of 2026-10-29 were in code but "signed with the batch" | Signed on 2026-10-30 (batch decision 12); the C1 re-runs at the midpoint heavy check (§13) |
+| 4 LOW: an unsigned baseline edit in history (`d6abeef`, reverted by `77d177c`) | Recorded in §3.3; history not rewritten |
+
+**The proposed AD rows.** The values held (every `from`/`to` matched the tip outputs), but the batch as filed would have failed the checker on 115 of 119 rows and crashed or left red 8 tests.
+
+| Finding | Settled |
+|---|---|
+| 1 HIGH: 110 rows `kind: delta` without `repro:` (D20 rules out a CI link) | Every row `kind: product` with OD-31 (review fixes; batch decision 3 (a)), as jump 1 filed its 51 rows |
+| 2 HIGH: W4c-71, W4d-31 (T-610) and W4d-20 (T-729) would make hooked tests throw | Applied apart, not filed (§7 (b2)); T-729 re-captured; W4c-71 restated for round 2; W4d-31 not applied (batch decision 2 (b)) |
+| 3 HIGH: W4c-66 overlaps AD-037 | AD-108 written with AD-037's `from`; under batch decision 6 (i) it is the declared content of the T-610 re-capture, which withdraws AD-037 (round 2) |
+| 4 HIGH: W4d-33 is avoidable app behaviour | CS-N12-13 (runtime F4) |
+| 5 MEDIUM: T-801 rows as `delta` | AD-116, AD-117 as product rows, applied as expected values (batch decision 6 (ii)) |
+| 6 MEDIUM: glob and prose keys | Keys rewritten in the review fixes; the detector's own key `client:core-js:*` renamed to `client:core-js:all-scripts` (batch decision 4 (a), `11eeca5`, rule 7 `fa2cd2e`) |
+| 7 MEDIUM: a hidden second red at T-004 c6 line 88 | The AD-074 constant applied there (`20830ff`) |
+| 8 MEDIUM: one literal stretched over two T-016 c2 assertions | One exact literal per assertion: AD-061, AD-139, AD-140 (batch decision 11 (a)) |
+| 9 MEDIUM: W4d-9, -14, -15 compare with `toMatchSnapshot` | Applied apart: re-captured in B2-local (`8f725a8`) |
+| 10 MEDIUM: W4e-5/-6 do not fit the T-607 file | Applied apart by re-capture; the re-capture stopped on a capture race (round 2, issue J2-RC-2) |
+| 11 MEDIUM: W4c-74 a `delta` status row | AD-109 as a product row (owner item 5 of 2026-10-29) |
+| 12 MEDIUM: W4e-7 holds for one build only | Batch decision 7 (c): B0 re-baseline with AD-143 as its declared row; stopped on a 1 B gzip move (round 2, issue J2-RC-1) |
+| 13 MEDIUM: W4e-3 would sign away T-104 c2's precondition | Batch decision 5 (c): T-104 c2 stays red as the gate of the Node base image; AD-141 not filed |
+| 14 MEDIUM: T-802 never ran in jump 2 | Census round 1 ran it on the harness build: 73/73; the jump check again 73/73. T-602 c1's 15 later pages green (the review's probe) |
+| 15 LOW: AD-010/AD-011 must be withdrawn | Withdrawn in `4af9a0e` (superseded by AD-134, AD-058) |
+| 16 LOW: W4d-1 without OD-31 | AD-118's ref has OD-31 |
+| 17 LOW: W4d-3 is not a ledger kind | Batch decision 8 (a): the `pages-manifest.json` key sort in `next-diff.mjs` (`a59d854`, rule 7 `fa2cd2e`), no ledger row |
+| 18 LOW: chunk-hash literals are build-bound | Batch decision 7 (a): AD-137 and AD-138 name `_app-27b450bed34a5b50.js` and hold for any build whose client `_app` chunk is unchanged; the jump-check build keeps it (142/142 static files identical) |
+| 19 LOW: the app-side alternative to W4d-24/-31 | Batch decision 2 (b), CS-N12-14 |
+| 20 LOW: `no-store` disables the back/forward cache on three page classes | In AD-104's reason; batch decision 13 (iii) |
+| 21 LOW: W4d-23's second head round may come from CS-N12-11 | AD-136 carries the caveat (no bump-only control was run); open, issue J2-B1-7 |
+| 22 LOW: W4a-3 is a record fact | Kept as the record row AD-055 (the batch offered a record line instead; signed as drafted) |
+| 23 LOW: references | Corrected when the rows were converted |
+
+## 5. Owner decisions
+
+- **2026-10-29 11:49, the go-ahead.** Owner's words: "Go ahead with jump 2: webpack 5, Next 12.1.6 then 12.3.7, Node 24, under the same rules as jump 1." Scope: 50 §4.0 row 2, the order W4a, W4b, W4c, W4c.2, W4d, W4e fixed; the batching rule of jump 1 (every new accepted difference PROPOSED and signed at the end of the jump); open ODs at their defaults (OD-08 A, OD-38 A, OD-37 B, OD-42, OD-39, OD-03 D); prod-only checks DEFERRED to the final deploy.
+- **2026-10-29 13:57, the throttle.** Owner's words: "Yes, throttle jump 2: at most one build and one browser-test run at a time, so the machine stays usable." Binding from then on (a lock directory taken with `mkdir` before each build, Playwright run or Jest run); the Playwright worker count and the test config stay as they are.
+- **2026-10-29 17:31, the five W4c decisions.** Owner's words: "I accept option (a) for all five W4c decisions: (1) OD-37 A, cssnano-simple 2.0.0 as the CSS minimizer, closed at 6.9; (2) sign the 12.1/12.3 pin sets copied from 10.2 with their anchors; (3) drop node-fetch from T-008 c5; (4) sort nft.json lists in T-014 (a); (5) accept the T-728 c4 dev-only lines." Item 2 was signed at once (`36b8244`, STATUS §2); items 1, 3, 4 and 5 were signed with the batch (batch decision 12).
+- **2026-10-30 10:40 +0400 (06:40 UTC), the signature of jump 2 batch round 1.** Owner's words: "I sign jump 2 batch round 1 (.p2-work/jump2/owner-batch.md, after the pre-sign check) with every recommendation: D1 a, D2 b, D3 a, D4 a, D5 c, D6 as recommended, D7 a and c, D8 a, D9 a, D10 a, D11 a, D12 all four, D14 a, D15 a." Here "D1".."D15" are the decisions of the batch file (section (c)), written "batch decision 1".."15" in the docs so they are not read as the plan's D1..D20. The ledger form of the signature: `SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)`. Not covered (a later round): the rows of the announcer test (batch decision 1) and of the notice that CS-N12-14 brings (batch decision 2).
+
+| Batch decision | Chosen | Where it is applied |
+|---|---|---|
+| 1 Route announcer order | (a) accept as an OD-39 delta, a new test pins the text | T-743 (`53257e9`, `0ab91de`, `4f2e1e9`, `ae6ff3d`; merge `62e1ede`; §8.1); its four rows PROPOSED for round 2 (the batch spoke of one row; the ledger allows one row in force per test and key, so one per navigation) |
+| 2 Large-page-data warning | (b) a CS row and `largePageDataBytes: 0` | CS-N12-14 (`96c0bd1`, `9101228`; merge `c5e7b5f`; §8.2); AD-142 and W4d-31 not applied; the notice rows PROPOSED for round 2 |
+| 3 Ledger form | (a) every row `kind: product` with OD-31 | the 81 rows (`4af9a0e`) |
+| 4 T-004 c6 whole-bundle key | (a) rename to `client:core-js:all-scripts` | `11eeca5` (harness change + baseline change of the recorded detector output, owner as signer, STATUS §1); rule 7 `fa2cd2e` |
+| 5 T-104 c2 | (c) stays red as the gate of the Node base image | AD-141 not filed; 20 §Deploy-time items |
+| 6 The 29 rows applied apart | as recommended: (i) re-capture; (ii) T-723 declares its line, one Jest allow-list entry for T-412, AD-112..AD-117 as expected values; (iii) the routeChange helper | (i) five groups in B2-local (§7); T-607 c2 stopped, T-610 waits for round 2; (ii) `f38987c`, `20830ff`; (iii) `6d5085d`, rule 7 `fa2cd2e` |
+| 7 Build-bound literals | (a) AD-137/AD-138 for any build with the same client `_app` chunk; (c) T-611 B0 re-baseline with AD-143 declared | (a) holds on the jump-check build; (c) stopped (issue J2-RC-1), round 2 |
+| 8 T-014 (a) `pages-manifest.json` key order | (a) sorted keys in `next-diff.mjs` | `a59d854`; rule 7 `fa2cd2e`; C1 at the midpoint |
+| 9 T-008 c3 native SWC rule | (a) AD-119 at both sites | `47d2753` (the Jest expected value and `C3_ACCEPTED` in `test/static/lib/P0-16/install-checks.js`) |
+| 10 T-002 scope | (a) the two counts | AD-110, AD-111 |
+| 11 T-016 reader | (a) four literal rows | AD-057, AD-061, AD-139, AD-140 |
+| 12 The W4c items 1, 3, 4, 5 of 2026-10-29 | all four signed | CS-N12-10 and its 02 rows; `a3817cd`; `a766c0e`; AD-109 and `568da69` |
+| 13 Information | — | §11 (deploy-time and edge notes), §12 |
+| 14 `/works//1` and backslash paths | (a) accept; the status change on the T-904 edge checklist | AD-106; T-904 item c5 (`644b53c`) |
+| 15 Page scripts in the head | (a) the framework default accepted | W4c-75 (re-captured), AD-143 (round 2) |
+
+## 6. Census round 1, the batch and its pre-sign check
+
+- **Census round 1** (2026-10-30 01:44..02:26, tip `af5e9f6`, build `702da38d9a6e7005`, read-only): one `CI_LOCAL_KEEP_GOING=1 bash scripts/ci-local.sh` (`$ARTIFACT_DIR/ci-local/20261029T215144Z.json`): lint green; unit 1,092/1,105; Layer A 82/94, T-008 `--tree` red at c3, T-901 11/11, T-721 3/3, harness green; chromium + wire 821 passed, 140 failed, 28 did not run; visual 371/21; CS-OPS-1 overlay 24/2; T-802 73/73 (its first run in jump 2); ops green. `@wire` alone 25/3. **192 reds**, each re-run once with the same message (no flake), each covered by at least one proposal.
+- **Batch round 1** (drafted 02:57, read-only): the 192 reds matched literally (T-003 27/27, T-004 c6 13/13, T-603 32 tuples, T-610 c3 lines, T-805 15 files, T-729 13 files): 0 missing, 0 regressions; three literals corrected (W4c-74, W4d-24, W4c-75). The batch: 90 ledger rows AD-054..AD-143 in the ledger form (after the pre-sign check: 81 to file with the recommendations, 9 conditional), the withdrawals, 29 rows applied apart, decisions 1..13; the checker's functions in memory: 0 violations.
+- **Pre-sign check** (03:59): a dry run of the whole batch on a clone; 14 of 14 issues held; added: batch decisions 14 (`/works//1`) and 15 (the script placement); reasons of AD-103, AD-106, AD-119, AD-120, AD-143 rewritten (no key, `from` or `to` changed); the SHA256SUMS/manifest refresh step and the signature-date note (the checker's "today" is UTC under `TZ=UTC`).
+
+## 7. Accepted-difference rows (42 §8)
+
+`test/baseline/ACCEPTED-DIFFS.yml` at the jump tip: 132 rows, 121 in force (all `kind: product`, ref OD-31), 11 withdrawn. `node scripts/ad-ledger.mjs --base master --offline`: pass. Every row filed in jump 2 carries `signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'` and `date: '2026-10-30'`, with the owner's words of §5.
+
+**Filed (`4af9a0e`): 81 rows**, AD-054..AD-106, AD-109..AD-129, AD-133, AD-134, AD-136..AD-140. "Constant": the test's expected value edited to the row's `to` with the AD id beside it (`20830ff`); "hook": the test's ledger hook applies the row.
+
+| Rows | Test | What changed | Step | Applied |
+|---|---|---|---|---|
+| AD-054 | T-117 c4 | a dropped connection logs `TypeError: fetch failed` instead of node-fetch's `FetchError` | W4a | constant |
+| AD-055 | T-117 c5 | a hung API ends the data step after undici's 300 s header timeout (exit 1 at 301.5 s) | W4a | record row; the c5 title and header name it |
+| AD-056, AD-102 | T-601 c5 | no empty CSS-extraction chunk map; 22 JS maps instead of 27 | W4b, W4c | constant |
+| AD-057, AD-061, AD-139, AD-140 | T-016 c2 | the reader's webpack 4 assumptions: 5 of 108 design modules, the 7 typed externals counted as bundled, the negative control list, the empty externals list | W4b, W4c, review fixes | constant |
+| AD-058, AD-134 | T-008 c1 | lock floor `> 1600` (1,630 entries), dry-run floor `> 1500` (npm 11: 1,580) | W4c, W4e | constant |
+| AD-059 | T-013 c1 | reference-lock floor `> 1600` | W4c | constant |
+| AD-060 | T-010 c2 | installed Next major 12 | W4c | constant |
+| AD-062..AD-074 | T-004 c6 | Next 12's own client code pulls three more core-js modules and no WeakMap (12 keys); the polyfill script has no map (AD-074, also the expected value of the detector's second assertion) | W4c | hook + constant |
+| AD-075..AD-101 | T-003 c1 | asset names inside the CSS with an 8-hex hash (27 keys) | W4c | hook |
+| AD-103 | T-602 c1 | the 308 of `/search/` has the 1-byte body `/` | W4c | constant |
+| AD-104, AD-105, AD-120 | T-603 c1 | `Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate` on the gIP, 404, 500 and 308-gssp classes | W4c, W4d | hook |
+| AD-106 | T-612 c2 | `/works//1` answered by Next with a 308 to `/works/1`, without the CSP (was the app's 404 page) | W4c | constant; T-904 c5 |
+| AD-109 | T-728 c4 | `next dev` 12 answers the Q-016 dev path with status 500 (9 loads) and its console line | W4c | constant |
+| AD-110, AD-111 | T-002 | two grep counts of the vendored error page's local `styles` object | W4c.2 | constant |
+| AD-112..AD-117 | T-721 c1, T-731 c1, T-803 c1, T-806, T-801 V23-none, T-801 V31 | Next 12's client line "A client-side exception has occurred, …" on every SSR 500 page | W4c.2 | expected values |
+| AD-118 | T-010 c1 | the data rewrite is a `beforeFiles` rewrite (CS-N12-9) | W4d | hook |
+| AD-119 | T-008 c3 | 12.3.7 declares its linux SWC binaries at 12.3.4 | W4d | constant at both sites (`47d2753`) |
+| AD-121..AD-126 | T-702 c7, T-703, T-704, T-705, T-706, T-727 | the router writes a random `key` instead of `idx` into `history.state` | W4d | constant |
+| AD-127 | T-723 | the router state url keeps its trailing slash | W4d | constant |
+| AD-128, AD-129 | T-608 c1, c3 | one more `uncaughtException` and `unhandledRejection` listener (Next's edge-runtime forwarders) | W4d | constant |
+| AD-133 | T-117 c4 | Node 24's JSON error wording | W4e | constant |
+| AD-136 | T-602 c5 | the S-4 page error and its blocked Sentry report come twice | review fixes | constant |
+| AD-137 | T-604 c4 | a stale-buildId navigation also logs `Error: Failed to load static props` (names `_app-27b450bed34a5b50.js`) | review fixes | constant |
+| AD-138 | T-016 c4 | two design require edges into react-cookie's index unattributed (names `_app-27b450bed34a5b50.js`) | review fixes | constant |
+
+**Withdrawn (`4af9a0e`, dated 2026-10-30):** AD-010 (superseded by AD-134) and AD-011 (superseded by AD-058). AD-037, AD-048 and AD-049 stay in force until the commit of the T-610 census re-capture (round 2), which withdraws them. AD-034 stays (its composite key also names the client-inserted script exemption of the T-729 spec; after the T-729 re-capture its 13 file keys apply 0 times, annotated `AD-034 x0`, issue J2-RC-4).
+
+**Not filed, ids never reused:** AD-107, AD-108, AD-130, AD-131, AD-132, AD-135 (the six T-610 census rows: under batch decision 6 (i) the declared content of the T-610 re-capture); AD-141 (T-104 c2, batch decision 5 (c)); AD-142 (T-606 c1, batch decision 2 (b)); AD-143 (T-611 c1, batch decision 7 (c): the declared row of the B0 re-baseline).
+
+**(b2) Rows applied apart (29; no AD id), signed with the batch:**
+
+| Rows | Test | How applied | State |
+|---|---|---|---|
+| W4c-46..W4c-60 | T-805 (15 files) | re-capture, B2-local | `dffc141`: each file differs from the committed one exactly at the rows' site paths; the other 37 files equal |
+| W4c-75 | T-728 c1/c3 (440 snapshots) | re-capture, B2-local | `cb79391`: equal to the batch's scratch capture file for file |
+| W4d-19, W4d-20 | T-729 (13 files) | re-capture, B2-local | `a31402f`: exactly the meta charset/viewport swap and `htmlAttrs {}` → `{style: ''}`, with the committed AD-034 |
+| W4d-22 | T-602 c4 (29 files) | re-capture, B2-local | `499b9b6`: exactly the html-validate finding order |
+| W4d-9, W4d-14, W4d-15 | T-702 c7, T-707, T-722 c1 | re-capture, B2-local | `8f725a8`: exactly `idx` → `key` at every occurrence |
+| W4d-18 | T-723 client nav | the test declares its exact console line `Error: Failed to lookup route: /display/2004` | `f38987c` |
+| W4d-4 | T-412 (10 tests) | one anchored entry for React's `useLayoutEffect` warning in `test/console-allow/react-17.0.json` (40 §8 rule 6) | `f38987c` |
+| W4d-21 | T-741 c1 | the routeChange helper lets a `routeChangeError` "Route Cancelled" of another route pass | `6d5085d`, rule 7 `fa2cd2e` |
+| W4e-5, W4e-6 | T-607 c2 | re-capture of `e2e/lib/P0-11/t607-wire.baseline.json` | **stopped**: the 3 captures were not byte-identical (the provider page's render-time account fetch landed in the next page's window in one capture); round 2 (issue J2-RC-2) |
+| W4c-71 | T-610 c3 structure | re-capture of the census with the six T-610 rows | waits for round 2: restated with the CS-N12-14 notice in the census startup (PROPOSED-D2b-2) |
+| W4d-31 | T-610 c3 large-page-data lines | — | not applied (batch decision 2 (b)) |
+
+**Baseline records (STATUS §1).** The ledger commit (baselines set `4c699cda…`), the detector key rename of batch decision 4 (`ff54bc82…`; owner as signer), the T-743 baselines (`f9f19e9c…`, captured on the Next 10.2.3 reference, no re-baseline) and the five B2-local product re-baselines (head set `8e4dcef39ed418414df29c17e40994614f3499b46b06f5422ec4043c08d994fa`, 1,305 files, at `8f725a8`), each with `test/baseline/SHA256SUMS` and `manifest.json` refreshed and `shasum -a 256 -c` all OK (1,306 lines). Since the re-captures the manifest head is the product link B2-local (its refresh command is in STATUS §1). The B2-local groups await the owner's confirmation of their SHA-256 sets in round 2.
+
+**Round 2, PROPOSED and unsigned** (the git-ignored proposals file, its two round-2 sections: the announcer test step and the large page data fix step): PROPOSED-D1a-1..4 (T-743 c1..c4, kind product, ref OD-39, OD-31); PROPOSED-D2b-1 (T-606 c1, `[]` → the two notice lines); PROPOSED-D2b-2 (W4c-71 restated: the census startup = the ready line and the two notice lines). Checked with the checker's functions against the committed ledger: no violation but the missing signature of unsigned rows.
+
+## 8. Decisions applied after the signature
+
+### 8.1 The route announcer test (batch decision 1 (a), T-743)
+
+- **The test** (`e2e/journeys/t743-route-announcer.spec.mjs`, chromium; 41 row T-743, P1, five clauses): from a settled hard load, one client navigation each: c1 `/works/1001/` → `/data-providers/86/`, c2 the pager link Next on `/data-providers/8/` (shallow, `?offset=10`), c3 `/works/1001/` → `/outputs/2001/`, c4 `/outputs/2001/` → `/works/1001/`, c5 `/search/?q=climate` pager button 2. It reads `#__next-route-announcer__` in the document or in the shadow root of `next-route-announcer` once the page has settled (no fixed sleep) and compares `{navigation, announced}` through the e2e baseline helper, one baseline file per navigation, so each round-2 row has its own key. In 10.2.3 and 12.3.7 the announcer sits in the light DOM (issue J2-D1-1).
+- **Baselines on the Next 10.2.3 reference** (the rebuilt jump-1 tip `e343464ce23af57f`, `next start` on Node 18.20.8): 3 captures byte-identical; 3 compare runs 5/5; a scratch mutation (c1's text cut by one letter) red at c1 only. Values: "The Open University", "Birkbeck, University of London", the output's h1, the work's h1, "Search CORE". New files, not a re-baseline (STATUS §1 row "T-743 route announcer baselines").
+- **On the jump-check build:** 3 runs, c1..c4 red only in `announced` (c1, c2 the site's default title "CORE – Aggregating the world’s open access research papers"; c3, c4 the page title with " - CORE"), c5 green; the h1 and `document.title` of every page equal on both builds. With the four round-2 rows in a scratch ledger: 5/5 green.
+
+### 8.2 The large page data fix (batch decision 2 (b), CS-N12-14)
+
+- **Change:** row CS-N12-14 in 20 first (`96c0bd1`), then `experimental: { largePageDataBytes: 0 }` in `next.config.js` with a comment naming the row (`9101228`). 0 skips Next's check (`next/dist/pages/_document.js`), so the server log stays as on 10.2.3.
+- **Proof:** one lean build `e9c353c5d1f87f02` (the jump-check build): all 142 `.next/static` files byte-identical to the build before (the buildId directory aside), `_app-27b450bed34a5b50.js` kept (AD-137, AD-138 hold); next-diff 234/234; only `required-server-files.json` holds the new value. `/data-providers/` (7.04 MB of page data), `/data-providers/4835/` (201 kB), `/search/?q=climate` (145 kB) and `/data-providers/?q=aberystwyth` render with 0 large-page-data lines.
+- **Cost (round 2):** Next prints its experimental-feature notice once per process, at `next build`, `next start` (after the ready line) and `next dev`: `warn  - You have enabled experimental feature (largePageDataBytes) in next.config.js.` and `warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.`, then an empty line. Only T-606 c1 and the T-610 c3 census compare those logs line for line; T-611, T-901 c6, T-608 and T-606's LogRocket check read their own patterns only (all green). T-728 c4's dev inventory was re-recorded (the app tree changed): equal to the census inventory.
+
+### 8.3 Rule 7 and rule 2 proofs of jump 2 (40 §8)
+
+The rebuilt jump-1 tip: `git archive 7b31c85` with its own lock installed once on Node 18.20.8 (`npm ci`, 19 s; all 2,950 tracked files byte-identical); lean builds with the jump-1 recipe (Node 18.20.8, `--openssl-legacy-provider`): default `e343464ce23af57f` (the jump-1 key, since the key is computed from content) and twin `-ci-b`.
+
+| Change | Kind | Proof |
+|---|---|---|
+| `f710926` T-117 preload wraps the global `fetch` (W4a) | harness | old loader + new preload 9/9 |
+| `339e490` framework chunk lookup `framework[.-]` (W4b) | lookup | on the webpack 4 build: T-603 4/4, T-607 3/3 |
+| `5e05703` adapter: typed externals (W4c) | reader, rule 7 | 2,586 + 1,975 map sources normalise identically; static 20/20 on the jump-1 output |
+| `4733845`, `5ecd3aa`, `789378d`, `950a66f` Next 12 readers (W4c) | harness | unit pass set unchanged; T-728 c1/c3 88/88 on the webpack 4 build |
+| `a766c0e` `*.nft.json` sort (owner item 4) | acceptance change, rule 7 | identical output on the W4a/W4b pair; again on the rebuilt jump-1 pair (`fa2cd2e`); C1 at the midpoint |
+| `568da69` T-728 c4 map rule (owner item 5) | acceptance change, rule 7 | 0 changed mappings on two W4b inventories; C1 at the midpoint |
+| `4919160` ESM allow-list entry (W4c.2) | harness | on react-ga4 2.1.0: T-305, T-416, T-012 28/28 with and without |
+| `014e37d` routes-manifest object form (W4d) | reader, rule 7 | recorded outputs byte-identical on three older builds; the static suite identical per test |
+| `24a5d18` router mock `__esModule` (W4d) | harness | unit on the 12.1.6 tree: the W4c.2 pass set |
+| `04d264c`, `b585393` runtime Node 24, msw url (W4e) | harness | the lean oracle of §3.6 |
+| `0409929` T-602 c5 asserts the hydrated page (review) | stricter | green on 10.2.3, red on the unfixed 12.3.7 |
+| `11eeca5` detector key rename (batch decision 4) | harness + baseline, rule 7 | on the rebuilt jump-1 tip: the old detector's output with only the key renamed equals the new detector's byte for byte; with the committed `from` block it equals the committed file (`fa2cd2e`) |
+| `a59d854` `pages-manifest.json` key sort (batch decision 8) | acceptance change, rule 7 | three versions of next-diff (no sort, nft sort, both sorts) print byte-identical output on the rebuilt jump-1 pair (183/183); T-014 (a) green with each (`fa2cd2e`); C1 at the midpoint |
+| `6d5085d` routeChange helper (batch decision 6 (iii)) | acceptance change, rule 7 | T-741 c1 on the rebuilt jump-1 tip, `next start` on Node 18.20.8: 94 passed before and 94 after, every test the same status (`fa2cd2e`); C1 at the midpoint |
+| `f38987c` T-723 expected line, T-412 allow-list entry (batch decision 6 (ii)) | test edit; acceptance change (rule 6) | T-723 and T-412 green at the jump check |
+| `47d2753` `C3_ACCEPTED` (batch decision 9) | AD-119 at a second site | `t008.sh --tree` ok; T-001 green (max-len kept) |
+
+## 9. Whole-jump production tree report
+
+`node scripts/prod-tree-report.mjs --jump jump-2` at the jump tip (exit 0; `--self-test` 5/5). It compares the production `name@version` set of the lock with the jump-1 tip `7b31c85` and maps every change to a row of the `jump-2` section of `scripts/prod-tree-rows.json`:
+
+```
+production tree 7b31c85 -> working tree: 580 -> 400 name@version, 202 removed, 22 added
+  root next: 10.2.3 -> 12.3.7  CS-N12-7 (12.1.6, W4c), CS-N12-5 (12.3.7, W4d)
+  root react-ga4: 2.1.0 -> 3.0.1  CS-GA-1 (W4c.2)
+ok: every change maps to a row
+```
+
+The 201 removed items reached from `next` are Next 10's tree (`node-libs-browser` 2.2.1 and the browserify polyfills, `pnp-webpack-plugin`, `node-fetch` 2.6.1, `browserslist` 4.16.6, Next's nested `postcss` 8.2.13, `styled-jsx` 3.3.2, the `@next/*` 10.2.3 packages, and `cssnano-simple` 2.0.0 with its preset, now a devDependency, among them); the 21 added items reached from `next` are `next` 12.3.7, `@next/env` 12.3.7, the 13 `@next/swc-*` 12.3.4 binaries, `@swc/helpers` 0.4.11, `styled-jsx` 5.0.7, `postcss` 8.4.14 with `nanoid` 3.3.20 and `source-map-js` 1.2.2, and Next's `use-sync-external-store` 1.2.0; `react-ga4` 2.1.0 → 3.0.1 is the remaining pair. 0 unmapped, 0 stale. jest-dom and the new `cssnano-simple` entry are devDependencies and not in the report.
+
+## 10. Change-site rows added in jump 2
+
+Each new row went into 20 before its code (01 §9): CS-BIB-2 (W4c), CS-N12-10 (W4c, OD-37 A), CS-GA-2 (W4c.2), CS-N12-11 (W4d), CS-N12-12 and CS-N12-13 (the review fixes), CS-N12-14 (batch decision 2 (b)). Rows extended with the measured result: CS-N12-1 (W4a), CS-N11-4 (the server `devtool`), CS-N12-7 (the overrides key; the acceptance changes of owner items 4 and 5), CS-GA-1 and CS-N11-9 (W4c.2), CS-N12-5 and CS-N12-9 (W4d), CS-N12-6 (W4e). With this record the rows name their AD ids (CS-N12-1, -5, -9, -12) and CS-N12-6 names the T-104 c2 gate.
+
+## 11. Deploy-time items (20) and edge notes
+
+Recorded in [20](../20-change-sites.md) §Deploy-time items, never applied (D19):
+
+| Item | Found | Needed for the final deploy? |
+|---|---|---|
+| Node base image (CS-N12-6) | W4e | **Needed:** `FROM node:24.18.1-alpine` (or `node:24-alpine` by digest, at least 24.15 per `engines.node`). While the image stays `node:18-alpine`, `npm ci` warns `EBADENGINE` for the root package (exit 0) and **T-104 c2 stays red: the gate of this item** (batch decision 5 (c)); it turns green with the change. npm 11 prints an `allow-scripts` warning for the five packages with install scripts and still runs them |
+| Memory on Node 24 (CS-NODE-3, CS-N12-6, R-048) | W4e, the review | **Check with the base image:** the T-611 c2 sweep peaks at 625 / 662 MiB RSS on Node 24.18.1 against 465 MiB on Node 18.20.8 (heapTotal 197 against 101 MiB), against the 512Mi request and the 768Mi limit of `kube/prod/deployment.yaml`; watch RSS and OOMKilled in the 48 h watch and decide the limit or the heap flag with the Dockerfile change |
+| OpenSSL flag (CS-N11-5, `Dockerfile:23`) | W4b, W4c | **Not needed** from Next 12.1.6 (no local path uses it since W4c); harmless if kept (Node 18.20.8 and 24.18.1 accept it); it can go with the final deploy |
+| Gateway rule (CS-OPS-1) | W4d | **Not needed** on 12.3.7: CS-N12-9 serves `/search/_next/data` through the gateway-faithful proxy; the real gateway's half is the VF-01 part 2 probe after the deploy |
+| Dev dependencies in the image (CS-N12-10) | W4c | **Keep `--include=dev`** in `Dockerfile:19`: `cssnano-simple` 2.0.0 is a devDependency that the production build needs |
+| Loader request headers (CS-N12-1) | W4a | **Check:** the build-time data loader now sends `user-agent: node`, `connection: keep-alive`, `accept-language: *`, `sec-fetch-mode: cors` instead of node-fetch's `User-Agent: node-fetch/1.0 (+https://github.com/bitinn/node-fetch)` and `Connection: close`; check whether the API or its WAF treats the build by its `user-agent` header (the SSR calls already send `user-agent: node`) |
+| Experimental notice in the start log (CS-N12-14) | batch decision 2 (b) | Information: every pod's start log carries the two `warn  - ` lines of §8.2 |
+| `npm audit` at the deploy (R-072, S-5, OD-41) | W4c, W4d, W4e | Information: next 12.3.7 has 16 advisories, 2 critical (GHSA-2xp9-vwfh-vxw4 and GHSA-2464-fhr4-w9xw), both the image optimizer that OD-41 keeps as today (W7a's 15.5.28 is outside both ranges); `npm audit` counts 89 vulnerable packages with npm 10.8.2 (W4d) and 75 with npm 11.16.0 (W4e) on the same production tree |
+
+**Edge notes for the T-904 checklist (batch decisions 13 and 14):** the status change of `/works//1` (404 page with the CSP → 308 to `/works/1` without it; AD-106) is item c5 of `test/ops/t904-checklist.json` (`644b53c`); the `x-nextjs-data: 1` request header of every client `_next/data` fetch (12.2 and later; batch decision 13 (i)) is for the same checklist (WAF/CDN rules) with VF-01 part 2 at the final deploy and is not a checklist line yet (§14); the edge-visible rows AD-104, AD-105, AD-120 (`no-store` Cache-Control; Chrome keeps no back/forward-cache copy of the 404, 500 and `/outputs/update/` pages) and AD-106. The pre-header 308 of Next 12 also answers backslash paths without the CSP (their status on 10.2.3 was not measured); S-6 in 30 now says so (batch decision 13 (ii)).
+
+## 12. Deferred prod-only checks
+
+DEFERRED to the owner's final deploy (D19, D20; no prod contact in the track): VF-02 (first-rollout Host/Authorization at the API); VF-01 part 2 (the prod `_next/data` probe); the T-904 edge checklist (VF-14 edge part, with the rows and headers of §11); the T-901 container half and VF-05 (the musl image: ICU, SWC musl); the T-008 alpine half; T-908 against the live logo hosts (R-080 is SILENT: on Node 24 OpenSSL's security level 2 can make the logo check fall back without an error); the live-loader halves of T-009 and T-014 (b) (W4a); the WebKit and Firefox legs of T-801 and T-724, and the engine at the T-015 floor (no browser downloads approved).
+
+## 13. The midpoint heavy check: C1 re-runs and fault patches
+
+The heavy checks are not due at jump 2 (they run at the midpoint, the end of jump 3; 55 §0). Due there from jump 2 (40 §8 rule 8; C1-Q is WITHDRAWN in lean mode, so each re-run needs a concrete negative control):
+
+- the C1 re-runs of the acceptance changes: T-014 (a)'s sorts in `scripts/next-diff.mjs` (the `files` of `*.nft.json`, `a766c0e`; the keys of `server/pages-manifest.json`, `a59d854`): a removed or added file and a changed value are still flagged; the T-728 c4 map rule `next12-dev-hmr-websocket` (`568da69`): an unmapped dev console line is still flagged; the T-741 routeChange helper (`6d5085d`): a cancelled event of the target route still fails; the T-004 c6 detector key `client:core-js:all-scripts` (`11eeca5`): an uncovered polyfill key is still flagged; the T-412 allow-list entry (`f38987c`); and, from jump 1, the T-610 frame normaliser and the 42 §8 key-rule extensions.
+- **Fault patches:** 19 of the 72 non-design patches in `test/faults/` fail plain `git apply --check` at the jump tip (checked at `d344247`), the 17 of jump 1 (the jump-1 record, [section 10](jump-1.md#10-fault-patches-to-refresh-at-the-midpoint-heavy-check)) and two more; all 19 pass `git apply --3way --check`. The refresh keeps each patch's risk and detectors:
+
+| Patch | File(s) | Context moved in jump 2 by |
+|---|---|---|
+| R-001-a, R-001-b, R-020-a, R-021-a, R-068-a, R-032-a | `next.config.js` (R-032-a also the lock) | CS-N11-0/-1, CS-N11-3, CS-N11-4, CS-BIB-2, CS-N12-10, CS-GA-2, CS-N12-9, CS-N12-14 (besides jump 1's) |
+| R-082-a, R-091-a (new) | `next.config.js` | CS-N11-4: the `@zeit/next-source-maps` require at the head of the file is gone |
+| R-015-a, R-015-b, R-065-a, R-075-a, R-075-b, R-084-a, R-084-b | `package.json`, the lock | the lock and manifest changes of W4c, W4c.2, W4d and W4e |
+| R-013-a, R-013-b, R-069-a, R-026-a | page templates, pages, `csp.config.js` | as in jump 1 (jump 2 did not change these files) |
+
+Stale for their risk even where they apply: R-084-b (moves `next/node_modules/node-fetch`) and R-016-a (server calls through node-fetch) target Next 10's node-fetch tree, which Next 12 does not have (issue J2-W4c-10); R-084-b's detector is T-013, so dropping node-fetch from T-008 c5 loses no recorded kill. The three design patches apply inside the vendored design and were not counted.
+
+## 14. Open items
+
+1. **Round 2 of the owner's signatures** (with this record's signature, 01 §7): PROPOSED-D1a-1..4 (T-743 c1..c4); PROPOSED-D2b-1 (T-606 c1) and PROPOSED-D2b-2 with the T-610 census re-capture on the jump-check build (declared content: W4c-71 restated, AD-107, AD-108, AD-130, AD-131, AD-132, AD-135; withdrawing AD-037, AD-048, AD-049); issue J2-RC-1 (T-611 B0: AD-143's gzip literals moved 1 B with the build; recommended: read them as build-bound and confirm B0 = (52,488, 13,059) and (52,436, 13,024)); issue J2-RC-2 (T-607 c2: the capture race; recommended: a harness change so the wire capture collects only after the stub has been quiet, rule 7 on the old build, then the re-capture; also whether a re-capture's `reference` block may name the capture build while `link` stays `B0-local`); the confirmation of the B2-local link and its five SHA-256 sets (STATUS §1). After round 2 a full ci-local should have one red only, T-104 c2, and the 28 `@wire` tests run in the one call again.
+2. **At the final deploy:** T-104 c2 turns green with the Node base image; the deploy-time items and the deferred checks of §11 and §12; `x-nextjs-data` is not yet a line of the T-904 checklist.
+3. **At the midpoint heavy check:** §13.
+4. **Server module-id swap** (issues J2-W4e-3, J2-RF-9): in about 1 of 8 builds Next 12.3.7 swaps two server module ids; a twin with such a swap makes T-014 (a) red (no normaliser covers it; no rebuild-until-green). The jump check's pair had none.
+5. **Harness notes:** the build key omits the runtime Node (J2-W4e-7); T-606 c3 probes the Node that built the app, not the one that serves it (J2-W4e-6); `STATIC_RECORD=1` cannot use the Prettier writer inside Jest (J2-W4d-5); Node-18 comments and the Stryker exclusion of T-504 c5 (J2-W4e-8, the integrity review's item 2); webpack 5's persistent cache lists `next.config.js` but not `babel-syntax-loader.js` as a build dependency, which matters only if `.next/cache` is ever kept (J2-W4b-4); the `@wire` project depends on `chromium` (J2-JC1-1); the HMR WebSocket map rule names the open issue P0-12-10, which needs a Q row (J2-W4c-15); AD-136's cause of the second head round is read from 12.3.7's code with no bump-only control (J2-B1-7); the T-412 entry of `test/console-allow/react-17.0.json` names the signed batch row W4d-4 (applied apart, no ledger id), where 40 §8 rule 6 speaks of an AD row.
+6. **Commit subjects:** one subject of the range carries no `(<CS-ID or AD-ID>)` suffix, the merge `af5e9f6` "Merge the jump 2 review fixes (jump 2)"; recorded, history is not rewritten. No commit message of `7b31c85..d344247` names a tool, a vendor or an absolute path.
+7. **Build trees:** the rebuilt jump-1 tip `e343464ce23af57f` and its twin stay for the reviewers of this record (`next start` on Node 18.20.8: `RUNTIME_NODE_BIN=<Node 18.20.8> npm run e2e:up -- --run <id> --build e343464ce23af57f`); delete them when the reviewers are done.
+8. **Docs:** R-083 in [10](../10-risk-register.md) still reads "CSP lost on 308 (13.5+)"; with S-6 corrected here, its next edit can name Next 12 for the repeated-slash and backslash 308s (AD-106).
+
+## 15. Next
+
+**Owner round 2** (§14 item 1), then **jump 3** ([50](../50-roadmap.md) §4.0 row 3: W5.5, W6a, W6c, W6d; React 18 and Next 14, with the heavy checks at its end), **awaiting the owner's go-ahead**. It starts on a branch `upgrade/jump3-<slug>` from the jump-2 tip (01 §10).
