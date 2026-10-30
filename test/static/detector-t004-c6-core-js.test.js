@@ -49,7 +49,9 @@ function derive(build) {
       ','
     ),
     'client:scripts-without-map': String(client.filter((s) => !s.map).length),
-    'client:core-js:*': polyfillsOf(build, client).join(','),
+    // the whole-bundle key, `client:core-js:*` before jump 2 (renamed in the
+    // owner's batch round 1: the ledger refuses a glob key, AD-062)
+    'client:core-js:all-scripts': polyfillsOf(build, client).join(','),
   }
   for (const page of build.pages()) {
     entries[`client:core-js:${page}`] = polyfillsOf(
@@ -90,7 +92,7 @@ describe('T-004 @P0 bundles: client polyfills', () => {
     expect(a['client:roots:core-js']).toBe('node_modules/core-js')
     // the set of every route is non-empty, inside the whole-bundle set, and
     // holds the `_app` set (each route loads `_app`'s files)
-    const all = new Set(split(a['client:core-js:*']))
+    const all = new Set(split(a['client:core-js:all-scripts']))
     const app = split(a['client:core-js:/_app'])
     expect(app.length).toBeGreaterThan(0)
     for (const page of build.pages()) {
@@ -123,7 +125,7 @@ describe('T-004 @P0 bundles: client polyfills', () => {
     const keys = uncovered.map((d) => d.key)
     expect(keys).toEqual(
       expect.arrayContaining([
-        'client:core-js:*',
+        'client:core-js:all-scripts',
         ...build.pages().map((p) => `client:core-js:${p}`),
       ])
     )
