@@ -11,8 +11,9 @@
 // Local mode only (owner notes: no Docker): the plan reads `docker stats`; here the process is the container's
 // stand-in, so the limit of 768 MiB (R-048) is not enforced (DEFERRED with the compose topology, I-23). RSS on
 // macOS is not a stable figure (the memory compressor moves resident pages out: five identical sweeps gave a
-// peak between 319 and 555 MiB), so B0 for (a) is the upper envelope of N identical sweeps of the golden build
-// (see MEMORY_B0), while (b) is stable to 0.1 % and is the tight +10 % check.
+// peak between 319 and 555 MiB), so B0 for (a) is the upper envelope of N identical sweeps: 650 of the golden
+// build on Node 18, 785 of the jump-check build on Node 24.18.1 since AD-151 (see MEMORY_B0), while (b) is stable
+// to 0.1 % and is the tight +10 % check.
 import fs from 'node:fs'
 import http from 'node:http'
 import path from 'node:path'
@@ -40,9 +41,9 @@ const BUDGET = [
   ['works-1003', '/works/1003/', 'gateway', 100969, 22009],
   ['works-1004', '/works/1004/', 'gateway', 83143, 19098],
   ['works-1005', '/works/1005/', 'gateway', 89956, 19969],
-  ['works-4040', '/works/4040/', 'gateway', 55542, 13909],
+  ['works-4040', '/works/4040/', 'gateway', 52488, 13059],
   ['outputs-2001', '/outputs/2001/', 'gateway', 73916, 19434],
-  ['outputs-2002', '/outputs/2002/', 'gateway', 55492, 13871],
+  ['outputs-2002', '/outputs/2002/', 'gateway', 52436, 13024],
   ['outputs-2003', '/outputs/2003/', 'gateway', 65100, 17178],
   ['outputs-2004', '/outputs/2004/', 'gateway', 73188, 19297],
   ['outputs-update', '/outputs/update/', 'gateway', 56854, 14491],
@@ -64,11 +65,14 @@ const BUDGET = [
 ].map(([id, route, via, raw, gzip]) => ({ id, route, via, raw, gzip }))
 
 // B0 of the memory figures (MiB), recorded 2026-10-21 from 15 identical sweeps of the golden build on a loaded
-// host (load average 40-90): the peak RSS is the upper envelope (320-647, median 500: the memory compressor and
-// the garbage collector's timing spread single sweeps over +-25 %); the heap retained after the collections is
-// stable (132.2-132.9) and the committed heap varies less (169.5-179.3, so its B0 is the envelope)
+// host (load average 40-90): the peak RSS was 650 on Node 18, the upper envelope (320-647, median 500: the memory
+// compressor and the garbage collector's timing spread single sweeps over +-25 %); the heap retained after the
+// collections is stable (132.2-132.9) and the committed heap varies less (169.5-179.3, so its B0 is the envelope).
+// The peak RSS is 785 since AD-151: the same formula, on another build and a quieter machine, the upper envelope
+// of 32 sweeps (T-611 c2 alone, a fresh stack each) of the jump-check build e9c353c5d1f87f02 on Node 24.18.1,
+// 2026-10-30: 604.1-784.2, median 641.3, 1-minute load 3-7, 784.2 rounded up; the limit moves from 715 to 863.5
 const MEMORY_B0 = {
-  peakRssMiB: 650,
+  peakRssMiB: 785, // AD-151
   heapUsedAfterGcMiB: 132.9,
   heapTotalMiB: 180,
 }
