@@ -1550,3 +1550,14 @@
   step: "jump 2 end-state review (runtime lens)"
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 2, approved in the work session)'
   date: '2026-10-30'
+- id: AD-151
+  kind: product
+  test: T-611
+  key: "c2 MEMORY_B0.peakRssMiB of e2e/http/t611-size-budgets.spec.mjs"
+  from: "650"
+  to: "785"
+  reason: "T-611 c2 (R-048), OD-49 with rule 6 of 90-open-decisions.md: an RSS budget loosened because a version bump causes the excess. The runtime bump to Node 24.18.1 (CS-N12-6, W4e) raises the peak RSS of the 69-request sweep, and the same build shows it: e9c353c5d1f87f02 in 16 interleaved sweeps per setup peaks at 496.6..525.6 MiB (median 502.3) on Node 18.20.8 and at 615.6..767.4 MiB (median 644.9) on Node 24.18.1; the jump-1 tip e343464ce23af57f (Next 10.2.3, Node 18.20.8) in the same runs peaks at 600.0..654.8 MiB (median 633.9). With 16 earlier sweeps on Node 24.18.1 (604.1..784.2): 32 sweeps, median 641.3, 7 above the old limit of 715 MiB in a second group of 740.1..784.2, which neither Node 18 setup shows. The old B0 650 was the upper envelope of 15 sweeps of the golden build on Node 18 (647, rounded up; load average 40-90); the new B0 is the upper envelope of these 32 sweeps by the same formula, on another build and a quieter machine (784.2, rounded up; 1-minute load 3-7), so the limit B0 + 10 % moves from 715 to 863.5 MiB. The measurement method is unchanged: rule 6 forbids changing it after a failed measurement. The re-measurement of rule 6 is in lean form, as the owner accepted: the jump-1 tip and this build on both runtimes; the steps between keep the runs of their own step. The heap retained after collection is stable (61.2..61.3 MiB against its limit of 146.19) and its budget is unchanged, as is the heapTotal budget. The 768 Mi limit of kube/prod/deployment.yaml was never enforced by this test (local mode, DEFERRED with I-23), and RSS of a process on macOS is not a container figure: the memory check stays with the Node base-image item and the 48 h watch (20 §Deploy-time items). A constant: applied by changing the value at the site, with the AD id in a comment beside it."
+  ref: [OD-49, R-048, CS-N12-6, OD-31]
+  step: "jump 2 close run, step 7"
+  signedOffBy: 'SIGNED: owner, 2026-10-31 (jump 2 batch round 3, approved in the work session)'
+  date: '2026-10-31'
