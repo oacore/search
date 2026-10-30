@@ -4,7 +4,7 @@
       {
         "method": "replaceState",
         "url": "<origin>/search/?q=climate&page=2&sort=recent",
-        "stateKeys": "__N,as,idx,options,url"
+        "stateKeys": "__N,as,key,options,url"
       }
     ],
     "addedEntries": 0,
@@ -16,7 +16,7 @@
       {
         "method": "replaceState",
         "url": "<origin>/works/80231700/?t=acf43df7361f31ccae19b8c76873eccb-80231700&search=q=climate&page=2&sort=recent",
-        "stateKeys": "__N,as,idx,options,url"
+        "stateKeys": "__N,as,key,options,url"
       }
     ],
     "addedEntries": 0
@@ -26,7 +26,7 @@
       {
         "method": "replaceState",
         "url": "<origin>/search/?q=climate&page=2&sort=recent",
-        "stateKeys": "__N,as,idx,options,url"
+        "stateKeys": "__N,as,key,options,url"
       }
     ],
     "addedEntries": 0,

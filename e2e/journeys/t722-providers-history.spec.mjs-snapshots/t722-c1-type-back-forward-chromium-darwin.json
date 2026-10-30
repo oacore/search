@@ -55,22 +55,22 @@
     {
       "method": "replaceState",
       "url": "<origin>/data-providers/",
-      "stateKeys": "__N,as,idx,options,url"
+      "stateKeys": "__N,as,key,options,url"
     },
     {
       "method": "replaceState",
       "url": "<origin>/data-providers/?q=&size=10",
-      "stateKeys": "__N,as,idx,options,url"
+      "stateKeys": "__N,as,key,options,url"
     },
     {
       "method": "pushState",
       "url": "<origin>/data-providers/?q=aberystwyth&size=10",
-      "stateKeys": "__N,as,idx,options,url"
+      "stateKeys": "__N,as,key,options,url"
     },
     {
       "method": "pushState",
       "url": "<origin>/data-providers/?q=birkbeck&size=10",
-      "stateKeys": "__N,as,idx,options,url"
+      "stateKeys": "__N,as,key,options,url"
     },
     {
       "method": "popstate",
@@ -79,7 +79,7 @@
     {
       "method": "replaceState",
       "url": "<origin>/data-providers/?q=aberystwyth&size=10",
-      "stateKeys": "__N,as,idx,options,url"
+      "stateKeys": "__N,as,key,options,url"
     },
     {
       "method": "popstate",
@@ -88,7 +88,7 @@
     {
       "method": "replaceState",
       "url": "<origin>/data-providers/?q=&size=10",
-      "stateKeys": "__N,as,idx,options,url"
+      "stateKeys": "__N,as,key,options,url"
     },
     {
       "method": "popstate",
@@ -97,7 +97,7 @@
     {
       "method": "replaceState",
       "url": "<origin>/data-providers/?q=aberystwyth&size=10",
-      "stateKeys": "__N,as,idx,options,url"
+      "stateKeys": "__N,as,key,options,url"
     }
   ]
 }
