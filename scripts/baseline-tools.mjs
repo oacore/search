@@ -32,7 +32,9 @@
 //   manifest --link <id> [--kind golden] [--reference <text>] [--provisional <text>]
 //                                          test/baseline/manifest.json ({link, fixtures, baselines, corpus}
 //                                          SHA-256 sets) and test/baseline/SHA256SUMS (`sha256sum -c` from the
-//                                          repository root)
+//                                          repository root); --reference is the JSON text of the `reference`
+//                                          block ({G, tag, builds}); without it the manifest keeps its current
+//                                          block (with no manifest yet: the one golden.json gives)
 //   rss --run <id>                         RSS (KiB) of the app process of a running stack
 import fs from 'node:fs'
 import os from 'node:os'
@@ -774,9 +776,33 @@ const setOf = (files, root = REPO) => {
     entries: Object.fromEntries(entries),
   }
 }
+const goldenReference = () => {
+  const golden = readJson(path.join(ARTIFACT_DIR, 'golden.json'), {})
+  return {
+    G: golden.G || null,
+    tag: golden.tag || null,
+    builds: Object.fromEntries(
+      Object.entries(golden.builds || {}).map(([v, b]) => [
+        v,
+        b.missing ? null : b.key,
+      ])
+    ),
+  }
+}
+// the capture link's `reference` block: --reference, else the block the manifest already holds, so that a refresh
+// after a ledger or baseline change does not write another link's reference back
+function referenceBlock(manifestFile) {
+  const text = opt('--reference')
+  if (text === undefined)
+    return readJson(manifestFile, {}).reference || goldenReference()
+  const block = JSON.parse(text)
+  if (!block || !('G' in block) || !('tag' in block) || !block.builds)
+    throw new Error('--reference: expected the JSON text of {G, tag, builds}')
+  return block
+}
 function manifest() {
   const link = opt('--link', 'B0-local')
-  const golden = readJson(path.join(ARTIFACT_DIR, 'golden.json'), {})
+  const manifestFile = path.join(REPO, 'test', 'baseline', 'manifest.json')
   const fixtures = walk(
     path.join(REPO, 'test', 'fixtures'),
     path.join(REPO, 'test', 'fixtures'),
@@ -803,16 +829,7 @@ function manifest() {
       '--provisional',
       'host baseline, macOS arm64 (owner notes §1); provisional until the CI capture on ubuntu-24.04-arm and the owner-signed B0 PR (VF-10, I-06)'
     ),
-    reference: {
-      G: golden.G || null,
-      tag: golden.tag || null,
-      builds: Object.fromEntries(
-        Object.entries(golden.builds || {}).map(([v, b]) => [
-          v,
-          b.missing ? null : b.key,
-        ])
-      ),
-    },
+    reference: referenceBlock(manifestFile),
     fixtures: {
       files: fx.files,
       sha256: fx.sha256,
@@ -826,7 +843,7 @@ function manifest() {
     method:
       'sha256 over the "<sha256>  <path>" lines (sorted by path) of each set; per-file sums of the baselines are in test/baseline/SHA256SUMS',
   }
-  writeJsonPretty(path.join(REPO, 'test', 'baseline', 'manifest.json'), rec)
+  writeJsonPretty(manifestFile, rec)
   const sums = [...baselines, 'test/baseline/manifest.json'].map(
     (f) => `${sha256(fs.readFileSync(path.join(REPO, f)))}  ${f}`
   )
