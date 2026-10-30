@@ -4,13 +4,9 @@
   "kind": "product",
   "provisional": "host baseline, macOS arm64 (owner notes §1); product link B2-local (42 §9 product re-baseline, lean form): the recorded files of the rows applied apart in jump 2 batch round 1 (decision 6 (i)), re-captured on the jump-check build e9c353c5d1f87f02 (Next 12.3.7, Node 24.18.1), 3 captures byte-identical, each file differing from the committed one exactly by its declared rows; declared rows signed by the owner 2026-10-30, the link's SHA-256 sets confirmed by the owner 2026-10-30 (jump 2 batch round 2); provisional with B0-local until the CI capture on ubuntu-24.04-arm and the owner-signed B0 PR (VF-10, I-06)",
   "reference": {
-    "G": "689fec94a2a194dcf90b40d3a02dd81cac112e75",
-    "tag": "p2-local/golden",
-    "builds": {
-      "default": "1fb7e5b548c5ae8c",
-      "nodsn": "70a6d4f2d15ad282",
-      "harness": "227d0cdda34e61b6"
-    }
+    "G": "91012280681d8d6d11eb32b2ee690b0c1e4b11b1",
+    "tag": null,
+    "builds": { "default": "e9c353c5d1f87f02", "nodsn": null, "harness": null }
   },
   "fixtures": {
     "files": 239,
@@ -27,7 +23,7 @@
   },
   "baselines": {
     "files": 1305,
-    "sha256": "f528d1f09c56597aa30d6760ee25ffa96d0959798a0035b78ef2d8ecedcde247"
+    "sha256": "c2d741dae39a5434a6bc9b8c16ea5844d28efe4d9ca0806a522c2ef86c60337d"
   },
   "corpus": {
     "files": 105,
