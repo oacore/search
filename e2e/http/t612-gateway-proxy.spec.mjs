@@ -139,8 +139,8 @@ test.describe('T-612 @P0 gateway proxy', () => {
       '//works/1': 404,
       '/search/_next/data/b/works/1001.json?id=1001': 404,
       '/static/search/_next/image?url=%2Fx.png&w=64&q=75': 308,
-      [SVG_IMAGE]: 200,
-      [SLASH_308_BYTES]: 0,
+      [SVG_IMAGE]: 400, // AD-149
+      [SLASH_308_BYTES]: 12, // AD-150
     })
     await stubControl(p2Env, 'DELETE', `/rules?id=${rule.id}`)
     test
