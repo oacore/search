@@ -30,7 +30,7 @@
 
 ## 3. Matrix
 
-Last item of *Target → step* = final. Jump 1 (W0 to W5): old → new per row and the two owner holds (core-js, katex) in [records/jump-1.md](records/jump-1.md), its section 3.0 (§5 step 6).
+Last item of *Target → step* = final. Jump 1 (W0 to W5): old → new per row and the two owner holds (core-js, katex) in [records/jump-1.md](records/jump-1.md), its section 3.0 (§5 step 6). Jump 2 (W4a to W4e): old → new per row (next 12.3.7, react-ga4 3.0.1, `cssnano-simple` 2.0.0 as an M1 exception, jest-dom 7.0.1, the runtime Node 24.18.1 and `engines.node`, the removals of node-fetch use, `@zeit/next-source-maps` and the `overrides.next` key) and the packages inside Next in [records/jump-2.md](records/jump-2.md), its section 3.0.
 
 ### 3.1 Next.js and React
 
