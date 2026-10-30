@@ -649,7 +649,7 @@ export const mutationLogOf = (page) =>
 // The window of a wire capture closes only after the stub has had no request in flight for WIRE_QUIET_MS: the claim
 // card of a provider page fetches its accounts without waiting for the answer (issue J2-RC-2), so that request can
 // reach the stub just after the page has answered. Measured on build e9c353c5d1f87f02: at most 0 ms after the answer
-// in 225 page loads alone, at most 28 ms in 100 loads beside three parallel request loops.
+// in 205 page loads alone, at most 28 ms in 100 loads beside three parallel request loops.
 const WIRE_QUIET_MS = 250
 // The wait's upper bound: beside other workers (T-610 c4) the stub is rarely quiet, and the window then closes here.
 const WIRE_QUIET_MAX_MS = 2000
