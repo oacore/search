@@ -1470,3 +1470,80 @@
   step: jump 2 review fixes
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+- id: AD-144
+  kind: product
+  test: T-743
+  key: "t743-works-1001-to-provider-86.json"
+  from: "The Open University"
+  to: "CORE – Aggregating the world’s open access research papers"
+  reason: "T-743 c1 (OD-39), decision 1 (a) of the owner's jump 2 batch round 1: Next 12.3.7's route announcer (next/dist/client/route-announcer.js) announces document.title first and the first h1 only when there is no title; Next 10.2.3 announced the first h1 first. After the client navigation /works/1001/ -> /data-providers/86/ (router.push) the page is the same on both builds (h1 'The Open University', document.title the site's default title: the provider page sets no title of its own); only the announcement changes, from the provider's name to the site's default title, so screen-reader users hear the default title instead of the provider's name. No app-side change keeps it: the announcer is Next's own and not configurable in 12.3.7, and a provider title would change the tab title. Applied by the e2e baseline hook to the file of the key (1 replacement)."
+  ref: [OD-39, OD-31]
+  step: "jump 2 route announcer test step (decision 1 (a))"
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 2, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-145
+  kind: product
+  test: T-743
+  key: "t743-provider-8-pager-next.json"
+  from: "Birkbeck, University of London"
+  to: "CORE – Aggregating the world’s open access research papers"
+  reason: "T-743 c2 (OD-39), decision 1 (a) of the owner's jump 2 batch round 1: the announcer order of AD-144 within a provider page. The pager link Next of /data-providers/8/ (templates/data-provider/pagination.jsx, shallow) goes to /data-providers/8/?offset=10; the page is the same on both builds (h1 'Birkbeck, University of London', document.title the site's default title); Next 12.3.7 announces the default title where 10.2.3 announced the provider's name, on every shallow page change of a provider page. Applied by the e2e baseline hook to the file of the key (1 replacement)."
+  ref: [OD-39, OD-31]
+  step: "jump 2 route announcer test step (decision 1 (a))"
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 2, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-146
+  kind: product
+  test: T-743
+  key: "t743-works-1001-to-outputs-2001.json"
+  from: "Novel approach for deriving genome wide SNP analysis data from archived blood spots"
+  to: "Novel approach for deriving genome wide SNP analysis data from archived blood spots - CORE"
+  reason: "T-743 c3 (OD-39), decision 1 (a) of the owner's jump 2 batch round 1: the announcer order of AD-144 on an outputs page. After /works/1001/ -> /outputs/2001/ (router.push) the page is the same on both builds (h1 the output's title, document.title '<title> - CORE'); Next 12.3.7 announces the document title, so screen-reader users hear the title with ' - CORE' where 10.2.3 announced the h1. Applied by the e2e baseline hook to the file of the key (1 replacement; to holds from, which the hook replaces once)."
+  ref: [OD-39, OD-31]
+  step: "jump 2 route announcer test step (decision 1 (a))"
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 2, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-147
+  kind: product
+  test: T-743
+  key: "t743-outputs-2001-to-works-1001.json"
+  from: "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?"
+  to: "Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap? - CORE"
+  reason: "T-743 c4 (OD-39), decision 1 (a) of the owner's jump 2 batch round 1: the announcer order of AD-144 on a works page (works pages carry the same '<title> - CORE' title as outputs pages). After /outputs/2001/ -> /works/1001/ (router.push) the page is the same on both builds (h1 the work's title, document.title '<title> - CORE'); Next 12.3.7 announces the document title where 10.2.3 announced the h1. Applied by the e2e baseline hook to the file of the key (1 replacement; to holds from, which the hook replaces once)."
+  ref: [OD-39, OD-31]
+  step: "jump 2 route announcer test step (decision 1 (a))"
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 2, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-148
+  kind: product
+  test: T-606
+  key: "c1 app log lines outside LOG_ALLOW (e2e/http/t606-ssr-resilience.spec.mjs:291)"
+  from: "[]"
+  to: "[\"warn  - You have enabled experimental feature (largePageDataBytes) in next.config.js.\",\"warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.\"]"
+  reason: "T-606 c1 (R-055, R-062), CS-N12-14: next.config.js sets `experimental.largePageDataBytes: 0` (decision 2 (b) of the owner's jump 2 batch round 1), so the server log has no large-page-data warning of Next 12.2+, as on 10.2.3. Any experimental key that differs from Next's default makes `next start` print Next's experimental-feature notice once per process (next/dist/server/config.js `experimentalWarning`): the two `warn  - ` lines of `to` and an empty line, which the test drops. They come right after the ready line, before the first request is answered. The renders, their times, the soft answers, the process, the absence of server Sentry events and the other T-606 clauses are unchanged (T-606 c2, c3 and the c1 gateway-timeout test green in the same run). The 8 large-page-data lines of the unfiled AD-142 are gone. A constant: applied by changing the expected value at the site, with the AD id in a comment beside it."
+  ref: [CS-N12-14, R-055, R-062, OD-31]
+  step: "jump 2 CS-N12-14 fix step"
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 2, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-149
+  kind: product
+  test: T-612
+  key: "c2 app status of /static/search/_next/image/?url=%2Fstatic%2Fimages%2FerrorCard.svg&w=64&q=75"
+  from: "200"
+  to: "400"
+  reason: "T-612 (R-072), S-10, OD-41: Next 12.3.7's image optimizer rejects an SVG source unless `images.dangerouslyAllowSVG` is set (next/dist/server/image-optimizer.js:396-398, `if (upstreamType === SVG && !nextConfig.images.dangerouslyAllowSVG) { console.error(...); throw new ImageError(400, ...) }`); Next 10.2.3 served SVG sources unchanged (VECTOR_TYPES). So the gateway URL of a local SVG, /static/search/_next/image/?url=%2Fstatic%2Fimages%2FerrorCard.svg&w=64&q=75 (public/static/images/errorCard.svg), answers 400 with the 54-byte text body `\"url\" parameter is valid but image type is not allowed` where 10.2.3 answered 200 `image/svg+xml` with the file (121,865 B); the `url=%2Fimages%2FerrorCard.svg` form and the app-origin form /_next/image/?url=%2Fimages%2FerrorCard.svg&w=64&q=75 answer the same way. Each such request also writes one server log line: `The requested resource \"<url>\" has type \"image/svg+xml\" but dangerouslyAllowSVG is disabled` (0 such lines on 10.2.3). A status change that a Next bump alone causes; OD-41 records it by an owner-signed row and forbids restoring or blocking the endpoint by app code (so `dangerouslyAllowSVG: true` is not an option). The app does not use `next/image`, so no page shows the change; only direct callers of the endpoint see it. Remote URLs (400 'url parameter is not allowed') and widths outside the list (400) are unchanged, and the no-slash 308 keeps its status and Location (its body now carries the Location, J2-RV-2). Filed as `kind: product` with OD-31 (batch decision 3 (a); OD-41 speaks of a `delta` row, which needs a CI `repro:` that D20 rules out); `scripts/ad-ledger.mjs` also allows a `delta` status row only for this T-612 key family. A constant: applied at the new T-612 c2 entry for this URL, with the AD id in a comment beside it."
+  ref: [OD-41, S-10, OD-39, R-072, OD-31]
+  step: "jump 2 end-state review (runtime lens)"
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 2, approved in the work session)'
+  date: '2026-10-30'
+- id: AD-150
+  kind: product
+  test: T-612
+  key: "c2 body length in bytes of the trailing-slash 308 of /works/1001"
+  from: "0"
+  to: "12"
+  reason: "OD-39 (a framework delta of the response body), beside AD-103: Next 12.3.7 sends the Location text as the body of its own trailing-slash 308 redirects (next/dist/server/server-route-utils.js:111, createRedirectRoute of the internal trailing-slash redirect routes: `res.redirect(updatedDestination, (0, _redirectStatus).getRedirectStatus(redirectRoute)).body(updatedDestination).send()`); 10.2.3 ended them with an empty body (`res.end()`). No header changes: the 308 goes out chunked, without content-length, on both builds (T-603 c1 green on the jump-check build). Measured through the proxy: /works/1001 12 B `/works/1001/`, /data-providers/86 19 B, /search?q=climate 18 B, /static/search/_next/image?url=%2Fx.png&w=64&q=75 36 B; at the app origin /_next/image?url=... 53 B; no Content-Type on either build. Status, Location, Refresh and CSP are equal on both builds. A browser follows the redirect and never shows the body. One representative route is pinned (each body is its own Location, so one literal pair per route). A constant: applied at the new T-612 c2 entry, with the AD id in a comment beside it."
+  ref: [OD-39, OD-31, AD-103]
+  step: "jump 2 end-state review (runtime lens)"
+  signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 2, approved in the work session)'
+  date: '2026-10-30'
