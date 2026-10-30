@@ -288,7 +288,10 @@ test.describe('T-606 @P1 SSR resilience', () => {
       .readFileSync(sub.appLogOf(env), 'utf8')
       .split('\n')
       .filter((l) => l !== '')
-    expect(lines.filter((l) => !LOG_ALLOW.some((re) => re.test(l)))).toEqual([])
+    expect(lines.filter((l) => !LOG_ALLOW.some((re) => re.test(l)))).toEqual([
+      'warn  - You have enabled experimental feature (largePageDataBytes) in next.config.js.',
+      'warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.',
+    ]) // AD-148
     // no server Sentry event for an upstream failure (the soft pages are answers, not errors)
     const records = await stubControl(env, 'GET', '/records')
     expect(records.filter((x) => /(^|\.)sentry\.io$/.test(hostOf(x)))).toEqual(
