@@ -11,6 +11,11 @@ import {
   DEBUG_HEADER,
 } from '../proxy/generate.mjs'
 
+// a local SVG through the image endpoint, in its trailing-slash form
+const SVG_IMAGE =
+  '/static/search/_next/image/?url=%2Fstatic%2Fimages%2FerrorCard.svg&w=64&q=75'
+const SLASH_308_BYTES = 'body length in bytes of the 308 of /works/1001'
+
 test.describe('T-612 @P0 gateway proxy', () => {
   test('T-612 c1 @P0 generated from kube/{prod,stage}/httproute.yaml, which differ only in namespace and hostnames', async ({
     p2Env,
@@ -105,6 +110,15 @@ test.describe('T-612 @P0 gateway proxy', () => {
     }
     // the app's answers as today (S-10 for /static/search/_next/image: status as today, OD-41)
     const status = Object.fromEntries(seen)
+    const svgImage = await request.fetch(`${p2Env.baseURL}${SVG_IMAGE}`, {
+      method: 'GET',
+      maxRedirects: 0,
+    })
+    // the trailing-slash 308 itself: the redirect is not followed
+    const slash308 = await request.fetch(`${p2Env.baseURL}/works/1001`, {
+      method: 'GET',
+      maxRedirects: 0,
+    })
     expect({
       '/static/search': status['/static/search'],
       '/display': status['/display'],
@@ -115,6 +129,8 @@ test.describe('T-612 @P0 gateway proxy', () => {
         status['/search/_next/data/b/works/1001.json?id=1001'],
       '/static/search/_next/image?url=%2Fx.png&w=64&q=75':
         status['/static/search/_next/image?url=%2Fx.png&w=64&q=75'],
+      [SVG_IMAGE]: svgImage.status(),
+      [SLASH_308_BYTES]: (await slash308.body()).length,
     }).toEqual({
       '/static/search': 200,
       '/display': 308,
@@ -123,6 +139,8 @@ test.describe('T-612 @P0 gateway proxy', () => {
       '//works/1': 404,
       '/search/_next/data/b/works/1001.json?id=1001': 404,
       '/static/search/_next/image?url=%2Fx.png&w=64&q=75': 308,
+      [SVG_IMAGE]: 400, // AD-149
+      [SLASH_308_BYTES]: 12, // AD-150
     })
     await stubControl(p2Env, 'DELETE', `/rules?id=${rule.id}`)
     test
