@@ -2,7 +2,8 @@
 // next-diff.mjs - compares two Next.js build outputs (T-014, 42 §5 items 1-2): every file under .next/static and
 // .next/server, byte for byte after normalising the buildId (in file names and contents) and, for builds
 // made in different directories, the absolute build root (docker builds always use /app; host builds do not);
-// the file lists of the output traces (`*.nft.json`, Next 12) are compared sorted.
+// the file lists of the output traces (`*.nft.json`, Next 12) are compared sorted, and server/pages-manifest.json
+// as JSON with its keys sorted.
 //
 // Usage: node scripts/next-diff.mjs <nextDirA> <nextDirB> [--root-a <dir>] [--root-b <dir>] [--json] [--exclude <regex>]
 // Exit 0 when identical.
@@ -58,6 +59,21 @@ export function diffNext(
       'latin1'
     )
   }
+  // Next 12.3.7 writes the keys of server/pages-manifest.json in the order its
+  // page builds finish, which differs between two builds of one tree: that
+  // one file is compared as JSON with its keys sorted, entries and values
+  // unchanged (owner decision D8 (a) of jump 2 batch round 1, 2026-10-30; an
+  // acceptance change, 40 §8 rule 8)
+  const sortManifest = (rel, buf) => {
+    if (rel !== 'server/pages-manifest.json') return buf
+    const manifest = JSON.parse(buf.toString('latin1'))
+    const sorted = Object.fromEntries(
+      Object.keys(manifest)
+        .sort()
+        .map((k) => [k, manifest[k]])
+    )
+    return Buffer.from(JSON.stringify(sorted), 'latin1')
+  }
   const content = (dir, rel, id, root) => {
     let buf = fs.readFileSync(path.join(dir, rel))
     let s = buf.toString('latin1')
@@ -66,7 +82,7 @@ export function diffNext(
       if (root) s = s.split(root).join('<ROOT>')
       buf = Buffer.from(s, 'latin1')
     }
-    return sortTrace(rel, buf)
+    return sortManifest(rel, sortTrace(rel, buf))
   }
   for (const [k, relA] of la) {
     if (!lb.has(k) || (skip && skip.test(k))) continue
