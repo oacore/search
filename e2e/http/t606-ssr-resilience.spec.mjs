@@ -279,7 +279,7 @@ test.describe('T-606 @P1 SSR resilience', () => {
       )
     ).toEqual([])
 
-    // R-055: the process survived every failure; Next printed nothing beyond the allow-listed lines
+    // R-055: the process survived every failure; Next printed nothing beyond the allow-listed lines and the notice of AD-148
     const health = await get(env.allowURL, '/api/healthz/')
     expect([health.status, health.text]).toEqual([200, '{"status":"ok"}'])
     expect(() => process.kill(env.pids.app, 0)).not.toThrow()
