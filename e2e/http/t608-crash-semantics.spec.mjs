@@ -127,8 +127,13 @@ test.describe('T-608 @P0 crash semantics', () => {
       // node:domain's clear handler (domain is required by @sentry/node and put first), @sentry/node's
       // OnUncaughtException integration (an anonymous handler in Sentry 7, AD-014; bound in 5.30) and the
       // handler of pages/_app.jsx:25-27
-      expect(shot.listeners).toBe(3)
-      expect(shot.names).toEqual([DOMAIN_CLEAR, SENTRY_UNCAUGHT, APP_HANDLER])
+      expect(shot.listeners).toBe(4) // AD-128
+      expect(shot.names).toEqual([
+        DOMAIN_CLEAR,
+        'invokeErrorHandlers',
+        SENTRY_UNCAUGHT,
+        APP_HANDLER,
+      ]) // AD-128
       await expect.poll(() => appExit(env), { timeout: 15000 }).not.toBeNull()
       const exit = appExit(env)
       expect({ code: exit.code, signal: exit.signal }).toEqual({
@@ -201,8 +206,12 @@ test.describe('T-608 @P0 crash semantics', () => {
       )
       // @sentry/node's OnUnhandledRejection integration (sendUnhandledPromise in Sentry 7, AD-016) and the
       // handler of pages/_app.jsx:21-23
-      expect(shot.listeners).toBe(2)
-      expect(shot.names).toEqual([SENTRY_REJECTION, APP_HANDLER])
+      expect(shot.listeners).toBe(3) // AD-129
+      expect(shot.names).toEqual([
+        'invokeRejectionHandlers',
+        SENTRY_REJECTION,
+        APP_HANDLER,
+      ]) // AD-129
       await survives(env, shot.at)
       const events = await sentryEvents(env, mark.seq)
       expect(events.map((r) => r.url)).toEqual([ENVELOPE])

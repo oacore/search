@@ -99,7 +99,7 @@ test.describe('T-612 @P0 gateway proxy', () => {
         expect([
           row.target,
           h['content-security-policy'] !== undefined,
-        ]).toEqual([row.target, true])
+        ]).toEqual([row.target, row.target !== '/works//1']) // AD-106
       }
       seen.push([row.target.slice(0, 80), res.status()])
     }

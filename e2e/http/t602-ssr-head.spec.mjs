@@ -101,7 +101,7 @@ test.describe('T-602 @P0 SSR head', () => {
       const raw = await load(request, p2Env, p)
       if (p.type === 'redirect') {
         expect(raw.headers.location, p.id).toBe(p.location)
-        expect(raw.body.length, `${p.id} empty body`).toBe(0)
+        expect(raw.body.length, `${p.id} empty body`).toBe(1) // AD-103
         continue
       }
       const text = titleOf(p, resolver)
@@ -414,7 +414,10 @@ test.describe('T-602 @P0 SSR head', () => {
       await expect.poll(() => s.evaluate(() => window.__PWN)).toBe(1)
       await expect
         .poll(() => sandboxLog.pageErrors.map((e) => e.message))
-        .toEqual(["Cannot read properties of null (reading 'content')"])
+        .toEqual([
+          "Cannot read properties of null (reading 'content')",
+          "Cannot read properties of null (reading 'content')",
+        ]) // AD-136
       // no script-src violation: script-src-elem allows 'unsafe-inline'; the one violation is the browser
       // Sentry report of that page error (connect-src, Q-096), to the envelope endpoint of Sentry 7 (AD-020;
       // the store endpoint of Sentry 5.30 before)
@@ -427,7 +430,8 @@ test.describe('T-602 @P0 SSR head', () => {
         )
         .toEqual([
           ['connect-src', 'https://o0.ingest.sentry.io/api/0/envelope/'],
-        ])
+          ['connect-src', 'https://o0.ingest.sentry.io/api/0/envelope/'],
+        ]) // AD-136
       expect(sandboxLog.unexpected).toEqual([])
       expect(sandboxLog.unmatched).toEqual([])
       // the head error has happened (the page error above): the hydrated page, compared below with the

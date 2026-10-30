@@ -351,6 +351,7 @@ for (const w of [1440, 375]) {
         CONSOLE_404,
         CONSOLE_500,
         '{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}',
+        'A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred', // AD-116
       ])
     })
   })

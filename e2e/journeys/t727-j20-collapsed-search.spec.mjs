@@ -93,7 +93,7 @@ test.describe('T-727 @P1 J20 collapsed search with a&b c++', () => {
         {
           method: 'pushState',
           url: '/search/?q=a&b%20c++',
-          stateKeys: ['__N', 'as', 'idx', 'options', 'url'],
+          stateKeys: ['__N', 'as', 'key', 'options', 'url'], // AD-126
         },
       ])
       expect(

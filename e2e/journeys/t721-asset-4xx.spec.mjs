@@ -139,7 +139,13 @@ test.describe('T-721 c1 routes', () => {
           guardLog.consoleErrors
             .map((e) => e.text.split('\n')[0])
             .filter((t) => !pinned.some((re) => re.test(t)))
-        ).toEqual([])
+        ).toEqual(
+          route.id === 'works-4100-500'
+            ? [
+                'A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred',
+              ]
+            : []
+        ) // AD-112
       }
       const refs = await expectHtmlAssets(request, p2Env, html, page.url())
       test

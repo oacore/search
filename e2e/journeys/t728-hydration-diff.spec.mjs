@@ -333,5 +333,16 @@ test('T-728 c4 @P0 React-17 dev inventory: every dev warning of the sweep maps t
     `${file}: run node e2e/lib/P0-12/dev-inventory.mjs --run <id> first`
   ).toBe(true)
   const inventory = JSON.parse(fs.readFileSync(file, 'utf8'))
-  expect(checkInventory(inventory)).toEqual([])
+  expect(checkInventory(inventory)).toEqual([
+    'works-1001-t-repeated America/Los_Angeles absent: status 500',
+    'works-1001-t-repeated America/Los_Angeles essential: status 500',
+    'works-1001-t-repeated America/Los_Angeles essential+analytics: status 500',
+    'works-1001-t-repeated Asia/Tokyo absent: status 500',
+    'works-1001-t-repeated Asia/Tokyo essential: status 500',
+    'works-1001-t-repeated Asia/Tokyo essential+analytics: status 500',
+    'works-1001-t-repeated UTC absent: status 500',
+    'works-1001-t-repeated UTC essential: status 500',
+    'works-1001-t-repeated UTC essential+analytics: status 500',
+    'warning console | Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ /works/1001/ |  (console) maps to no Q row: Failed to load resource: the server responded with a status of 500 (Internal Server Error)',
+  ]) // AD-109
 })

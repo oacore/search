@@ -76,10 +76,11 @@ describe('T-008 @P0 install', () => {
     expect(dryRun.errors).toEqual([])
     expect(dryRun.status).toBe(0)
     // floors of a real tree, lowered from > 2000 and > 2300 by AD-003 and
-    // AD-004 (W0 removes 452 lock entries), then to > 1700 by AD-010 and
-    // AD-011 (W1 replaces the lint, format and hook tools)
-    expect(dryRun.added).toBeGreaterThan(1700)
-    expect(Object.keys(lock.packages).length).toBeGreaterThan(1700)
+    // AD-004 (W0 removes 452 lock entries), to > 1700 by AD-010 and AD-011
+    // (W1 replaces the lint, format and hook tools), then to > 1500 by
+    // AD-134 (npm 11 of Node 24) and to > 1600 by AD-058 (the Next 12 lock)
+    expect(dryRun.added).toBeGreaterThan(1500) // AD-134
+    expect(Object.keys(lock.packages).length).toBeGreaterThan(1600) // AD-058
 
     // the tree under APP_ROOT came from `npm ci` and the install did not
     // rewrite the lock

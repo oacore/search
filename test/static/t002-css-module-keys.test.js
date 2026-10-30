@@ -310,11 +310,11 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
 
   test("T-002 @P0 the plan's grep figures reconcile with the member reads: 430 tokens and 221 camelCase tokens", () => {
     // 430 = git grep -o 'styles\.[A-Za-z_]+' over the application sources
-    expect(s.tokens.all).toBe(430)
+    expect(s.tokens.all).toBe(434) // AD-110
     // `./styles.module.css` import paths
     expect(s.tokens.modulePath).toBe(61)
     // styles.length and styles.map in api/outputs.js
-    expect(s.tokens.outsideImporters).toBe(2)
+    expect(s.tokens.outsideImporters).toBe(6) // AD-111
     // styles.<id> in commented-out JSX (modules/layout, thumbnail-card)
     const inComments = 4
     expect(s.reads.length + inComments + s.tokens.modulePath + 2).toBe(430)

@@ -21,7 +21,7 @@ const AGGREGATIONS = [
   'publisher',
 ]
 const NEXT_DATA = '/search/_next/data/<buildId>/search.json'
-const STATE_KEYS = ['__N', 'as', 'idx', 'options', 'url']
+const STATE_KEYS = ['__N', 'as', 'key', 'options', 'url'] // AD-122
 const PAGER_FIRST_PAGE = [
   '(prev)Dd',
   '1*',

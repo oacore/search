@@ -110,7 +110,7 @@ test.describe('T-723 @P1 /display/:id/', () => {
       asPath: '/display/2001/',
       route: '/outputs/[id]',
       query: { id: '2001' },
-      state: { url: '/outputs/[id]?id=2001', as: '/display/2001/' },
+      state: { url: '/outputs/[id]/?id=2001', as: '/display/2001/' }, // AD-127
     })
     expect(await trailOf(page)).toEqual([outputsTrail(2001)[0]])
     await expect(page.getByText(TAIL, { exact: true })).toHaveCount(0)

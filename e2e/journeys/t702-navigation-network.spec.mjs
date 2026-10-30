@@ -236,7 +236,7 @@ test.describe('T-702 @P0 navigation network log', () => {
       ['replaceState', `<origin>${URLS.forward}`],
     ])
     for (const h of hist.filter((x) => x.method !== 'popstate'))
-      expect(h.stateKeys).toEqual(['__N', 'as', 'idx', 'options', 'url'])
+      expect(h.stateKeys).toEqual(['__N', 'as', 'key', 'options', 'url']) // AD-121
     const backForward = actions
       .filter((a) => a.name === 'back' || a.name === 'forward')
       .map((a) => ({

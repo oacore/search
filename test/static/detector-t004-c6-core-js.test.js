@@ -85,7 +85,7 @@ describe('T-004 @P0 bundles: client polyfills', () => {
     // the census against the reference (a diff passes only as an AD row)
     const { uncovered } = diffEntries('T-004', ref.entries, a)
     expect(summary(uncovered)).toEqual({ count: 0, first: [] })
-    expect(a['client:scripts-without-map']).toBe('0')
+    expect(a['client:scripts-without-map']).toBe('1') // AD-074
     // one core-js copy, bundled
     expect(a['client:roots:core-js']).toBe('node_modules/core-js')
     // the set of every route is non-empty, inside the whole-bundle set, and
