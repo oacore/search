@@ -646,6 +646,29 @@ export const dataLayerLog = (page) =>
 export const mutationLogOf = (page) =>
   page.evaluate(() => (window.__p2 || {}).mutations || [])
 
+// The window of a wire capture closes only after the stub has had no request in flight for WIRE_QUIET_MS: the claim
+// card of a provider page fetches its accounts without waiting for the answer (issue J2-RC-2), so that request can
+// reach the stub just after the page has answered. Measured on build e9c353c5d1f87f02: at most 0 ms after the answer
+// in 225 page loads alone, at most 28 ms in 100 loads beside three parallel request loops.
+const WIRE_QUIET_MS = 250
+// The wait's upper bound: beside other workers (T-610 c4) the stub is rarely quiet, and the window then closes here.
+const WIRE_QUIET_MAX_MS = 2000
+const WIRE_QUIET_POLL_MS = 25
+
+async function stubQuiet(env) {
+  const deadline = Date.now() + WIRE_QUIET_MAX_MS
+  let seen = null
+  let quietSince = Date.now()
+  while (Date.now() < deadline) {
+    const { seq, inFlight } = await control(env, 'GET', '/health')
+    if (inFlight > 0 || seq !== seen) {
+      seen = seq
+      quietSince = Date.now()
+    } else if (Date.now() - quietSince >= WIRE_QUIET_MS) return
+    await new Promise((r) => setTimeout(r, WIRE_QUIET_POLL_MS))
+  }
+}
+
 // serialised read of the SSR stub's wire records made while fn runs (the wire project runs with 1 worker;
 // the lock also serialises wire captures across runs that share a stack)
 export async function withWireCapture(env, fn) {
@@ -664,6 +687,7 @@ export async function withWireCapture(env, fn) {
       name: `wire-${Date.now()}`,
     })
     const result = await fn()
+    await stubQuiet(env)
     const win = await control(env, 'GET', `/collect?since=${mark.seq}`)
     return { result, records: win.records, problems: win.problems }
   } finally {
