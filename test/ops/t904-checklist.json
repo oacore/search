@@ -169,13 +169,15 @@
         "For each response note cache-control, cf-cache-status, age, etag, content-encoding, vary, server and any header the origin does not send (e.g. headers named cf-*).",
         "Request each URL twice, a minute apart, and note whether cf-cache-status changes (MISS then HIT) for the cacheable classes.",
         "Compare class by class with the pre-merge record and with e2e/http/contract.baseline.json (the origin's side, T-603).",
-        "Request a works path with a repeated slash (/works//1) once and note its status, location and content-security-policy."
+        "Request a works path with a repeated slash (/works//1) once and note its status, location and content-security-policy.",
+        "With the VF-01 part 2 probe, make a client navigation in a real browser with DevTools open and note the request headers of its _next/data fetch (x-nextjs-data among them) and the answer."
       ],
       "expect": [
         "Per class the header set and values equal the pre-merge record, apart from date, age and the ray id",
         "cf-cache-status is not HIT for a page the origin sends with cache-control no-store",
         "No cache-control added or removed on a 404, 500 or 308 (R-083)",
-        "/works//1 answers 308 to /works/1 without content-security-policy from Next 12 on, where Next 10.2.3 answered the app's 404 page (status 404, with the CSP): an accepted difference (AD-106, owner decision D14 of jump 2 batch round 1, 2026-10-30); note what the edge does with that answer"
+        "/works//1 answers 308 to /works/1 without content-security-policy from Next 12 on, where Next 10.2.3 answered the app's 404 page (status 404, with the CSP): an accepted difference (AD-106, owner decision D14 of jump 2 batch round 1, 2026-10-30); note what the edge does with that answer",
+        "Every client _next/data fetch carries the request header x-nextjs-data: 1 from Next 12.2 on, where Next 10.2.3 sent none (owner decision D13 (i) of jump 2 batch round 1, 2026-10-30): no WAF or CDN rule blocks, challenges or changes the request because of it, and the answer is JSON as VF-01 part 2 expects"
       ],
       "evidence": {
         "kind": "text",
