@@ -683,7 +683,7 @@ a57926a795257cfe102fe84717ae66ff0a21400527adab47d7fb6ac0557feaaa  e2e/journeys/t
 08c4cba85dc2c49688bb1e918fdd93666afd52403dd9cfefc1417a9b62acf421  e2e/journeys/t804-keyboard-smoke.spec.mjs-snapshots/t804-c1-tab-uh-oh-chromium-darwin.json
 b123ba56c6e588accb05f29053b0276f49eaab576de787d1447426bf90426d36  e2e/journeys/t804-keyboard-smoke.spec.mjs-snapshots/t804-c1-tab-update-chromium-darwin.json
 ec8caf429d644aa1705b21bf159529fdb91bf4ce751f30947d90667efe4c72f2  e2e/journeys/t804-keyboard-smoke.spec.mjs-snapshots/t804-c1-tab-works-chromium-darwin.json
-f668216d0d915aec3f3fc17346d7f3cc9af53148e24313231c8090bfa9473a54  e2e/lib/P0-11/t607-wire.baseline.json
+b252f947a972ebcf2bf7f431a4e0f1256689aeee7d310280ded33dae5a1c3fed  e2e/lib/P0-11/t607-wire.baseline.json
 2cdb78d15e33c4abb9224a04110abb59239fd69aa05d5a24b4b052377ecb6930  e2e/lib/P0-12/t741-console-pins.json
 31d2450422e1d1443cfab679ac0f8206be323f75e23226a71c633aeaac76dd3f  e2e/visual/t738-sticky-layers.spec.mjs-snapshots/t738-V26-search-1440-visual-darwin.json
 af9da60bb99812dda6935c23903d917c0998f8a5f5ff9a0f6fd55e7e7d219696  e2e/visual/t738-sticky-layers.spec.mjs-snapshots/t738-V26-search-375-visual-darwin.json
@@ -1303,4 +1303,4 @@ f49805416a51593f1f91ecb4599b845139993fa67fa971d508956c4cbf01dd6a  test/unit/desi
 f3385ac93f9fd2661ad88ec03fe8fbdc96c389de63bb381a8f3aacce28dd2d40  test/unit/design/lib/P0-07/reference/Select.json
 26c25f6dd7ca4b04c0ad0e8577f2218291559aa1e7a8faac22c302e095a4b4e8  test/unit/design/lib/P0-07/reference/TextField.json
 6d45b05fcc95f0d289de9bab323760226304237317e5048535575edd8a3195dd  test/unit/store/__baseline__/t203-reactivity.json
-4f3ce97231dc10ab2a71e72be63f3c304e2c5d8813af36fda1e72ed3ebb9095c  test/baseline/manifest.json
+445c7ae17db8b69a89e9516db23df386da6a39c9b1cfbc10708befbe16656f4c  test/baseline/manifest.json
