@@ -1561,3 +1561,14 @@
   step: "jump 2 close run, step 7"
   signedOffBy: 'SIGNED: owner, 2026-10-31 (jump 2 batch round 3, approved in the work session)'
   date: '2026-10-31'
+- id: AD-152
+  kind: product
+  test: T-611
+  key: "c2 MEMORY_B0.heapTotalMiB of e2e/http/t611-size-budgets.spec.mjs"
+  from: "180"
+  to: "199"
+  reason: "T-611 c2 (R-048), OD-49 with rule 6 of 90-open-decisions.md: a numeric resource budget (the committed heap, a part of the RSS) loosened because a version bump causes the excess. The runtime bump to Node 24.18.1 (CS-N12-6, W4e) raises the committed heap (heapTotal, read after the sweep and two forced collections), and the same build shows it: e9c353c5d1f87f02 in 16 interleaved sweeps per setup reads 99.95..100.95 MiB (median 100.2) on Node 18.20.8 and 195.56..197.31 MiB (median 196.81) on Node 24.18.1; the jump-1 tip e343464ce23af57f (Next 10.2.3, Node 18.20.8) in the same runs reads 172..173.75 MiB (median 172.5). The 81 plain sweeps of T-611 c2 kept under artifacts/runs on Next 12.3.7 and Node 24.18.1 (76 of e9c353c5d1f87f02, 5 of three earlier builds between W4e and the jump check: 768476ca288cde28, 0c684d426be701d7, 702da38d9a6e7005; the 76 alone give the same range and median) read 195.56..198.06 MiB (median 196.56) in steps of 0.25 MiB; 3 of them, all in the 35 sweeps of the close run's end-state reviews, read 198.06, above the old limit of 198 MiB. The old B0 180 was the upper envelope of 15 sweeps of the golden build on Node 18 (179.3, rounded up); the new B0 is the upper envelope of these 81 sweeps by the same formula, on other builds and other machine loads (198.06, rounded up), so the limit B0 + 10 % moves from 198 to 218.9 MiB. The measurement method is unchanged: rule 6 forbids changing it after a failed measurement. The re-measurement of rule 6 is in lean form, as for AD-151 in batch round 3, accepted for this row with this signature: no sweep was run for this row; the jump-1 tip and this build on both runtimes are the round 3 probe's, read from its kept logs; the steps between keep the runs of their own step (171.05..177.75 MiB for W0b..W5 on Next 10.2.3, 96.36..104.66 MiB for W4b..W4e on Node 18.20.8, none above 198 before Node 24). The heap retained after collection is stable (61.2..61.3 MiB against its limit of 146.19) and its budget is unchanged. A constant: applied by changing the value at the site, with the AD id in a comment beside it."
+  ref: [OD-49, R-048, CS-N12-6, OD-31]
+  step: "jump 2 close run, after its end-state reviews"
+  signedOffBy: 'SIGNED: owner, 2026-10-31 (jump 2 batch round 4, approved in the work session)'
+  date: '2026-10-31'
