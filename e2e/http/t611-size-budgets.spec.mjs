@@ -1,8 +1,9 @@
 // T-611 (41 G; R-048): size budgets, through the gateway-faithful proxy (the allow-all listener for the two
 // local-only pages). c1 raw and gzip body bytes of every route of the table below, each within +-5 % of its
-// B0 value (the table is the record of the golden build, B0-local, 2026-10-21; the plan's reference pair for
-// `/data-providers/` is 7,104,305 B raw and 1,003,968 B gzip, 41 T-611), identity and gzip requests made with
-// exactly that `Accept-Encoding` on a socket of their own. c2 memory after the sweep (R-048: `/data-providers/`
+// B0 value (the table is the record of the golden build, B0-local, 2026-10-21, except works-4040 and outputs-2002,
+// the jump-check build's since B2-local; the plan's reference pair for `/data-providers/` is 7,104,305 B raw and
+// 1,003,968 B gzip, 41 T-611), identity and gzip requests made with exactly that `Accept-Encoding` on a socket of
+// their own. c2 memory after the sweep (R-048: `/data-providers/`
 // is 7.1 MB raw, RSS ~530 MB after it): the app of a sub-stack of its own serves the sweep (every route of the
 // table, three rounds, one request at a time) and the test reads (a) the peak RSS of the `next start` process
 // sampled with `ps` during and after the sweep and (b) the heap the process retains after two forced
@@ -13,7 +14,8 @@
 // macOS is not a stable figure (the memory compressor moves resident pages out: five identical sweeps gave a
 // peak between 319 and 555 MiB), so B0 for (a) is the upper envelope of N identical sweeps: 650 of the golden
 // build on Node 18, 785 of the jump-check build on Node 24.18.1 since AD-151 (see MEMORY_B0), while (b) is stable
-// to 0.1 % and is the tight +10 % check.
+// to 0.1 %. (b) was the tight +10 % check until Next 12: its B0 stays the golden build's 132.9, and it now reads
+// 61.3 against a limit of 146.19.
 import fs from 'node:fs'
 import http from 'node:http'
 import path from 'node:path'
@@ -30,7 +32,8 @@ const PLAN = { path: '/data-providers/', raw: 7104305, gzip: 1003968 }
 const TOLERANCE = 0.05
 const MEMORY_TOLERANCE = 0.1
 
-// B0-local record of the golden build (G 689fec9, build 1fb7e5b548c5ae8c). via: gateway (baseURL) or allow (the
+// B0-local record of the golden build (G 689fec9, build 1fb7e5b548c5ae8c), except works-4040 and outputs-2002:
+// B2-local, the jump-check build e9c353c5d1f87f02 (Next 12.3.7, Node 24.18.1). via: gateway (baseURL) or allow (the
 // allow-all listener: `/` and `/error-card/` are not routed by the gateway, Q-005). Every answer is 200.
 const BUDGET = [
   ['search-climate', '/search/?q=climate', 'gateway', 241514, 55570],
@@ -67,14 +70,19 @@ const BUDGET = [
 // B0 of the memory figures (MiB), recorded 2026-10-21 from 15 identical sweeps of the golden build on a loaded
 // host (load average 40-90): the peak RSS was 650 on Node 18, the upper envelope (320-647, median 500: the memory
 // compressor and the garbage collector's timing spread single sweeps over +-25 %); the heap retained after the
-// collections is stable (132.2-132.9) and the committed heap varies less (169.5-179.3, so its B0 is the envelope).
+// collections is stable (132.2-132.9) and the committed heap, which varies less, was 180 on Node 18, the upper
+// envelope (169.5-179.3, 179.3 rounded up).
 // The peak RSS is 785 since AD-151: the same formula, on another build and a quieter machine, the upper envelope
 // of 32 sweeps (T-611 c2 alone, a fresh stack each) of the jump-check build e9c353c5d1f87f02 on Node 24.18.1,
-// 2026-10-30: 604.1-784.2, median 641.3, 1-minute load 3-7, 784.2 rounded up; the limit moves from 715 to 863.5
+// 2026-10-30: 604.1-784.2, median 641.3, 1-minute load 3-7, 784.2 rounded up; the limit moves from 715 to 863.5.
+// The committed heap is 199 since AD-152: the same formula, on other builds and other machine loads, the upper
+// envelope of the 81 plain sweeps of T-611 c2 kept on Next 12.3.7 and Node 24.18.1 (76 of the jump-check build,
+// 5 of three earlier builds), read from their app logs, 2026-10-29 to 2026-10-31: 195.56-198.06, median 196.56,
+// 198.06 rounded up; the limit moves from 198 to 218.9
 const MEMORY_B0 = {
   peakRssMiB: 785, // AD-151
   heapUsedAfterGcMiB: 132.9,
-  heapTotalMiB: 180,
+  heapTotalMiB: 199, // AD-152
 }
 const SWEEP_ROUNDS = 3
 
