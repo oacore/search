@@ -33,15 +33,8 @@ const PLAIN = {
 // classes. The card is no longer an anchor, so these are now set after mount,
 // on a page load of a card that used to be one. The report card leaves them
 // at its first update.
-const repairedLook = ({ id, hasReader, hasVersions, useOtherVersions }) => {
+const repairedLook = ({ id, hasReader }) => {
   const bodyId = `full-text-thumbnail-${id}-body`
-  if (useOtherVersions) {
-    if (!hasReader) return PLAIN
-    return {
-      ...PLAIN,
-      license: hasVersions ? { className: styles.boxes } : { keptClass: '' },
-    }
-  }
   if (hasReader) {
     return {
       license: { className: styles.card },
@@ -67,18 +60,12 @@ export const useRepairedSidebar = ({
   id,
   fulltextStatus,
   readerUrl,
-  outputs,
   useOtherVersions,
 }) => {
   const hydrated = useHydrated()
   const [look] = useState(() =>
-    !hydrated && fulltextStatus !== 'disabled'
-      ? repairedLook({
-          id,
-          hasReader: Boolean(readerUrl),
-          hasVersions: outputs?.length > 0,
-          useOtherVersions,
-        })
+    !hydrated && !useOtherVersions && fulltextStatus !== 'disabled'
+      ? repairedLook({ id, hasReader: Boolean(readerUrl) })
       : PLAIN
   )
   return useMemo(() => (hydrated ? look : PLAIN), [hydrated, look])

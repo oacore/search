@@ -57,7 +57,6 @@ const ScientificOutputTemplate = ({
     id,
     fulltextStatus,
     readerUrl,
-    outputs,
     useOtherVersions,
   })
 
