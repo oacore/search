@@ -14,8 +14,8 @@
 // macOS is not a stable figure (the memory compressor moves resident pages out: five identical sweeps gave a
 // peak between 319 and 555 MiB), so B0 for (a) is the upper envelope of N identical sweeps: 650 of the golden
 // build on Node 18, 785 of the jump-check build on Node 24.18.1 since AD-151 (see MEMORY_B0), while (b) is stable
-// to 0.1 %. (b) was the tight +10 % check until Next 12: its B0 stays the golden build's 132.9, and it now reads
-// 61.3 against a limit of 146.19.
+// to 0.1 %. (b) was the tight +10 % check until webpack 5 (W4b): its B0 stays the golden build's 132.9, and it now
+// reads 61.3 against a limit of 146.19.
 import fs from 'node:fs'
 import http from 'node:http'
 import path from 'node:path'
