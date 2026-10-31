@@ -82,7 +82,7 @@ const ScientificOutputTemplate = ({
   // The gateway rewrites /display/ to /outputs/, so the server rendered this
   // trail for /outputs/ and the browser's asPath stays /display/ (Q-075). The
   // render that hydrates it uses the server's path. After mount the tail follows
-  // the browser's path, and the link keeps the server's until the path changes.
+  // the browser's path; the link keeps the server's until the path changes.
   const hydrated = useHydrated()
   const hydratedPath = useRef(hydrated ? null : router.asPath)
   if (router.asPath !== hydratedPath.current) hydratedPath.current = null
