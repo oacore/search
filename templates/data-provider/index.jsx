@@ -203,8 +203,7 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
           {data.name}
           {data.location?.countryCode?.trim() ? (
             <>
-              {' '}
-              is based in{' '}
+              {' is based in '}
               <RegionName
                 provider={data.name}
                 code={data.location.countryCode}
