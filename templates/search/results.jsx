@@ -125,4 +125,6 @@ const Results = ({ works, searchId }) => {
       )
     }
   )
+}
+
 export default Results

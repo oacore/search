@@ -43,7 +43,10 @@ const Metadata = ({
           ))}
         </ExpandableList>
       </MetadataList.Item>
-      <MetadataList.Item id="metadata-publication-date" label="Publication date">
+      <MetadataList.Item
+        id="metadata-publication-date"
+        label="Publication date"
+      >
         {formatDate(publishedDate, { ...PUBLICATION_DATE, timeZone })}
       </MetadataList.Item>
 
