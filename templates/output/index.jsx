@@ -16,6 +16,7 @@ import OtherVersions from './other-versions'
 
 import { getAssetsPath } from 'utils/helpers'
 import Search from 'modules/search-layout'
+import useHydrated from 'hooks/use-hydrated'
 
 const ScientificOutputTemplate = ({
   data: {
@@ -78,12 +79,21 @@ const ScientificOutputTemplate = ({
     }
   }, [])
 
-  const isTypeWorks = router.asPath.includes('/works/')
-  const isTypeOutputs = router.asPath.includes('/outputs/')
-  const pos = router.asPath.indexOf('search=')
-  const resultSearch = `https://core.ac.uk/search/?${router.asPath.slice(
-    pos + 7
-  )}`
+  // The gateway rewrites /display/ to /outputs/, so the server rendered this
+  // trail for /outputs/ and the browser's asPath stays /display/ (Q-075). The
+  // render that hydrates it uses the server's path. After mount the tail follows
+  // the browser's path, and the link keeps the server's until the path changes.
+  const hydrated = useHydrated()
+  const hydratedPath = useRef(hydrated ? null : router.asPath)
+  if (router.asPath !== hydratedPath.current) hydratedPath.current = null
+  const serverPath = router.asPath.replace(/^\/display\//, '/outputs/')
+  const trailPath = hydrated ? router.asPath : serverPath
+  const linkPath = hydratedPath.current ? serverPath : router.asPath
+
+  const isTypeWorks = trailPath.includes('/works/')
+  const isTypeOutputs = trailPath.includes('/outputs/')
+  const pos = linkPath.indexOf('search=')
+  const resultSearch = `https://core.ac.uk/search/?${linkPath.slice(pos + 7)}`
 
   return (
     <Search {...passProps} className={styles.outputContainer}>
