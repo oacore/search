@@ -51,9 +51,7 @@ const RegionName = ({ provider, code }) => {
     return caption?.startsWith(prefix) ? caption.slice(prefix.length) : null
   })
 
-  return !hydrated && serverName !== null
-    ? serverName
-    : regionDisplayName(code)
+  return !hydrated && serverName !== null ? serverName : regionDisplayName(code)
 }
 
 const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
