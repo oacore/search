@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Card, Button } from '@oacore/design'
 
 import ReportTypeModal from './report-type-modal'
@@ -6,10 +6,11 @@ import ReportFormModal from './report-form-modal'
 import ReportSuccessModal from './report-success-modal'
 import styles from './styles.module.css'
 import { useReportController } from '../hooks'
+import { KeptDiv, KeptP } from '../repaired-sidebar'
 
 import { observe } from 'store'
 
-const ReportCard = observe(({ id, dataProvider }) => {
+const ReportCard = observe(({ id, dataProvider, repaired }) => {
   const {
     report: {
       isModalReportTypeActive,
@@ -19,17 +20,43 @@ const ReportCard = observe(({ id, dataProvider }) => {
     setIsModalReportTypeActive,
   } = useReportController()
 
+  // the classes of a page load last until the card's first update (Q-072)
+  const firstId = useRef(id)
+  const updated = useRef(false)
+  if (
+    id !== firstId.current ||
+    isModalReportTypeActive ||
+    isModalReportFormActive ||
+    isModalReportSuccessActive
+  )
+    updated.current = true
+  const look = updated.current ? {} : repaired
+
   return (
-    <Card variant="outlined" className={styles.reportCard}>
+    <Card
+      id={repaired?.id}
+      tag={KeptDiv}
+      variant="outlined"
+      className={styles.reportCard}
+      {...look?.card}
+    >
       <Card.Title className={styles.reportCardText}>
         Having an issue?
       </Card.Title>
-      <Card.Description className={styles.reportCardText}>
+      <Card.Description
+        tag={KeptP}
+        className={styles.reportCardText}
+        {...look?.description}
+      >
         Is data on this page outdated, violates copyrights or anything else?
         Report the problem now and we will take corresponding actions after
         reviewing your request.
       </Card.Description>
-      <Card.Footer className={styles.reportCardFooter}>
+      <Card.Footer
+        tag={KeptDiv}
+        className={styles.reportCardFooter}
+        {...look?.footer}
+      >
         <Button onClick={() => setIsModalReportTypeActive(true)}>Report</Button>
       </Card.Footer>
       {isModalReportTypeActive && <ReportTypeModal />}

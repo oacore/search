@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useRef, useState } from 'react'
-import { Button, Icon, MathMarkdown } from '@oacore/design/lib/elements'
+import { Button, Card, Icon, MathMarkdown } from '@oacore/design/lib/elements'
 import { useRouter } from 'next/router'
 
 import SimilarWorks from './similar-works'
@@ -13,6 +13,7 @@ import ReportCard from './report'
 import CitationManager from './citation'
 import styles from './styles.module.css'
 import OtherVersions from './other-versions'
+import { KeptDiv, useRepairedSidebar } from './repaired-sidebar'
 
 import { getAssetsPath } from 'utils/helpers'
 import Search from 'modules/search-layout'
@@ -52,6 +53,13 @@ const ScientificOutputTemplate = ({
   const [oaiModal, setOaiModal] = useState(includeOai)
 
   const modalRef = useRef(null)
+  const repaired = useRepairedSidebar({
+    id,
+    fulltextStatus,
+    readerUrl,
+    outputs,
+    useOtherVersions,
+  })
 
   const closeModal = () => {
     setOaiModal(false)
@@ -222,7 +230,7 @@ const ScientificOutputTemplate = ({
             hrefDataProvider: `//core.ac.uk/data-providers/${dataProvider.id}`,
           }}
           providerId={dataProvider.id}
-          tag={fulltextStatus === 'disabled' ? 'div' : 'a'}
+          tag={fulltextStatus === 'disabled' ? 'div' : 'span'}
           useOtherVersions={useOtherVersions}
           memberType={memberType}
         />
@@ -237,6 +245,7 @@ const ScientificOutputTemplate = ({
         )}
         {!useOtherVersions && (
           <MapCard
+            id={repaired.map.id}
             metadata={{
               name: dataProvider.name,
               location: dataProvider.location,
@@ -250,12 +259,13 @@ const ScientificOutputTemplate = ({
             id={id}
             sourceFulltextUrls={sourceFulltextUrls}
             dataProvider={dataProvider.name}
+            repaired={repaired.report}
           />
         )}
         {license && (
-          <div className={styles.licenseWrapper}>
+          <Card tag={KeptDiv} variant="outlined" {...repaired.license}>
             Licence: <span className={styles.licenseType}>{license}</span>
-          </div>
+          </Card>
         )}
       </Search.Sidebar>
     </Search>
