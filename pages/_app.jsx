@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useState,
 } from 'react'
+import { flushSync } from 'react-dom'
 import { useRouter } from 'next/router'
 import { HeadManagerContext } from 'next/dist/shared/lib/head-manager-context'
 import { CookiesProvider } from '@oacore/design'
@@ -29,7 +30,15 @@ process.on('uncaughtException', (err) => {
 })
 
 class ErrorBoundary extends ReactComponent {
-  // eslint-disable-next-line class-methods-use-this
+  componentDidUpdate(prevProps) {
+    const { loading } = this.props
+    // componentDidCatch of the same commit reads it
+    this.loadingEnded = prevProps.loading && !loading
+    Promise.resolve().then(() => {
+      this.loadingEnded = false
+    })
+  }
+
   componentDidCatch(error, errorInfo) {
     Sentry.withScope((scope) => {
       Object.keys(errorInfo).forEach((key) => {
@@ -38,6 +47,13 @@ class ErrorBoundary extends ReactComponent {
       })
       Sentry.captureException(error)
     })
+
+    // A client navigation that crashes (Q-047, Q-100) comes back with the next
+    // render of App, the end of its loading state, which mounts the page anew.
+    // React 18 batches that update into the render that crashes, so nothing
+    // renders after it: do it here, once the emptied tree is committed.
+    if (this.loadingEnded)
+      Promise.resolve().then(() => flushSync(() => this.forceUpdate()))
   }
 
   render() {
@@ -131,7 +147,7 @@ const App = ({
 
   return (
     <CookiesProvider>
-      <ErrorBoundary>
+      <ErrorBoundary loading={loading}>
         <Main
           isSearchPage={isSearchPage}
           initialState={{ statistics }}
