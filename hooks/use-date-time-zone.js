@@ -18,8 +18,9 @@ const useDateTimeZone = (dates, options) => {
     if (
       dates.some(
         (date) =>
+          date &&
           formatDate(date, { ...options, timeZone: 'UTC' }) !==
-          formatDate(date, options)
+            formatDate(date, options)
       )
     )
       setChanged(true)
