@@ -7,11 +7,14 @@ import thumbnailStyles from './thumbnail-card.module.css'
 import useHydrated from 'hooks/use-hydrated'
 
 // An element of a design card that shows `keptClass` instead of the card's own
-// classes while it is set, without leaving the DOM.
+// classes while it is set (null: no class attribute), staying in the DOM.
 const kept =
   (Tag) =>
   ({ keptClass, className, ...passProps }) => (
-    <Tag className={keptClass ?? className} {...passProps} />
+    <Tag
+      className={keptClass === undefined ? className : keptClass}
+      {...passProps}
+    />
   )
 
 export const KeptDiv = kept('div')
@@ -55,7 +58,7 @@ const repairedLook = ({ id, hasReader, hasVersions, useOtherVersions }) => {
     map: { id: bodyId },
     report: {
       card: { className: styles.card },
-      description: { keptClass: '' },
+      description: { keptClass: null },
     },
   }
 }
