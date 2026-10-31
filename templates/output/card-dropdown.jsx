@@ -8,6 +8,7 @@ import { capitalizeFirstLetter } from '../../utils/titleCase'
 
 import { formatDate, getAssetsPath } from 'utils/helpers'
 import useCopyToClipboard from 'hooks/use-copy-to-clipboard'
+import useDateTimeZone from 'hooks/use-date-time-zone'
 import Notification from 'modules/notification'
 import DropDown from 'modules/dropdown'
 
@@ -73,8 +74,9 @@ const CardDropdown = ({
   )
 
   const dateValue = updatedDate ?? createdDate
+  const timeZone = useDateTimeZone([dateValue != null && new Date(dateValue)])
   const lastUpdatedDate =
-    dateValue != null ? formatDate(new Date(dateValue)) : null
+    dateValue != null ? formatDate(new Date(dateValue), { timeZone }) : null
 
   const subtitleText =
     coreDownloadUrl?.length > 0 || sourceFulltextUrls.length > 0 ? (

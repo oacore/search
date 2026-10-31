@@ -6,9 +6,14 @@ import styles from './styles.module.css'
 import { checkType } from '../../utils/data-providers-transform'
 
 import { formatDate } from 'utils/helpers'
+import useDateTimeZone from 'hooks/use-date-time-zone'
 
-const Results = ({ works, searchId }) =>
-  works.map(
+const Results = ({ works, searchId }) => {
+  const timeZone = useDateTimeZone(
+    works.map(({ publishedDate }) => publishedDate && new Date(publishedDate))
+  )
+
+  return works.map(
     ({
       id,
       title,
@@ -31,7 +36,7 @@ const Results = ({ works, searchId }) =>
 
       // eslint-disable-next-line no-nested-ternary
       const publicationDate = publishedDate
-        ? formatDate(new Date(publishedDate))
+        ? formatDate(new Date(publishedDate), { timeZone })
         : yearPublished != null
           ? String(yearPublished)
           : null
