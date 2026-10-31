@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {
-  Button,
-  Card,
-  DataProviderLogo,
-  Link,
-} from '@oacore/design/lib/elements'
+import { Button, Card, DataProviderLogo } from '@oacore/design/lib/elements'
 import classNames from '@oacore/design/lib/utils/class-names'
 import { Popover } from '@oacore/design/lib/modules'
 import LogRocket from 'logrocket'
@@ -37,8 +32,6 @@ const DropDown = ({
   useOtherVersions,
 }) => {
   const [logoFetched, setLogoFetched] = useState('')
-
-  const Tag = href ? Link : 'div'
 
   // eslint-disable-next-line consistent-return
   const redirectOnClick = () => {
@@ -98,7 +91,7 @@ const DropDown = ({
           <></>
         )}
         <div className={styles.header}>
-          <Tag className={styles.content}>
+          <div className={styles.content}>
             <div
               className={classNames.use(styles.headerWrapper, {
                 [styles.headerWrapperClickable]: useExpandButton,
@@ -188,7 +181,7 @@ const DropDown = ({
               )}
               {renderOAI}
             </Card.Description>
-          </Tag>
+          </div>
         </div>
         {children}
       </div>
