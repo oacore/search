@@ -108,7 +108,8 @@ test.describe('T-612 @P0 gateway proxy', () => {
       }
       seen.push([row.target.slice(0, 80), res.status()])
     }
-    // the app's answers as today (S-10 for /static/search/_next/image: status as today, OD-41)
+    // the app's answers as today, apart from the two entries with an AD id (S-10, OD-41: the status of a local SVG at
+    // /static/search/_next/image moved with Next 12.3.7, AD-149)
     const status = Object.fromEntries(seen)
     const svgImage = await request.fetch(`${p2Env.baseURL}${SVG_IMAGE}`, {
       method: 'GET',

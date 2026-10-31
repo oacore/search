@@ -296,7 +296,8 @@ test.describe('T-610 @P0 props and server output', () => {
           !NEXT_LISTENER_ALLOW.some((re) => re.test(l))
       )
     ).toEqual([])
-    // the baseline was recorded before frames were masked, so they are masked in it as well
+    // compared on the masked form: the run's frames are masked, and masking the baseline changes nothing, it holds
+    // only masked frames since its re-capture (9024f15)
     const masked = (c) => ({
       startup: c.startup.map(maskFrameNumbers),
       sweep: c.sweep.map((s) => ({

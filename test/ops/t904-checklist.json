@@ -177,7 +177,7 @@
         "cf-cache-status is not HIT for a page the origin sends with cache-control no-store",
         "No cache-control added or removed on a 404, 500 or 308 (R-083)",
         "/works//1 answers 308 to /works/1 without content-security-policy from Next 12 on, where Next 10.2.3 answered the app's 404 page (status 404, with the CSP): an accepted difference (AD-106, owner decision D14 of jump 2 batch round 1, 2026-10-30); note what the edge does with that answer",
-        "Every client _next/data fetch carries the request header x-nextjs-data: 1 from Next 12.2 on, where Next 10.2.3 sent none (owner decision D13 (i) of jump 2 batch round 1, 2026-10-30): no WAF or CDN rule blocks, challenges or changes the request because of it, and the answer is JSON as VF-01 part 2 expects"
+        "Every client _next/data fetch carries the request header x-nextjs-data: 1 from Next 12.2 on, where Next 10.2.3 sent none (decision R2-7 (a) of jump 2 batch round 2, with batch decision 13 (i)): no WAF or CDN rule blocks, challenges or changes the request because of it, and the answer is JSON as VF-01 part 2 expects"
       ],
       "evidence": {
         "kind": "text",
