@@ -1,24 +1,10 @@
-import React, { useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 
-import reportStyles from './report/styles.module.css'
+import { REPORT_CARD_CLASS } from './report/report-card'
 import styles from './styles.module.css'
-import thumbnailStyles from './thumbnail-card.module.css'
+import { THUMBNAIL_BODY_CLASS } from './thumbnail-card'
 
 import useHydrated from 'hooks/use-hydrated'
-
-// An element of a design card that shows `keptClass` instead of the card's own
-// classes while it is set (null: no class attribute), staying in the DOM.
-const kept =
-  (Tag) =>
-  ({ keptClass, className, ...passProps }) => (
-    <Tag
-      className={keptClass === undefined ? className : keptClass}
-      {...passProps}
-    />
-  )
-
-export const KeptDiv = kept('div')
-export const KeptP = kept('p')
 
 const PLAIN = {
   license: { keptClass: styles.licenseWrapper },
@@ -41,13 +27,13 @@ const repairedLook = ({ id, hasReader }) => {
       map: {},
       report: {
         id: bodyId,
-        card: { keptClass: thumbnailStyles.body },
+        card: { keptClass: THUMBNAIL_BODY_CLASS },
         footer: { keptClass: '' },
       },
     }
   }
   return {
-    license: { className: reportStyles.reportCard },
+    license: { className: REPORT_CARD_CLASS },
     map: { id: bodyId },
     report: {
       card: { className: styles.card },
@@ -56,7 +42,7 @@ const repairedLook = ({ id, hasReader }) => {
   }
 }
 
-export const useRepairedSidebar = ({
+const useRepairedSidebar = ({
   id,
   fulltextStatus,
   readerUrl,
@@ -70,3 +56,5 @@ export const useRepairedSidebar = ({
   )
   return useMemo(() => (hydrated ? look : PLAIN), [hydrated, look])
 }
+
+export default useRepairedSidebar

@@ -6,9 +6,11 @@ import ReportFormModal from './report-form-modal'
 import ReportSuccessModal from './report-success-modal'
 import styles from './styles.module.css'
 import { useReportController } from '../hooks'
-import { KeptDiv, KeptP } from '../repaired-sidebar'
+import { KeptDiv, KeptP } from '../kept-element'
 
 import { observe } from 'store'
+
+export const REPORT_CARD_CLASS = styles.reportCard
 
 const ReportCard = observe(({ id, dataProvider, repaired }) => {
   const {
@@ -37,7 +39,7 @@ const ReportCard = observe(({ id, dataProvider, repaired }) => {
       id={repaired?.id}
       tag={KeptDiv}
       variant="outlined"
-      className={styles.reportCard}
+      className={REPORT_CARD_CLASS}
       {...look?.card}
     >
       <Card.Title className={styles.reportCardText}>
