@@ -169,7 +169,7 @@ Transitions: 03 §5.1, 06 §7.2.
 | T-713 | P1 | J11 | Q-060, Q-082, Q-094 | R-037 | W7b, 6.5, 7.2 |
 | T-714 | P1 | J12, J27, J32 | Q-080, Q-084 | R-013, R-047, R-052 | W6a, W6c, 6.5, 7.2 |
 | T-715 | P1 | J13 | Q-079, Q-044, Q-043, Q-049 | R-013, R-039, R-047 | W3, W6a, W6c, 7.2 |
-| T-716 | P1 | J14 | J14 (§2.4); client nav from `/search/?q=climate` to `?q=__status500` (header search): today's hooks-order crash stays (React #300 via `console.error`, blank `#__next`; Q-047, Q-010); header search from a hydrated `/works/<id>/` or `/outputs/<id>/`: same crash (Q-100) | R-020, R-033 | all |
+| T-716 | P1 | J14 | J14 (§2.4); client nav from `/search/?q=climate` to `?q=__status500` (header search): today's hooks-order crash stays (React #300 via `console.error`; Q-047, Q-010); header search from a hydrated `/works/<id>/` or `/outputs/<id>/`: the same crash (Q-100), with `#__next` emptied for a moment and the search page then rendering again, as T-716 c3 pins | R-020, R-033 | all |
 | T-717 | P2 | J15 | | — | W7b |
 | T-718 | P1 | J16 | | R-008 | W4c, W8, 6.9 |
 | T-719 | P0 | J17 analytics | Pinned `gtag.js` or `dataLayer` spy: 0 hits before consent, 1 config hit on a consented hard load, 0 on client nav (Q-071); every `dataLayer` entry deep-equal B0 per cookie state (dates normalised); Sentry via prod-shaped DSN → counting stub (today the CSP blocks the browser report: one `connect-src` violation, 0 requests at the stub; Q-096); LogRocket aborted, counted; per cookie state | R-026, R-041 | W2a, W2b, W4c, W5, 6.8 |
