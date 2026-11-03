@@ -8,6 +8,8 @@ import CardDropdown from './card-dropdown'
 
 const DISABLED_STATUS = 'disabled'
 
+export const THUMBNAIL_BODY_CLASS = styles.body
+
 const FullTextThumbnail = ({
   data,
   id,
@@ -84,7 +86,7 @@ const FullTextThumbnail = ({
         </div>
       )}
       {!useOtherVersions && (
-        <div className={styles.body} id={`${id}-body`}>
+        <div className={THUMBNAIL_BODY_CLASS} id={`${id}-body`}>
           <CardDropdown
             image={data.dataProviderLogo}
             activeArticle
