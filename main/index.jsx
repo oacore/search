@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { DesignProvider, Cookies as CookiesPopup } from '@oacore/design'
 
 import Head from './head'
@@ -6,6 +6,17 @@ import Head from './head'
 import Layout from 'modules/layout'
 import { useInitStore, StoreProvider } from 'store'
 import useAnalytics from 'hooks/use-analytics'
+
+// The popup shows on the first client render when the consent cookie is absent,
+// and never on the server (Q-051): it waits for the mount. A component of its
+// own, so that the rest of the page does not render again for it.
+const CookiesAfterMount = () => {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => setMounted(true), [])
+
+  return mounted ? <CookiesPopup /> : null
+}
 
 const Main = ({ children, initialState, loading, isSearchPage }) => {
   const store = useInitStore(initialState)
@@ -19,7 +30,7 @@ const Main = ({ children, initialState, loading, isSearchPage }) => {
         <Layout isSearchPage={isSearchPage} loading={loading}>
           {children}
         </Layout>
-        <CookiesPopup />
+        <CookiesAfterMount />
       </DesignProvider>
     </StoreProvider>
   )
