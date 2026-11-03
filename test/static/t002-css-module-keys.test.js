@@ -1,4 +1,4 @@
-// T-002 (41 A; R-001): CSS-module keys, from source. The 66 files that import a
+// T-002 (41 A; R-001): CSS-module keys, from source. The 67 files that import a
 // `*.module.css` read class names as `styles.<id>`; next.config.js:45-77
 // patches css-loader to export every class under its original name and its
 // camelCase form (`exportLocalsConvention: 'camelCase'`), and 202 of the reads
@@ -13,7 +13,7 @@
 // the unchanged app (PINNED_DANGLING). A new dangling read, or one that gets
 // fixed, changes this list and fails the test.
 // The plan's "430 reads" is a grep token count of `styles.<letters>`; the real
-// member reads are 363 (see the reconciliation test).
+// member reads are 365 (see the reconciliation test).
 const fs = require('fs')
 const path = require('path')
 const { execFileSync } = require('child_process')
@@ -220,8 +220,8 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
     s = scan()
   }, 120000)
 
-  test('T-002 @P0 66 files import a *.module.css (all .jsx, default imports): the 26 CSS modules of the repository', () => {
-    expect(s.importers).toHaveLength(66)
+  test('T-002 @P0 67 files import a *.module.css (all .jsx, default imports): the 26 CSS modules of the repository', () => {
+    expect(s.importers).toHaveLength(67) // AD-157
     expect(s.importers.filter((i) => !/\.jsx$/.test(i.file))).toEqual([])
     // one CSS module per importer
     expect(s.importers.filter((i) => i.css.length !== 1)).toEqual([])
@@ -241,8 +241,8 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
     )
   })
 
-  test('T-002 @P0 363 member reads of the module bindings; the one computed read is styles[size] of modules/logo; no other use', () => {
-    expect(s.reads).toHaveLength(363)
+  test('T-002 @P0 365 member reads of the module bindings; the one computed read is styles[size] of modules/logo; no other use', () => {
+    expect(s.reads).toHaveLength(365) // AD-157
     expect(s.dynamic).toEqual([
       {
         file: 'modules/logo/index.jsx',
@@ -261,18 +261,18 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
     const dangling = s.reads.filter((r) => r.kind === 'dangling')
     expect(group(dangling)).toEqual(PINNED_DANGLING)
     expect(dangling).toHaveLength(24)
-    // everything else resolves
-    expect(s.reads.filter((r) => r.kind !== 'dangling')).toHaveLength(339)
+    // everything else resolves (AD-157)
+    expect(s.reads.filter((r) => r.kind !== 'dangling')).toHaveLength(341)
   })
 
-  test('T-002 @P0 202 reads in 47 files resolve only through the camelCase export of the css-loader patch (next.config.js:45-77, R-001)', () => {
+  test('T-002 @P0 202 reads in 48 files resolve only through the camelCase export of the css-loader patch (next.config.js:45-77, R-001)', () => {
     const camel = s.reads.filter((r) => r.kind === 'camelCase')
     expect(camel).toHaveLength(202)
-    expect(new Set(camel.map((r) => r.file)).size).toBe(47)
-    // the other 137 resolve under the original name: 133 plain ones and the 4
+    expect(new Set(camel.map((r) => r.file)).size).toBe(48) // AD-157
+    // the other 139 resolve under the original name: 135 plain ones and the 4
     // classes that are written in camelCase in the CSS
     const original = s.reads.filter((r) => r.kind === 'original')
-    expect(original).toHaveLength(137)
+    expect(original).toHaveLength(139) // AD-157
     const spelledCamel = original
       .map((r) => r.key)
       .filter((k) => /[A-Z]/.test(k))
@@ -308,16 +308,17 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
     expect(dashed).toBeGreaterThan(150)
   })
 
-  test("T-002 @P0 the plan's grep figures reconcile with the member reads: 430 tokens and 221 camelCase tokens", () => {
+  test("T-002 @P0 the plan's grep figures reconcile with the member reads: 433 tokens and 221 camelCase tokens", () => {
     // 430 = git grep -o 'styles\.[A-Za-z_]+' over the application sources
-    expect(s.tokens.all).toBe(434) // AD-110
+    expect(s.tokens.all).toBe(437) // AD-110, AD-157
     // `./styles.module.css` import paths
-    expect(s.tokens.modulePath).toBe(61)
+    expect(s.tokens.modulePath).toBe(62) // AD-157
     // styles.length and styles.map in api/outputs.js
     expect(s.tokens.outsideImporters).toBe(6) // AD-111
     // styles.<id> in commented-out JSX (modules/layout, thumbnail-card)
     const inComments = 4
-    expect(s.reads.length + inComments + s.tokens.modulePath + 2).toBe(430)
+    // AD-157
+    expect(s.reads.length + inComments + s.tokens.modulePath + 2).toBe(433)
     // 221 = the tokens spelled in camelCase: 202 + 4 + 14 reads and one
     // commented-out token
     expect(s.tokens.camel).toBe(221)

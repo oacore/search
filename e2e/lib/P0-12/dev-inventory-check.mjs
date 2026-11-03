@@ -1,5 +1,5 @@
 // T-728 c4: shared parts of the React-17 dev inventory (dev-inventory.mjs writes, the test checks):
-// the app-tree hash, the patch hash, the warning classification and the output check.
+// the app-tree hash, the warning classification and the output check.
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
@@ -12,7 +12,6 @@ import { DEV_WARNING_MAP } from './dev-inventory-map.mjs'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 export const REPO = path.resolve(HERE, '..', '..', '..')
-export const PATCH = path.join(REPO, 'test', 'hydration', 'dev-ssr.patch')
 export const INVENTORY_SCHEMA = 1
 
 export const sha256 = (buf) =>
@@ -31,8 +30,6 @@ export function appTreeHash(ref = 'HEAD') {
     .filter((l) => !NOT_APP.test(l.split('\t')[1]))
   return sha256(lines.join('\n'))
 }
-
-export const patchHash = () => sha256(fs.readFileSync(PATCH))
 
 // React 17 development warnings of the hydration family (react-dom.development.js warnForTextDifference,
 // warnForPropDifference, warnForExtraAttributes, warnForInsertedHydrated*, warnForDeletedHydratableElement)
@@ -74,17 +71,13 @@ const qRows = () => {
   return new Set([...text.matchAll(/^\| (Q-\d{3})\b/gm)].map((m) => m[1]))
 }
 
-// problems of an inventory output (empty = valid for the current tree and patch)
+// problems of an inventory output (empty = valid for the current tree)
 export function checkInventory(inv) {
   const problems = []
   if (!inv || inv.schema !== INVENTORY_SCHEMA)
     return [`schema must be ${INVENTORY_SCHEMA}`]
   if (inv.source.appTree !== appTreeHash())
     problems.push('the inventory was made from another app tree: run it again')
-  if (inv.source.patchSha256 !== patchHash())
-    problems.push(
-      'the inventory was made with another dev-ssr.patch: run it again'
-    )
   // the runtime Node (24 from W4e, CS-N12-6; 18 before)
   if (!/^v24\./.test(inv.runtime.node))
     problems.push('next dev must run on the runtime Node 24')
@@ -126,17 +119,8 @@ export function checkInventory(inv) {
       if (bad) problems.push(bad)
     }
     if (!(l.ssrNextLength > 0) && !pageMaps.some((p) => p.emptySsr))
-      problems.push(`${label}: the patched dev server rendered no SSR markup`)
+      problems.push(`${label}: the dev server rendered no SSR markup`)
   }
-  // Q-052 c1: without the patch, next dev serves an empty #__next
-  if (!inv.q052 || !inv.q052.unpatched || !inv.q052.unpatched.length)
-    problems.push('Q-052 c1 check (unpatched dev server) missing')
-  else
-    for (const u of inv.q052.unpatched)
-      if (u.ssrNextLength !== 0)
-        problems.push(
-          `Q-052 c1: unpatched next dev rendered ${u.ssrNextLength} characters into #__next on ${u.route}`
-        )
   // every warning maps to a Q row of 30 (or names the open issue that asks the lead for a new row); the
   // recorded mapping is the current map's (the map changed: run the inventory again)
   for (const w of inv.warnings) {

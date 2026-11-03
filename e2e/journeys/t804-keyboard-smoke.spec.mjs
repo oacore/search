@@ -243,8 +243,19 @@ test.describe('T-804 c2 keyboard gaps', () => {
       'div.styles_bar-item publisher',
       'div.sort_sort-box Sort by relevance',
     ],
-    'works': [],
-    'outputs': [],
+    // AD-158: pointer-only today as well; the test counts an ancestor with tabIndex >= 0, and the <a> card and
+    // dropdown content without href reported 0 before CS-ESC-1 and CS-ESC-4 (W5.5) made them a span and a div
+    'works': [
+      'div.styles_header-wrapper.styles_header-wrapper-clickable Stirling Online Research Repos',
+      'svg.icon-icon.card-dropdown_icon-copy ',
+      'div.styles_header-wrapper.styles_header-wrapper-clickable Stirling Online Research Repos',
+      'svg.icon-icon.card-dropdown_icon-copy ',
+      'div.styles_header-wrapper.styles_header-wrapper-clickable Crossref',
+    ],
+    'outputs': [
+      'div.styles_header-wrapper Open Research Online (The Open',
+      'svg.icon-icon.card-dropdown_icon-copy ',
+    ],
     'data-providers': [],
     'provider': ['div.sort_sort-box Sort by recent'],
     'update': [],

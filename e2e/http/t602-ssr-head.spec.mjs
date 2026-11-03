@@ -36,20 +36,21 @@ import {
 } from '../lib/P0-10/harness-gaps.mjs'
 
 const S4_PAYLOAD = '</script><script>window.__PWN=1</script>'
-// Q-072 parser reports inside the full-text card: none with fulltextStatus 'disabled' (2003) or without a
-// reader/download link (work 1002: the card is an <a> with no <a> buttons); outputs 2004 has no reader link
+// Q-072 parser reports inside the full-text card: none on any page since CS-ESC-1 (W5.5) renders the card as a
+// span. Before it: none with fulltextStatus 'disabled' (2003) or without a reader/download link (work 1002: the
+// card was an <a> with no <a> buttons), 2 to 5 on the other pages
 const NESTED_IN_CARD = {
-  'works-1001': 2,
+  'works-1001': 0,
   'works-1002': 0,
-  'works-1003': 2,
-  'works-1004': 2,
-  'works-1005': 2,
-  'outputs-2001': 5,
+  'works-1003': 0,
+  'works-1004': 0,
+  'works-1005': 0,
+  'outputs-2001': 0,
   'outputs-2003': 0,
-  'outputs-2004': 3,
-  'outputs-2101': 5,
-  'outputs-2105': 5,
-  'outputs-2106': 5,
+  'outputs-2004': 0,
+  'outputs-2101': 0,
+  'outputs-2105': 0,
+  'outputs-2106': 0,
 }
 const TITLE_FOR = {
   'search': 'Search CORE',
@@ -311,8 +312,9 @@ test.describe('T-602 @P0 SSR head', () => {
           Math.max(n - 1, 0)
         )
       }
-      // Q-072: FullTextThumbnail renders design Card tag='a' around its <a> buttons unless fulltextStatus is
-      // 'disabled' (outputs 2003); every other nested <a> is pinned by the baseline above
+      // Q-072: FullTextThumbnail rendered design Card tag='a' around its <a> buttons unless fulltextStatus was
+      // 'disabled' (outputs 2003); since CS-ESC-1 the card is a span; every other nested <a> is pinned by the
+      // baseline above
       if (p.type === 'works' || p.type === 'outputs') {
         const api = apiObject(resolver, p.api)
         const inCard = nestedA(findings).filter((f) =>
