@@ -19,6 +19,7 @@ import {
 } from '../../utils/data-providers-transform'
 
 import Search from 'modules/search-layout'
+import useHydrated from 'hooks/use-hydrated'
 
 // TODO: Look for polyfill
 const countryName =
@@ -35,6 +36,22 @@ const regionDisplayName = (code) => {
   } catch {
     return normalized
   }
+}
+
+// The server's ICU and the browser's can name a region differently (Q-093), so
+// the render that hydrates the caption prints the name the server printed, read
+// from its HTML, and the browser's name after mount. A component of its own: a
+// render of the template fetches again in ClaimCard (Q-027).
+const RegionName = ({ provider, code }) => {
+  const hydrated = useHydrated()
+  const [serverName] = useState(() => {
+    if (hydrated || typeof document === 'undefined') return null
+    const prefix = `${provider} is based in `
+    const caption = document.querySelector('figcaption')?.textContent
+    return caption?.startsWith(prefix) ? caption.slice(prefix.length) : null
+  })
+
+  return !hydrated && serverName !== null ? serverName : regionDisplayName(code)
 }
 
 const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
@@ -183,7 +200,13 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
         >
           {data.name}
           {data.location?.countryCode?.trim() ? (
-            <> is based in {regionDisplayName(data.location.countryCode)}</>
+            <>
+              {' is based in '}
+              <RegionName
+                provider={data.name}
+                code={data.location.countryCode}
+              />
+            </>
           ) : (
             ' '
           )}

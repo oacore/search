@@ -10,6 +10,7 @@ import { HeadManagerContext } from 'next/dist/shared/lib/head-manager-context'
 import { CookiesProvider } from '@oacore/design'
 import LogRocket from 'logrocket'
 
+import useMarkAppHydrated from 'hooks/use-app-hydrated'
 import { getDataProviders, getMembers, getStatistics } from 'lib'
 import cachedStatistics from 'data/.statistics.json'
 import Main from 'main'
@@ -115,6 +116,7 @@ const App = ({
 }) => {
   const router = useRouter()
   useHeadErrorsOutsideReact()
+  useMarkAppHydrated()
 
   if (process.env.NODE_ENV === 'production')
     LogRocket.init('cab1al/search-gfe6o')
