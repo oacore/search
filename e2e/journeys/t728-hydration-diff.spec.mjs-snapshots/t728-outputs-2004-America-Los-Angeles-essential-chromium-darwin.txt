@@ -1,5 +1,5 @@
 # T-728 outputs-2004 /outputs/2004/ America/Los_Angeles essential (dom format 2)
-## nested anchors (Q-072): no-JS 0, hydrated 3
+## nested anchors (Q-072): no-JS 0, hydrated 0
 ## no-JS -> settled hydrated DOM
 @@ -21 +21 @@
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2] <div class="styles-item-1WhX8 styles-search-bar-item-dB35D styles-search-bar-item-icon-28R_6">
@@ -170,77 +170,14 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1] <div class="styles_detach-dot">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1] <span>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1] "No results"
-@@ -227 +389 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] <div class="thumbnail-card_body" id="full-text-thumbnail-2004-body">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/a[1] <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2004">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] <div class="">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[1] <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2004">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] <div class="styles_header">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1] <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2004">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1] <div class="styles_content">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1] <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2004">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1] <div class="thumbnail-card_body" id="full-text-thumbnail-2004-body">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1] <div class="">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1] <div class="styles_header">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1] <div class="styles_content">
-@@ -238 +396 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/div[1]/div[1]/svg[1] <svg class="icon-icon-35iz- data-provider-image-2JFrU" height="24" role="img" width="24">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/div[1]/div[1]/svg[1]/use[1] <use href="/static/search/icons.svg#office-building">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1] <img alt="Open Research Online (The Open University)" class="data-provider-image-2JFrU" src="https://api.core.ac.uk/data-providers/86/logo">
-@@ -245 +402 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[2] <a href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[2]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[2]/button[1] "Go to the repository landing page"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1] <div>
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1] "Download from data provider"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2] <div>
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1] <span class="card-description-3Qppz card-dropdown_identifier">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/div[1] <div class="card-dropdown_inner-identifier">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/div[1]/img[1] <img alt="oai" class="card-dropdown_oai-logo" src="/static/search/static/images/oai.svg">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/div[1]/a[1] <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/div[1]/a[1] "oai:oro.open.ac.uk:90496"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/div[2] <div>
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/div[2]/svg[1] <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/div[2]/svg[1]/use[1] <use href="/static/search/icons.svg#content-copy">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[2] <span class="card-description-3Qppz card-dropdown_date">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[2] "Last time updated on "
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[2] <!--" "-->
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[2] "10/07/2023"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1] <a class="card-dropdown_member-highlight" href="https://core.ac.uk/membership">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1] "Provided by our "
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1] <!--" "-->
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1] "Sustaining"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1] <!--" "-->
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1] " "
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1] <!--" "-->
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1] "member"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] <div class="card-container-11P0y card-outlined-1ScI1 styles_card">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1] <a href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]/button[1] "Go to the repository landing page"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1] <div>
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/button[1] "Download from data provider"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2] <div>
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[1] <span class="card-description-3Qppz card-dropdown_identifier">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[1]/div[1] <div class="card-dropdown_inner-identifier">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[1]/div[1]/img[1] <img alt="oai" class="card-dropdown_oai-logo" src="/static/search/static/images/oai.svg">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[1]/div[1]/a[1] <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[1]/div[1]/a[1] "oai:oro.open.ac.uk:90496"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[1]/div[2] <div>
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[1]/div[2]/svg[1] <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[1]/div[2]/svg[1]/use[1] <use href="/static/search/icons.svg#content-copy">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[2] <span class="card-description-3Qppz card-dropdown_date">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[2] "Last time updated on "
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[2] "10/07/2023"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/a[1] <a class="card-dropdown_member-highlight" href="https://core.ac.uk/membership">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/a[1] "Provided by our "
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/a[1] "Sustaining"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/a[1] " "
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/a[1] "member"
+@@ -234 +396 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/svg[1] <svg class="icon-icon-35iz- data-provider-image-2JFrU" height="24" role="img" width="24">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/svg[1]/use[1] <use href="/static/search/icons.svg#office-building">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1] <img alt="Open Research Online (The Open University)" class="data-provider-image-2JFrU" src="https://api.core.ac.uk/data-providers/86/logo">
+@@ -268 +429 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] <div class="card-container-11P0y card-outlined-1ScI1 styles_card">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] <div class="card-container-11P0y card-outlined-1ScI1 styles_card" id="full-text-thumbnail-2004-body">
-@@ -274 +427 @@
+@@ -270 +431 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] <div class="styles_map leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="map" tabindex="0">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1] <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1] <div class="leaflet-pane leaflet-tile-pane">
@@ -285,18 +222,16 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] <a href="https://www.openstreetmap.org/copyright">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] "OpenStreetMap"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1] " contributors"
-@@ -276 +473 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/p[1] <!--" "-->
-@@ -282 +478 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] <div class="card-container-11P0y card-outlined-1ScI1 styles_report-card">
+@@ -278 +483 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] <div class="card-container-11P0y card-outlined-1ScI1 styles_report-card">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] <div class="card-container-11P0y card-outlined-1ScI1 styles_card">
-@@ -285 +481 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/p[1] <p class="card-description-3Qppz styles_report-card-text">
+@@ -281 +486 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/p[1] <p class="card-description-3Qppz styles_report-card-text">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/p[1] <p>
-@@ -290 +486 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[4] <div class="styles_license-wrapper">
+@@ -286 +491 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] <div class="styles_license-wrapper">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] <div class="card-container-11P0y card-outlined-1ScI1 styles_report-card">
-@@ -393 +589 @@
+@@ -389 +594 @@
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 ## MutationObserver (from the first Next chunk script)
@@ -342,19 +277,8 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/figure[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/header[1]/h3[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/svg[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/span[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[1]/div[2]/svg[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[2]/span[2] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] @id
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] @tabindex
@@ -375,6 +299,24 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[6] @style
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/img[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/img[1] @style
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/h1[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/p[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[2]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[2]/span[1]/div[2]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[2]/span[2] @class
 1 characterData html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[2]/dd[1]
 1 childList html[1]/body[1] +[next-route-announcer]
 1 childList html[1]/body[1]/div[1]/div[1]/header[1] +[div]
@@ -384,15 +326,7 @@
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2] +[h2]
 4 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2] -[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2] -[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1] +[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] +[img]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] -[svg]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] +[p]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] -[a]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] +[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] -[a]
-2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] -[div]
 2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] +[div]
 7 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1] +[div]
@@ -403,14 +337,7 @@
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1] +[a,#text,span,#text,a,#text] -[a]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] +[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] +[h1]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] -[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/p[1] +[#text] -[#text,#comment,#text,a,#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] +[span]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] -[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] -[h1]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] -[p]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] +[img]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] -[svg]
 1 childList html[1]/body[1]/next-route-announcer[1] +[p]
 ## overflow 0, armed true

@@ -1,5 +1,5 @@
 # T-728 works-1002 /works/1002/ UTC essential+analytics (dom format 2)
-## nested anchors (Q-072): no-JS 0, hydrated 2
+## nested anchors (Q-072): no-JS 0, hydrated 0
 ## no-JS -> settled hydrated DOM
 @@ -21 +21 @@
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2] <div class="styles-item-1WhX8 styles-search-bar-item-dB35D styles-search-bar-item-icon-28R_6">
@@ -287,35 +287,6 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1] <div class="styles_detach-dot">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1] <span>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1] "No results"
-@@ -230 +513 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[2] <a href="https://api.core.ac.uk/oai/doi:10.7910/DVN/HCYDPQ">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[2]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[2]/button[1] "Go to the repository landing page"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1] <div>
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1] "Download from data provider"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1] <span class="card-description-3Qppz card-dropdown_identifier">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1] <div class="card-dropdown_inner-identifier">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/img[1] <img alt="oai" class="card-dropdown_logo" src="/static/search/static/images/oai.svg">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/a[1] <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/doi:10.7910/DVN/HCYDPQ">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/a[1] "doi:10.7910/DVN/HCYDPQ"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[2] <div>
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[2]/svg[1] <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[2]/svg[1]/use[1] <use href="/static/search/icons.svg#content-copy">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/a[1] <a href="https://api.core.ac.uk/oai/doi:10.7910/DVN/HCYDPQ">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/a[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/a[1]/button[1] "Go to the repository landing page"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/div[1] <div>
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/div[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/div[1]/button[1] "Download from data provider"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1] <span class="card-description-3Qppz card-dropdown_identifier">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[1] <div class="card-dropdown_inner-identifier">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[1]/img[1] <img alt="oai" class="card-dropdown_logo" src="/static/search/static/images/oai.svg">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[1]/a[1] <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/doi:10.7910/DVN/HCYDPQ">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[1]/a[1] "doi:10.7910/DVN/HCYDPQ"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[2] <div>
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[2]/svg[1] <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[2]/svg[1]/use[1] <use href="/static/search/icons.svg#content-copy">
 @@ -348 +631 @@
 + html[1]/body[1]/script[2] <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TEST000000">
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
@@ -396,21 +367,21 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/figure[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/header[1]/h3[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/div[1]/div[1]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/div[1]/div[1]/div[1]/svg[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]/h3[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/a[1]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/div[1]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]/div[2]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/div[2]/svg[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1] @class
 1 childList html[1]/body[1] +[next-route-announcer]
 1 childList html[1]/body[1] +[script]
 1 childList html[1]/body[1]/div[1]/div[1]/header[1] +[div]
@@ -420,11 +391,5 @@
 6 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2] -[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/div[1] +[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] -[a]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] -[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] -[span]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1] +[a]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1] +[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/span[1] +[span]
 1 childList html[1]/body[1]/next-route-announcer[1] +[p]
 ## overflow 0, armed true

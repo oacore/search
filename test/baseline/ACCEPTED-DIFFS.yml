@@ -1638,3 +1638,47 @@
   step: W5.5
   signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
   date: '2026-11-01'
+- id: AD-159
+  kind: product
+  test: T-801
+  key: "V28-works@1440"
+  from: "f5623df1050693dc93ebc804bcbff3f9f573b0a655cd878598498db3e5d3dc13"
+  to: "7369c7988021eb9768cb41654373088a2bb56b67d1ba4e614781e45edbb14f40"
+  reason: "T-801 c4, JavaScript off, V28-works at 1440 (e2e/visual/t801-js-off.spec.mjs-snapshots/V28-works-1440-visual-darwin.png): `from` is the SHA-256 of the committed PNG, `to` the SHA-256 of the PNG re-captured on the build of the merged tip (product re-baseline, D15, link B3-local). Today: reader button squeezed beside a white box, on a work the Available Versions text one letter wide. After: the squeezed sidebar goes. The page shows the server plain sidebar: full-width reader button, on an output page a bordered report card with REPORT on the right and an unboxed licence. The work page /works/1001/ capture is 1440 x 1643 px, was 1473 x 2985. The broken layout came from the parser splitting the nested anchors, so any fix that removes them from the server HTML changes it. This is also what a visitor with JavaScript on sees before hydration. On a page load with JavaScript on, an output page report card and licence then change to today look (layout shift 0.19 on outputs-2001, was 0.334); that jump at hydration stays. T-801 c1 with JavaScript on stays 0 px. The first change to a T-801 PNG in the track. Owner decision W55-A, W55-F (a). T-801's comparator reads no ledger: the row records the change, the new PNG turns the test green."
+  ref: [Q-072, OD-40, OD-31, D15]
+  step: W5.5
+  signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
+  date: '2026-11-01'
+- id: AD-160
+  kind: product
+  test: T-801
+  key: "V28-works@375"
+  from: "feb75225c47f9b15aff08fb1141979e99ac5cd0cfe515c25e2861384147b3260"
+  to: "015950edca4c777ebfa679ca235782fd56fb55565a44b698f1f75908b41c185f"
+  reason: "T-801 c4, JavaScript off, V28-works at 375 (e2e/visual/t801-js-off.spec.mjs-snapshots/V28-works-375-visual-darwin.png): `from` is the SHA-256 of the committed PNG, `to` the SHA-256 of the PNG re-captured on the build of the merged tip (product re-baseline, D15, link B3-local). Today: reader button squeezed beside a white box, on a work the Available Versions text one letter wide. After: the squeezed sidebar goes. The page shows the server plain sidebar: full-width reader button, on an output page a bordered report card with REPORT on the right and an unboxed licence. The work page /works/1001/ capture is 375 x 3188 px, was 508 x 4674. The broken layout came from the parser splitting the nested anchors, so any fix that removes them from the server HTML changes it. This is also what a visitor with JavaScript on sees before hydration. On a page load with JavaScript on, an output page report card and licence then change to today look (layout shift 0.19 on outputs-2001, was 0.334); that jump at hydration stays. T-801 c1 with JavaScript on stays 0 px. The first change to a T-801 PNG in the track. Owner decision W55-A, W55-F (a). T-801's comparator reads no ledger: the row records the change, the new PNG turns the test green."
+  ref: [Q-072, OD-40, OD-31, D15]
+  step: W5.5
+  signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
+  date: '2026-11-01'
+- id: AD-161
+  kind: product
+  test: T-801
+  key: "V28-outputs@1440"
+  from: "8e5a1028e978bbadc007515dc66ba24209af31c56b6c86d67d79f00c72638aee"
+  to: "ebe7963c4e43c7623d6a7f30c9aaa5d0e58e431789690620a46e1021b7fa0673"
+  reason: "T-801 c4, JavaScript off, V28-outputs at 1440 (e2e/visual/t801-js-off.spec.mjs-snapshots/V28-outputs-1440-visual-darwin.png): `from` is the SHA-256 of the committed PNG, `to` the SHA-256 of the PNG re-captured on the build of the merged tip (product re-baseline, D15, link B3-local). Today: reader button squeezed beside a white box, on a work the Available Versions text one letter wide. After: the squeezed sidebar goes. The page shows the server plain sidebar: full-width reader button, on an output page a bordered report card with REPORT on the right and an unboxed licence. The output page /outputs/2001/ capture is 1440 x 1487 px, was 1440 x 1551. The broken layout came from the parser splitting the nested anchors, so any fix that removes them from the server HTML changes it. This is also what a visitor with JavaScript on sees before hydration. On a page load with JavaScript on, an output page report card and licence then change to today look (layout shift 0.19 on outputs-2001, was 0.334); that jump at hydration stays. T-801 c1 with JavaScript on stays 0 px. The first change to a T-801 PNG in the track. Owner decision W55-A, W55-F (a). T-801's comparator reads no ledger: the row records the change, the new PNG turns the test green."
+  ref: [Q-072, OD-40, OD-31, D15]
+  step: W5.5
+  signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
+  date: '2026-11-01'
+- id: AD-162
+  kind: product
+  test: T-801
+  key: "V28-outputs@375"
+  from: "0448a6463288c4a1e9f262e87206754ce933572a72480d676c165ed083e38d0a"
+  to: "87640a69401e4b8a3c2236b0505a22cdea8a06ef171fcbc1cd1dcd4f387ad230"
+  reason: "T-801 c4, JavaScript off, V28-outputs at 375 (e2e/visual/t801-js-off.spec.mjs-snapshots/V28-outputs-375-visual-darwin.png): `from` is the SHA-256 of the committed PNG, `to` the SHA-256 of the PNG re-captured on the build of the merged tip (product re-baseline, D15, link B3-local). Today: reader button squeezed beside a white box, on a work the Available Versions text one letter wide. After: the squeezed sidebar goes. The page shows the server plain sidebar: full-width reader button, on an output page a bordered report card with REPORT on the right and an unboxed licence. The output page /outputs/2001/ capture is 375 x 3401 px, was 376 x 3562. The broken layout came from the parser splitting the nested anchors, so any fix that removes them from the server HTML changes it. This is also what a visitor with JavaScript on sees before hydration. On a page load with JavaScript on, an output page report card and licence then change to today look (layout shift 0.19 on outputs-2001, was 0.334); that jump at hydration stays. T-801 c1 with JavaScript on stays 0 px. The first change to a T-801 PNG in the track. Owner decision W55-A, W55-F (a). T-801's comparator reads no ledger: the row records the change, the new PNG turns the test green."
+  ref: [Q-072, OD-40, OD-31, D15]
+  step: W5.5
+  signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
+  date: '2026-11-01'

@@ -1,5 +1,5 @@
 # T-728 outputs-2001-search /outputs/2001/?search=q%3Dclimate UTC absent (dom format 2)
-## nested anchors (Q-072): no-JS 0, hydrated 5
+## nested anchors (Q-072): no-JS 0, hydrated 0
 ## no-JS -> settled hydrated DOM
 @@ -21 +21 @@
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2] <div class="styles-item-1WhX8 styles-search-bar-item-dB35D styles-search-bar-item-icon-28R_6">
@@ -167,107 +167,11 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1] <div class="styles_detach-dot">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1] <span>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1] "No results"
-@@ -227 +389 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] <div>
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/a[1] <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2001">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] <div class="thumbnail-card_button-container">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[1] <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2001">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[2] <a class="button-button-3fr3r button-contained-pmIp-" href="<stack>/reader/571618880">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[2] "Open in the Core reader"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[2] <!--" "-->
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[2] " "
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[2]/svg[1] <svg class="icon-icon-35iz- thumbnail-card_icon" height="24" role="img" width="24">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/a[2]/svg[1]/use[1] <use href="/static/search/icons.svg#open-in-new">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2] <div class="thumbnail-card_download-container">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/a[1] <a class="button-button-3fr3r button-outlined-3dJXM thumbnail-card_download" download="" target="_blank">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/a[1] "Download PDF"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] <div class="thumbnail-card_body" id="full-text-thumbnail-2001-body">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1] <div class="">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1] <div class="styles_header">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1] <div class="styles_content">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1] <div class="styles_header-wrapper">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1] <div class="styles_item-wrapper">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] <div class="data-provider-md-1r-YM data-provider-circle-1YXHk">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/svg[1] <svg class="icon-icon-35iz- data-provider-image-2JFrU" height="24" role="img" width="24">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/svg[1]/use[1] <use href="/static/search/icons.svg#office-building">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2] <div class="styles_inner-wrapper">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1] <h3 class="card-title-2rvi9 styles_title">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1] "Open Research Online (The Open University)"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1] <img alt="redirect" class="styles_redirect-img" src=<len=666 sha256=2efe7dd1c0c348ee "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cD"...>>
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1] <span class="card-description-3Qppz styles_subtitle">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1] <a href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1]/button[1] "Go to the repository landing page"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1] <div>
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/button[1] "Download from data provider"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2] <div>
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1] <span class="card-description-3Qppz card-dropdown_identifier">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]/div[1] <div class="card-dropdown_inner-identifier">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]/div[1]/img[1] <img alt="oai" class="card-dropdown_oai-logo" src="/static/search/static/images/oai.svg">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]/div[1]/a[1] <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]/div[1]/a[1] "oai:oro.open.ac.uk:90496"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]/div[2] <div>
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]/div[2]/svg[1] <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[1]/div[2]/svg[1]/use[1] <use href="/static/search/icons.svg#content-copy">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[2] <span class="card-description-3Qppz card-dropdown_date">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[2] "Last time updated on "
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[2] <!--" "-->
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span[2] "10/07/2023"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1] <a class="card-dropdown_member-highlight" href="https://core.ac.uk/membership">
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1] "Provided by our "
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1] <!--" "-->
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1] "Sustaining"
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1] <!--" "-->
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1] <div>
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1] <div class="thumbnail-card_button-container">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1] <a class="button-button-3fr3r button-contained-pmIp-" href="<stack>/reader/571618880">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1] "Open in the Core reader"
-@@ -279 +394 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1] <!--" "-->
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1] "member"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1]/svg[1] <svg class="icon-icon-35iz- thumbnail-card_icon" height="24" role="img" width="24">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1]/svg[1]/use[1] <use href="/static/search/icons.svg#open-in-new">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[2] <div class="thumbnail-card_download-container">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[2]/a[1] <a class="button-button-3fr3r button-outlined-3dJXM thumbnail-card_download" download="" target="_blank">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[2]/a[1] "Download PDF"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2] <div class="thumbnail-card_body" id="full-text-thumbnail-2001-body">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1] <div class="">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1] <div class="styles_header">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1] <div class="styles_content">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1] <div class="styles_header-wrapper">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1] <div class="styles_item-wrapper">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] <div class="data-provider-md-1r-YM data-provider-circle-1YXHk">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1] <img alt="Open Research Online (The Open University)" class="data-provider-image-2JFrU" src="https://api.core.ac.uk/data-providers/86/logo">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2] <div class="styles_inner-wrapper">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1] <h3 class="card-title-2rvi9 styles_title">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1] "Open Research Online (The Open University)"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1] <img alt="redirect" class="styles_redirect-img" src=<len=666 sha256=2efe7dd1c0c348ee "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cD"...>>
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/span[1] <span class="card-description-3Qppz styles_subtitle">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1] <a href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1]/button[1] "Go to the repository landing page"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1] <div>
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/button[1] <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/button[1] "Download from data provider"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2] <div>
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[1] <span class="card-description-3Qppz card-dropdown_identifier">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[1]/div[1] <div class="card-dropdown_inner-identifier">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[1]/div[1]/img[1] <img alt="oai" class="card-dropdown_oai-logo" src="/static/search/static/images/oai.svg">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[1]/div[1]/a[1] <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[1]/div[1]/a[1] "oai:oro.open.ac.uk:90496"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[1]/div[2] <div>
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[1]/div[2]/svg[1] <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[1]/div[2]/svg[1]/use[1] <use href="/static/search/icons.svg#content-copy">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[2] <span class="card-description-3Qppz card-dropdown_date">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[2] "Last time updated on "
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[2] "10/07/2023"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/a[1] <a class="card-dropdown_member-highlight" href="https://core.ac.uk/membership">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/a[1] "Provided by our "
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/a[1] "Sustaining"
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/a[1] " "
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/a[1] "member"
-@@ -283 +437 @@
+@@ -245 +407 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/svg[1] <svg class="icon-icon-35iz- data-provider-image-2JFrU" height="24" role="img" width="24">
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/svg[1]/use[1] <use href="/static/search/icons.svg#office-building">
++ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1] <img alt="Open Research Online (The Open University)" class="data-provider-image-2JFrU" src="https://api.core.ac.uk/data-providers/86/logo">
+@@ -281 +442 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] <div class="styles_map leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="map" tabindex="0">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1] <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1] <div class="leaflet-pane leaflet-tile-pane">
@@ -312,18 +216,16 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] <a href="https://www.openstreetmap.org/copyright">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] "OpenStreetMap"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1] " contributors"
-@@ -285 +483 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3]/p[1] <!--" "-->
-@@ -291 +488 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[4] <div class="card-container-11P0y card-outlined-1ScI1 styles_report-card">
+@@ -289 +494 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] <div class="card-container-11P0y card-outlined-1ScI1 styles_report-card">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] <div class="thumbnail-card_body" id="full-text-thumbnail-2001-body">
-@@ -296 +493 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[4]/div[1] <div class="card-footer-1UaTv styles_report-card-footer">
+@@ -294 +499 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1] <div class="card-footer-1UaTv styles_report-card-footer">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1] <div class="">
-@@ -299 +496 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[5] <div class="styles_license-wrapper">
+@@ -297 +502 @@
+- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] <div class="styles_license-wrapper">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] <div class="card-container-11P0y card-outlined-1ScI1 styles_card">
-@@ -401 +598 @@
+@@ -399 +604 @@
 + html[1]/body[1]/div[1]/div[2] <div class="cookies-popup-2NSSr" id="cookies-popup">
 + html[1]/body[1]/div[1]/div[2]/div[1] <div class="cookies-popup-body-1VEen">
 + html[1]/body[1]/div[1]/div[2]/div[1]/p[1] <p>
@@ -335,7 +237,7 @@
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[1] "Essential cookies only"
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[2] <button class="button-button-3fr3r button-contained-pmIp- cookies-popup-button-17h9a" id="essential_cookies_allowed,analytics_cookies_allowed">
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[2] "I agree"
-@@ -402 +610 @@
+@@ -400 +616 @@
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 ## MutationObserver (from the first Next chunk script)
@@ -381,21 +283,6 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/figure[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/header[1]/h3[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[1]/a[1]/svg[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[1]/div[2]/a[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/svg[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/span[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[1]/div[2]/svg[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[2]/span[2] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] @class
@@ -417,6 +304,28 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[6] @style
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/img[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/img[1] @style
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] @id
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/h1[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/p[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/a[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[1]/a[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[1]/div[2]/a[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[1]/div[1]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[2]/span[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[2]/span[1]/div[2]/svg[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[2]/span[2] @class
 1 childList html[1]/body[1] +[next-route-announcer]
 1 childList html[1]/body[1]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/header[1] +[div]
@@ -426,15 +335,7 @@
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2] +[h2]
 4 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2] -[div]
-2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2] -[div]
-2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1] +[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] +[img]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] -[svg]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] +[p]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] -[a]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] -[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] +[div]
-2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] -[a]
 2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] +[div]
 7 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1] +[div]
@@ -445,13 +346,7 @@
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1] +[a,#text,span,#text,a,#text] -[a]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] +[h1]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] +[p]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1] +[button]
-2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[1] -[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] +[span]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] -[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[3] -[p]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] +[img]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1] -[svg]
 1 childList html[1]/body[1]/next-route-announcer[1] +[p]
 ## overflow 0, armed true

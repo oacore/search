@@ -1088,14 +1088,14 @@
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#full-text-thumbnail-1003 > div > div:nth-child(1) > a",
-    "message": "<a> element is not permitted as a descendant of <a>"
+    "selector": "#full-text-thumbnail-1003-title",
+    "message": "<h2> element is not permitted as content under <span>"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#full-text-thumbnail-1003 > div > div:nth-child(2) > a",
-    "message": "<a> element is not permitted as a descendant of <a>"
+    "selector": "#full-text-thumbnail-1003 > div",
+    "message": "<div> element is not permitted as content under <span>"
   },
   {
     "ruleId": "attribute-misuse",
@@ -1118,212 +1118,146 @@
   {
     "ruleId": "void-style",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > div > div > img",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > div > div > div > img",
     "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
   },
   {
     "ruleId": "no-implicit-button-type",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > span > button",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > div > span > button",
     "message": "<button> is missing recommended \"type\" attribute"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > span > button",
-    "message": "<button> element is not permitted as a descendant of <a>"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > span > a",
-    "message": "<a> element is not permitted as a descendant of <a>"
   },
   {
     "ruleId": "no-implicit-button-type",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > span > a > button",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > div > span > a > button",
     "message": "<button> is missing recommended \"type\" attribute"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > span > a > button",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > div > span > a > button",
     "message": "<button> element is not permitted as a descendant of <a>"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > span > div",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > div > span > div",
     "message": "<div> element is not permitted as content under <span>"
   },
   {
     "ruleId": "no-implicit-button-type",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > span > div > button",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > div > span > div > button",
     "message": "<button> is missing recommended \"type\" attribute"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > span > div > button",
-    "message": "<button> element is not permitted as a descendant of <a>"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > span > span > div:nth-child(1)",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > div > span > span > div:nth-child(1)",
     "message": "<div> element is not permitted as content under <span>"
   },
   {
     "ruleId": "void-style",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > span > span > div:nth-child(1) > img",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > div > span > span > div:nth-child(1) > img",
     "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > span > span > div:nth-child(1) > a",
-    "message": "<a> element is not permitted as a descendant of <a>"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > a > span > span > div:nth-child(2)",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > div > span > span > div:nth-child(2)",
     "message": "<div> element is not permitted as content under <span>"
   },
   {
     "ruleId": "void-style",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > div > div > img",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > div > div > div > img",
     "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
   },
   {
     "ruleId": "no-implicit-button-type",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > span > button",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > div > span > button",
     "message": "<button> is missing recommended \"type\" attribute"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > span > button",
-    "message": "<button> element is not permitted as a descendant of <a>"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > span > a",
-    "message": "<a> element is not permitted as a descendant of <a>"
   },
   {
     "ruleId": "no-implicit-button-type",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > span > a > button",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > div > span > a > button",
     "message": "<button> is missing recommended \"type\" attribute"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > span > a > button",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > div > span > a > button",
     "message": "<button> element is not permitted as a descendant of <a>"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > span > div",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > div > span > div",
     "message": "<div> element is not permitted as content under <span>"
   },
   {
     "ruleId": "no-implicit-button-type",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > span > div > button",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > div > span > div > button",
     "message": "<button> is missing recommended \"type\" attribute"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > span > div > button",
-    "message": "<button> element is not permitted as a descendant of <a>"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > span > span > div:nth-child(1)",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > div > span > span > div:nth-child(1)",
     "message": "<div> element is not permitted as content under <span>"
   },
   {
     "ruleId": "void-style",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > span > span > div:nth-child(1) > img",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > div > span > span > div:nth-child(1) > img",
     "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > span > span > div:nth-child(1) > a",
-    "message": "<a> element is not permitted as a descendant of <a>"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > a > span > span > div:nth-child(2)",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(1) > div > span > span > div:nth-child(2)",
     "message": "<div> element is not permitted as content under <span>"
   },
   {
     "ruleId": "void-style",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > a > div > div > img",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > div > div > div > img",
     "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
   },
   {
     "ruleId": "no-implicit-button-type",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > a > span > button",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > div > span > button",
     "message": "<button> is missing recommended \"type\" attribute"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > a > span > button",
-    "message": "<button> element is not permitted as a descendant of <a>"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > a > span > a",
-    "message": "<a> element is not permitted as a descendant of <a>"
   },
   {
     "ruleId": "no-implicit-button-type",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > a > span > a > button",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > div > span > a > button",
     "message": "<button> is missing recommended \"type\" attribute"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > a > span > a > button",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > div > span > a > button",
     "message": "<button> element is not permitted as a descendant of <a>"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > a > span > div",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > div > span > div",
     "message": "<div> element is not permitted as content under <span>"
   },
   {
     "ruleId": "no-implicit-button-type",
     "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > a > span > div > button",
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > div > span > div > button",
     "message": "<button> is missing recommended \"type\" attribute"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > a > span > div > button",
-    "message": "<button> element is not permitted as a descendant of <a>"
   },
   {
     "ruleId": "element-permitted-content",
