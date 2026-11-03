@@ -6,19 +6,19 @@
 //       provisional captures in this spec's snapshot folder (recorded once on the parity build with
 //       `npm run e2e:record -- --run <id> --provisional --project chromium -g T-728`; B0 replaces them at 2.5).
 //       Named React 17 silent repairs are asserted on top: Q-051 (consent popup only after hydration, absent
-//       state), Q-072 (nested anchors: 0 in the no-JS DOM, inserted by hydration), Q-075 (/display breadcrumb
-//       tail deleted), Q-093 (region text, server ICU vs browser).
+//       state), Q-072 (nested anchors: 0 in the no-JS DOM, and 0 after hydration since CS-ESC-1 and CS-ESC-4),
+//       Q-075 (/display breadcrumb tail deleted), Q-093 (region text, server ICU vs browser).
 //   c2  the pinned tuple set e2e/journeys/t728-pinned-tuples.json (T-701's allow-list on React 18/19): keyed on
 //       the 55 C7 (1) tuple, never on message text; the set of the installed React/Next exists and is empty on
 //       React 17; per combination the observed hydration events equal the pinned tuples (c1, c3).
 //   c3  the rest of the matrix: 3 TZ x 3 cookie states per route x fixture (the no-JS DOM is the same in every
 //       cookie state), each vs its capture; Q-050 (dates: SSR in UTC, patched to browser-local). Tagged
 //       @engines: WebKit and Firefox run it in the runner container only (DEFERRED in local mode).
-//   c4  the React-17 dev inventory (40 §4 item 1): e2e/lib/P0-12/dev-inventory.mjs applies
-//       test/hydration/dev-ssr.patch in a git-archive copy, runs next dev on runtime Node 24 against this stack's stub,
-//       sweeps routes x fixtures x TZ x cookie state and writes $ARTIFACT_DIR/hydration-dev-r17.json; the test
-//       checks that output: current tree and patch, full sweep, every warning mapped to a Q row of 30 (or an
-//       open issue), Q-052 c1 (dev without the patch serves an empty #__next).
+//   c4  the React-17 dev inventory (40 §4 item 1): e2e/lib/P0-12/dev-inventory.mjs runs next dev on runtime
+//       Node 24 in a git-archive copy against this stack's stub (no patch: next dev server-renders since CS-R18-4
+//       removed the non-production wrapper of pages/_app.jsx, Q-052), sweeps routes x fixtures x TZ x cookie
+//       state and writes $ARTIFACT_DIR/hydration-dev-r17.json; the test checks that output: current tree, full
+//       sweep, SSR markup on every load, every warning mapped to a Q row of 30 (or an open issue).
 import fs from 'node:fs'
 import path from 'node:path'
 import { test as base, expect } from '../fixtures/guard.mjs'
@@ -184,11 +184,12 @@ for (const route of T728_ROUTES) {
     // Q-051: no popup in SSR; the first client render inserts it (essential_cookies_allowed absent)
     expect(textLines(nojs.lines, /id="cookies-popup"/)).toEqual([])
     expect(textLines(hydrated.lines, /id="cookies-popup"/)).toHaveLength(1)
-    // Q-072: no nested anchor survives the parser; hydration inserts them where the card is an <a> (the
-    // count per route is part of the capture above)
+    // Q-072: no nested anchor survives the parser; hydration inserted them where the card was an <a>, and since
+    // CS-ESC-1 and CS-ESC-4 (W5.5) it inserts none: the card is a span, the dropdown content a div (the count
+    // per route is part of the capture above)
     expect(nojs.nestedAnchors).toBe(0)
     if (/^(outputs|display)-2001/.test(route.id))
-      expect(hydrated.nestedAnchors).toBeGreaterThan(0)
+      expect(hydrated.nestedAnchors).toBe(0)
     // Q-075: the server breadcrumb tail is deleted on /display/<id>/ only
     const tail = /^"Research output from "$/
     if (/^(display|outputs)-2001/.test(route.id)) {

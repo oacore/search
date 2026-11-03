@@ -1,16 +1,14 @@
 #!/usr/bin/env node
 // T-728 c4 / 40 §4 item 1: the React-17 development hydration inventory. React 17 production repairs
-// hydration mismatches silently and `next dev` never server-renders (pages/_app.jsx NextApp wrapper, Q-052),
-// so this tool:
+// hydration mismatches silently, so this tool records the development warnings; `next dev` server-renders since
+// CS-R18-4 removed the non-production NextApp wrapper of pages/_app.jsx (Q-052), so no patch is applied:
 //   1. copies HEAD with `git archive` into $ARTIFACT_DIR/dev-inventory/tree (never a worktree; the repository
 //      is never touched), with node_modules and public/ cloned from the run's parity build (the Dockerfile
 //      copies of public/ included);
 //   2. starts `next dev` on the runtime Node (24.18.1 from W4e, runtimeNode() of scripts/build-parity.mjs;
 //      18.20.8 before; no --openssl-legacy-provider from Next 12, CS-N11-5) and the
-//      prod runtime env of the run, SSR traffic sent to the run's stub (test/ssr/host-redirect.cjs), and checks
-//      Q-052 c1: without the patch the dev server answers an empty #__next;
-//   3. applies test/hydration/dev-ssr.patch (NextApp = App) with `git apply` in the copy, restarts next dev,
-//      puts a gateway-faithful proxy in front of it (e2e/proxy/node-proxy.mjs, the run's route table), and
+//      prod runtime env of the run, SSR traffic sent to the run's stub (test/ssr/host-redirect.cjs);
+//   3. puts a gateway-faithful proxy in front of it (e2e/proxy/node-proxy.mjs, the run's route table), and
 //      sweeps routes x fixtures x TZ x cookie state (e2e/lib/P0-12/routes.mjs T728_ROUTES) in Chromium with the
 //      journey guard's routing (fixture resolver for browser calls);
 //   4. records every development warning (console warning/error) per load, maps each to a Q row of 30 with
@@ -29,8 +27,6 @@ import { createRequire } from 'node:module'
 import {
   REPO,
   appTreeHash,
-  patchHash,
-  PATCH,
   HYDRATION_WARNING,
   mapWarning,
   INVENTORY_SCHEMA,
@@ -300,30 +296,9 @@ const cleanupSsr = await coverSsrGaps(env, resolver)
 let result
 let browserVersion = null
 try {
-  // ---------- 2. Q-052 c1: unpatched dev SSR ----------
-  let dev = await startDev('unpatched')
+  // ---------- 2, 3. dev SSR + sweep ----------
+  await startDev('next dev')
   await startProxy()
-  const unpatched = []
-  for (const id of [
-    'search-climate',
-    'works-1001',
-    'outputs-2001',
-    'provider-86',
-  ]) {
-    const route = T728_ROUTES.find((r) => r.id === id)
-    const res = await get(urlOf(route), 310000)
-    const markup = ssrNextMarkup(res.body)
-    unpatched.push({
-      route: id,
-      status: res.status,
-      ssrNextLength: markup == null ? -1 : markup.length,
-    })
-  }
-  await stopChild(dev)
-
-  // ---------- 3. patched dev SSR + sweep ----------
-  execFileSync('git', ['apply', '--whitespace=nowarn', PATCH], { cwd: TREE })
-  dev = await startDev('patched (test/hydration/dev-ssr.patch)')
   const gaps = await probeBrowserGaps(devEnv)
   const browser = await chromium.launch()
   browserVersion = `chromium ${browser.version()}`
@@ -575,8 +550,6 @@ try {
     source: {
       commit: head,
       appTree: appTreeHash(),
-      patch: 'test/hydration/dev-ssr.patch',
-      patchSha256: patchHash(),
       copy: 'git archive HEAD (no worktree)',
     },
     runtime: {
@@ -595,7 +568,6 @@ try {
       tz: TIME_ZONES,
       cookieStates: COOKIE_STATES,
     },
-    q052: { unpatched },
     lateErrors,
     summary: {
       loads: loads.length,

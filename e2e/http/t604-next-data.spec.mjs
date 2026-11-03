@@ -306,10 +306,10 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
     expect(guardLog.pageErrors).toEqual([])
     expect(consoleLines(guardLog)).toEqual([
       [RESOURCE_404, `${p2Env.baseURL}${path}`],
-      // AD-137
+      // AD-137, AD-154
       [
         'Error: Failed to load static props',
-        `${p2Env.baseURL}/static/search/_next/static/chunks/pages/_app-27b450bed34a5b50.js`,
+        `${p2Env.baseURL}/static/search/_next/static/chunks/pages/_app-aa42575a9a303064.js`,
       ],
     ])
   })

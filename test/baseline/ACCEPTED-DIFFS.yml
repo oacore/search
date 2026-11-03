@@ -1572,3 +1572,69 @@
   step: "jump 2 close run, after its end-state reviews"
   signedOffBy: 'SIGNED: owner, 2026-10-31 (jump 2 batch round 4, approved in the work session)'
   date: '2026-10-31'
+- id: AD-153
+  kind: product
+  test: T-610
+  key: "t610-stdout-census.json"
+  from: "/.next/server/chunks/508.js"
+  to: "/.next/server/chunks/937.js"
+  reason: "T-610 c3 (app stdout/stderr line census): the number webpack gives the server chunk of the work and output templates. The W5.5 fixes change that chunk's modules, and its number moves from 508 to 937 in 6 lines of the census, stack frames of the SSR 500 pages (ScientificOutputTemplate, formatCitationDate, CitationMeta, CardDropdown twice, httpsValidate). These lines are otherwise unchanged and no other line differs. Server log lines only; nothing a visitor sees. The literal is read from the build of the merged tip; 937 is its value for all eight fixes (CS-R18-2, CS-R18-3, CS-R18-4, CS-R18-7, CS-ESC-1, CS-ESC-2, CS-ESC-3, CS-ESC-4). Applied by the ledger hook."
+  ref: [Q-072, Q-050, OD-09, OD-40, OD-31]
+  step: W5.5
+  signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
+  date: '2026-11-01'
+- id: AD-154
+  kind: product
+  test: T-604
+  key: "c4 stale buildId console frame"
+  from: "_app-27b450bed34a5b50.js"
+  to: "_app-aa42575a9a303064.js"
+  reason: "T-604 c4 names the content hash of the browser _app chunk in the expected console frame. CS-R18-3 and CS-R18-7 change that chunk; CS-R18-4 alone does not. The hash shown is the one read from the build of the merged tip, all eight fixes after the rework of W55-K and W55-L; take the literal from the set that lands."
+  ref: [Q-051, Q-100, OD-31]
+  step: W5.5
+  signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
+  date: '2026-11-01'
+- id: AD-155
+  kind: product
+  test: T-016
+  key: "c4 expected require edges"
+  from: "_app-27b450bed34a5b50.js:13456"
+  to: "_app-aa42575a9a303064.js:13456"
+  reason: "T-016 c4. The same chunk name, twice (cookies-provider.js, use-cookies.js). Take the literal from the set that lands."
+  ref: [Q-051, Q-100, OD-31]
+  step: W5.5
+  signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
+  date: '2026-11-01'
+- id: AD-156
+  kind: product
+  test: T-001
+  key: "c1 inline directives: count and INLINE_DISABLES"
+  from: "38 directives; rows of pages/_app.jsx class-methods-use-this and import/no-mutable-exports"
+  to: "36 directives; those two rows gone; report.disables.files 30 to 29"
+  reason: "T-001 c1. CS-R18-4 removes the directive with the wrapper; CS-R18-7 removes the other, componentDidCatch now uses this. ESLint and Stylelint findings stay 18 + 12. With one of the two fixes, one directive goes (37) and the file count stays."
+  ref: [Q-052, Q-100, OD-31]
+  step: W5.5
+  signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
+  date: '2026-11-01'
+- id: AD-157
+  kind: product
+  test: T-002
+  key: "CSS-module read inventory"
+  from: "66 importers, 363 member reads, 339 reads that are not dangling, 202 camelCase-only reads in 47 files, 137 reads under the original name, 434 tokens (tokens.all), 61 module-path tokens, 430 (the reconciliation sum), 220 spelled camelCase tokens; tokens.camel 221"
+  to: "67 importers, 365 member reads, 341 reads that are not dangling, 202 camelCase-only reads in 48 files, 139 reads under the original name, 437 tokens (tokens.all), 62 module-path tokens, 433 (the reconciliation sum), 220 spelled camelCase tokens; tokens.camel stays 221"
+  reason: "T-002. New reads of existing CSS module keys in templates/output/repaired-sidebar.jsx (CS-ESC-1), which reads one CSS module and takes the other classes from the files that own them (W55-L (a)). No CSS file changes. Eight counts, read from the reworked tree: 66 to 67, 363 to 365, 339 to 341, 47 to 48, 137 to 139, 434 to 437, 61 to 62, 430 to 433; 202, 220 and tokens.camel 221 stay (test/static/t002-css-module-keys.test.js lines 224, 245, 265, 271, 275, 313, 315, 320). The assertion at line 227, \"one CSS module per importer\", stays as it is. A test title that names a moved count moves with it."
+  ref: [Q-072, OD-40, OD-31]
+  step: W5.5
+  signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
+  date: '2026-11-01'
+- id: AD-158
+  kind: product
+  test: T-804
+  key: "c2 POINTER_ONLY outputs, works"
+  from: "outputs: [], works: []"
+  to: "outputs: ['div.styles_header-wrapper Open Research Online (The Open', 'svg.icon-icon.card-dropdown_icon-copy '], works: ['div.styles_header-wrapper.styles_header-wrapper-clickable Stirling Online Research Repos', 'svg.icon-icon.card-dropdown_icon-copy ', 'div.styles_header-wrapper.styles_header-wrapper-clickable Stirling Online Research Repos', 'svg.icon-icon.card-dropdown_icon-copy ', 'div.styles_header-wrapper.styles_header-wrapper-clickable Crossref']"
+  reason: "T-804 c2. These controls are pointer-only today as well. The test counts an element as reachable when an ancestor has tabIndex >= 0, and an <a> without href reports 0 although it is not in the tab order. T-804 c1, the real Tab order, is unchanged and green. No behaviour changes."
+  ref: [Q-072, OD-40, OD-31]
+  step: W5.5
+  signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
+  date: '2026-11-01'

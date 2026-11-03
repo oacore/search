@@ -11,7 +11,7 @@
 // (docs/upgrade/findings/baselines/) were the reference until W1: the step
 // from them to the new tables is a literal table here too.
 // c1: the application files, the bulk suppressions, the CSS and the Prettier
-// state equal the baseline (less what the format-only commit resolved), 38
+// state equal the baseline (less what the format-only commit resolved), 36
 // inline `eslint-disable` directives; an ESLint difference passes only as a
 // T-001 row of test/baseline/ACCEPTED-DIFFS.yml (42 §8, default deny).
 // c2: the harness files (test/**, e2e/**, jest.config.js) are lint clean
@@ -145,7 +145,7 @@ const OLD_TO_NEW = {
     ],
   ],
 }
-// the 38 inline directives of the application files: (path, rule, count); a
+// the 36 inline directives of the application files: (path, rule, count); a
 // comment that names two rules (modules/dropdown/index.jsx) adds two rows
 const INLINE_DISABLES = [
   ['api/data-provider.js', 'camelcase', 2],
@@ -168,8 +168,6 @@ const INLINE_DISABLES = [
   ['modules/filters/filter-item.jsx', 'consistent-return', 1],
   ['modules/filters/year/index.jsx', 'react/no-array-index-key', 1],
   ['modules/meta/index.jsx', 'react/no-danger', 1],
-  ['pages/_app.jsx', 'class-methods-use-this', 1],
-  ['pages/_app.jsx', 'import/no-mutable-exports', 1],
   ['pages/data-providers/index.jsx', 'react/no-danger', 1],
   ['templates/data-provider/claim/claim-card.jsx', 'no-console', 1],
   ['templates/data-provider/claim/claim-card.jsx', 'prefer-const', 1],
@@ -503,14 +501,14 @@ describe('T-001 @P0 lint parity', () => {
     expect(report.outside).toEqual([])
   })
 
-  test('T-001 c1 @P0 38 inline eslint-disable directives in 30 application files', () => {
+  test('T-001 c1 @P0 36 inline eslint-disable directives in 29 application files', () => {
     const scan = inlineDirectives()
-    expect(scan.comments).toBe(38)
+    expect(scan.comments).toBe(36) // AD-156
     expect(scan.rows).toEqual(INLINE_DISABLES)
     // the script counts the same directives
-    expect(report.disables.total).toBe(38)
+    expect(report.disables.total).toBe(36) // AD-156
     expect(report.disables.entries).toEqual(INLINE_DISABLES)
-    expect(report.disables.files).toBe(30)
+    expect(report.disables.files).toBe(29) // AD-156
     // none of them is a blanket disable
     expect(INLINE_DISABLES.filter((e) => e[1] === '*')).toEqual([])
   })

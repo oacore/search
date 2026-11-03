@@ -28,7 +28,7 @@
 //                  suppressions equal the baseline's and none is stale (ESLint exit 2). stylelint findings equal the
 //                  ratchet, and the ratchet equals the baseline less what the format-only commit resolved. Every
 //                  file of the lint scope is Prettier-formatted except the baseline's list less the format-only
-//                  commit's files. The 38 inline `eslint-disable` directives of the application files are counted.
+//                  commit's files. The 36 inline `eslint-disable` directives of the application files are counted.
 //   c2 harness     no ESLint finding in the harness scope (test/**, e2e/**, jest.config.js: the `search/test-harness`
 //                  block of eslint.config.js, 40 §7 rule 7); the report carries the effective config of harness
 //                  files and of an application file, and a control run of the harness files without that block (it
@@ -54,8 +54,9 @@ const require = createRequire(path.join(ROOT, 'package.json'))
 
 export const DEFAULT_BASELINE = 'test/baseline/t001-lint-w1.json'
 export const SUPPRESSIONS = 'eslint-suppressions.json'
-// 41 T-001, 02 (the 38 `eslint-disable` comments): inline directives in the application files
-export const INLINE_DISABLES = 38
+// 41 T-001, 02 (the 38 `eslint-disable` comments): inline directives in the application files; 36 since CS-R18-4
+// and CS-R18-7 (W5.5)
+export const INLINE_DISABLES = 36 // AD-156
 export const EXPECTED_MAJORS = { eslint: 10, stylelint: 17, prettier: 3 }
 export const HARNESS_BLOCK = 'search/test-harness'
 // the harness scope: the `search/test-harness` block (files: test/**/*.js, test/**/*.jsx, e2e/**/*.js, jest.config.js)
