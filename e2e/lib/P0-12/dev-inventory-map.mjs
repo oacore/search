@@ -205,6 +205,19 @@ export const DEV_WARNING_MAP = [
     },
   },
   {
+    // React 18.3 development warns once per component type that sets defaultProps on a function component;
+    // the T-728 sweep renders design MathMarkdown only (vendor/oacore-design/lib/elements/math-markdown/
+    // math-markdown.js:44). Development only: production prints nothing. Histoslider and any other component
+    // are not matched, so their warning still fails T-728 c4 (owner, 2026-11-03, jump 3 batch W6a)
+    id: 'q104-design-defaultprops',
+    q: 'Q-104',
+    devOnly: true,
+    match: {
+      kind: 'react',
+      text: /^Warning: MathMarkdown: Support for defaultProps will be removed from function components in a future major release\. Use JavaScript default parameters instead\./,
+    },
+  },
+  {
     id: 'q097-katex',
     q: 'Q-101',
     match: { kind: 'console', text: /^couldn`t convert string / },
