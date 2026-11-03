@@ -85,7 +85,15 @@ export function checkInventory(inv) {
     problems.push(
       'NODE_OPTIONS must not carry --openssl-legacy-provider (CS-N11-5: no local build or dev path sets it from Next 12)'
     )
-  if (inv.runtime.react !== '17.0.2') problems.push('React 17.0.2 expected')
+  // the React of the tree (17.0.2 until W6a, 18.3.1 from W6a, CS-R18-1)
+  const react = JSON.parse(
+    fs.readFileSync(
+      path.join(REPO, 'node_modules', 'react', 'package.json'),
+      'utf8'
+    )
+  ).version
+  if (inv.runtime.react !== react)
+    problems.push(`React ${react} expected (the installed version)`)
   // the full sweep: routes x fixtures x TZ x cookie state
   const want = []
   for (const r of T728_ROUTES)
