@@ -314,14 +314,14 @@
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#full-text-thumbnail-2001 > div:nth-child(2) > div:nth-child(1) > a",
-    "message": "<a> element is not permitted as a descendant of <a>"
+    "selector": "#full-text-thumbnail-2001-title",
+    "message": "<h2> element is not permitted as content under <span>"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#full-text-thumbnail-2001 > div:nth-child(2) > div:nth-child(2) > a",
-    "message": "<a> element is not permitted as a descendant of <a>"
+    "selector": "#full-text-thumbnail-2001 > div:nth-child(2)",
+    "message": "<div> element is not permitted as content under <span>"
   },
   {
     "ruleId": "attribute-misuse",
@@ -342,16 +342,16 @@
     "message": "Attribute \"download\" should omit value"
   },
   {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#full-text-thumbnail-2001-body",
+    "message": "<div> element is not permitted as content under <span>"
+  },
+  {
     "ruleId": "void-style",
     "severity": 2,
     "selector": "#full-text-thumbnail-2001-body > div > div:nth-child(1) > div > div > div > img",
     "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#full-text-thumbnail-2001-body > div > div:nth-child(1) > div > span > a",
-    "message": "<a> element is not permitted as a descendant of <a>"
   },
   {
     "ruleId": "no-implicit-button-type",
@@ -380,12 +380,6 @@
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#full-text-thumbnail-2001-body > div > div:nth-child(1) > div > span > div > button",
-    "message": "<button> element is not permitted as a descendant of <a>"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
     "selector": "#full-text-thumbnail-2001-body > div > div:nth-child(2) > span:nth-child(1) > div:nth-child(1)",
     "message": "<div> element is not permitted as content under <span>"
   },
@@ -398,20 +392,8 @@
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#full-text-thumbnail-2001-body > div > div:nth-child(2) > span:nth-child(1) > div:nth-child(1) > a",
-    "message": "<a> element is not permitted as a descendant of <a>"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
     "selector": "#full-text-thumbnail-2001-body > div > div:nth-child(2) > span:nth-child(1) > div:nth-child(2)",
     "message": "<div> element is not permitted as content under <span>"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#full-text-thumbnail-2001-body > div > div:nth-child(2) > a",
-    "message": "<a> element is not permitted as a descendant of <a>"
   },
   {
     "ruleId": "no-implicit-button-type",

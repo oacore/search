@@ -229,28 +229,26 @@
                 <h2>
                   "Similar works"
           <div class="styles_sidebar styles_container-sidebar">
-            <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-1001">
+            <span class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-1001">
               <h2 class="thumbnail-card_title" id="full-text-thumbnail-1001-title">
                 "Full text"
-            <div>
-              <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-1001">
-              <div class="thumbnail-card_button-container">
-                <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-1001">
-                <a class="button-button-3fr3r button-contained-pmIp-" href="<stack>/reader/566708785">
-                  "Open in the Core reader"
-                  <!--" "-->
-                  " "
-                  <svg class="icon-icon-35iz- thumbnail-card_icon" height="24" role="img" width="24">
-                    <use href="/static/search/icons.svg#open-in-new">
-              <div class="thumbnail-card_download-container">
-                <a class="button-button-3fr3r button-outlined-3dJXM thumbnail-card_download" download="" target="_blank">
-                  "Download PDF"
+              <div>
+                <div class="thumbnail-card_button-container">
+                  <a class="button-button-3fr3r button-contained-pmIp-" href="<stack>/reader/566708785">
+                    "Open in the Core reader"
+                    <!--" "-->
+                    " "
+                    <svg class="icon-icon-35iz- thumbnail-card_icon" height="24" role="img" width="24">
+                      <use href="/static/search/icons.svg#open-in-new">
+                <div class="thumbnail-card_download-container">
+                  <a class="button-button-3fr3r button-outlined-3dJXM thumbnail-card_download" download="" target="_blank">
+                    "Download PDF"
             <div class="card-container-11P0y card-outlined-1ScI1 styles_boxes">
               <h3 class="card-title-2rvi9 styles_version-title">
                 "Available Versions"
               <div class="styles_card-item card-dropdown_dropdown">
                 <div class="styles_header">
-                  <a class="styles_content">
+                  <div class="styles_content">
                     <div class="styles_header-wrapper styles_header-wrapper-clickable">
                       <div class="styles_item-wrapper">
                         <div class="data-provider-md-1r-YM data-provider-circle-1YXHk">
@@ -263,20 +261,20 @@
                     <span class="card-description-3Qppz styles_subtitle styles_oai-title">
                       <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
                         "See this paper in CORE"
-                  <a href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
-                    <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
-                      "Go to the repository landing page"
-                  <div>
-                    <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
-                      "Download from data provider"
-                  <span class="card-description-3Qppz card-dropdown_identifier">
-                    <div class="card-dropdown_inner-identifier">
-                      <img alt="oai" class="card-dropdown_logo" src="/static/search/static/images/oai.svg">
-                      <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
-                        "oai:dspace.stir.ac.uk:1893/351..."
-                    <div>
-                      <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
-                        <use href="/static/search/icons.svg#content-copy">
+                      <a href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
+                        <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
+                          "Go to the repository landing page"
+                      <div>
+                        <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
+                          "Download from data provider"
+                      <span class="card-description-3Qppz card-dropdown_identifier">
+                        <div class="card-dropdown_inner-identifier">
+                          <img alt="oai" class="card-dropdown_logo" src="/static/search/static/images/oai.svg">
+                          <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
+                            "oai:dspace.stir.ac.uk:1893/351..."
+                        <div>
+                          <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
+                            <use href="/static/search/icons.svg#content-copy">
                 <div>
                   <span class="card-description-3Qppz card-dropdown_date">
                     "Last time updated on "
@@ -284,7 +282,7 @@
                     "25/05/2023"
               <div class="styles_card-item card-dropdown_dropdown">
                 <div class="styles_header">
-                  <a class="styles_content">
+                  <div class="styles_content">
                     <div class="styles_header-wrapper styles_header-wrapper-clickable">
                       <div class="styles_item-wrapper">
                         <div class="data-provider-md-1r-YM data-provider-circle-1YXHk">
@@ -297,20 +295,20 @@
                     <span class="card-description-3Qppz styles_subtitle styles_oai-title">
                       <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
                         "See this paper in CORE"
-                  <a href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
-                    <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
-                      "Go to the repository landing page"
-                  <div>
-                    <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
-                      "Download from data provider"
-                  <span class="card-description-3Qppz card-dropdown_identifier">
-                    <div class="card-dropdown_inner-identifier">
-                      <img alt="oai" class="card-dropdown_logo" src="/static/search/static/images/oai.svg">
-                      <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
-                        "oai:dspace.stir.ac.uk:1893/351..."
-                    <div>
-                      <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
-                        <use href="/static/search/icons.svg#content-copy">
+                      <a href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
+                        <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
+                          "Go to the repository landing page"
+                      <div>
+                        <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
+                          "Download from data provider"
+                      <span class="card-description-3Qppz card-dropdown_identifier">
+                        <div class="card-dropdown_inner-identifier">
+                          <img alt="oai" class="card-dropdown_logo" src="/static/search/static/images/oai.svg">
+                          <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:dspace.stir.ac.uk:1893/35102">
+                            "oai:dspace.stir.ac.uk:1893/351..."
+                        <div>
+                          <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
+                            <use href="/static/search/icons.svg#content-copy">
                 <div>
                   <span class="card-description-3Qppz card-dropdown_date">
                     "Last time updated on "
@@ -318,7 +316,7 @@
                     "25/05/2023"
               <div class="styles_card-item card-dropdown_dropdown">
                 <div class="styles_header">
-                  <a class="styles_content">
+                  <div class="styles_content">
                     <div class="styles_header-wrapper styles_header-wrapper-clickable">
                       <div class="styles_item-wrapper">
                         <div class="data-provider-md-1r-YM data-provider-circle-1YXHk">
@@ -331,12 +329,12 @@
                     <span class="card-description-3Qppz styles_subtitle">
                       <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
                         "See this paper in CORE"
-                  <a href="https://doi.org/10.1111/rego.12518">
-                    <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
-                      "Go to the repository landing page"
-                  <div>
-                    <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
-                      "Download from data provider"
+                      <a href="https://doi.org/10.1111/rego.12518">
+                        <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
+                          "Go to the repository landing page"
+                      <div>
+                        <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
+                          "Download from data provider"
                 <div>
                   <span class="card-description-3Qppz card-dropdown_date">
                     "Last time updated on "

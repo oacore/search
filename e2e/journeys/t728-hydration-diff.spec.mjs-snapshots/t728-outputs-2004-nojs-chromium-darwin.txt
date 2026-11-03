@@ -221,17 +221,13 @@
                 <h2>
                   "Similar works"
           <div class="styles_sidebar styles_container-sidebar">
-            <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2004">
+            <span class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2004">
               <h2 class="thumbnail-card_title" id="full-text-thumbnail-2004-title">
                 "Full text"
-            <div class="thumbnail-card_body" id="full-text-thumbnail-2004-body">
-              <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2004">
-              <div class="">
-                <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2004">
-                <div class="styles_header">
-                  <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2004">
-                  <div class="styles_content">
-                    <a class="card-container-11P0y card-elevated-1Clhn thumbnail-card_container" id="full-text-thumbnail-2004">
+              <div class="thumbnail-card_body" id="full-text-thumbnail-2004-body">
+                <div class="">
+                  <div class="styles_header">
+                    <div class="styles_content">
                       <div class="styles_header-wrapper">
                         <div class="styles_item-wrapper">
                           <div class="data-provider-md-1r-YM data-provider-circle-1YXHk">
@@ -242,33 +238,33 @@
                               "Open Research Online (The Open University)"
                           <img alt="redirect" class="styles_redirect-img" src=<len=666 sha256=2efe7dd1c0c348ee "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cD"...>>
                       <span class="card-description-3Qppz styles_subtitle">
-                    <a href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
-                      <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
-                        "Go to the repository landing page"
-                    <div>
-                      <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
-                        "Download from data provider"
-                <div>
-                  <span class="card-description-3Qppz card-dropdown_identifier">
-                    <div class="card-dropdown_inner-identifier">
-                      <img alt="oai" class="card-dropdown_oai-logo" src="/static/search/static/images/oai.svg">
-                      <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
-                        "oai:oro.open.ac.uk:90496"
-                    <div>
-                      <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
-                        <use href="/static/search/icons.svg#content-copy">
-                  <span class="card-description-3Qppz card-dropdown_date">
-                    "Last time updated on "
-                    <!--" "-->
-                    "10/07/2023"
-                  <a class="card-dropdown_member-highlight" href="https://core.ac.uk/membership">
-                    "Provided by our "
-                    <!--" "-->
-                    "Sustaining"
-                    <!--" "-->
-                    " "
-                    <!--" "-->
-                    "member"
+                        <a href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
+                          <button class="button-button-3fr3r button-outlined-3dJXM styles_action-button">
+                            "Go to the repository landing page"
+                        <div>
+                          <button class="button-button-3fr3r button-outlined-3dJXM styles_disabled-button">
+                            "Download from data provider"
+                  <div>
+                    <span class="card-description-3Qppz card-dropdown_identifier">
+                      <div class="card-dropdown_inner-identifier">
+                        <img alt="oai" class="card-dropdown_oai-logo" src="/static/search/static/images/oai.svg">
+                        <a class="card-dropdown_ellipsis" href="https://api.core.ac.uk/oai/oai:oro.open.ac.uk:90496">
+                          "oai:oro.open.ac.uk:90496"
+                      <div>
+                        <svg class="icon-icon-35iz- card-dropdown_icon-copy" height="24" role="img" width="24">
+                          <use href="/static/search/icons.svg#content-copy">
+                    <span class="card-description-3Qppz card-dropdown_date">
+                      "Last time updated on "
+                      <!--" "-->
+                      "10/07/2023"
+                    <a class="card-dropdown_member-highlight" href="https://core.ac.uk/membership">
+                      "Provided by our "
+                      <!--" "-->
+                      "Sustaining"
+                      <!--" "-->
+                      " "
+                      <!--" "-->
+                      "member"
             <div class="card-container-11P0y card-outlined-1ScI1 styles_card">
               <div class="styles_container styles_map">
               <p>
