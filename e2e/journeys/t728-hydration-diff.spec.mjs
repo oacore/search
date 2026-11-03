@@ -275,11 +275,12 @@ test('T-728 c2 @P0 pinned tuple set: keyed on the 55 C7 (1) tuple, versioned, em
   expect(validateTupleFile(file)).toEqual([])
   expect(file.tuple).toEqual(TUPLE_KEYS)
   expect(Object.keys(file.versions)).toContain(versionKey())
-  // the 10.2 set and its copies for Next 12.1 and 12.3 (owner, 2026-10-29)
+  // the 10.2 set and its copies for Next 12.1 and 12.3 (owner, 2026-10-29) and the React 18.3 set on Next 12.3 (owner, 2026-11-03)
   expect([
     'react-17.0+next-10.2',
     'react-17.0+next-12.1',
     'react-17.0+next-12.3',
+    'react-18.3+next-12.3',
   ]).toContain(versionKey())
   expect(file.versions[versionKey()].entries).toEqual([])
   // the validator refuses message text, partial tuples, unknown codes and non-path locations
