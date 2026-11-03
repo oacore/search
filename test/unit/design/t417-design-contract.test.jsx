@@ -26,7 +26,7 @@ import path from 'path'
 import util from 'util'
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { hydrateRoot } from 'react-dom/client'
 import ReactDOMServer from 'react-dom/server'
 
 import { setupMsw } from '../../utils/msw'
@@ -629,9 +629,10 @@ describe(`T-417 @P0 design contract (IMPL=${IMPL})`, () => {
       expect(box.querySelectorAll('a')).toHaveLength(3)
       expect(inner()).toBe(0)
       const logs = expectConsole()
+      let root
       try {
         await act(async () => {
-          ReactDOM.hydrate(card, box)
+          root = hydrateRoot(box, card)
         })
       } finally {
         logs.restore()
@@ -640,7 +641,7 @@ describe(`T-417 @P0 design contract (IMPL=${IMPL})`, () => {
       expect(box.children).toHaveLength(1)
       // development builds of React 17 warn; production builds say nothing
       expect(logs.lines.every((l) => /^error Warning: /.test(l))).toBe(true)
-      ReactDOM.unmountComponentAtNode(box)
+      act(() => root.unmount())
       // a client render nests them directly
       const view = await (async () => {
         const c = expectConsole()
