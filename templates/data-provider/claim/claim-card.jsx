@@ -15,6 +15,7 @@ export async function getClaim({ params: claimParams }) {
   let {
     id,
     setIsClaimSuccessModalActive,
+    newEmail,
     setNewEmail,
     isDataProviderHasAccounts,
     name,
@@ -26,8 +27,12 @@ export async function getClaim({ params: claimParams }) {
   } = claimParams
 
   try {
-    if (modalEdit) setNewEmail(email)
-    else {
+    // React 18 renders ClaimCard once for a set to the value it already
+    // holds before it bails out, and ClaimCard asks for /account in its
+    // render (Q-027): the same e-mail is not set again
+    if (modalEdit) {
+      if (email !== newEmail) setNewEmail(email)
+    } else {
       email = emailFirst
       name = nameFirst
       setNewEmail('')
@@ -216,6 +221,7 @@ const ClaimCard = ({
                 params: {
                   id,
                   setIsClaimSuccessModalActive,
+                  newEmail,
                   setNewEmail,
                   isDataProviderHasAccounts,
                   ...options,
