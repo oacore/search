@@ -1,4 +1,4 @@
-# 30 - Known quirks register (Q-001..Q-103, S-1..S-10)
+# 30 - Known quirks register (Q-001..Q-104, S-1..S-10)
 
 **Purpose.** Existing bugs and odd behaviour found by the audit, what users and crawlers see today, its class under [00](00-decisions.md) D1/D1a, and the tests that pin it.
 **Read** before touching code that looks wrong, or when a characterization test fails "for a weird reason": if it is listed, it stays. **Owns** the Q rows, the Q to T map ("Pinned by"), §E and the security notes. Bare numbers are files `NN-*.md`; statuses: [STATUS](STATUS.md) §4.
@@ -14,7 +14,7 @@
 
 ## 2. Summary
 
-102 quirks (Q-086 unallocated): **PRESERVE 91**, **WATCH 5** (Q-014, Q-027, Q-047, Q-065, Q-071), **ESCALATES 6** (approved Q-050..Q-052; candidates Q-072, Q-075, Q-093).
+103 quirks (Q-086 unallocated): **PRESERVE 92**, **WATCH 5** (Q-014, Q-027, Q-047, Q-065, Q-071), **ESCALATES 6** (approved Q-050..Q-052; candidates Q-072, Q-075, Q-093).
 
 ## A. Routing, status codes, SSR, head
 
@@ -140,6 +140,7 @@ Absent unless the live payload has the exact keys (VF-03 sample): `citation_pdf_
 | Q-068 | **Design global leaks, stale closures:** global `ul{...list-style:none}`; Modal uses the first-render `onClose`; Fieldset throws on empty `items`. | design `src/modules/header/advanced-search.css:16` | T-801, T-417 |
 | Q-101 | **MathMarkdown logs KaTeX failures:** a math fragment KaTeX rejects (`\sb2` in a result of `/search/?q=climate&page=2`) is logged as "couldn't convert string" plus the fragment through `console.error` (the source spells the apostrophe as a backtick), in the browser and on the server, and rendered as raw text. | design `lib/elements/math-markdown/utils/latexify.js:29` | T-610, T-728, T-741 |
 | Q-102 | **`memberType` reaches a DOM element (development only):** the works/outputs template passes `memberType` (`undefined`: no gSSP sets it) to design `FullTextThumbnail`, which forwards it to the `Card` element: React 17 development warns `React does not recognize the memberType prop`, production writes no attribute. | `templates/output/index.jsx:42,227` | T-728 |
+| Q-104 | **`defaultProps` on design function components (development only):** React 18.3 development warns once per component type that design `MathMarkdown` and `Histoslider` set `defaultProps` on a function component; production prints nothing. React 19 drops them for `jsx()` elements (R-012). | `vendor/oacore-design/lib/elements/math-markdown/math-markdown.js:44`, `vendor/oacore-design/lib/elements/histoslider/histoslider.js:141` | T-728, the Jest dom gate |
 
 ## E. ESCALATES (evidence: X30.6, X30.19, X30.24)
 
