@@ -181,7 +181,7 @@ Transitions: 03 §5.1, 06 §7.2.
 | T-725 | P0 | J18 | | R-075, R-087 | all |
 | T-726 | P1 | J19 | | R-075, R-087 | W5, 7.x |
 | T-727 | P1 | J20 | | R-051 | W5, W6c |
-| T-728 | P0 | J30 hydration diff | No-JS vs hydrated DOM (text, attributes) + MutationObserver, both also vs the B0 captures (SSR body DOM, 40 §1); pinned diff = T-701 allow-list on React 18/19, keyed on the 55 C7 (1) tuple; routes x fixtures x 3 TZ x 3 cookie states x 3 engines; React-17 dev inventory (40 §4), each hit → Q row | R-010, R-013 | all |
+| T-728 | P0 | J30 hydration diff | No-JS vs hydrated DOM (text, attributes) + MutationObserver, both also vs the B0 captures (SSR body DOM, 40 §1); pinned diff = T-701 allow-list on React 18/19, keyed on the 55 C7 (1) tuple; routes x fixtures x 3 TZ x 3 cookie states x 3 engines; React-17 dev inventory (40 §4, `next dev` without a patch since CS-R18-4, W5.5 row -14), each hit → Q row | R-010, R-013 | all |
 | T-729 | P0 | Post-hydration head | `document.head` per fixture (author/subject counts varied) = pinned (Q-069); from 15 also after client nav, per-version diff as AD rows (OD-39) | R-003, R-071 | W6c, W7a, 7.x |
 | T-730 | P0 | J24 | Fixtures Q-074a–e: `#__next` empty, error signature (React 17: `console.error` through the ErrorBoundary, Q-010, no `pageerror`), SSR HTML intact | R-058 | all |
 | T-731 | P0 | J23 | T-601 500 fixtures in the browser: `_error` in layout, `<title>`; `_next/data` 200 where direct is 500 | R-045, R-085 | all |
