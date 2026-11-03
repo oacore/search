@@ -89,7 +89,8 @@ async function capture(fx, route, { tz, cookieState, js }) {
     const tracker = trackRequests(page)
     const res = await page.goto(urlOf(p2Env, route))
     expect(res.status(), `${route.path} status`).toBe(200)
-    await settle(page, tracker, { js })
+    // the capture waits for the end of every Leaflet tile fade (e2e/lib/P0-12/page.mjs)
+    await settle(page, tracker, { js, tileFade: true })
     const lines = await serializeBody(page, p2Env.build.buildId)
     const mo = js ? await page.evaluate(() => window.__p012) : null
     const nestedAnchors = await page.evaluate(
