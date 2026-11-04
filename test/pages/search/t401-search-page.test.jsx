@@ -314,7 +314,7 @@ describe('T-401 @P1 pages/search/index.jsx', () => {
       expect(consoleError).not.toHaveBeenCalled()
     })
 
-    test('T-401 c2 @P1 queryError -> data on the mounted instance: the hooks start, no error is thrown or logged, the search bar appears', async () => {
+    test('T-401 c2 @P1 queryError -> data on the mounted instance: the hooks start, nothing is thrown, React 18 development logs one static-flag warning, the search bar appears', async () => {
       const errorProps = await gssp({ q: '__status500' })
       const dataProps = await gssp({ q: 'zzzzqqq' })
       const view = await mountShell(errorProps, { q: '__status500' })
@@ -327,7 +327,9 @@ describe('T-401 @P1 pages/search/index.jsx', () => {
       expect(screen.getByText(noResults('zzzzqqq'))).toBeInTheDocument()
       expect(headerSearchBox()).toHaveValue('zzzzqqq')
       expect(view.container.innerHTML).not.toBe('')
-      expect(consoleError).not.toHaveBeenCalled()
+      expect(consoleError.mock.calls.map((c) => c[0])).toEqual([
+        'Warning: Internal React error: Expected static flag was missing. Please notify the React team.%s',
+      ]) // AD-169
     })
 
     test('T-401 c2 @P1 data -> queryError: the ErrorCard replaces the page, the search bar the dropped hooks configured stays', async () => {
@@ -366,7 +368,7 @@ describe('T-401 @P1 pages/search/index.jsx', () => {
       expect(consoleError).not.toHaveBeenCalled()
     })
 
-    test('T-401 c2 @P1 the page alone, without the shell, behaves the same: no hooks error in either direction', async () => {
+    test('T-401 c2 @P1 the page alone, without the shell, behaves the same: nothing is thrown in either direction, and React 18 development logs one static-flag warning', async () => {
       const errorProps = await gssp({ q: '__status500' })
       const dataProps = await gssp({ q: 'zzzzqqq' })
       const { container, rerender } = mount(errorProps, { q: '__status500' })
@@ -380,7 +382,9 @@ describe('T-401 @P1 pages/search/index.jsx', () => {
       rerender(<Search {...errorProps} />)
       expect(hasErrorCard()).toBe(true)
       expect(container.innerHTML).not.toBe('')
-      expect(consoleError).not.toHaveBeenCalled()
+      expect(consoleError.mock.calls.map((c) => c[0])).toEqual([
+        'Warning: Internal React error: Expected static flag was missing. Please notify the React team.%s',
+      ]) // AD-169
     })
   })
 })

@@ -1682,3 +1682,124 @@
   step: W5.5
   signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
   date: '2026-11-01'
+- id: AD-163
+  kind: product
+  test: T-603
+  key: "html-gssp@origin/etag, html-gssp@proxy/etag, html-gip@origin/etag, html-gip@proxy/etag, 404-page@origin/etag, 404-page@proxy/etag, 404-notfound@origin/etag, 404-notfound@proxy/etag, 500@origin/etag, 500@proxy/etag"
+  from: "<present>"
+  to: "<absent>"
+  reason: "T-603 c1 (OD-39 streaming; decision W6A-J (a) of the jump 3 batch W6a). With React 18 installed, Next 12.3.7 streams the HTML of a page whose Document is the built-in one (node_modules/next/dist/server/base-server.js:547-555), and the app has no pages/_document: no ETag on GET, HEAD and br/gzip of the five HTML classes, origin and proxy (30 diffs). Crawlers that Next's isBot recognises still get the buffered answer. Nothing a visitor sees or downloads: the five classes already answer `private, no-cache, no-store, max-age=0, must-revalidate` (html-gssp in the contract baseline, AD-104, AD-105), so a browser never stores or revalidates them; only a client that sends If-None-Match itself, as the T-603 contract does, loses the ETag and the 304. Applied by the T-603 ledger hook."
+  ref: [R-083, OD-39, OD-31]
+  step: W6a
+  signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
+  date: '2026-11-04'
+- id: AD-164
+  kind: product
+  test: T-603
+  key: "html-gssp@origin/content-length, html-gssp@proxy/content-length, html-gip@origin/content-length, html-gip@proxy/content-length, 404-page@origin/content-length, 404-page@proxy/content-length, 404-notfound@origin/content-length, 404-notfound@proxy/content-length, 500@origin/content-length, 500@proxy/content-length"
+  from: "<present>"
+  to: "<absent>"
+  reason: "T-603 c1 (OD-39 streaming), as AD-163: no Content-Length on GET and HEAD of the five HTML classes, origin and proxy (20 diffs; br/gzip had none). The HEAD answer now carries neither Content-Length nor Transfer-Encoding. Applied by the T-603 ledger hook."
+  ref: [R-083, OD-39, OD-31]
+  step: W6a
+  signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
+  date: '2026-11-04'
+- id: AD-165
+  kind: product
+  test: T-603
+  key: "html-gssp@origin.GET/transfer-encoding, html-gssp@proxy.GET/transfer-encoding, html-gip@origin.GET/transfer-encoding, html-gip@proxy.GET/transfer-encoding, 404-page@origin.GET/transfer-encoding, 404-page@proxy.GET/transfer-encoding, 404-notfound@origin.GET/transfer-encoding, 404-notfound@proxy.GET/transfer-encoding, 500@origin.GET/transfer-encoding, 500@proxy.GET/transfer-encoding"
+  from: "<absent>"
+  to: "chunked"
+  reason: "T-603 c1 (OD-39 streaming), as AD-163: the plain GET of the five HTML classes, origin and proxy, is chunked (10 diffs; br/gzip was chunked before). Applied by the T-603 ledger hook."
+  ref: [R-083, OD-39, OD-31]
+  step: W6a
+  signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
+  date: '2026-11-04'
+- id: AD-166
+  kind: product
+  test: T-603
+  key: "html-gssp@origin.conditional/:row, html-gssp@proxy.conditional/:row, html-gip@origin.conditional/:row, html-gip@proxy.conditional/:row, 404-page@origin.conditional/:row, 404-page@proxy.conditional/:row, 404-notfound@origin.conditional/:row, 404-notfound@proxy.conditional/:row, 500@origin.conditional/:row, 500@proxy.conditional/:row"
+  from: "present"
+  to: "<absent>"
+  reason: "T-603 c1 (OD-39 streaming), as AD-163: without an ETag the contract makes no conditional GET for the five HTML classes, so their 10 conditional rows, origin and proxy, are absent. Each expects 304 today: html-gssp (/search/?q=climate), html-gip (/outputs/update/), 404-page (/search/nope/), 404-notfound (/data-providers/999999999/) and the works SSR 500 page (/works/6948813/). Under reading (i) of 30 §1 rule 3 (decision W6A-J (a)) the rule keeps the status of a plain request, the T-601 and T-731 cells, which stay; the lost conditional 304 is one of the OD-39 streaming deltas. What the server answers a client that still sends an old If-None-Match was not measured. Applied by the T-603 ledger hook (`:row` is not in NEVER_COVERED of e2e/lib/P0-11/contract.mjs)."
+  ref: [R-083, OD-39, OD-31]
+  step: W6a
+  signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
+  date: '2026-11-04'
+- id: AD-167
+  kind: product
+  test: T-707
+  key: "expectKatexOnly perLoad (e2e/journeys/t707-j5-work-back.spec.mjs:192)"
+  from: "2"
+  to: "3"
+  reason: "T-707. The KaTeX line couldn`t convert string \\sb2 of search-climate-p2-all-params is logged 3 times per load on React 18 against 2: 6 against 4 in the test's 2 loads (e2e/lib/P0-14/j5.mjs:82). The same count is in the T-741 pin set react-18.3+next-12.3 (W6A-A (a)) and in the dev inventory (27 against 18 in 9 loads). T-707 holds it as a constant. The cause of the extra render is not traced (as in W5.5). The failure text also prints the browser _app chunk and a column, which this row does not pin. A constant: the value at the site, the AD id in a comment beside it."
+  ref: [Q-101, Q-097, OD-39, OD-31]
+  step: W6a
+  signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
+  date: '2026-11-04'
+- id: AD-168
+  kind: product
+  test: T-410
+  key: "c4 uncaught window errors per thrown render (test/unit/templates/output/t410-cite-modal.test.jsx:443, :473)"
+  from: "[thrown]"
+  to: "[thrown, thrown]"
+  reason: "T-410 c4 (Jest, React development build). React 18 renders a component that threw once more before it gives up, so jsdom reports the thrown string twice as a window error: at :443 the string 'Value expected:Sept }\\n for key: Sept' twice, at :473 'Unterminated value' twice, measured on the first of its three cases (the test stops at its first red); each case's expected list is its own thrown string twice. The thrown string is the same as today (:442, :472). Production React reports a render error once per attempt to the error boundary, which Q-010 leaves without a fallback; no visitor-visible change was measured. Constants: the expected lists at the two sites, each thrown string twice, the AD id in a comment beside them."
+  ref: [Q-037, OD-39, OD-31]
+  step: W6a
+  signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
+  date: '2026-11-04'
+- id: AD-169
+  kind: product
+  test: T-401
+  key: "c2 console.error of the queryError -> data re-render (test/pages/search/t401-search-page.test.jsx:330, :383)"
+  from: "not called"
+  to: "called once: Warning: Internal React error: Expected static flag was missing. Please notify the React team.%s"
+  reason: "T-401 c2 (Jest, development build). Q-047: the page calls more hooks after its early return is left; React 17 development says nothing, React 18 development warns once, with a component stack from pages/search/index.jsx:113 as the second argument. The two tests that flip queryError -> data are red by that one call: :330 on the mounted shell and :383 the page alone; the other three T-401 c2 tests are green. The page renders the data and the search bar as today; production prints nothing. Constants: one call with that first argument at the two sites, the AD id in a comment beside them."
+  ref: [Q-047, OD-39, OD-31]
+  step: W6a
+  signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
+  date: '2026-11-04'
+- id: AD-170
+  kind: product
+  test: T-417
+  key: "c1 row 8 Q-072 c1 c2 (test/unit/design/t417-design-contract.test.jsx:612-658, line 643)"
+  from: "React 17 hydration puts the hoisted anchors back with development warnings only"
+  to: 'React 18 hydrateRoot reports the nested anchors as a hydration error and renders the card on the client: inner anchors 2 and box children 1 as today; logged exactly, in this order: "error Warning: Expected server HTML to contain a matching <a> in <a>.", "error Error: Uncaught [Error: Hydration failed because the initial UI does not match what was rendered on the server.]", "error Warning: An error occurred during hydration. The server HTML was replaced with client content in <div>.", "error Warning: validateDOMNesting(...): <a> cannot appear as a descendant of <a>.", "error Error: Hydration failed because the initial UI does not match what was rendered on the server.", "error Error: Hydration failed because the initial UI does not match what was rendered on the server.", "error Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering."'
+  reason: "T-417 c1 row 8 (60 §6 row 8, Q-072 c1 c2). The design Card with tag=a around anchors is what CS-ESC-1 (W5.5) took out of the app; the row pins the package's behaviour, which on React 18 under hydrateRoot (TC-2) is the hydration error W5.5 found on the pages, then a client render. It is kept as a React 18 fact, as W6A-D (a) keeps the same design behaviour in T-802's du-04-tag-a. Applied at the site: the assertion at line 643 expects exactly these 7 lines, and inner anchors 2 and box children 1 stay. The test title says that React 18 hydration reports a hydration error and renders the card on the client; the comment above the list says that development builds log these lines and that production builds print no warning and report the failed hydration as the minified React errors #418 and #423 (T-802 du-04-tag-a), with the AD id."
+  ref: [Q-072, OD-40, OD-39, OD-31]
+  step: W6a
+  signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
+  date: '2026-11-04'
+- id: AD-171
+  kind: product
+  test: T-804
+  key: "c2 dialogs, focus after closing the Report form and the success modal (e2e/journeys/t804-keyboard-smoke.spec.mjs:319, :338)"
+  from: "body"
+  to: "Report"
+  reason: "T-804 c2 (decision W6A-I (a) of the jump 3 batch W6a). On React 18 closing the Report form before a role is chosen (:319) and closing the success modal (:338) put the focus back on the Report button; today it is lost to <body>, and the backdrop click at :306 still leaves <body>. A keyboard or screen-reader visitor gets the focus back on the button that opened the dialog. The return target is chosen by react-focus-lock inside the vendored design Modal (returnFocus: true, vendor/oacore-design/lib/modules/modal/modal.js:75); the app only toggles store flags. Where the focus goes after the Cite dialog closes was not measured. Measured on the W6a builds: at :319 on 42b166d4ce80c734, at :338 on d89b1a33ce9c72d5 (React 18.3.1 before the W6a app changes). Constants at the two sites, the AD id in a comment beside them."
+  ref: [Q-085, OD-39, OD-31]
+  step: W6a
+  signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
+  date: '2026-11-04'
+- id: AD-172
+  kind: product
+  test: T-604
+  key: "c4 the _app chunk name in the stale-buildId console frame (e2e/http/t604-next-data.spec.mjs:312)"
+  from: "_app-aa42575a9a303064.js"
+  to: "_app-c69132bc37b63907.js"
+  reason: "T-604 c4 names the content hash of the browser _app chunk in the expected console frame of the stale-buildId fallback (AD-137, AD-154). W6A-G (CS-R18-3, main/index.jsx: the popup flag set by a layout effect in the browser) changes that chunk; the module 13456 is unchanged. React 18 alone does not change it (the W6a builds without W6A-G keep the jump tip's name), and W6A-H does not. The test is red by that name alone: the expected and received console lines differ only in the hash. Nothing a visitor sees. AD-154 stays in the ledger as the record of W5.5, as AD-137 stayed for AD-154, so this row has a key of its own (one row in force per test and key). The pinned name moves with every change of the _app chunk, so W6c and W6d will move it again; the literal is read from the build of the set that lands. A constant: the value at the site, the AD id added to the comment beside it."
+  ref: [Q-051, OD-31]
+  step: W6a
+  signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
+  date: '2026-11-04'
+- id: AD-173
+  kind: product
+  test: T-016
+  key: "c4 the _app chunk name of the two cookie require edges (test/static/detector-t016-c4-design-requires.test.js:198-199)"
+  from: "_app-aa42575a9a303064.js:13456"
+  to: "_app-c69132bc37b63907.js:13456"
+  reason: "T-016 c4. The same chunk name as AD-172, twice (cookies-provider.js and use-cookies.js -> <unmapped:static/chunks/pages/_app-...js:13456>; AD-138, AD-155). W6A-G changes the chunk; the module id 13456 and the two edges are unchanged, the test is red by the hash alone, and its negative control is green. AD-155 stays in the ledger as the record of W5.5, so this row has a key of its own. The pinned name moves with every change of the _app chunk, so W6c and W6d will move it again; the literal is read from the build of the set that lands. Constants: the two values at the site, the AD id added to the comment beside them."
+  ref: [Q-051, OD-31]
+  step: W6a
+  signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
+  date: '2026-11-04'
