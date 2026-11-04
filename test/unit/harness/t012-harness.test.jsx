@@ -23,7 +23,7 @@ describe('T-012 harness self-tests (dom project setup)', () => {
     render(
       React.createElement(
         NextLink,
-        { href: '/data-providers/86' },
+        { href: '/data-providers/86', legacyBehavior: true },
         React.createElement('a', null, 'provider')
       ),
       { wrapper: withRouter() }
