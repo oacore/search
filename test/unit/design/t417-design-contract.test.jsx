@@ -609,7 +609,7 @@ describe(`T-417 @P0 design contract (IMPL=${IMPL})`, () => {
       expect(JSON.parse(ssr)).toBe('')
     })
 
-    test('T-417 c1 @P0 row 8 Q-072 c1 c2: Card passes tag to its root; the HTML parser hoists the inner anchors (0 inside without JS) and React 17 hydration puts them back without an error', async () => {
+    test('T-417 c1 @P0 row 8 Q-072 c1 c2: Card passes tag to its root; the HTML parser hoists the inner anchors (0 inside without JS), and React 18 hydration reports a hydration error and renders the card on the client', async () => {
       const card = (
         <I.Card tag="a" href="/download/1.pdf" variant="outlined">
           <I.Button tag="a" href="/reader/1" variant="contained">
@@ -639,8 +639,18 @@ describe(`T-417 @P0 design contract (IMPL=${IMPL})`, () => {
       }
       expect(inner()).toBe(2)
       expect(box.children).toHaveLength(1)
-      // development builds of React 17 warn; production builds say nothing
-      expect(logs.lines.every((l) => /^error Warning: /.test(l))).toBe(true)
+      // development builds of React 18 log these 7 lines (AD-170);
+      // production builds print no warning and report the failed hydration
+      // as the minified React errors #418 and #423 (T-802 du-04-tag-a, TC-5)
+      expect(logs.lines).toEqual([
+        'error Warning: Expected server HTML to contain a matching <a> in <a>.',
+        'error Error: Uncaught [Error: Hydration failed because the initial UI does not match what was rendered on the server.]',
+        'error Warning: An error occurred during hydration. The server HTML was replaced with client content in <div>.',
+        'error Warning: validateDOMNesting(...): <a> cannot appear as a descendant of <a>.',
+        'error Error: Hydration failed because the initial UI does not match what was rendered on the server.',
+        'error Error: Hydration failed because the initial UI does not match what was rendered on the server.',
+        'error Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.',
+      ])
       act(() => root.unmount())
       // a client render nests them directly
       const view = await (async () => {

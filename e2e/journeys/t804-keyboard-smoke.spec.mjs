@@ -274,7 +274,7 @@ test.describe('T-804 c2 keyboard gaps', () => {
     expect(found).toEqual(POINTER_ONLY)
   })
 
-  test('T-804 c2 @P1 the dialogs: trapped Tab cycles, pointer-only cards, no keyboard path to a report, focus lost on close and on a backdrop click', async ({
+  test('T-804 c2 @P1 the dialogs: trapped Tab cycles, pointer-only cards, no keyboard path to a report, focus back on Report after closing the form or the success modal, lost to <body> on a backdrop click', async ({
     page,
   }) => {
     await setFixedTime(page)
@@ -307,7 +307,7 @@ test.describe('T-804 c2 keyboard gaps', () => {
     await page.keyboard.press('Tab')
     expect(await nameOf(page)).toBe('Close')
 
-    // Report form before a role is chosen: only Close; closing it leaves the focus on <body>
+    // Report form before a role is chosen: only Close; closing it puts the focus back on Report (AD-171)
     await type.getByText('The document should not be published').click()
     await type.getByRole('button', { name: 'Continue' }).click()
     const form = page.locator('[aria-label="Problem-form-modal"]').first()
@@ -316,9 +316,9 @@ test.describe('T-804 c2 keyboard gaps', () => {
     await form.getByRole('button', { name: 'Close', exact: true }).focus()
     await page.keyboard.press('Enter')
     await expect(page.getByRole('dialog')).toHaveCount(0)
-    expect(await nameOf(page)).toBe('body')
+    expect(await nameOf(page)).toBe('Report') // AD-171
 
-    // the success modal: only "got it"; closing it leaves the focus on <body>
+    // the success modal: only "got it"; closing it puts the focus back on Report (AD-171)
     await report.click()
     await type.getByText('The document should not be published').click()
     await type.getByRole('button', { name: 'Continue' }).click()
@@ -335,7 +335,7 @@ test.describe('T-804 c2 keyboard gaps', () => {
     expect(await cycle(page)).toEqual(['got it', 'got it', 'got it', 'got it'])
     await page.keyboard.press('Enter')
     await expect(page.getByRole('dialog')).toHaveCount(0)
-    expect(await nameOf(page)).toBe('body')
+    expect(await nameOf(page)).toBe('Report') // AD-171
 
     // CSV download: Download and Cancel; the three size cards are pointer-only
     await setFixedTime(page)

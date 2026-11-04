@@ -188,8 +188,8 @@ test.describe('T-707 @P0 J5 search -> work -> Back', () => {
     ).toEqual([['document', 'GET', START, 200]])
     await expect(page.getByText(HITS)).toBeVisible()
 
-    // the KaTeX lines: two per hard load of the search page, none on the work page
-    expectKatexOnly(guardLog, 2, 2)
+    // the KaTeX lines: three per hard load of the search page on React 18 (AD-167), none on the work page
+    expectKatexOnly(guardLog, 3, 2) // AD-167
 
     // provisional baselines (B0 at 2.5): history log, history.length and scroll after each step, the app requests
     const buildId = await page.evaluate(() => window.__NEXT_DATA__.buildId)

@@ -440,7 +440,7 @@ describe('T-410 @P1 Cite modal', () => {
 
       expect(typeof thrown).toBe('string')
       expect(thrown).toBe('Value expected:Sept }\n for key: Sept')
-      expect(uncaught).toEqual([thrown])
+      expect(uncaught).toEqual([thrown, thrown]) // AD-168
       // nothing is left of the button or of the page
       expect(container.innerHTML).toBe('')
       expect(dialog()).toBeNull()
@@ -470,7 +470,7 @@ describe('T-410 @P1 Cite modal', () => {
         uncaught = []
         const { container, unmount } = mountCite(citations(text))
         expect(clickCite()).toBe(expected)
-        expect(uncaught).toEqual([expected])
+        expect(uncaught).toEqual([expected, expected]) // AD-168
         expect(container.innerHTML).toBe('')
         unmount()
       })
