@@ -26,6 +26,10 @@
     "react-18.3+next-12.3": {
       "recorded": "2026-11-03, W6a (React 18.3 on Next 12.3): empty on Chromium, as the W5.5 fixed spike measured and T-701 shows (0 hydration events in 270 tests); WebKit and Firefox DEFERRED, as in jumps 1 and 2; owner signature 2026-11-03 (STATUS section 2): a hydration tuple on React 18 is red, and none is added without a signature",
       "entries": []
+    },
+    "react-18.3+next-13.5": {
+      "recorded": "2026-11-05, W6c (React 18.3 on Next 13.5): empty on Chromium, as T-701 shows on Next 13.5 (0 hydration events in 270 tests); WebKit and Firefox DEFERRED, as in jumps 1 and 2; owner signature 2026-11-05 (STATUS section 2): a hydration tuple on Next 13.5 is red, and none is added without a signature",
+      "entries": []
     }
   }
 }
