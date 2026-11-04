@@ -41,6 +41,7 @@ export const NORMALISATIONS = {
     'console.time labels (request ids) and durations replaced',
     'allow-listed Next 13.5/16 uncaughtException listener lines (none on Next 10)',
     'line:column numbers of stack frames in the stdout/stderr census replaced (function and file names kept)',
+    'the start-up time of `next start` from Next 13.5 (` ✓ Ready in <n>ms`)',
   ],
 }
 
@@ -326,6 +327,8 @@ export function normaliseLogLine(line, { buildDir = null, origins = [] } = {}) {
     /^(fetchWorks|transformDataProviders):\d+-[a-z0-9]{1,5}: [\d.]+(ms|s)$/,
     '$1:<reqId>: <duration>'
   )
+  // the start-up time of `next start` (Next 13.5 prints ` ✓ Ready in 705ms`)
+  l = l.replace(/^ ✓ Ready in [\d.]+m?s$/, ' ✓ Ready in <duration>')
   // stack frames: line and column masked, function and file kept
   return maskFrameNumbers(l)
 }

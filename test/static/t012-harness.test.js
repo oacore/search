@@ -24,11 +24,13 @@ const walk = (dir) => {
 
 // values `node tools/check-docs.mjs docs/upgrade --constants` printed when the
 // harness was accepted (40 §8 rule 8); normalisations: re-pinned for the T-610
-// stack-frame line:column mask (owner SIGNED: 2026-10-27; was 7c1eb36f…)
+// stack-frame line:column mask (owner SIGNED: 2026-10-27; was 7c1eb36f…) and
+// for the T-610 start-up time of Next 13.5 (owner SIGNED: 2026-11-05; was
+// 24b8faf8…)
 const PINNED_DOC_CONSTANTS = {
   t805: 'd4f5fa58f13465be33e010a65ff2217d92f25a35c3a65731f4f2662b0ef24f23',
   normalisations:
-    '24b8faf84685c306165bf5ef41c314bb92d75f9d9fa5a3a2befd9de5562d0fe1',
+    'ab4e769d9830381ccfd564f0ea7aafef83562b37e205adc3997d7ba19bca3d76',
   adKeyRule: '6edfe76c66ed7ecb4ebe7e667a67ff8550230ececbf596119fb832a601ae08bd',
 }
 // seeded synthetic bootstrap of scripts/gate-stats.mjs (seed 20261020, 10,000
