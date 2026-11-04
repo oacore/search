@@ -13,8 +13,9 @@
 //   - Back reloads the search page (a new document): same URL, results, sort label; history log, history.length
 //     and scroll position are provisional baselines (= B0 at 2.5);
 //   - the header search of a work page pushes the raw string `/search?q=<term>` (Q-012, R-051).
-// The search page prints the design's KaTeX console.error twice per hard load (`\sb2` in one abstract, T-741 pin
-// katex-convert): the journey declares the guard's console check expected and asserts exactly those lines.
+// The search page prints the design's KaTeX console.error three times per hard load on React 18 (AD-167) (`\sb2` in
+// one abstract, T-741 pin katex-convert): the journey declares the guard's console check expected and asserts
+// exactly those lines.
 import { test, expect } from '../lib/P0-14/fixtures.mjs'
 import {
   appOnly,

@@ -15,9 +15,9 @@
 //       descendant: the six filter pills, "How to search?" and the sort box on the search page, the sort box of
 //       the provider page; inside the dialogs the two Report type cards and the three CSV size cards), the Tab
 //       cycle each dialog traps (Cite: only X; Report type and Report form before a role is chosen: only Close,
-//       Continue is disabled, so a report cannot be made by keyboard), the focus that ends on <body> when the
-//       Report form or the success modal closes (their opener is gone), and the focus that a backdrop click
-//       moves to <body> inside a hideManually modal (the next Tab brings it back).
+//       Continue is disabled, so a report cannot be made by keyboard), the focus that returns to Report when the
+//       Report form or the success modal closes on React 18 (AD-171), and the focus that a backdrop click moves to
+//       <body> inside a hideManually modal (the next Tab brings it back).
 import { test, expect, open, setFixedTime } from '../lib/P1-07/page.mjs'
 import { downloadButton, csvTitle } from '../lib/P0-17/locators.mjs'
 import { expectJsonBaseline } from '../lib/P1-06/baseline.mjs'
