@@ -10,29 +10,7 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/header[1]/div[2]/h5[1]/a[1] "sustaining member"
 @@ -193 +193 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1] "recent"
-@@ -196 +197 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[3] ""
-@@ -243 +245 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[4] ""
-@@ -282 +285 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[5] ""
-@@ -321 +325 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[6] ""
-@@ -357 +362 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[6]/div[1]/span[1] ""
-@@ -359 +365 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[7] ""
-@@ -406 +413 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[8] ""
-@@ -453 +461 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[9] ""
-@@ -531 +540 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[10] ""
-@@ -570 +580 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[11] ""
-@@ -605 +616 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[12] ""
-@@ -718 +730 @@
+@@ -718 +719 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1] <div class="styles_map leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="map" tabindex="0">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1]/div[1] <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1]/div[1]/div[1] <div class="leaflet-pane leaflet-tile-pane">
@@ -76,35 +54,35 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] <a href="https://www.openstreetmap.org/copyright">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] "OpenStreetMap"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1]/div[2]/div[4]/div[1] " contributors"
-@@ -728 +783 @@
+@@ -728 +772 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2] "Do you manage Open Research Online? Become a"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2] "Do you manage "
-@@ -730 +785 @@
+@@ -730 +774 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2] "Open Research Online (The Open University)"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2] "? Access insider analytics, issue reports and manage access to outputs from your repository in the"
-@@ -731 +788 @@
+@@ -731 +777 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/a[1] <a href="https://core.ac.uk/membership" rel="noreferrer" target="_blank">
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/a[1] "CORE Member"
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2] " "
-@@ -735 +789 @@
+@@ -735 +778 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2] "to access insider analytics, issue reports and manage access to outputs from your repository in the"
-@@ -737 +790 @@
+@@ -737 +779 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2] " "
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/a[2] <a href="https://core.ac.uk/services/repository-dashboard" rel="noreferrer" target="_blank">
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/a[2] "CORE Repository Dashboard!"
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2] " "
-@@ -742 +791 @@
+@@ -742 +780 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2] "👇"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/a[1] <a class="styles_link-underline" href="https://core.ac.uk/services/repository-dashboard" rel="noreferrer" target="_blank">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/a[1] "CORE Repository Dashboard!"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/span[1] <span aria-hidden="true" role="img">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2]/span[1] "👇"
-@@ -745 +797 @@
+@@ -745 +786 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[3]/button[1] "Become a member"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[3]/button[1] "SIGN IN"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[3]/button[2] <button class="button-button-3fr3r button-text-2Jjil styles_claim-card-action">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[3]/button[2] "Create account"
-@@ -844 +898 @@
+@@ -844 +887 @@
 + html[1]/body[1]/div[1]/div[2] <div class="cookies-popup-2NSSr" id="cookies-popup">
 + html[1]/body[1]/div[1]/div[2]/div[1] <div class="cookies-popup-body-1VEen">
 + html[1]/body[1]/div[1]/div[2]/div[1]/p[1] <p>
@@ -116,7 +94,7 @@
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[1] "Essential cookies only"
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[2] <button class="button-button-3fr3r button-contained-pmIp- cookies-popup-button-17h9a" id="essential_cookies_allowed,analytics_cookies_allowed">
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[2] "I agree"
-@@ -845 +910 @@
+@@ -845 +899 @@
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 ## MutationObserver (from the first Next chunk script)
@@ -284,18 +262,7 @@
 1 characterData html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[3]/button[1]
 1 childList html[1]/body[1] +[next-route-announcer]
 1 childList html[1]/body[1]/div[1] +[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[10] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[11] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[12] +[#text]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[3] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[4] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[5] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[6] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[6]/div[1]/span[1] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[7] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[8] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[9] +[#text]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2] +[#text]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2] +[a]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2]/div[2] +[span]

@@ -3379,8 +3379,8 @@
             },
             "dblclick": {
               "m": {
-                "count": 58,
-                "sha256": "eb7ebe1c4e1fa9a7e803bad7fb27974b1e4497d7fb080a0b817cd9966dcd5fae",
+                "count": 60,
+                "sha256": "b093924a3d9a43e70abe89e89ab4183cab095dafb5a8a284f86c0e1d6d4bff4b",
                 "head": [
                   "child 0:div>0:header>1:div>0:div>0:div +[#text\"4 suggestions found, to navigate use up \"]",
                   "attr 0:div>0:header>1:div>0:div>1:div>0:span>0:svg class=\"icon-icon-35iz-\"",
@@ -3392,7 +3392,16 @@
                   "child 0:div>0:header>1:div>0:div>1:div +[span.styles-addon-fHX-H.styles-append-2Bs2q.select-append-icon-3UXMK]"
                 ]
               },
-              "c": ["onQueryChanged(\"\")"]
+              "f": "0:div>0:header>1:div>0:div>1:div>4:input",
+              "v": [
+                "0:div>0:header>1:div>0:div>1:div>2:span>0:button:valid",
+                "0:div>0:header>1:div>0:div>1:div>3:span>0:button:valid",
+                "0:div>0:header>1:div>0:div>1:div>4:input:valid",
+                "0:div>0:header>2:div>0:button:valid",
+                "0:div>0:header>3:nav>0:div>0:button:valid",
+                "0:div>0:header>3:nav>1:div>0:button:valid",
+                "0:div>0:header>3:nav>2:div>0:button:valid"
+              ]
             }
           },
           "0:div>0:header>1:div>0:div>2:ul>0:li": {

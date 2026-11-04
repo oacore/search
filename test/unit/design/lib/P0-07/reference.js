@@ -3,6 +3,7 @@
 // @oacore/design package) and formatted by Prettier like every committed
 // JSON (40 §7 rule 7). Files are never edited by hand: W0.5, W5, 7.1 and 7.2
 // compare their implementation with them (T-417 c3).
+const { execFileSync } = require('child_process')
 const fs = require('fs')
 const path = require('path')
 
@@ -41,15 +42,17 @@ const packageIdentity = () => {
 
 const recording = (env = process.env) => env.RECORD === '1'
 
+// Prettier 3 (CS-PRET-1) has no sync API and cannot be loaded inside Jest's
+// VM, so the JSON is formatted by the repository's Prettier CLI in a child
+// process; the config is resolved from the file path, as before
 const write = (name, data) => {
-  const prettier = require('prettier')
   const file = fileOf(name)
   fs.mkdirSync(DIR, { recursive: true })
-  const options = prettier.resolveConfig.sync(file) || {}
-  const text = prettier.format(JSON.stringify(data), {
-    ...options,
-    filepath: file,
-  })
+  const text = execFileSync(
+    path.join(ROOT, 'node_modules', '.bin', 'prettier'),
+    ['--stdin-filepath', file],
+    { cwd: ROOT, encoding: 'utf8', input: JSON.stringify(data) }
+  )
   fs.writeFileSync(file, text)
 }
 

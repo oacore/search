@@ -68,30 +68,10 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1] "relevance"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/svg[1]/use[1] <use href="/static/search/icons.svg#menu-down">
-@@ -177 +241 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2] ""
-@@ -213 +278 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[1] ""
-@@ -219 +285 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3] ""
-@@ -265 +332 @@
+@@ -265 +329 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/header[1]/div[1]/div[1] <div class="data-provider-sm-6ZNTy data-provider-circle-1YXHk">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/header[1]/div[1]/div[1]/img[1] <img alt="Nottingham Trent Institutional Repository (NORA)" class="data-provider-image-2JFrU" src="https://api.core.ac.uk/data-providers/53/logo">
-@@ -302 +371 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5] ""
-@@ -356 +426 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6] ""
-@@ -403 +474 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7] ""
-@@ -446 +518 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8] ""
-@@ -544 +617 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9] ""
-@@ -587 +661 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10] ""
-@@ -668 +743 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11] ""
-@@ -724 +800 @@
+@@ -724 +790 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5] <li>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/button[1] <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/button[1] "4"
@@ -104,7 +84,7 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8] <li>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/button[1] <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/button[1] "7"
-@@ -849 +937 @@
+@@ -849 +927 @@
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 ## MutationObserver (from the first Next chunk script)
@@ -185,6 +165,7 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/dl[1]/div[4] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/figure[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/header[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/header[1]/div[1]/div[1]/img[1] @src
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/header[1]/h3[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5]/dl[1] @class
@@ -248,26 +229,19 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/button[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/button[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[6]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/button[1]/svg[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] @class
 1 childList html[1]/body[1] +[next-route-announcer]
 1 childList html[1]/body[1]/div[1]/div[1]/header[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1] +[div]
 6 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1] +[li]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1] -[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11] +[#text]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[1] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3] +[#text]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/header[1]/div[1] +[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9] +[#text]
-5 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] +[li]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] -[li]
+6 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] +[li]
+2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] -[li]
 1 childList html[1]/body[1]/next-route-announcer[1] +[p]
 ## overflow 0, armed true

@@ -315,8 +315,8 @@
             },
             "dblclick": {
               "m": {
-                "count": 59,
-                "sha256": "863f466a523c094d57fde9ec6d9d73e45102600c4d97a077d53b82ef29ae9154",
+                "count": 60,
+                "sha256": "7e23a4c0b8fb6541bc0ca9d8ecf89fea37f201ddbc99e5199b1618c5172c0595",
                 "head": [
                   "child 0:div>0:div>0:div +[#text\"5 suggestions found, to navigate use up \"]",
                   "attr 0:div>0:div>1:div>0:span>0:svg class=\"icon-icon-35iz-\"",
@@ -328,6 +328,7 @@
                   "attr 0:div>0:div>1:div>3:label class=\"styles-label-3Zc32\""
                 ]
               },
+              "f": "0:div>0:div>1:div>2:input",
               "c": ["onChange({\"value\":\"\"})"]
             }
           },
@@ -1591,8 +1592,8 @@
             },
             "dblclick": {
               "m": {
-                "count": 32,
-                "sha256": "7431b6f9a0a2d5fbd7d4374bd7831fe9e8f33a11d28e3b3d9b9a67a5948e9879",
+                "count": 48,
+                "sha256": "126289657f349f4bb6c19c3c8f8999c6d551ee13169e151d92d7b5d284f72185",
                 "head": [
                   "child 0:div>0:div>0:div +[#text\"4 suggestions found, to navigate use up \"]",
                   "attr 0:div>0:div>1:div>0:span>0:button>0:svg class=\"icon-icon-35iz-\"",
@@ -1604,7 +1605,7 @@
                   "attr 0:div>0:div>2:ul>0:li>0:span>0:svg class=\"icon-icon-35iz-\""
                 ]
               },
-              "c": ["onChange({\"value\":\"Opt\"})"]
+              "f": "0:div>0:div>1:div>1:input"
             }
           },
           "0:div>0:div>2:ul>0:li": {
@@ -2585,24 +2586,21 @@
               "f": "0:div>0:div>1:div>1:input"
             },
             "dblclick": {
-              "m": [
-                "attr 0:div>0:div>1:div>0:span>0:button>0:svg class=\"icon-icon-35iz-\"",
-                "attr 0:div>0:div>1:div>0:span>0:button class=\"button-button-3fr3r button-text-2Jjil select-clear-out-button-1XORg select-show-3H16k\"",
-                "attr 0:div>0:div>1:div>0:span class=\"styles-addon-fHX-H styles-append-2Bs2q select-append-icon-3UXMK\"",
-                "attr 0:div>0:div>1:div>1:input class=\"styles-control-12Pze styles-focus-29vz3\"",
-                "attr 0:div>0:div>1:div>2:label class=\"styles-label-3Zc32\"",
-                "attr 0:div>0:div>1:div class=\"styles-group-NqOA7\"",
-                "attr 0:div>0:div>2:ul class=\"select-select-menu-EjIta\"",
-                "attr 0:div>0:div class=\"select-select-wrapper-3xVb5\"",
-                "attr 0:div>0:div>1:div>0:span>0:button>0:svg class=\"icon-icon-35iz-\"",
-                "attr 0:div>0:div>1:div>0:span>0:button class=\"button-button-3fr3r button-text-2Jjil select-clear-out-button-1XORg select-show-3H16k\"",
-                "attr 0:div>0:div>1:div>0:span class=\"styles-addon-fHX-H styles-append-2Bs2q select-append-icon-3UXMK\"",
-                "attr 0:div>0:div>1:div>1:input class=\"styles-control-12Pze styles-focus-29vz3\"",
-                "attr 0:div>0:div>1:div>2:label class=\"styles-label-3Zc32\"",
-                "attr 0:div>0:div>1:div class=\"styles-group-NqOA7\"",
-                "attr 0:div>0:div>2:ul class=\"select-select-menu-EjIta\"",
-                "attr 0:div>0:div class=\"select-select-wrapper-3xVb5\""
-              ],
+              "m": {
+                "count": 24,
+                "sha256": "01446d91bac89a8d8b9f87c82732dba8f72c6d8edfcd1efe269950c1b7a1f522",
+                "head": [
+                  "attr 0:div>0:div>1:div>0:span>0:button>0:svg class=\"icon-icon-35iz-\"",
+                  "attr 0:div>0:div>1:div>0:span>0:button class=\"button-button-3fr3r button-text-2Jjil select-clear-out-button-1XORg select-show-3H16k\"",
+                  "attr 0:div>0:div>1:div>0:span class=\"styles-addon-fHX-H styles-append-2Bs2q select-append-icon-3UXMK\"",
+                  "attr 0:div>0:div>1:div>1:input class=\"styles-control-12Pze styles-focus-29vz3\"",
+                  "attr 0:div>0:div>1:div>2:label class=\"styles-label-3Zc32\"",
+                  "attr 0:div>0:div>1:div class=\"styles-group-NqOA7\"",
+                  "attr 0:div>0:div>2:ul class=\"select-select-menu-EjIta select-show-3H16k\"",
+                  "attr 0:div>0:div class=\"select-select-wrapper-3xVb5 select-focused-3ml6f\""
+                ]
+              },
+              "f": "0:div>0:div>1:div>1:input",
               "c": ["onChange({\"value\":\"zz\"})"]
             }
           }
@@ -2863,8 +2861,8 @@
             },
             "dblclick": {
               "m": {
-                "count": 20,
-                "sha256": "3b71f38c62629c0c1d1c1b75883438064b9e1a93b892440715b2e5a6c2abfe3d",
+                "count": 30,
+                "sha256": "01f2cb19bef36b87bcf91fa14d58ab4cd94c063b25a491a3b2ef569fae984693",
                 "head": [
                   "child 0:div>0:div>0:div +[#text\"1 suggestions found, to navigate use up \"]",
                   "attr 0:div>0:div>1:div>0:span>0:button>0:svg class=\"icon-icon-35iz-\"",
@@ -2876,6 +2874,7 @@
                   "attr 0:div>0:div>2:ul>0:li class=\"select-option-1DSs2\""
                 ]
               },
+              "f": "0:div>0:div>1:div>1:input",
               "c": ["onChange({\"value\":\"O\"})"]
             }
           },
@@ -3279,8 +3278,8 @@
             },
             "dblclick": {
               "m": {
-                "count": 40,
-                "sha256": "a32f5dfedf6625b0c3730db690106a494b529b1c33b839eb5ecdb0977db472b4",
+                "count": 60,
+                "sha256": "06aae9ad34da4ad0638a0129bae8be182f6cb86ed0bb084770939671c1c72bc8",
                 "head": [
                   "child 0:div>0:div>0:div +[#text\"11 suggestions found, to navigate use up\"]",
                   "attr 0:div>0:div>1:div>0:span>0:button>0:svg class=\"icon-icon-35iz-\"",
@@ -3292,6 +3291,7 @@
                   "attr 0:div>0:div>2:ul>0:li class=\"select-option-1DSs2\""
                 ]
               },
+              "f": "0:div>0:div>1:div>1:input",
               "c": ["onChange({\"value\":\"O\"})"]
             }
           },
@@ -4531,8 +4531,8 @@
             },
             "dblclick": {
               "m": {
-                "count": 20,
-                "sha256": "3b71f38c62629c0c1d1c1b75883438064b9e1a93b892440715b2e5a6c2abfe3d",
+                "count": 30,
+                "sha256": "01f2cb19bef36b87bcf91fa14d58ab4cd94c063b25a491a3b2ef569fae984693",
                 "head": [
                   "child 0:div>0:div>0:div +[#text\"1 suggestions found, to navigate use up \"]",
                   "attr 0:div>0:div>1:div>0:span>0:button>0:svg class=\"icon-icon-35iz-\"",
@@ -4544,6 +4544,7 @@
                   "attr 0:div>0:div>2:ul>0:li class=\"select-option-1DSs2\""
                 ]
               },
+              "f": "0:div>0:div>1:div>1:input",
               "c": ["onChange({\"value\":\"A\"})"]
             }
           },
@@ -4901,8 +4902,8 @@
             },
             "dblclick": {
               "m": {
-                "count": 35,
-                "sha256": "88352b21485bc5119c2ad62bb573ee92e634d85ea9da724c0be4d44bd638db12",
+                "count": 36,
+                "sha256": "ae1cafd7c636cc7e0ee333aaf4c5cac15e3959f9d71c672fb47eab68ce4d6d23",
                 "head": [
                   "child 0:div>0:div>0:div +[#text\"3 suggestions found, to navigate use up \"]",
                   "attr 0:div>0:div>1:div>0:span>0:button>0:svg class=\"icon-icon-35iz-\"",
@@ -4914,6 +4915,7 @@
                   "attr 0:div>0:div>2:ul>0:li class=\"select-option-1DSs2\""
                 ]
               },
+              "f": "0:div>0:div>1:div>1:input",
               "c": ["onChange({\"value\":\"\"})"]
             }
           },

@@ -14,7 +14,6 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[4]/dd[1]/ol[1]/li[1] "DOI: 10.1111/REGO.12518"
 @@ -231 +237 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1] <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey" id="work-similar-output-19211324" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1] ""
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/header[1] <header class="styles-header-13tcI">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/header[1]/h3[1] <h3 class="styles-title-1k6Ib" itemprop="name">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/header[1]/h3[1] "Climate change 2015: growing risks, critical choices"
@@ -55,7 +54,6 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[2]/div[1]/a[1]/span[1] <span itemprop="name">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[2]/div[1]/a[1]/span[1] "Analysis and Policy Observatory (APO)"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2] <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey" id="work-similar-output-62704171" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2] ""
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1] <header class="styles-header-13tcI">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/h3[1] <h3 class="styles-title-1k6Ib" itemprop="name">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/h3[1] "Climate and Airborne Pollutants"
@@ -99,7 +97,6 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/div[2]/div[1]/a[1]/span[1] <span itemprop="name">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/div[2]/div[1]/a[1]/span[1] "UNT (University of North Texas) Digital Library"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3] <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey" id="work-similar-output-19212910" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3] ""
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/header[1] <header class="styles-header-13tcI">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/header[1]/h3[1] <h3 class="styles-title-1k6Ib" itemprop="name">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/header[1]/h3[1] "Thirsty country: climate change and drought in Australia"
@@ -140,7 +137,6 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/div[2]/div[1]/a[1]/span[1] <span itemprop="name">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/div[2]/div[1]/a[1]/span[1] "Analysis and Policy Observatory (APO)"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4] <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey" id="work-similar-output-18872441" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4] ""
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/header[1] <header class="styles-header-13tcI">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/header[1]/h3[1] <h3 class="styles-title-1k6Ib" itemprop="name">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/header[1]/h3[1] "Midwestern Regional Climate Center"
@@ -181,7 +177,6 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/div[2]/div[1]/a[1]/span[1] <span itemprop="name">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/div[2]/div[1]/a[1]/span[1] "Illinois Digital Environment for Access to Learning and Scholarship Repository"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5] <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey" id="work-similar-output-17489114" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5] ""
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/header[1] <header class="styles-header-13tcI">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/header[1]/h3[1] <h3 class="styles-title-1k6Ib" itemprop="name">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/header[1]/h3[1] "Seasonal Climate Forecasts and Risk Management Among Georgia Farmers"
@@ -299,16 +294,16 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/a[1] <a href="//core.ac.uk/search?q=climate change" rel="noreferrer" target="_blank">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/a[1] "climate change"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/span[1] <span>
-@@ -282 +574 @@
+@@ -282 +569 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1] "25/05/2023"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1] "24/05/2023"
-@@ -316 +608 @@
+@@ -316 +603 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[2]/span[1] "25/05/2023"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[2]/span[1] "24/05/2023"
-@@ -342 +634 @@
+@@ -342 +629 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[2]/span[1] "24/10/2023"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[2]/span[1] "23/10/2023"
-@@ -442 +734 @@
+@@ -442 +729 @@
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 ## MutationObserver (from the first Next chunk script)
@@ -332,15 +327,7 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[3] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[4] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[4]/dd[1]/ol[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[1]/dd[1]/ol[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[2] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[3] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/dl[1]/div[4] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/figure[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/header[1]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/figure[1]/a[1]/img[1] @src
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[1] @class
@@ -349,49 +336,13 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[3] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/dl[1]/div[4] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/figure[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/figure[1]/a[1]/img[1] @src
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/div[1]/div[1]/img[1] @src
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[2]/header[1]/h3[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[1]/dd[1]/ol[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[2] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[3] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/dl[1]/div[4] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/figure[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/header[1]/h3[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[1]/dd[1]/ol[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[2] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[3] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/dl[1]/div[4] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/figure[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/header[1]/h3[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[10] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[11] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[12] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[13] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[14] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[15] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[3] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[3]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[4] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[5] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[6] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[7] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[8] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[1]/dd[1]/ol[1]/li[9] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[2] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[3] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/dl[1]/div[4] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/figure[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/header[1]/h3[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[3]/figure[1]/a[1]/img[1] @src
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[4]/figure[1]/a[1]/img[1] @src
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[5]/figure[1]/a[1]/img[1] @src
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] @class
