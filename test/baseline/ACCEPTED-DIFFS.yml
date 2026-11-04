@@ -1583,6 +1583,7 @@
   step: W5.5
   signedOffBy: 'SIGNED: owner, 2026-11-01 (jump 3 batch W5.5, approved in the work session)'
   date: '2026-11-01'
+  withdrawn: 'superseded by the re-captured T-610 census baseline (e2e/http/t610-props-output.spec.mjs-snapshots/t610-stdout-census-chromium-darwin.json), which holds chunks/937.js, 2026-11-04'
 - id: AD-154
   kind: product
   test: T-604

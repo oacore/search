@@ -68,32 +68,22 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1] "relevance"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/svg[1]/use[1] <use href="/static/search/icons.svg#menu-down">
-@@ -177 +241 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2] ""
-@@ -228 +293 @@
+@@ -228 +292 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/header[1]/div[1]/div[1] <div class="data-provider-sm-6ZNTy data-provider-circle-1YXHk">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/header[1]/div[1]/div[1]/img[1] <img alt="UNT (University of North Texas) Digital Library" class="data-provider-image-2JFrU" src="https://api.core.ac.uk/data-providers/2313/logo">
-@@ -266 +333 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4] ""
-@@ -309 +377 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5] ""
-@@ -352 +421 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6] ""
-@@ -458 +528 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7] ""
-@@ -509 +580 @@
+@@ -509 +575 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/header[1]/div[1]/div[1] <div class="data-provider-sm-6ZNTy data-provider-circle-1YXHk">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/header[1]/div[1]/div[1]/img[1] <img alt="ScholarsArchive@OSU" class="data-provider-image-2JFrU" src="https://api.core.ac.uk/data-providers/197/logo">
-@@ -558 +631 @@
+@@ -558 +626 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/header[1]/div[1]/div[1] <div class="data-provider-sm-6ZNTy data-provider-circle-1YXHk">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/header[1]/div[1]/div[1]/img[1] <img alt="ScholarsArchive@OSU" class="data-provider-image-2JFrU" src="https://api.core.ac.uk/data-providers/197/logo">
-@@ -607 +682 @@
+@@ -607 +677 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/header[1]/div[1]/div[1] <div class="data-provider-sm-6ZNTy data-provider-circle-1YXHk">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/header[1]/div[1]/div[1]/img[1] <img alt="ScholarsArchive@OSU" class="data-provider-image-2JFrU" src="https://api.core.ac.uk/data-providers/197/logo">
-@@ -656 +733 @@
+@@ -656 +728 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/header[1]/div[1]/div[1] <div class="data-provider-sm-6ZNTy data-provider-circle-1YXHk">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/header[1]/div[1]/div[1]/img[1] <img alt="ScholarsArchive@OSU" class="data-provider-image-2JFrU" src="https://api.core.ac.uk/data-providers/197/logo">
-@@ -710 +789 @@
+@@ -710 +784 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5] <li>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/button[1] <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/button[1] "4"
@@ -106,7 +96,7 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8] <li>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/button[1] <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/button[1] "7"
-@@ -835 +926 @@
+@@ -835 +921 @@
 + html[1]/body[1]/script[2] <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TEST000000">
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
@@ -137,6 +127,7 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/dl[1]/div[4] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/figure[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/header[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/header[1]/div[1]/div[1]/img[1] @src
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/header[1]/h3[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/dl[1] @class
@@ -147,6 +138,7 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/dl[1]/div[4] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/figure[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/header[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/header[1]/div[1]/div[1]/img[1] @src
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/header[1]/h3[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1]/svg[1] @class
@@ -172,6 +164,7 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/dl[1]/div[4] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/figure[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/header[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/header[1]/div[1]/div[1]/img[1] @src
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/header[1]/h3[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/dl[1] @class
@@ -232,6 +225,7 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/dl[1]/div[4] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/figure[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/header[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/header[1]/div[1]/div[1]/img[1] @src
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/header[1]/h3[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/dl[1] @class
@@ -242,6 +236,7 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/dl[1]/div[4] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/figure[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/header[1]/div[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/header[1]/div[1]/div[1]/img[1] @src
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/header[1]/h3[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[10]/button[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[11]/button[1] @class
@@ -251,6 +246,9 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/button[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/button[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[6]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/button[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/button[1]/svg[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] @class
 1 childList html[1]/body[1] +[next-route-announcer]
 1 childList html[1]/body[1] +[script]
@@ -262,15 +260,10 @@
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/header[1]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2] +[#text]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/header[1]/div[1] +[div]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7] +[#text]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/header[1]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/header[1]/div[1] +[div]
-5 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] +[li]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] -[li]
+6 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] +[li]
+2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] -[li]
 1 childList html[1]/body[1]/next-route-announcer[1] +[p]
 ## overflow 0, armed true

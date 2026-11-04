@@ -92,17 +92,16 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] " under the entered address and added it to our data provider collection. As soon as we approve adding, we will start harvesting and sent a confirmation email to"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] " "
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2]/a[1] <a href="mailto:" title="the administrator email address">
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2]/a[1] ""
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] ". Join the community and add a"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] " "
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2]/a[2] <a href="https://core.ac.uk/faq#harvested-by-CORE-snippet" title="Harvested by CORE Logo">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2]/a[2] "harvested by CORE"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] " "
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/span[2] "badge on your website."
-@@ -199 +287 @@
+@@ -199 +286 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[2]/button[1] <button class="button-button-3fr3r button-contained-pmIp-" disabled="" type="submit">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[2]/button[1] <button class="button-button-3fr3r button-contained-pmIp-" type="submit">
-@@ -205 +293 @@
+@@ -205 +292 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] <div class="styles_map leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="map" tabindex="0">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1] <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1] <div class="leaflet-pane leaflet-tile-pane">
@@ -147,7 +146,7 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] <a href="https://www.openstreetmap.org/copyright">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] "OpenStreetMap"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1] " contributors"
-@@ -321 +453 @@
+@@ -321 +452 @@
 + html[1]/body[1]/div[1]/div[2] <div class="cookies-popup-2NSSr" id="cookies-popup">
 + html[1]/body[1]/div[1]/div[2]/div[1] <div class="cookies-popup-body-1VEen">
 + html[1]/body[1]/div[1]/div[2]/div[1]/p[1] <p>
@@ -159,7 +158,7 @@
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[1] "Essential cookies only"
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[2] <button class="button-button-3fr3r button-contained-pmIp- cookies-popup-button-17h9a" id="essential_cookies_allowed,analytics_cookies_allowed">
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[2] "I agree"
-@@ -322 +465 @@
+@@ -322 +464 @@
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 + html[1]/body[1]/next-route-announcer[1]/p[1] "Data providers search"

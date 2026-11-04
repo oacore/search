@@ -10,27 +10,7 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/header[1]/div[2]/h5[1]/a[1] "starting member"
 @@ -193 +193 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1] "recent"
-@@ -196 +197 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[3] ""
-@@ -265 +267 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[4] ""
-@@ -315 +318 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[5] ""
-@@ -384 +388 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[6] ""
-@@ -445 +450 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[7] ""
-@@ -495 +501 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[8] ""
-@@ -545 +552 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[9] ""
-@@ -595 +603 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[10] ""
-@@ -664 +673 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[11] ""
-@@ -706 +716 @@
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[12] ""
-@@ -800 +811 @@
+@@ -800 +801 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1] <div class="styles_map leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="map" tabindex="0">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1]/div[1] <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1]/div[1]/div[1] <div class="leaflet-pane leaflet-tile-pane">
@@ -75,7 +55,7 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] <a href="https://www.openstreetmap.org/copyright">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1]/div[2]/div[4]/div[1]/a[2] "OpenStreetMap"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1]/div[2]/div[4]/div[1] " contributors"
-@@ -925 +980 @@
+@@ -925 +970 @@
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 ## MutationObserver (from the first Next chunk script)
@@ -253,17 +233,7 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1]/div[1]/div[4]/img[1] @style
 1 characterData html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/header[1]/div[2]/h5[1]/a[1]
 1 childList html[1]/body[1] +[next-route-announcer]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[10] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[11] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[12] +[#text]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[3] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[4] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[5] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[6] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[7] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[8] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[9] +[#text]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1] +[div]
 2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1] +[div]
 7 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/figure[1]/div[1]/div[1]/div[1] +[div]
