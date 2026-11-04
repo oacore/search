@@ -12,6 +12,8 @@
 // The harness page path is not a gateway route, so pages load through the allow-all proxy; their assets
 // (assetPrefix /static/search) are fetched through the gateway, which maps /static/search/* to the app's
 // /* exactly as in production (kube/prod/httproute.yaml).
+import fs from 'node:fs'
+
 import { test, expect, setFixedTime } from '../fixtures/guard.mjs'
 import { expectPixelExact } from '../fixtures/pixel-exact.mjs'
 import { spriteCheck, useBox } from '../fixtures/visual-ready.mjs'
@@ -132,6 +134,83 @@ const CAPTURES = [
 
 // every state the page defines, in the page's order
 const STATE_IDS = [...new Set(CAPTURES.map((c) => c.id))]
+
+// Declared guard entries, per React major.minor and state (owner, 2026-11-03, jump 3 batch W6a, W6A-D (a)).
+// du-04-tag-a renders the design Card with tag="a" around an anchor (Q-072; the app renders it no more since
+// CS-ESC-1). On React 18.3 the parser's split makes hydration fail (#418 twice, then #423), and the three
+// Sentry reports of those errors are refused by the CSP (Q-096); the pixels still equal the package capture.
+// The guard's guard-expect lifts a whole channel, so the state's test asserts each declared channel exactly,
+// as a multiset (the report requests may interleave). Any other entry on these channels, any entry on another
+// channel, any entry on another state and any entry on another React version still fail.
+const REACT = JSON.parse(
+  fs.readFileSync(
+    new URL('../../node_modules/react/package.json', import.meta.url),
+    'utf8'
+  )
+)
+  .version.split('.')
+  .slice(0, 2)
+  .join('.')
+const REACT_ERROR = (n) =>
+  `Minified React error #${n}; visit https://reactjs.org/docs/error-decoder.html?invariant=${n} for the full message or use the non-minified dev environment for full errors and additional helpful warnings.`
+const SENTRY_ENVELOPE =
+  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4'
+const CONNECT_SRC =
+  "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com"
+const SENTRY_REFUSED = [
+  `Connecting to '${SENTRY_ENVELOPE}' violates the following Content Security Policy directive: "${CONNECT_SRC}". The action has been blocked.`,
+  `Fetch API cannot load ${SENTRY_ENVELOPE}. Refused to connect because it violates the document's Content Security Policy.`,
+]
+const times = (n, list) => Array.from({ length: n }, () => list).flat()
+const DECLARED = {
+  18.3: {
+    'du-04-tag-a': {
+      'pageerror': [REACT_ERROR(418), REACT_ERROR(418), REACT_ERROR(423)],
+      'window-error': [418, 418, 423].map(
+        (n) => `Uncaught Error: ${REACT_ERROR(n)}`
+      ),
+      'console': times(3, SENTRY_REFUSED),
+      'csp': times(3, [`connect-src ${SENTRY_ENVELOPE}`]),
+    },
+  },
+}
+// what the guard logged on each declared channel, sorted
+const CHANNELS = {
+  'pageerror': (log) => log.pageErrors.map((e) => e.message),
+  'window-error': (log) => log.windowErrors.map((e) => e.message),
+  'console': (log) => log.consoleErrors.map((e) => e.text),
+  'csp': (log) => log.csp.map((v) => `${v.effectiveDirective} ${v.blockedURI}`),
+}
+const declaredOf = (id) => (DECLARED[REACT] || {})[id] || null
+const logged = (log, declared) =>
+  Object.fromEntries(
+    Object.keys(declared).map((kind) => [kind, CHANNELS[kind](log).sort()])
+  )
+// the reports arrive after hydration: the logged entries equal the declared ones on 3 polls in a row (500 ms
+// apart), so an entry that comes later than the first match still fails
+async function expectDeclared(guardLog, declared) {
+  const want = Object.fromEntries(
+    Object.entries(declared).map(([kind, list]) => [kind, [...list].sort()])
+  )
+  let same = 0
+  await expect
+    .poll(
+      () => {
+        same =
+          JSON.stringify(logged(guardLog, declared)) === JSON.stringify(want)
+            ? same + 1
+            : 0
+        return same
+      },
+      {
+        message: 'the declared guard entries, exactly',
+        intervals: [500],
+        timeout: 15000,
+      }
+    )
+    .toBeGreaterThanOrEqual(3)
+  expect(logged(guardLog, declared)).toEqual(want)
+}
 
 const harnessURL = (p2Env, state) =>
   new URL(`/__du-harness/${state}/`, p2Env.allowURL).href
@@ -345,8 +424,16 @@ test.describe('T-802 @P0 component visuals', () => {
       test(`T-802 c2 @P0 ${c.name} at ${width} px equals the package capture (IMPL=${IMPL})`, async ({
         page,
         p2Env,
+        guardLog,
       }) => {
+        const declared = declaredOf(c.id)
+        if (declared)
+          for (const kind of Object.keys(declared))
+            test
+              .info()
+              .annotations.push({ type: 'guard-expect', description: kind })
         await captureState(page, p2Env, c, width)
+        if (declared) await expectDeclared(guardLog, declared)
       })
 
   for (const c of CAPTURES.filter((x) => x.edge))

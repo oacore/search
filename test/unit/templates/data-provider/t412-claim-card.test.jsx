@@ -25,7 +25,7 @@ import path from 'path'
 import util from 'util'
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { hydrateRoot } from 'react-dom/client'
 import { renderToString } from 'react-dom/server'
 import LogRocket from 'logrocket'
 
@@ -135,7 +135,7 @@ beforeEach(() => {
 afterEach(() => {
   act(() => {
     hydrated.forEach((host) => {
-      ReactDOM.unmountComponentAtNode(host)
+      host.root.unmount()
       host.remove()
     })
   })
@@ -213,7 +213,7 @@ const hydrate = (html, data) => {
   hydrated.push(host)
   const Frame = frame()
   act(() => {
-    ReactDOM.hydrate(<Frame>{page(data)}</Frame>, host)
+    host.root = hydrateRoot(host, <Frame>{page(data)}</Frame>)
   })
   return host
 }

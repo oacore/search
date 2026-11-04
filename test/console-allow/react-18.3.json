@@ -1,0 +1,16 @@
+{
+  "react": "18.3",
+  "description": "console.error/console.warn messages allowed in Jest dom tests and Playwright journeys on React 18.3 (40 §8 rule 6: each entry cites an R/Q row and enters via an AD row)",
+  "entries": [
+    {
+      "pattern": "^Warning: MathMarkdown: Support for defaultProps will be removed from function components in a future major release\\. Use JavaScript default parameters instead\\.(\\n|$)",
+      "refs": ["Q-104", "R-012", "OD-39"],
+      "row": "W6A-B of the owner's jump 3 batch W6a (signed 2026-11-03, applied apart, no AD id): React 18.3 development warns once per component type that sets defaultProps on a function component; design MathMarkdown does (vendor/oacore-design/lib/elements/math-markdown/math-markdown.js:44); production prints nothing"
+    },
+    {
+      "pattern": "^Warning: Histoslider: Support for defaultProps will be removed from function components in a future major release\\. Use JavaScript default parameters instead\\.(\\n|$)",
+      "refs": ["Q-104", "R-012", "OD-39"],
+      "row": "W6A-B of the owner's jump 3 batch W6a (signed 2026-11-03, applied apart, no AD id): React 18.3 development warns once per component type that sets defaultProps on a function component; design Histoslider does (vendor/oacore-design/lib/elements/histoslider/histoslider.js:141); production prints nothing"
+    }
+  ]
+}

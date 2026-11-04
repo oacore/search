@@ -1,33 +1,16 @@
 // The only RTL importer (40 §2.1). Queries, events and waits come from
-// @testing-library/dom 10; RTL 12 (React 17) only mounts. dom 10 is configured
-// to wrap events and async utilities in React 17 act, because RTL 12 does not
-// act-wrap dom-10 events (review:test-strategy.verdicts TS-08). The RTL 16 swap
-// (W6a, CS-R18-5) edits only this file.
+// @testing-library/dom 10; RTL 16 (React 18) mounts. RTL 16 takes dom 10 as its
+// peer and configures its event and async wrappers with React's act when it
+// loads, so events and async utilities are act-wrapped without a shim here.
+// `act` is RTL's, which uses React.act (the act of react-dom/test-utils is
+// deprecated on React 18.3). Swapped from RTL 12 at W6a (CS-R18-5).
 const React = require('react')
-const { act } = require('react-dom/test-utils')
 const dom = require('@testing-library/dom')
 const rtl = require('@testing-library/react')
 const userEventModule = require('@testing-library/user-event')
 const { RouterContext } = require('next/dist/shared/lib/router-context')
 
 const { router: mockRouter } = require('../mocks/next-router')
-
-dom.configure({
-  eventWrapper: (cb) => {
-    let result
-    act(() => {
-      result = cb()
-    })
-    return result
-  },
-  asyncWrapper: async (cb) => {
-    let result
-    await act(async () => {
-      result = await cb()
-    })
-    return result
-  },
-})
 
 const userEvent = userEventModule.default || userEventModule
 
@@ -63,7 +46,7 @@ const withStore = (store) => {
   return WithStore
 }
 
-// local renderHook (RTL 12 has none)
+// local renderHook: RTL 16 has one, but without result.all
 const renderHook = (hook, { initialProps, wrapper, wrappers = [] } = {}) => {
   const result = { current: undefined, all: [] }
   const Probe = ({ hookProps }) => {
@@ -89,7 +72,7 @@ module.exports = {
   renderHook,
   withRouter,
   withStore,
-  act,
+  act: rtl.act,
   cleanup: rtl.cleanup,
   screen: dom.screen,
   within: dom.within,

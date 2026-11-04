@@ -12,7 +12,7 @@
 // `@sentry/node` is the harness factory spy (utils/sentry.js requires it, the
 // browser build swaps it for `@sentry/browser`, next.config.js:97).
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { hydrateRoot } from 'react-dom/client'
 import { renderToString } from 'react-dom/server'
 import routerMock, { setRouter } from 'next/router'
 
@@ -363,8 +363,9 @@ describe('T-415 @P1 app shell', () => {
       expect(serverHeader.classList.contains('header')).toBe(false)
 
       setRouter({ asPath: '/static/search' })
+      let root
       act(() => {
-        ReactDOM.hydrate(shell(), host)
+        root = hydrateRoot(host, shell())
       })
       // React 17 does not patch attributes: the server DOM stays
       expect(host.querySelector('#header')).toBe(serverHeader)
@@ -374,7 +375,7 @@ describe('T-415 @P1 app shell', () => {
       expect(warnings.some((w) => w.includes('Prop `%s` did not match'))).toBe(
         true
       )
-      ReactDOM.unmountComponentAtNode(host)
+      act(() => root.unmount())
       host.remove()
 
       // a client-only render of the same path has the style

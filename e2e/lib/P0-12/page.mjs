@@ -59,13 +59,32 @@ export function trackRequests(page) {
 export const urlOf = (p2Env, route) =>
   `${route.origin === 'allow' ? p2Env.allowURL : p2Env.baseURL}${route.path}`
 
+// Leaflet fades a map tile in over 200 ms from the tile image's own load event, which can come after the tile's
+// request has finished and after `quietMs` without a mutation, so a capture can end inside the fade (J3-W55-RB-1,
+// docs/upgrade/records/W5.5.md: Leaflet tiles at opacity 0.18). A tile is at the end of its fade when Leaflet has
+// set its opacity to 1, or, on a map without the fade animation, has marked it loaded.
+const tilesFaded = () =>
+  [...document.querySelectorAll('img.leaflet-tile')].every(
+    (t) =>
+      t.style.opacity === '1' ||
+      (t.style.opacity === '' && t.classList.contains('leaflet-tile-loaded'))
+  )
+
 // settled: the load event, Next's own `Next.js-hydration` measure (JS on, hard loads; Next clears its
 // measures on a client route change), no request in flight and no DOM mutation under <body> for `quietMs`
-// (MutationObserver of dom.mjs moInitScript), all read by expect.poll
+// (MutationObserver of dom.mjs moInitScript), all read by expect.poll; with `tileFade` (T-728 only, E3 (a) of the
+// owner's jump 3 batch W6a) also every Leaflet tile at the end of its fade (tilesFaded), read before the quiet
+// time, so a fade that starts after that read still counts as a mutation
 export async function settle(
   page,
   tracker,
-  { js = true, hydration = true, quietMs = 400, timeout = 120000 } = {}
+  {
+    js = true,
+    hydration = true,
+    quietMs = 400,
+    timeout = 120000,
+    tileFade = false,
+  } = {}
 ) {
   await page.waitForLoadState('load')
   if (!js) return
@@ -78,12 +97,13 @@ export async function settle(
   await expect
     .poll(
       async () => {
+        const faded = !tileFade || (await page.evaluate(tilesFaded))
         const quiet = await page.evaluate(
           () =>
             performance.now() -
             (window.__p012 ? window.__p012.lastMutationAt : 0)
         )
-        return tracker.inflight.size === 0 && quiet >= quietMs
+        return faded && tracker.inflight.size === 0 && quiet >= quietMs
       },
       { timeout, intervals: [100] }
     )

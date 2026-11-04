@@ -11,10 +11,15 @@
 const fresh = async (fn) => {
   let result
   await jest.isolateModulesAsync(async () => {
-    const saved = { afterEach: global.afterEach, afterAll: global.afterAll }
+    const saved = {
+      afterEach: global.afterEach,
+      afterAll: global.afterAll,
+      beforeAll: global.beforeAll,
+    }
     let modules
     global.afterEach = () => {}
     global.afterAll = () => {}
+    global.beforeAll = () => {}
     try {
       const census = require('./census')
       const units = require('./units')
@@ -23,6 +28,7 @@ const fresh = async (fn) => {
     } finally {
       global.afterEach = saved.afterEach
       global.afterAll = saved.afterAll
+      global.beforeAll = saved.beforeAll
     }
     modules.census.fakeTimers()
     try {
