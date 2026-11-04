@@ -1,7 +1,8 @@
 // T-611 (41 G; R-048): size budgets, through the gateway-faithful proxy (the allow-all listener for the two
 // local-only pages). c1 raw and gzip body bytes of every route of the table below, each within +-5 % of its
 // B0 value (the table is the record of the golden build, B0-local, 2026-10-21, except works-4040 and outputs-2002,
-// the jump-check build's since B2-local; the plan's reference pair for `/data-providers/` is 7,104,305 B raw and
+// the jump-check build's since B2-local, and outputs-2003, the W6a build 42b166d4ce80c734's since B4-local; the
+// plan's reference pair for `/data-providers/` is 7,104,305 B raw and
 // 1,003,968 B gzip, 41 T-611), identity and gzip requests made with exactly that `Accept-Encoding` on a socket of
 // their own. c2 memory after the sweep (R-048: `/data-providers/`
 // is 7.1 MB raw, RSS ~530 MB after it): the app of a sub-stack of its own serves the sweep (every route of the
@@ -33,7 +34,8 @@ const TOLERANCE = 0.05
 const MEMORY_TOLERANCE = 0.1
 
 // B0-local record of the golden build (G 689fec9, build 1fb7e5b548c5ae8c), except works-4040 and outputs-2002:
-// B2-local, the jump-check build e9c353c5d1f87f02 (Next 12.3.7, Node 24.18.1). via: gateway (baseURL) or allow (the
+// B2-local, the jump-check build e9c353c5d1f87f02 (Next 12.3.7, Node 24.18.1), and outputs-2003: B4-local, the W6a
+// build 42b166d4ce80c734 (React 18.3.1, Next 12.3.7, Node 24.18.1). via: gateway (baseURL) or allow (the
 // allow-all listener: `/` and `/error-card/` are not routed by the gateway, Q-005). Every answer is 200.
 const BUDGET = [
   ['search-climate', '/search/?q=climate', 'gateway', 241514, 55570],
@@ -47,7 +49,7 @@ const BUDGET = [
   ['works-4040', '/works/4040/', 'gateway', 52488, 13059],
   ['outputs-2001', '/outputs/2001/', 'gateway', 73916, 19434],
   ['outputs-2002', '/outputs/2002/', 'gateway', 52436, 13024],
-  ['outputs-2003', '/outputs/2003/', 'gateway', 65100, 17178],
+  ['outputs-2003', '/outputs/2003/', 'gateway', 62026, 16321],
   ['outputs-2004', '/outputs/2004/', 'gateway', 73188, 19297],
   ['outputs-update', '/outputs/update/', 'gateway', 56854, 14491],
   ['providers', '/data-providers/', 'gateway', 7104305, 1003966],
