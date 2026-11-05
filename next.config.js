@@ -99,12 +99,16 @@ const nextConfig = {
     // no polyfill, no helper import, ES modules kept for tree shaking. The
     // server keeps @sentry/node as an external require and react-ga4 as
     // Next's external import.
+    // Next 14's client main chunk also takes next/dist/lib/constants.js, which
+    // Next ships as it is, with one object spread (ES2018); the rule compiles
+    // that one file too, so the client floor stays ES2015 (CS-N14-2).
     if (!isServer) {
       rules.push({
         test: /\.m?js$/,
         include: [
           /[\\/]node_modules[\\/]@sentry[\\/]/,
           /[\\/]node_modules[\\/]react-ga4[\\/]/,
+          /[\\/]node_modules[\\/]next[\\/]dist[\\/]lib[\\/]constants\.js$/,
         ],
         use: {
           loader: path.join(__dirname, 'babel-syntax-loader.js'),
