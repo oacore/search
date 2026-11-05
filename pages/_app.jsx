@@ -7,7 +7,7 @@ import React, {
 } from 'react'
 import { flushSync } from 'react-dom'
 import { useRouter } from 'next/router'
-import { HeadManagerContext } from 'next/dist/shared/lib/head-manager-context'
+import { HeadManagerContext } from 'next/dist/shared/lib/head-manager-context.shared-runtime'
 import { CookiesProvider } from '@oacore/design'
 import LogRocket from 'logrocket'
 

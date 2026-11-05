@@ -162,6 +162,24 @@ const LOG_ALLOW = [
   /^(fetchWorks|transformDataProviders):\d+-[a-z0-9]+: [\d.]+ms$/,
   ...NEXT_LISTENER_ALLOW,
 ]
+// the start-up banner of `next start` from Next 13.5 (owner SIGNED: 2026-11-05, 40 §8 rule 8): accepted only as one
+// block of these four lines in this order, the version exact, only the port and the time masked (the blank line
+// before ` ✓ Ready` goes with the other empty lines); it is taken out once before LOG_ALLOW, so a second banner
+// line, another order, another version or host, or more text after the time is still red
+const NEXT_BANNER = [
+  /^ {2}▲ Next\.js 13\.5\.11$/,
+  /^ {2}- Local: {8}http:\/\/127\.0\.0\.1:\d+$/,
+  /^ {2}- Network: {6}http:\/\/127\.0\.0\.1:\d+$/,
+  /^ ✓ Ready in [\d.]+m?s$/,
+]
+const withoutBanner = (lines) => {
+  const at = lines.findIndex((_, i) =>
+    NEXT_BANNER.every((re, k) => re.test(lines[i + k] ?? ''))
+  )
+  return at < 0
+    ? lines
+    : [...lines.slice(0, at), ...lines.slice(at + NEXT_BANNER.length)]
+}
 
 const get = (origin, target) =>
   new Promise((resolve, reject) => {
@@ -288,7 +306,9 @@ test.describe('T-606 @P1 SSR resilience', () => {
       .readFileSync(sub.appLogOf(env), 'utf8')
       .split('\n')
       .filter((l) => l !== '')
-    expect(lines.filter((l) => !LOG_ALLOW.some((re) => re.test(l)))).toEqual([
+    expect(
+      withoutBanner(lines).filter((l) => !LOG_ALLOW.some((re) => re.test(l)))
+    ).toEqual([
       'warn  - You have enabled experimental feature (largePageDataBytes) in next.config.js.',
       'warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.',
     ]) // AD-148

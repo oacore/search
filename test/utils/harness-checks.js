@@ -158,7 +158,7 @@ const registerProjectChecks = (project) => {
       const link = require.resolve('next/dist/client/router')
       const src = fs.readFileSync(link, 'utf8')
       const rel = (src.match(
-        /require\(["'](\.\.\/[^"']*router-context)(?:\.js)?["']\)/
+        /require\(["'](\.\.\/[^"']*router-context(?:\.shared-runtime)?)(?:\.js)?["']\)/
       ) || [])[1]
       expect(rel).toBeDefined()
       expect(require.resolve(path.resolve(path.dirname(link), rel))).toBe(

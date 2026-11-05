@@ -367,7 +367,7 @@ describe('T-415 @P1 app shell', () => {
       act(() => {
         root = hydrateRoot(host, shell())
       })
-      // React 17 does not patch attributes: the server DOM stays
+      // React 18, as React 17, does not patch attributes: the server DOM stays
       expect(host.querySelector('#header')).toBe(serverHeader)
       expect(serverHeader.classList.contains('header')).toBe(false)
       // development warns about it (production does not, R-010)

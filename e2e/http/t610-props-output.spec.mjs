@@ -230,7 +230,7 @@ test.describe('T-610 @P0 props and server output', () => {
     resolver,
   }) => {
     test.setTimeout(300000)
-    expect(NORMALISATIONS.serverOutput).toHaveLength(4)
+    expect(NORMALISATIONS.serverOutput).toHaveLength(5)
     expect(NEXT_LISTENER_ALLOW).toEqual([])
     // masking frames changes only the trailing line:column of a frame line
     expect(

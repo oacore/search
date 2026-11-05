@@ -6,8 +6,9 @@
 // import, the `ErrorProps` type, the annotations, the class's type parameter
 // and the non-null mark of `err.statusCode`), and `Head` comes from
 // `next/head` (10.2.3: `../next-server/lib/head`, the module `next/head`
-// points to). Nothing else is changed. Not linted (eslint.config.js): it stays
-// as Next wrote it.
+// points to). The `<title>` is one template string (CS-N13-8), so that
+// React 18's server renderer writes no `<!-- -->` into it (R-069). Nothing
+// else is changed. Not linted (eslint.config.js): it stays as Next wrote it.
 //
 // The MIT License (MIT)
 //
@@ -68,9 +69,7 @@ export default class Error extends React.Component {
     return (
       <div style={styles.error}>
         <Head>
-          <title>
-            {statusCode}: {title}
-          </title>
+          <title>{`${statusCode ?? ''}: ${title}`}</title>
         </Head>
         <div>
           <style dangerouslySetInnerHTML={{ __html: 'body { margin: 0 }' }} />

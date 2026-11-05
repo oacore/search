@@ -128,8 +128,8 @@ module.exports = {
   router,
   setRouter,
   resetRouter: reset,
-  // RouterContext of Next 11-12 (40 §2.1); 10.2.3:
-  // next/dist/next-server/lib/router-context, 13.5-16:
-  // next/dist/shared/lib/router-context.shared-runtime
-  ROUTER_CONTEXT_PATH: 'next/dist/shared/lib/router-context',
+  // RouterContext of Next 13.5-16 (40 §2.1); 10.2.3:
+  // next/dist/next-server/lib/router-context, 11-12:
+  // next/dist/shared/lib/router-context
+  ROUTER_CONTEXT_PATH: 'next/dist/shared/lib/router-context.shared-runtime',
 }

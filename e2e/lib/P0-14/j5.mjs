@@ -18,7 +18,7 @@ export const WORK_TITLE =
   'Mandatory due diligence laws and climate change litigation: Bridging the corporate climate accountability gap?'
 
 // the design MathMarkdown logs this for the KaTeX-rejected `\sb2` in the abstract of result 80224613 (T-741
-// pin katex-convert, P0-10-4, Q-097): twice per hard load of the search page
+// pin katex-convert, P0-10-4, Q-097): three times per hard load of the search page on React 18 (AD-167)
 export const KATEX = /^couldn`t convert string /
 
 export async function searchView(page, p2Env) {

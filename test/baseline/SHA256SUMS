@@ -657,7 +657,7 @@ d31ece15a75a61ee39aac067f46573cc5b4088e6005193b5e229a586c2b294a3  e2e/journeys/t
 01578ab133ece13a9258f51b0fda016c0490c3a2102b7392fa40be0983daa970  e2e/journeys/t728-hydration-diff.spec.mjs-snapshots/t728-works-5000-UTC-essential-analytics-chromium-darwin.txt
 11e7f45df8da863f4745aac6144d81acdcbbd1b0baa101ac3e36e94571c1ba59  e2e/journeys/t728-hydration-diff.spec.mjs-snapshots/t728-works-5000-UTC-essential-chromium-darwin.txt
 551d3c6ef3b156a0c0849abd59276586ed7e94372a5a6c99a937194b40fabe16  e2e/journeys/t728-hydration-diff.spec.mjs-snapshots/t728-works-5000-nojs-chromium-darwin.txt
-eb5a1b207366d2747f034c050ea525928b2e13be449e1fee6fcfd33eb1715b08  e2e/journeys/t728-pinned-tuples.json
+f5cefedc1d06ca27e7c59843a36e530fd2aacb36357035dee521f39c47dec336  e2e/journeys/t728-pinned-tuples.json
 40a2635c4a5b78f25f941903e0cd31cdd12efe6c13c2d97abf8989509482c54e  e2e/journeys/t729-post-hydration-head.spec.mjs-snapshots/t729-head-outputs-2001-chromium-darwin.json
 477d1b00c48ff74659cbaa484343457f066e07ef5b6a95cf7d569463c19c20d3  e2e/journeys/t729-post-hydration-head.spec.mjs-snapshots/t729-head-outputs-2003-chromium-darwin.json
 f130d8f1b80fb020b73047801f2540fa7203838ebfb081ce6cbb129fc327b67a  e2e/journeys/t729-post-hydration-head.spec.mjs-snapshots/t729-head-outputs-2004-chromium-darwin.json
@@ -684,7 +684,7 @@ a57926a795257cfe102fe84717ae66ff0a21400527adab47d7fb6ac0557feaaa  e2e/journeys/t
 b123ba56c6e588accb05f29053b0276f49eaab576de787d1447426bf90426d36  e2e/journeys/t804-keyboard-smoke.spec.mjs-snapshots/t804-c1-tab-update-chromium-darwin.json
 ec8caf429d644aa1705b21bf159529fdb91bf4ce751f30947d90667efe4c72f2  e2e/journeys/t804-keyboard-smoke.spec.mjs-snapshots/t804-c1-tab-works-chromium-darwin.json
 b252f947a972ebcf2bf7f431a4e0f1256689aeee7d310280ded33dae5a1c3fed  e2e/lib/P0-11/t607-wire.baseline.json
-4ff55d039e495ce00f5304cc4a379622d09feee1fd7d9a865e7613e293f1f848  e2e/lib/P0-12/t741-console-pins.json
+abc6167eff6497a2a640eaba72696ce837403325716b162203d1b2c5068d5df0  e2e/lib/P0-12/t741-console-pins.json
 31d2450422e1d1443cfab679ac0f8206be323f75e23226a71c633aeaac76dd3f  e2e/visual/t738-sticky-layers.spec.mjs-snapshots/t738-V26-search-1440-visual-darwin.json
 af9da60bb99812dda6935c23903d917c0998f8a5f5ff9a0f6fd55e7e7d219696  e2e/visual/t738-sticky-layers.spec.mjs-snapshots/t738-V26-search-375-visual-darwin.json
 6fea26d620a7686071e3758980cfad1c9ad9ee2eed46e5dfce23e463262c3f65  e2e/visual/t738-sticky-layers.spec.mjs-snapshots/t738-V27-outputs-1440-visual-darwin.json
@@ -1303,4 +1303,4 @@ aa70745e020b396eff983148483b797db2d4099bbf576cb0e7d1df29f7b173ce  test/unit/desi
 58f001e45822fddf184391d0a9d43cc863fa707d6c2bed7e878619c7c0db92bc  test/unit/design/lib/P0-07/reference/Select.json
 26c25f6dd7ca4b04c0ad0e8577f2218291559aa1e7a8faac22c302e095a4b4e8  test/unit/design/lib/P0-07/reference/TextField.json
 6d45b05fcc95f0d289de9bab323760226304237317e5048535575edd8a3195dd  test/unit/store/__baseline__/t203-reactivity.json
-bd556ae376147f308540695d1410733e6d5f3201abf03a925202fadcd6a2e706  test/baseline/manifest.json
+1a1129b08d1c00b6ef0fab89d236a0882500d141cd06e2d321679439c9db5c4f  test/baseline/manifest.json
