@@ -378,10 +378,10 @@
           "condition": "(max-width: 767px)",
           "rules": 4,
           "children": [
-            ".styles_output-container__eWoCk",
-            ".styles_background__HwOVJ",
-            ".styles_background__HwOVJ h1",
-            ".styles_navigation-trail__welmO"
+            ".styles_output-container__FEhSa",
+            ".styles_background__xkAK2",
+            ".styles_background__xkAK2 h1",
+            ".styles_navigation-trail__L4n15"
           ]
         },
         {
@@ -389,7 +389,7 @@
           "within": "",
           "condition": "(orientation: portrait)",
           "rules": 1,
-          "children": [".styles_container__5ja5H"]
+          "children": [".styles_container__GtRNP"]
         },
         {
           "at": "159",
@@ -397,11 +397,11 @@
           "condition": "(max-width: 767px)",
           "rules": 5,
           "children": [
-            ".styles_container__GixSW",
-            ".styles_main___X8gn, .styles_sidebar__ZWwfh",
-            ".styles_sidebar__ZWwfh",
-            ".styles_result__GKaJ9",
-            ".styles_result__GKaJ9:not(:first-child)"
+            ".styles_container___I8Ph",
+            ".styles_main__8XySk, .styles_sidebar__RhA8i",
+            ".styles_sidebar__RhA8i",
+            ".styles_result__JsVl0",
+            ".styles_result__JsVl0:not(:first-child)"
           ]
         }
       ]

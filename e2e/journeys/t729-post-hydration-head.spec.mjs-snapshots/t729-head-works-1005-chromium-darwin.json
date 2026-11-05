@@ -25,7 +25,8 @@
     "meta[name=DC.creator]",
     "meta[name=DC.title]",
     "meta[name=DCTERMS.abstract]",
-    "script[application/ld+json]"
+    "script[application/ld+json]",
+    "link[preconnect]"
   ],
   "htmlAttrs": {},
   "head": [
@@ -167,6 +168,15 @@
         "rel": "icon",
         "sizes": "any",
         "type": "image/svg+xml"
+      }
+    },
+    {
+      "tag": "link",
+      "attrs": {
+        "crossorigin": "anonymous",
+        "data-next-font": "",
+        "href": "/",
+        "rel": "preconnect"
       }
     },
     {

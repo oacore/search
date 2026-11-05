@@ -7345,12 +7345,12 @@
     },
     {
       "block-size": "1px",
-      "bottom": "1px",
+      "bottom": "813px",
       "clip": "rect(0px, 0px, 0px, 0px)",
       "height": "1px",
       "inline-size": "1px",
-      "inset-block-end": "1px",
-      "inset-block-start": "812px",
+      "inset-block-end": "813px",
+      "inset-block-start": "0px",
       "inset-inline-end": "376px",
       "inset-inline-start": "0px",
       "left": "0px",
@@ -7370,7 +7370,7 @@
       "position": "absolute",
       "right": "376px",
       "text-wrap-mode": "nowrap",
-      "top": "812px",
+      "top": "0px",
       "transform-origin": "0.5px 0.5px",
       "width": "1px"
     }

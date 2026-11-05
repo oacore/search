@@ -137,7 +137,7 @@
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[2] "I agree"
 @@ -328 +459 @@
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
-+ html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
++ html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; top: 0px; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 + html[1]/body[1]/next-route-announcer[1]/p[1] "Data providers search"
 + html[1]/body[1]/script[2] <script next-owned="chunk">
 + html[1]/body[1]/script[3] <script next-owned="chunk">

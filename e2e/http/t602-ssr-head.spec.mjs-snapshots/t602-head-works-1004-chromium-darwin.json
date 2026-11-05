@@ -163,7 +163,16 @@
     "other": [
       { "tag": "script", "attrs": {}, "text": "window.__PWN=1" },
       { "tag": "script", "attrs": {}, "text": "window.__PWN=1" },
-      { "tag": "script", "attrs": {}, "text": "window.__PWN=1" }
+      { "tag": "script", "attrs": {}, "text": "window.__PWN=1" },
+      {
+        "tag": "link",
+        "attrs": {
+          "crossorigin": "anonymous",
+          "data-next-font": "",
+          "href": "/",
+          "rel": "preconnect"
+        }
+      }
     ]
   },
   "bodyLeadText": [
