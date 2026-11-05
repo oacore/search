@@ -120,6 +120,25 @@ const NEXT_TERSER = {
   mangle: { safari10: true },
   output: { ecma: 5, safari10: true, comments: false, ascii_only: true },
 }
+// the options of Next 13.5's SWC minifier, its default from Next 13
+// (next/dist/build/webpack/plugins/terser-webpack-plugin/src/index.js)
+const NEXT_SWC = {
+  compress: true,
+  mangle: { toplevel: true, keep_classnames: true, keep_fnames: true },
+}
+// the minifier of the build: SWC when its config has swcMinify (recorded in
+// .next/required-server-files.json), else Terser (40 §8 rule 7)
+const minifierOf = (nextDir) => {
+  const file = path.join(nextDir, 'required-server-files.json')
+  return fs.existsSync(file) &&
+    JSON.parse(fs.readFileSync(file, 'utf8')).config.swcMinify === true
+    ? 'swc'
+    : 'terser'
+}
+const minify = (code, minifier) =>
+  minifier === 'swc'
+    ? require('next/dist/build/swc').minify(code, NEXT_SWC)
+    : terser.minify(code, NEXT_TERSER)
 const REQUIRE_CALL = /\brequire\((["'])(?:(?!\1)[^\\]|\\.)*\1\)/g
 
 // a function with every local binding renamed in scope order ($0, $1, ...) and
@@ -154,7 +173,12 @@ const escapeRe = (name) => name.replace(/[$]/g, '\\$&')
 // the third parameter of a module function is webpack's require; a module that
 // does not use it has fewer parameters after minification
 const requireParam = (params) => (params[2] ? params[2].name : null)
-const sameModule = async (emitted, requireName, fileText) => {
+const sameModule = async (
+  emitted,
+  requireName,
+  fileText,
+  minifier = 'terser'
+) => {
   const emittedNorm = requireName
     ? emitted.replace(
         new RegExp(`\\b${escapeRe(requireName)}\\(("[^"]*"|\\d+)\\)`, 'g'),
@@ -165,7 +189,7 @@ const sameModule = async (emitted, requireName, fileText) => {
     .replace(/\bprocess\.env\.NODE_ENV\b/g, '"production"')
     .replace(REQUIRE_CALL, PLACEHOLDER)
   const wrapped = `x={a:function(module,exports,__webpack_require__){${rewritten}\n}}`
-  const out = await terser.minify(wrapped, NEXT_TERSER)
+  const out = await minify(wrapped, minifier)
   const fn = out.code.replace(/^x=\{a:/, '').replace(/\};?$/, '')
   const ownName = requireParam(
     parse(`(${fn})`, { sourceType: 'script' }).program.body[0].expression.params
@@ -224,7 +248,7 @@ const designModulesOf = (code, map) => {
     .filter(Boolean)
 }
 
-const analyseClient = async (nextDir, root) => {
+const analyseClient = async (nextDir, root, minifier = minifierOf(nextDir)) => {
   const res = {
     modules: [],
     mismatched: [],
@@ -244,7 +268,7 @@ const analyseClient = async (nextDir, root) => {
       for (const m of designModulesOf(code, map)) {
         const fileText = fs.readFileSync(path.join(root, m.file), 'utf8')
         // eslint-disable-next-line no-await-in-loop
-        const r = await sameModule(m.emitted, m.requireName, fileText)
+        const r = await sameModule(m.emitted, m.requireName, fileText, minifier)
         res.modules.push(m.file)
         if (!r.equal) res.mismatched.push(m.file)
         res.addedRequires += r.emittedRequires - r.fileRequires
@@ -465,6 +489,7 @@ describe('T-016 @P0 vendored design', () => {
       const strict = mods.filter((m) =>
         /^function\(\w,\w,\w\)\{"use strict";/.test(m.emitted)
       )
+      const minifier = minifierOf(nextDir)
       const [victim, other] = [strict[0], strict[1]]
       // same-length edit: the offsets of the source map stay valid
       const at =
@@ -477,7 +502,7 @@ describe('T-016 @P0 vendored design', () => {
       const name = path.basename(mapFile)
       fs.writeFileSync(path.join(dir, name.replace(/\.map$/, '')), tampered)
       fs.writeFileSync(path.join(dir, name), JSON.stringify(map))
-      const res = await analyseClient(path.join(tmp, '.next'), root)
+      const res = await analyseClient(path.join(tmp, '.next'), root, minifier)
       expect(res.designSources).toBe(
         map.sources.filter((src) => DESIGN_SOURCE.test(src)).length
       )
