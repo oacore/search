@@ -153,6 +153,15 @@
         }
       },
       {
+        "tag": "link",
+        "attrs": {
+          "crossorigin": "anonymous",
+          "data-next-font": "",
+          "href": "/",
+          "rel": "preconnect"
+        }
+      },
+      {
         "tag": "script",
         "attrs": {
           "async": "",
@@ -316,6 +325,15 @@
         }
       },
       {
+        "tag": "link",
+        "attrs": {
+          "crossorigin": "anonymous",
+          "data-next-font": "",
+          "href": "/",
+          "rel": "preconnect"
+        }
+      },
+      {
         "tag": "script",
         "attrs": {
           "async": "",
@@ -476,6 +494,15 @@
           "rel": "icon",
           "sizes": "any",
           "type": "image/svg+xml"
+        }
+      },
+      {
+        "tag": "link",
+        "attrs": {
+          "crossorigin": "anonymous",
+          "data-next-font": "",
+          "href": "/",
+          "rel": "preconnect"
         }
       },
       {

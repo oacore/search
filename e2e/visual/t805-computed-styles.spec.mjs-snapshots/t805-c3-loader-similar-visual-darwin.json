@@ -7,10 +7,10 @@
     {
       "phase": "loading",
       "events": [
-        "animationstart body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[1] loader_spin__qoXO2 "
+        "animationstart body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[1] loader_spin__6CWQ1 "
       ],
       "running": [
-        "CSSAnimation body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[1] loader_spin__qoXO2 duration=1000 delay=0 iterations=Infinity easing=linear fill=none direction=normal running"
+        "CSSAnimation body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[1] loader_spin__6CWQ1 duration=1000 delay=0 iterations=Infinity easing=linear fill=none direction=normal running"
       ],
       "base": {
         "animation-composition": "replace",
@@ -79,7 +79,7 @@
         "body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/div[1]": {
           "animation-duration": "1s",
           "animation-iteration-count": "infinite",
-          "animation-name": "loader_spin__qoXO2",
+          "animation-name": "loader_spin__6CWQ1",
           "animation-timing-function": "linear"
         },
         "body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/span[1]": {

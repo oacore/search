@@ -190,7 +190,17 @@
         "attrs": { "content": "width=device-width", "name": "viewport" }
       }
     ],
-    "other": []
+    "other": [
+      {
+        "tag": "link",
+        "attrs": {
+          "crossorigin": "anonymous",
+          "data-next-font": "",
+          "href": "/",
+          "rel": "preconnect"
+        }
+      }
+    ]
   },
   "bodyLead": { "seo": [], "favicons": [], "frame": [], "other": [] },
   "bodyLeadText": []

@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "link": "B4-local",
+  "link": "B5-local",
   "kind": "product",
-  "provisional": "host baseline, macOS arm64 (owner notes §1); product link B4-local (42 §9 product re-baseline, lean form; jump 3 batch W6a rows): the T-610 c3 and T-728 c1/c3 re-captures of rows -5 and -6 (3 captures byte-identical on host stacks of the merged tip's build 42b166d4ce80c734, React 18.3.1, Next 12.3.7, Node 24.18.1), the T-417 re-record of row -12 (3 RECORD=1 runs byte-identical on the merged tip's tree) and the T-611 c1 B0 re-statement of row -15 (its own commit), each file differing from the committed one exactly by its declared rows; declared rows signed by the owner 2026-11-04 (jump 3 batch W6a rows), the link's SHA-256 sets shown to the owner after capture; provisional with B0-local until the CI capture on ubuntu-24.04-arm and the owner-signed B0 PR (VF-10, I-06)",
+  "provisional": "host baseline, macOS arm64 (owner notes §1); product link B5-local (42 §9 product re-baseline, lean form; jump 3 batch W6c rows): the T-602 c3/c4, T-610 c3, T-728 c1/c3, T-729 c1/c2, T-739 c1 and T-805 c1/c3/c4 re-captures of row PROPOSED-W6c-12, 517 files (3 captures byte-identical on host stacks of the build a78b776f071832bb for the T-602, T-728, T-729, T-739 and T-805 files, whose client files equal those of the merged tip's build 285deec5dfe48f6a by hash but for one source path in the _app map, and whose HTML on T-611's 23 routes has the raw byte counts of a scratch build with the same line; and 3 on 285deec5dfe48f6a for the T-610 file; React 18.3.1, Next 13.5.11, Node 24.18.1), each file differing from the committed one exactly by its declared row; declared row signed by the owner 2026-11-05 (jump 3 batch W6c rows), the link's SHA-256 sets shown to the owner after capture; provisional with B0-local until the CI capture on ubuntu-24.04-arm and the owner-signed B0 PR (VF-10, I-06)",
   "reference": {
-    "G": "477b0f2d5afd5032d983dd8da4513b7224829aac",
+    "G": "3be0bb09360dc01cecb3b75a5adefa35c6a83321",
     "tag": null,
-    "builds": { "default": "42b166d4ce80c734", "nodsn": null, "harness": null }
+    "builds": { "default": "285deec5dfe48f6a", "nodsn": null, "harness": null }
   },
   "fixtures": {
     "files": 239,
@@ -23,7 +23,7 @@
   },
   "baselines": {
     "files": 1305,
-    "sha256": "5d2ca545b548d88de047cc8ac9b6bf3e934b896fb40b69e1e4eb12aa3fcbfdd0"
+    "sha256": "1163c615061b5531da61e8385eeda8cb9873e2bb2058f71b4c01789011555914"
   },
   "corpus": {
     "files": 105,

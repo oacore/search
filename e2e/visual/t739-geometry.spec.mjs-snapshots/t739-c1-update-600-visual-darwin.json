@@ -219,6 +219,6 @@
     "body[1]/div[1]/div[1]/footer[1]/div[2]/a[2] block visible 120.890625 2665.796875 90.375 24",
     "body[1]/div[1]/div[1]/footer[1]/div[2]/a[3] block visible 211.265625 2665.796875 84.4375 24",
     "body[1]/next-route-announcer[1] inline visible 0 900 0 0",
-    "body[1]/next-route-announcer[1]/p[1] block visible -1 899 1 1"
+    "body[1]/next-route-announcer[1]/p[1] block visible -1 -1 1 1"
   ]
 }
