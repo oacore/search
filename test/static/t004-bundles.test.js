@@ -117,7 +117,10 @@ describe('T-004 @P0 bundles', () => {
     // today the client keeps the one call of lib/loader.js readCache (fs is
     // the empty module there: Q-011)
     expect(JSON.parse(a['client:readFileSync'])).toEqual({ 'lib/loader.js': 1 })
-    expect(JSON.parse(a['server:readFileSync'])).toEqual({ 'lib/loader.js': 1 })
+    expect(JSON.parse(a['server:readFileSync'])).toEqual({
+      'lib/loader.js': 1,
+      'node_modules/next/dist/compiled/gzip-size/index.js': 1,
+    }) // AD-198
     compare(['client:readFileSync', 'server:readFileSync'])
   })
 

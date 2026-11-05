@@ -48,9 +48,15 @@ const loadBaseline = () => {
 }
 // conditional GETs answered by the static file server (send) drop every content-* header, CSP included (it
 // removes the content header fields on 304); pinned as today's behaviour
-const STATIC_304_WITHOUT_CSP = ['public', 'next-static', 'map', 'icons-svg']
-  .flatMap((r) => ['origin', 'proxy'].map((v) => `${r}@${v}.conditional`))
-  .sort()
+const STATIC_304_WITHOUT_CSP = [
+  ...['public', 'next-static', 'map', 'icons-svg'].flatMap((r) =>
+    ['origin', 'proxy'].map((v) => `${r}@${v}.conditional`)
+  ),
+  // Next 13.5's trailing-slash 308s carry no CSP (AD-177)
+  ...['origin', 'proxy'].flatMap((v) =>
+    ['GET', 'HEAD', 'br-gzip'].map((c) => `308-slash@${v}.${c}`)
+  ),
+].sort()
 
 test.describe('T-603 @P0 header contract', () => {
   test.describe.configure({ timeout: 300000 })
@@ -291,7 +297,8 @@ test.describe('T-603 @P0 header contract', () => {
     }
     // every class carries it on GET, HEAD and br/gzip; only the static 304s drop it
     expect(without.sort()).toEqual(STATIC_304_WITHOUT_CSP)
-    for (const cls of CLASSES)
+    // every class but 308-slash has a response with CSP (AD-177)
+    for (const cls of CLASSES.filter((c) => c !== '308-slash'))
       expect(
         rows.filter(
           (r) => r.class === cls && r._raw.headers['content-security-policy']

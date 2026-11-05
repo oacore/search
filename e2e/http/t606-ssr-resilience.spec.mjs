@@ -297,7 +297,7 @@ test.describe('T-606 @P1 SSR resilience', () => {
       )
     ).toEqual([])
 
-    // R-055: the process survived every failure; Next printed nothing beyond the allow-listed lines and the notice of AD-148
+    // R-055: the process survived every failure; Next printed nothing beyond the allow-listed lines and its start-up banner (TC-4; AD-148 on Next 12.3, AD-182 on Next 13.5)
     const health = await get(env.allowURL, '/api/healthz/')
     expect([health.status, health.text]).toEqual([200, '{"status":"ok"}'])
     expect(() => process.kill(env.pids.app, 0)).not.toThrow()
@@ -308,10 +308,7 @@ test.describe('T-606 @P1 SSR resilience', () => {
       .filter((l) => l !== '')
     expect(
       withoutBanner(lines).filter((l) => !LOG_ALLOW.some((re) => re.test(l)))
-    ).toEqual([
-      'warn  - You have enabled experimental feature (largePageDataBytes) in next.config.js.',
-      'warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.',
-    ]) // AD-148
+    ).toEqual([]) // AD-148, AD-182
     // no server Sentry event for an upstream failure (the soft pages are answers, not errors)
     const records = await stubControl(env, 'GET', '/records')
     expect(records.filter((x) => /(^|\.)sentry\.io$/.test(hostOf(x)))).toEqual(
