@@ -489,8 +489,18 @@ describe('T-016 @P0 vendored design', () => {
       const strict = mods.filter((m) =>
         /^function\(\w,\w,\w\)\{"use strict";/.test(m.emitted)
       )
+      // the victim and the other are the first two that the comparison finds
+      // equal before the edit (on an SWC build the first one is not)
       const minifier = minifierOf(nextDir)
-      const [victim, other] = [strict[0], strict[1]]
+      const equal = []
+      for (const m of strict) {
+        const fileText = fs.readFileSync(path.join(root, m.file), 'utf8')
+        // eslint-disable-next-line no-await-in-loop
+        const r = await sameModule(m.emitted, m.requireName, fileText, minifier)
+        if (r.equal) equal.push(m)
+        if (equal.length === 2) break
+      }
+      const [victim, other] = equal
       // same-length edit: the offsets of the source map stay valid
       const at =
         code.indexOf(victim.emitted) + victim.emitted.indexOf('"use strict"')
