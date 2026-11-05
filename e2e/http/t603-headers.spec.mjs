@@ -295,7 +295,8 @@ test.describe('T-603 @P0 header contract', () => {
       }
       expect(csp, r.id).toEqual([policy])
     }
-    // every class carries it on GET, HEAD and br/gzip; only the static 304s drop it
+    // every class carries it on GET, HEAD and br/gzip; only the static 304s and Next's
+    // trailing-slash 308s drop it (AD-177)
     expect(without.sort()).toEqual(STATIC_304_WITHOUT_CSP)
     // every class but 308-slash has a response with CSP (AD-177)
     for (const cls of CLASSES.filter((c) => c !== '308-slash'))

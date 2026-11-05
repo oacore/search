@@ -216,7 +216,10 @@ test.describe('T-602 @P0 SSR head', () => {
         )
         expect(article['@id']).toBe(`https://core.ac.uk/reader/${api.id}`)
         expect(article.image).toBe(`https://core.ac.uk/image/${api.id}/large`)
-        expect(n.other, `${p.id} no other head tags`).toEqual([PRECONNECT_SELF]) // AD-179
+        expect(
+          n.other,
+          `${p.id} no other head tags but the preconnect of AD-179`
+        ).toEqual([PRECONNECT_SELF]) // AD-179
         expect(
           parsed.bodyLead,
           `${p.id} nothing parsed ahead of #__next`
@@ -238,7 +241,10 @@ test.describe('T-602 @P0 SSR head', () => {
       } else {
         // search, default title pages and Next's error page carry no app tag besides the title
         expect(names, `${p.id} SEO tags`).toEqual(['title'])
-        expect(n.other, `${p.id} no other head tags`).toEqual([PRECONNECT_SELF]) // AD-179
+        expect(
+          n.other,
+          `${p.id} no other head tags but the preconnect of AD-179`
+        ).toEqual([PRECONNECT_SELF]) // AD-179
         expect(parsed.bodyLead).toEqual([])
       }
     }
