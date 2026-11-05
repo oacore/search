@@ -21,7 +21,10 @@ const nextConfig = {
   // From Next 12.2 the server logs each page whose data is over 128 kB, with
   // its path and query string; 0 skips that check, so the log stays as on
   // 10.2.3 (CS-N12-14)
-  experimental: { largePageDataBytes: 0 },
+  // From Next 13 the server code is minified too
+  // (experimental.serverMinification); false keeps it as 12.3.7 built it, so
+  // server stack traces keep the app's names (CS-N13-9)
+  experimental: { largePageDataBytes: 0, serverMinification: false },
 
   // The page data of client navigations is fetched from /search/_next/data
   // (pages/_app.jsx, useInterceptNextDataHref). From Next 12.2 a rewrite
