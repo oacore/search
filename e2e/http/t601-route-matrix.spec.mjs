@@ -208,6 +208,7 @@ test.describe('T-601 @P0 route/status matrix', () => {
         : `//# sourceMappingURL=${path.posix.basename(m)}`
       const sources =
         json && Array.isArray(json.sources) ? json.sources.length : null
+      const content = json && json.sourcesContent
       rows.push([
         m,
         a.status,
@@ -216,16 +217,18 @@ test.describe('T-601 @P0 route/status matrix', () => {
         p.contentType,
         sources === 0
           ? 'empty'
-          : Boolean(
-              json &&
-                Array.isArray(json.sourcesContent) &&
-                json.sourcesContent.length === sources &&
-                json.sourcesContent.every((c) => typeof c === 'string')
-            ),
+          : !json || (Array.isArray(content) && content.length > sources)
+            ? false
+            : json.sources.filter(
+                (s, i) =>
+                  !Array.isArray(content) || typeof content[i] !== 'string'
+              ),
       ])
     }
-    // every map with sources carries their full sourcesContent; the one exception is the map of the
-    // empty CSS-extraction chunk `<hash>_CSS.<hash>.js` (no sources, no sourcesContent; P0-09 issues)
+    // every map with sources carries their full sourcesContent: the 6th field lists the sources without
+    // content (also those past the end of sourcesContent; false for more entries than sources); the one
+    // exception is the map of the empty CSS-extraction chunk `<hash>_CSS.<hash>.js` (no sources, no
+    // sourcesContent; P0-09 issues)
     const isEmptyCssChunk = (m) =>
       /^chunks\/[0-9a-f]+_CSS\.[0-9a-f]+\.js\.map$/.test(m)
     expect(maps.filter(isEmptyCssChunk).length).toBe(0) // AD-056
@@ -236,7 +239,7 @@ test.describe('T-601 @P0 route/status matrix', () => {
         true,
         200,
         'application/json; charset=UTF-8',
-        isEmptyCssChunk(m) ? 'empty' : true,
+        isEmptyCssChunk(m) ? 'empty' : [],
       ])
     )
   })
