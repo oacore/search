@@ -124,16 +124,18 @@ test.describe('T-608 @P0 crash semantics', () => {
     const id = `${p2Env.run}-t608-c1`
     try {
       const { env, mark, shot } = await armed(id, build, PRELOAD_THROW, 'throw')
-      // node:domain's clear handler (domain is required by @sentry/node and put first), @sentry/node's
-      // OnUncaughtException integration (an anonymous handler in Sentry 7, AD-014; bound in 5.30) and the
-      // handler of pages/_app.jsx:25-27
-      expect(shot.listeners).toBe(4) // AD-128
+      // node:domain's clear handler (domain is required by @sentry/node and put first), Next 13.5's `exception`
+      // listener (next/dist/server/lib/start-server.js: it logs and keeps the process up), @sentry/node's
+      // OnUncaughtException integration (an anonymous handler in Sentry 7, AD-014; bound in 5.30), Next 13.5's
+      // `bound logError` (next/dist/server/lib/router-server.js) and the handler of pages/_app.jsx:25-27
+      expect(shot.listeners).toBe(5) // AD-128, AD-183
       expect(shot.names).toEqual([
         DOMAIN_CLEAR,
-        'invokeErrorHandlers',
+        'exception',
         SENTRY_UNCAUGHT,
+        'bound logError',
         APP_HANDLER,
-      ]) // AD-128
+      ]) // AD-128, AD-183
       await expect.poll(() => appExit(env), { timeout: 15000 }).not.toBeNull()
       const exit = appExit(env)
       expect({ code: exit.code, signal: exit.signal }).toEqual({
@@ -204,14 +206,15 @@ test.describe('T-608 @P0 crash semantics', () => {
         PRELOAD_REJECT,
         'reject'
       )
-      // @sentry/node's OnUnhandledRejection integration (sendUnhandledPromise in Sentry 7, AD-016) and the
-      // handler of pages/_app.jsx:21-23
-      expect(shot.listeners).toBe(3) // AD-129
+      // Next 13.5's `exception` listener, @sentry/node's OnUnhandledRejection integration (sendUnhandledPromise
+      // in Sentry 7, AD-016), Next 13.5's `bound logError` and the handler of pages/_app.jsx:21-23
+      expect(shot.listeners).toBe(4) // AD-129, AD-183
       expect(shot.names).toEqual([
-        'invokeRejectionHandlers',
+        'exception',
         SENTRY_REJECTION,
+        'bound logError',
         APP_HANDLER,
-      ]) // AD-129
+      ]) // AD-129, AD-183
       await survives(env, shot.at)
       const events = await sentryEvents(env, mark.seq)
       expect(events.map((r) => r.url)).toEqual([ENVELOPE])

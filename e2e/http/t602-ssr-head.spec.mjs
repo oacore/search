@@ -58,6 +58,17 @@ const TITLE_FOR = {
   'default': DEFAULT_TITLE,
   'next-error': NEXT_ERROR_TITLE,
 }
+// the one tag Next 13.5 writes after the app's head tags of every server-rendered page: a preconnect to its own
+// origin, from the empty `/_app` entry of next-font-manifest.json (AD-179)
+const PRECONNECT_SELF = {
+  tag: 'link',
+  attrs: {
+    'crossorigin': 'anonymous',
+    'data-next-font': '',
+    'href': '/',
+    'rel': 'preconnect',
+  },
+}
 
 const titleOf = (page, resolver) =>
   page.api
@@ -205,7 +216,7 @@ test.describe('T-602 @P0 SSR head', () => {
         )
         expect(article['@id']).toBe(`https://core.ac.uk/reader/${api.id}`)
         expect(article.image).toBe(`https://core.ac.uk/image/${api.id}/large`)
-        expect(n.other, `${p.id} no other head tags`).toEqual([])
+        expect(n.other, `${p.id} no other head tags`).toEqual([PRECONNECT_SELF]) // AD-179
         expect(
           parsed.bodyLead,
           `${p.id} nothing parsed ahead of #__next`
@@ -223,11 +234,11 @@ test.describe('T-602 @P0 SSR head', () => {
           'BreadcrumbList',
           'SearchResultsPage',
         ])
-        expect(n.other).toEqual([])
+        expect(n.other).toEqual([PRECONNECT_SELF]) // AD-179
       } else {
         // search, default title pages and Next's error page carry no app tag besides the title
         expect(names, `${p.id} SEO tags`).toEqual(['title'])
-        expect(n.other, `${p.id} no other head tags`).toEqual([])
+        expect(n.other, `${p.id} no other head tags`).toEqual([PRECONNECT_SELF]) // AD-179
         expect(parsed.bodyLead).toEqual([])
       }
     }

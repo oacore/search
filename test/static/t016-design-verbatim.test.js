@@ -392,11 +392,11 @@ describe('T-016 @P0 vendored design', () => {
     )
     expect(res.mismatched).toEqual([
       'node_modules/@oacore/design/lib/config.js',
+      'node_modules/@oacore/design/lib/context.js',
       'node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js',
       'node_modules/@oacore/design/lib/modules/header/context/actions.js',
       'node_modules/@oacore/design/lib/utils/can-use-dom.js',
-      'node_modules/@oacore/design/lib/utils/class-names.js',
-    ]) // AD-057
+    ]) // AD-057, AD-200
     // the file webpack read is the installed file
     expect(res.sourceDiffers).toEqual([])
     // no import added to any module (babel's useBuiltIns: 'usage' would add
@@ -406,8 +406,10 @@ describe('T-016 @P0 vendored design', () => {
     // bundle (nothing of it is compiled for the server)
     const server = analyseServer(nextDir)
     expect(server.bundled).toEqual([
+      'webpack://search/./node_modules/@oacore/design/lib/index.css',
       'webpack://search/external commonjs "@oacore/design"',
       'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+      'webpack://search/external commonjs "@oacore/design"',
       'webpack://search/external commonjs "@oacore/design"',
       'webpack://search/external commonjs "@oacore/design/lib/elements/logo"',
       'webpack://search/external commonjs "@oacore/design"',
@@ -417,7 +419,9 @@ describe('T-016 @P0 vendored design', () => {
       'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
       'webpack://search/external commonjs "@oacore/design"',
       'webpack://search/external commonjs "@oacore/design/lib/utils"',
+      'webpack://search/external commonjs "@oacore/design"',
       'webpack://search/external commonjs "@oacore/design/lib"',
+      'webpack://search/external commonjs "@oacore/design"',
       'webpack://search/external commonjs "@oacore/design"',
       'webpack://search/external commonjs "@oacore/design/lib/elements"',
       'webpack://search/external commonjs "@oacore/design/lib/modules"',
@@ -437,7 +441,7 @@ describe('T-016 @P0 vendored design', () => {
       'webpack://search/external commonjs "@oacore/design/lib/modules"',
       'webpack://search/external commonjs "@oacore/design/lib/utils"',
       'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
-    ]) // AD-061
+    ]) // AD-061, AD-201
     expect(server.externals).toEqual([]) // AD-140
   }, 300000)
 
@@ -525,11 +529,11 @@ describe('T-016 @P0 vendored design', () => {
       expect(res.mismatched).toEqual([
         'node_modules/@oacore/design/lib/config.js',
         'node_modules/@oacore/design/lib/context.js',
+        'node_modules/@oacore/design/lib/elements/app-bar/bar.js',
         'node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js',
         'node_modules/@oacore/design/lib/modules/header/context/actions.js',
         'node_modules/@oacore/design/lib/utils/can-use-dom.js',
-        'node_modules/@oacore/design/lib/utils/class-names.js',
-      ]) // AD-139
+      ]) // AD-139, AD-202
       expect(res.sourceDiffers).toEqual([other.file])
       expect(res.addedRequires).toBe(0)
     } finally {

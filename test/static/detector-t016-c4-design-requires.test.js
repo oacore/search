@@ -195,9 +195,9 @@ describe('T-016 @P0 vendored design: client require edges', () => {
     expect(res.edges).toBeGreaterThan(0)
     expect(res.unresolved).toEqual([])
     expect(res.appTargets).toEqual([
-      'node_modules/@oacore/design/lib/elements/cookies/cookies-provider.js -> <unmapped:static/chunks/pages/_app-c69132bc37b63907.js:13456>',
-      'node_modules/@oacore/design/lib/hooks/use-cookies.js -> <unmapped:static/chunks/pages/_app-c69132bc37b63907.js:13456>',
-    ]) // AD-138, AD-155, AD-173
+      'node_modules/@oacore/design/lib/elements/cookies/cookies-provider.js -> <unmapped:static/chunks/pages/_app-546c51defc78fdb1.js:13456>',
+      'node_modules/@oacore/design/lib/hooks/use-cookies.js -> <unmapped:static/chunks/pages/_app-546c51defc78fdb1.js:13456>',
+    ]) // AD-138, AD-155, AD-173, AD-181
   }, 120000)
 
   test('T-016 c4 @P0 the edge check sees a design require resolved into the app tree, and ignores a nested local of the same name (negative control)', () => {

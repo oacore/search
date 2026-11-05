@@ -162,7 +162,7 @@ describe('T-010 @P0 routes manifest', () => {
 
   test('T-010 c2 @P0 the rewrite Next injects from 15 is whitelisted (only that one, only from 15); none today', () => {
     const major = nextMajor(build.appRoot)
-    expect(major).toBe(12) // AD-060
+    expect(major).toBe(13) // AD-060, AD-184
     expect(actual.entries[INJECTED_FROM_15.key]).toBeUndefined()
     // the comparator: the injected rewrite passes from 15 only; any other
     // added, removed or changed tuple fails

@@ -229,6 +229,24 @@ test.describe('T-601 @P0 route/status matrix', () => {
     // content (also those past the end of sourcesContent; false for more entries than sources); the one
     // exception is the map of the empty CSS-extraction chunk `<hash>_CSS.<hash>.js` (no sources, no
     // sourcesContent; P0-09 issues)
+    // AD-199: on Next 13.5 every .js map lists the SWC minifier's output `<anon>` without content, the _app map
+    // also the empty module react-cookie/es6/types.js and the webpack runtime map its three startup entries
+    const withoutContent = (m) =>
+      /^chunks\/pages\/_app-[0-9a-f]{16}\.js\.map$/.test(m)
+        ? [
+            'webpack://_N_E/./node_modules/react-cookie/es6/types.js',
+            'webpack://_N_E/<anon>',
+          ]
+        : /^chunks\/webpack-[0-9a-f]{16}\.js\.map$/.test(m)
+          ? [
+              'webpack://_N_E/webpack/before-startup',
+              'webpack://_N_E/webpack/startup',
+              'webpack://_N_E/webpack/after-startup',
+              'webpack://_N_E/<anon>',
+            ]
+          : m.endsWith('.js.map')
+            ? ['webpack://_N_E/<anon>']
+            : []
     const isEmptyCssChunk = (m) =>
       /^chunks\/[0-9a-f]+_CSS\.[0-9a-f]+\.js\.map$/.test(m)
     expect(maps.filter(isEmptyCssChunk).length).toBe(0) // AD-056
@@ -239,7 +257,7 @@ test.describe('T-601 @P0 route/status matrix', () => {
         true,
         200,
         'application/json; charset=UTF-8',
-        isEmptyCssChunk(m) ? 'empty' : [],
+        isEmptyCssChunk(m) ? 'empty' : withoutContent(m), // AD-199
       ])
     )
   })

@@ -80,6 +80,20 @@ test.describe('T-612 @P0 gateway proxy', () => {
       })),
       { target: longUrl(), route: '/search', upstream: longUrl() },
     ]
+    // the targets answered without a CSP header: /works//1 (AD-106) and the
+    // trailing-slash 308s of Next 13.5 (AD-178)
+    const WITHOUT_CSP = [
+      '/works//1',
+      '/search',
+      '/search?q=a+b',
+      '/search?q=%C3%BC',
+      '/static/search/_next/image?url=%2Fx.png&w=64&q=75',
+      '/display',
+      '/display/1?source=oai',
+      '/works/1001',
+      '/outputs/2001',
+      longUrl(),
+    ]
     const seen = []
     for (const row of rows) {
       const res = await request.fetch(`${p2Env.baseURL}${row.target}`, {
@@ -104,7 +118,7 @@ test.describe('T-612 @P0 gateway proxy', () => {
         expect([
           row.target,
           h['content-security-policy'] !== undefined,
-        ]).toEqual([row.target, row.target !== '/works//1']) // AD-106
+        ]).toEqual([row.target, !WITHOUT_CSP.includes(row.target)]) // AD-106, AD-178
       }
       seen.push([row.target.slice(0, 80), res.status()])
     }

@@ -333,6 +333,7 @@
   step: W2b
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'
+  withdrawn: "superseded on Next 13.5: its two 308-slash keys by AD-174, its other 24 keys by AD-203 (the same from and to), 2026-11-05"
 - id: AD-031
   kind: product
   test: T-720
@@ -681,6 +682,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-197 (the same key; es.array.fill and es.math.imul added), 2026-11-05"
 - id: AD-063
   kind: product
   test: T-004
@@ -692,6 +694,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-186 (the same key; es.array.fill and es.math.imul added), 2026-11-05"
 - id: AD-064
   kind: product
   test: T-004
@@ -703,6 +706,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-187 (the same key; es.array.fill and es.math.imul added), 2026-11-05"
 - id: AD-065
   kind: product
   test: T-004
@@ -714,6 +718,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-188 (the same key; es.array.fill and es.math.imul added), 2026-11-05"
 - id: AD-066
   kind: product
   test: T-004
@@ -725,6 +730,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-189 (the same key; es.array.fill and es.math.imul added), 2026-11-05"
 - id: AD-067
   kind: product
   test: T-004
@@ -736,6 +742,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-190 (the same key; es.array.fill and es.math.imul added), 2026-11-05"
 - id: AD-068
   kind: product
   test: T-004
@@ -747,6 +754,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-191 (the same key; es.array.fill and es.math.imul added), 2026-11-05"
 - id: AD-069
   kind: product
   test: T-004
@@ -758,6 +766,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-192 (the same key; es.array.fill and es.math.imul added), 2026-11-05"
 - id: AD-070
   kind: product
   test: T-004
@@ -769,6 +778,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-193 (the same key; es.array.fill and es.math.imul added), 2026-11-05"
 - id: AD-071
   kind: product
   test: T-004
@@ -780,6 +790,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-194 (the same key; es.array.fill and es.math.imul added), 2026-11-05"
 - id: AD-072
   kind: product
   test: T-004
@@ -791,6 +802,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-195 (the same key; es.array.fill and es.math.imul added), 2026-11-05"
 - id: AD-073
   kind: product
   test: T-004
@@ -802,6 +814,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-196 (the same key; es.array.fill and es.math.imul added), 2026-11-05"
 - id: AD-074
   kind: product
   test: T-004
@@ -1143,6 +1156,7 @@
   step: W4c
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 13.5 by AD-175: the getInitialProps page and the 500 page answer without Cache-Control as on 10.2.3, the 404 page as AD-175, 2026-11-05"
 - id: AD-105
   kind: product
   test: T-603
@@ -1694,6 +1708,7 @@
   step: W6a
   signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
   date: '2026-11-04'
+  withdrawn: "superseded on Next 13.5: the HTML of the five HTML classes is buffered again, as in the contract baseline (0 uses on the W6c tip build a78b776f071832bb), 2026-11-05"
 - id: AD-164
   kind: product
   test: T-603
@@ -1705,6 +1720,7 @@
   step: W6a
   signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
   date: '2026-11-04'
+  withdrawn: "superseded on Next 13.5: the HTML of the five HTML classes is buffered again, as in the contract baseline (0 uses on the W6c tip build a78b776f071832bb), 2026-11-05"
 - id: AD-165
   kind: product
   test: T-603
@@ -1716,6 +1732,7 @@
   step: W6a
   signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
   date: '2026-11-04'
+  withdrawn: "superseded on Next 13.5: the HTML of the five HTML classes is buffered again, as in the contract baseline (0 uses on the W6c tip build a78b776f071832bb), 2026-11-05"
 - id: AD-166
   kind: product
   test: T-603
@@ -1727,6 +1744,7 @@
   step: W6a
   signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
   date: '2026-11-04'
+  withdrawn: "superseded on Next 13.5: the HTML of the five HTML classes is buffered again, as in the contract baseline (0 uses on the W6c tip build a78b776f071832bb), 2026-11-05"
 - id: AD-167
   kind: product
   test: T-707
@@ -1804,3 +1822,333 @@
   step: W6a
   signedOffBy: 'SIGNED: owner, 2026-11-04 (jump 3 batch W6a rows, approved in the work session)'
   date: '2026-11-04'
+- id: AD-174
+  kind: product
+  test: T-603
+  key: "308-slash@origin/content-security-policy, 308-slash@proxy/content-security-policy"
+  from: "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+  to: "<absent>"
+  reason: "T-603 c1 (OD-39 \"CSP on 308\", the 50 W6c row, R-083, S-6). Next 13.5 matches the headers() of next.config.js before its redirects, but returns the trailing-slash redirect (308-slash, /search?q=x -> /search/?q=x) without the headers it collected (node_modules/next/dist/server/lib/router-utils/resolve-routes.js:436-454, read on 13.5.11), so the 308 carries no Content-Security-Policy (GET, HEAD, br/gzip; origin and proxy: 6 diffs, read again on the W6c tip build a78b776f071832bb). Status, Location, Refresh and every other header are unchanged. The getServerSideProps 308 (308-gssp, /search/ -> /) keeps its CSP. Visitor effect: none; a browser follows a 308 at once and the policy of the page it lands on applies. Edge-visible (T-904 c5): a cache or WAF in front sees these 308s without the header. With decision W6C-K (a) of the jump 3 batch W6c rows, AD-030 (the LogRocket host in the CSP, W2b) is withdrawn, superseded by this row for its two 308-slash keys and by AD-203 for its other 24 keys, so the ledger in force accepts only Next 13.5's answer on these 6 diffs. The same loss on the other Next redirects: AD-177 (T-603 c3) and AD-178 (T-612 c2). Applied by the T-603 ledger hook."
+  ref: [R-083, S-6, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-175
+  kind: product
+  test: T-603
+  key: "404-page@origin/cache-control, 404-page@proxy/cache-control"
+  from: "<absent>"
+  to: "no-cache, no-store, max-age=0, must-revalidate"
+  reason: "T-603 c1 (OD-39 \"Cache-Control on 404\"). The 404 page (/search/nope/) answers `no-cache, no-store, max-age=0, must-revalidate` on Next 13.5 (GET, HEAD, conditional GET, br/gzip; origin and proxy: 8 diffs, read again on the W6c tip build a78b776f071832bb), where Next 12.3.7 sent `private, no-cache, no-store, max-age=0, must-revalidate` (AD-104) and 10.2.3 sent none. On 13.5 the getInitialProps page (/outputs/update/) and the 500 page send no Cache-Control again, as 10.2.3 did, so AD-104 applies 0 times; with decision W6C-K (a) of the jump 3 batch W6c rows it is withdrawn, superseded by this row. Not visible on the page, and no back/forward-cache effect against 10.2.3: Chromium keeps no page whose HTTP status is not OK in that cache (its not-restored reason HTTPStatusNotOK, in the DevTools protocol), so the 404 and 500 pages were never restored from it, whatever their Cache-Control, and on 13.5 /outputs/update/ (200) answers without Cache-Control, as on 10.2.3 (read from Chromium, not measured here). Edge-visible (T-904 c5): against 10.2.3 the 404 page gains this header; against 12.3.7 `private,` is gone. Applied by the T-603 ledger hook."
+  ref: [R-083, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-176
+  kind: product
+  test: T-603
+  key: "html-gssp@origin.conditional/cache-control, html-gssp@proxy.conditional/cache-control, next-data@origin.conditional/cache-control, next-data@proxy.conditional/cache-control"
+  from: "<absent>"
+  to: "private, no-cache, no-store, max-age=0, must-revalidate"
+  reason: "T-603 c1 (OD-39). The conditional GET of the getServerSideProps HTML (/search/?q=climate) and of its _next/data JSON is answered 304 as before, now with the Cache-Control of the 200 answer (4 diffs, read again on the W6c tip build a78b776f071832bb). Visitor effect: none. Edge-visible (T-904 c5). Also on 13.5: the HTML is buffered again (the React 18 streaming of 12.3.7 is gone for these pages): ETag, Content-Length and the conditional 304 rows are back as in the contract baseline, so AD-163, AD-164, AD-165 and AD-166 apply 0 times, and with decision W6C-T (a) of the jump 3 batch W6c rows they are withdrawn; T-603 now captures 100 rows (90 on the jump tip). Applied by the T-603 ledger hook."
+  ref: [R-083, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-177
+  kind: product
+  test: T-603
+  key: "c3 the responses without CSP (e2e/http/t603-headers.spec.mjs:51-53 STATIC_304_WITHOUT_CSP, and :294-300 the per-class presence check)"
+  from: "the 8 static 304s ['icons-svg@origin.conditional', 'icons-svg@proxy.conditional', 'map@origin.conditional', 'map@proxy.conditional', 'next-static@origin.conditional', 'next-static@proxy.conditional', 'public@origin.conditional', 'public@proxy.conditional']; every class has a response with CSP"
+  to: "those 8 plus '308-slash@origin.GET', '308-slash@origin.HEAD', '308-slash@origin.br-gzip', '308-slash@proxy.GET', '308-slash@proxy.HEAD', '308-slash@proxy.br-gzip'; every class but 308-slash has a response with CSP"
+  reason: "T-603 c3, the loss of AD-174 seen by the CSP clause: the 6 308-slash responses (GET, HEAD, br/gzip; origin and proxy) have no CSP on Next 13.5, so the list of responses without CSP gains them and the per-class presence check leaves out 308-slash; every other class still has a response with CSP. Read again on the W6c tip build a78b776f071832bb: T-603 c3 is red at :293 with exactly the 6 ids, and green with these constants (the values after the first red, :294-:300, hold). Constants at the two sites, the AD id in a comment beside each."
+  ref: [R-083, S-6, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-178
+  kind: product
+  test: T-612
+  key: "c2 the targets answered without a CSP header (e2e/http/t612-gateway-proxy.spec.mjs:107, `]).toEqual([row.target, row.target !== '/works//1']) // AD-106`)"
+  from: "['/works//1']"
+  to: "['/works//1', '/search', '/search?q=a+b', '/search?q=%C3%BC', '/static/search/_next/image?url=%2Fx.png&w=64&q=75', '/display', '/display/1?source=oai', '/works/1001', '/outputs/2001', longUrl()]"
+  reason: "T-612 c2 (OD-39 \"CSP on 308\", R-083). Every target that Next answers with its trailing-slash 308 loses the CSP on 13.5; status, Location and Refresh are unchanged against the jump tip build 42b166d4ce80c734, which sent the CSP on all nine: /search -> /search/, /search?q=a+b -> /search/?q=a%20b, /search?q=%C3%BC -> /search/?q=%C3%BC, the image optimizer path -> /_next/image/?url=%2Fx.png&w=64&q=75, /display -> /outputs/, /display/1?source=oai -> /outputs/1/?source=oai, /works/1001 -> /works/1001/, /outputs/2001 -> /outputs/2001/, and the long /search URL of longUrl(). /works//1 was already without (AD-106, which stays in force for it); /search/ (the gSSP 308) and every 200 and 404 answer keep it. Read again on the W6c tip build a78b776f071832bb: exactly these 9 targets, the status table and AD-149's SVG check green. Visitor effect: none (redirects). Edge-visible (T-904 c5). A constant: the list before the loop at the site, the AD id beside it."
+  ref: [R-083, S-6, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-179
+  kind: product
+  test: T-602
+  key: "the <link rel=\"preconnect\" href=\"/\" crossorigin=\"anonymous\" data-next-font=\"\"> written after the app's head tags of every server-rendered page: T-602 c2 'no other head tags' (e2e/http/t602-ssr-head.spec.mjs:208, :226, :230), T-602 c3 heads and c4 html-validate"
+  from: "no such tag"
+  to: "{\"tag\":\"link\",\"attrs\":{\"crossorigin\":\"anonymous\",\"data-next-font\":\"\",\"href\":\"/\",\"rel\":\"preconnect\"}} after the app tags; html-validate adds the void-style finding \"Expected omitted end tag <link> instead of self-closing element <link/>\" (selector head > link[rel=preconnect]) on each page; on works-1004 (the S-4 payload page) the parser records the same tag in the body lead, after the payload scripts that end its parsed head early"
+  reason: "OD-39. The `_app` entry carries font files: its CSS pulls in KaTeX (node_modules/katex/dist/katex.min.css) and slick-carousel (slick.css, slick-theme.css), so .next/static/media holds KaTeX_* and slick.* fonts. Next 13.5 then writes an empty `/_app` entry into .next/server/next-font-manifest.json ({\"pages\":{\"/_app\":[]},...}; node_modules/next/dist/build/webpack/plugins/next-font-manifest-plugin.js:105, an entry for each pages entrypoint whose chunks have font files), and an empty entry makes dist/pages/_document.js:243 write a preconnect to its own origin (preconnectToSelf). The app uses no next/font; a pages-router app whose `_app` emits no font files gets no hint, so the hint follows the fonts `_app` imports. Seen on all 29 T-602 pages that have a head and on all 13 T-729 heads (W6c tip build a78b776f071832bb): T-602 c2 checks 28 of them (it leaves works-1004 out at :191-194), each with only this tag beside the app tags; on works-1004 the S-4 payload ends the parsed head early, so the T-602 c3 file records the tag in bodyLead after the payload scripts, the same tag at the same place in the HTML. Visitor effect: none seen; the browser may open one early connection to the same origin, which the page uses anyway (T-801 0 px, T-611 in band). T-602 c2 is an assertion (three literal sites, the AD id beside each); c3, c4 and T-729 are baseline files, re-captured in link B5-local (PROPOSED-W6c-12)."
+  ref: [R-083, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-180
+  kind: product
+  test: T-604
+  key: "c4 the _app chunk name of Next 13.5 in the stale-buildId console frame (e2e/http/t604-next-data.spec.mjs:312)"
+  from: "_app-c69132bc37b63907.js"
+  to: "_app-546c51defc78fdb1.js"
+  reason: "T-604 c4, the move AD-172 announced: Next 13.5 builds another browser _app chunk (the import line of CS-N13-7 is inside it). The console frame is otherwise the same, with and without the CS-OPS-1 overlay (decision W6C-I (a) of the jump 3 batch W6c: 25 of 26 under the overlay on the W6c tip, red only at this name, every CS-OPS-1 assertion before it holding). Read again on the W6c tip build a78b776f071832bb; the scratch build with `serverMinification: false` has the same client files. Nothing a visitor sees. AD-172 stays in the ledger as the record of W6a, as AD-154 stayed beside AD-172, so this row has a key of its own (decision W6C-L (a) of the jump 3 batch W6c rows). The pinned name moves with every change of the _app chunk, so W6d will move it again; the literal is read from the build that lands. A constant: the value at the site, the AD id added to the comment at :309."
+  ref: [Q-051, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-181
+  kind: product
+  test: T-016
+  key: "c4 the _app chunk name of Next 13.5 in the two cookie require edges (test/static/detector-t016-c4-design-requires.test.js:198-199)"
+  from: "_app-c69132bc37b63907.js:13456"
+  to: "_app-546c51defc78fdb1.js:13456"
+  reason: "T-016 c4, the same chunk name as AD-180, twice (cookies-provider.js and use-cookies.js -> <unmapped:static/chunks/pages/_app-...js:13456>; AD-138, AD-155, AD-173). Module 13456 and the two edges are unchanged, the test is red by the hash alone (detector-t016-c4-design-requires.test.js:197 on the W6c tip build a78b776f071832bb), and its negative control is green. AD-173 stays in the ledger as the record of W6a, so this row has a key of its own (decision W6C-L (a) of the jump 3 batch W6c rows). The name moves again at W6d; the literal is read from the build that lands. Constants: the two values at the site, the AD id added to the comment at :200."
+  ref: [Q-051, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-182
+  kind: product
+  test: T-606
+  key: "c1 app log lines of next start on Next 13.5 outside its banner block and LOG_ALLOW (e2e/http/t606-ssr-resilience.spec.mjs:309-314)"
+  from: "[\"warn  - You have enabled experimental feature (largePageDataBytes) in next.config.js.\",\"warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.\"]"
+  to: "[]"
+  reason: "T-606 c1, AD-148: next start of 13.5 no longer prints the two experimental warnings of 12.3.7. It prints a start-up banner instead (\"  ▲ Next.js 13.5.11\", \"  - Local:        http://127.0.0.1:<port>\", \"  - Network:      http://127.0.0.1:<port>\", \" ✓ Ready in <n>ms\"), which TC-4 (66f6d79, decision W6C-B (a) of the jump 3 batch W6c) takes out as one block, so nothing is left. Measured on the W6c tip build a78b776f071832bb (TC-4 alone: red only at AD-148's literal; with this literal 2 of 2 green) and on the scratch build with `serverMinification: false` (the same four lines, 2 of 2 green). Nothing a visitor sees. AD-148 stays in the ledger as the record of jump 2, so this row has a key of its own (decision W6C-L (a) of the jump 3 batch W6c rows). A constant at the site; the comment at :300 names this row next to AD-148."
+  ref: [R-055, R-062, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-183
+  kind: product
+  test: T-608
+  key: "c1 the uncaughtException listeners at the throw; c3 the unhandledRejection listeners at the rejection (e2e/http/t608-crash-semantics.spec.mjs:130-136, :209-214)"
+  from: "c1 4; ['domainUncaughtExceptionClear', 'invokeErrorHandlers', '', ''] (AD-128); c3 3; ['invokeRejectionHandlers', 'sendUnhandledPromise', ''] (AD-129)"
+  to: "c1 5; ['domainUncaughtExceptionClear', 'exception', '', 'bound logError', '']; c3 4; ['exception', 'sendUnhandledPromise', 'bound logError', '']"
+  reason: "T-608 c1/c3 (R-040, R-055). Next 13.5 drops the edge-runtime forwarders of 12.3.7 and registers two listeners of its own: `exception` (node_modules/next/dist/server/lib/start-server.js:219-220, logs and keeps the process up) and `bound logError` (server/lib/router-server.js:110-111). The crash semantics are unchanged, read after the first red on the W6c tip build a78b776f071832bb: with the test DSN the throw still exits 1, 17 to 27 ms after it (17 and 22 ms on a78b776f071832bb, 27 and 24 ms on the bump's measurement build), after one Sentry request (Q-009); the rejection is survived and sends one event; T-608 c2 (no-DSN build) survives. AD-128 and AD-129 stay in the ledger as the record of W4d (other keys). Nothing a visitor sees. Constants at the two sites, the AD ids beside them."
+  ref: [R-040, R-055, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-184
+  kind: product
+  test: T-010
+  key: "c2 the installed Next major (test/static/t010-routes-manifest.test.js:165, `expect(major).toBe(12) // AD-060`)"
+  from: "12"
+  to: "13"
+  reason: "T-010 c2, AD-060: the installed major (t010-routes-manifest.test.js:165 on the W6c tip build a78b776f071832bb: 12 expected, 13 received). The routes manifest tuples are unchanged (T-010 c1 green); 13.5 adds `missing: [{type: header, key: x-nextjs-data}]` to the file-URL trailing-slash redirect, which the tuple comparison does not read, and which changes no T-604 or T-702 result with and without the CS-OPS-1 overlay (decision W6C-I (a) of the jump 3 batch W6c). AD-060 stays as the record of W4c (another key). A constant at the site."
+  ref: [OD-39, R-068, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-185
+  kind: product
+  test: T-008
+  key: "c3 the violations of the native SWC rule (test/static/t008-install.test.js:146-149; test/static/lib/P0-16/install-checks.js:401-406 C3_ACCEPTED)"
+  from: "[\"@next/swc-linux-arm64-gnu 12.3.4 is not next's 12.3.7\", \"@next/swc-linux-arm64-musl 12.3.4 is not next's 12.3.7\", \"@next/swc-linux-x64-gnu 12.3.4 is not next's 12.3.7\", \"@next/swc-linux-x64-musl 12.3.4 is not next's 12.3.7\"]"
+  to: "[\"@next/swc-linux-arm64-gnu 13.5.9 is not next's 13.5.11\", \"@next/swc-linux-arm64-musl 13.5.9 is not next's 13.5.11\", \"@next/swc-linux-x64-gnu 13.5.9 is not next's 13.5.11\", \"@next/swc-linux-x64-musl 13.5.9 is not next's 13.5.11\"]"
+  reason: "T-008 c3 (R-027), AD-119: next 13.5.11 declares its 9 @next/swc-* binaries at 13.5.9 in optionalDependencies, so the lock holds them at 13.5.9, as next requires (gnu and musl of both linux arches present, T-008 c1/c2 green; read again on the W6c tip). The four 12.x entries freebsd-x64, android-arm-eabi, android-arm64 and linux-arm-gnueabihf left the lock. AD-119 stays as the record of W4d (another key). Constants at the two sites, the AD id beside them."
+  ref: [R-027, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-186
+  kind: product
+  test: T-004
+  key: "client:core-js:/"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032): the usage-based core-js modules of the first-loaded scripts change with the code Next 13.5 puts there. Against the signed 12.3.7 lists of AD-062..AD-073 (W4c), Next 13.5 adds es.array.fill and es.math.imul on each of the 12 keys and removes nothing; against the 10.2.3 reference (the `from`, equal to the `from` of AD-062..AD-073) that is es.array.fill, es.math.imul, es.object.get-prototype-of, es.promise.finally and es.regexp.flags added and es.weak-map and es.weak-map.constructor removed, of which all but the first two are the accepted delta of W4c. The same for all 12 keys, with SWC and with Terser; read again on the W6c tip build a78b776f071832bb (detector-t004-c6-core-js.test.js:89: the 12 diffs equal BUMP/measured/t004c6-diffs.json key by key, so the es.array.concat require that CS-N13-8 adds to the _error page changes none) and green with these rows as a copy (86 of 94 static). Visitor effect: none (every browser of .browserslistrc runs the page as before: T-801 0 px, T-701 0 events). The cause inside the Next client is not traced. The comparator of T-004 accepts a diff only by a row whose key, from and to equal it exactly (test/static/adapters/reference.js:151-153, through diffEntries in detector-t004-c6-core-js.test.js:88), so these are 12 rows AD-186..AD-197, one per key, and none can take a key of its own: AD-063, which holds this key, is withdrawn, superseded by this row."
+  ref: [R-032, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-187
+  kind: product
+  test: T-004
+  key: "client:core-js:/404"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032): as AD-186, for this key: es.array.fill and es.math.imul added against AD-064, which is withdrawn, superseded by this row. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-188
+  kind: product
+  test: T-004
+  key: "client:core-js:/_app"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032): as AD-186, for this key: es.array.fill and es.math.imul added against AD-065, which is withdrawn, superseded by this row. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-189
+  kind: product
+  test: T-004
+  key: "client:core-js:/_error"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032): as AD-186, for this key: es.array.fill and es.math.imul added against AD-066, which is withdrawn, superseded by this row. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-190
+  kind: product
+  test: T-004
+  key: "client:core-js:/data-providers"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032): as AD-186, for this key: es.array.fill and es.math.imul added against AD-067, which is withdrawn, superseded by this row. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-191
+  kind: product
+  test: T-004
+  key: "client:core-js:/data-providers/[id]"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032): as AD-186, for this key: es.array.fill and es.math.imul added against AD-068, which is withdrawn, superseded by this row. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-192
+  kind: product
+  test: T-004
+  key: "client:core-js:/error-card"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032): as AD-186, for this key: es.array.fill and es.math.imul added against AD-069, which is withdrawn, superseded by this row. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-193
+  kind: product
+  test: T-004
+  key: "client:core-js:/outputs/[id]"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032): as AD-186, for this key: es.array.fill and es.math.imul added against AD-070, which is withdrawn, superseded by this row. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-194
+  kind: product
+  test: T-004
+  key: "client:core-js:/outputs/update"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032): as AD-186, for this key: es.array.fill and es.math.imul added against AD-071, which is withdrawn, superseded by this row. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-195
+  kind: product
+  test: T-004
+  key: "client:core-js:/search"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032): as AD-186, for this key: es.array.fill and es.math.imul added against AD-072, which is withdrawn, superseded by this row. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-196
+  kind: product
+  test: T-004
+  key: "client:core-js:/works/[id]"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032): as AD-186, for this key: es.array.fill and es.math.imul added against AD-073, which is withdrawn, superseded by this row. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-197
+  kind: product
+  test: T-004
+  key: "client:core-js:all-scripts"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032): as AD-186, for this key: es.array.fill and es.math.imul added against AD-062, which is withdrawn, superseded by this row. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-198
+  kind: product
+  test: T-004
+  key: "server:readFileSync"
+  from: "{\"lib/loader.js\":1}"
+  to: "{\"lib/loader.js\":1,\"node_modules/next/dist/compiled/gzip-size/index.js\":1}"
+  reason: "T-004 c3: the server bundles of 13.5 include Next's compiled gzip-size module, which reads a file; lib/loader.js keeps its one call; the client is unchanged. Not app code. Read again on the W6c tip build a78b776f071832bb (t004-bundles.test.js:120) and on the scratch build with `serverMinification: false` (the same value); green with this row and the literal as a copy (86 of 94 static). Visitor effect: none. The key is the raw key that compare() at t004-bundles.test.js:79-86 reads, and the test first stops at the server literal of :120, so the row also changes that literal at its site, the AD id beside it."
+  ref: [R-017, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-199
+  kind: product
+  test: T-601
+  key: "c5 the sources without content of each client map (e2e/http/t601-route-matrix.spec.mjs: the 6th field of each row in the list form of decision W6C-J (a))"
+  from: "[] for each of the 22 .js.map and the 8 .css.map (the list form; today the field is true)"
+  to: "['webpack://_N_E/<anon>'] for 20 .js.map; chunks/pages/_app-<hash>.js.map ['webpack://_N_E/./node_modules/react-cookie/es6/types.js', 'webpack://_N_E/<anon>']; chunks/webpack-<hash>.js.map ['webpack://_N_E/webpack/before-startup', 'webpack://_N_E/webpack/startup', 'webpack://_N_E/webpack/after-startup', 'webpack://_N_E/<anon>']; the 8 .css.map []"
+  reason: "T-601 c5 (S-9, OD-42). With its default SWC minifier (swcMinify true from Next 13, CS-N13-4; decision W6C-F (a) of the jump 3 batch W6c), every client .js map lists one more source, `webpack://_N_E/<anon>` (the minifier output), without content; the _app map also has no content for node_modules/react-cookie/es6/types.js, and the webpack runtime map none for its 3 webpack/*-startup entries. Every app source, and every package source but node_modules/react-cookie/es6/types.js (an empty module, 0 bytes, which no map of 42b166d4ce80c734 lists), keeps its content, and the maps are still served 200 JSON, so OD-42 holds (the maps stay public, with the content of every app source). Measured on the W6c tip build a78b776f071832bb with the list form: red at the field with exactly these lists, green with this literal; on 42b166d4ce80c734 the list form reads [] on all 22 .js.map and T-601 c5 stays green (rule 7). Visitor effect: none. A constant at the site (the expected 6th field per map), the AD id in a comment beside it. Filed only with W6C-J (a)."
+  ref: [R-083, OD-39, OD-42, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-200
+  kind: product
+  test: T-016
+  key: "c2 the emitted design modules that differ from their files after the test's transform with the SWC minifier of Next 13.5 (test/static/t016-design-verbatim.test.js: the list beside AD-057)"
+  from: "[\"node_modules/@oacore/design/lib/config.js\", \"node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js\", \"node_modules/@oacore/design/lib/modules/header/context/actions.js\", \"node_modules/@oacore/design/lib/utils/can-use-dom.js\", \"node_modules/@oacore/design/lib/utils/class-names.js\"]"
+  to: "[\"node_modules/@oacore/design/lib/config.js\", \"node_modules/@oacore/design/lib/context.js\", \"node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js\", \"node_modules/@oacore/design/lib/modules/header/context/actions.js\", \"node_modules/@oacore/design/lib/utils/can-use-dom.js\"]"
+  reason: "T-016 c2 (VG-2, R-015, R-075), with the comparator form of decision W6C-J (a) of the jump 3 batch W6c rows: on an SWC build the test minifies each design file with Next 13.5's SWC options (the build's minifier, read from .next/required-server-files.json) in place of Terser. 103 of the 108 emitted design modules equal their files. The four of AD-057's parameter class (config.js, hasMathMLSupport.js, header/context/actions.js, can-use-dom.js) are flagged as before; class-names.js (AD-057's Terser decision) now compares equal; context.js now differs by a decision SWC makes inside the chunk (`e.skipUninitializedWarning;var i=(0,o.useContext)(s)` where the file minified alone gives `...,r=(e.skipUninitializedWarning,(0,u.useContext)(l))`), which neither the plain, numeric-id or chunk wrapper nor 1 to 3 passes reproduce. sourceDiffers [] and addedRequires 0 hold, so the emitted code is the installed package's. On 42b166d4ce80c734 (Terser) the form gives AD-057's list (rule 7). Read on the W6c tip build a78b776f071832bb. Visitor effect: none. AD-057 stays in the ledger as the record of W4b, so this row has a key of its own (decision W6C-L (a)). A constant at the site, the AD id beside it. Filed only with W6C-J (a)."
+  ref: [OD-39, R-015, R-075, VG-2, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-201
+  kind: product
+  test: T-016
+  key: "c2 server bundles on Next 13.5: the design sources counted as bundled (test/static/t016-design-verbatim.test.js: the list beside AD-061)"
+  from: "[\"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements/logo\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/modules\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/modules\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/modules\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\"]"
+  to: "[\"webpack://search/./node_modules/@oacore/design/lib/index.css\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements/logo\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/modules\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/modules\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\", \"webpack://search/external commonjs \\\"@oacore/design\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/elements\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/modules\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils\\\"\", \"webpack://search/external commonjs \\\"@oacore/design/lib/utils/class-names\\\"\"]"
+  reason: "T-016 c2 (R-015): on Next 13.5 the server maps list 35 design sources where AD-061 lists 31: the same 31 in their order, plus `webpack://search/./node_modules/@oacore/design/lib/index.css` (the mini-css-extract stub, in .next/server/chunks/946.js.map) first and three more `external commonjs \"@oacore/design\"` entries. externals [] (AD-140) holds. Read on the W6c tip build a78b776f071832bb, and the same on the scratch build with `serverMinification: false` (its values dump byte-identical). With Terser (`swcMinify: false`) the list gained only the three externals. Visitor effect: none. AD-061 stays in the ledger as the record of W4c, so this row has a key of its own (decision W6C-L (a) of the jump 3 batch W6c rows). A constant at the site, the AD id beside it. Filed only with W6C-J (a)."
+  ref: [OD-39, R-015, VG-2, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-202
+  kind: product
+  test: T-016
+  key: "c2 negative control with the SWC minifier of Next 13.5 and the victim choice of decision W6C-J (a): the mismatched list of the tampered chunk (test/static/t016-design-verbatim.test.js: the list beside AD-139)"
+  from: "[\"node_modules/@oacore/design/lib/config.js\", \"node_modules/@oacore/design/lib/context.js\", \"node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js\", \"node_modules/@oacore/design/lib/modules/header/context/actions.js\", \"node_modules/@oacore/design/lib/utils/can-use-dom.js\", \"node_modules/@oacore/design/lib/utils/class-names.js\"]"
+  to: "[\"node_modules/@oacore/design/lib/config.js\", \"node_modules/@oacore/design/lib/context.js\", \"node_modules/@oacore/design/lib/elements/app-bar/bar.js\", \"node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js\", \"node_modules/@oacore/design/lib/modules/header/context/actions.js\", \"node_modules/@oacore/design/lib/utils/can-use-dom.js\"]"
+  reason: "T-016 c2 negative control (VG-2). The control edits the \"use strict\" directive of a victim module in its chunk and the source of another module, and expects the comparison to flag the victim and sourceDiffers to name the other. With the form of decision W6C-J (a) the two are the first two strict modules that compare equal before the edit: on the W6c tip build a78b776f071832bb the victim is lib/elements/app-bar/bar.js and the other lib/elements/app-bar/brand.js; on 42b166d4ce80c734 they are context.js and bar.js, as today. Flagged: the five of AD-200 and the victim; sourceDiffers [brand.js] (the other) and addedRequires 0 hold. With the committed pick (context.js, which the SWC comparison already flags) the edit would add nothing to the list, so the control would pass without showing it. Visitor effect: none. AD-139 stays in the ledger as the record of jump 2, so this row has a key of its own (decision W6C-L (a) of the jump 3 batch W6c rows). A constant at the site, the AD id beside it. Filed only with W6C-J (a)."
+  ref: [OD-39, OD-31, R-015, R-075, VG-2]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
+- id: AD-203
+  kind: product
+  test: T-603
+  key: "html-gssp@origin/content-security-policy, html-gssp@proxy/content-security-policy, html-gip@origin/content-security-policy, html-gip@proxy/content-security-policy, next-data@origin/content-security-policy, next-data@proxy/content-security-policy, public@origin/content-security-policy, public@proxy/content-security-policy, next-static@origin/content-security-policy, next-static@proxy/content-security-policy, map@origin/content-security-policy, map@proxy/content-security-policy, icons-svg@origin/content-security-policy, icons-svg@proxy/content-security-policy, 308-gssp@origin/content-security-policy, 308-gssp@proxy/content-security-policy, 404-page@origin/content-security-policy, 404-page@proxy/content-security-policy, 404-notfound@origin/content-security-policy, 404-notfound@proxy/content-security-policy, 500@origin/content-security-policy, 500@proxy/content-security-policy, healthz@origin/content-security-policy, healthz@proxy/content-security-policy"
+  from: "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com"
+  to: "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com *.logr-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com *.logr-in.com"
+  reason: "AD-030 filed again without its two 308-slash keys (decision W6C-K (a) of the jump 3 batch W6c rows; AD-030 is withdrawn, its 308-slash keys superseded by AD-174, which pins the CSP-less trailing-slash 308 of Next 13.5). As AD-030 (W2b): T-603 c1, the content-security-policy header of the contract rows that carry it is the AD-028 policy, one distinct value on each side. On Next 13.5 that is 86 contract rows: every route class but 308-slash, origin and proxy, GET, HEAD, br/gzip, and the conditional GET of html-gssp, html-gip, next-data, 404-page, 404-notfound, 500, healthz; the 8 static 304s and the 6 308-slash answers carry none (read again on the W6c tip build a78b776f071832bb: this row is used 86 times). T-603 c3 (the production CSP on every class but 308-slash, AD-177) holds. The composite key lists the 24 route@via keys of e2e/lib/P0-11/contract.mjs (applyLedger) that AD-030 lists besides 308-slash@origin and 308-slash@proxy, in AD-030's order. Visitor effect: none. Applied by the T-603 ledger hook."
+  ref: [R-026, OD-39, OD-31]
+  step: W6c
+  signedOffBy: 'SIGNED: owner, 2026-11-05 (jump 3 batch W6c rows, approved in the work session)'
+  date: '2026-11-05'
