@@ -211,6 +211,14 @@ const sameModule = async (
 const DESIGN_SOURCE =
   /^webpack:\/\/[^/]*\/\.\/(node_modules\/@oacore\/design\/.+)$/
 
+// the stub mini-css-extract-plugin leaves in the JS map for a CSS file: the
+// SWC minifier keeps it as a source, Terser drops it; it is no design module
+const MINI_CSS_STUB = '// extracted by mini-css-extract-plugin'
+const designSourcesOf = (map) =>
+  map.sources.filter(
+    (s, i) => DESIGN_SOURCE.test(s) && map.sourcesContent[i] !== MINI_CSS_STUB
+  )
+
 // -> [{ file, emitted, requireName }] for every design module of one chunk
 const designModulesOf = (code, map) => {
   const lines = decodeMappings(map.mappings)
@@ -261,7 +269,7 @@ const analyseClient = async (nextDir, root, minifier = minifierOf(nextDir)) => {
   )
   for (const mapFile of maps) {
     const map = JSON.parse(fs.readFileSync(mapFile, 'utf8'))
-    const designIdx = map.sources.filter((s) => DESIGN_SOURCE.test(s))
+    const designIdx = designSourcesOf(map)
     if (designIdx.length) {
       res.designSources += designIdx.length
       const code = fs.readFileSync(mapFile.replace(/\.map$/, ''), 'utf8')
@@ -513,9 +521,7 @@ describe('T-016 @P0 vendored design', () => {
       fs.writeFileSync(path.join(dir, name.replace(/\.map$/, '')), tampered)
       fs.writeFileSync(path.join(dir, name), JSON.stringify(map))
       const res = await analyseClient(path.join(tmp, '.next'), root, minifier)
-      expect(res.designSources).toBe(
-        map.sources.filter((src) => DESIGN_SOURCE.test(src)).length
-      )
+      expect(res.designSources).toBe(designSourcesOf(map).length)
       expect(res.mismatched).toEqual([
         'node_modules/@oacore/design/lib/config.js',
         'node_modules/@oacore/design/lib/context.js',
