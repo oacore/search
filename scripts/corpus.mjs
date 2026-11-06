@@ -2,7 +2,8 @@
 // corpus.mjs - `npm run corpus`: the C4 differential corpus run (55 C4). Every URL of a recorded corpus is rendered
 // on two stacks served from the same recorded answers, the golden reference and the candidate, and compared
 // aspect by aspect; a difference passes only when a row of test/baseline/ACCEPTED-DIFFS.yml matches (test, key,
-// from, to) exactly (42 §8; default deny; screenshots never).
+// from, to) exactly (42 §8; default deny; screenshots never); a row's composite key lists several exact keys,
+// separated by `, `, each read as its own key, as the T-603 hook and the e2e baseline hook read it.
 //
 //   npm run corpus -- --golden <build key|ref> --candidate <build key|ref> [--corpus <name>] [--id <run id>]
 //                     [--limit <n URLs>] [--grep <url regex>] [--screens <percent, 10>] [--screen-seed <n>] [--tz UTC,America/Los_Angeles,Asia/Tokyo]
@@ -19,13 +20,19 @@
 // local stand-in for the container imageID) and the served __NEXT_DATA__.buildId; a buildId that is not the
 // requested build's fails the run.
 // Aspects per URL (the key syntax of the owning test):
-//   T-601 status, T-603 contract headers (`<class>@proxy/<header>`; date ignored; etag, content-length,
-//   last-modified presence only), T-602 SSR head (P0-10 normaliseHead), T-728 SSR body DOM (JS off, P0-12
-//   serialisation), T-605 class census (DOM parser view), T-610 __NEXT_DATA__ (props, page, query; buildId
+//   T-601 status, T-603 contract headers (`<url>/<class>@proxy/<header>`: the route class key after the URL, as
+//   the per-URL keys are written, so a row accepts a header pair only on the URLs it lists; date ignored; etag,
+//   content-length, last-modified presence only), T-602 SSR head (P0-10 normaliseHead), T-728 SSR body DOM (JS
+//   off, P0-12 serialisation), T-605 class census (DOM parser view), T-610 __NEXT_DATA__ (props, page, query; buildId
 //   normalised) and _next/data of gSSP pages, T-607 SSR request trace (stub wire records; sorted), then a browser
 //   pass per time zone with the T-701/T-728 checks: console errors and page errors (T-701), browser request
 //   trace (T-702: document, fetch and XHR requests; asset hashes not compared), settled hydrated DOM (T-728);
 //   T-801 screenshots at 1440, 768 and 375 for a seeded per-stratum draw of --screens percent of the URLs.
+// Values (`from` golden, `to` candidate): the status, the JSON of a header's ordered values (`<absent>` for none)
+// and of the console errors, page errors and window errors; the sha256 of the whole aspect for the head, the body
+// DOM, the census, the data, the SSR wire, the browser requests and the hydrated DOM, so a row accepts exactly one
+// render pair; a line aspect (T-728, T-605, T-702) keeps its first differing line beside the diff as `firstDiff`,
+// information only.
 // Harness normalisation (not app behaviour): the stack origin (http://127.0.0.1:<port>, one port slot per stack;
 // the resolver rewrites core.ac.uk links to it, 40 §2.4) -> <stack>.
 // Output: $ARTIFACT_DIR/corpus/runs/<id>/report.json (+ diff PNGs); exit 1 on any unexplained diff.
@@ -380,17 +387,33 @@ function compare(a, b) {
   const diffs = []
   const add = (test, key, from, to) => diffs.push({ test, key, from, to })
   const j = (v) => (v === undefined ? '<absent>' : JSON.stringify(v))
+  // a line aspect (T-728, T-605, T-702) is valued, as T-602, T-610 and T-607 are, by the sha256 of the whole aspect
+  // on each side, so a row accepts exactly one render pair; its first differing line stays beside the diff, as
+  // information only (never matched)
+  const addWhole = (test, key, x, y) =>
+    diffs.push({
+      test,
+      key,
+      from: sha256(j(x)),
+      to: sha256(j(y)),
+      firstDiff: firstDiff(x, y),
+    })
   if (a.status !== b.status) add('T-601', `${a.url}/status`, a.status, b.status)
   const hk = new Set([...Object.keys(a.headers), ...Object.keys(b.headers)])
   for (const h of [...hk].sort(byCodePoint))
     if (j(a.headers[h]) !== j(b.headers[h]))
-      add('T-603', `${a.cls}@proxy/${h}`, j(a.headers[h]), j(b.headers[h]))
+      add(
+        'T-603',
+        `${a.url}/${a.cls}@proxy/${h}`,
+        j(a.headers[h]),
+        j(b.headers[h])
+      )
   if (j(a.head) !== j(b.head))
     add('T-602', `${a.url}/head`, sha256(j(a.head)), sha256(j(b.head)))
   if (j(a.bodyDom) !== j(b.bodyDom))
-    add('T-728', `${a.url}/ssr-body`, firstDiff(a.bodyDom, b.bodyDom), '')
+    addWhole('T-728', `${a.url}/ssr-body`, a.bodyDom, b.bodyDom)
   if (j(a.census) !== j(b.census))
-    add('T-605', `${a.url}/census`, firstDiff(a.census, b.census), '')
+    addWhole('T-605', `${a.url}/census`, a.census, b.census)
   if (j(a.nextData) !== j(b.nextData))
     add(
       'T-610',
@@ -422,19 +445,9 @@ function compare(a, b) {
         j([y.console, y.pageErrors, y.windowErrors])
       )
     if (j(x.requests) !== j(y.requests))
-      add(
-        'T-702',
-        `${a.url}/requests@${tz}`,
-        firstDiff(x.requests, y.requests),
-        ''
-      )
+      addWhole('T-702', `${a.url}/requests@${tz}`, x.requests, y.requests)
     if (j(x.hydrated) !== j(y.hydrated))
-      add(
-        'T-728',
-        `${a.url}/hydrated@${tz}`,
-        firstDiff(x.hydrated, y.hydrated),
-        ''
-      )
+      addWhole('T-728', `${a.url}/hydrated@${tz}`, x.hydrated, y.hydrated)
   }
   return diffs
 }
@@ -449,8 +462,29 @@ function firstDiff(a = [], b = []) {
   return 'equal'
 }
 
+// the keys a row lists: a composite key lists several exact keys, separated by `, ` (42 §8), read as the T-603 hook
+// (e2e/lib/P0-11/contract.mjs rowKeys) and the e2e baseline hook (e2e/lib/P0-10/ledger-rows.mjs ledgerRowsOf) read it
+const rowKeys = (r) => String(r.key).split(', ')
+// the ledger on one URL's diffs (42 §8, default deny): a diff is explained by a row in force of its test,
+// `rowsOf(test)`, that lists its key exactly and whose `from` and `to` equal the diff's; that row's id is written to
+// the diff as `ad`. A T-801 screenshot diff and a fatal buildId diff are never explained.
+function explain(diffs, rowsOf) {
+  for (const d of diffs) {
+    if (d.never || d.fatal || !rowsOf) continue
+    const r = rowsOf(d.test).find(
+      (x) =>
+        rowKeys(x).includes(d.key) &&
+        String(x.from) === String(d.from) &&
+        String(x.to) === String(d.to)
+    )
+    if (r) d.ad = r.id
+  }
+  return diffs
+}
+
 // tool self-test of the comparison (no stack, no browser): each aspect, changed in a copy of a render, gives one
-// diff with its owning test and key; an exact ledger row explains a diff, a near one does not
+// diff with its owning test and key; the ledger matching of the run (explain) on rows of the self-test: an exact
+// row explains a diff, a near one does not, and a composite key explains each key it lists and no other
 function selfTest() {
   const fails = []
   const ok = (c, m) => {
@@ -482,8 +516,8 @@ function selfTest() {
   ok(compare(base, clone()).length === 0, 'equal renders: 0 diffs')
   const cases = [
     ['T-601', (r) => (r.status = 500), '/works/1//status'],
-    ['T-603', (r) => (r.headers['x-a'] = ['2']), 'HTML@proxy/x-a'],
-    ['T-603', (r) => delete r.headers['x-a'], 'HTML@proxy/x-a'],
+    ['T-603', (r) => (r.headers['x-a'] = ['2']), '/works/1//HTML@proxy/x-a'],
+    ['T-603', (r) => delete r.headers['x-a'], '/works/1//HTML@proxy/x-a'],
     ['T-602', (r) => (r.head.title = 'b'), '/works/1//head'],
     ['T-728', (r) => r.bodyDom.push('"x"'), '/works/1//ssr-body'],
     [
@@ -535,20 +569,172 @@ function selfTest() {
     {
       id: 'AD-001',
       test: 'T-603',
-      key: 'HTML@proxy/x-a',
+      key: '/works/1//HTML@proxy/x-a',
       from: '["1"]',
       to: '["2"]',
     },
   ]
-  const match = (r) =>
-    r.test === d.test &&
-    r.key === d.key &&
-    String(r.from) === String(d.from) &&
-    String(r.to) === String(d.to)
-  ok(rows.some(match), 'an exact (test, key, from, to) row matches')
+  // the run's matching: explain with the ledger adapter's rows in force of the diff's test, from these rows in
+  // place of the ledger file
+  const { ledgerRows } = requireE2e('../test/static/adapters/reference.js')
+  const explained = (list, x) =>
+    explain([{ ...x }], (test) => ledgerRows(test, list))[0].ad
   ok(
-    !rows.map((r) => ({ ...r, to: '["3"]' })).some(match),
+    explained(rows, d) === 'AD-001',
+    'an exact (test, key, from, to) row matches'
+  )
+  ok(
+    !explained(
+      rows.map((r) => ({ ...r, to: '["3"]' })),
+      d
+    ),
     'a row with another `to` does not'
+  )
+  // the header key per URL: the same change on another URL of the class has that URL's key, and a row on another
+  // URL's key, or on the class key alone, does not explain the diff
+  const other = { ...clone(), url: '/works/2/' }
+  const otherChanged = JSON.parse(JSON.stringify(other))
+  otherChanged.headers['x-a'] = ['2']
+  const d2 = compare(other, otherChanged)
+  ok(
+    d2.length === 1 && d2[0].key === '/works/2//HTML@proxy/x-a',
+    "T-603 the same header change on another URL: that URL's key"
+  )
+  ok(
+    !explained(
+      rows.map((r) => ({ ...r, key: '/works/2//HTML@proxy/x-a' })),
+      d
+    ),
+    "a row on another URL's header key does not"
+  )
+  ok(
+    !explained(
+      rows.map((r) => ({ ...r, key: 'HTML@proxy/x-a' })),
+      d
+    ),
+    'a row on the class key alone does not'
+  )
+  // a line aspect carries the sha256 of the whole aspect on each side and its first differing line beside it: a
+  // row on that pair explains the diff, and a render with one more later difference (the same first differing line)
+  // has another `to` and is not explained
+  const whole = [
+    [
+      'T-728',
+      '/works/1//ssr-body',
+      (r) => r.bodyDom.push('"x"'),
+      (r) => r.bodyDom.push('"x"', '"y"'),
+      (r) => r.bodyDom,
+    ],
+    [
+      'T-605',
+      '/works/1//census',
+      (r) => (r.census[0] = '/html[1]/body[1] class="b"'),
+      (r) => {
+        r.census[0] = '/html[1]/body[1] class="b"'
+        r.census.push('/html[1]/body[1]/div[1] class="c"')
+      },
+      (r) => r.census,
+    ],
+    [
+      'T-702',
+      '/works/1//requests@UTC',
+      (r) => r.browser.UTC.requests.push('POST x'),
+      (r) => r.browser.UTC.requests.push('POST x', 'POST y'),
+      (r) => r.browser.UTC.requests,
+    ],
+    [
+      'T-728',
+      '/works/1//hydrated@UTC',
+      (r) => (r.browser.UTC.hydrated = ['<span>']),
+      (r) => (r.browser.UTC.hydrated = ['<span>', '<p>']),
+      (r) => r.browser.UTC.hydrated,
+    ],
+  ]
+  for (const [test, key, once, more, aspect] of whole) {
+    const b1 = clone()
+    once(b1)
+    const b2 = clone()
+    more(b2)
+    const [d1] = compare(base, b1)
+    const [d2] = compare(base, b2)
+    ok(
+      d1.from === sha256(JSON.stringify(aspect(base))) &&
+        d1.to === sha256(JSON.stringify(aspect(b1))),
+      `${test} ${key}: the sha256 of the whole aspect on each side`
+    )
+    ok(
+      /^line \d+: /.test(d1.firstDiff) &&
+        d2.firstDiff === d1.firstDiff &&
+        d2.from === d1.from &&
+        d2.to !== d1.to,
+      `${test} ${key}: its first differing line beside it; one more later difference, the same line, another \`to\``
+    )
+    const row = { id: 'AD-002', test, key, from: d1.from, to: d1.to }
+    ok(
+      explained([row], d1) === 'AD-002' && !explained([row], d2),
+      `${test} ${key}: a row on that pair explains it, not the render with one more later difference`
+    )
+  }
+  // a composite key lists several exact keys, separated by `, ` (42 §8): its row explains the diff of each key it
+  // lists and no other: not the same pair on a URL it does not list, nor on a key that a listed key only starts
+  // with, nor through a list joined by a bare comma; a withdrawn row or a row of another test explains nothing, and
+  // a T-801 or a fatal diff is never explained
+  const third = { ...clone(), url: '/works/3/' }
+  const thirdChanged = JSON.parse(JSON.stringify(third))
+  thirdChanged.headers['x-a'] = ['2']
+  const [d3] = compare(third, thirdChanged)
+  const both = {
+    id: 'AD-003',
+    test: 'T-603',
+    key: '/works/1//HTML@proxy/x-a, /works/2//HTML@proxy/x-a',
+    from: '["1"]',
+    to: '["2"]',
+  }
+  ok(
+    explained([both], d) === 'AD-003' && explained([both], d2[0]) === 'AD-003',
+    'a composite-key row explains the diff of each key it lists'
+  )
+  ok(
+    d3.key === '/works/3//HTML@proxy/x-a' && !explained([both], d3),
+    'a composite-key row does not explain the same pair on a key it does not list'
+  )
+  ok(
+    !explained(
+      [{ ...both, key: '/works/1//HTML@proxy/x-ab, /works/2//HTML@proxy/x-b' }],
+      d
+    ),
+    'nor on a key that a listed key only starts with'
+  )
+  ok(
+    !explained(
+      [{ ...both, key: '/works/1//HTML@proxy/x-a,/works/2//HTML@proxy/x-a' }],
+      d
+    ),
+    'nor through a list joined by a bare comma'
+  )
+  ok(
+    !explained([{ ...both, withdrawn: 'superseded, 2026-11-06' }], d) &&
+      !explained([{ ...both, test: 'T-602' }], d),
+    'a withdrawn composite-key row, or one of another test, explains nothing'
+  )
+  const shot = {
+    test: 'T-801',
+    key: '/works/1//1440.png',
+    from: '1440x900',
+    to: '3 differing pixels',
+    never: true,
+  }
+  const fatal = {
+    test: 'C4',
+    key: '/works/1//buildId@candidate',
+    from: 'a',
+    to: 'b',
+    fatal: true,
+  }
+  ok(
+    !explained([{ ...shot, id: 'AD-004', key: `${shot.key}, x` }], shot) &&
+      !explained([{ ...fatal, id: 'AD-005', key: `${fatal.key}, x` }], fatal),
+    'a T-801 or a fatal diff is never explained, whatever row lists its key'
   )
   console.log(
     fails.length ? `self-test: ${fails.length} FAILED` : 'self-test: all passed'
@@ -726,18 +912,8 @@ async function main() {
             })
           }
         }
-      // ledger: (test, key, from, to) exact, never for T-801
-      const rows = ledger ? ledger.ledgerRows : null
-      for (const d of diffs) {
-        if (d.never || d.fatal || !rows) continue
-        const r = rows(d.test).find(
-          (x) =>
-            x.key === d.key &&
-            String(x.from) === String(d.from) &&
-            String(x.to) === String(d.to)
-        )
-        if (r) d.ad = r.id
-      }
+      // ledger: (test, key, from, to) exact, a composite key read as the keys it lists; never for T-801
+      explain(diffs, ledger ? ledger.ledgerRows : null)
       const unexplained = diffs.filter((d) => !d.ad)
       report.urls.push({
         url: u.url,

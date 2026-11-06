@@ -1,11 +1,11 @@
 diff --git a/package.json b/package.json
-index 7a8175c..3a0644d 100644
+index c32311f..93ec500 100644
 --- a/package.json
 +++ b/package.json
-@@ -106,6 +106,7 @@
-     "npm": ">=8.19.2"
+@@ -120,6 +120,7 @@
    },
    "scripts": {
+     "prepare": "husky",
 +    "postinstall": "mv node_modules/@oacore/design vendor-design && ln -s ../../vendor-design node_modules/@oacore/design",
      "dev": "next dev",
      "build": "node ./data/data-loader.js && node ./node_modules/.bin/design build icons && next build",

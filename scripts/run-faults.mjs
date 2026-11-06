@@ -7,13 +7,17 @@
 //
 // Lean mode (`--lean`, implied by `--tiers detectors`; owner notes section 0): no `git archive` and no `npm ci`. The
 // faulted tree is a copy of the working tree (tracked and untracked files, so uncommitted tests run too) with a
-// throwaway git repository, the patch applied there; the build is an APFS clone (`cp -Rc`) of an installed reference
+// throwaway git repository whose base commit sits on the repository's HEAD (its history read through alternates),
+// the patch applied there; the build is an APFS clone (`cp -Rc`) of an installed reference
 // build (default: the newest of the KEEP builds; `--ref-build`, `--ref-build-harness` for a detector such as T-802
 // that needs the harness variant), the faulted files copied in, and only the app build step run (`npm run build:test`
-// and the Dockerfile copies; a Dockerfile fault runs the faulted RUN line instead). A design-path patch is applied to
+// and the Dockerfile copies; a Dockerfile fault runs the faulted RUN line instead). A patch to package.json or the
+// lock reaches the clone's node_modules as `npm ci` of the faulted lock would install it, from the npm cache only
+// (`leanInstall`: nothing is downloaded). A design-path patch is applied to
 // the clone's own copy of @oacore/design. Detectors only: no P0 smoke subset, no 20% rule, no T-901. A Playwright tier
-// stops after 5 failures (`--max-failures`, 0 = never). The clone is removed after the record is written (unless
-// `--keep`).
+// stops after 5 failures (`--max-failures`, 0 = never). The clone is removed after the record is written, a failed
+// build's clone at once (its build log kept as $ARTIFACT_DIR/faults/logs/<id>.build.log), and a stale patch's tree
+// too (unless `--keep`).
 //
 // Per fault test/faults/<id>.patch (+ <id>.expect):
 //   1. `git archive <ref>` into a temporary directory, a throwaway repository there, `git apply --3way` of the
@@ -44,6 +48,7 @@
 //   expect per kind: status {status} | header {name, equals | matches | absent} | dom {selector, count | text |
 //   textMatches | attribute, value} | request {method?, urlMatches, count | min} | console {type, matches, min?}
 //   | build {file (relative to .next), contains | notContains}.
+import crypto from 'node:crypto'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
@@ -131,8 +136,24 @@ function leanTree(fault) {
         GIT_COMMITTER_EMAIL: 'fault@localhost',
       },
     })
-  // a copy without .git fails T-001's inline-disable census
+  // a copy without .git fails T-001's inline-disable census. The base commit sits on the repository's HEAD, whose
+  // objects the throwaway repository reads through alternates (never writes): T-013 and T-008 c1 read the locks of
+  // HEAD's history as in a worktree, and `git apply --3way` finds a patch's pre-image blobs (42 §10)
   g('init', '-q')
+  g('config', 'gc.auto', '0')
+  const objects = path.resolve(
+    REPO,
+    sh('git', ['-C', REPO, 'rev-parse', '--git-path', 'objects']).stdout.trim()
+  )
+  fs.writeFileSync(
+    path.join(dir, '.git', 'objects', 'info', 'alternates'),
+    `${objects}\n`
+  )
+  g(
+    'update-ref',
+    'HEAD',
+    sh('git', ['-C', REPO, 'rev-parse', 'HEAD']).stdout.trim()
+  )
   g('add', '-A', '-f')
   g('commit', '-q', '-m', 'base')
   if (!fault.design) {
@@ -153,6 +174,193 @@ function leanTree(fault) {
         .stdout.split('\n')
         .filter(Boolean)
   return { dir, ok: true, commit: null, base: null, files }
+}
+
+// The install of a faulted package.json or lock in the clone, as `npm ci` of the faulted lock would make it, from
+// the npm cache only (nothing is downloaded): each `packages` entry whose version, resolved or integrity moves is
+// unpacked at its path from the cache by its sha512 integrity (a nested node_modules of the old copy kept, its bin
+// links made), an entry the patch removes is removed with its bin links, the install scripts of an unpacked entry
+// run (deeper entries first), then each root lifecycle script the patch adds or changes, in npm ci's order.
+const CACACHE = path.join(os.homedir(), '.npm', '_cacache')
+const DEP_SCRIPTS = ['preinstall', 'install', 'postinstall']
+const ROOT_SCRIPTS = [
+  'preinstall',
+  'install',
+  'postinstall',
+  'prepublish',
+  'preprepare',
+  'prepare',
+  'postprepare',
+]
+function cachedTarball(integrity) {
+  const sri = String(integrity || '')
+    .split(/\s+/)
+    .find((s) => s.startsWith('sha512-'))
+  if (!sri) return null
+  const hex = Buffer.from(sri.slice(7), 'base64').toString('hex')
+  const file = path.join(
+    CACACHE,
+    'content-v2',
+    'sha512',
+    hex.slice(0, 2),
+    hex.slice(2, 4),
+    hex.slice(4)
+  )
+  if (!fs.existsSync(file)) return null
+  const got = crypto
+    .createHash('sha512')
+    .update(fs.readFileSync(file))
+    .digest('hex')
+  return got === hex ? file : null
+}
+
+// the node_modules directory that holds a lock path (its .bin is there)
+const holderOf = (rel) =>
+  rel.slice(0, rel.lastIndexOf('node_modules/') + 'node_modules'.length)
+const depthOf = (rel) => rel.split('node_modules/').length
+
+// a lifecycle script as npm runs it: sh -c in the package directory, the .bin of it and of every directory above it
+// on PATH
+function runScript(cwd, root, event, script, env) {
+  const bins = []
+  for (let d = cwd; ; d = path.dirname(d)) {
+    bins.push(path.join(d, 'node_modules', '.bin'))
+    if (d === path.dirname(d)) break
+  }
+  const pkg = JSON.parse(
+    fs.readFileSync(path.join(cwd, 'package.json'), 'utf8')
+  )
+  const r = sh('sh', ['-c', script], {
+    cwd,
+    env: {
+      ...env,
+      PATH: `${bins.join(':')}:${env.PATH}`,
+      INIT_CWD: root,
+      npm_lifecycle_event: event,
+      npm_lifecycle_script: script,
+      npm_package_name: pkg.name || '',
+      npm_package_version: pkg.version || '',
+      npm_package_json: path.join(cwd, 'package.json'),
+    },
+  })
+  if (r.status !== 0)
+    throw new Error(
+      `lean install: ${event} of ${
+        path.relative(root, cwd) || 'the app'
+      } failed (exit ${r.status}): ${(r.stderr || r.stdout || '')
+        .trim()
+        .slice(-300)}`
+    )
+}
+
+// before, after: { pkg, lock } of the reference build and of the faulted tree; returns what it did
+export function leanInstall(dir, before, after, env) {
+  const was = before.lock.packages || {}
+  const now = after.lock.packages || {}
+  const done = []
+  const moves = (a, b) =>
+    !a || ['version', 'resolved', 'integrity'].some((f) => a[f] !== b[f])
+  const fits = (e) =>
+    [
+      ['os', process.platform],
+      ['cpu', process.arch],
+    ].every(([f, me]) => {
+      const list = e[f] || []
+      const yes = list.filter((x) => !x.startsWith('!'))
+      return !list.includes(`!${me}`) && (!yes.length || yes.includes(me))
+    })
+  const unlinkBins = (rel, e) => {
+    for (const name of Object.keys((e && e.bin) || {})) {
+      const link = path.join(dir, holderOf(rel), '.bin', name)
+      let target
+      try {
+        target = path.resolve(path.dirname(link), fs.readlinkSync(link))
+      } catch {
+        continue
+      }
+      if (target.startsWith(`${path.join(dir, rel)}${path.sep}`))
+        fs.rmSync(link, { force: true })
+    }
+  }
+  const linkBins = (rel, e) => {
+    for (const [name, file] of Object.entries(e.bin || {})) {
+      const binDir = path.join(dir, holderOf(rel), '.bin')
+      const target = path.join(dir, rel, file)
+      fs.mkdirSync(binDir, { recursive: true })
+      fs.rmSync(path.join(binDir, name), { force: true })
+      fs.symlinkSync(path.relative(binDir, target), path.join(binDir, name))
+      if (fs.existsSync(target)) fs.chmodSync(target, 0o755)
+    }
+  }
+  const removed = Object.keys(was)
+    .filter((k) => k && !now[k])
+    .sort((a, b) => depthOf(b) - depthOf(a))
+  for (const rel of removed) {
+    unlinkBins(rel, was[rel])
+    fs.rmSync(path.join(dir, rel), { recursive: true, force: true })
+    done.push(`${rel} removed`)
+  }
+  const placed = []
+  const moved = Object.keys(now)
+    .filter((k) => k && moves(was[k], now[k]))
+    .sort((a, b) => depthOf(a) - depthOf(b))
+  for (const rel of moved) {
+    const e = now[rel]
+    if (e.optional && !fits(e)) {
+      done.push(`${rel} skipped (optional, another platform)`)
+      continue
+    }
+    const tgz = cachedTarball(e.integrity)
+    if (!tgz)
+      throw new Error(
+        `lean install: ${rel} ${e.version} (${
+          e.integrity || 'no integrity'
+        }) is not in the npm cache`
+      )
+    const to = path.join(dir, rel)
+    const nested = path.join(to, 'node_modules')
+    const aside = `${to}.lean-${process.pid}`
+    const keep = fs.existsSync(nested)
+    if (keep) fs.renameSync(nested, aside)
+    if (was[rel]) unlinkBins(rel, was[rel])
+    fs.rmSync(to, { recursive: true, force: true })
+    fs.mkdirSync(to, { recursive: true })
+    const x = sh('tar', ['-xzf', tgz, '-C', to, '--strip-components=1'])
+    if (x.status !== 0)
+      throw new Error(`lean install: unpacking ${rel} failed: ${x.stderr}`)
+    if (keep) {
+      if (fs.existsSync(nested))
+        throw new Error(`lean install: ${rel} brings its own node_modules`)
+      fs.renameSync(aside, nested)
+    }
+    linkBins(rel, e)
+    placed.push(rel)
+    done.push(`${rel} ${e.version} from the npm cache`)
+  }
+  for (const rel of placed.sort((a, b) => depthOf(b) - depthOf(a))) {
+    if (!now[rel].hasInstallScript) continue
+    const cwd = path.join(dir, rel)
+    const scripts =
+      JSON.parse(fs.readFileSync(path.join(cwd, 'package.json'), 'utf8'))
+        .scripts || {}
+    const events = DEP_SCRIPTS.filter((ev) => scripts[ev])
+    if (!events.length)
+      throw new Error(
+        `lean install: ${rel} has an install step this mode does not run (node-gyp)`
+      )
+    for (const ev of events) {
+      runScript(cwd, dir, ev, scripts[ev], env)
+      done.push(`${rel}: ${ev}`)
+    }
+  }
+  const s0 = before.pkg.scripts || {}
+  const s1 = after.pkg.scripts || {}
+  for (const ev of ROOT_SCRIPTS)
+    if (s1[ev] && s1[ev] !== s0[ev]) {
+      runScript(dir, dir, ev, s1[ev], env)
+      done.push(`the app: ${ev}`)
+    }
+  return done
 }
 
 // APFS clone of the reference build, the faulted files copied in, the app build step only
@@ -204,6 +412,24 @@ async function cloneBuild(tree, fault, opts, harness) {
       NODE_ENV: 'production',
       NEXT_TELEMETRY_DISABLED: '1',
     }
+    const readJson = (root, f) =>
+      JSON.parse(fs.readFileSync(path.join(root, f), 'utf8'))
+    const install = tree.files.some(
+      (f) => f === 'package.json' || f === 'package-lock.json'
+    )
+      ? leanInstall(
+          dir,
+          {
+            pkg: readJson(buildDirOf(ref.key), 'package.json'),
+            lock: readJson(buildDirOf(ref.key), 'package-lock.json'),
+          },
+          {
+            pkg: readJson(tree.dir, 'package.json'),
+            lock: readJson(tree.dir, 'package-lock.json'),
+          },
+          env
+        )
+      : null
     // the image recipe after the build script (Dockerfile copies); a faulted Dockerfile supplies its own
     let after =
       'cp public/design/icons.svg public/icons.svg && mkdir -p public/images && cp -r public/static/images/* public/images/'
@@ -238,7 +464,12 @@ async function cloneBuild(tree, fault, opts, harness) {
       ...ref.rec,
       key,
       dir,
-      lean: { from: ref.key, files: tree.files, recipe: cmd },
+      lean: {
+        from: ref.key,
+        files: tree.files,
+        recipe: cmd,
+        ...(install ? { install } : {}),
+      },
       buildId: fs
         .readFileSync(path.join(dir, '.next', 'BUILD_ID'), 'utf8')
         .trim(),
@@ -253,6 +484,22 @@ async function cloneBuild(tree, fault, opts, harness) {
     images.builds[key] = rec
     writeImages(images)
     return rec
+  }).catch((e) => {
+    // a failed lean build leaves no clone behind (unless --keep); its build log is kept in the faults folder
+    if (opts.keep) throw e
+    const log = path.join(dir, 'build.log')
+    const kept = path.join(OUT, 'logs', `${fault.id}.build.log`)
+    const hasLog = fs.existsSync(log)
+    if (hasLog) {
+      fs.mkdirSync(path.dirname(kept), { recursive: true })
+      fs.copyFileSync(log, kept)
+    }
+    dropClone({ dir, key })
+    throw new Error(
+      `${e.message.split(log).join(kept)} (the clone is removed${
+        hasLog ? `; its build log is kept as ${kept}` : ''
+      })`
+    )
   })
 }
 
@@ -832,6 +1079,8 @@ async function runFault(fault, opts) {
   if (!tree.ok) {
     rec.valid = false
     rec.reason = tree.error
+    // a stale patch leaves no tree behind (unless --keep)
+    if (!opts.keep) fs.rmSync(tree.dir, { recursive: true, force: true })
     return rec
   }
   // node_modules: an APFS clone (copy-on-write, removed with the tree) of the repository's, not a symlink: Jest
