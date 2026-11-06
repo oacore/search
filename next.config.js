@@ -53,6 +53,18 @@ const nextConfig = {
         source: '/:path(.*)',
         headers: [{ key: 'Content-Security-Policy', value: cspConfig }],
       },
+      // Next 14 answers this getInitialProps page with no-store, and Chromium
+      // then loads it again on Back after a site cookie changed; this value
+      // leaves no-store out, so the page is restored as on Next 13.5 (CS-N14-3)
+      {
+        source: '/outputs/update/',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'private, no-cache, max-age=0, must-revalidate',
+          },
+        ],
+      },
     ]
   },
 
