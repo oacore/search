@@ -20,9 +20,9 @@
 //   c7  SIGTERM under 20 requests per second: (a) the prod sequence (traffic drained by the preStop sleep, then
 //       SIGTERM): nothing is lost, the app exits 0 inside terminationGracePeriodSeconds minus the preStop sleep;
 //       (b) SIGTERM with requests in flight: Next 10.2.3's bin/next answers the signal with process.exit(0), so
-//       the requests in flight when the app goes away are cut (the proxy reports 502). 41 says "in-flight
-//       requests complete": that does not hold today and is pinned as it is (issue P0-16-3). The comparison of
-//       the exit time with B0 starts when B0 exists
+//       the requests in flight when the app goes away are cut (the proxy reports 502; issue P0-16-3), as on
+//       12.3.7 and 13.5. From Next 14.2 next start answers them, then exits, as 41 says (VF-21); the test
+//       asserts it (AD-234). The comparison of the exit time with B0 starts when B0 exists
 //   c8  time to ready (process start to the first /api/healthz/) is recorded; bound: the startup probe budget
 //   c9  keepAliveTimeout, headersTimeout (and requestTimeout, timeout) are recorded: the runtime Node 24's defaults
 // Records go to $ARTIFACT_DIR/t901/ (and T901_RECORD); test/baseline/t901.json, when it exists (B0, 2.5), is the
@@ -430,7 +430,7 @@ test.describe('T-901 process contract', () => {
     expect(after).toBe(502)
   })
 
-  test('T-901 c7 @P0 SIGTERM with requests in flight: bin/next exits and cuts them (41 says they complete, P0-16-3)', async ({
+  test('T-901 c7 @P0 SIGTERM with requests in flight: next start answers them, then exits (41: they complete; P0-16-3)', async ({
     p2Env,
   }) => {
     b = await startStack(`${p2Env.run}-t901b`, p2Env, stackArgs)
@@ -479,10 +479,15 @@ test.describe('T-901 process contract', () => {
     expect(exit.at - sentAt).toBeLessThan(
       (prodDeployment().graceSeconds - prodDeployment().preStopSeconds) * 1000
     )
-    // the stub holds each request for 1.5 s: some were in the app when it went away
-    expect(lost.length).toBeGreaterThanOrEqual(5)
-    // every request that was in flight fails (the proxy answers 502 for the reset upstream); none completes
-    expect(lost.map((r) => r.status)).toEqual(lost.map(() => 502))
+    // AD-234: Next 14.2's next start answers SIGTERM with server.close(): it takes no new connection and exits
+    // once the requests it serves are answered, so none is in flight at the exit
+    expect(lost).toEqual([])
+    // the stub holds each request for 1.5 s: some were in the app at the signal, and each was answered
+    const drained = load.records.filter(
+      (r) => r.start < signalAt && r.end > signalAt && r.end <= exitAt
+    )
+    expect(drained.length).toBeGreaterThanOrEqual(5)
+    expect(drained.filter((r) => r.status !== 200)).toEqual([])
     // the traffic that was served before the signal was served
     expect(before.filter((r) => r.status !== 200)).toEqual([])
     // the traffic after the exit meets a closed port

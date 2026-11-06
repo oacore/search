@@ -45,7 +45,6 @@ import {
   expectGuard,
   CONSOLE_409,
   CONSOLE_500,
-  CONSOLE_500_PAGE,
 } from '../lib/P1-07/page.mjs'
 import {
   headerSearch,
@@ -334,11 +333,7 @@ const open500 = async (page, guardLog) => {
   await expect(
     page.getByText('An unexpected error has occurred.')
   ).toBeVisible()
-  expect(consoleTexts(guardLog)).toEqual([
-    CONSOLE_500,
-    CONSOLE_500_PAGE,
-    'A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred', // AD-117
-  ])
+  expect(consoleTexts(guardLog)).toEqual([CONSOLE_500]) // AD-117, AD-233
 }
 
 for (const w of [1440, 375])

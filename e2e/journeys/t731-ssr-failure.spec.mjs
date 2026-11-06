@@ -30,13 +30,6 @@ const DATA = {
 }
 const RESOURCE_500 =
   'Failed to load resource: the server responded with a status of 500 (Internal Server Error)'
-// Next's client logs the serialised initial error of the error page (the call site is in the _app chunk,
-// where the browser SDK of utils/sentry wraps console)
-const INITIAL_ERR =
-  '{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}'
-// AD-113: Next 12's client prints it before the error page renders
-const CLIENT_EXCEPTION =
-  'A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred'
 
 test.describe('T-731 @P0 J23 SSR failure matrix', () => {
   // several page loads or ~70 sequential requests per test; the machine runs other stacks in parallel
@@ -107,11 +100,7 @@ test.describe('T-731 @P0 J23 SSR failure matrix', () => {
         footer: 1,
         h2: ['An unexpected error has occurred.'],
         requests: [['document', 'GET', `${p2Env.baseURL}${row.path}`, 500]],
-        console: [
-          [RESOURCE_500, '<document>'],
-          [INITIAL_ERR, '<script>'],
-          [CLIENT_EXCEPTION, '<script>'], // AD-113
-        ],
+        console: [[RESOURCE_500, '<document>']], // AD-113, AD-229
       }))
     )
     expect(guardLog.pageErrors).toEqual([])

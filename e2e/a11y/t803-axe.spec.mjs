@@ -28,7 +28,6 @@ import {
   expectGuard,
   CONSOLE_409,
   CONSOLE_500,
-  CONSOLE_500_PAGE,
 } from '../lib/P1-07/page.mjs'
 import {
   RECORD,
@@ -454,11 +453,7 @@ test.describe('T-803 global desktop', () => {
     await expect(
       page.getByText('An unexpected error has occurred.')
     ).toBeVisible()
-    expect(consoleTexts(guardLog)).toEqual([
-      CONSOLE_500,
-      CONSOLE_500_PAGE,
-      'A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred', // AD-114
-    ])
+    expect(consoleTexts(guardLog)).toEqual([CONSOLE_500]) // AD-114, AD-230
     await check(page, 'g-500', '/works/6948813/', DESKTOP)
   })
 

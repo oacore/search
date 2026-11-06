@@ -144,7 +144,7 @@ describe('T-010 @P0 routes manifest', () => {
     )
     expect(a['rewrite:/search/_next/data/:path*']).toBe('/_next/data/:path*')
     expect(a['rewrite:/static/:path*']).toBe('/:path*')
-    expect(a['order:headers']).toBe('/:path(.*)')
+    expect(a['order:headers']).toBe('/:path(.*) , /outputs/update/') // AD-237
     expect(JSON.parse(a['header:/:path(.*)'])).toEqual([
       ['Content-Security-Policy', csp],
     ])
@@ -162,7 +162,7 @@ describe('T-010 @P0 routes manifest', () => {
 
   test('T-010 c2 @P0 the rewrite Next injects from 15 is whitelisted (only that one, only from 15); none today', () => {
     const major = nextMajor(build.appRoot)
-    expect(major).toBe(13) // AD-060, AD-184
+    expect(major).toBe(14) // AD-060, AD-184, AD-207
     expect(actual.entries[INJECTED_FROM_15.key]).toBeUndefined()
     // the comparator: the injected rewrite passes from 15 only; any other
     // added, removed or changed tuple fails
