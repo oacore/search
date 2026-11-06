@@ -53,6 +53,18 @@ const nextConfig = {
         source: '/:path(.*)',
         headers: [{ key: 'Content-Security-Policy', value: cspConfig }],
       },
+      // Next 14 answers this getInitialProps page with no-store, and Chromium
+      // then loads it again on Back after a site cookie changed; this value
+      // leaves no-store out, so the page is restored as on Next 13.5 (CS-N14-3)
+      {
+        source: '/outputs/update/',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'private, no-cache, max-age=0, must-revalidate',
+          },
+        ],
+      },
     ]
   },
 
@@ -99,12 +111,16 @@ const nextConfig = {
     // no polyfill, no helper import, ES modules kept for tree shaking. The
     // server keeps @sentry/node as an external require and react-ga4 as
     // Next's external import.
+    // Next 14's client main chunk also takes next/dist/lib/constants.js, which
+    // Next ships as it is, with one object spread (ES2018); the rule compiles
+    // that one file too, so the client floor stays ES2015 (CS-N14-2).
     if (!isServer) {
       rules.push({
         test: /\.m?js$/,
         include: [
           /[\\/]node_modules[\\/]@sentry[\\/]/,
           /[\\/]node_modules[\\/]react-ga4[\\/]/,
+          /[\\/]node_modules[\\/]next[\\/]dist[\\/]lib[\\/]constants\.js$/,
         ],
         use: {
           loader: path.join(__dirname, 'babel-syntax-loader.js'),

@@ -120,11 +120,15 @@ const NEXT_TERSER = {
   mangle: { safari10: true },
   output: { ecma: 5, safari10: true, comments: false, ascii_only: true },
 }
-// the options of Next 13.5's SWC minifier, its default from Next 13
-// (next/dist/build/webpack/plugins/terser-webpack-plugin/src/index.js)
+// the options of the SWC minifier of each Next major, its default from Next 13
+// (next/dist/build/webpack/plugins/terser-webpack-plugin/src/index.js of that
+// Next): 13.5 keeps class and function names, 14.2 mangles them
 const NEXT_SWC = {
-  compress: true,
-  mangle: { toplevel: true, keep_classnames: true, keep_fnames: true },
+  13: {
+    compress: true,
+    mangle: { toplevel: true, keep_classnames: true, keep_fnames: true },
+  },
+  14: { compress: true, mangle: true, output: { comments: false } },
 }
 // the minifier of the build: SWC when its config has swcMinify (recorded in
 // .next/required-server-files.json), else Terser (40 §8 rule 7)
@@ -135,10 +139,26 @@ const minifierOf = (nextDir) => {
     ? 'swc'
     : 'terser'
 }
-const minify = (code, minifier) =>
-  minifier === 'swc'
-    ? require('next/dist/build/swc').minify(code, NEXT_SWC)
-    : terser.minify(code, NEXT_TERSER)
+// SWC minifies with the build's own Next (the one in APP_ROOT's node_modules,
+// else the repo's) and the options of its major (40 §8 rule 7)
+const nextOfBuild = () =>
+  path.join(
+    [...roots()]
+      .reverse()
+      .find((r) =>
+        fs.existsSync(path.join(r, 'node_modules', 'next', 'package.json'))
+      ),
+    'node_modules',
+    'next'
+  )
+const minify = (code, minifier) => {
+  if (minifier !== 'swc') return terser.minify(code, NEXT_TERSER)
+  const next = nextOfBuild()
+  const { version } = require(path.join(next, 'package.json'))
+  const options = NEXT_SWC[Number(version.split('.')[0])]
+  if (!options) throw new Error(`T-016 c2: no SWC options for Next ${version}`)
+  return require(path.join(next, 'dist', 'build', 'swc')).minify(code, options)
+}
 const REQUIRE_CALL = /\brequire\((["'])(?:(?!\1)[^\\]|\\.)*\1\)/g
 
 // a function with every local binding renamed in scope order ($0, $1, ...) and

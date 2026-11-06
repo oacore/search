@@ -162,14 +162,16 @@ const LOG_ALLOW = [
   /^(fetchWorks|transformDataProviders):\d+-[a-z0-9]+: [\d.]+ms$/,
   ...NEXT_LISTENER_ALLOW,
 ]
-// the start-up banner of `next start` from Next 13.5 (owner SIGNED: 2026-11-05, 40 §8 rule 8): accepted only as one
-// block of these four lines in this order, the version exact, only the port and the time masked (the blank line
-// before ` ✓ Ready` goes with the other empty lines); it is taken out once before LOG_ALLOW, so a second banner
-// line, another order, another version or host, or more text after the time is still red
+// the start-up banner of `next start` on Next 14.2 (the block form signed for Next 13.5 on 2026-11-05; this block
+// owner SIGNED: 2026-11-05, 40 §8 rule 8): accepted only as one block of these five lines in this order, the
+// version exact, only the port and the time masked (the blank line before ` ✓ Starting...` goes with the other
+// empty lines); it is taken out once before LOG_ALLOW, so a second banner line, another order, another version or
+// host, or more text after the time is still red
 const NEXT_BANNER = [
-  /^ {2}▲ Next\.js 13\.5\.11$/,
+  /^ {2}▲ Next\.js 14\.2\.35$/,
   /^ {2}- Local: {8}http:\/\/127\.0\.0\.1:\d+$/,
   /^ {2}- Network: {6}http:\/\/127\.0\.0\.1:\d+$/,
+  /^ ✓ Starting\.\.\.$/,
   /^ ✓ Ready in [\d.]+m?s$/,
 ]
 const withoutBanner = (lines) => {
