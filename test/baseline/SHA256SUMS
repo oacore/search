@@ -190,7 +190,7 @@ c38217eb3c4ed22bd93500cdbeb92d5ddef491db1463fd7163cda572a4469147  e2e/http/t605-
 e875f696e21978a25bb291e2140c586229fa5a2d0ec51fc570069619a14e5c37  e2e/http/t605-class-census.spec.mjs-snapshots/t605-ssr-works-4040-chromium-darwin.json
 e875f696e21978a25bb291e2140c586229fa5a2d0ec51fc570069619a14e5c37  e2e/http/t605-class-census.spec.mjs-snapshots/t605-ssr-works-5000-chromium-darwin.json
 8fcf2acca33b595d259fc36c2b2bd3d69cc036c87911ecdc2c131aa7d0d178ef  e2e/http/t610-props-output.spec.mjs-snapshots/t610-next-data-chromium-darwin.json
-c77d676210cba9bfe45dba462b3d56b93c198da9d15d9ff389176480f4917006  e2e/http/t610-props-output.spec.mjs-snapshots/t610-stdout-census-chromium-darwin.json
+121599d36a2976682dd6eb7b65505cafd555b55ee0dccde3525049e3d66aadbd  e2e/http/t610-props-output.spec.mjs-snapshots/t610-stdout-census-chromium-darwin.json
 56a245bb5087a4958037fba06beb8c6f4cbc22775d754cb320d263e5846dc7ba  e2e/journeys/t702-navigation-network.spec.mjs-snapshots/t702-c2-search-log-absent-chromium-darwin.json
 442bd923060c1234448eb4b9e747aba3398360ccbd59306a136b3525e9838435  e2e/journeys/t702-navigation-network.spec.mjs-snapshots/t702-c2-search-log-essential-analytics-chromium-darwin.json
 56a245bb5087a4958037fba06beb8c6f4cbc22775d754cb320d263e5846dc7ba  e2e/journeys/t702-navigation-network.spec.mjs-snapshots/t702-c2-search-log-essential-chromium-darwin.json
@@ -1257,12 +1257,12 @@ d4770cde424769cf3453662708b448b8c6b7e46d44cf5a91fd8e2e1a5718995d  e2e/visual/t80
 92cf1ec04f3089b2ef22fc807082934f9aa1859e97633fbdc48ae8bd19cf0e2f  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c3-select-sort-visual-darwin.json
 c70ac3fdf7f3498319f63671f4d177d23f689affab6092e4cb6451152e596bdd  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c3-select-suggestions-visual-darwin.json
 69048b48dee028fcb74a8d528ef0138074455aebd27a4b91227cb4c6765888ed  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c3-toast-copy-visual-darwin.json
-e23dc9905f118f2315fab194e5efe6ffdb8b4183acb66ee389b260095c07a359  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-outputs-visual-darwin.json
-def1ccdc464d0093d120376cddb07fcd736444a0fcec44253f062cba30613e27  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-provider-visual-darwin.json
-efb6536e84ae26924db5b013a6d45a6aaaf11cc8644d6e667687f9a2d8f55bfe  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-providers-visual-darwin.json
-3e1f21a91c97ac53fe5f2dad579cad61a0c4fd8cc2e895c3a5300f0d5f9d1c41  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-search-visual-darwin.json
+69b28fb9dd280f17bad3e6e827c0f103c5155567228c4a2219773e79937dcc29  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-outputs-visual-darwin.json
+6debc3c40562fda1ff2a7be93ef340f79e4a9bf785ead3871e1da505f62c662d  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-provider-visual-darwin.json
+ff5d3e520f116186ab4d0b63e8494b0a90f69b9e0e374e5d4b51e4ae54fbfcc8  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-providers-visual-darwin.json
+be3b4a55b60984e1e7359dd6bb455fce3b3e648ac7200f7b3cb71c9bd51aa0c1  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-search-visual-darwin.json
 59dde586d78f6110d65ef51879096dfaded3257c4906fd9d18f7c758829e7309  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-update-visual-darwin.json
-2b65d80f9a914ba40e1d573b39ba5e4e45571eff2da4be6044b3568db6690a4b  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-works-visual-darwin.json
+0d1194221262c8e5a20902f9552073c66926ca2caacba5a0b17ed357ed174a26  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-works-visual-darwin.json
 61ffb5ebfed85bca4086b7f6e4c7d8fd3f2a2c2cac4e453ed1c8639737b21261  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-layers-visual-darwin.json
 7d6445d7a6a12d31dcf8a139d750ad78648b4b337bf47492858ffa7668760d77  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-probes-1440-visual-darwin.json
 ae2aa9b62fa8f4878ec2e84caf292c234ccdc5f77b4e3412e88f25d329c3f39f  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-probes-375-visual-darwin.json
@@ -1303,4 +1303,4 @@ aa70745e020b396eff983148483b797db2d4099bbf576cb0e7d1df29f7b173ce  test/unit/desi
 58f001e45822fddf184391d0a9d43cc863fa707d6c2bed7e878619c7c0db92bc  test/unit/design/lib/P0-07/reference/Select.json
 26c25f6dd7ca4b04c0ad0e8577f2218291559aa1e7a8faac22c302e095a4b4e8  test/unit/design/lib/P0-07/reference/TextField.json
 6d45b05fcc95f0d289de9bab323760226304237317e5048535575edd8a3195dd  test/unit/store/__baseline__/t203-reactivity.json
-e8b56640a2a23655e4ff2c9b43dbfbc8c44ca8b0bf86151e49a405a31dfe9388  test/baseline/manifest.json
+45603f7fb7a33285176df59dafe182352e7ed8aea895c3af1a2ece52359ea3e2  test/baseline/manifest.json

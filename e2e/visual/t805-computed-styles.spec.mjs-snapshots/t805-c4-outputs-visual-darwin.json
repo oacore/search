@@ -367,13 +367,13 @@
       "topLevelRules": 164,
       "types": {
         "CSSStyleRule": 169,
+        "CSSMediaRule": 3,
         "CSSKeyframesRule": 2,
-        "CSSKeyframeRule": 4,
-        "CSSMediaRule": 3
+        "CSSKeyframeRule": 4
       },
       "mediaRules": [
         {
-          "at": "38",
+          "at": "33",
           "within": "",
           "condition": "(max-width: 767px)",
           "rules": 4,

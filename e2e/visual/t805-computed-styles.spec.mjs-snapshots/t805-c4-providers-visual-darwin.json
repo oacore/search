@@ -368,7 +368,7 @@
       "types": { "CSSStyleRule": 29, "CSSMediaRule": 2 },
       "mediaRules": [
         {
-          "at": "8",
+          "at": "19",
           "within": "",
           "condition": "(max-width: 767px)",
           "rules": 5,
