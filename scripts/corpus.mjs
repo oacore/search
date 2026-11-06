@@ -19,9 +19,10 @@
 // local stand-in for the container imageID) and the served __NEXT_DATA__.buildId; a buildId that is not the
 // requested build's fails the run.
 // Aspects per URL (the key syntax of the owning test):
-//   T-601 status, T-603 contract headers (`<class>@proxy/<header>`; date ignored; etag, content-length,
-//   last-modified presence only), T-602 SSR head (P0-10 normaliseHead), T-728 SSR body DOM (JS off, P0-12
-//   serialisation), T-605 class census (DOM parser view), T-610 __NEXT_DATA__ (props, page, query; buildId
+//   T-601 status, T-603 contract headers (`<url>/<class>@proxy/<header>`: the route class key after the URL, as
+//   the per-URL keys are written, so a row accepts a header pair only on the URLs it lists; date ignored; etag,
+//   content-length, last-modified presence only), T-602 SSR head (P0-10 normaliseHead), T-728 SSR body DOM (JS
+//   off, P0-12 serialisation), T-605 class census (DOM parser view), T-610 __NEXT_DATA__ (props, page, query; buildId
 //   normalised) and _next/data of gSSP pages, T-607 SSR request trace (stub wire records; sorted), then a browser
 //   pass per time zone with the T-701/T-728 checks: console errors and page errors (T-701), browser request
 //   trace (T-702: document, fetch and XHR requests; asset hashes not compared), settled hydrated DOM (T-728);
@@ -384,7 +385,12 @@ function compare(a, b) {
   const hk = new Set([...Object.keys(a.headers), ...Object.keys(b.headers)])
   for (const h of [...hk].sort(byCodePoint))
     if (j(a.headers[h]) !== j(b.headers[h]))
-      add('T-603', `${a.cls}@proxy/${h}`, j(a.headers[h]), j(b.headers[h]))
+      add(
+        'T-603',
+        `${a.url}/${a.cls}@proxy/${h}`,
+        j(a.headers[h]),
+        j(b.headers[h])
+      )
   if (j(a.head) !== j(b.head))
     add('T-602', `${a.url}/head`, sha256(j(a.head)), sha256(j(b.head)))
   if (j(a.bodyDom) !== j(b.bodyDom))
@@ -482,8 +488,8 @@ function selfTest() {
   ok(compare(base, clone()).length === 0, 'equal renders: 0 diffs')
   const cases = [
     ['T-601', (r) => (r.status = 500), '/works/1//status'],
-    ['T-603', (r) => (r.headers['x-a'] = ['2']), 'HTML@proxy/x-a'],
-    ['T-603', (r) => delete r.headers['x-a'], 'HTML@proxy/x-a'],
+    ['T-603', (r) => (r.headers['x-a'] = ['2']), '/works/1//HTML@proxy/x-a'],
+    ['T-603', (r) => delete r.headers['x-a'], '/works/1//HTML@proxy/x-a'],
     ['T-602', (r) => (r.head.title = 'b'), '/works/1//head'],
     ['T-728', (r) => r.bodyDom.push('"x"'), '/works/1//ssr-body'],
     [
@@ -535,7 +541,7 @@ function selfTest() {
     {
       id: 'AD-001',
       test: 'T-603',
-      key: 'HTML@proxy/x-a',
+      key: '/works/1//HTML@proxy/x-a',
       from: '["1"]',
       to: '["2"]',
     },
@@ -549,6 +555,24 @@ function selfTest() {
   ok(
     !rows.map((r) => ({ ...r, to: '["3"]' })).some(match),
     'a row with another `to` does not'
+  )
+  // the header key per URL: the same change on another URL of the class has that URL's key, and a row on another
+  // URL's key, or on the class key alone, does not explain the diff
+  const other = { ...clone(), url: '/works/2/' }
+  const otherChanged = JSON.parse(JSON.stringify(other))
+  otherChanged.headers['x-a'] = ['2']
+  const d2 = compare(other, otherChanged)
+  ok(
+    d2.length === 1 && d2[0].key === '/works/2//HTML@proxy/x-a',
+    "T-603 the same header change on another URL: that URL's key"
+  )
+  ok(
+    !rows.map((r) => ({ ...r, key: '/works/2//HTML@proxy/x-a' })).some(match),
+    "a row on another URL's header key does not"
+  )
+  ok(
+    !rows.map((r) => ({ ...r, key: 'HTML@proxy/x-a' })).some(match),
+    'a row on the class key alone does not'
   )
   console.log(
     fails.length ? `self-test: ${fails.length} FAILED` : 'self-test: all passed'
