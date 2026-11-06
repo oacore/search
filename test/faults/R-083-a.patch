@@ -1,8 +1,8 @@
 diff --git a/next.config.js b/next.config.js
-index 114b0f4..297a7aa 100644
+index 4ab12b1..7254f85 100644
 --- a/next.config.js
 +++ b/next.config.js
-@@ -29,7 +29,10 @@ const nextConfig = {
+@@ -51,7 +51,10 @@ const nextConfig = {
      return [
        {
          source: '/:path(.*)',
@@ -12,5 +12,5 @@ index 114b0f4..297a7aa 100644
 +          { key: 'Cache-Control', value: 'public, max-age=300' },
 +        ],
        },
-     ]
-   },
+       // Next 14 answers this getInitialProps page with no-store, and Chromium
+       // then loads it again on Back after a site cookie changed; this value

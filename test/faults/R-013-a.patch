@@ -1,50 +1,54 @@
 diff --git a/templates/data-provider/pagination.jsx b/templates/data-provider/pagination.jsx
-index 6d4b11f..f873691 100644
+index 232e190..79d3357 100644
 --- a/templates/data-provider/pagination.jsx
 +++ b/templates/data-provider/pagination.jsx
 @@ -70,6 +70,7 @@ const Pagination = ({ shallow, total, ...restProps }) => {
        <div className={styles.arrowPagination}>
          <div>
-           <Link href={urlTo('FIRST')} passHref shallow={shallow}>
+           <Link href={urlTo('FIRST')} passHref shallow={shallow} legacyBehavior>
 +            <a>
              <Button
                tag="a"
                className={classNames.use(
-@@ -82,9 +83,11 @@ const Pagination = ({ shallow, total, ...restProps }) => {
+@@ -82,6 +83,7 @@ const Pagination = ({ shallow, total, ...restProps }) => {
              >
                <Icon src="#chevron-double-left" />
              </Button>
 +            </a>
            </Link>
  
-           <Link href={urlTo('PREVIOUS')} passHref shallow={shallow}>
+           <Link
+@@ -90,6 +92,7 @@ const Pagination = ({ shallow, total, ...restProps }) => {
+             shallow={shallow}
+             legacyBehavior
+           >
 +            <a>
              <Button
                tag="a"
                className={classNames.use(
-@@ -97,8 +100,10 @@ const Pagination = ({ shallow, total, ...restProps }) => {
+@@ -102,8 +105,10 @@ const Pagination = ({ shallow, total, ...restProps }) => {
              >
                <Icon src="#chevron-left" />
              </Button>
 +            </a>
            </Link>
-           <Link href={urlTo('NEXT')} passHref shallow={shallow}>
+           <Link href={urlTo('NEXT')} passHref shallow={shallow} legacyBehavior>
 +            <a>
              <Button
                tag="a"
                className={classNames.use(
-@@ -111,8 +116,10 @@ const Pagination = ({ shallow, total, ...restProps }) => {
+@@ -116,8 +121,10 @@ const Pagination = ({ shallow, total, ...restProps }) => {
              >
                <Icon src="#chevron-right" />
              </Button>
 +            </a>
            </Link>
-           <Link href={urlTo('LAST')} passHref shallow={shallow}>
+           <Link href={urlTo('LAST')} passHref shallow={shallow} legacyBehavior>
 +            <a>
              <Button
                tag="a"
                className={classNames.use(
-@@ -125,6 +132,7 @@ const Pagination = ({ shallow, total, ...restProps }) => {
+@@ -130,6 +137,7 @@ const Pagination = ({ shallow, total, ...restProps }) => {
              >
                <Icon src="#chevron-double-right" />
              </Button>

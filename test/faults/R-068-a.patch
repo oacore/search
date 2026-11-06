@@ -1,17 +1,20 @@
 diff --git a/next.config.js b/next.config.js
-index 114b0f4..dafe851 100644
+index 4ab12b1..1079b31 100644
 --- a/next.config.js
 +++ b/next.config.js
-@@ -13,12 +13,7 @@ const nextConfig = {
-   assetPrefix: helpers.getAssetsPath(''),
- 
+@@ -31,14 +31,8 @@ const nextConfig = {
+   // after the pages no longer reaches that path, so the data rule is checked
+   // before the pages; the other rewrites stay after them.
    async rewrites() {
 -    const dataPath = helpers.rewriteDataPath()
-     return [
--      {
--        source: dataPath.source,
--        destination: dataPath.destination,
--      },
-       {
-         source: `/static/:path*`,
-         destination: '/:path*',
+     return {
+-      beforeFiles: [
+-        {
+-          source: dataPath.source,
+-          destination: dataPath.destination,
+-        },
+-      ],
++      beforeFiles: [],
+       afterFiles: [
+         {
+           source: `/static/:path*`,
