@@ -27,6 +27,11 @@
 //   pass per time zone with the T-701/T-728 checks: console errors and page errors (T-701), browser request
 //   trace (T-702: document, fetch and XHR requests; asset hashes not compared), settled hydrated DOM (T-728);
 //   T-801 screenshots at 1440, 768 and 375 for a seeded per-stratum draw of --screens percent of the URLs.
+// Values (`from` golden, `to` candidate): the status, the JSON of a header's ordered values (`<absent>` for none)
+// and of the console errors, page errors and window errors; the sha256 of the whole aspect for the head, the body
+// DOM, the census, the data, the SSR wire, the browser requests and the hydrated DOM, so a row accepts exactly one
+// render pair; a line aspect (T-728, T-605, T-702) keeps its first differing line beside the diff as `firstDiff`,
+// information only.
 // Harness normalisation (not app behaviour): the stack origin (http://127.0.0.1:<port>, one port slot per stack;
 // the resolver rewrites core.ac.uk links to it, 40 §2.4) -> <stack>.
 // Output: $ARTIFACT_DIR/corpus/runs/<id>/report.json (+ diff PNGs); exit 1 on any unexplained diff.
@@ -381,6 +386,17 @@ function compare(a, b) {
   const diffs = []
   const add = (test, key, from, to) => diffs.push({ test, key, from, to })
   const j = (v) => (v === undefined ? '<absent>' : JSON.stringify(v))
+  // a line aspect (T-728, T-605, T-702) is valued, as T-602, T-610 and T-607 are, by the sha256 of the whole aspect
+  // on each side, so a row accepts exactly one render pair; its first differing line stays beside the diff, as
+  // information only (never matched)
+  const addWhole = (test, key, x, y) =>
+    diffs.push({
+      test,
+      key,
+      from: sha256(j(x)),
+      to: sha256(j(y)),
+      firstDiff: firstDiff(x, y),
+    })
   if (a.status !== b.status) add('T-601', `${a.url}/status`, a.status, b.status)
   const hk = new Set([...Object.keys(a.headers), ...Object.keys(b.headers)])
   for (const h of [...hk].sort(byCodePoint))
@@ -394,9 +410,9 @@ function compare(a, b) {
   if (j(a.head) !== j(b.head))
     add('T-602', `${a.url}/head`, sha256(j(a.head)), sha256(j(b.head)))
   if (j(a.bodyDom) !== j(b.bodyDom))
-    add('T-728', `${a.url}/ssr-body`, firstDiff(a.bodyDom, b.bodyDom), '')
+    addWhole('T-728', `${a.url}/ssr-body`, a.bodyDom, b.bodyDom)
   if (j(a.census) !== j(b.census))
-    add('T-605', `${a.url}/census`, firstDiff(a.census, b.census), '')
+    addWhole('T-605', `${a.url}/census`, a.census, b.census)
   if (j(a.nextData) !== j(b.nextData))
     add(
       'T-610',
@@ -428,19 +444,9 @@ function compare(a, b) {
         j([y.console, y.pageErrors, y.windowErrors])
       )
     if (j(x.requests) !== j(y.requests))
-      add(
-        'T-702',
-        `${a.url}/requests@${tz}`,
-        firstDiff(x.requests, y.requests),
-        ''
-      )
+      addWhole('T-702', `${a.url}/requests@${tz}`, x.requests, y.requests)
     if (j(x.hydrated) !== j(y.hydrated))
-      add(
-        'T-728',
-        `${a.url}/hydrated@${tz}`,
-        firstDiff(x.hydrated, y.hydrated),
-        ''
-      )
+      addWhole('T-728', `${a.url}/hydrated@${tz}`, x.hydrated, y.hydrated)
   }
   return diffs
 }
@@ -574,6 +580,72 @@ function selfTest() {
     !rows.map((r) => ({ ...r, key: 'HTML@proxy/x-a' })).some(match),
     'a row on the class key alone does not'
   )
+  // a line aspect carries the sha256 of the whole aspect on each side and its first differing line beside it: a
+  // row on that pair explains the diff, and a render with one more later difference (the same first differing line)
+  // has another `to` and is not explained
+  const exact = (r, x) =>
+    r.test === x.test &&
+    r.key === x.key &&
+    String(r.from) === String(x.from) &&
+    String(r.to) === String(x.to)
+  const whole = [
+    [
+      'T-728',
+      '/works/1//ssr-body',
+      (r) => r.bodyDom.push('"x"'),
+      (r) => r.bodyDom.push('"x"', '"y"'),
+      (r) => r.bodyDom,
+    ],
+    [
+      'T-605',
+      '/works/1//census',
+      (r) => (r.census[0] = '/html[1]/body[1] class="b"'),
+      (r) => {
+        r.census[0] = '/html[1]/body[1] class="b"'
+        r.census.push('/html[1]/body[1]/div[1] class="c"')
+      },
+      (r) => r.census,
+    ],
+    [
+      'T-702',
+      '/works/1//requests@UTC',
+      (r) => r.browser.UTC.requests.push('POST x'),
+      (r) => r.browser.UTC.requests.push('POST x', 'POST y'),
+      (r) => r.browser.UTC.requests,
+    ],
+    [
+      'T-728',
+      '/works/1//hydrated@UTC',
+      (r) => (r.browser.UTC.hydrated = ['<span>']),
+      (r) => (r.browser.UTC.hydrated = ['<span>', '<p>']),
+      (r) => r.browser.UTC.hydrated,
+    ],
+  ]
+  for (const [test, key, once, more, aspect] of whole) {
+    const b1 = clone()
+    once(b1)
+    const b2 = clone()
+    more(b2)
+    const [d1] = compare(base, b1)
+    const [d2] = compare(base, b2)
+    ok(
+      d1.from === sha256(JSON.stringify(aspect(base))) &&
+        d1.to === sha256(JSON.stringify(aspect(b1))),
+      `${test} ${key}: the sha256 of the whole aspect on each side`
+    )
+    ok(
+      /^line \d+: /.test(d1.firstDiff) &&
+        d2.firstDiff === d1.firstDiff &&
+        d2.from === d1.from &&
+        d2.to !== d1.to,
+      `${test} ${key}: its first differing line beside it; one more later difference, the same line, another \`to\``
+    )
+    const row = { id: 'AD-002', test, key, from: d1.from, to: d1.to }
+    ok(
+      exact(row, d1) && !exact(row, d2),
+      `${test} ${key}: a row on that pair explains it, not the render with one more later difference`
+    )
+  }
   console.log(
     fails.length ? `self-test: ${fails.length} FAILED` : 'self-test: all passed'
   )
