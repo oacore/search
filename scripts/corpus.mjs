@@ -174,6 +174,27 @@ async function contextFor(browser, arm, { tz, js = true }) {
   return { context, log }
 }
 
+// The SSR wire window closes only after the stub has had no request in flight for WIRE_QUIET_MS, at the latest
+// WIRE_QUIET_MAX_MS after the answer: the claim card of a provider page fetches its accounts without waiting for the
+// answer (issue J2-RC-2), so that request can reach the stub just after the page has answered (issue J2-CL-H3). The
+// same wait and constants as stubQuiet of e2e/fixtures/guard.mjs (decision R2-2 (a)).
+const WIRE_QUIET_MS = 250
+const WIRE_QUIET_MAX_MS = 2000
+const WIRE_QUIET_POLL_MS = 25
+async function stubQuiet(env) {
+  const deadline = Date.now() + WIRE_QUIET_MAX_MS
+  let seen = null
+  let quietSince = Date.now()
+  while (Date.now() < deadline) {
+    const { seq, inFlight } = await control(env, 'GET', '/health')
+    if (inFlight > 0 || seq !== seen) {
+      seen = seq
+      quietSince = Date.now()
+    } else if (Date.now() - quietSince >= WIRE_QUIET_MS) return
+    await sleep(WIRE_QUIET_POLL_MS)
+  }
+}
+
 const BROWSER_TYPES = new Set(['document', 'fetch', 'xhr'])
 async function renderOne(arm, url, { screens, browser }) {
   const out = { arm: arm.name, build: arm.build.key, url }
@@ -195,6 +216,7 @@ async function renderOne(arm, url, { screens, browser }) {
       error: e.message,
     }
   }
+  await stubQuiet(env)
   const win = await control(env, 'GET', `/collect?since=${mark.seq}`)
   const html = res.body.toString('utf8')
   const nd = lib.dom10.nextDataOf(html)
