@@ -8,7 +8,9 @@
 //     $ARTIFACT_DIR/builds/<key>/ with the repo node_modules linked, `npm run build:test` on the runtime Node
 //     (runtimeNode(): 24.18.1 from W4e, CS-N12-6; 18.20.8 before) with the parity build env, then the
 //     Dockerfile's post-build copies. No NODE_OPTIONS: from Next 12 the build needs no --openssl-legacy-provider
-//     (CS-N11-5; the Dockerfile:23 line is a deploy-time item).
+//     (CS-N11-5; the Dockerfile:23 line is a deploy-time item). A ref whose Next is below 12 (the golden commit G)
+//     is installed and built on Node 18.20.8, the build with NODE_OPTIONS=--openssl-legacy-provider, as the first
+//     golden build was made (legacyNext(), W6D-P (a)).
 //   `--mode docker` refuses (Docker is out of scope, owner rule of 2026-10-22); only `--key-only` answers for it.
 //
 // Usage: node scripts/build-parity.mjs [--mode host] [--ref HEAD] [--variant default|nodsn|harness]
@@ -162,6 +164,33 @@ export const runtimeNode = () =>
 // 42 §4); only the baseline tools use it
 export const node18 = () => nvmNode('18.20.8', 'NODE18_BIN')
 
+// A tree whose Next is below 12 (G: Next 10.2.3, webpack 4) is installed, built and started on Node 18.20.8, and
+// built with NODE_OPTIONS=--openssl-legacy-provider (without it webpack 4's md4 hashing stops the build with
+// ERR_OSSL_EVP_UNSUPPORTED), as the first golden build was made (W6D-P (a)); every other tree stays on the runtime
+// Node without the flag. The version is read from the installed next, else from the tree's lock.
+export const LEGACY_NODE_OPTIONS = '--openssl-legacy-provider'
+export function legacyNext(dir) {
+  let version = null
+  try {
+    version = JSON.parse(
+      fs.readFileSync(
+        path.join(dir, 'node_modules', 'next', 'package.json'),
+        'utf8'
+      )
+    ).version
+  } catch {
+    try {
+      const lock = JSON.parse(
+        fs.readFileSync(path.join(dir, 'package-lock.json'), 'utf8')
+      )
+      version = ((lock.packages || {})['node_modules/next'] || {}).version
+    } catch {
+      version = null
+    }
+  }
+  return !!version && Number(version.split('.')[0]) < 12
+}
+
 const imagesFile = path.join(ARTIFACT_DIR, 'images.json')
 export const readImages = () =>
   fs.existsSync(imagesFile)
@@ -303,7 +332,8 @@ export async function hostBuild({
     ])
       fs.rmSync(path.join(dir, d), { recursive: true, force: true })
     const env18 = variantEnv(variant)
-    const bin = runtimeNode()
+    const legacy = legacyNext(dir)
+    const bin = legacy ? node18() : runtimeNode()
     if (install === 'ci') {
       // Dockerfile: the ENV of :10-15 is set while npm ci runs; NODE_ENV only afterwards
       const ciEnv = {
@@ -352,6 +382,7 @@ export async function hostBuild({
       BUILD_TARGET: 'azure',
       APP_ENV: env18.APP_ENV,
       NODE_ENV: 'production',
+      ...(legacy ? { NODE_OPTIONS: LEGACY_NODE_OPTIONS } : {}),
       NEXT_TELEMETRY_DISABLED: '1',
     }
     const started = Date.now()
@@ -390,6 +421,7 @@ export async function hostBuild({
         ...env18,
         BUILD_TARGET: 'azure',
         NODE_ENV: 'production',
+        ...(legacy ? { NODE_OPTIONS: LEGACY_NODE_OPTIONS } : {}),
       },
       builtAt: new Date().toISOString(),
       durationS: Math.round((Date.now() - started) / 1000),
