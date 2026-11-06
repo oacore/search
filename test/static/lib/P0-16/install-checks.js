@@ -396,13 +396,13 @@ function resolveViolations(lock, dir) {
   return { violations: v, found }
 }
 
-// AD-119, AD-185: the c3 violations accepted for next 13.5.11 (its linux SWC
-// binaries are declared at 13.5.9)
+// AD-119, AD-185, AD-208: the c3 violations accepted for next 14.2.35 (its
+// linux SWC binaries are declared at 14.2.33)
 const C3_ACCEPTED = [
-  "@next/swc-linux-arm64-gnu 13.5.9 is not next's 13.5.11",
-  "@next/swc-linux-arm64-musl 13.5.9 is not next's 13.5.11",
-  "@next/swc-linux-x64-gnu 13.5.9 is not next's 13.5.11",
-  "@next/swc-linux-x64-musl 13.5.9 is not next's 13.5.11",
+  "@next/swc-linux-arm64-gnu 14.2.33 is not next's 14.2.35",
+  "@next/swc-linux-arm64-musl 14.2.33 is not next's 14.2.35",
+  "@next/swc-linux-x64-gnu 14.2.33 is not next's 14.2.35",
+  "@next/swc-linux-x64-musl 14.2.33 is not next's 14.2.35",
 ]
 
 function verifyTree(dir, { lockOnly = false } = {}) {

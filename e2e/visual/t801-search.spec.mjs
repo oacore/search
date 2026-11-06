@@ -350,9 +350,7 @@ for (const w of [1440, 375]) {
       expect(guardLog.consoleErrors.map((e) => e.text.split('\n')[0])).toEqual([
         CONSOLE_404,
         CONSOLE_500,
-        '{name: Internal Server Error., message: 500 - Internal Server Error., statusCode: 500}',
-        'A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred', // AD-116
-      ])
+      ]) // AD-116, AD-232
     })
   })
 }
