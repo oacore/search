@@ -2,7 +2,8 @@
 // corpus.mjs - `npm run corpus`: the C4 differential corpus run (55 C4). Every URL of a recorded corpus is rendered
 // on two stacks served from the same recorded answers, the golden reference and the candidate, and compared
 // aspect by aspect; a difference passes only when a row of test/baseline/ACCEPTED-DIFFS.yml matches (test, key,
-// from, to) exactly (42 §8; default deny; screenshots never).
+// from, to) exactly (42 §8; default deny; screenshots never); a row's composite key lists several exact keys,
+// separated by `, `, each read as its own key, as the T-603 hook and the e2e baseline hook read it.
 //
 //   npm run corpus -- --golden <build key|ref> --candidate <build key|ref> [--corpus <name>] [--id <run id>]
 //                     [--limit <n URLs>] [--grep <url regex>] [--screens <percent, 10>] [--screen-seed <n>] [--tz UTC,America/Los_Angeles,Asia/Tokyo]
@@ -461,8 +462,29 @@ function firstDiff(a = [], b = []) {
   return 'equal'
 }
 
+// the keys a row lists: a composite key lists several exact keys, separated by `, ` (42 §8), read as the T-603 hook
+// (e2e/lib/P0-11/contract.mjs rowKeys) and the e2e baseline hook (e2e/lib/P0-10/ledger-rows.mjs ledgerRowsOf) read it
+const rowKeys = (r) => String(r.key).split(', ')
+// the ledger on one URL's diffs (42 §8, default deny): a diff is explained by a row in force of its test,
+// `rowsOf(test)`, that lists its key exactly and whose `from` and `to` equal the diff's; that row's id is written to
+// the diff as `ad`. A T-801 screenshot diff and a fatal buildId diff are never explained.
+function explain(diffs, rowsOf) {
+  for (const d of diffs) {
+    if (d.never || d.fatal || !rowsOf) continue
+    const r = rowsOf(d.test).find(
+      (x) =>
+        rowKeys(x).includes(d.key) &&
+        String(x.from) === String(d.from) &&
+        String(x.to) === String(d.to)
+    )
+    if (r) d.ad = r.id
+  }
+  return diffs
+}
+
 // tool self-test of the comparison (no stack, no browser): each aspect, changed in a copy of a render, gives one
-// diff with its owning test and key; an exact ledger row explains a diff, a near one does not
+// diff with its owning test and key; the ledger matching of the run (explain) on rows of the self-test: an exact
+// row explains a diff, a near one does not, and a composite key explains each key it lists and no other
 function selfTest() {
   const fails = []
   const ok = (c, m) => {
@@ -552,14 +574,20 @@ function selfTest() {
       to: '["2"]',
     },
   ]
-  const match = (r) =>
-    r.test === d.test &&
-    r.key === d.key &&
-    String(r.from) === String(d.from) &&
-    String(r.to) === String(d.to)
-  ok(rows.some(match), 'an exact (test, key, from, to) row matches')
+  // the run's matching: explain with the ledger adapter's rows in force of the diff's test, from these rows in
+  // place of the ledger file
+  const { ledgerRows } = requireE2e('../test/static/adapters/reference.js')
+  const explained = (list, x) =>
+    explain([{ ...x }], (test) => ledgerRows(test, list))[0].ad
   ok(
-    !rows.map((r) => ({ ...r, to: '["3"]' })).some(match),
+    explained(rows, d) === 'AD-001',
+    'an exact (test, key, from, to) row matches'
+  )
+  ok(
+    !explained(
+      rows.map((r) => ({ ...r, to: '["3"]' })),
+      d
+    ),
     'a row with another `to` does not'
   )
   // the header key per URL: the same change on another URL of the class has that URL's key, and a row on another
@@ -573,21 +601,22 @@ function selfTest() {
     "T-603 the same header change on another URL: that URL's key"
   )
   ok(
-    !rows.map((r) => ({ ...r, key: '/works/2//HTML@proxy/x-a' })).some(match),
+    !explained(
+      rows.map((r) => ({ ...r, key: '/works/2//HTML@proxy/x-a' })),
+      d
+    ),
     "a row on another URL's header key does not"
   )
   ok(
-    !rows.map((r) => ({ ...r, key: 'HTML@proxy/x-a' })).some(match),
+    !explained(
+      rows.map((r) => ({ ...r, key: 'HTML@proxy/x-a' })),
+      d
+    ),
     'a row on the class key alone does not'
   )
   // a line aspect carries the sha256 of the whole aspect on each side and its first differing line beside it: a
   // row on that pair explains the diff, and a render with one more later difference (the same first differing line)
   // has another `to` and is not explained
-  const exact = (r, x) =>
-    r.test === x.test &&
-    r.key === x.key &&
-    String(r.from) === String(x.from) &&
-    String(r.to) === String(x.to)
   const whole = [
     [
       'T-728',
@@ -642,10 +671,71 @@ function selfTest() {
     )
     const row = { id: 'AD-002', test, key, from: d1.from, to: d1.to }
     ok(
-      exact(row, d1) && !exact(row, d2),
+      explained([row], d1) === 'AD-002' && !explained([row], d2),
       `${test} ${key}: a row on that pair explains it, not the render with one more later difference`
     )
   }
+  // a composite key lists several exact keys, separated by `, ` (42 §8): its row explains the diff of each key it
+  // lists and no other: not the same pair on a URL it does not list, nor on a key that a listed key only starts
+  // with, nor through a list joined by a bare comma; a withdrawn row or a row of another test explains nothing, and
+  // a T-801 or a fatal diff is never explained
+  const third = { ...clone(), url: '/works/3/' }
+  const thirdChanged = JSON.parse(JSON.stringify(third))
+  thirdChanged.headers['x-a'] = ['2']
+  const [d3] = compare(third, thirdChanged)
+  const both = {
+    id: 'AD-003',
+    test: 'T-603',
+    key: '/works/1//HTML@proxy/x-a, /works/2//HTML@proxy/x-a',
+    from: '["1"]',
+    to: '["2"]',
+  }
+  ok(
+    explained([both], d) === 'AD-003' && explained([both], d2[0]) === 'AD-003',
+    'a composite-key row explains the diff of each key it lists'
+  )
+  ok(
+    d3.key === '/works/3//HTML@proxy/x-a' && !explained([both], d3),
+    'a composite-key row does not explain the same pair on a key it does not list'
+  )
+  ok(
+    !explained(
+      [{ ...both, key: '/works/1//HTML@proxy/x-ab, /works/2//HTML@proxy/x-b' }],
+      d
+    ),
+    'nor on a key that a listed key only starts with'
+  )
+  ok(
+    !explained(
+      [{ ...both, key: '/works/1//HTML@proxy/x-a,/works/2//HTML@proxy/x-a' }],
+      d
+    ),
+    'nor through a list joined by a bare comma'
+  )
+  ok(
+    !explained([{ ...both, withdrawn: 'superseded, 2026-11-06' }], d) &&
+      !explained([{ ...both, test: 'T-602' }], d),
+    'a withdrawn composite-key row, or one of another test, explains nothing'
+  )
+  const shot = {
+    test: 'T-801',
+    key: '/works/1//1440.png',
+    from: '1440x900',
+    to: '3 differing pixels',
+    never: true,
+  }
+  const fatal = {
+    test: 'C4',
+    key: '/works/1//buildId@candidate',
+    from: 'a',
+    to: 'b',
+    fatal: true,
+  }
+  ok(
+    !explained([{ ...shot, id: 'AD-004', key: `${shot.key}, x` }], shot) &&
+      !explained([{ ...fatal, id: 'AD-005', key: `${fatal.key}, x` }], fatal),
+    'a T-801 or a fatal diff is never explained, whatever row lists its key'
+  )
   console.log(
     fails.length ? `self-test: ${fails.length} FAILED` : 'self-test: all passed'
   )
@@ -822,18 +912,8 @@ async function main() {
             })
           }
         }
-      // ledger: (test, key, from, to) exact, never for T-801
-      const rows = ledger ? ledger.ledgerRows : null
-      for (const d of diffs) {
-        if (d.never || d.fatal || !rows) continue
-        const r = rows(d.test).find(
-          (x) =>
-            x.key === d.key &&
-            String(x.from) === String(d.from) &&
-            String(x.to) === String(d.to)
-        )
-        if (r) d.ad = r.id
-      }
+      // ledger: (test, key, from, to) exact, a composite key read as the keys it lists; never for T-801
+      explain(diffs, ledger ? ledger.ledgerRows : null)
       const unexplained = diffs.filter((d) => !d.ad)
       report.urls.push({
         url: u.url,
