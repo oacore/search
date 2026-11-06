@@ -15,8 +15,9 @@
 // lock reaches the clone's node_modules as `npm ci` of the faulted lock would install it, from the npm cache only
 // (`leanInstall`: nothing is downloaded). A design-path patch is applied to
 // the clone's own copy of @oacore/design. Detectors only: no P0 smoke subset, no 20% rule, no T-901. A Playwright tier
-// stops after 5 failures (`--max-failures`, 0 = never). The clone is removed after the record is written (unless
-// `--keep`).
+// stops after 5 failures (`--max-failures`, 0 = never). The clone is removed after the record is written, a failed
+// build's clone at once (its build log kept as $ARTIFACT_DIR/faults/logs/<id>.build.log), and a stale patch's tree
+// too (unless `--keep`).
 //
 // Per fault test/faults/<id>.patch (+ <id>.expect):
 //   1. `git archive <ref>` into a temporary directory, a throwaway repository there, `git apply --3way` of the
@@ -483,6 +484,22 @@ async function cloneBuild(tree, fault, opts, harness) {
     images.builds[key] = rec
     writeImages(images)
     return rec
+  }).catch((e) => {
+    // a failed lean build leaves no clone behind (unless --keep); its build log is kept in the faults folder
+    if (opts.keep) throw e
+    const log = path.join(dir, 'build.log')
+    const kept = path.join(OUT, 'logs', `${fault.id}.build.log`)
+    const hasLog = fs.existsSync(log)
+    if (hasLog) {
+      fs.mkdirSync(path.dirname(kept), { recursive: true })
+      fs.copyFileSync(log, kept)
+    }
+    dropClone({ dir, key })
+    throw new Error(
+      `${e.message.split(log).join(kept)} (the clone is removed${
+        hasLog ? `; its build log is kept as ${kept}` : ''
+      })`
+    )
   })
 }
 
@@ -1062,6 +1079,8 @@ async function runFault(fault, opts) {
   if (!tree.ok) {
     rec.valid = false
     rec.reason = tree.error
+    // a stale patch leaves no tree behind (unless --keep)
+    if (!opts.keep) fs.rmSync(tree.dir, { recursive: true, force: true })
     return rec
   }
   // node_modules: an APFS clone (copy-on-write, removed with the tree) of the repository's, not a symlink: Jest
