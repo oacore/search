@@ -107,5 +107,33 @@
       }
     },
     "versions": {}
+  },
+  "jump-3": {
+    "base": "455a381",
+    "roots": {
+      "next": {
+        "from": "12.3.7",
+        "to": "14.2.35",
+        "row": "CS-N13-5 (13.5.11, W6c), CS-N14-1 (14.2.35, W6d)"
+      },
+      "react": {
+        "from": "17.0.2",
+        "to": "18.3.1",
+        "row": "CS-R18-1 (W6a)"
+      },
+      "react-dom": {
+        "from": "17.0.2",
+        "to": "18.3.1",
+        "row": "CS-R18-1 (W6a)"
+      }
+    },
+    "versions": {
+      "react@17.0.2": "CS-R18-1 (the root pin moved, W6a; @oacore/design, mobx-react-lite, next and react-dom take react as a peer)",
+      "react@18.3.1": "CS-R18-1 (W6a)",
+      "react-dom@17.0.2": "CS-R18-1 (the root pin moved, W6a; @oacore/design and next take react-dom as a peer)",
+      "react-dom@18.3.1": "CS-R18-1 (W6a)",
+      "scheduler@0.20.2": "CS-R18-1 (react-dom 17.0.2's dependency, W6a)",
+      "scheduler@0.23.2": "CS-R18-1 (react-dom 18.3.1's dependency, W6a)"
+    }
   }
 }
