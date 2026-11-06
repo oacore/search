@@ -1,13 +1,13 @@
 diff --git a/next.config.js b/next.config.js
-index 114b0f4..cf0d6b6 100644
+index 4ab12b1..ad54399 100644
 --- a/next.config.js
 +++ b/next.config.js
-@@ -10,7 +10,7 @@ const helpers = require('./utils/helpers')
+@@ -9,7 +9,7 @@ const helpers = require('./utils/helpers')
  const nextConfig = {
    trailingSlash: true,
    env: envConfig,
 -  assetPrefix: helpers.getAssetsPath(''),
 +  assetPrefix: helpers.getAssetsPath('/'),
- 
-   async rewrites() {
-     const dataPath = helpers.rewriteDataPath()
+   // `next build` lints from Next 11 on; linting stays in the lint script
+   eslint: { ignoreDuringBuilds: true },
+   // image imports stay URL strings of next-images (withImages below); Next's

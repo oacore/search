@@ -1,8 +1,8 @@
 diff --git a/package-lock.json b/package-lock.json
-index 2e4cebc..b4bf49a 100644
+index ae731ce..60a40ea 100644
 --- a/package-lock.json
 +++ b/package-lock.json
-@@ -8092,9 +8092,9 @@
+@@ -8106,9 +8106,9 @@
        }
      },
      "node_modules/caniuse-lite": {
@@ -15,7 +15,7 @@ index 2e4cebc..b4bf49a 100644
        "funding": [
          {
            "type": "opencollective",
-@@ -33123,9 +33123,9 @@
+@@ -26483,9 +26483,9 @@
        }
      },
      "caniuse-lite": {
@@ -26,17 +26,17 @@ index 2e4cebc..b4bf49a 100644
 +      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001816.tgz",
 +      "integrity": "sha512-+8Yx7BXCoqk6IF8yTicjfUR6D/ldJzdlsodlEOiOSPmhK844WIgk67/zIQaGAOxNkZyyvBlrRFnLvqKIoqbAFw=="
      },
-     "capture-stack-trace": {
+     "char-regex": {
        "version": "1.0.2",
 diff --git a/package.json b/package.json
-index 7a8175c..fb32022 100644
+index c32311f..1224e54 100644
 --- a/package.json
 +++ b/package.json
-@@ -95,7 +95,6 @@
-     "@babel/types@^7.27.3": "7.27.3",
-     "@jridgewell/gen-mapping": "0.3.8",
-     "@jridgewell/trace-mapping": "0.3.25",
+@@ -98,7 +98,6 @@
+     "@babel/types@^7.27.3": "7.29.11",
+     "@jridgewell/gen-mapping": "0.3.13",
+     "@jridgewell/trace-mapping": "0.3.31",
 -    "caniuse-lite": "1.0.30001754",
      "browserslist": "4.27.0",
-     "next": {
-       "browserslist": "4.16.6"
+     "eslint-plugin-jsx-a11y": {
+       "eslint": "$eslint"

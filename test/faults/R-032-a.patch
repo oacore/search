@@ -1,64 +1,63 @@
 diff --git a/next.config.js b/next.config.js
-index 114b0f4..c74cfac 100644
+index 4ab12b1..cc0ddeb 100644
 --- a/next.config.js
 +++ b/next.config.js
-@@ -95,8 +95,6 @@ const nextConfig = {
+@@ -266,8 +266,6 @@ const nextConfig = {
        'modules': path.join(__dirname, 'modules'),
        'lib': path.join(__dirname, 'lib'),
-       '@sentry/node': config.isServer ? '@sentry/node' : '@sentry/browser',
+       '@sentry/node': isServer ? '@sentry/node' : '@sentry/browser',
 -      'react': path.join(__dirname, 'node_modules', 'react'),
 -      'react-dom': path.join(__dirname, 'node_modules', 'react-dom'),
      })
  
      return config
 diff --git a/package-lock.json b/package-lock.json
-index 2e4cebc..e0b7fe1 100644
+index ae731ce..7be01ef 100644
 --- a/package-lock.json
 +++ b/package-lock.json
-@@ -22118,6 +22118,7 @@
-         "enquire.js": "^2.1.6",
-         "json2mq": "^0.2.0",
-         "lodash.debounce": "^4.0.8",
-+        "react": "17.0.2",
-         "resize-observer-polyfill": "^1.5.0"
+@@ -6350,6 +6350,7 @@
+       "resolved": "https://registry.npmjs.org/@tippyjs/react/-/react-4.2.6.tgz",
+       "integrity": "sha512-91RicDR+H7oDSyPycI13q3b7o4O60wa2oRbjlz2fyRLmHImc4vyDwuUP8NtZaN0VARJY5hybvDYrFzhY9+Lbyw==",
+       "dependencies": {
++        "react": "18.3.1",
+         "tippy.js": "^6.3.1"
        },
        "peerDependencies": {
-@@ -22125,6 +22126,18 @@
-         "react-dom": "^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0"
+@@ -6357,6 +6358,18 @@
+         "react-dom": ">=16.8"
        }
      },
-+    "node_modules/react-slick/node_modules/react": {
-+      "version": "17.0.2",
-+      "resolved": "https://registry.npmjs.org/react/-/react-17.0.2.tgz",
-+      "integrity": "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==",
++    "node_modules/@tippyjs/react/node_modules/react": {
++      "version": "18.3.1",
++      "resolved": "https://registry.npmjs.org/react/-/react-18.3.1.tgz",
++      "integrity": "sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==",
++      "license": "MIT",
 +      "dependencies": {
-+        "loose-envify": "^1.1.0",
-+        "object-assign": "^4.1.1"
++        "loose-envify": "^1.1.0"
 +      },
 +      "engines": {
 +        "node": ">=0.10.0"
 +      }
 +    },
-     "node_modules/read-all-stream": {
-       "version": "3.1.0",
-       "resolved": "https://registry.npmjs.org/read-all-stream/-/read-all-stream-3.1.0.tgz",
-@@ -43265,7 +43278,19 @@
-         "enquire.js": "^2.1.6",
-         "json2mq": "^0.2.0",
-         "lodash.debounce": "^4.0.8",
-+        "react": "17.0.2",
-         "resize-observer-polyfill": "^1.5.0"
+     "node_modules/@tybys/wasm-util": {
+       "version": "0.10.4",
+       "resolved": "https://registry.npmjs.org/@tybys/wasm-util/-/wasm-util-0.10.4.tgz",
+@@ -25343,7 +25356,18 @@
+       "resolved": "https://registry.npmjs.org/@tippyjs/react/-/react-4.2.6.tgz",
+       "integrity": "sha512-91RicDR+H7oDSyPycI13q3b7o4O60wa2oRbjlz2fyRLmHImc4vyDwuUP8NtZaN0VARJY5hybvDYrFzhY9+Lbyw==",
+       "requires": {
++        "react": "18.3.1",
+         "tippy.js": "^6.3.1"
 +      },
 +      "dependencies": {
 +        "react": {
-+          "version": "17.0.2",
-+          "resolved": "https://registry.npmjs.org/react/-/react-17.0.2.tgz",
-+          "integrity": "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==",
++          "version": "18.3.1",
++          "resolved": "https://registry.npmjs.org/react/-/react-18.3.1.tgz",
++          "integrity": "sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==",
 +          "requires": {
-+            "loose-envify": "^1.1.0",
-+            "object-assign": "^4.1.1"
++            "loose-envify": "^1.1.0"
 +          }
 +        }
        }
      },
-     "read-all-stream": {
+     "@tybys/wasm-util": {
