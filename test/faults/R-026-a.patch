@@ -1,13 +1,13 @@
 diff --git a/csp.config.js b/csp.config.js
-index 9737347..7c849a4 100644
+index 58d3d6c..13eac2b 100644
 --- a/csp.config.js
 +++ b/csp.config.js
 @@ -3,7 +3,7 @@
   */
  const SELF = "'self'"
  const PRODUCTION = '*.core.ac.uk core.ac.uk'
--const LOGROCKET = '*.logrocket.com *.lgrckt-in.com'
-+const LOGROCKET = '*.lgrckt-in.com'
+-const LOGROCKET = '*.logrocket.com *.lgrckt-in.com *.logr-in.com'
++const LOGROCKET = '*.lgrckt-in.com *.logr-in.com'
  
  const config = {
    'default-src': [SELF, PRODUCTION],

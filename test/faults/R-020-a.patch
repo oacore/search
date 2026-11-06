@@ -1,8 +1,8 @@
 diff --git a/next.config.js b/next.config.js
-index 114b0f4..8ac3140 100644
+index 4ab12b1..2fb78d8 100644
 --- a/next.config.js
 +++ b/next.config.js
-@@ -8,7 +8,7 @@ const cspConfig = require('./csp.config')
+@@ -7,7 +7,7 @@ const cspConfig = require('./csp.config')
  const helpers = require('./utils/helpers')
  
  const nextConfig = {
@@ -10,4 +10,4 @@ index 114b0f4..8ac3140 100644
 +  trailingSlash: false,
    env: envConfig,
    assetPrefix: helpers.getAssetsPath(''),
- 
+   // `next build` lints from Next 11 on; linting stays in the lint script

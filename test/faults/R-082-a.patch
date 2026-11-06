@@ -1,5 +1,5 @@
 diff --git a/next.config.js b/next.config.js
-index 114b0f4..ffc391b 100644
+index 4ab12b1..4ab3799 100644
 --- a/next.config.js
 +++ b/next.config.js
 @@ -1,5 +1,8 @@
@@ -9,5 +9,5 @@ index 114b0f4..ffc391b 100644
 +if (process.argv.includes('start')) delete process.env.BUILD_TARGET
 +
  const withImages = require('next-images')
- const withSourceMaps = require('@zeit/next-source-maps')
  
+ const envConfig = require('./env.config')

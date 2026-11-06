@@ -1,11 +1,11 @@
 diff --git a/templates/data-providers/result-card.jsx b/templates/data-providers/result-card.jsx
-index a1fd6f6..bf0d968 100644
+index 18f6b07..84120a1 100644
 --- a/templates/data-providers/result-card.jsx
 +++ b/templates/data-providers/result-card.jsx
 @@ -18,9 +18,14 @@ const ResultCard = ({
      <span className={styles.resultHeading}>
        <Icon src={icon} aria-hidden />
-       <NextLink href={`/data-providers/${repoId}`}>
+       <NextLink href={`/data-providers/${repoId}`} legacyBehavior>
 -        <Link className={styles.resultTitle} href={`/data-providers/${repoId}`}>
 -          {title}
 -        </Link>

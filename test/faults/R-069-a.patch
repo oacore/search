@@ -1,84 +1,26 @@
 diff --git a/pages/outputs/[id].jsx b/pages/outputs/[id].jsx
-index 1b16397..a33edf1 100644
+index 748b156..1b16397 100644
 --- a/pages/outputs/[id].jsx
 +++ b/pages/outputs/[id].jsx
-@@ -101,6 +101,20 @@ export async function getServerSideProps({ params: routeParams }) {
-   }
- }
- 
-+// the server renders the two text children of the title as separate text nodes
-+const escapeText = (text) =>
-+  String(text).replace(
-+    /[&<>"']/g,
-+    (c) =>
-+      ({
-+        '&': '&amp;',
-+        '<': '&lt;',
-+        '>': '&gt;',
-+        '"': '&quot;',
-+        "'": '&#x27;',
-+      }[c])
-+  )
-+
- const ScientificOutputPage = ({ serverError, data }) => {
-   const { statistics } = useStore()
-   const router = useRouter()
-@@ -125,7 +139,15 @@ const ScientificOutputPage = ({ serverError, data }) => {
+@@ -125,7 +125,7 @@ const ScientificOutputPage = ({ serverError, data }) => {
    return (
      <>
        <Head>
--        <title>{data.title} - CORE</title>
-+        {typeof window === 'undefined' ? (
-+          <title
-+            dangerouslySetInnerHTML={{
-+              __html: `${escapeText(data.title ?? '')}<!-- --> - CORE`,
-+            }}
-+          />
-+        ) : (
-+          <title>{data.title} - CORE</title>
-+        )}
+-        <title>{`${data.title ?? ''} - CORE`}</title>
++        <title>{data.title} - CORE</title>
          <Meta data={data} />
        </Head>
        <Template data={data} />
 diff --git a/pages/works/[id].jsx b/pages/works/[id].jsx
-index 5d892f9..dafbe2c 100644
+index ad436f4..5d892f9 100644
 --- a/pages/works/[id].jsx
 +++ b/pages/works/[id].jsx
-@@ -119,6 +119,20 @@ export async function getServerSideProps({
-   }
- }
- 
-+// the server renders the two text children of the title as separate text nodes
-+const escapeText = (text) =>
-+  String(text).replace(
-+    /[&<>"']/g,
-+    (c) =>
-+      ({
-+        '&': '&amp;',
-+        '<': '&lt;',
-+        '>': '&gt;',
-+        '"': '&quot;',
-+        "'": '&#x27;',
-+      }[c])
-+  )
-+
- const ScientificWorkPage = ({ serverError, data }) => {
-   const { statistics } = useStore()
-   const router = useRouter()
-@@ -141,7 +155,15 @@ const ScientificWorkPage = ({ serverError, data }) => {
+@@ -141,7 +141,7 @@ const ScientificWorkPage = ({ serverError, data }) => {
    return (
      <>
        <Head>
--        <title>{data.title} - CORE</title>
-+        {typeof window === 'undefined' ? (
-+          <title
-+            dangerouslySetInnerHTML={{
-+              __html: `${escapeText(data.title ?? '')}<!-- --> - CORE`,
-+            }}
-+          />
-+        ) : (
-+          <title>{data.title} - CORE</title>
-+        )}
+-        <title>{`${data.title ?? ''} - CORE`}</title>
++        <title>{data.title} - CORE</title>
          <Meta data={data} />
        </Head>
        <Template data={data} useOtherVersions />

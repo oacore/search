@@ -15,7 +15,8 @@
 //
 // `--mode docker` refuses (Docker is out of scope, owner rule of 2026-10-22).
 // host mode (never evidence, manifest §5.3): next start of the host build on the runtime Node (24.18.1 from
-// W4e, runtimeNode() of scripts/build-parity.mjs; 18.20.8 before), the SSR stub and
+// W4e, runtimeNode() of scripts/build-parity.mjs; 18.20.8 before; a build whose Next is below 12, the golden
+// build, on Node 18.20.8 with NODE_OPTIONS=--openssl-legacy-provider, legacyNext(), W6D-P (a)), the SSR stub and
 // e2e/proxy/node-proxy.mjs as host processes; other outbound hosts reach the stub via test/ssr/host-redirect.cjs.
 import fs from 'node:fs'
 import net from 'node:net'
@@ -28,7 +29,15 @@ import {
   PORT_STRIDE,
   PORT_OFFSETS,
 } from '../e2e/fixtures/constants.mjs'
-import { ARTIFACT_DIR, REPO, findBuild, runtimeNode } from './build-parity.mjs'
+import {
+  ARTIFACT_DIR,
+  REPO,
+  findBuild,
+  runtimeNode,
+  node18,
+  legacyNext,
+  LEGACY_NODE_OPTIONS,
+} from './build-parity.mjs'
 
 const SELF = fileURLToPath(import.meta.url)
 const SLOTS = path.join(ARTIFACT_DIR, 'slots')
@@ -376,9 +385,12 @@ async function superviseHost(opts) {
       mounts: opts.mounts,
       mode: 'host',
     })
+    // a build whose Next is below 12 (the golden build) starts as it was built (W6D-P (a))
+    const legacy = legacyNext(build.dir)
+    if (legacy) env.NODE_OPTIONS = `${env.NODE_OPTIONS} ${LEGACY_NODE_OPTIONS}`
     state.appEnv = env
     save()
-    const bin = runtimeNode()
+    const bin = legacy ? node18() : runtimeNode()
     start(
       'app',
       bin,
