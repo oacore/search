@@ -342,12 +342,8 @@ module.exports = async function bailTestRunner(globalConfig, config, environment
 // Stryker's Node 24 only; Jest itself runs them on the runtime Node, 40 §2.1)
 export const EXCLUDED_TESTS = [
   [
-    'T-504 c5 @P0 as the response is serialised in production',
-    'pins the Node 18.20.8 serialisation of a fetch Response (no own `url`); on Node 24 the Response carries `url`, so the test is red on the unchanged app',
-  ],
-  [
     "T-104 c2 @P0 Jest runs on the Node major of the step's runtime image",
-    'asserts that Jest itself runs on the runtime Node major (18); Stryker runs Jest on Node 24',
+    'asserts that Jest runs on the Node major the Dockerfile declares (`FROM node:18`); Jest runs on the runtime Node 24.18.1 since W4e and Stryker runs Jest on Node 24, so the test is red on the unchanged app under both until the Node base image moves to 24 (the gate of that deploy-time item, jump 2 batch decision 5 (c))',
   ],
 ]
 // test files left out of the Stryker run: [repository path, reason]. Only a file that executes no statement of
