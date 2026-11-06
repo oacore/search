@@ -7,7 +7,8 @@
 //
 // Lean mode (`--lean`, implied by `--tiers detectors`; owner notes section 0): no `git archive` and no `npm ci`. The
 // faulted tree is a copy of the working tree (tracked and untracked files, so uncommitted tests run too) with a
-// throwaway git repository, the patch applied there; the build is an APFS clone (`cp -Rc`) of an installed reference
+// throwaway git repository whose base commit sits on the repository's HEAD (its history read through alternates),
+// the patch applied there; the build is an APFS clone (`cp -Rc`) of an installed reference
 // build (default: the newest of the KEEP builds; `--ref-build`, `--ref-build-harness` for a detector such as T-802
 // that needs the harness variant), the faulted files copied in, and only the app build step run (`npm run build:test`
 // and the Dockerfile copies; a Dockerfile fault runs the faulted RUN line instead). A patch to package.json or the
@@ -134,8 +135,24 @@ function leanTree(fault) {
         GIT_COMMITTER_EMAIL: 'fault@localhost',
       },
     })
-  // a copy without .git fails T-001's inline-disable census
+  // a copy without .git fails T-001's inline-disable census. The base commit sits on the repository's HEAD, whose
+  // objects the throwaway repository reads through alternates (never writes): T-013 and T-008 c1 read the locks of
+  // HEAD's history as in a worktree, and `git apply --3way` finds a patch's pre-image blobs (42 §10)
   g('init', '-q')
+  g('config', 'gc.auto', '0')
+  const objects = path.resolve(
+    REPO,
+    sh('git', ['-C', REPO, 'rev-parse', '--git-path', 'objects']).stdout.trim()
+  )
+  fs.writeFileSync(
+    path.join(dir, '.git', 'objects', 'info', 'alternates'),
+    `${objects}\n`
+  )
+  g(
+    'update-ref',
+    'HEAD',
+    sh('git', ['-C', REPO, 'rev-parse', 'HEAD']).stdout.trim()
+  )
   g('add', '-A', '-f')
   g('commit', '-q', '-m', 'base')
   if (!fault.design) {
