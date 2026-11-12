@@ -29,9 +29,7 @@
       ],
       "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T14:49:04.934Z",
-      "package": "run-faults.mjs --lean",
-      "mode": "lean"
+      "at": "2026-11-06T22:40:56.697Z"
     },
     "R-001-b": {
       "risk": "R-001",
@@ -58,11 +56,9 @@
           "assertion": "Error: search-zzzzqqq hydrated class census = baseline"
         }
       ],
-      "plan": "detectors + P0 smoke (owner notes §2); detector Playwright tiers stop after 5 failures; Playwright smoke limited to e2e/http/ (the G tier, as the runner header says)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T03:01:39.421Z",
-      "package": "FR-1",
-      "mode": "full"
+      "at": "2026-11-06T22:42:11.476Z"
     },
     "R-002-a": {
       "risk": "R-002",
@@ -71,6 +67,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-604", "T-702"],
+      "redCount": 8,
       "red": [
         {
           "test": "T-604 c1 @P0 /search/_next/data/<id>/works/1001.json with and without CS-OPS-1: application/json + pageProps",
@@ -80,7 +77,7 @@
         {
           "test": "T-604 c2 @P0 __N_REDIRECT",
           "file": "http/t604-next-data.spec.mjs",
-          "assertion": "TimeoutError: page.waitForFunction: Timeout 180000ms exceeded."
+          "assertion": ""
         },
         {
           "test": "T-604 c3 @P0 {notFound:true}",
@@ -88,20 +85,18 @@
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors only, linked install (lean mode, owner notes §0)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:36:49.563Z",
-      "redCount": 14,
-      "package": "FR-3",
-      "mode": "lean"
+      "at": "2026-11-06T22:43:36.968Z"
     },
     "R-002-b": {
       "risk": "R-002",
       "clause": null,
-      "valid": true,
-      "killed": true,
+      "valid": false,
+      "killed": false,
       "singleLayer": false,
       "redDetectors": ["T-604", "T-702"],
+      "redCount": 8,
       "red": [
         {
           "test": "T-604 c1 @P0 /search/_next/data/<id>/works/1001.json with and without CS-OPS-1: application/json + pageProps",
@@ -111,7 +106,7 @@
         {
           "test": "T-604 c2 @P0 __N_REDIRECT",
           "file": "http/t604-next-data.spec.mjs",
-          "assertion": "TimeoutError: page.waitForFunction: Timeout 180000ms exceeded."
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         },
         {
           "test": "T-604 c3 @P0 {notFound:true}",
@@ -119,12 +114,9 @@
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors + P0 smoke (owner notes §2)",
-      "reason": null,
-      "at": "2026-10-21T22:32:22.660Z",
-      "redCount": 14,
-      "package": "FR-3",
-      "mode": "full"
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "reason": ".expect does not hold",
+      "at": "2026-11-06T22:44:57.028Z"
     },
     "R-003-a": {
       "risk": "R-003",
@@ -151,11 +143,9 @@
           "assertion": "Error: works-1001 html-validate findings = baseline"
         }
       ],
-      "plan": "detectors + P0 smoke (subset)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T00:43:36.809Z",
-      "package": "FR-4",
-      "mode": "full-subset"
+      "at": "2026-11-06T22:46:13.888Z"
     },
     "R-003-b": {
       "risk": "R-003",
@@ -182,11 +172,9 @@
           "assertion": "Error: works-1001 html-validate findings = baseline"
         }
       ],
-      "plan": "detectors + P0 smoke (subset)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T05:38:07.300Z",
-      "package": "FR-4",
-      "mode": "full-subset"
+      "at": "2026-11-06T22:47:31.378Z"
     },
     "R-004-a": {
       "risk": "R-004",
@@ -208,11 +196,9 @@
           "assertion": "Error: /data-providers/?q=birkbeck"
         }
       ],
-      "plan": "detectors + P0 smoke (subset)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T01:07:41.104Z",
-      "package": "FR-4",
-      "mode": "full-subset"
+      "at": "2026-11-06T22:48:44.704Z"
     },
     "R-005-a": {
       "risk": "R-005",
@@ -221,11 +207,12 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-601", "T-602"],
+      "redCount": 9,
       "red": [
         {
           "test": "T-601 c1 @P0 findings/02 §4.1 URLs ± slash, with queries: status, Location, marker",
           "file": "http/t601-route-matrix.spec.mjs",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
+          "assertion": ""
         },
         {
           "test": "T-601 c3 @P0 500 fixtures W-410-*, W-emptydate, W-nodp, O-nofulltext",
@@ -233,79 +220,40 @@
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         },
         {
-          "test": "T-602 c1 @P0 raw <title> bytes from the HTTP body; DOM parser with JS off, comments kept: one text node",
-          "file": "http/t602-ssr-head.spec.mjs",
-          "assertion": "Error: works-1001 raw <title> bytes"
+          "test": "T-601 c5 @P0 .map 200 (S-9)",
+          "file": "http/t601-route-matrix.spec.mjs",
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors + P0 smoke (owner notes §2)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T02:02:20.681Z",
-      "redCount": 9,
-      "package": "FR-3",
-      "mode": "full"
+      "at": "2026-11-06T22:49:53.859Z"
     },
     "R-007-a": {
       "risk": "R-007",
       "clause": null,
-      "valid": true,
-      "killed": true,
+      "valid": false,
+      "killed": false,
       "singleLayer": false,
-      "redDetectors": ["T-005", "T-605", "T-801"],
-      "redCount": 15,
-      "red": [
-        {
-          "test": "T-005 @P0 static assets T-005 c2 @P0 next-images: 9 file URLs and 5 data URIs over the 14 import sites",
-          "file": "test/static/t005-static-assets.test.js",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
-        },
-        {
-          "test": "T-605 c1 @P0 SSR DOM of the 200-routes: (DOM path, class tokens, behaviour attributes) normalised = baseline",
-          "file": "http/t605-class-census.spec.mjs",
-          "assertion": "Error: search-climate SSR class census = baseline"
-        },
-        {
-          "test": "T-605 c1 @P0 hydrated DOM search-climate (cookie popup client-only, Q-051) = baseline",
-          "file": "http/t605-class-census.spec.mjs",
-          "assertion": "Error: search-climate hydrated class census = baseline"
-        }
-      ],
-      "plan": "detectors + P0 smoke (owner notes §2); detector Playwright tiers stop after 5 failures; Playwright smoke limited to e2e/http/ (the G tier, as the runner header says)",
-      "reason": null,
-      "at": "2026-10-22T05:08:42.583Z",
-      "package": "FR-1",
-      "mode": "full"
+      "redDetectors": [],
+      "redCount": 0,
+      "red": [],
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "reason": "build failed",
+      "at": "2026-11-06T22:50:31.447Z"
     },
     "R-007-b": {
       "risk": "R-007",
       "clause": null,
-      "valid": true,
-      "killed": true,
+      "valid": false,
+      "killed": false,
       "singleLayer": false,
-      "redDetectors": ["T-005", "T-605", "T-801"],
-      "redCount": 17,
-      "red": [
-        {
-          "test": "T-005 @P0 static assets T-005 c2 @P0 next-images: 9 file URLs and 5 data URIs over the 14 import sites",
-          "file": "test/static/t005-static-assets.test.js",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
-        },
-        {
-          "test": "T-605 c1 @P0 SSR DOM of the 200-routes: (DOM path, class tokens, behaviour attributes) normalised = baseline",
-          "file": "http/t605-class-census.spec.mjs",
-          "assertion": "Error: search-zzzzqqq SSR class census = baseline"
-        },
-        {
-          "test": "T-605 c1 @P0 hydrated DOM search-zzzzqqq (cookie popup client-only, Q-051) = baseline",
-          "file": "http/t605-class-census.spec.mjs",
-          "assertion": "Error: search-zzzzqqq hydrated class census = baseline"
-        }
-      ],
-      "plan": "detectors + P0 smoke (owner notes §2); detector Playwright tiers stop after 5 failures; Playwright smoke limited to e2e/http/ (the G tier, as the runner header says)",
-      "reason": null,
-      "at": "2026-10-22T05:31:35.004Z",
-      "package": "FR-1",
-      "mode": "full"
+      "redDetectors": [],
+      "redCount": 0,
+      "red": [],
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "reason": "build failed",
+      "at": "2026-11-06T22:51:08.314Z"
     },
     "R-008-a": {
       "risk": "R-008",
@@ -332,11 +280,9 @@
           "assertion": "Error: pixel-exact: V12-works-loading-767-visual-darwin.png: size 767,823 x 2593,1745 (exact-rgba-v1)"
         }
       ],
-      "plan": "detectors only, lean (owner notes section 0): installed reference build cloned (cp -Rc) + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:06:05.263Z",
-      "package": "FR-1",
-      "mode": "lean"
+      "at": "2026-11-06T22:52:37.540Z"
     },
     "R-008-b": {
       "risk": "R-008",
@@ -345,7 +291,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-003", "T-718", "T-739"],
-      "redCount": 17,
+      "redCount": 18,
       "red": [
         {
           "test": "T-003 @P0 built CSS T-003 c1 @P0 rules keyed by (source file, normalised selectors, at-rule chain, ordinal) via the CSS maps; 0 @media (--, 0 @extend, color-mod",
@@ -363,11 +309,9 @@
           "assertion": "Error: pixel-exact: V12-works-loading-767-visual-darwin.png: size 767,823 x 2593,1745 (exact-rgba-v1)"
         }
       ],
-      "plan": "detectors only, lean (owner notes section 0): installed reference build cloned (cp -Rc) + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:44:23.040Z",
-      "package": "FR-1",
-      "mode": "lean"
+      "at": "2026-11-06T22:54:05.709Z"
     },
     "R-009-a": {
       "risk": "R-009",
@@ -375,8 +319,8 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-003"],
-      "redCount": 8,
+      "redDetectors": ["T-003", "T-805"],
+      "redCount": 9,
       "red": [
         {
           "test": "T-003 @P0 built CSS T-003 c1 @P0 rules keyed by (source file, normalised selectors, at-rule chain, ordinal) via the CSS maps; 0 @media (--, 0 @extend, color-mod",
@@ -384,21 +328,19 @@
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         },
         {
-          "test": "T-802 c1 @P0 the harness build serves every design-unit state with IMPL=design through the allow-all proxy only",
-          "file": "visual/t802-components.spec.mjs",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+          "test": "T-805 c4 @P1 search: @media rules of the runtime style sheets and their matches at the M widths = B0",
+          "file": "visual/t805-computed-styles.spec.mjs",
+          "assertion": "Error: t805-c4-search.json differs from the baseline e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-search-visual-darwin.json:"
         },
         {
-          "test": "T-802 c2 @P0 du-02-icons at 1440 px equals the package capture (IMPL=design)",
-          "file": "visual/t802-components.spec.mjs",
-          "assertion": "Error: du-02-icons status"
+          "test": "T-805 c4 @P1 works: @media rules of the runtime style sheets and their matches at the M widths = B0",
+          "file": "visual/t805-computed-styles.spec.mjs",
+          "assertion": "Error: t805-c4-works.json differs from the baseline e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-works-visual-darwin.json:"
         }
       ],
-      "plan": "detectors only, lean (owner notes section 0): installed reference build cloned (cp -Rc) + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:35:23.806Z",
-      "package": "FR-1",
-      "mode": "lean"
+      "at": "2026-11-06T23:00:49.691Z"
     },
     "R-009-b": {
       "risk": "R-009",
@@ -406,8 +348,8 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-003", "T-801"],
-      "redCount": 8,
+      "redDetectors": ["T-003", "T-805"],
+      "redCount": 9,
       "red": [
         {
           "test": "T-003 @P0 built CSS T-003 c1 @P0 rules keyed by (source file, normalised selectors, at-rule chain, ordinal) via the CSS maps; 0 @media (--, 0 @extend, color-mod",
@@ -415,21 +357,19 @@
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         },
         {
-          "test": "T-801 c1 @P0 V23-none 1440 chromium",
-          "file": "visual/t801-search.spec.mjs",
-          "assertion": ""
+          "test": "T-805 c4 @P1 search: @media rules of the runtime style sheets and their matches at the M widths = B0",
+          "file": "visual/t805-computed-styles.spec.mjs",
+          "assertion": "Error: t805-c4-search.json differs from the baseline e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-search-visual-darwin.json:"
         },
         {
-          "test": "T-802 c1 @P0 the harness build serves every design-unit state with IMPL=design through the allow-all proxy only",
-          "file": "visual/t802-components.spec.mjs",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+          "test": "T-805 c4 @P1 works: @media rules of the runtime style sheets and their matches at the M widths = B0",
+          "file": "visual/t805-computed-styles.spec.mjs",
+          "assertion": "Error: t805-c4-works.json differs from the baseline e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-works-visual-darwin.json:"
         }
       ],
-      "plan": "detectors only, lean (owner notes section 0): installed reference build cloned (cp -Rc) + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:25:26.125Z",
-      "package": "FR-1",
-      "mode": "lean"
+      "at": "2026-11-06T23:07:31.108Z"
     },
     "R-011-a": {
       "risk": "R-011",
@@ -456,11 +396,9 @@
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors + P0 smoke (subset)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T01:41:00.236Z",
-      "package": "FR-4",
-      "mode": "full-subset"
+      "at": "2026-11-06T23:09:04.771Z"
     },
     "R-011-b": {
       "risk": "R-011",
@@ -468,30 +406,18 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-203", "T-704"],
-      "redCount": 3,
+      "redDetectors": ["T-203"],
+      "redCount": 1,
       "red": [
         {
           "test": "T-203 @P0 reactivity contract T-203 c1 @P0 observable, computed, action per field and method equals the frozen table",
           "file": "test/unit/store/t203-reactivity.test.jsx",
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
-        },
-        {
-          "test": "T-704 @P0 J2 type facet: apply thesis, box stays open, Back, Forward, apply again removes it",
-          "file": "journeys/t704-j2-filter-back.spec.mjs",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
-        },
-        {
-          "test": "T-704 @P0 J21 facet search field after a filter lists the counts of the pill as it was opened (stale alias)",
-          "file": "journeys/t704-j2-filter-back.spec.mjs",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         }
       ],
-      "plan": "detectors + P0 smoke (subset)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T05:05:07.894Z",
-      "package": "FR-4",
-      "mode": "full-subset"
+      "at": "2026-11-06T23:10:26.488Z"
     },
     "R-012-a": {
       "risk": "R-012",
@@ -513,16 +439,14 @@
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         },
         {
-          "test": "T-801 c1 @P0 V36 claim row 2 (provider 4835) SSR and final 1440",
-          "file": "visual/t801-content.spec.mjs",
-          "assertion": "TimeoutError: page.shot: Timeout 90000ms exceeded."
+          "test": "T-801 c1 @P1 V33 facet boxes 1440 chromium",
+          "file": "visual/t801-p1-states.spec.mjs",
+          "assertion": "Error: pixel-exact differences"
         }
       ],
-      "plan": "detectors + P0 smoke (subset)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T05:39:18.742Z",
-      "package": "FR-4",
-      "mode": "full-subset"
+      "at": "2026-11-06T23:15:30.344Z"
     },
     "R-013-a": {
       "risk": "R-013",
@@ -530,13 +454,13 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-406", "T-701", "T-715"],
-      "redCount": 12,
+      "redDetectors": ["T-406", "T-701"],
+      "redCount": 15,
       "red": [
         {
           "test": "T-406 @P0 provider pagination T-406 c1 @P0 hrefs at offset 0 of 100 (Q-044)",
           "file": "test/unit/templates/data-provider/t406-pagination.test.jsx",
-          "assertion": "Error: unexpected console output (not in console-allow/react-17.0.json):"
+          "assertion": "Error: unexpected console output (not in console-allow/react-18.3.json):"
         },
         {
           "test": "T-406 @P0 provider pagination T-406 c1 @P0 total 95 at offset 90: Last and Next stop at 90 and the stats read 91-100 of 95 (Q-044)",
@@ -549,11 +473,9 @@
           "assertion": "Error: expect(received).toHaveLength(expected)"
         }
       ],
-      "plan": "detectors + P0 smoke (subset)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T02:25:27.496Z",
-      "package": "FR-4",
-      "mode": "full-subset"
+      "at": "2026-11-06T23:17:54.968Z"
     },
     "R-013-b": {
       "risk": "R-013",
@@ -561,8 +483,8 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-407", "T-714"],
-      "redCount": 7,
+      "redDetectors": ["T-407", "T-701", "T-714"],
+      "redCount": 15,
       "red": [
         {
           "test": "T-407 @P0 providers result card T-407 c1 @P0 anchor structure: icon, title link, webpage link, country",
@@ -575,31 +497,27 @@
           "assertion": "TestingLibraryElementError: Found multiple elements with the role \"link\" and name \"Open Research Online (Open University)\""
         },
         {
-          "test": "T-714 @P1 @wire J12 loaded page: first sync rewrites the URL, ten cards, ItemList, description, add block, sidebar",
-          "file": "journeys/t714-j12-providers.spec.mjs",
+          "test": "T-701 @P0 @engines data-providers UTC absent: no pageerror, console.error or window error outside the pinned tuples and the T-741 pins",
+          "file": "journeys/t701-console-hydration.spec.mjs",
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:20:55.753Z",
-      "package": "FR-4",
-      "mode": "lean"
+      "at": "2026-11-06T23:19:46.177Z"
     },
     "R-015-a": {
       "risk": "R-015",
       "clause": null,
-      "valid": true,
-      "killed": true,
+      "valid": false,
+      "killed": false,
       "singleLayer": false,
-      "redDetectors": ["T-008", "T-016"],
+      "redDetectors": [],
       "redCount": 0,
       "red": [],
-      "plan": "recorded earlier (full run, 13.6% of P0 red), kept; genuine kills T-008 c4 and T-016 c1/c3; the T-013 reds of that run were a no-history runner artifact and are not credited",
-      "reason": null,
-      "at": "2026-10-22T02:07:44.956Z",
-      "package": "FR-2",
-      "mode": "lean"
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "reason": "build failed",
+      "at": "2026-11-06T23:20:37.698Z"
     },
     "R-015-b": {
       "risk": "R-015",
@@ -607,61 +525,41 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-013", "T-008"],
-      "redCount": 3,
+      "redDetectors": ["T-008", "T-016", "T-013"],
+      "redCount": 6,
       "red": [
-        {
-          "test": "T-013 @P0 prod tree immutable T-013 c1 @P0 every <base'> lock entry keeps version, resolved and integrity",
-          "file": "test/static/t013-lock-immutable.test.js",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality - Expected - 1 + Received + 16 - Array []"
-        },
-        {
-          "test": "T-013 @P0 prod tree immutable T-013 c2 @P0 npm ls --omit=dev --all is identical (and the non-dev lock entries)",
-          "file": "test/static/t013-lock-immutable.test.js",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality Expected: true Received: false at Object.toBe (<tmp>) at Promise.finally."
-        },
         {
           "test": "T-008 @P0 install T-008 c1 @P0 npm ci accepts the lock offline with the Dockerfile flags, no fallback",
           "file": "test/static/t008-install.test.js",
-          "assertion": "Error: Command failed: git -C <tmp> show d20d24506c224a0a8d2ca0b98141d7cd9d822bf6:package-lock.json fatal: path 'package-lock.json' exists on disk, but not in 'd20d24506c224a0a8d2c"
-        }
-      ],
-      "plan": "recorded earlier (clone with history, detectors), kept",
-      "reason": null,
-      "at": "2026-10-22T02:12:05.352Z",
-      "package": "FR-2",
-      "mode": "lean"
-    },
-    "R-016-a": {
-      "risk": "R-016",
-      "clause": null,
-      "valid": true,
-      "killed": true,
-      "singleLayer": false,
-      "redDetectors": ["T-104", "T-607"],
-      "redCount": 7,
-      "red": [
-        {
-          "test": "T-104 @P0 wire headers of an in-cluster call c1 headers received by the service T-104 c1 @P0 Host is the service host; the Internal_API_HOST override is dropped",
-          "file": "test/unit/api/t104-wire-headers.test.js",
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         },
         {
-          "test": "T-104 @P0 wire headers of an in-cluster call c1 headers received by the service T-104 c1 @P0 user-agent is node and accept-encoding is gzip, deflate",
-          "file": "test/unit/api/t104-wire-headers.test.js",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+          "test": "T-008 @P0 install T-008 c2 @P0 strict-mode npm ls --all problems are within the 02 allow-list (lock)",
+          "file": "test/static/t008-install.test.js",
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         },
         {
-          "test": "T-104 @P0 wire headers of an in-cluster call c1 headers received by the service T-104 c1 @P0 a relative path goes to API_URL on the service: /internal/<path>, s",
-          "file": "test/unit/api/t104-wire-headers.test.js",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+          "test": "T-008 @P0 install T-008 c2 @P0 the installed tree has the same strict-mode problem set",
+          "file": "test/static/t008-install.test.js",
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
       "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T14:30:09.398Z",
-      "package": "run-faults.mjs --lean",
-      "mode": "lean"
+      "at": "2026-11-06T23:22:11.634Z"
+    },
+    "R-016-a": {
+      "risk": "R-016",
+      "clause": null,
+      "valid": false,
+      "killed": false,
+      "singleLayer": false,
+      "redDetectors": [],
+      "redCount": 0,
+      "red": [],
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "reason": "build failed",
+      "at": "2026-11-06T23:22:54.287Z"
     },
     "R-018-a": {
       "risk": "R-018",
@@ -670,7 +568,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-302", "T-722"],
-      "redCount": 9,
+      "redCount": 6,
       "red": [
         {
           "test": "T-302 @P0 useSyncUrlParamsWithStore T-302 c1 @P0 the first sync replaces with the sorted params, shallow",
@@ -685,14 +583,12 @@
         {
           "test": "T-722 c1 @P0 R5: Load more writes size=20, keeps the scroll, adds one entry",
           "file": "journeys/t722-providers-history.spec.mjs",
-          "assertion": "TimeoutError: page.goto: Timeout 150000ms exceeded."
+          "assertion": "Error: expect(received).toMatchObject(expected)"
         }
       ],
-      "plan": "detectors + P0 smoke (subset)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T05:15:42.237Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-06T23:25:30.353Z"
     },
     "R-018-b": {
       "risk": "R-018",
@@ -700,8 +596,8 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-302", "T-609", "T-722"],
-      "redCount": 5,
+      "redDetectors": ["T-302", "T-722"],
+      "redCount": 3,
       "red": [
         {
           "test": "T-302 @P0 useSyncUrlParamsWithStore T-302 c1 @P0 routeChangeComplete copies the differing keys into the store (size becomes a number)",
@@ -714,16 +610,14 @@
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         },
         {
-          "test": "T-609 c3 @P0 /data-providers/?q=<a> and ?q=<b> in the same mix: each SSR result list holds only its own q (R-004)",
-          "file": "http/t609-concurrency.spec.mjs",
-          "assertion": "Error: seed 610; upstream calls in the mix window 401, the references predict 420 (fewer: a call never reached the stub, P0-11-1); stub problems 0"
+          "test": "T-722 c1 @P0 R5: type a query (shallow push), Back and Forward restore the query; Q-080",
+          "file": "journeys/t722-providers-history.spec.mjs",
+          "assertion": "Error: expect(locator).toHaveText(expected) failed"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:21:20.376Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-06T23:28:55.952Z"
     },
     "R-019-a": {
       "risk": "R-019",
@@ -731,30 +625,28 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-704", "T-706"],
+      "redDetectors": ["T-204", "T-421", "T-706"],
       "redCount": 4,
       "red": [
         {
-          "test": "T-704 @P0 J2 type facet: apply thesis, box stays open, Back, Forward, apply again removes it",
-          "file": "journeys/t704-j2-filter-back.spec.mjs",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+          "test": "T-204 @P0 Search store T-204 @P0 setSortOptions marks the chosen option, setActiveSortOption pushes it",
+          "file": "test/unit/store/t204-search.test.jsx",
+          "assertion": "Error: expect(jest.fn()).toHaveBeenCalledWith(...expected)"
+        },
+        {
+          "test": "T-421 @P1 URL state from a non-default state search page T-421 c2 @P1 sort and \"Clear all filters\" keep every other router query key, page goes to 1",
+          "file": "test/unit/templates/search/t421-url-state.test.jsx",
+          "assertion": "Error: expect(received).toStrictEqual(expected) // deep equality"
         },
         {
           "test": "T-706 @P0 J4 sort: recent pushes sort=recent and page 1, the first result changes",
           "file": "journeys/t706-j4-pagination-sort.spec.mjs",
           "assertion": "Error: expect(page).toHaveURL(expected) failed"
-        },
-        {
-          "test": "T-706 @P0 J4 sort (Q-083): the active option is unreachable by pointer, a synthetic click on it pushes sort=relevance and page 1",
-          "file": "journeys/t706-j4-pagination-sort.spec.mjs",
-          "assertion": "Error: expect(page).toHaveURL(expected) failed"
         }
       ],
-      "plan": "detectors + P0 smoke (subset)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T05:14:58.518Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-06T23:31:57.003Z"
     },
     "R-019-b": {
       "risk": "R-019",
@@ -762,8 +654,8 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-202", "T-704"],
-      "redCount": 5,
+      "redDetectors": ["T-202", "T-421", "T-704"],
+      "redCount": 6,
       "red": [
         {
           "test": "T-202 @P0 Filters URL algebra T-202 c4 @P0 pathname undefined is pushed as it is",
@@ -771,21 +663,19 @@
           "assertion": "Error: expect(received).toBeUndefined()"
         },
         {
-          "test": "T-704 @P0 J2 type facet: apply thesis, box stays open, Back, Forward, apply again removes it",
-          "file": "journeys/t704-j2-filter-back.spec.mjs",
-          "assertion": "Error: expect(page).toHaveURL(expected) failed"
+          "test": "T-421 @P1 URL state from a non-default state search page T-421 c2 @P1 sort and \"Clear all filters\" keep every other router query key, page goes to 1",
+          "file": "test/unit/templates/search/t421-url-state.test.jsx",
+          "assertion": "Error: expect(received).toStrictEqual(expected) // deep equality"
         },
         {
-          "test": "T-704 @P0 Q-042 Clear all filters keeps only the first word of the query",
+          "test": "T-704 @P0 J2 type facet: apply thesis, box stays open, Back, Forward, apply again removes it",
           "file": "journeys/t704-j2-filter-back.spec.mjs",
           "assertion": "Error: expect(page).toHaveURL(expected) failed"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:06:41.465Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-06T23:34:57.179Z"
     },
     "R-020-a": {
       "risk": "R-020",
@@ -793,7 +683,8 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-010", "T-601", "T-612", "T-731"],
+      "redDetectors": ["T-010", "T-601", "T-612", "T-716", "T-731"],
+      "redCount": 10,
       "red": [
         {
           "test": "T-010 @P0 routes manifest T-010 c1 @P0 (source, destination, headers) tuples = reference: prod data rewrite, /static rewrite, CSP = the T-116 string",
@@ -808,15 +699,12 @@
         {
           "test": "T-601 c1 @P0 findings/02 §4.1 URLs ± slash, with queries: status, Location, marker",
           "file": "http/t601-route-matrix.spec.mjs",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
+          "assertion": ""
         }
       ],
-      "plan": "detectors only, linked install (lean mode, owner notes §0)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:44:30.215Z",
-      "redCount": 9,
-      "package": "FR-3",
-      "mode": "lean"
+      "at": "2026-11-06T23:39:00.159Z"
     },
     "R-020-b": {
       "risk": "R-020",
@@ -824,20 +712,23 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-601"],
+      "redDetectors": ["T-601", "T-716"],
+      "redCount": 2,
       "red": [
         {
           "test": "T-601 c1 @P0 findings/02 §4.1 URLs ± slash, with queries: status, Location, marker",
           "file": "http/t601-route-matrix.spec.mjs",
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
+        },
+        {
+          "test": "T-716 c1 @P1 /search/ without parameters: 308 to / (Q-002)",
+          "file": "journeys/t716-j14-errors.spec.mjs",
+          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         }
       ],
-      "plan": "detectors + P0 smoke (owner notes §2)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T00:37:37.834Z",
-      "redCount": 1,
-      "package": "FR-3",
-      "mode": "full"
+      "at": "2026-11-06T23:40:19.821Z"
     },
     "R-021-a": {
       "risk": "R-021",
@@ -864,11 +755,9 @@
           "assertion": "Error: search-climate hydrated class census = baseline"
         }
       ],
-      "plan": "detectors + P0 smoke (owner notes §2); detector Playwright tiers stop after 5 failures; Playwright smoke limited to e2e/http/ (the G tier, as the runner header says)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T02:58:30.746Z",
-      "package": "FR-1",
-      "mode": "full"
+      "at": "2026-11-06T23:41:27.467Z"
     },
     "R-021-b": {
       "risk": "R-021",
@@ -887,41 +776,20 @@
       ],
       "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-27T10:55:11.727Z",
-      "package": "run-faults.mjs --lean",
-      "mode": "lean"
+      "at": "2026-11-06T23:42:58.922Z"
     },
     "R-022-a": {
       "risk": "R-022",
       "clause": null,
-      "valid": true,
-      "killed": true,
+      "valid": false,
+      "killed": false,
       "singleLayer": false,
-      "redDetectors": ["T-418", "T-006", "T-721", "T-801"],
-      "redCount": 17,
-      "red": [
-        {
-          "test": "T-418 @P0 icon ids T-418 @P0 every app and design icon id is a <symbol> of the served production sprite /static/search/icons.svg",
-          "file": "test/static/t418-icon-ids.test.js",
-          "assertion": "Error: expect(received).toMatch(expected)"
-        },
-        {
-          "test": "T-006 @P0 design runtime config T-006 @P0 iconsPublicPath is /static/search/icons.svg in the built app",
-          "file": "test/static/t006-design-config.test.js",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
-        },
-        {
-          "test": "T-712 c2 @P1 works 1001 -> client nav to search -> Back at 1920: E8 = 1 per mount (Back mounts twice, Q-100), held >= 1 s, loader before E8 resolves, remount lo",
-          "file": "journeys/t712-j10-similar.spec.mjs",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
-        }
-      ],
-      "plan": "detectors + P0 smoke (owner notes §2); detector Playwright tiers stop after 5 failures; Playwright smoke limited to e2e/http/ (the G tier, as the runner header says)",
-      "reason": "> 20% of the P0 smoke subset red",
-      "at": "2026-10-22T04:58:01.239Z",
-      "package": "FR-1",
-      "mode": "full",
-      "note": "full run: 26.5% of the P0 smoke subset red (the full rule allows 20%); valid under the lean rule"
+      "redDetectors": [],
+      "redCount": 0,
+      "red": [],
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "reason": ".expect does not hold",
+      "at": "2026-11-06T23:48:48.715Z"
     },
     "R-022-b": {
       "risk": "R-022",
@@ -929,30 +797,28 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-418", "T-005", "T-006", "T-721", "T-801"],
+      "redDetectors": ["T-418", "T-006", "T-005", "T-721", "T-801"],
       "redCount": 22,
       "red": [
         {
           "test": "T-418 @P0 icon ids T-418 @P0 every app and design icon id is a <symbol> of the served production sprite /static/search/icons.svg",
           "file": "test/static/t418-icon-ids.test.js",
-          "assertion": "Error: ENOENT: no such file or directory, open '<artifacts>/builds/2dcca855347eb615-lnR-022-b/public/icons.svg'"
+          "assertion": "Error: ENOENT: no such file or directory, open '<artifacts>/builds/48f7a7c8d9eafeae-lnR-022-b/public/icons.svg'"
+        },
+        {
+          "test": "T-006 @P0 design runtime config T-006 @P0 iconsPublicPath is /static/search/icons.svg in the built app",
+          "file": "test/static/t006-design-config.test.js",
+          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         },
         {
           "test": "T-005 @P0 static assets T-005 c1 @P0 prod sprite: 48 symbols, duplicate ids office-building, account, open-in-new (Q-067), byte hash = reference",
           "file": "test/static/t005-static-assets.test.js",
-          "assertion": "Error: ENOENT: no such file or directory, open '<artifacts>/builds/2dcca855347eb615-lnR-022-b/public/icons.svg'"
-        },
-        {
-          "test": "T-005 @P0 static assets T-005 c2 @P0 next-images: 9 file URLs and 5 data URIs over the 14 import sites",
-          "file": "test/static/t005-static-assets.test.js",
-          "assertion": "Error: ENOENT: no such file or directory, open '<artifacts>/builds/2dcca855347eb615-lnR-022-b/public/icons.svg'"
+          "assertion": "Error: ENOENT: no such file or directory, open '<artifacts>/builds/48f7a7c8d9eafeae-lnR-022-b/public/icons.svg'"
         }
       ],
       "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-27T10:56:28.024Z",
-      "package": "run-faults.mjs --lean",
-      "mode": "lean"
+      "at": "2026-11-06T23:49:43.273Z"
     },
     "R-023-a": {
       "risk": "R-023",
@@ -979,11 +845,9 @@
           "assertion": "Error: t805-c1-V9-375.json differs from the baseline e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c1-V9-375-visual-darwin.json:"
         }
       ],
-      "plan": "detectors only, lean (owner notes section 0): installed reference build cloned (cp -Rc) + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:40:15.443Z",
-      "package": "FR-1",
-      "mode": "lean"
+      "at": "2026-11-06T23:51:30.465Z"
     },
     "R-023-b": {
       "risk": "R-023",
@@ -1010,11 +874,9 @@
           "assertion": "Error: t805-c4-works.json differs from the baseline e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c4-works-visual-darwin.json:"
         }
       ],
-      "plan": "detectors only, lean (owner notes section 0): installed reference build cloned (cp -Rc) + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:36:07.730Z",
-      "package": "FR-1",
-      "mode": "lean"
+      "at": "2026-11-06T23:53:49.914Z"
     },
     "R-024-a": {
       "risk": "R-024",
@@ -1041,37 +903,38 @@
           "assertion": "Error: pixel-exact differences"
         }
       ],
-      "plan": "detectors only, lean (owner notes section 0): installed reference build cloned (cp -Rc) + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:47:26.199Z",
-      "package": "FR-1",
-      "mode": "lean"
+      "at": "2026-11-06T23:59:06.067Z"
     },
     "R-025-a": {
       "risk": "R-025",
       "clause": null,
-      "valid": true,
-      "killed": true,
+      "valid": false,
+      "killed": false,
       "singleLayer": false,
       "redDetectors": ["T-016"],
-      "redCount": 2,
+      "redCount": 4,
       "red": [
         {
-          "test": "T-016 @P0 vendored design: client require edges T-016 c4 @P0 every require of the 110 bundled design modules resolves to a package module, none into the app tre",
-          "file": "test/static/detector-t016-c4-design-requires.test.js",
+          "test": "T-016 @P0 vendored design T-016 c2 @P0 the 108 emitted design modules equal their files (modulo the minifier), no core-js import added",
+          "file": "test/static/t016-design-verbatim.test.js",
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         },
         {
-          "test": "T-016 @P0 vendored design T-016 c3 @P0 verify-design-verbatim: the installed design equals the 5.0.74 tarball except lib/config.js",
+          "test": "T-016 @P0 vendored design T-016 c2 @P0 a tampered chunk is flagged: one changed directive, one changed source (negative control)",
           "file": "test/static/t016-design-verbatim.test.js",
-          "assertion": "Error: <scratch>/artifacts/builds/f492f0e5d4252463-lnR-025-a: {"
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
+        },
+        {
+          "test": "T-016 @P0 vendored design T-016 c3 @P0 verify-design-verbatim: the installed design equals the 5.0.74 tarball except lib/config.js and the two files vendor/CHAN",
+          "file": "test/static/t016-design-verbatim.test.js",
+          "assertion": "Error: <artifacts>/builds/ccc53f513f12dc8d-lnR-025-a: {"
         }
       ],
       "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
-      "reason": null,
-      "at": "2026-10-22T14:32:14.025Z",
-      "package": "run-faults.mjs --lean",
-      "mode": "lean"
+      "reason": ".expect does not hold",
+      "at": "2026-11-07T00:02:38.973Z"
     },
     "R-026-a": {
       "risk": "R-026",
@@ -1080,7 +943,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-116", "T-603"],
-      "redCount": 7,
+      "redCount": 6,
       "red": [
         {
           "test": "T-116 @P0 config modules c2 csp.config.js T-116 c2 @P0 NODE_ENV=production: the production policy, exactly",
@@ -1098,11 +961,9 @@
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:34:16.025Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:04:42.930Z"
     },
     "R-026-b": {
       "risk": "R-026",
@@ -1110,8 +971,8 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-116", "T-603", "T-720"],
-      "redCount": 7,
+      "redDetectors": ["T-116", "T-603"],
+      "redCount": 5,
       "red": [
         {
           "test": "T-116 @P0 config modules c2 csp.config.js T-116 c2 @P0 NODE_ENV=production: the production policy, exactly",
@@ -1129,11 +990,9 @@
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:32:20.879Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:06:46.085Z"
     },
     "R-028-a": {
       "risk": "R-028",
@@ -1141,11 +1000,17 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-101", "T-702"],
+      "redDetectors": ["T-101", "T-205", "T-702"],
+      "redCount": 3,
       "red": [
         {
           "test": "T-101 @P0 api/index.js request builder c1 url, method, headers, body T-101 c1 @P0 a string body is sent as is, with the fetch default text/plain;charset=UTF-8 (",
           "file": "test/unit/api/t101-request-builder.test.js",
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
+        },
+        {
+          "test": "T-205 @P0 Claim store T-205 c2 @P0 the body is the raw JSON string sent as text/plain (Q-019)",
+          "file": "test/unit/store/t205-claim.test.jsx",
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         },
         {
@@ -1154,12 +1019,9 @@
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors + P0 smoke (owner notes §2)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-21T21:23:54.728Z",
-      "redCount": 2,
-      "package": "FR-3",
-      "mode": "full"
+      "at": "2026-11-07T00:08:37.504Z"
     },
     "R-028-b": {
       "risk": "R-028",
@@ -1167,30 +1029,28 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-102", "T-610"],
+      "redDetectors": ["T-504", "T-102", "T-115", "T-610"],
+      "redCount": 19,
       "red": [
+        {
+          "test": "T-504 @P0 /data-providers/[id] getServerSideProps T-504 c2 @P0 Q-035 the route id is coerced against the map, but sent raw T-504 c2 @P0 /data-providers/0x56: +\"",
+          "file": "test/pages/data-providers/t504-gssp.test.js",
+          "assertion": "TypeError: result.props.error.data.text is not a function"
+        },
+        {
+          "test": "T-504 @P0 /data-providers/[id] getServerSideProps T-504 c5 @P0 E13 error serialised T-504 c5 @P0 a non-JSON error body is a Blob, which serialises to {}",
+          "file": "test/pages/data-providers/t504-gssp.test.js",
+          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+        },
         {
           "test": "T-102 @P0 api/index.js responses and errors c1 bodies and errors T-102 c1 @P0 application/vnd.api+json resolves a Blob, not parsed JSON (Q-017)",
           "file": "test/unit/api/t102-response-error.test.js",
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
-        },
-        {
-          "test": "T-102 @P0 api/index.js responses and errors c1 bodies and errors T-102 c1 @P0 application/problem+json resolves a Blob, not parsed JSON (Q-017)",
-          "file": "test/unit/api/t102-response-error.test.js",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
-        },
-        {
-          "test": "T-102 @P0 api/index.js responses and errors c1 bodies and errors T-102 c1 @P0 application/ld+json resolves a Blob, not parsed JSON (Q-017)",
-          "file": "test/unit/api/t102-response-error.test.js",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         }
       ],
-      "plan": "detectors + P0 smoke (owner notes §2)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-21T21:29:18.921Z",
-      "redCount": 16,
-      "package": "FR-3",
-      "mode": "full"
+      "at": "2026-11-07T00:10:27.699Z"
     },
     "R-029-a": {
       "risk": "R-029",
@@ -1217,11 +1077,9 @@
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:17:21.859Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:14:38.090Z"
     },
     "R-030-a": {
       "risk": "R-030",
@@ -1229,8 +1087,8 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-403", "T-703"],
-      "redCount": 3,
+      "redDetectors": ["T-403"],
+      "redCount": 2,
       "red": [
         {
           "test": "T-403 @P0 filters bar T-403 c3 @P0 exact push: a toggle pushes { pathname: undefined, query: {...Router.query, q, page: 1} } once",
@@ -1241,18 +1099,11 @@
           "test": "T-403 @P0 filters bar T-403 c3 @P0 exact push: a checked value is removed from q again, and the highlight goes",
           "file": "test/unit/modules/filters/t403-filters-bar.test.jsx",
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
-        },
-        {
-          "test": "T-703 @P0 J1 /search/?q=climate: 200, title, count line and 10 cards with title link, authors, date and abstract",
-          "file": "journeys/t703-j1-search.spec.mjs",
-          "assertion": "Error: expect(received).toBeGreaterThanOrEqual(expected)"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:25:26.018Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:16:05.099Z"
     },
     "R-031-a": {
       "risk": "R-031",
@@ -1261,7 +1112,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-108", "T-801"],
-      "redCount": 7,
+      "redCount": 10,
       "red": [
         {
           "test": "T-108 @P0 locale, time zone and ICU c5 getCountryName through the rendered providers list T-108 c5 @P0 TR is Turkey (vendored 6.8.0 data, not Türkiye); an array",
@@ -1279,11 +1130,9 @@
           "assertion": "Error: expect(locator).toBeVisible() failed"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:36:14.783Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:20:36.655Z"
     },
     "R-032-a": {
       "risk": "R-032",
@@ -1291,27 +1140,34 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-004"],
-      "redCount": 1,
+      "redDetectors": ["T-004", "T-701"],
+      "redCount": 9,
       "red": [
         {
           "test": "T-004 @P0 bundles T-004 c1 @P0 client: one react and one react-dom copy, @sentry/browser bundled",
           "file": "test/static/t004-bundles.test.js",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality |  | Expected: \"node_modules/react\" | Received: \"node_modules/react,node_modules/react-slick/node_modules/react\""
+          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+        },
+        {
+          "test": "T-701 @P0 @engines search-climate UTC absent: no pageerror, console.error or window error outside the pinned tuples and the T-741 pins",
+          "file": "journeys/t701-console-hydration.spec.mjs",
+          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+        },
+        {
+          "test": "T-701 @P0 @engines search-climate-p2-all-params UTC absent: no pageerror, console.error or window error outside the pinned tuples and the T-741 pins",
+          "file": "journeys/t701-console-hydration.spec.mjs",
+          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         }
       ],
-      "plan": "lean (owner notes section 0): detectors only, no P0 smoke, T-901 not run (image only)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:34:48.955Z",
-      "package": "FR-2",
-      "mode": "lean",
-      "note": "T-701 sweep red = Test timeout (load), not credited; T-004 c1 sees the second React copy; control (unfaulted) green"
+      "at": "2026-11-07T00:21:43.899Z"
     },
     "R-032-b": {
       "risk": "R-032",
       "clause": null,
-      "valid": true,
-      "killed": true,
+      "valid": false,
+      "killed": false,
       "singleLayer": false,
       "redDetectors": ["T-004"],
       "redCount": 1,
@@ -1323,10 +1179,8 @@
         }
       ],
       "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
-      "reason": null,
-      "at": "2026-10-22T14:45:28.541Z",
-      "package": "run-faults.mjs --lean",
-      "mode": "lean"
+      "reason": ".expect does not hold",
+      "at": "2026-11-07T00:24:18.329Z"
     },
     "R-033-a": {
       "risk": "R-033",
@@ -1335,7 +1189,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-401", "T-001", "T-716"],
-      "redCount": 5,
+      "redCount": 7,
       "red": [
         {
           "test": "T-401 @P1 pages/search/index.jsx T-401 c2 @P1 queryError -> data re-render (Q-047) T-401 c2 @P1 the early return skips the hooks: the ErrorCard page has no head",
@@ -1343,21 +1197,19 @@
           "assertion": "Error: expect(received).toBeNull()"
         },
         {
-          "test": "T-401 @P1 pages/search/index.jsx T-401 c2 @P1 queryError -> data re-render (Q-047) T-401 c2 @P1 queryError -> data on the mounted instance: the hooks start, no ",
+          "test": "T-401 @P1 pages/search/index.jsx T-401 c2 @P1 queryError -> data re-render (Q-047) T-401 c2 @P1 queryError -> data on the mounted instance: the hooks start, not",
           "file": "test/pages/search/t401-search-page.test.jsx",
           "assertion": "Error: expect(received).toBeNull()"
         },
         {
-          "test": "T-001 @P0 lint parity T-001 c1 @P0 38 inline eslint-disable directives in 30 application files",
-          "file": "test/static/t001-lint-parity.test.js",
-          "assertion": "Error: Command failed: git -C <scratch>/fr5/builds/b44206ad65aab1b5-fr5R-033-a ls-files -z --cached --others --exclude-standard -- *.js *.jsx"
+          "test": "T-401 @P1 pages/search/index.jsx T-401 c2 @P1 queryError -> data re-render (Q-047) T-401 c2 @P1 the page alone, without the shell, behaves the same: nothing is ",
+          "file": "test/pages/search/t401-search-page.test.jsx",
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:47:05.053Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:27:34.724Z"
     },
     "R-038-a": {
       "risk": "R-038",
@@ -1366,7 +1218,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-412", "T-702", "T-734"],
-      "redCount": 30,
+      "redCount": 28,
       "red": [
         {
           "test": "T-412 @P1 claim card T-412 c1 @P1 findings 06 §5.2 and the claim rows 1-5, SSR vs final T-412 c1 @P1 claim row 1: provider 86 with accounts: the server markup a",
@@ -1384,11 +1236,9 @@
           "assertion": "Error: expect(received).toHaveLength(expected)"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:53:21.897Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:31:45.384Z"
     },
     "R-039-a": {
       "risk": "R-039",
@@ -1415,42 +1265,22 @@
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:24:58.631Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:35:05.546Z"
     },
     "R-040-a": {
       "risk": "R-040",
       "clause": null,
-      "valid": true,
-      "killed": true,
+      "valid": false,
+      "killed": false,
       "singleLayer": false,
-      "redDetectors": ["T-004", "T-608"],
-      "redCount": 3,
-      "red": [
-        {
-          "test": "T-004 @P0 bundles T-004 c2 @P0 server: only @sentry/node, external (Q-065: Next 10 externalises it before the alias)",
-          "file": "test/static/t004-bundles.test.js",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
-        },
-        {
-          "test": "T-608 c1 @P0 preload throws async: the prod-shaped test DSN build exits 1 within ~3 s",
-          "file": "http/t608-crash-semantics.spec.mjs",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
-        },
-        {
-          "test": "T-608 c3 @P0 unhandledRejection: the process survives and the counting stub receives the events",
-          "file": "http/t608-crash-semantics.spec.mjs",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
-        }
-      ],
-      "plan": "detectors + P0 smoke (none)",
-      "reason": null,
-      "at": "2026-10-22T12:15:46.517Z",
-      "package": "FR-4",
-      "mode": "lean"
+      "redDetectors": [],
+      "redCount": 0,
+      "red": [],
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "reason": "build failed",
+      "at": "2026-11-07T00:35:43.163Z"
     },
     "R-041-a": {
       "risk": "R-041",
@@ -1458,14 +1288,9 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-416", "T-740", "T-741"],
-      "redCount": 10,
+      "redDetectors": ["T-740"],
+      "redCount": 7,
       "red": [
-        {
-          "test": "T-416 @P0 consent popup and cookie writes T-416 @P0 the popup is keyed on the essential cookie alone: gone when it is set, still shown with only the analytics c",
-          "file": "test/unit/main/t416-consent.test.jsx",
-          "assertion": "Error: expect(received).toBeNull()"
-        },
         {
           "test": "T-740 @P0 J28 \"Essential cookies only\" removes both cookies without a path, then writes the essential one for a year; analytics stays off, also at the next load",
           "file": "journeys/t740-j28-consent.spec.mjs",
@@ -1475,13 +1300,16 @@
           "test": "T-740 @P0 J28 with only the analytics cookie the popup is shown while GA runs; \"Essential cookies only\" leaves that cookie (the removal has no Path)",
           "file": "journeys/t740-j28-consent.spec.mjs",
           "assertion": "Error: expect(locator).toBeVisible() failed"
+        },
+        {
+          "test": "T-740 @P0 J28 /search/?q=climate cookie state essential: no popup, nothing is written",
+          "file": "journeys/t740-j28-consent.spec.mjs",
+          "assertion": "Error: expect(locator).toHaveCount(expected) failed"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:15:09.019Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:40:52.178Z"
     },
     "R-041-b": {
       "risk": "R-041",
@@ -1489,8 +1317,8 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-305", "T-719", "T-740", "T-741"],
-      "redCount": 38,
+      "redDetectors": ["T-305", "T-741"],
+      "redCount": 11,
       "red": [
         {
           "test": "T-305 @P0 useAnalytics T-305 c1 @P0 Q-059 consent gating: initialize only with consent in production, send always",
@@ -1508,11 +1336,9 @@
           "assertion": "Error: expect(received).toThrow(expected)"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:23:37.020Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:43:44.750Z"
     },
     "R-049-a": {
       "risk": "R-049",
@@ -1521,7 +1347,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-001", "T-801"],
-      "redCount": 11,
+      "redCount": 10,
       "red": [
         {
           "test": "T-001 @P0 lint parity T-001 c1 @P0 stylelint findings equal the baseline (path, rule, count)",
@@ -1529,21 +1355,19 @@
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         },
         {
-          "test": "T-001 @P0 lint parity T-001 c1 @P0 38 inline eslint-disable directives in 30 application files",
-          "file": "test/static/t001-lint-parity.test.js",
-          "assertion": "Error: Command failed: git -C <scratch>/fr1/work-lean/R-049-a-l98Wat ls-files -z --cached --others --exclude-standard -- *.js *.jsx"
-        },
-        {
           "test": "T-001 @P0 lint parity T-001 c1 @P0 the run is a parity run: lint is red today, so parity and zero findings differ (OC-2)",
           "file": "test/static/t001-lint-parity.test.js",
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+        },
+        {
+          "test": "T-801 c1 @P1 V21 header menus search 1920 chromium",
+          "file": "visual/t801-p1-states.spec.mjs",
+          "assertion": "Error: pixel-exact differences"
         }
       ],
-      "plan": "detectors only, lean (owner notes section 0): installed reference build cloned (cp -Rc) + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:47:13.664Z",
-      "package": "FR-1",
-      "mode": "lean"
+      "at": "2026-11-07T00:48:25.915Z"
     },
     "R-051-a": {
       "risk": "R-051",
@@ -1552,7 +1376,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-420", "T-707", "T-727"],
-      "redCount": 11,
+      "redCount": 10,
       "red": [
         {
           "test": "T-420 @P1 header search wiring T-420 c1 @P1 Q-057 config captured at mount, Q-012 unencoded query T-420 c1 @P1 Q-012 the work page pushes the term into the URL ",
@@ -1570,11 +1394,9 @@
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:34:05.342Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:54:39.833Z"
     },
     "R-051-b": {
       "risk": "R-051",
@@ -1591,11 +1413,9 @@
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:38:25.805Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:55:53.665Z"
     },
     "R-052-a": {
       "risk": "R-052",
@@ -1604,10 +1424,15 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-706"],
-      "redCount": 2,
+      "redCount": 3,
       "red": [
         {
           "test": "T-706 @P0 J4 pagination: page 2, Next and Previous push the page, the window is at the top, Back resyncs",
+          "file": "journeys/t706-j4-pagination-sort.spec.mjs",
+          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+        },
+        {
+          "test": "T-706 @P0 J4 pagination from a sorted list: page 2 of /search/?q=climate&sort=recent keeps sort=recent in the URL, the data request and the sort box",
           "file": "journeys/t706-j4-pagination-sort.spec.mjs",
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         },
@@ -1617,11 +1442,9 @@
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:45:00.854Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:58:01.900Z"
     },
     "R-053-a": {
       "risk": "R-053",
@@ -1648,11 +1471,9 @@
           "assertion": "TypeError: expect(received).toMatch(expected)"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:46:59.508Z",
-      "package": "FR-5",
-      "mode": "lean"
+      "at": "2026-11-07T00:59:11.625Z"
     },
     "R-055-a": {
       "risk": "R-055",
@@ -1660,9 +1481,14 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-608"],
-      "redCount": 2,
+      "redDetectors": ["T-119", "T-608"],
+      "redCount": 3,
       "red": [
+        {
+          "test": "T-119 @P0 App.getInitialProps T-119 @P0 R-055 importing the app registers the unhandledRejection and uncaughtException handlers that report to Sentry",
+          "file": "test/pages/_app/t119-app-get-initial-props.test.js",
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
+        },
         {
           "test": "T-608 c1 @P0 preload throws async: the prod-shaped test DSN build exits 1 within ~3 s",
           "file": "http/t608-crash-semantics.spec.mjs",
@@ -1674,11 +1500,9 @@
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         }
       ],
-      "plan": "detectors + P0 smoke (subset)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T03:15:10.192Z",
-      "package": "FR-4",
-      "mode": "full-subset"
+      "at": "2026-11-07T01:01:23.178Z"
     },
     "R-055-b": {
       "risk": "R-055",
@@ -1695,11 +1519,9 @@
           "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         }
       ],
-      "plan": "detectors + P0 smoke (none)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:15:54.350Z",
-      "package": "FR-4",
-      "mode": "lean"
+      "at": "2026-11-07T01:03:31.054Z"
     },
     "R-065-a": {
       "risk": "R-065",
@@ -1713,15 +1535,12 @@
         {
           "test": "T-003 @P0 built CSS T-003 c1 @P0 rules keyed by (source file, normalised selectors, at-rule chain, ordinal) via the CSS maps; 0 @media (--, 0 @extend, color-mod",
           "file": "test/static/t003-built-css.test.js",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality |  | - Expected  -  2 | + Received  + 23"
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "lean (owner notes section 0): detectors only, no P0 smoke, T-901 not run (image only)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T13:32:21.011Z",
-      "package": "FR-2",
-      "mode": "lean",
-      "note": "T-724 0/8 and T-801 0/309 red: the CSS prefix change is invisible in Chromium; T-003 c1 sees the built-CSS change; control green"
+      "at": "2026-11-07T01:09:01.349Z"
     },
     "R-065-b": {
       "risk": "R-065",
@@ -1729,21 +1548,23 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-003"],
-      "redCount": 1,
+      "redDetectors": ["T-003", "T-004"],
+      "redCount": 2,
       "red": [
         {
           "test": "T-003 @P0 built CSS T-003 c1 @P0 rules keyed by (source file, normalised selectors, at-rule chain, ordinal) via the CSS maps; 0 @media (--, 0 @extend, color-mod",
           "file": "test/static/t003-built-css.test.js",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality |  | Expected: \"9\" | Received: \"5\""
+          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+        },
+        {
+          "test": "T-004 @P0 bundles: client polyfills T-004 c6 @P0 per route, the core-js polyfill modules of its first-loaded scripts = reference (R-032 usage built-ins)",
+          "file": "test/static/detector-t004-c6-core-js.test.js",
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "lean (owner notes section 0): detectors only, no P0 smoke, T-901 not run (image only)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:53:06.283Z",
-      "package": "FR-2",
-      "mode": "lean",
-      "note": "T-724 0/8 and T-801 0/309 red; T-003 c1 red; control green"
+      "at": "2026-11-07T01:14:32.688Z"
     },
     "R-067-a": {
       "risk": "R-067",
@@ -1751,20 +1572,28 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-601"],
+      "redDetectors": ["T-504", "T-601", "T-714"],
+      "redCount": 40,
       "red": [
         {
-          "test": "T-601 c1 @P0 findings/02 §4.1 URLs ± slash, with queries: status, Location, marker",
-          "file": "http/t601-route-matrix.spec.mjs",
+          "test": "T-504 @P0 /data-providers/[id] getServerSideProps T-504 c1 @P0 notFound T-504 c1 @P0 provider 86: E11, E12 then E13; the exact props from the recorded answers",
+          "file": "test/pages/data-providers/t504-gssp.test.js",
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
+        },
+        {
+          "test": "T-504 @P0 /data-providers/[id] getServerSideProps T-504 c1 @P0 notFound T-504 c1 @P0 E11 and E12 are sequential, E12 starts only after E11 answered",
+          "file": "test/pages/data-providers/t504-gssp.test.js",
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
+        },
+        {
+          "test": "T-504 @P0 /data-providers/[id] getServerSideProps T-504 c2 @P0 Q-035 the route id is coerced against the map, but sent raw T-504 c2 @P0 /data-providers/0x56: +\"",
+          "file": "test/pages/data-providers/t504-gssp.test.js",
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors + P0 smoke (owner notes §2)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-21T21:48:58.690Z",
-      "redCount": 1,
-      "package": "FR-3",
-      "mode": "full"
+      "at": "2026-11-07T01:17:05.402Z"
     },
     "R-068-a": {
       "risk": "R-068",
@@ -1773,6 +1602,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-010", "T-604", "T-702"],
+      "redCount": 10,
       "red": [
         {
           "test": "T-010 @P0 routes manifest T-010 c1 @P0 (source, destination, headers) tuples = reference: prod data rewrite, /static rewrite, CSP = the T-116 string",
@@ -1790,20 +1620,18 @@
           "assertion": "SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
         }
       ],
-      "plan": "detectors + P0 smoke (owner notes §2)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-21T21:42:47.403Z",
-      "redCount": 15,
-      "package": "FR-3",
-      "mode": "full"
+      "at": "2026-11-07T01:18:25.734Z"
     },
     "R-068-b": {
       "risk": "R-068",
       "clause": null,
-      "valid": true,
-      "killed": true,
+      "valid": false,
+      "killed": false,
       "singleLayer": false,
-      "redDetectors": ["T-010", "T-604", "T-612", "T-702"],
+      "redDetectors": ["T-010", "T-604", "T-702"],
+      "redCount": 10,
       "red": [
         {
           "test": "T-010 @P0 routes manifest T-010 c1 @P0 (source, destination, headers) tuples = reference: prod data rewrite, /static rewrite, CSP = the T-116 string",
@@ -1821,12 +1649,9 @@
           "assertion": "SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
         }
       ],
-      "plan": "detectors + P0 smoke (owner notes §2)",
-      "reason": null,
-      "at": "2026-10-21T22:10:14.094Z",
-      "redCount": 16,
-      "package": "FR-3",
-      "mode": "full"
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "reason": ".expect does not hold",
+      "at": "2026-11-07T01:19:45.797Z"
     },
     "R-069-a": {
       "risk": "R-069",
@@ -1853,11 +1678,9 @@
           "assertion": "Error: works-1001 html-validate findings = baseline"
         }
       ],
-      "plan": "detectors + P0 smoke (subset)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T02:51:06.741Z",
-      "package": "FR-4",
-      "mode": "full-subset"
+      "at": "2026-11-07T01:20:50.453Z"
     },
     "R-075-a": {
       "risk": "R-075",
@@ -1868,11 +1691,9 @@
       "redDetectors": [],
       "redCount": 0,
       "red": [],
-      "plan": "lean (owner notes section 0): detectors only, no P0 smoke, T-901 not run (image only)",
-      "reason": "build failed: Attempted import error: Button is not exported from @oacore/design (loud on Next 10.2.3)",
-      "at": "2026-10-22T13:50:10.334Z",
-      "package": "FR-2",
-      "mode": "lean"
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "reason": "build failed",
+      "at": "2026-11-07T01:21:44.412Z"
     },
     "R-075-b": {
       "risk": "R-075",
@@ -1880,31 +1701,28 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-016", "T-014"],
-      "redCount": 6,
+      "redDetectors": ["T-016"],
+      "redCount": 7,
       "red": [
         {
           "test": "T-016 @P0 vendored design T-016 c1 @P0 the installed design is a real directory, not a symlink, with 466 files",
           "file": "test/static/t016-design-verbatim.test.js",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality |  | - Expected  - 1 | + Received  + 1"
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         },
         {
-          "test": "T-016 @P0 vendored design T-016 c2 @P0 the 110 emitted design modules equal their files (modulo the minifier), no core-js import added",
+          "test": "T-016 @P0 vendored design T-016 c2 @P0 the 108 emitted design modules equal their files (modulo the minifier), no core-js import added",
           "file": "test/static/t016-design-verbatim.test.js",
-          "assertion": "Error: expect(received).toBe(expected) // Object.is equality |  | Expected: 110 | Received: 0"
+          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         },
         {
           "test": "T-016 @P0 vendored design T-016 c2 @P0 a tampered chunk is flagged: one changed directive, one changed source (negative control)",
           "file": "test/static/t016-design-verbatim.test.js",
-          "assertion": "Error: expect(received).toBeGreaterThan(expected) |  | Expected: > 0 | Received:   0"
+          "assertion": "Error: expect(received).toBeGreaterThan(expected)"
         }
       ],
-      "plan": "lean (owner notes section 0): detectors only, no P0 smoke, T-901 not run (image only)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901; not credited, lean artefacts (MID-E (a)): T-014 (a) (NEXT_DIR_A/B unset; MID-A (a) part 3 not committed), T-016 c2 on the harness reference, T-601 c5 on the harness reference; T-014 and T-601 taken out of redDetectors, every red assertion of theirs a listed case",
       "reason": null,
-      "at": "2026-10-22T13:14:59.998Z",
-      "package": "FR-2",
-      "mode": "lean",
-      "note": "T-016 c1/c2/c3 and T-014 (a) red; T-801 red = timeout (not credited); control green; R-075-a (target outside node_modules) is loud: the build fails"
+      "at": "2026-11-07T01:29:48.702Z"
     },
     "R-076-a": {
       "risk": "R-076",
@@ -1913,6 +1731,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-607"],
+      "redCount": 1,
       "red": [
         {
           "test": "T-607 c2 @P0 @wire Host, Authorization, Accept, Content-Type, UA, Accept-Encoding, sentry-trace/baggage of every SSR call = baseline (Q-022)",
@@ -1920,12 +1739,9 @@
           "assertion": "Error: /search/?q=climate GET https://api.core.ac.uk/internal/members"
         }
       ],
-      "plan": "detectors only, linked install (lean mode, owner notes §0)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:37:26.700Z",
-      "redCount": 1,
-      "package": "FR-3",
-      "mode": "lean"
+      "at": "2026-11-07T01:30:55.916Z"
     },
     "R-082-a": {
       "risk": "R-082",
@@ -1934,20 +1750,27 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-721"],
-      "redCount": 1,
+      "redCount": 8,
       "red": [
         {
-          "test": "T-721 c1 @P0 route search-status500: no image, icon, CSS or JS response >= 400",
+          "test": "T-721 c1 @P0 route search-climate: no image, icon, CSS or JS response >= 400",
           "file": "journeys/t721-asset-4xx.spec.mjs",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality |  | - Expected  -  1 | + Received  + 50"
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
+        },
+        {
+          "test": "T-721 c1 @P0 route search-climate-p2-all-params: no image, icon, CSS or JS response >= 400",
+          "file": "journeys/t721-asset-4xx.spec.mjs",
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
+        },
+        {
+          "test": "T-721 c1 @P0 route search-zzzzqqq: no image, icon, CSS or JS response >= 400",
+          "file": "journeys/t721-asset-4xx.spec.mjs",
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "lean (owner notes section 0): detectors only, no P0 smoke, T-901 not run (image only)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:19:31.280Z",
-      "package": "FR-2",
-      "mode": "lean",
-      "note": "T-901 not run (image only, deferred)"
+      "at": "2026-11-07T01:32:00.484Z"
     },
     "R-083-a": {
       "risk": "R-083",
@@ -1956,6 +1779,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-010", "T-603"],
+      "redCount": 3,
       "red": [
         {
           "test": "T-010 @P0 routes manifest T-010 c1 @P0 (source, destination, headers) tuples = reference: prod data rewrite, /static rewrite, CSP = the T-116 string",
@@ -1973,12 +1797,9 @@
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors + P0 smoke (owner notes §2)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-21T22:10:16.738Z",
-      "redCount": 3,
-      "package": "FR-3",
-      "mode": "full"
+      "at": "2026-11-07T01:33:08.342Z"
     },
     "R-083-b": {
       "risk": "R-083",
@@ -1987,6 +1808,7 @@
       "killed": true,
       "singleLayer": false,
       "redDetectors": ["T-603"],
+      "redCount": 1,
       "red": [
         {
           "test": "T-603 c1 @P0 status and every header per route class, origin and proxy, GET, HEAD, conditional GET, br/gzip = contract.baseline.json",
@@ -1994,12 +1816,9 @@
           "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "detectors + P0 smoke (owner notes §2)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-21T22:23:46.631Z",
-      "redCount": 1,
-      "package": "FR-3",
-      "mode": "full"
+      "at": "2026-11-07T01:34:16.208Z"
     },
     "R-084-a": {
       "risk": "R-084",
@@ -2013,55 +1832,35 @@
         {
           "test": "T-013 @P0 prod tree immutable T-013 c1 @P0 every <base'> lock entry keeps version, resolved and integrity",
           "file": "test/static/t013-lock-immutable.test.js",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality - Expected - 1 + Received + 9 - Array []"
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         },
         {
           "test": "T-013 @P0 prod tree immutable T-013 c2 @P0 npm ls --omit=dev --all is identical (and the non-dev lock entries)",
           "file": "test/static/t013-lock-immutable.test.js",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality - Expected - 1 + Received + 12 - Array []"
+          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
         },
         {
           "test": "T-013 @P0 prod tree immutable T-013 c3 @P0 drift is pinned by overrides to <base'> versions only",
           "file": "test/static/t013-lock-immutable.test.js",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality - Expected - 1 + Received + 10 - Array []"
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
         }
       ],
-      "plan": "recorded earlier (clone with history, detectors + sampled P0 smoke 3.7% red), kept",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T02:28:46.211Z",
-      "package": "FR-2",
-      "mode": "lean"
+      "at": "2026-11-07T01:35:21.352Z"
     },
     "R-084-b": {
       "risk": "R-084",
       "clause": null,
-      "valid": true,
-      "killed": true,
+      "valid": false,
+      "killed": false,
       "singleLayer": false,
-      "redDetectors": ["T-013"],
-      "redCount": 3,
-      "red": [
-        {
-          "test": "T-013 @P0 prod tree immutable T-013 c1 @P0 every <base'> lock entry keeps version, resolved and integrity",
-          "file": "test/static/t013-lock-immutable.test.js",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality - Expected - 1 + Received + 9 - Array []"
-        },
-        {
-          "test": "T-013 @P0 prod tree immutable T-013 c2 @P0 npm ls --omit=dev --all is identical (and the non-dev lock entries)",
-          "file": "test/static/t013-lock-immutable.test.js",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality - Expected - 1 + Received + 12 - Array []"
-        },
-        {
-          "test": "T-013 @P0 prod tree immutable T-013 c3 @P0 drift is pinned by overrides to <base'> versions only",
-          "file": "test/static/t013-lock-immutable.test.js",
-          "assertion": "Error: expect(received).toEqual(expected) // deep equality - Expected - 1 + Received + 10 - Array []"
-        }
-      ],
-      "plan": "recorded earlier (clone with history, detectors + sampled P0 smoke 5.2% red), kept",
-      "reason": null,
-      "at": "2026-10-22T02:47:20.787Z",
-      "package": "FR-2",
-      "mode": "lean"
+      "redDetectors": [],
+      "redCount": 0,
+      "red": [],
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
+      "reason": "stale patch: git apply --3way failed: Applied patch to 'package-lock.json' with conflicts.\nApplied patch to 'package.json' with conflicts.\nU package-lock.json\nU package.json",
+      "at": "2026-11-07T01:35:21.353Z"
     },
     "R-091-a": {
       "risk": "R-091",
@@ -2069,31 +1868,28 @@
       "valid": true,
       "killed": true,
       "singleLayer": false,
-      "redDetectors": ["T-005", "T-006", "T-801"],
-      "redCount": 7,
+      "redDetectors": ["T-011", "T-006", "T-005", "T-721", "T-801"],
+      "redCount": 22,
       "red": [
+        {
+          "test": "T-011 @P0 repo layout T-011 c2 @P0 git ls-files --others --ignored --exclude-standard -- test e2e is empty",
+          "file": "test/static/t011-repo-layout.test.js",
+          "assertion": "Error: expect(received).toEqual(expected) // deep equality"
+        },
+        {
+          "test": "T-006 @P0 design runtime config T-006 @P0 iconsPublicPath is /static/search/icons.svg in the built app",
+          "file": "test/static/t006-design-config.test.js",
+          "assertion": "Error: expect(received).toBe(expected) // Object.is equality"
+        },
         {
           "test": "T-005 @P0 static assets T-005 c1 @P0 prod sprite: 48 symbols, duplicate ids office-building, account, open-in-new (Q-067), byte hash = reference",
           "file": "test/static/t005-static-assets.test.js",
-          "assertion": "Error: ENOENT: no such file or directory, open '<scratch>/artifacts/builds/be4b6393e2a155e1/public/icons.svg' |     at Object.openSync (node:fs:596:3) |     at Object.readFileSync (node:fs"
-        },
-        {
-          "test": "T-005 @P0 static assets T-005 c2 @P0 next-images: 9 file URLs and 5 data URIs over the 14 import sites",
-          "file": "test/static/t005-static-assets.test.js",
-          "assertion": "Error: ENOENT: no such file or directory, open '<scratch>/artifacts/builds/be4b6393e2a155e1/public/icons.svg' |     at Object.openSync (node:fs:596:3) |     at Object.readFileSync (node:fs"
-        },
-        {
-          "test": "T-005 @P0 static assets T-005 c3 @P0 .next/static/media base names: 60 KaTeX fonts, slick, ajax-loader.gif",
-          "file": "test/static/t005-static-assets.test.js",
-          "assertion": "Error: ENOENT: no such file or directory, open '<scratch>/artifacts/builds/be4b6393e2a155e1/public/icons.svg' |     at Object.openSync (node:fs:596:3) |     at Object.readFileSync (node:fs"
+          "assertion": "Error: ENOENT: no such file or directory, open '<artifacts>/builds/48f7a7c8d9eafeae-lnR-091-a/public/icons.svg'"
         }
       ],
-      "plan": "lean (owner notes section 0): detectors only, no P0 smoke, T-901 not run (image only)",
+      "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-22T12:22:12.951Z",
-      "package": "FR-2",
-      "mode": "lean",
-      "note": "T-011 red in the lean runner is a runner artifact (clone is not a git repository), not credited; control: T-005/T-006 green; T-901 not run"
+      "at": "2026-11-07T01:36:38.953Z"
     },
     "R-019-c": {
       "risk": "R-019",
@@ -2122,9 +1918,7 @@
       ],
       "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-27T10:50:39.079Z",
-      "package": "run-faults.mjs --lean",
-      "mode": "lean"
+      "at": "2026-11-06T23:37:52.735Z"
     },
     "R-028-c": {
       "risk": "R-028",
@@ -2153,9 +1947,7 @@
       ],
       "plan": "detectors only, lean (owner notes section 0): clone of an installed reference build + the app build step; no P0 smoke subset, no 20% rule, no T-901",
       "reason": null,
-      "at": "2026-10-27T10:53:22.013Z",
-      "package": "run-faults.mjs --lean",
-      "mode": "lean"
+      "at": "2026-11-07T00:12:55.283Z"
     }
   }
 }
