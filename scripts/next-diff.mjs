@@ -2,8 +2,9 @@
 // next-diff.mjs - compares two Next.js build outputs (T-014, 42 §5 items 1-2): every file under .next/static and
 // .next/server, byte for byte after normalising the buildId (in file names and contents) and, for builds
 // made in different directories, the absolute build root (docker builds always use /app; host builds do not);
-// the file lists of the output traces (`*.nft.json`, Next 12) are compared sorted, and server/pages-manifest.json
-// as JSON with its keys sorted.
+// the file lists of the output traces (`*.nft.json`, Next 12) are compared sorted, server/pages-manifest.json
+// as JSON with its keys sorted, and server/functions-config-manifest.json as JSON with the keys of `functions`
+// sorted.
 //
 // Usage: node scripts/next-diff.mjs <nextDirA> <nextDirB> [--root-a <dir>] [--root-b <dir>] [--json] [--exclude <regex>]
 // Exit 0 when identical.
@@ -74,6 +75,29 @@ export function diffNext(
     )
     return Buffer.from(JSON.stringify(sorted), 'latin1')
   }
+  // Next 14.2.35 sets each key of `functions` in
+  // server/functions-config-manifest.json while its page checks run at the
+  // same time, so the keys are in the order those checks finish, which
+  // differs between two builds of one tree: that one file is compared as JSON
+  // with the keys of `functions` sorted, every value and every other key
+  // unchanged (owner decision T14 (a) of the jump 3 jump check, 2026-11-13;
+  // an acceptance change, 40 §8 rule 8)
+  const sortFunctions = (rel, buf) => {
+    if (rel !== 'server/functions-config-manifest.json') return buf
+    const manifest = JSON.parse(buf.toString('latin1'))
+    const { functions } = manifest
+    if (!functions || typeof functions !== 'object' || Array.isArray(functions))
+      return buf
+    const sorted = Object.fromEntries(
+      Object.keys(functions)
+        .sort()
+        .map((k) => [k, functions[k]])
+    )
+    return Buffer.from(
+      JSON.stringify({ ...manifest, functions: sorted }),
+      'latin1'
+    )
+  }
   const content = (dir, rel, id, root) => {
     let buf = fs.readFileSync(path.join(dir, rel))
     let s = buf.toString('latin1')
@@ -82,7 +106,7 @@ export function diffNext(
       if (root) s = s.split(root).join('<ROOT>')
       buf = Buffer.from(s, 'latin1')
     }
-    return sortManifest(rel, sortTrace(rel, buf))
+    return sortFunctions(rel, sortManifest(rel, sortTrace(rel, buf)))
   }
   for (const [k, relA] of la) {
     if (!lb.has(k) || (skip && skip.test(k))) continue
