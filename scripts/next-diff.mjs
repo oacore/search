@@ -4,7 +4,8 @@
 // made in different directories, the absolute build root (docker builds always use /app; host builds do not);
 // the file lists of the output traces (`*.nft.json`, Next 12) are compared sorted, server/pages-manifest.json
 // as JSON with its keys sorted, and server/functions-config-manifest.json as JSON with the keys of `functions`
-// sorted.
+// sorted; for two different roots, webpack's duplicate-name suffix of a file in a source map's `sources` is
+// set apart.
 //
 // Usage: node scripts/next-diff.mjs <nextDirA> <nextDirB> [--root-a <dir>] [--root-b <dir>] [--json] [--exclude <regex>]
 // Exit 0 when identical.
@@ -98,6 +99,41 @@ export function diffNext(
       'latin1'
     )
   }
+  // Webpack names a source that shares its name with another as that name
+  // plus `?` and the first 4 hex of a hash of the module's identifier, which
+  // holds the module's absolute path, so two builds of one tree made in
+  // different folders differ there (Next 14.2.35:
+  // server/pages/api/healthz.js.map). For two different roots, in a source
+  // map written as JSON.stringify writes it, each such suffix that follows a
+  // file name with an extension (helpers.js?c16d) at the end of a `sources`
+  // entry is replaced by the order of its first use in that map. The
+  // suffix's value is not checked; the entry's path, which entries carry a
+  // suffix and which share one, every other entry, the mappings and
+  // sourcesContent are compared byte for byte as before (owner decision
+  // T14 (a) of the jump 3 jump check, 2026-11-13; an acceptance change,
+  // 40 §8 rule 8)
+  const SUFFIX = /\.[A-Za-z0-9]+\?([0-9a-f]{4})$/
+  const setSuffixApart = (rel, buf) => {
+    if (!rel.endsWith('.map') || !rootA || !rootB || rootA === rootB) return buf
+    const s = buf.toString('latin1')
+    let map
+    try {
+      map = JSON.parse(s)
+    } catch {
+      return buf
+    }
+    if (!map || !Array.isArray(map.sources) || JSON.stringify(map) !== s)
+      return buf
+    const order = new Map()
+    const sources = map.sources.map((src) => {
+      const m = typeof src === 'string' && src.match(SUFFIX)
+      if (!m) return src
+      if (!order.has(m[1])) order.set(m[1], order.size)
+      return `${src.slice(0, -4)}<SUFFIX-${order.get(m[1])}>`
+    })
+    if (!order.size) return buf
+    return Buffer.from(JSON.stringify({ ...map, sources }), 'latin1')
+  }
   const content = (dir, rel, id, root) => {
     let buf = fs.readFileSync(path.join(dir, rel))
     let s = buf.toString('latin1')
@@ -106,7 +142,10 @@ export function diffNext(
       if (root) s = s.split(root).join('<ROOT>')
       buf = Buffer.from(s, 'latin1')
     }
-    return sortFunctions(rel, sortManifest(rel, sortTrace(rel, buf)))
+    return setSuffixApart(
+      rel,
+      sortFunctions(rel, sortManifest(rel, sortTrace(rel, buf)))
+    )
   }
   for (const [k, relA] of la) {
     if (!lb.has(k) || (skip && skip.test(k))) continue
