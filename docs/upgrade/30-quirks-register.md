@@ -14,7 +14,7 @@
 
 ## 2. Summary
 
-103 quirks (Q-086 unallocated): **PRESERVE 92**, **WATCH 5** (Q-014, Q-027, Q-047, Q-065, Q-071), **ESCALATES 6** (approved Q-050..Q-052; candidates Q-072, Q-075, Q-093).
+103 quirks (Q-086 unallocated): **PRESERVE 92**, **WATCH 5** (Q-014, Q-027, Q-047, Q-065, Q-071), **ESCALATES 6** (Q-050..Q-052 and Q-072, Q-075, Q-093, all approved; their state is in STATUS §4).
 
 ## A. Routing, status codes, SSR, head
 
