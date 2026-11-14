@@ -18,7 +18,8 @@
 //
 // Other Jest adjustments (the test runs themselves are as `npm run test:unit` runs them):
 // - testEnvironment and testSequencer: generated modules (see jestHelpers);
-// - testNamePattern: leaves out EXCLUDED_TESTS (tests that are red only on Stryker's Node 24, each with a reason);
+// - testNamePattern: leaves out EXCLUDED_TESTS (tests that are red on the unchanged app under Stryker's Node 24,
+//   each with a reason);
 // - testPathIgnorePatterns: also EXCLUDED_TEST_FILES (test files that execute no statement of the set, left out
 //   for their run time only, each with its evidence);
 // - resolver: the checkout's test/esm-resolver.js (the sandbox links node_modules, so resolved package paths are
@@ -339,7 +340,7 @@ module.exports = async function bailTestRunner(globalConfig, config, environment
 }
 
 // tests left out of the Stryker run: [full-name fragment, reason] (each must be red on the unchanged app under
-// Stryker's Node 24 only; Jest itself runs them on the runtime Node, 40 §2.1)
+// Stryker's Node 24; Jest itself runs them on the runtime Node, 40 §2.1)
 export const EXCLUDED_TESTS = [
   [
     "T-104 c2 @P0 Jest runs on the Node major of the step's runtime image",
