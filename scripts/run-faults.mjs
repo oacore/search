@@ -32,7 +32,8 @@
 //   4. Tiers: the fault's 41 §3 detectors (R) or 30 "Pinned by" tests (Q), plus the P0 smoke subset
 //      (`--tiers all`: every tier). Killed = at least one detector red.
 // Results: $ARTIFACT_DIR/faults/kill-matrix.json (every run, appended by fault id) and the committed summary
-// test/faults/kill-summary.json (only faults that ran; a patch that did not run is never recorded as killed).
+// test/faults/kill-summary.json (each fault of the run replaces its entry; a patch that did not run is recorded as
+// not valid, never as killed).
 // --index writes test/faults/Q-clauses.json from the patches, test/faults/none/*.json marks and the exempt list.
 //
 // .expect (schema 1, declarative, black-box; 55 C1 "status, header, DOM or request"):
@@ -1357,8 +1358,10 @@ function writeResultsLocked(records) {
   for (const r of records) prev.faults[r.id] = r
   prev.updated = new Date().toISOString()
   fs.writeFileSync(file, `${JSON.stringify(prev, null, 1)}\n`)
-  // committed summary: faults that ran only. The committed file is the base (a record made on another machine or
-  // by an earlier run stays), the records of this run replace their own entries.
+  // committed summary: the faults of this run. The committed file is the base (a record made on another machine or
+  // by an earlier run stays), the records of this run replace their own entries. A fault that did not run (a stale
+  // patch or no .expect: its record has no `finished`, so `at` is its start) gets this run's record, not valid and
+  // not killed, instead of keeping an earlier one (J3-MID-F6-FAULTS-2, LB-8 (a))
   const summaryFile = path.join(FAULTS, 'kill-summary.json')
   const summary = fs.existsSync(summaryFile)
     ? JSON.parse(fs.readFileSync(summaryFile, 'utf8'))
@@ -1368,28 +1371,28 @@ function writeResultsLocked(records) {
         faults: {},
       }
   for (const r of records)
-    if (r.finished)
-      summary.faults[r.id] = {
-        risk: r.risk,
-        clause: r.clause,
-        valid: !!r.valid,
-        killed: !!r.killed,
-        singleLayer: !!r.singleLayer,
-        redDetectors: r.redDetectors || [],
-        redCount: (r.red || []).length,
-        red: (r.red || []).slice(0, 3).map((x) => ({
-          test: portable(x.test).slice(0, 160),
-          file: /var\/folders|private\/tmp/.test(String(x.file))
-            ? String(x.file).replace(/^.*?\/(?=(test|e2e)\/)/, '')
-            : x.file,
-          assertion: portable(
-            ((x.messages || [])[0] || '').split('\n')[0]
-          ).slice(0, 200),
-        })),
-        plan: r.plan,
-        reason: r.reason || null,
-        at: r.finished,
-      }
+    summary.faults[r.id] = {
+      risk: r.risk,
+      clause: r.clause,
+      valid: !!r.valid,
+      killed: !!r.killed,
+      singleLayer: !!r.singleLayer,
+      redDetectors: r.redDetectors || [],
+      redCount: (r.red || []).length,
+      red: (r.red || []).slice(0, 3).map((x) => ({
+        test: portable(x.test).slice(0, 160),
+        file: /var\/folders|private\/tmp/.test(String(x.file))
+          ? String(x.file).replace(/^.*?\/(?=(test|e2e)\/)/, '')
+          : x.file,
+        assertion: portable(((x.messages || [])[0] || '').split('\n')[0]).slice(
+          0,
+          200
+        ),
+      })),
+      plan: r.plan,
+      reason: r.reason || null,
+      at: r.finished || r.started,
+    }
   fs.mkdirSync(FAULTS, { recursive: true })
   const summaryOut = path.join(FAULTS, 'kill-summary.json')
   fs.writeFileSync(summaryOut, `${JSON.stringify(summary, null, 2)}\n`)
