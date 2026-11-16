@@ -54,6 +54,7 @@ From `git log 3c934e9..HEAD --no-merges` outside `e2e`, `test` and `docs`:
 | `4d20e43` | T-014 (a) | `scripts/next-diff.mjs` ignores Next 16's folder-dependent entry-loader source-map names and random preview keys (tool) |
 | `cd58065` | RC-2 | `pages/_app.jsx`: the page data prefix follows the build's `assetPrefix`. An azure build uses `/static/search`; a build without `BUILD_TARGET=azure` uses Next's own `/_next/data`. |
 | `5df3f43` | RC-1 | `next.config.js`: `next/dist/lib/route-pattern-normalizer.js` is compiled for the client, as CS-N14-2 did for `constants.js`, so the main chunk is ES2015 again (KaiOS 2.5 and other browsers in `.browserslistrc`) |
+| `75a88ea` | SENTRY-REQDATA-1 | `utils/sentry.js`: server events no longer carry the request block, the client IP, the request transaction name or the response context, as on Sentry 7 (`RequestData` dropped, `Http` without request sessions, a `beforeSend` that removes the transaction name and response context). Left over: Sentry 11 sets level `error` explicitly and scopes breadcrumbs to each request. |
 
 ## 4. Existing behaviours that changed because the framework changed them
 
@@ -64,15 +65,15 @@ These are not fixes made in the app. They come with Next 15 and stay.
 
 ## 5. Final test totals (stabilise step)
 
-Final tree build: `093e758aab2c947c` (twin `093e758aab2c947c-b` for T-014, plus a no-DSN build). The harness build is `3d68630fb8d47956`.
+Final tree build: `b76966cffc0f917f` at `75a88ea` (twin `b76966cffc0f917f-b` for T-014, no-DSN build `f78199f23ad39c19`). The harness build is `3d68630fb8d47956`.
 
 | Tier | Result |
 |---|---|
-| Jest unit | 1106 passed, 1 failed (T-104 c2, §6) |
+| Jest unit | 1107 passed, 1 failed (T-104 c2, §6) |
 | Jest static | 94 of 94 (T-014 and T-015 included) |
 | Jest harness | T-012 25 passed; proxy self-test 156 of 156; stub self-check 18 of 18 |
 | Jest ops (no Docker) | 18 of 18 in 4 suites |
-| Playwright chromium | 966 of 966 (T-608 re-run after the no-DSN build) |
+| Playwright chromium | 966 of 966 |
 | Playwright wire (`--no-deps`) | 28 of 28 |
 | Visual T-801 (default stack) | 309 of 309 |
 | Visual T-802 (harness build) | 73 of 73 |
@@ -81,14 +82,13 @@ Final tree build: `093e758aab2c947c` (twin `093e758aab2c947c-b` for T-014, plus 
 | Ops T-907 c1/c3 rehearsal | 2 of 2 |
 | Lint | eslint 18 findings and stylelint 12 (both the same as before); lint:json 3 warnings in `test/fixtures/data-snapshot`, unchanged since `3c934e9`; lint:parity OK |
 
-T-801, T-802 and the T-907 rehearsal ran on the tree before RC-1 and RC-2. Those two fixes change no rendered UI.
+Jest unit and static, Playwright chromium and wire ran on `75a88ea`, after a new dev inventory (T-728) on that tree. The other tiers ran on the tree before SENTRY-REQDATA-1, which changes only server-side Sentry events. T-801, T-802 and the T-907 rehearsal ran on the tree before RC-1 and RC-2. Those two fixes change no rendered UI.
 
 Not run: WebKit and Firefox (these projects exist only inside the runner container), `e2e/ops/t901-container` and `test/ops/t901.sh`. All of them need Docker.
 
 ## 6. Open items
 
 - **T-104 c2 (red).** Jest runs on Node 24, but `Dockerfile:1` still says `FROM node:18-alpine`. Next 16 needs Node 20.9 or later. To fix it, raise the base image to Node 24 (`node:24-alpine`). This is a DevOps change for the owner.
-- **SENTRY-REQDATA-1 (review finding, not fixed).** With Sentry 11, server-side events from a request carry that request's data, which Sentry 7 did not send: the full URL with query, request headers, cookie names, the end user's IP from `X-Forwarded-For` (`user.ip_address`), and a transaction name. This comes from the default `Http` and `RequestData` integrations that `utils/sentry.js` keeps, under Sentry 11's default `dataCollection`. To restore the old payload, `utils/sentry.js` needs a change: drop `RequestData` from `INTEGRATIONS_KEPT`, or turn the request fields off in `dataCollection`. It has not been made yet.
 
 ## 7. Before the deploy (owner)
 
