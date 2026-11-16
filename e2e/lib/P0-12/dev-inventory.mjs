@@ -220,6 +220,8 @@ async function startDev(label) {
     [
       path.join(TREE, 'node_modules', 'next', 'dist', 'bin', 'next'),
       'dev',
+      // Next 16 defaults to Turbopack; the app builds and runs with webpack (CS-N16-2)
+      ...(parseInt(versions.next, 10) >= 16 ? ['--webpack'] : []),
       '-p',
       String(PORTS.dev),
       '-H',
