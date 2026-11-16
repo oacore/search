@@ -380,7 +380,8 @@ describe('T-411 @P0 takedown page and report modals', () => {
     expect(errorParagraph(container).textContent).toMatch(API_ERROR)
   })
 
-  test('T-411 c4 @P0 Q-060: the modals never render the report error', () => {
+  test('T-411 c4 @P0 Q-060: the modals never render the report error', async () => {
+    // the design portal mounts one microtask after its effect (CS-R19-8)
     const store = new RootStore({ statistics: {} })
     store.report.error = 'report failed'
     store.report.updateOption = 'takeDownFullText'
@@ -388,13 +389,13 @@ describe('T-411 @P0 takedown page and report modals', () => {
     const wrappers = [withRouter(), withStore(store)]
     const form = render(<ReportFormModal id={2001} />, { wrappers })
     expect(
-      screen.getByRole('dialog', { name: 'Problem-form-modal' })
+      await screen.findByRole('dialog', { name: 'Problem-form-modal' })
     ).toBeTruthy()
     expect(document.body.textContent).not.toContain('report failed')
     form.unmount()
     render(<ReportTypeModal />, { wrappers })
     expect(
-      screen.getByRole('dialog', { name: 'Problem-type-modal' })
+      await screen.findByRole('dialog', { name: 'Problem-type-modal' })
     ).toBeTruthy()
     expect(document.body.textContent).not.toContain('report failed')
   })
