@@ -272,4 +272,11 @@ const nextConfig = {
   },
 }
 
-module.exports = withImages(nextConfig)
+// next-images always sets serverRuntimeConfig (undefined without
+// dynamicAssetPrefix, which the app does not use); Next 16 has no runtime
+// config and warns about the key, so the empty key is dropped (CS-N16-6)
+const { serverRuntimeConfig, ...config } = withImages(nextConfig)
+if (serverRuntimeConfig !== undefined)
+  throw new Error('next-images set serverRuntimeConfig, which Next 16 ignores')
+
+module.exports = config
