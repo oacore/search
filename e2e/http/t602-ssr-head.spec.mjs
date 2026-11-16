@@ -225,8 +225,17 @@ test.describe('T-602 @P0 SSR head', () => {
           n.other,
           `${p.id} no other head tags but the preconnect of AD-179`
         ).toEqual([PRECONNECT_SELF]) // AD-179
+        // React 19 writes its image preload hints at the start of the body
+        // (rel=preload as=image); nothing else is parsed ahead of #__next
         expect(
-          parsed.bodyLead,
+          parsed.bodyLead.filter(
+            (e) =>
+              !(
+                e.tag === 'link' &&
+                e.attrs.rel === 'preload' &&
+                e.attrs.as === 'image'
+              )
+          ),
           `${p.id} nothing parsed ahead of #__next`
         ).toEqual([])
       } else if (p.type === 'providers') {

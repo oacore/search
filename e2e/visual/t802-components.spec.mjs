@@ -152,7 +152,7 @@ const REACT = JSON.parse(
   .slice(0, 2)
   .join('.')
 const REACT_ERROR = (n) =>
-  `Minified React error #${n}; visit https://reactjs.org/docs/error-decoder.html?invariant=${n} for the full message or use the non-minified dev environment for full errors and additional helpful warnings.`
+  `Minified React error #${n}; visit https://react.dev/errors/${n} for the full message or use the non-minified dev environment for full errors and additional helpful warnings.`
 const SENTRY_ENVELOPE =
   'https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4'
 const CONNECT_SRC =

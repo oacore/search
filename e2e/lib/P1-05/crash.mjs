@@ -20,7 +20,7 @@ export const CSP_LINES = [
 // "Rendered fewer hooks than expected" (the hooks of a mounted design search bar change with the page's search
 // bar config)
 export const REACT_300 =
-  'Error: Minified React error #300; visit https://reactjs.org/docs/error-decoder.html?invariant=300 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.'
+  'Error: Minified React error #300; visit https://react.dev/errors/300 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.'
 
 // the guard fails on console.error and securitypolicyviolation: a test that pins the crash declares both
 export const declareCrash = (test) =>

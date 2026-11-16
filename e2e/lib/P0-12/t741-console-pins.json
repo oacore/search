@@ -7089,7 +7089,7 @@
           "absent": {
             "load": {
               "ga-search": 1,
-              "katex-convert": 3,
+              "katex-convert": 2,
               "logrocket-blocked": 1
             },
             "change": {
@@ -7099,7 +7099,7 @@
           "essential": {
             "load": {
               "ga-search": 1,
-              "katex-convert": 3,
+              "katex-convert": 2,
               "logrocket-blocked": 1
             },
             "change": {
@@ -7110,7 +7110,7 @@
             "load": {
               "ga-log": 1,
               "ga-search": 1,
-              "katex-convert": 3,
+              "katex-convert": 2,
               "logrocket-blocked": 1
             },
             "change": {
