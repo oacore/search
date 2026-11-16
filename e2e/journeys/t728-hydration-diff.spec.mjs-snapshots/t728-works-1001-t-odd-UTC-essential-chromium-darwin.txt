@@ -1,15 +1,15 @@
 # T-728 works-1001-t-odd /works/1001/?t=a%26b%3Dc%20d UTC essential (dom format 2)
 ## nested anchors (Q-072): no-JS 0, hydrated 0
 ## no-JS -> settled hydrated DOM
-@@ -21 +21 @@
+@@ -22 +22 @@
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2] <div class="styles-item-1WhX8 styles-search-bar-item-dB35D styles-search-bar-item-icon-28R_6">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1] <button class="button-button-3fr3r button-text-2Jjil styles-search-bar-item-icon-button-fqoOL">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1]/svg[1] <svg aria-label="Search icon" class="icon-icon-35iz-" height="24" role="img" width="24">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
-@@ -214 +218 @@
+@@ -215 +219 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[4]/dd[1]/ol[1]/li[1] <li id="doi" itemprop="doi" itemtype="doi">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[4]/dd[1]/ol[1]/li[1] "DOI: 10.1111/REGO.12518"
-@@ -231 +237 @@
+@@ -232 +238 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1] <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey" id="work-similar-output-19211324" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/header[1] <header class="styles-header-13tcI">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/header[1]/h3[1] <h3 class="styles-title-1k6Ib" itemprop="name">
@@ -291,7 +291,7 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/a[1] <a href="//core.ac.uk/search?q=climate change" rel="noreferrer" target="_blank">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/a[1] "climate change"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[3]/span[1] <span>
-@@ -442 +729 @@
+@@ -443 +730 @@
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; top: 0px; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 ## MutationObserver (from the first Next chunk script)

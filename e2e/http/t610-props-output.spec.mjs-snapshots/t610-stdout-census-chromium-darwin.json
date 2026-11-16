@@ -117,9 +117,9 @@
       "id": "works-4100",
       "kind": "html",
       "lines": [
-        "[Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=%5Bobject%20Blob%5D for the full message or use the non-minified dev environment for full errors and additional helpful warnings.]",
-        " ⨯ [Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=%5Bobject%20Blob%5D for the full message or use the non-minified dev environment for full errors and additional helpful warnings.]",
-        " ⨯ [Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=%5Bobject%20Blob%5D for the full message or use the non-minified dev environment for full errors and additional helpful warnings.]"
+        "[Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.]",
+        " ⨯ [Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.]",
+        " ⨯ [Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.]"
       ]
     },
     { "id": "works-4100", "kind": "data", "lines": [] },
@@ -127,9 +127,9 @@
       "id": "works-4101",
       "kind": "html",
       "lines": [
-        "[Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=object%20with%20keys%20%7Bmessage%7D for the full message or use the non-minified dev environment for full errors and additional helpful warnings.]",
-        " ⨯ [Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=object%20with%20keys%20%7Bmessage%7D for the full message or use the non-minified dev environment for full errors and additional helpful warnings.]",
-        " ⨯ [Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=object%20with%20keys%20%7Bmessage%7D for the full message or use the non-minified dev environment for full errors and additional helpful warnings.]"
+        "[Error: Objects are not valid as a React child (found: object with keys {message}). If you meant to render a collection of children, use an array instead.]",
+        " ⨯ [Error: Objects are not valid as a React child (found: object with keys {message}). If you meant to render a collection of children, use an array instead.]",
+        " ⨯ [Error: Objects are not valid as a React child (found: object with keys {message}). If you meant to render a collection of children, use an array instead.]"
       ]
     },
     { "id": "works-4101", "kind": "data", "lines": [] },
@@ -137,9 +137,9 @@
       "id": "works-4102",
       "kind": "html",
       "lines": [
-        "[Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=%5Bobject%20Blob%5D for the full message or use the non-minified dev environment for full errors and additional helpful warnings.]",
-        " ⨯ [Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=%5Bobject%20Blob%5D for the full message or use the non-minified dev environment for full errors and additional helpful warnings.]",
-        " ⨯ [Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=%5Bobject%20Blob%5D for the full message or use the non-minified dev environment for full errors and additional helpful warnings.]"
+        "[Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.]",
+        " ⨯ [Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.]",
+        " ⨯ [Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.]"
       ]
     },
     { "id": "works-4102", "kind": "data", "lines": [] },

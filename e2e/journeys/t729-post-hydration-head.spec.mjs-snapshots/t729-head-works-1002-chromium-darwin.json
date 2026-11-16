@@ -14,8 +14,8 @@
     "meta[name=DC.creator]",
     "meta[name=DC.title]",
     "meta[name=DCTERMS.abstract]",
-    "script[application/ld+json]",
-    "link[preconnect]"
+    "link[preconnect]",
+    "script[application/ld+json]"
   ],
   "htmlAttrs": {},
   "head": [
@@ -94,6 +94,15 @@
       }
     },
     {
+      "tag": "link",
+      "attrs": {
+        "crossorigin": "anonymous",
+        "data-next-font": "",
+        "href": "/",
+        "rel": "preconnect"
+      }
+    },
+    {
       "tag": "script",
       "attrs": { "type": "application/ld+json" },
       "jsonld": {
@@ -148,15 +157,6 @@
             }
           }
         ]
-      }
-    },
-    {
-      "tag": "link",
-      "attrs": {
-        "crossorigin": "anonymous",
-        "data-next-font": "",
-        "href": "/",
-        "rel": "preconnect"
       }
     },
     {

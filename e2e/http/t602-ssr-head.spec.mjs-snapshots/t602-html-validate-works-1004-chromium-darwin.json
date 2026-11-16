@@ -156,6 +156,12 @@
     "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
   },
   {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > link[rel=preconnect]",
+    "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
+  },
+  {
     "ruleId": "close-order",
     "severity": 2,
     "selector": "head",
@@ -182,7 +188,7 @@
   {
     "ruleId": "void-style",
     "severity": 2,
-    "selector": "head > link[rel=preconnect]",
+    "selector": "html > body > link",
     "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
   },
   {

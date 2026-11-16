@@ -1,15 +1,15 @@
 # T-728 works-1002 /works/1002/ America/Los_Angeles absent (dom format 2)
 ## nested anchors (Q-072): no-JS 0, hydrated 0
 ## no-JS -> settled hydrated DOM
-@@ -21 +21 @@
+@@ -22 +22 @@
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2] <div class="styles-item-1WhX8 styles-search-bar-item-dB35D styles-search-bar-item-icon-28R_6">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1] <button class="button-button-3fr3r button-text-2Jjil styles-search-bar-item-icon-button-fqoOL">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1]/svg[1] <svg aria-label="Search icon" class="icon-icon-35iz-" height="24" role="img" width="24">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/button[1]/svg[1]/use[1] <use href="/static/search/icons.svg#magnify">
-@@ -191 +195 @@
+@@ -192 +196 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[4]/dd[1]/ol[1]/li[1] <li id="doi" itemprop="doi" itemtype="doi">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/dl[1]/div[4]/dd[1]/ol[1]/li[1] "DOI: 10.7910/DVN/HCYDPQ"
-@@ -208 +214 @@
+@@ -209 +215 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1] <div class="card-container-11P0y card-outlined-1ScI1 styles-container-2Sli1 styles-full-text-linked-1RAey" id="work-similar-output-19211324" itemscope="" itemtype="https://schema.org/ScholarlyArticle">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/header[1] <header class="styles-header-13tcI">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[2]/div[1]/header[1]/h3[1] <h3 class="styles-title-1k6Ib" itemprop="name">
@@ -282,10 +282,10 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1] <div class="styles_detach-dot">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1] <span>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1] "No results"
-@@ -248 +526 @@
+@@ -249 +527 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1] "01/12/2021"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1] "30/11/2021"
-@@ -347 +625 @@
+@@ -348 +626 @@
 + html[1]/body[1]/div[1]/div[2] <div class="cookies-popup-2NSSr" id="cookies-popup">
 + html[1]/body[1]/div[1]/div[2]/div[1] <div class="cookies-popup-body-1VEen">
 + html[1]/body[1]/div[1]/div[2]/div[1]/p[1] <p>
@@ -297,7 +297,7 @@
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[1] "Essential cookies only"
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[2] <button class="button-button-3fr3r button-contained-pmIp- cookies-popup-button-17h9a" id="essential_cookies_allowed,analytics_cookies_allowed">
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[2] "I agree"
-@@ -348 +637 @@
+@@ -349 +638 @@
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; top: 0px; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 ## MutationObserver (from the first Next chunk script)

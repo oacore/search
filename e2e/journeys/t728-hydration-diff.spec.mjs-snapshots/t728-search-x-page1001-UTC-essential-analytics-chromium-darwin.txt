@@ -1,7 +1,7 @@
 # T-728 search-x-page1001 /search/?q=x&page=1001 UTC essential+analytics (dom format 2)
 ## nested anchors (Q-072): no-JS 0, hydrated 0
 ## no-JS -> settled hydrated DOM
-@@ -21 +21 @@
+@@ -22 +22 @@
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2] <div class="styles-item-1WhX8 styles-search-bar-item-dB35D">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1] <div class="select-select-wrapper-3xVb5 styles-select-3ZCU1">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[1] <div aria-live="assertive" class="sr-only">
@@ -21,7 +21,7 @@
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1] "Search more than 356 million from papers around the world"
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1] <ul class="select-select-menu-EjIta" id="suggestion-results-app-bar-search" role="listbox">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[2] <div>
-@@ -264 +283 @@
+@@ -265 +284 @@
 + html[1]/body[1]/script[2] <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TEST000000">
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; top: 0px; width: 1px; white-space: nowrap; overflow-wrap: normal;">
@@ -30,6 +30,8 @@
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2] @class
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/input[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/input[1] @name
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/input[1] @type
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[1]/svg[1] @class

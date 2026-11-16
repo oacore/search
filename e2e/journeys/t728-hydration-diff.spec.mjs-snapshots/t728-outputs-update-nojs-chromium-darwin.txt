@@ -1,4 +1,6 @@
 <body>
+  <link as="image" href="/static/search/_next/static/images/takedown-c4bb010481617ed3e02f8f78297db01c.svg" rel="preload">
+  <link as="image" href="/static/search/_next/static/images/faq-a381c84f64eef2c310026c181874b1d8.svg" rel="preload">
   <div id="__next">
     <div class="styles_container">
       <header class="styles-container-2d0MF styles-container-1KefU" id="header">

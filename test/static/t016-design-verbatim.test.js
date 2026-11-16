@@ -631,6 +631,7 @@ describe('T-016 @P0 vendored design', () => {
             'lib/elements/histoslider/histoslider.js',
             'lib/elements/index.js',
             'lib/elements/math-markdown/math-markdown.js',
+            'lib/modules/modal/portal.js',
             'lib/modules/select/hooks/use-input.js',
             'package.json',
           ],
@@ -644,6 +645,7 @@ describe('T-016 @P0 vendored design', () => {
             'lib/elements/histoslider/histoslider.js',
             'lib/elements/index.js',
             'lib/elements/math-markdown/math-markdown.js',
+            'lib/modules/modal/portal.js',
             'lib/modules/select/hooks/use-input.js',
             'package.json',
           ],
@@ -669,6 +671,7 @@ describe('T-016 @P0 vendored design', () => {
           'lib/elements/histoslider/histoslider.js',
           'lib/elements/index.js',
           'lib/elements/math-markdown/math-markdown.js',
+          'lib/modules/modal/portal.js',
           'lib/modules/select/hooks/use-input.js',
           'package.json',
         ],
@@ -717,6 +720,7 @@ describe('T-016 @P0 vendored design', () => {
         'lib/elements/index.js',
         'lib/elements/math-markdown/math-markdown.js',
         'lib/index.js',
+        'lib/modules/modal/portal.js',
         'lib/modules/select/hooks/use-input.js',
         'package.json',
       ])
@@ -771,6 +775,7 @@ describe('T-016 @P0 vendored design', () => {
           'lib/elements/histoslider/histoslider.js',
           'lib/elements/index.js',
           'lib/elements/math-markdown/math-markdown.js',
+          'lib/modules/modal/portal.js',
           'lib/modules/select/hooks/use-input.js',
           'package.json',
         ]
@@ -784,6 +789,7 @@ describe('T-016 @P0 vendored design', () => {
         'lib/elements/index.js',
         'lib/elements/math-markdown/math-markdown.js',
         'lib/index.js',
+        'lib/modules/modal/portal.js',
         'lib/modules/select/hooks/use-input.js',
         'package.json',
       ])

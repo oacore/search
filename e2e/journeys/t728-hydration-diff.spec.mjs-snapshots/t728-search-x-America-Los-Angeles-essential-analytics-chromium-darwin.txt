@@ -1,7 +1,7 @@
 # T-728 search-x /search/?q=x America/Los_Angeles essential+analytics (dom format 2)
 ## nested anchors (Q-072): no-JS 0, hydrated 0
 ## no-JS -> settled hydrated DOM
-@@ -21 +21 @@
+@@ -23 +23 @@
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2] <div class="styles-item-1WhX8 styles-search-bar-item-dB35D">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1] <div class="select-select-wrapper-3xVb5 styles-select-3ZCU1">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[1] <div aria-live="assertive" class="sr-only">
@@ -21,7 +21,7 @@
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1] "Search more than 356 million from papers around the world"
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1] <ul class="select-select-menu-EjIta" id="suggestion-results-app-bar-search" role="listbox">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[2] <div>
-@@ -159 +178 @@
+@@ -161 +180 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[1] <li class="styles_bar-item-wrapper">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[1]/div[1] <div class="styles_bar-item" role="presentation">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/p[1] <p>
@@ -58,7 +58,7 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/p[1] "publisher"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/svg[1]/use[1] <use href="/static/search/icons.svg#menu-down">
-@@ -176 +231 @@
+@@ -178 +233 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2] <div class="sort_sort">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1] <div class="sort_sort-box" role="presentation">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1] <span>
@@ -68,37 +68,37 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1] "relevance"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/svg[1]/use[1] <use href="/static/search/icons.svg#menu-down">
-@@ -201 +265 @@
+@@ -203 +267 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/dl[1]/div[3]/dd[1] "04/07/2015"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/dl[1]/div[3]/dd[1] "03/07/2015"
-@@ -242 +306 @@
+@@ -244 +308 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/dl[1]/div[3]/dd[1] "22/08/2019"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/dl[1]/div[3]/dd[1] "21/08/2019"
-@@ -265 +329 @@
+@@ -267 +331 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/header[1]/div[1]/div[1] <div class="data-provider-sm-6ZNTy data-provider-circle-1YXHk">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/header[1]/div[1]/div[1]/img[1] <img alt="Nottingham Trent Institutional Repository (NORA)" class="data-provider-image-2JFrU" src="https://api.core.ac.uk/data-providers/53/logo">
-@@ -283 +349 @@
+@@ -285 +351 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/dl[1]/div[3]/dd[1] "01/01/2009"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/dl[1]/div[3]/dd[1] "31/12/2008"
-@@ -380 +446 @@
+@@ -382 +448 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6]/dl[1]/div[3]/dd[1] "14/07/2016"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[6]/dl[1]/div[3]/dd[1] "13/07/2016"
-@@ -427 +493 @@
+@@ -429 +495 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7]/dl[1]/div[3]/dd[1] "01/01/2013"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7]/dl[1]/div[3]/dd[1] "31/12/2012"
-@@ -509 +575 @@
+@@ -511 +577 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/dl[1]/div[3]/dd[1] "01/01/2013"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/dl[1]/div[3]/dd[1] "31/12/2012"
-@@ -568 +634 @@
+@@ -570 +636 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/dl[1]/div[3]/dd[1] "01/01/2013"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[9]/dl[1]/div[3]/dd[1] "31/12/2012"
-@@ -649 +715 @@
+@@ -651 +717 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/dl[1]/div[3]/dd[1] "01/01/2002"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/dl[1]/div[3]/dd[1] "31/12/2001"
-@@ -692 +758 @@
+@@ -694 +760 @@
 - html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/dl[1]/div[3]/dd[1] "01/01/2011"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/dl[1]/div[3]/dd[1] "31/12/2010"
-@@ -724 +790 @@
+@@ -726 +792 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5] <li>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/button[1] <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/button[1] "4"
@@ -111,7 +111,7 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8] <li>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/button[1] <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/button[1] "7"
-@@ -849 +927 @@
+@@ -851 +929 @@
 + html[1]/body[1]/script[2] <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TEST000000">
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; top: 0px; width: 1px; white-space: nowrap; overflow-wrap: normal;">
@@ -120,6 +120,8 @@
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2] @class
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/input[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/input[1] @name
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/input[1] @type
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[1]/svg[1] @class
@@ -257,9 +259,6 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/button[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/button[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[6]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/button[1]/svg[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] @class
 1 characterData html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[10]/dl[1]/div[3]/dd[1]
 1 characterData html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[11]/dl[1]/div[3]/dd[1]
@@ -279,7 +278,7 @@
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1] +[#text]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/header[1]/div[1] +[div]
-6 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] +[li]
-2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] -[li]
+5 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] +[li]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] -[li]
 1 childList html[1]/body[1]/next-route-announcer[1] +[p]
 ## overflow 0, armed true
