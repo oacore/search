@@ -1,5 +1,5 @@
 // T-015 (41 A; R-077): the JavaScript syntax floor of the client chunks, read
-// with es-check 9.8.1 (root devDependency, exact). Every .js file under the
+// with es-check 9.9.0 (root devDependency, exact). Every .js file under the
 // build's .next/static (page, framework, main, webpack, polyfills and shared
 // chunks, plus the per-build manifests) is parsed at an ECMAScript version; the
 // floor is the lowest version of the ladder at which all of them parse.

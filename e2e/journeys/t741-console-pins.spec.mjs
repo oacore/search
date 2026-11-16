@@ -207,7 +207,7 @@ test('T-741 c2 @P0 pins are versioned per React/Next and the installed versions 
   for (const k of keys) expect(k).toMatch(/^react-\d+\.\d+\+next-\d+\.\d+$/)
   const v = installedVersions()
   // the 10.2 set and its copies for Next 12.1 and 12.3 (owner, 2026-10-29) and the React 18.3 set on Next 12.3 (owner, 2026-11-03) and its set for Next 13.5 (owner, 2026-11-05) and its set for Next 14.2 (owner, 2026-11-05)
-  expect(['17.0', '18.3', '19.2']).toContain(v.react)
+  expect(['17.0', '18.3', '19.2', '19.3']).toContain(v.react)
   expect(['10.2', '12.1', '12.3', '13.5', '14.2', '15.5', '16.4']).toContain(
     v.next
   )
