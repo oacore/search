@@ -2,6 +2,7 @@
   "description": "node_modules packages that ship ESM only and must be transformed by babel-jest (40 §2.1); names or scope/* prefixes",
   "packages": [
     "msw",
+    "@msw/*",
     "@mswjs/*",
     "@open-draft/*",
     "rettime",
@@ -12,6 +13,9 @@
     "fast-string-truncated-width",
     "tagged-tag",
     "type-fest",
+    "cookie",
+    "tough-cookie",
+    "headers-polyfill",
     "react-ga4"
   ]
 }
