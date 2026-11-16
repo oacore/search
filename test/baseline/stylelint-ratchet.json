@@ -2,7 +2,7 @@
   "test": "T-001",
   "what": "stylelint findings ratchet (CS-STY-1): the stylelint 17 findings of the CSS as (path, rule, count), repo-relative; may only shrink (scripts/stylelint-ratchet.mjs)",
   "tool": {
-    "stylelint": "17.16.0"
+    "stylelint": "18.0.0"
   },
   "command": "stylelint --ignore-path .gitignore '**/*.css'",
   "files": 28,
