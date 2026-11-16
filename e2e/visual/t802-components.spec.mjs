@@ -153,10 +153,10 @@ const REACT = JSON.parse(
   .join('.')
 const REACT_ERROR = (n) =>
   `Minified React error #${n}; visit https://react.dev/errors/${n} for the full message or use the non-minified dev environment for full errors and additional helpful warnings.`
-const REACT19_ERROR = (n, ...args) =>
-  `Minified React error #${n}; visit https://react.dev/errors/${n}?${args
-    .map((a) => `args[]=${a}`)
-    .join('&')} for the full message or use the non-minified dev environment for full errors and additional helpful warnings.`
+const REACT19_ERROR = (n, ...args) => {
+  const query = args.map((a) => `args[]=${a}`).join('&')
+  return REACT_ERROR(n).replace(`errors/${n} `, `errors/${n}?${query} `)
+}
 const SENTRY_ENVELOPE =
   'https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4'
 const CONNECT_SRC =
