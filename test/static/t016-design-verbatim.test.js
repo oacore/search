@@ -631,6 +631,7 @@ describe('T-016 @P0 vendored design', () => {
             'lib/elements/histoslider/histoslider.js',
             'lib/elements/index.js',
             'lib/elements/math-markdown/math-markdown.js',
+            'lib/modules/select/hooks/use-input.js',
             'package.json',
           ],
           onlyTarball: [],
@@ -643,6 +644,7 @@ describe('T-016 @P0 vendored design', () => {
             'lib/elements/histoslider/histoslider.js',
             'lib/elements/index.js',
             'lib/elements/math-markdown/math-markdown.js',
+            'lib/modules/select/hooks/use-input.js',
             'package.json',
           ],
         })
@@ -667,6 +669,7 @@ describe('T-016 @P0 vendored design', () => {
           'lib/elements/histoslider/histoslider.js',
           'lib/elements/index.js',
           'lib/elements/math-markdown/math-markdown.js',
+          'lib/modules/select/hooks/use-input.js',
           'package.json',
         ],
         onlyTarball: [],
@@ -714,6 +717,7 @@ describe('T-016 @P0 vendored design', () => {
         'lib/elements/index.js',
         'lib/elements/math-markdown/math-markdown.js',
         'lib/index.js',
+        'lib/modules/select/hooks/use-input.js',
         'package.json',
       ])
       expect(r.report.problems.join()).toMatch(
@@ -767,6 +771,7 @@ describe('T-016 @P0 vendored design', () => {
           'lib/elements/histoslider/histoslider.js',
           'lib/elements/index.js',
           'lib/elements/math-markdown/math-markdown.js',
+          'lib/modules/select/hooks/use-input.js',
           'package.json',
         ]
           .map((x) => `| \`${x}\` | x | CS-1 | 1 | T-016 |\n`)
@@ -779,6 +784,7 @@ describe('T-016 @P0 vendored design', () => {
         'lib/elements/index.js',
         'lib/elements/math-markdown/math-markdown.js',
         'lib/index.js',
+        'lib/modules/select/hooks/use-input.js',
         'package.json',
       ])
       fs.writeFileSync(changes, table('lib/elements/heading.js'))
