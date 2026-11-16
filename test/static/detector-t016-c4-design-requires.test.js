@@ -71,7 +71,13 @@ const sourceOf = (map, fn) => {
         seg.length >= 4 &&
         (l > first || seg[0] >= fn.loc.start.column) &&
         (l < last || seg[0] < fn.loc.end.column)
-      if (inside) votes.set(seg[1], (votes.get(seg[1]) || 0) + 1)
+      // W84: the source map places segments of Sentry 11's attributes
+      // module inside other modules' functions; they do not vote
+      if (
+        inside &&
+        !/\/node_modules\/@sentry\/conventions\//.test(map.sources[seg[1]])
+      )
+        votes.set(seg[1], (votes.get(seg[1]) || 0) + 1)
     }
   }
   const top = [...votes].sort((a, b) => b[1] - a[1])[0]

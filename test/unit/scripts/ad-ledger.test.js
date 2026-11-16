@@ -121,24 +121,23 @@ const check = (ledger, args = []) => {
 const codes = (r) => r.report.violations.map((v) => v.code)
 
 // functions of the module, called in a child process (the script is an ES
-// module, Jest runs CommonJS)
+// module, Jest runs CommonJS); the arguments go through stdin, as the ledger
+// is larger than the argument limit of the OS
 const callEach = (fn, argLists) => {
   const code = `import(${JSON.stringify(
     pathToFileURL(SCRIPT).href
   )}).then((m) => {
-    const lists = JSON.parse(process.argv[1])
+    const lists = JSON.parse(require('fs').readFileSync(0, 'utf8'))
     process.stdout.write(JSON.stringify(lists.map((a) => m[${JSON.stringify(
       fn
     )}](...a))))
   })`
-  const r = spawnSync(
-    process.execPath,
-    ['-e', code, JSON.stringify(argLists)],
-    {
-      encoding: 'utf8',
-    }
-  )
-  if (r.status !== 0) throw new Error(`${fn}: ${r.stderr}`)
+  const r = spawnSync(process.execPath, ['-e', code], {
+    encoding: 'utf8',
+    input: JSON.stringify(argLists),
+    maxBuffer: 1 << 26,
+  })
+  if (r.status !== 0) throw new Error(`${fn}: ${r.error || r.stderr}`)
   return JSON.parse(r.stdout)
 }
 
