@@ -43,6 +43,8 @@ const FLOORS = {
   '13.5.11': 'es2015',
   // W6d, measured on 14.2.35 with CS-N14-2: unchanged
   '14.2.35': 'es2015',
+  // W7a, first measurement on 15.5.29: raised by Next 15's own client code
+  '15.5.29': 'es2018',
 }
 
 const walk = (dir) =>

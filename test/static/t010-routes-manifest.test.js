@@ -139,8 +139,13 @@ describe('T-010 @P0 routes manifest', () => {
 
   test('T-010 c1 @P0 (source, destination, headers) tuples = reference: prod data rewrite, /static rewrite, CSP = the T-116 string', () => {
     const a = actual.entries
+    // from Next 15 the assetPrefix rewrite Next injects comes first (c2)
     expect(a['order:rewrites']).toBe(
-      '/search/_next/data/:path* , /static/:path*'
+      `${
+        nextMajor(build.appRoot) >= INJECTED_FROM_15.fromMajor
+          ? '/static/search/_next/:path+ , '
+          : ''
+      }/search/_next/data/:path* , /static/:path*`
     )
     expect(a['rewrite:/search/_next/data/:path*']).toBe('/_next/data/:path*')
     expect(a['rewrite:/static/:path*']).toBe('/:path*')
@@ -160,10 +165,10 @@ describe('T-010 @P0 routes manifest', () => {
     expect(diffRoutes(ref.entries, a, nextMajor(build.appRoot))).toEqual([])
   })
 
-  test('T-010 c2 @P0 the rewrite Next injects from 15 is whitelisted (only that one, only from 15); none today', () => {
+  test('T-010 c2 @P0 the rewrite Next injects from 15 is whitelisted (only that one, only from 15); present from W7a', () => {
     const major = nextMajor(build.appRoot)
-    expect(major).toBe(14) // AD-060, AD-184, AD-207
-    expect(actual.entries[INJECTED_FROM_15.key]).toBeUndefined()
+    expect(major).toBe(15) // W7a (AD-060, AD-184, AD-207 before)
+    expect(actual.entries[INJECTED_FROM_15.key]).toBe(INJECTED_FROM_15.to)
     // the comparator: the injected rewrite passes from 15 only; any other
     // added, removed or changed tuple fails
     const base = ref.entries
