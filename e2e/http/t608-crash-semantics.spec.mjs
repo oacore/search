@@ -130,12 +130,12 @@ test.describe('T-608 @P0 crash semantics', () => {
       // `bound logError` (next/dist/server/lib/router-server.js) and the handler of pages/_app.jsx:25-27
       expect(shot.listeners).toBe(5) // AD-128, AD-183
       // W7a: Next 15.5's start-server listener is an anonymous function ('')
-      // W7c: Next 16's router-server logError is no longer bound
+      // W7c: Next 16's router-server logError is no longer bound and registers before Sentry's
       expect(shot.names).toEqual([
         DOMAIN_CLEAR,
         '',
-        SENTRY_UNCAUGHT,
         'logError',
+        SENTRY_UNCAUGHT,
         APP_HANDLER,
       ]) // AD-128, AD-183
       await expect.poll(() => appExit(env), { timeout: 15000 }).not.toBeNull()
