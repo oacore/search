@@ -1,24 +1,57 @@
 // NOTE: This import will be replaced with `@sentry/browser`
 // client side thanks to the webpack config in next.config.js. The functions are
 // imported by name so that the client bundle holds only what they need.
-import { init, captureException, withScope } from '@sentry/node'
+import {
+  init,
+  captureException,
+  withScope,
+  onUncaughtExceptionIntegration,
+} from '@sentry/node'
 
-// Default integrations of Sentry 7 that Sentry 5.30 did not have: Dedupe drops
-// repeated events, Undici records every server-side fetch as a breadcrumb,
-// Context and Modules attach host and package details to every event
-const INTEGRATIONS_NOT_IN_5_30 = ['Dedupe', 'Undici', 'Context', 'Modules']
+// The default integrations the app keeps: those of Sentry 7 less Dedupe,
+// Undici, Context and Modules, which Sentry 5.30 did not have (EventFilters
+// was InboundFilters, BrowserApiErrors was TryCatch). Everything newer stays
+// out too: sessions, fetch breadcrumbs, child process and worker reports.
+const INTEGRATIONS_KEPT = [
+  'EventFilters',
+  'FunctionToString',
+  'BrowserApiErrors',
+  'Breadcrumbs',
+  'GlobalHandlers',
+  'HttpContext',
+  'Console',
+  'Http',
+  'OnUncaughtException',
+  'OnUnhandledRejection',
+  'ContextLines',
+  'LocalVariables',
+  'RequestData',
+  'LinkedErrors',
+]
+
+const keepIntegrations = (defaults) =>
+  defaults
+    .filter(({ name }) => INTEGRATIONS_KEPT.includes(name))
+    .map((integration) =>
+      // Sentry 7 exited after an uncaught exception even with other
+      // handlers registered (the app's and Next's); Sentry 8+ does not by
+      // default. Server only: the client bundle has no such integration.
+      !process.browser && integration.name === 'OnUncaughtException'
+        ? onUncaughtExceptionIntegration({
+            exitEvenIfOtherHandlersAreRegistered: true,
+          })
+        : integration
+    )
 
 let sentryOptions
 if (process.env.SENTRY_DSN) {
   sentryOptions = {
     dsn: process.env.SENTRY_DSN,
-    // Sentry 7 would also send session and client-report envelopes and add
-    // trace headers to every outgoing request; the app sends error events only
-    autoSessionTracking: false,
+    // the app sends error events only: no client-report envelopes and no
+    // trace headers on outgoing requests (sessions: see INTEGRATIONS_KEPT)
     sendClientReports: false,
     tracePropagationTargets: [],
-    integrations: (defaults) =>
-      defaults.filter(({ name }) => !INTEGRATIONS_NOT_IN_5_30.includes(name)),
+    integrations: keepIntegrations,
   }
 }
 
