@@ -144,7 +144,7 @@ const NEXT_SWC = {
   },
 }
 // 16.4: the same options as 15.5 (W7c)
-NEXT_SWC[16] = NEXT_SWC[15]
+Object.assign(NEXT_SWC, { 16: NEXT_SWC[15] })
 // SWC minifies with the build's own Next (the one in APP_ROOT's node_modules,
 // else the repo's) and the options of its major (40 §8 rule 7)
 const nextOfBuild = () =>
