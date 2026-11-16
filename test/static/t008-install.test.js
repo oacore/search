@@ -78,9 +78,10 @@ describe('T-008 @P0 install', () => {
     // floors of a real tree, lowered from > 2000 and > 2300 by AD-003 and
     // AD-004 (W0 removes 452 lock entries), to > 1700 by AD-010 and AD-011
     // (W1 replaces the lint, format and hook tools), then to > 1500 by
-    // AD-134 (npm 11 of Node 24) and to > 1600 by AD-058 (the Next 12 lock)
-    expect(dryRun.added).toBeGreaterThan(1500) // AD-134
-    expect(Object.keys(lock.packages).length).toBeGreaterThan(1600) // AD-058
+    // AD-134 (npm 11 of Node 24), to > 1600 by AD-058 (the Next 12 lock),
+    // then to > 1400 at W83 (cssnano 9 replaces cssnano 4's postcss 7 tree)
+    expect(dryRun.added).toBeGreaterThan(1400) // W83
+    expect(Object.keys(lock.packages).length).toBeGreaterThan(1400) // W83
 
     // the tree under APP_ROOT came from `npm ci` and the install did not
     // rewrite the lock

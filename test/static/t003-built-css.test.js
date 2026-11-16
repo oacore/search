@@ -97,11 +97,12 @@ describe('T-003 @P0 built CSS', () => {
     expect(a['count:@media (--']).toBe('0')
     expect(a['count:@media blocks with a custom media feature']).toBe('0')
     expect(a['count:@extend']).toBe('0')
-    // Q-066: the design button focus ring keeps `color-mod(` unresolved (9
-    // occurrences: the --button-focus-ring custom property and the
-    // contained/focus box-shadows), so it never renders
-    expect(a['count:color-mod(']).toBe('9')
-    expect(a['count:color-mod( in keyed declarations']).toBe('9')
+    // Q-066: the design button focus ring keeps `color-mod(` unresolved (7
+    // occurrences since W83, whose cssnano 9 drops two duplicate box-shadows:
+    // the --button-focus-ring custom property and the contained/focus
+    // box-shadows), so it never renders
+    expect(a['count:color-mod(']).toBe('7')
+    expect(a['count:color-mod( in keyed declarations']).toBe('7')
     const ringKey = Object.keys(a).find(
       (k) =>
         k.startsWith(

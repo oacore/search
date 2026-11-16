@@ -332,9 +332,9 @@ describe('T-001 @P0 lint parity', () => {
     }
   })
 
-  test('T-001 c1 @P0 installed tools are ESLint 10, stylelint 17 and Prettier 3, run on the tooling Node, with no @oacore config', () => {
+  test('T-001 c1 @P0 installed tools are ESLint 10, stylelint 18 and Prettier 3, run on the tooling Node, with no @oacore config', () => {
     expect(report.tools.eslint).toMatch(/^10\./)
-    expect(report.tools.stylelint).toMatch(/^17\./)
+    expect(report.tools.stylelint).toMatch(/^18\./)
     expect(report.tools.prettier).toMatch(/^3\./)
     expect(report.tools.parser).toMatch(/^typescript-eslint 8\./)
     expect(report.tools.orgConfigs).toEqual([])
