@@ -11,7 +11,31 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _utils = _interopRequireDefault(require("./utils"));
 var _jsxRuntime = require("react/jsx-runtime");
 var _excluded = ["children"];
-var MathMarkdown = function MathMarkdown(props) {
+// React 19 ignores defaultProps on function components: the same defaults are applied here (undefined props only).
+function applyDefaults(props, defaults) {
+  var out = Object.assign({}, props);
+  Object.keys(defaults).forEach(function (key) {
+    if (out[key] === undefined) out[key] = defaults[key];
+  });
+  return out;
+}
+var defaultProps = {
+  children: null,
+  displayMode: false,
+  output: 'htmlAndMathml',
+  leqno: false,
+  fleqn: false,
+  throwOnError: true,
+  errorColor: '#cc0000',
+  minRuleThickness: 0,
+  colorIsTextColor: false,
+  strict: 'warn',
+  trust: false,
+  enforceOutput: false,
+  breakLine: false
+};
+var MathMarkdown = function MathMarkdown(_props) {
+  var props = applyDefaults(_props, defaultProps);
   var children = props.children,
     rest = (0, _objectWithoutProperties2["default"])(props, _excluded);
   if (!rest.enforceOutput && rest.output === 'mathml' && !_utils["default"].hasMathMLSupport()) rest.output = 'htmlAndMathml';
@@ -40,19 +64,4 @@ MathMarkdown.propTypes = {
   output: _propTypes["default"].oneOf(['html', 'mathml', 'htmlAndMathml']),
   enforceOutput: _propTypes["default"].bool,
   breakLine: _propTypes["default"].bool
-};
-MathMarkdown.defaultProps = {
-  children: null,
-  displayMode: false,
-  output: 'htmlAndMathml',
-  leqno: false,
-  fleqn: false,
-  throwOnError: true,
-  errorColor: '#cc0000',
-  minRuleThickness: 0,
-  colorIsTextColor: false,
-  strict: 'warn',
-  trust: false,
-  enforceOutput: false,
-  breakLine: false
 };
