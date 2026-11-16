@@ -49,6 +49,15 @@ const PLAN_ALLOW = {
 const TOOLING_EXTRA = {
   'invalid:@types/react': 'test tooling (RTL 12.1.5, @types/react-dom peer)',
   'invalid:picomatch': 'test tooling (jest 30 fdir optional peer)',
+  // W83 (CSS tool chain): peers that --legacy-peer-deps leaves unplaced
+  'invalid:stylelint':
+    'lint tooling (stylelint-config-css-modules 4.6.0 and stylelint-scss peers stop at stylelint 17)',
+  'invalid:@csstools/css-parser-algorithms':
+    "test tooling (jsdom's @csstools/css-calc 2 and css-color-parser 3 peers want 3.x)",
+  'invalid:@csstools/css-tokenizer':
+    "test tooling (jsdom's @csstools/css-calc 2 and css-color-parser 3 peers want 3.x)",
+  'invalid:postcss-selector-parser':
+    'build tooling (postcss-extend-rule 4 -> postcss-nesting 10 -> @csstools/selector-specificity 2 peer wants 6.x; postcss-nesting keeps its own 6.1.6)',
 }
 
 const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8'))

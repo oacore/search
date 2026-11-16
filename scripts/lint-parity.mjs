@@ -57,7 +57,7 @@ export const SUPPRESSIONS = 'eslint-suppressions.json'
 // 41 T-001, 02 (the 38 `eslint-disable` comments): inline directives in the application files; 36 since CS-R18-4
 // and CS-R18-7 (W5.5)
 export const INLINE_DISABLES = 36 // AD-156
-export const EXPECTED_MAJORS = { eslint: 10, stylelint: 17, prettier: 3 }
+export const EXPECTED_MAJORS = { eslint: 10, stylelint: 18, prettier: 3 }
 export const HARNESS_BLOCK = 'search/test-harness'
 // the harness scope: the `search/test-harness` block (files: test/**/*.js, test/**/*.jsx, e2e/**/*.js, jest.config.js)
 export const isHarnessPath = (p) =>
