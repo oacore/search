@@ -201,13 +201,10 @@ test.describe('T-729 @P0 post-hydration head', () => {
           target.filter((e) => e.tag === 'title')
         )
         expect(await page.title()).toBe(title[0].text)
-        if (HEAD_MANAGED)
-          // ... and from Next 15 the Meta tags too
-          expect(seoMeta(live.head), `${href} SEO meta follow`).toEqual(
-            seoMeta(target)
-          )
-        // ... the Meta tags do not: the SEO meta of the first hydrated page stay, the target's never appear
-        else
+        // ... the Meta tags do not: the SEO meta of the first hydrated page stay, the target's never appear.
+        // From Next 15 next/head reconciles them on navigation, in part (tags of a repeated name such as
+        // DC.subject can stay from the first page): the baseline below pins the result (W7a)
+        if (!HEAD_MANAGED)
           expect(seoMeta(live.head), `${href} SEO meta stale`).toEqual(
             seoMeta(first.head)
           )

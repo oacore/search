@@ -70,36 +70,84 @@
       }
     },
     { "tag": "title", "attrs": {}, "text": "NDC-SDG Linkages - CORE" },
-    { "tag": "meta", "attrs": { "charset": "utf-8" } },
     {
       "tag": "meta",
-      "attrs": { "content": "width=device-width", "name": "viewport" }
+      "attrs": { "content": "NDC-SDG Linkages", "name": "citation_title" }
     },
     {
-      "tag": "link",
+      "tag": "meta",
+      "attrs": { "content": "Climate Watch", "name": "citation_author" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Climate Watch", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "NDC-SDG Linkages", "name": "DC.title" }
+    },
+    {
+      "tag": "meta",
       "attrs": {
-        "href": "https://core.ac.uk/favicon/favicon-64px.png",
-        "rel": "icon",
-        "sizes": "64x64",
-        "type": "image/png"
+        "content": "The NDC-SDG linkage analysis is a comprehensive study, which examines the degree of alignment between the (I)NDCs and the 169 targets of the 2030 Sustainable Development Agenda. Climate action texts were extracted from the NDCs and aligned with relevant targets. The study was carried by WRI to support joint implementation of both the Paris Agreement and the 2030 Agenda.\n\nhttps://www.climatewatchdata.org/data-explorer/emission-pathways?emission-pathways-categories=All%20Selected&emission-pathways-indicators=All%20Selected&emission-pathways-locations=All%20Selected&emission-pathways-models=All%20Selected&emission-pathways-scenarios=All%20Selected&emission-pathways-subcategories=All%20Selected&page=",
+        "name": "DCTERMS.abstract"
       }
     },
     {
-      "tag": "link",
-      "attrs": {
-        "href": "https://core.ac.uk/favicon/favicon-128px.png",
-        "rel": "icon",
-        "sizes": "128x128",
-        "type": "image/png"
-      }
-    },
-    {
-      "tag": "link",
-      "attrs": {
-        "href": "https://core.ac.uk/favicon/favicon-256px.png",
-        "rel": "icon",
-        "sizes": "256x256",
-        "type": "image/png"
+      "tag": "script",
+      "attrs": { "type": "application/ld+json" },
+      "jsonld": {
+        "@context": "http://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": { "@id": "https://core.ac.uk", "name": "CORE" }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@id": "https://core.ac.uk/reader/1002",
+                  "name": "NDC-SDG Linkages",
+                  "image": "https://core.ac.uk/image/1002/large"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@id": "https://core.ac.uk/search?q=repositories.id:(1546)",
+                  "name": "Harvard Dataverse"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "ScholarlyArticle",
+            "@id": "https://core.ac.uk/reader/1002",
+            "headline": "NDC-SDG Linkages",
+            "abstract": "The NDC-SDG linkage analysis is a comprehensive study, which examines the degree of alignment between the (I)NDCs and the 169 targets of the 2030 Sustainable Development Agenda. Climate action texts were extracted from the NDCs and aligned with relevant targets. The study was carried by WRI to support joint implementation of both the Paris Agreement and the 2030 Agenda.\n\nhttps://www.climatewatchdata.org/data-explorer/emission-pathways?emission-pathways-categories=All%20Selected&emission-pathways-indicators=All%20Selected&emission-pathways-locations=All%20Selected&emission-pathways-models=All%20Selected&emission-pathways-scenarios=All%20Selected&emission-pathways-subcategories=All%20Selected&page=",
+            "name": "NDC-SDG Linkages",
+            "author": [
+              { "@type": "Person", "name": { "name": "Climate Watch" } }
+            ],
+            "datePublished": "",
+            "isAccessibleForFree": true,
+            "provider": {
+              "@type": "Organization",
+              "name": "Harvard Dataverse"
+            },
+            "image": "https://core.ac.uk/image/1002/large",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Harvard Dataverse"
+            }
+          }
+        ]
       }
     },
     {

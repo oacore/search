@@ -4907,3 +4907,36 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+- id: AD-452
+  kind: product
+  test: T-603
+  key: "next-data@origin/content-type, next-data@proxy/content-type"
+  from: "application/json"
+  to: "application/json; charset=utf-8"
+  reason: "T-603 c1, W7a: Next 15.5 answers _next/data with `application/json; charset=utf-8` (the same JSON; the client and every browser read it alike). The route class now requests the path the client uses, /static/search/_next/data via the gateway and /_next/data at the origin (CS-N15-3). Visitor effect: none."
+  ref: [OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-453
+  kind: product
+  test: T-603
+  key: "public@origin.conditional/content-security-policy, public@proxy.conditional/content-security-policy, next-static@origin.conditional/content-security-policy, next-static@proxy.conditional/content-security-policy, map@origin.conditional/content-security-policy, map@proxy.conditional/content-security-policy, icons-svg@origin.conditional/content-security-policy, icons-svg@proxy.conditional/content-security-policy"
+  from: "<absent>"
+  to: "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com *.logr-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com *.logr-in.com"
+  reason: "T-603 c1, W7a: Next 15.5 sends the headers() of next.config.js on the 304 answers of static files too, so the conditional GETs carry the production CSP (T-603 c3 expects it). A 304 has no body: nothing a visitor sees changes."
+  ref: [R-083, S-6, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-454
+  kind: product
+  test: T-603
+  key: "308-gssp@origin/cache-control, 308-gssp@proxy/cache-control"
+  from: "<absent>"
+  to: "private, no-cache, no-store, max-age=0, must-revalidate"
+  reason: "T-603 c1, W7a: as with Next 12 to 13.5 (AD-120, withdrawn on 14.2), Next 15.5 sends Cache-Control on the getServerSideProps 308 of `/search/` with an empty query. The redirect and its Location are unchanged. Visitor effect: none."
+  ref: [OD-39, R-083, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'

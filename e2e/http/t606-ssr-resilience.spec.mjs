@@ -169,11 +169,10 @@ const LOG_ALLOW = [
 // empty lines); it is taken out once before LOG_ALLOW, so a second banner line, another order, another version or
 // host, or more text after the time is still red
 const NEXT_BANNER = [
-  // Next 15.5: three-space indent and an empty line before Starting (W7a)
+  // Next 15.5: three-space indent (W7a)
   /^ {3}▲ Next\.js 15\.5\.29$/,
   /^ {3}- Local: {8}http:\/\/127\.0\.0\.1:\d+$/,
   /^ {3}- Network: {6}http:\/\/127\.0\.0\.1:\d+$/,
-  /^$/,
   /^ ✓ Starting\.\.\.$/,
   /^ ✓ Ready in [\d.]+m?s$/,
 ]
