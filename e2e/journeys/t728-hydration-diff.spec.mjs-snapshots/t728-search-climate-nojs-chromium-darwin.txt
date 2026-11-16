@@ -1,4 +1,6 @@
 <body>
+  <link as="image" href="https://api.core.ac.uk/data-providers/86/logo" rel="preload">
+  <link as="image" href="/static/search/_next/static/images/CoreB-ed256ea8a1c9661ee748e8203dc4296b.png" rel="preload">
   <div id="__next">
     <div class="styles_container">
       <header class="styles-container-2d0MF styles-container-1KefU styles_header" id="header">

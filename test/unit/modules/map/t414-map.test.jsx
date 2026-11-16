@@ -124,8 +124,8 @@ describe('T-414 @P1 map', () => {
       expect(mapSpy).not.toHaveBeenCalled()
       expect(document.getElementById('map')).toBeNull()
       expect(document.querySelector('.leaflet-container')).toBeNull()
-      // the error leaves React: both reports of jsdom and both of React
-      expect(errorSpy.mock.calls.length).toBeGreaterThan(0)
+      // the error leaves React through act only: React 19 logs nothing there
+      expect(errorSpy.mock.calls.length).toBe(0)
     })
 
     test('T-414 c1 @P1 Q-058 c1 the throw happens for any empty list, also when `locations` is an empty array of a real page', () => {
@@ -335,7 +335,8 @@ describe('T-414 @P1 map', () => {
         expect(view.container.querySelector('#map')).not.toBeNull()
       )
       expect(wrapper.contains(view.container.querySelector('#map'))).toBe(true)
-      expect(singles(view.container)).toHaveLength(1)
+      // React 19 runs the marker effect a little after the map shows
+      await waitFor(() => expect(singles(view.container)).toHaveLength(1))
     })
   })
 

@@ -240,6 +240,49 @@ export const DEV_WARNING_MAP = [
       text: /^Warning: MathMarkdown: Support for defaultProps will be removed from function components in a future major release\. Use JavaScript default parameters instead\./,
     },
   },
+  // ---------- React 19 (W7b): no "Warning: " prefix and no component stack in the console text ----------
+  {
+    // React 19 reports every attribute mismatch of one hydration as this single line (React 17/18: one
+    // "Prop `x` did not match" per attribute, q008-search-header-class and q016-t-odd-href-hydration above)
+    id: 'q008-search-header-class-r19',
+    q: 'Q-008',
+    devOnly: true,
+    match: {
+      kind: 'console',
+      text: /^A tree hydrated but some attributes of the server rendered HTML didn't match the client properties\./,
+      route: /^static-search/,
+    },
+  },
+  {
+    id: 'q016-t-odd-href-hydration-r19',
+    q: 'Q-016',
+    devOnly: true,
+    match: {
+      kind: 'console',
+      text: /^A tree hydrated but some attributes of the server rendered HTML didn't match the client properties\./,
+      route: /^works-1001-t-odd$/,
+    },
+  },
+  {
+    id: 'unknown-dom-prop-fulltext-thumbnail-r19',
+    q: 'Q-102',
+    devOnly: true,
+    match: {
+      kind: 'console',
+      text: /^React does not recognize the `memberType` prop on a DOM element\./,
+    },
+  },
+  {
+    // @tippyjs/react 4.2.6 (design Popover and Tooltip) reads element.ref; React 19 development warns
+    // once, production prints nothing (CS-R19-5)
+    id: 'r19-tippy-element-ref',
+    issue: 'P0-12-12',
+    devOnly: true,
+    match: {
+      kind: 'console',
+      text: /^Accessing element\.ref was removed in React 19\. ref is now a regular prop\./,
+    },
+  },
   {
     id: 'q097-katex',
     q: 'Q-101',

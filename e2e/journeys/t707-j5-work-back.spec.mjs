@@ -13,7 +13,7 @@
 //   - Back reloads the search page (a new document): same URL, results, sort label; history log, history.length
 //     and scroll position are provisional baselines (= B0 at 2.5);
 //   - the header search of a work page pushes the raw string `/search?q=<term>` (Q-012, R-051).
-// The search page prints the design's KaTeX console.error three times per hard load on React 18 (AD-167) (`\sb2` in
+// The search page prints the design's KaTeX console.error twice per hard load on React 19 (three times on 18, AD-167) (`\sb2` in
 // one abstract, T-741 pin katex-convert): the journey declares the guard's console check expected and asserts
 // exactly those lines.
 import { test, expect } from '../lib/P0-14/fixtures.mjs'
@@ -190,7 +190,7 @@ test.describe('T-707 @P0 J5 search -> work -> Back', () => {
     await expect(page.getByText(HITS)).toBeVisible()
 
     // the KaTeX lines: three per hard load of the search page on React 18 (AD-167), none on the work page
-    expectKatexOnly(guardLog, 3, 2) // AD-167
+    expectKatexOnly(guardLog, 2, 2) // React 19 renders the abstract twice per load (18: three times, AD-167)
 
     // provisional baselines (B0 at 2.5): history log, history.length and scroll after each step, the app requests
     const buildId = await page.evaluate(() => window.__NEXT_DATA__.buildId)

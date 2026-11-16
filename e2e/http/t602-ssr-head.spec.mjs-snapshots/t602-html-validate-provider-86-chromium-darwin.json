@@ -168,6 +168,12 @@
     "message": "Prefer to use the native <select> element"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-672884869",
@@ -198,6 +204,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
@@ -222,6 +234,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
@@ -244,6 +262,12 @@
     "severity": 2,
     "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-672884869 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -312,6 +336,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693293",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-750693293",
@@ -340,6 +370,12 @@
     "severity": 2,
     "selector": "#work-search-output-750693293 > dl > div:nth-child(1) > dd > ol > li",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693293 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -408,6 +444,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-701292755",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-701292755",
@@ -436,6 +478,12 @@
     "severity": 2,
     "selector": "#work-search-output-701292755 > dl > div:nth-child(1) > dd > ol > li",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-701292755 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -504,6 +552,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-648213547",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-648213547",
@@ -532,6 +586,12 @@
     "severity": 2,
     "selector": "#work-search-output-648213547 > dl > div:nth-child(1) > dd > ol > li",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-648213547 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -600,6 +660,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-753685737",
@@ -630,6 +696,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
@@ -654,6 +726,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
@@ -676,6 +754,12 @@
     "severity": 2,
     "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685737 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -744,6 +828,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-753685748",
@@ -774,6 +864,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
@@ -798,6 +894,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
@@ -820,6 +922,12 @@
     "severity": 2,
     "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685748 > dl > div:nth-child(1) > dd > ol > li:nth-child(3)",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -888,6 +996,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-710737070",
@@ -918,6 +1032,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
@@ -940,6 +1060,12 @@
     "severity": 2,
     "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -972,6 +1098,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(4)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(4)",
@@ -994,6 +1126,12 @@
     "severity": 2,
     "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(5)",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(5)",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -1020,6 +1158,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(6)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(6)",
@@ -1042,6 +1186,12 @@
     "severity": 2,
     "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(7)",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(7)",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -1068,6 +1218,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(8)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(8)",
@@ -1092,6 +1248,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(9)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(9)",
@@ -1114,6 +1276,12 @@
     "severity": 2,
     "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(10)",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-710737070 > dl > div:nth-child(1) > dd > ol > li:nth-child(10)",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -1182,6 +1350,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685736",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-753685736",
@@ -1210,6 +1384,12 @@
     "severity": 2,
     "selector": "#work-search-output-753685736 > dl > div:nth-child(1) > dd > ol > li",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-753685736 > dl > div:nth-child(1) > dd > ol > li",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -1276,6 +1456,12 @@
     "severity": 2,
     "selector": "#work-search-output-753685736 > div:nth-child(4)",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693368",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -1350,6 +1536,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-750693466",
@@ -1380,6 +1572,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(1)",
@@ -1402,6 +1600,12 @@
     "severity": 2,
     "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(2)",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -1434,6 +1638,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(4)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(4)",
@@ -1456,6 +1666,12 @@
     "severity": 2,
     "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(5)",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(5)",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",
@@ -1482,6 +1698,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(6)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(6)",
@@ -1506,6 +1728,12 @@
     "message": "Attribute \"itemProp\" should be lowercase"
   },
   {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(7)",
+    "message": "Attribute \"itemScope\" should be lowercase"
+  },
+  {
     "ruleId": "attribute-boolean-style",
     "severity": 2,
     "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(7)",
@@ -1528,6 +1756,12 @@
     "severity": 2,
     "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(8)",
     "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#work-search-output-750693466 > dl > div:nth-child(1) > dd > ol > li:nth-child(8)",
+    "message": "Attribute \"itemScope\" should be lowercase"
   },
   {
     "ruleId": "attribute-boolean-style",

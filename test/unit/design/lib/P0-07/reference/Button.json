@@ -115,7 +115,7 @@
       "dom": [
         "<div>",
         "  <form action=\"/search/\" aria-label=\"button form\">",
-        "    <input name=\"q\" required=\"\" aria-label=\"query\">",
+        "    <input required=\"\" aria-label=\"query\" name=\"q\">",
         "    <button class=\"button-button-3fr3r button-contained-pmIp-\">",
         "      \"Search\""
       ],
@@ -140,6 +140,7 @@
               "f": "0:div>0:form>0:input"
             },
             "Space": {
+              "m": ["attr 0:div>0:form>0:input name=\"q\" x2"],
               "f": "0:div>0:form>0:input",
               "v": [
                 "0:div>0:form:valid",

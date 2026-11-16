@@ -35,7 +35,31 @@ var styles = {
   "labelRight": "histoslider-label-right-1uA2E",
   "infoBox": "histoslider-info-box-TwKDC"
 };
-var Histoslider = function Histoslider(_ref) {
+// React 19 ignores defaultProps on function components: the same defaults are applied here (undefined props only).
+function applyDefaults(props, defaults) {
+  var out = Object.assign({}, props);
+  Object.keys(defaults).forEach(function (key) {
+    if (out[key] === undefined) out[key] = defaults[key];
+  });
+  return out;
+}
+var defaultProps = {
+  selectedBarColor: '#EF8237',
+  rangeColor: '#b75400',
+  unselectedColor: '#E0E0E0',
+  showOnDrag: false,
+  width: 300,
+  height: 200,
+  barBorderRadius: 2,
+  barPadding: 2,
+  padding: 20,
+  sliderHeight: 20,
+  handleLabelFormat: '0.5P',
+  formatLabelFunction: undefined,
+  showLabels: false
+};
+var Histoslider = function Histoslider(_props) {
+  var _ref = applyDefaults(_props, defaultProps);
   var data = _ref.data,
     width = _ref.width,
     height = _ref.height,
@@ -137,21 +161,6 @@ Histoslider.propTypes = {
   formatLabelFunction: _propTypes["default"].func,
   disableHistogram: _propTypes["default"].bool,
   showLabels: _propTypes["default"].bool
-};
-Histoslider.defaultProps = {
-  selectedBarColor: '#EF8237',
-  rangeColor: '#b75400',
-  unselectedColor: '#E0E0E0',
-  showOnDrag: false,
-  width: 300,
-  height: 200,
-  barBorderRadius: 2,
-  barPadding: 2,
-  padding: 20,
-  sliderHeight: 20,
-  handleLabelFormat: '0.5P',
-  formatLabelFunction: undefined,
-  showLabels: false
 };
 var _default = Histoslider;
 exports["default"] = _default;

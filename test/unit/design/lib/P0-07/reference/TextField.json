@@ -14,7 +14,7 @@
       "dom": [
         "<div>",
         "  <div class=\"styles-group-NqOA7 normal\" id=\"du-text\">",
-        "    <input class=\"styles-control-12Pze\" id=\"du-text-control\" aria-invalid=\"false\" aria-describedby=\"du-text-message\" placeholder=\"e.g. John Doe\" name=\"name\" value=\"\">",
+        "    <input class=\"styles-control-12Pze\" id=\"du-text-control\" aria-invalid=\"false\" aria-describedby=\"du-text-message\" placeholder=\"e.g. John Doe\" name=\"name\">",
         "    <span id=\"du-text-helper\" class=\"text-field-helper-2vqOg\">",
         "    <label class=\"styles-label-3Zc32\" for=\"du-text-control\">",
         "      \"Full name\""
@@ -34,7 +34,7 @@
               "f": "0:div>0:div>0:input"
             },
             "Space": {
-              "m": ["attr 0:div>0:div>0:input value=\"\""],
+              "m": ["attr 0:div>0:div>0:input name=\"name\" x2"],
               "f": "0:div>0:div>0:input"
             }
           },
@@ -43,7 +43,7 @@
             "dblclick": {
               "m": [
                 "attr 0:div>0:div>0:input class=\"styles-control-12Pze text-field-touched-2sKii\"",
-                "attr 0:div>0:div>0:input value=\"\"",
+                "attr 0:div>0:div>0:input name=\"name\" x2",
                 "attr 0:div>0:div>2:label class=\"styles-label-3Zc32\"",
                 "attr 0:div>0:div class=\"styles-group-NqOA7 normal text-field-touched-2sKii\""
               ],
@@ -57,7 +57,7 @@
       "dom": [
         "<div>",
         "  <div class=\"styles-group-NqOA7 normal\" id=\"du-password\">",
-        "    <input type=\"password\" class=\"styles-control-12Pze\" id=\"du-password-control\" aria-invalid=\"false\" aria-describedby=\"du-password-message\" placeholder=\"Something secure\" name=\"password\" minlength=\"8\" value=\"\">",
+        "    <input class=\"styles-control-12Pze\" id=\"du-password-control\" aria-invalid=\"false\" aria-describedby=\"du-password-message\" placeholder=\"Something secure\" minlength=\"8\" type=\"password\" name=\"password\">",
         "    <span id=\"du-password-helper\" class=\"text-field-helper-2vqOg\">",
         "      \"Should be at least 8 characters length.\"",
         "    <label class=\"styles-label-3Zc32\" for=\"du-password-control\">",
@@ -78,7 +78,11 @@
               "f": "0:div>0:div>0:input"
             },
             "Space": {
-              "m": ["attr 0:div>0:div>0:input value=\"\""],
+              "m": [
+                "attr 0:div>0:div>0:input name=\"password\"",
+                "attr 0:div>0:div>0:input type=\"password\"",
+                "attr 0:div>0:div>0:input name=\"password\""
+              ],
               "f": "0:div>0:div>0:input"
             }
           },
@@ -87,7 +91,9 @@
             "dblclick": {
               "m": [
                 "attr 0:div>0:div>0:input class=\"styles-control-12Pze text-field-touched-2sKii\"",
-                "attr 0:div>0:div>0:input value=\"\"",
+                "attr 0:div>0:div>0:input name=\"password\"",
+                "attr 0:div>0:div>0:input type=\"password\"",
+                "attr 0:div>0:div>0:input name=\"password\"",
                 "attr 0:div>0:div>2:label class=\"styles-label-3Zc32\"",
                 "attr 0:div>0:div class=\"styles-group-NqOA7 normal text-field-touched-2sKii\""
               ],
@@ -101,7 +107,7 @@
       "dom": [
         "<div>",
         "  <div class=\"styles-group-NqOA7 text-field-pure-mkoEg text-field-small-3whyF\" id=\"du-pure\">",
-        "    <input class=\"styles-control-12Pze\" id=\"du-pure-control\" aria-invalid=\"false\" aria-describedby=\"du-pure-message\" placeholder=\"Name\" name=\"name\" value=\"\">",
+        "    <input class=\"styles-control-12Pze\" id=\"du-pure-control\" aria-invalid=\"false\" aria-describedby=\"du-pure-message\" placeholder=\"Name\" name=\"name\">",
         "    <span id=\"du-pure-helper\" class=\"text-field-helper-2vqOg\">",
         "    <label class=\"styles-label-3Zc32\" for=\"du-pure-control\">",
         "      \"Name\""
@@ -121,7 +127,7 @@
               "f": "0:div>0:div>0:input"
             },
             "Space": {
-              "m": ["attr 0:div>0:div>0:input value=\"\""],
+              "m": ["attr 0:div>0:div>0:input name=\"name\" x2"],
               "f": "0:div>0:div>0:input"
             }
           },
@@ -130,7 +136,7 @@
             "dblclick": {
               "m": [
                 "attr 0:div>0:div>0:input class=\"styles-control-12Pze text-field-touched-2sKii\"",
-                "attr 0:div>0:div>0:input value=\"\"",
+                "attr 0:div>0:div>0:input name=\"name\" x2",
                 "attr 0:div>0:div>2:label class=\"styles-label-3Zc32\"",
                 "attr 0:div>0:div class=\"styles-group-NqOA7 text-field-pure-mkoEg text-field-small-3whyF text-field-touched-2sKii\""
               ],
@@ -144,7 +150,7 @@
       "dom": [
         "<div>",
         "  <div class=\"styles-group-NqOA7 focus text-field-large-245JZ\" id=\"du-focus\">",
-        "    <input class=\"styles-control-12Pze styles-focus-29vz3\" id=\"du-focus-control\" aria-invalid=\"false\" aria-describedby=\"du-focus-message\" name=\"name\" value=\"\">",
+        "    <input class=\"styles-control-12Pze styles-focus-29vz3\" id=\"du-focus-control\" aria-invalid=\"false\" aria-describedby=\"du-focus-message\" name=\"name\">",
         "    <span id=\"du-focus-helper\" class=\"text-field-helper-2vqOg\">",
         "    <label class=\"styles-label-3Zc32\" for=\"du-focus-control\">",
         "      \"Name\""
@@ -164,7 +170,7 @@
               "f": "0:div>0:div>0:input"
             },
             "Space": {
-              "m": ["attr 0:div>0:div>0:input value=\"\""],
+              "m": ["attr 0:div>0:div>0:input name=\"name\" x2"],
               "f": "0:div>0:div>0:input"
             }
           },
@@ -173,7 +179,7 @@
             "dblclick": {
               "m": [
                 "attr 0:div>0:div>0:input class=\"styles-control-12Pze styles-focus-29vz3 text-field-touched-2sKii\"",
-                "attr 0:div>0:div>0:input value=\"\"",
+                "attr 0:div>0:div>0:input name=\"name\" x2",
                 "attr 0:div>0:div>2:label class=\"styles-label-3Zc32\"",
                 "attr 0:div>0:div class=\"styles-group-NqOA7 focus text-field-large-245JZ text-field-touched-2sKii\""
               ],
@@ -190,7 +196,7 @@
         "    <span class=\"styles-addon-fHX-H styles-append-2Bs2q\">",
         "      <svg class=\"styles-spinner-3zm_K styles-indeterminate-24wOy\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">",
         "        <circle stroke-width=\"2\" stroke-linecap=\"butt\" cx=\"12\" cy=\"12\" r=\"9\">",
-        "    <input class=\"styles-control-12Pze\" id=\"du-progress-control\" aria-invalid=\"false\" aria-describedby=\"du-progress-message\" name=\"user-name\" value=\"john\">",
+        "    <input class=\"styles-control-12Pze\" id=\"du-progress-control\" aria-invalid=\"false\" aria-describedby=\"du-progress-message\" value=\"john\" name=\"user-name\">",
         "    <span id=\"du-progress-helper\" class=\"text-field-helper-2vqOg\">",
         "      \"Checking username availability\"",
         "    <label class=\"styles-label-3Zc32\" for=\"du-progress-control\">",
@@ -220,7 +226,7 @@
               "f": "0:div>0:div>1:input"
             },
             "Space": {
-              "m": ["attr 0:div>0:div>1:input value=\"john\""],
+              "m": ["attr 0:div>0:div>1:input name=\"user-name\" x2"],
               "f": "0:div>0:div>1:input"
             }
           },
@@ -231,7 +237,7 @@
                 "attr 0:div>0:div>0:span>0:svg class=\"styles-spinner-3zm_K styles-indeterminate-24wOy\"",
                 "attr 0:div>0:div>0:span class=\"styles-addon-fHX-H styles-append-2Bs2q\"",
                 "attr 0:div>0:div>1:input class=\"styles-control-12Pze text-field-touched-2sKii\"",
-                "attr 0:div>0:div>1:input value=\"john\"",
+                "attr 0:div>0:div>1:input name=\"user-name\" x2",
                 "attr 0:div>0:div>3:label class=\"styles-label-3Zc32\"",
                 "attr 0:div>0:div class=\"styles-group-NqOA7 progress normal text-field-touched-2sKii\""
               ],
@@ -248,7 +254,7 @@
         "    <span class=\"styles-addon-fHX-H styles-append-2Bs2q\">",
         "      <svg class=\"icon-icon-35iz-\" role=\"img\" width=\"24\" height=\"24\" aria-hidden=\"true\">",
         "        <use href=\"/static/search/icons.svg#check\">",
-        "    <input class=\"styles-control-12Pze styles-focus-29vz3\" id=\"du-success-control\" aria-invalid=\"false\" aria-describedby=\"du-success-message\" name=\"user-name\" value=\"john\">",
+        "    <input class=\"styles-control-12Pze styles-focus-29vz3\" id=\"du-success-control\" aria-invalid=\"false\" aria-describedby=\"du-success-message\" value=\"john\" name=\"user-name\">",
         "    <span id=\"du-success-helper\" class=\"text-field-helper-2vqOg\">",
         "      \"Nice to meet you john!\"",
         "    <label class=\"styles-label-3Zc32\" for=\"du-success-control\">",
@@ -278,7 +284,7 @@
               "f": "0:div>0:div>1:input"
             },
             "Space": {
-              "m": ["attr 0:div>0:div>1:input value=\"john\""],
+              "m": ["attr 0:div>0:div>1:input name=\"user-name\" x2"],
               "f": "0:div>0:div>1:input"
             }
           },
@@ -289,7 +295,7 @@
                 "attr 0:div>0:div>0:span>0:svg class=\"icon-icon-35iz-\"",
                 "attr 0:div>0:div>0:span class=\"styles-addon-fHX-H styles-append-2Bs2q\"",
                 "attr 0:div>0:div>1:input class=\"styles-control-12Pze styles-focus-29vz3 text-field-touched-2sKii\"",
-                "attr 0:div>0:div>1:input value=\"john\"",
+                "attr 0:div>0:div>1:input name=\"user-name\" x2",
                 "attr 0:div>0:div>3:label class=\"styles-label-3Zc32\"",
                 "attr 0:div>0:div class=\"styles-group-NqOA7 text-field-success-1OCQF normal text-field-touched-2sKii\""
               ],
@@ -306,7 +312,7 @@
         "    <span class=\"styles-addon-fHX-H styles-append-2Bs2q\">",
         "      <svg class=\"icon-icon-35iz-\" role=\"img\" width=\"24\" height=\"24\" aria-hidden=\"true\">",
         "        <use href=\"/static/search/icons.svg#alert-circle-outline\">",
-        "    <input class=\"styles-control-12Pze styles-focus-29vz3\" id=\"du-error-control\" aria-invalid=\"true\" aria-describedby=\"du-error-message\" name=\"user-name\" value=\"\">",
+        "    <input class=\"styles-control-12Pze styles-focus-29vz3\" id=\"du-error-control\" aria-invalid=\"true\" aria-describedby=\"du-error-message\" name=\"user-name\">",
         "    <span id=\"du-error-helper\" class=\"text-field-helper-2vqOg\">",
         "      \"User name is required\"",
         "    <label class=\"styles-label-3Zc32\" for=\"du-error-control\">",
@@ -336,7 +342,7 @@
               "f": "0:div>0:div>1:input"
             },
             "Space": {
-              "m": ["attr 0:div>0:div>1:input value=\"\""],
+              "m": ["attr 0:div>0:div>1:input name=\"user-name\" x2"],
               "f": "0:div>0:div>1:input"
             }
           },
@@ -347,7 +353,7 @@
                 "attr 0:div>0:div>0:span>0:svg class=\"icon-icon-35iz-\"",
                 "attr 0:div>0:div>0:span class=\"styles-addon-fHX-H styles-append-2Bs2q\"",
                 "attr 0:div>0:div>1:input class=\"styles-control-12Pze styles-focus-29vz3 text-field-touched-2sKii\"",
-                "attr 0:div>0:div>1:input value=\"\"",
+                "attr 0:div>0:div>1:input name=\"user-name\" x2",
                 "attr 0:div>0:div>3:label class=\"styles-label-3Zc32\"",
                 "attr 0:div>0:div class=\"styles-group-NqOA7 text-field-error-1Ow1I normal text-field-touched-2sKii\""
               ],
@@ -364,7 +370,7 @@
         "    <span class=\"styles-addon-fHX-H styles-append-2Bs2q\">",
         "      <svg class=\"icon-icon-35iz-\" role=\"img\" width=\"24\" height=\"24\" aria-hidden=\"true\">",
         "        <use href=\"/static/search/icons.svg#pencil\">",
-        "    <input class=\"styles-control-12Pze\" id=\"du-pencil-control\" aria-invalid=\"false\" aria-describedby=\"du-pencil-message\" name=\"email\" disabled=\"\" value=\"x@localhost\">",
+        "    <input class=\"styles-control-12Pze\" id=\"du-pencil-control\" aria-invalid=\"false\" aria-describedby=\"du-pencil-message\" disabled=\"\" value=\"x@localhost\" name=\"email\">",
         "    <span id=\"du-pencil-helper\" class=\"text-field-helper-2vqOg\">",
         "    <label class=\"styles-label-3Zc32\" for=\"du-pencil-control\">",
         "      \"E-mail\""

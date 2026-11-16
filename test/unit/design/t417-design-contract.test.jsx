@@ -609,7 +609,7 @@ describe(`T-417 @P0 design contract (IMPL=${IMPL})`, () => {
       expect(JSON.parse(ssr)).toBe('')
     })
 
-    test('T-417 c1 @P0 row 8 Q-072 c1 c2: Card passes tag to its root; the HTML parser hoists the inner anchors (0 inside without JS), and React 18 hydration reports a hydration error and renders the card on the client', async () => {
+    test('T-417 c1 @P0 row 8 Q-072 c1 c2: Card passes tag to its root; the HTML parser hoists the inner anchors (0 inside without JS), and React 19 hydration reports a hydration error and renders the card on the client', async () => {
       const card = (
         <I.Card tag="a" href="/download/1.pdf" variant="outlined">
           <I.Button tag="a" href="/reader/1" variant="contained">
@@ -629,27 +629,35 @@ describe(`T-417 @P0 design contract (IMPL=${IMPL})`, () => {
       expect(box.querySelectorAll('a')).toHaveLength(3)
       expect(inner()).toBe(0)
       const logs = expectConsole()
+      // React 19 reports the recoverable hydration error as a window `error`
+      // event (no reportError in jsdom; React 18 logged it instead)
+      const reported = []
+      const onError = (event) => {
+        reported.push(String(event.error && event.error.message))
+        event.preventDefault()
+      }
+      window.addEventListener('error', onError)
       let root
       try {
         await act(async () => {
           root = hydrateRoot(box, card)
         })
       } finally {
+        window.removeEventListener('error', onError)
         logs.restore()
       }
       expect(inner()).toBe(2)
       expect(box.children).toHaveLength(1)
-      // development builds of React 18 log these 7 lines (AD-170);
-      // production builds print no warning and report the failed hydration
-      // as the minified React errors #418 and #423 (T-802 du-04-tag-a, TC-5)
+      expect(reported).toHaveLength(1)
+      expect(reported[0]).toMatch(
+        /^Hydration failed because the server rendered HTML didn't match the client/
+      )
+      // development builds of React 19 log these lines (React 18: 7 lines,
+      // AD-170); production builds print no warning and report the failed
+      // hydration as a minified React error (T-802 du-04-tag-a, TC-5)
       expect(logs.lines).toEqual([
-        'error Warning: Expected server HTML to contain a matching <a> in <a>.',
-        'error Error: Uncaught [Error: Hydration failed because the initial UI does not match what was rendered on the server.]',
-        'error Warning: An error occurred during hydration. The server HTML was replaced with client content in <div>.',
-        'error Warning: validateDOMNesting(...): <a> cannot appear as a descendant of <a>.',
-        'error Error: Hydration failed because the initial UI does not match what was rendered on the server.',
-        'error Error: Hydration failed because the initial UI does not match what was rendered on the server.',
-        'error Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.',
+        'error In HTML, <a> cannot be a descendant of <a>.',
+        'error <a> cannot contain a nested <a>.',
       ])
       act(() => root.unmount())
       // a client render nests them directly
@@ -901,37 +909,66 @@ describe(`T-417 @P0 design contract (IMPL=${IMPL})`, () => {
       ])
     })
 
-    test('T-417 c1 @P0 row 17 R-012 R-059: Histoslider and MathMarkdown defaultProps', () => {
-      expect(I.Histoslider.defaultProps).toEqual({
-        selectedBarColor: '#EF8237',
-        rangeColor: '#b75400',
-        unselectedColor: '#E0E0E0',
-        showOnDrag: false,
-        width: 300,
-        height: 200,
-        barBorderRadius: 2,
-        barPadding: 2,
-        padding: 20,
-        sliderHeight: 20,
-        handleLabelFormat: '0.5P',
-        formatLabelFunction: undefined,
-        showLabels: false,
-      })
-      expect(I.MathMarkdown.defaultProps).toEqual({
-        children: null,
-        displayMode: false,
-        output: 'htmlAndMathml',
-        leqno: false,
-        fleqn: false,
-        throwOnError: true,
-        errorColor: '#cc0000',
-        minRuleThickness: 0,
-        colorIsTextColor: false,
-        strict: 'warn',
-        trust: false,
-        enforceOutput: false,
-        breakLine: false,
-      })
+    test('T-417 c1 @P0 row 17 R-012 R-059: Histoslider and MathMarkdown defaults', () => {
+      // React 19 ignores defaultProps on function components: the design
+      // applies the same values inside each component (CS-R19-2, CS-R19-3), so
+      // a bare element renders the DOM of one that passes them all
+      const html = (Component, props) => {
+        const view = render(React.createElement(Component, props))
+        const out = view.container.innerHTML
+        view.unmount()
+        return out
+      }
+      const same = (Component, defaults, bare) => {
+        expect(Component.defaultProps).toBeUndefined()
+        expect(html(Component, bare)).toBe(
+          html(Component, { ...defaults, ...bare })
+        )
+      }
+      same(
+        I.Histoslider,
+        {
+          selectedBarColor: '#EF8237',
+          rangeColor: '#b75400',
+          unselectedColor: '#E0E0E0',
+          showOnDrag: false,
+          width: 300,
+          height: 200,
+          barBorderRadius: 2,
+          barPadding: 2,
+          padding: 20,
+          sliderHeight: 20,
+          handleLabelFormat: '0.5P',
+          formatLabelFunction: undefined,
+          showLabels: false,
+        },
+        {
+          data: [
+            { x0: 2010, x: 2011, y: 3 },
+            { x0: 2011, x: 2012, y: 5 },
+          ],
+          selectFunc: () => {},
+        }
+      )
+      same(
+        I.MathMarkdown,
+        {
+          children: null,
+          displayMode: false,
+          output: 'htmlAndMathml',
+          leqno: false,
+          fleqn: false,
+          throwOnError: true,
+          errorColor: '#cc0000',
+          minRuleThickness: 0,
+          colorIsTextColor: false,
+          strict: 'warn',
+          trust: false,
+          enforceOutput: false,
+          breakLine: false,
+        },
+        { children: 'A $x^2$ and $$y$$' }
+      )
     })
 
     test('T-417 c1 @P0 row 18 Q-097: MathMarkdown renders KaTeX only, **x** stays literal', async () => {

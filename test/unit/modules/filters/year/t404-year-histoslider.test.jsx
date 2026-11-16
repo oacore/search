@@ -109,8 +109,11 @@ const appProps = () => ({
 })
 
 describe('T-404 @P0 year filter and Histoslider', () => {
-  test('T-404 c1 @P0 height 200 and sliderHeight 20 come from defaultProps', () => {
-    expect(Histoslider.defaultProps).toEqual({
+  test('T-404 c1 @P0 height 200 and sliderHeight 20 come from the defaults', () => {
+    // React 19 ignores defaultProps on function components: the design applies
+    // the same defaults inside Histoslider (CS-R19-2). A bare element renders
+    // the DOM of one that passes every default explicitly.
+    const DEFAULTS = {
       selectedBarColor: '#EF8237',
       rangeColor: '#b75400',
       unselectedColor: '#E0E0E0',
@@ -124,7 +127,19 @@ describe('T-404 @P0 year filter and Histoslider', () => {
       handleLabelFormat: '0.5P',
       formatLabelFunction: undefined,
       showLabels: false,
-    })
+    }
+    const bare = { data: appProps().data, selectFunc: () => {} }
+    const html = (props) => {
+      const view = render(React.createElement(Histoslider, props))
+      const out = view.container.innerHTML
+      view.unmount()
+      return out
+    }
+    expect(Histoslider.defaultProps).toBeUndefined()
+    expect(html(bare)).toBe(html({ ...DEFAULTS, ...bare }))
+    // height 200 - 2 x padding 20 - sliderHeight 20 = the histogram's 140
+    expect(html(bare)).toContain('<svg width="260" height="140"')
+    expect(html(bare)).toContain('style="width: 300px; padding: 20px;"')
   })
 
   test('T-404 c1 @P0 the year box: histogram 258 x 140, slider 258 x 20, no NaN', async () => {
@@ -366,33 +381,19 @@ describe('T-404 @P0 year filter and Histoslider', () => {
     ])
   })
 
-  test('T-404 c3 @P0 classic createElement and automatic jsx() elements both carry the defaults', () => {
+  test('T-404 c3 @P0 classic createElement and automatic jsx() elements carry only the given props', () => {
     const props = appProps()
     const classic = React.createElement(Histoslider, props)
     const automatic = jsx(Histoslider, props)
+    // React 19: elements carry only the given props; the defaults are applied
+    // inside the component (CS-R19-2), so both render the same DOM (next test)
     for (const element of [classic, automatic]) {
       expect(element.type).toBe(Histoslider)
-      expect(element.props).toMatchObject({
-        height: 200,
-        sliderHeight: 20,
-        barBorderRadius: 2,
-        barPadding: 2,
-        selectedBarColor: '#EF8237',
-        unselectedColor: '#E0E0E0',
-        rangeColor: '#b75400',
-        handleLabelFormat: '0.5P',
-        showOnDrag: false,
-        // the app's own props win over the defaults
-        width: 298,
-        padding: 20,
-        showLabels: true,
-      })
+      expect(element.props).toEqual(props)
     }
-    // the bare element, as the minimal call sites would write it
     const bare = { data: props.data, selectFunc: props.selectFunc }
-    expect(React.createElement(Histoslider, bare).props.height).toBe(200)
-    expect(jsx(Histoslider, bare).props.height).toBe(200)
-    expect(jsx(Histoslider, bare).props.width).toBe(300)
+    expect(React.createElement(Histoslider, bare).props).toEqual(bare)
+    expect(jsx(Histoslider, bare).props).toEqual(bare)
   })
 
   test('T-404 c3 @P0 classic and automatic runtime render the same DOM, the one the year box draws', async () => {

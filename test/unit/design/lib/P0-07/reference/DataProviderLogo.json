@@ -15,11 +15,11 @@
         "<div>",
         "  <div>",
         "    <div class=\"data-provider-sm-6ZNTy data-provider-circle-1YXHk\">",
-        "      <img src=\"/logo-1.png\" alt=\"Logo sm\" class=\"data-provider-image-2JFrU\">",
+        "      <img alt=\"Logo sm\" class=\"data-provider-image-2JFrU\" src=\"/logo-1.png\">",
         "    <div class=\"data-provider-md-1r-YM data-provider-circle-1YXHk\">",
-        "      <img src=\"/logo-1.png\" alt=\"Logo md\" class=\"data-provider-image-2JFrU\">",
+        "      <img alt=\"Logo md\" class=\"data-provider-image-2JFrU\" src=\"/logo-1.png\">",
         "    <div class=\"data-provider-lg-1dRNT data-provider-circle-1YXHk\">",
-        "      <img src=\"/logo-1.png\" alt=\"Logo lg\" class=\"data-provider-image-2JFrU\">"
+        "      <img alt=\"Logo lg\" class=\"data-provider-image-2JFrU\" src=\"/logo-1.png\">"
       ],
       "mount": { "f": "body" },
       "nodes": [

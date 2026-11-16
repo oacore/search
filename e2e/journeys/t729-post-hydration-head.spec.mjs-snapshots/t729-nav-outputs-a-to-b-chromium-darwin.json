@@ -105,6 +105,15 @@
         }
       },
       {
+        "tag": "link",
+        "attrs": {
+          "crossorigin": "anonymous",
+          "data-next-font": "",
+          "href": "/",
+          "rel": "preconnect"
+        }
+      },
+      {
         "tag": "script",
         "attrs": { "type": "application/ld+json" },
         "jsonld": {
@@ -154,15 +163,6 @@
               "publisher": { "@type": "Organization", "name": "Wiley" }
             }
           ]
-        }
-      },
-      {
-        "tag": "link",
-        "attrs": {
-          "crossorigin": "anonymous",
-          "data-next-font": "",
-          "href": "/",
-          "rel": "preconnect"
         }
       },
       {
@@ -281,6 +281,15 @@
         }
       },
       {
+        "tag": "link",
+        "attrs": {
+          "crossorigin": "anonymous",
+          "data-next-font": "",
+          "href": "/",
+          "rel": "preconnect"
+        }
+      },
+      {
         "tag": "script",
         "attrs": { "type": "application/ld+json" },
         "jsonld": {
@@ -330,15 +339,6 @@
               "publisher": { "@type": "Organization", "name": "Wiley" }
             }
           ]
-        }
-      },
-      {
-        "tag": "link",
-        "attrs": {
-          "crossorigin": "anonymous",
-          "data-next-font": "",
-          "href": "/",
-          "rel": "preconnect"
         }
       },
       {

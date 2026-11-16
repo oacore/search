@@ -367,14 +367,18 @@ describe('T-415 @P1 app shell', () => {
       act(() => {
         root = hydrateRoot(host, shell())
       })
-      // React 18, as React 17, does not patch attributes: the server DOM stays
+      // React 19, as 17 and 18, does not patch attributes: the server DOM stays
       expect(host.querySelector('#header')).toBe(serverHeader)
       expect(serverHeader.classList.contains('header')).toBe(false)
-      // development warns about it (production does not, R-010)
+      // development warns about it (production does not, R-010), React 19 text
       const warnings = errorSpy.mock.calls.map((c) => String(c[0]))
-      expect(warnings.some((w) => w.includes('Prop `%s` did not match'))).toBe(
-        true
-      )
+      expect(
+        warnings.some((w) =>
+          w.includes(
+            "A tree hydrated but some attributes of the server rendered HTML didn't match"
+          )
+        )
+      ).toBe(true)
       act(() => root.unmount())
       host.remove()
 

@@ -1,7 +1,7 @@
 # T-728 search-climate-p2-all-params /search/?q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26 Asia/Tokyo absent (dom format 2)
 ## nested anchors (Q-072): no-JS 0, hydrated 0
 ## no-JS -> settled hydrated DOM
-@@ -21 +21 @@
+@@ -23 +23 @@
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2] <div class="styles-item-1WhX8 styles-search-bar-item-dB35D">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1] <div class="select-select-wrapper-3xVb5 styles-select-3ZCU1">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[1] <div aria-live="assertive" class="sr-only">
@@ -21,7 +21,7 @@
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1] "Search more than 356 million from papers around the world"
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/ul[1] <ul class="select-select-menu-EjIta" id="suggestion-results-app-bar-search" role="listbox">
 + html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[2] <div>
-@@ -159 +178 @@
+@@ -161 +180 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[1] <li class="styles_bar-item-wrapper">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[1]/div[1] <div class="styles_bar-item" role="presentation">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/p[1] <p>
@@ -58,7 +58,7 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/p[1] "publisher"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/svg[1]/use[1] <use href="/static/search/icons.svg#menu-down">
-@@ -176 +231 @@
+@@ -178 +233 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2] <div class="sort_sort">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1] <div class="sort_sort-box" role="presentation">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1] <span>
@@ -68,13 +68,7 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1] "recent"
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/svg[1] <svg class="icon-icon-35iz-" height="24" role="img" width="24">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/svg[1]/use[1] <use href="/static/search/icons.svg#menu-down">
-@@ -340 +404 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5]/div[1]/span[1] <len=1997 sha256=7612f53d955fd95c "Understanding the importance and the implication"...>
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5]/div[1]/span[1] <len=2016 sha256=5402328f366cf946 "Understanding the importance and the implication"...>
-@@ -460 +524 @@
-- html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7]/div[1]/span[1] <len=2482 sha256=b555fe1a5b6bd79e "Results from general circulation models suggest "...>
-+ html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7]/div[1]/span[1] <len=2485 sha256=7c550187a0a2955d "Results from general circulation models suggest "...>
-@@ -676 +740 @@
+@@ -678 +742 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5] <li>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/button[1] <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/button[1] "4"
@@ -87,7 +81,7 @@
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8] <li>
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/button[1] <button class="button-button-3fr3r button-text-2Jjil styles_pagination-item">
 + html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/button[1] "7"
-@@ -800 +876 @@
+@@ -802 +878 @@
 + html[1]/body[1]/div[1]/div[2] <div class="cookies-popup-2NSSr" id="cookies-popup">
 + html[1]/body[1]/div[1]/div[2]/div[1] <div class="cookies-popup-body-1VEen">
 + html[1]/body[1]/div[1]/div[2]/div[1]/p[1] <p>
@@ -99,7 +93,7 @@
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[1] "Essential cookies only"
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[2] <button class="button-button-3fr3r button-contained-pmIp- cookies-popup-button-17h9a" id="essential_cookies_allowed,analytics_cookies_allowed">
 + html[1]/body[1]/div[1]/div[2]/div[2]/button[2] "I agree"
-@@ -801 +888 @@
+@@ -803 +890 @@
 + html[1]/body[1]/next-route-announcer[1] <next-route-announcer>
 + html[1]/body[1]/next-route-announcer[1]/p[1] <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; top: 0px; width: 1px; white-space: nowrap; overflow-wrap: normal;">
 ## MutationObserver (from the first Next chunk script)
@@ -107,6 +101,8 @@
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2] @class
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/input[1] @class
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/input[1] @name
+* attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/input[1] @type
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/label[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[2]/span[1]/svg[1] @class
@@ -238,12 +234,7 @@
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/button[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/button[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[6]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/button[1] @class
-* attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/button[1]/svg[1] @class
 * attributes html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[2] @class
-1 characterData html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[5]/div[1]/span[1]
-1 characterData html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[7]/div[1]/span[1]
 1 childList html[1]/body[1] +[next-route-announcer]
 1 childList html[1]/body[1]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/header[1] +[div]
@@ -252,7 +243,8 @@
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1] -[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1] +[#text]
-6 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] +[li]
-2 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] -[li]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/div[1]/span[1]/span[1] +[#text] -[#text]
+5 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] +[li]
+1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] -[li]
 1 childList html[1]/body[1]/next-route-announcer[1] +[p]
 ## overflow 0, armed true

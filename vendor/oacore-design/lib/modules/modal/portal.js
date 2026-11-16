@@ -20,7 +20,16 @@ var ModalPortal = function ModalPortal(_ref) {
     var modalRoot = (_document$getElementB = document.getElementById('modal-root')) !== null && _document$getElementB !== void 0 ? _document$getElementB : document.querySelector('body').appendChild(document.createElement('div'));
     modalRoot.id = 'modal-root';
     ref.current = modalRoot;
-    setMounted(true);
+    // React 19 renders this update before the microtask in which a closing modal's focus lock returns the
+    // focus, so the next modal's lock would record the removed button; one microtask later it records the
+    // returned focus, as on React 17/18 (CS-R19-8)
+    var active = true;
+    Promise.resolve().then(function () {
+      if (active) setMounted(true);
+    });
+    return function () {
+      active = false;
+    };
   }, []);
   return mounted ? /*#__PURE__*/(0, _reactDom.createPortal)(children, ref.current) : null;
 };

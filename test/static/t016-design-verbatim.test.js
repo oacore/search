@@ -595,7 +595,7 @@ describe('T-016 @P0 vendored design', () => {
     }
   }, 300000)
 
-  test('T-016 c3 @P0 verify-design-verbatim: the installed design equals the 5.0.74 tarball except lib/config.js and the two files vendor/CHANGES.md lists', () => {
+  test('T-016 c3 @P0 verify-design-verbatim: the installed design equals the 5.0.74 tarball except lib/config.js and the files vendor/CHANGES.md lists', () => {
     const tarballDir = fs.mkdtempSync(path.join(os.tmpdir(), 't016-tgz-'))
     try {
       roots().forEach((root) => {
@@ -624,16 +624,31 @@ describe('T-016 @P0 vendored design', () => {
         expect(rep.installed.files).toBe(466)
         expect(rep.installed.symlinks).toEqual([])
         // the whole difference: the file the postinstall writes and the
-        // vendor/CHANGES.md edits (CS-DSN-3, -4, -5; AD-046)
+        // vendor/CHANGES.md edits (CS-DSN-3, -4, -5; AD-046; CS-R19-2, -3)
         expect(rep.diff).toEqual({
-          differ: ['lib/config.js', 'lib/elements/index.js', 'package.json'],
+          differ: [
+            'lib/config.js',
+            'lib/elements/histoslider/histoslider.js',
+            'lib/elements/index.js',
+            'lib/elements/math-markdown/math-markdown.js',
+            'lib/modules/modal/portal.js',
+            'lib/modules/select/hooks/use-input.js',
+            'package.json',
+          ],
           onlyTarball: [],
           onlyInstalled: [],
         })
         // the CHANGES file of 60 §2 (AD-039) and its rows (AD-046)
         expect(rep.changes).toEqual({
           file: 'vendor/CHANGES.md',
-          files: ['lib/elements/index.js', 'package.json'],
+          files: [
+            'lib/elements/histoslider/histoslider.js',
+            'lib/elements/index.js',
+            'lib/elements/math-markdown/math-markdown.js',
+            'lib/modules/modal/portal.js',
+            'lib/modules/select/hooks/use-input.js',
+            'package.json',
+          ],
         })
         expect(rep.problems).toEqual([])
         expect(rep.ok).toBe(true)
@@ -652,7 +667,14 @@ describe('T-016 @P0 vendored design', () => {
       expect(d.report.installed.files).toBe(466)
       expect(d.report.installed.symlinks).toEqual([])
       expect(d.report.diff).toEqual({
-        differ: ['lib/elements/index.js', 'package.json'],
+        differ: [
+          'lib/elements/histoslider/histoslider.js',
+          'lib/elements/index.js',
+          'lib/elements/math-markdown/math-markdown.js',
+          'lib/modules/modal/portal.js',
+          'lib/modules/select/hooks/use-input.js',
+          'package.json',
+        ],
         onlyTarball: [],
         onlyInstalled: [],
       })
@@ -694,8 +716,12 @@ describe('T-016 @P0 vendored design', () => {
       // the copies carry the installed package's listed edits (AD-046)
       expect(r.report.diff.differ).toEqual([
         'lib/config.js',
+        'lib/elements/histoslider/histoslider.js',
         'lib/elements/index.js',
+        'lib/elements/math-markdown/math-markdown.js',
         'lib/index.js',
+        'lib/modules/modal/portal.js',
+        'lib/modules/select/hooks/use-input.js',
         'package.json',
       ])
       expect(r.report.problems.join()).toMatch(
@@ -746,7 +772,11 @@ describe('T-016 @P0 vendored design', () => {
       const table = (file) =>
         `| File | Change | CS/Q | PR | Test |\n| --- | --- | --- | --- | --- |\n${[
           file,
+          'lib/elements/histoslider/histoslider.js',
           'lib/elements/index.js',
+          'lib/elements/math-markdown/math-markdown.js',
+          'lib/modules/modal/portal.js',
+          'lib/modules/select/hooks/use-input.js',
           'package.json',
         ]
           .map((x) => `| \`${x}\` | x | CS-1 | 1 | T-016 |\n`)
@@ -755,8 +785,12 @@ describe('T-016 @P0 vendored design', () => {
       r = run(edited, ['--changes', changes])
       expect(r.status).toBe(0)
       expect(r.report.changes.files).toEqual([
+        'lib/elements/histoslider/histoslider.js',
         'lib/elements/index.js',
+        'lib/elements/math-markdown/math-markdown.js',
         'lib/index.js',
+        'lib/modules/modal/portal.js',
+        'lib/modules/select/hooks/use-input.js',
         'package.json',
       ])
       fs.writeFileSync(changes, table('lib/elements/heading.js'))

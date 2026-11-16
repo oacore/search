@@ -27,12 +27,15 @@ var useInput = function useInput(value, _ref) {
     _useState6 = (0, _slicedToArray2["default"])(_useState5, 2),
     isInputFocused = _useState6[0],
     setIsInputFocusedInternal = _useState6[1];
-  (0, _react.useEffect)(function () {
+  // React 19 runs a state update made in a passive effect in a later task, so a fast second keystroke could
+  // land between onInput and the parent's echo of the value, which then reverted the input. Layout effects
+  // keep the React 17/18 order: the echo arrives before the next event (CS-R19-7).
+  (0, _react.useLayoutEffect)(function () {
     if (value !== inputData.value) changeInputData({
       value: value
     });
   }, [value]);
-  (0, _react.useEffect)(function () {
+  (0, _react.useLayoutEffect)(function () {
     onInput(inputData);
   }, [inputData.value]);
   (0, _react.useEffect)(function () {

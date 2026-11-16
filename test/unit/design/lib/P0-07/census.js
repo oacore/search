@@ -345,6 +345,9 @@ const attachNetwork = (server) => {
   server.events.on('request:unhandled', done)
 }
 
+const REACT_DEV_WARNING =
+  /^(In HTML, |<\w+> cannot (contain|be a descendant of) |Accessing element\.ref was removed in React 19)/
+
 const captureConsole = (logs) => {
   const spies = ['error', 'warn', 'log', 'info'].map((level) =>
     jest.spyOn(console, level).mockImplementation((...args) => {
@@ -359,6 +362,8 @@ const captureConsole = (logs) => {
       // instance and absent from production builds: not behaviour, not
       // recorded (the tests that need one assert it directly)
       if (/^Warning: /.test(text)) return
+      // React 19 prints the same development warnings without the prefix
+      if (REACT_DEV_WARNING.test(text)) return
       logs.console.push(`${level} ${text}`)
     })
   )

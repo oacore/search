@@ -154,16 +154,7 @@
         "attrs": { "content": "width=device-width", "name": "viewport" }
       }
     ],
-    "other": [{ "tag": "script", "attrs": {}, "text": "window.__PWN=1" }]
-  },
-  "bodyLead": {
-    "seo": [],
-    "favicons": [],
-    "frame": [],
     "other": [
-      { "tag": "script", "attrs": {}, "text": "window.__PWN=1" },
-      { "tag": "script", "attrs": {}, "text": "window.__PWN=1" },
-      { "tag": "script", "attrs": {}, "text": "window.__PWN=1" },
       {
         "tag": "link",
         "attrs": {
@@ -172,7 +163,18 @@
           "href": "/",
           "rel": "preconnect"
         }
-      }
+      },
+      { "tag": "script", "attrs": {}, "text": "window.__PWN=1" }
+    ]
+  },
+  "bodyLead": {
+    "seo": [],
+    "favicons": [],
+    "frame": [],
+    "other": [
+      { "tag": "script", "attrs": {}, "text": "window.__PWN=1" },
+      { "tag": "script", "attrs": {}, "text": "window.__PWN=1" },
+      { "tag": "script", "attrs": {}, "text": "window.__PWN=1" }
     ]
   },
   "bodyLeadText": [
