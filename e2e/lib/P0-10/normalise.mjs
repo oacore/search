@@ -328,7 +328,12 @@ export function normaliseLogLine(line, { buildDir = null, origins = [] } = {}) {
     '$1:<reqId>: <duration>'
   )
   // the start-up time of `next start` (Next 13.5 prints ` ✓ Ready in 705ms`)
-  l = l.replace(/^ ✓ Ready in [\d.]+m?s$/, ' ✓ Ready in <duration>')
+  // (Next 16 prints it without the leading space, and the config load time after it)
+  l = l.replace(/^( ?)✓ Ready in [\d.]+m?s$/, '$1✓ Ready in <duration>')
+  l = l.replace(
+    /^✓ Running next\.config\.js took [\d.]+m?s$/,
+    '✓ Running next.config.js took <duration>'
+  )
   // stack frames: line and column masked, function and file kept
   return maskFrameNumbers(l)
 }

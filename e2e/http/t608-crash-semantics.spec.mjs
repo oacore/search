@@ -130,11 +130,12 @@ test.describe('T-608 @P0 crash semantics', () => {
       // `bound logError` (next/dist/server/lib/router-server.js) and the handler of pages/_app.jsx:25-27
       expect(shot.listeners).toBe(5) // AD-128, AD-183
       // W7a: Next 15.5's start-server listener is an anonymous function ('')
+      // W7c: Next 16's router-server logError is no longer bound
       expect(shot.names).toEqual([
         DOMAIN_CLEAR,
         '',
         SENTRY_UNCAUGHT,
-        'bound logError',
+        'logError',
         APP_HANDLER,
       ]) // AD-128, AD-183
       await expect.poll(() => appExit(env), { timeout: 15000 }).not.toBeNull()
@@ -209,12 +210,13 @@ test.describe('T-608 @P0 crash semantics', () => {
       )
       // Next 13.5's `exception` listener, @sentry/node's OnUnhandledRejection integration (sendUnhandledPromise
       // in Sentry 7, AD-016), Next 13.5's `bound logError` and the handler of pages/_app.jsx:21-23
-      expect(shot.listeners).toBe(4) // AD-129, AD-183
-      // W7a: Next 15.5's start-server listener is anonymous ('') and registers after Sentry's
+      // W7c: Next 16 installs one filtering listener and dispatches to the others; process.listeners()
+      // lists it first, then its own listener, Sentry's and the app's (no router-server logError)
+      expect(shot.listeners).toBe(1) // AD-129, AD-183
       expect(shot.names).toEqual([
+        'filteringUnhandledRejectionHandler',
+        'unhandledRejectionListener',
         SENTRY_REJECTION,
-        '',
-        'bound logError',
         APP_HANDLER,
       ]) // AD-129, AD-183
       await survives(env, shot.at)

@@ -365,7 +365,7 @@ try {
     })
     const page = await ctx.newPage()
     const inflight = new Set()
-    const longLived = (r) => /\/_next\/webpack-hmr/.test(r.url())
+    const longLived = (r) => /\/_next\/(?:webpack-)?hmr/.test(r.url())
     page.on('request', (r) => !longLived(r) && inflight.add(r))
     page.on('requestfinished', (r) => inflight.delete(r))
     page.on('requestfailed', (r) => inflight.delete(r))
