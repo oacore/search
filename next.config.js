@@ -112,6 +112,8 @@ const nextConfig = {
     // Next 14's client main chunk also takes next/dist/lib/constants.js, which
     // Next ships as it is, with one object spread (ES2018); the rule compiles
     // that one file too, so the client floor stays ES2015 (CS-N14-2).
+    // Next 15/16's main chunk adds next/dist/lib/route-pattern-normalizer.js,
+    // also with an object spread (RC-1).
     if (!isServer) {
       rules.push({
         test: /\.m?js$/,
@@ -119,6 +121,7 @@ const nextConfig = {
           /[\\/]node_modules[\\/]@sentry[\\/]/,
           /[\\/]node_modules[\\/]react-ga4[\\/]/,
           /[\\/]node_modules[\\/]next[\\/]dist[\\/]lib[\\/]constants\.js$/,
+          /[\\/]node_modules[\\/]next[\\/]dist[\\/]lib[\\/]route-pattern-normalizer\.js$/,
         ],
         use: {
           loader: path.join(__dirname, 'babel-syntax-loader.js'),
