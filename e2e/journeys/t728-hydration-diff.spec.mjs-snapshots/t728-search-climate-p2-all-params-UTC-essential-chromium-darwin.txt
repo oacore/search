@@ -230,7 +230,6 @@
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/ul[1] -[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1] +[div]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1] +[#text]
-1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[8]/div[1]/span[1]/span[1] +[#text] -[#text]
 5 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] +[li]
 1 childList html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]/ul[1] -[li]
 1 childList html[1]/body[1]/next-route-announcer[1] +[p]
