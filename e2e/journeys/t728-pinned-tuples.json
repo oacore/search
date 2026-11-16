@@ -34,6 +34,10 @@
     "react-18.3+next-14.2": {
       "recorded": "2026-11-05, W6d (React 18.3 on Next 14.2): empty on Chromium, as T-701 shows on Next 14.2 (0 hydration events in 270 tests); WebKit and Firefox DEFERRED, as in jumps 1 and 2; owner signature 2026-11-05 (STATUS section 2): a hydration tuple on Next 14.2 is red, and none is added without a signature",
       "entries": []
+    },
+    "react-18.3+next-15.5": {
+      "recorded": "W7a (React 18.3 on Next 15.5.29), measured 2026-11-16: empty on Chromium; WebKit and Firefox DEFERRED, as in jumps 1 to 3",
+      "entries": []
     }
   }
 }

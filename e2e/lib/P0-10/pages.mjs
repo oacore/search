@@ -299,7 +299,7 @@ export function dataPathOf(route, buildId) {
   if (dyn) q.set('id', decodeURIComponent(dyn[2]))
   for (const [k, v] of u.searchParams) q.append(k, v)
   const search = q.toString()
-  return `/search/_next/data/${buildId}/${route.gssp}.json${
+  return `/static/search/_next/data/${buildId}/${route.gssp}.json${
     search ? `?${search}` : ''
   }`
 }
