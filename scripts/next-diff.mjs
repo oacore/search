@@ -5,7 +5,7 @@
 // the file lists of the output traces (`*.nft.json`, Next 12) are compared sorted, server/pages-manifest.json
 // as JSON with its keys sorted, and server/functions-config-manifest.json as JSON with the keys of `functions`
 // sorted; for two different roots, webpack's duplicate-name suffix of a file in a source map's `sources` is
-// set apart.
+// set apart; server/preview-props.json (random preview-mode keys, Next 16) is compared by its key names.
 //
 // Usage: node scripts/next-diff.mjs <nextDirA> <nextDirB> [--root-a <dir>] [--root-b <dir>] [--json] [--exclude <regex>]
 // Exit 0 when identical.
@@ -112,7 +112,10 @@ export function diffNext(
   // sourcesContent are compared byte for byte as before (owner decision
   // T14 (a) of the jump 3 jump check, 2026-11-13; an acceptance change,
   // 40 §8 rule 8)
-  const SUFFIX = /\.[A-Za-z0-9]+\?([0-9a-f]{4})$/
+  // Next 16 (webpack) also names each page's client entry loader by that
+  // suffix alone (`webpack://_N_E/?4f0e`), its hash taken over the absolute
+  // page path: such an entry is set apart the same way (jump 5 stabilise)
+  const SUFFIX = /(?:\.[A-Za-z0-9]+|^webpack:\/\/[^/]+\/)\?([0-9a-f]{4})$/
   const setSuffixApart = (rel, buf) => {
     if (!rel.endsWith('.map') || !rootA || !rootB || rootA === rootB) return buf
     const s = buf.toString('latin1')
@@ -134,6 +137,15 @@ export function diffNext(
     if (!order.size) return buf
     return Buffer.from(JSON.stringify({ ...map, sources }), 'latin1')
   }
+  // Next 16 writes the preview-mode keys, random for each build, to
+  // server/preview-props.json (Next 14 kept them in .next/prerender-manifest.json,
+  // outside the compared folders): the file is compared by its key names, the
+  // values are not compared (jump 5 stabilise)
+  const previewKeys = (rel, buf) => {
+    if (rel !== 'server/preview-props.json') return buf
+    const props = JSON.parse(buf.toString('latin1'))
+    return Buffer.from(JSON.stringify(Object.keys(props).sort()), 'latin1')
+  }
   const content = (dir, rel, id, root) => {
     let buf = fs.readFileSync(path.join(dir, rel))
     let s = buf.toString('latin1')
@@ -144,7 +156,10 @@ export function diffNext(
     }
     return setSuffixApart(
       rel,
-      sortFunctions(rel, sortManifest(rel, sortTrace(rel, buf)))
+      previewKeys(
+        rel,
+        sortFunctions(rel, sortManifest(rel, sortTrace(rel, buf)))
+      )
     )
   }
   for (const [k, relA] of la) {

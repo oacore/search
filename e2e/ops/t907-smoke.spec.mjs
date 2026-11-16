@@ -143,7 +143,7 @@ function expectNavigation(nav, provider) {
     const u = new URL(d.url)
     return (
       u.pathname ===
-        `/search/_next/data/${nav.buildId}/data-providers/${provider}.json` &&
+        `/static/search/_next/data/${nav.buildId}/data-providers/${provider}.json` &&
       u.search === `?id=${provider}`
     )
   })

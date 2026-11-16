@@ -4,9 +4,7 @@
   "entries": [
     {
       "pattern": "^Accessing element\\.ref was removed in React 19\\. ref is now a regular prop\\. It will be removed from the JSX Element type in a future release\\.(\\n|$)",
-      "refs": [
-        "R-056"
-      ],
+      "refs": ["R-056"],
       "row": "CS-R19-5: @tippyjs/react 4.2.6 (design Popover, Tooltip) reads element.ref; React 19 development warns once; production prints nothing"
     }
   ]
