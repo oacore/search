@@ -7,6 +7,10 @@
 // test/setup/mocks.js (next.config.js aliases it to `@sentry/browser` for the
 // client bundle: T-004). Every case loads a fresh copy with
 // jest.isolateModules after setting the env, so each load gets its own spy.
+// c3 loads the module on the real SDK in a child process and checks what a
+// server event during an incoming request carries (SENTRY-REQDATA-1).
+const { execFileSync } = require('node:child_process')
+const path = require('node:path')
 
 // mixed case on purpose: any case folding of the value must show
 const DSN = 'https://PubKey1A2b@O0.ingest.sentry.io/4504'
@@ -18,6 +22,7 @@ const optionsFor = (dsn) => ({
   sendClientReports: false,
   tracePropagationTargets: [],
   integrations: expect.any(Function),
+  beforeSend: expect.any(Function),
 })
 // Sentry 11 default integrations the app drops: those Sentry 5.30 did not
 // have (CS-SEN-3) and those newer than Sentry 7
@@ -35,6 +40,7 @@ const DROPPED = [
   'WorkerThreads',
   'CultureContext',
   'Express',
+  'RequestData',
 ]
 
 // the SDK functions the app calls are this load's spy functions (AD-012)
@@ -105,10 +111,12 @@ describe('T-120 @P1 utils/sentry.js', () => {
       'sendClientReports',
       'tracePropagationTargets',
       'integrations',
+      'beforeSend',
     ])
     // the integrations function keeps those of Sentry 7 less the four Sentry
-    // 5.30 did not have, as they are, except OnUncaughtException, which is
-    // made anew so that it exits even with other handlers registered
+    // 5.30 did not have and RequestData, as they are, except
+    // OnUncaughtException, made anew so that it exits even with other handlers
+    // registered, and Http, made anew without request sessions
     const names = [
       'EventFilters',
       'FunctionToString',
@@ -144,10 +152,22 @@ describe('T-120 @P1 utils/sentry.js', () => {
       names.filter((n) => !DROPPED.includes(n))
     )
     kept
-      .filter(({ name }) => name !== 'OnUncaughtException')
+      .filter(({ name }) => !['OnUncaughtException', 'Http'].includes(name))
       .forEach((i) => expect(defaults).toContain(i))
     expect(sentry.onUncaughtExceptionIntegration).toHaveBeenCalledWith({
       exitEvenIfOtherHandlersAreRegistered: true,
+    })
+    expect(sentry.httpIntegration).toHaveBeenCalledWith({ sessions: false })
+    // beforeSend drops the request-derived transaction name and response
+    // context and leaves the rest of the event as it is
+    const event = {
+      transaction: 'GET /search/',
+      contexts: { response: { status_code: 200 }, runtime: { name: 'node' } },
+      extra: { a: 1 },
+    }
+    expect(options.beforeSend(event)).toEqual({
+      contexts: { runtime: { name: 'node' } },
+      extra: { a: 1 },
     })
     expect(Object.keys(mod)).toEqual(['Sentry', 'default'])
   })
@@ -184,5 +204,30 @@ describe('T-120 @P1 utils/sentry.js', () => {
     expect(a.sentry).not.toBe(b.sentry)
     expect(a.sentry.init).toHaveBeenCalledTimes(1)
     expect(b.sentry.init).toHaveBeenCalledTimes(1)
+  })
+
+  test('T-120 c3 @P1 a server event during an incoming request carries no request data, client IP, request transaction name or response context, as with Sentry 7 (SENTRY-REQDATA-1)', () => {
+    const out = execFileSync(
+      process.execPath,
+      [path.join(__dirname, '../lib/T-120/request-event.cjs')],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], timeout: 30000 }
+    )
+    const events = JSON.parse(out)
+    const byValue = (v) => events.find((e) => e.exception.values[0].value === v)
+    // the handler's capture, and the rejection reported once (the
+    // integration's; the app handler's second capture is dropped)
+    expect(events).toHaveLength(2)
+    ;[byValue('T-120 c3 capture'), byValue('T-120 c3 rejection')].forEach(
+      (e) => {
+        expect(e).toBeDefined()
+        expect(e.request).toBeUndefined()
+        expect(e.user).toBeUndefined()
+        expect(e.transaction).toBeUndefined()
+        expect(Object.keys(e.contexts).sort()).toEqual(['runtime', 'trace'])
+        expect(JSON.stringify(e)).not.toMatch(
+          /203\.0\.113\.7|T-120\/1|referer\.test|essential_cookies_allowed|q=climate/
+        )
+      }
+    )
   })
 })

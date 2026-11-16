@@ -40,6 +40,7 @@ const create = () => {
       name: 'OnUncaughtException',
       options,
     })),
+    httpIntegration: jest.fn((options) => ({ name: 'Http', options })),
     Handlers: {
       requestHandler: jest.fn(() => (req, res, next) => next()),
       errorHandler: jest.fn(() => (err, req, res, next) => next(err)),
