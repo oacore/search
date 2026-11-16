@@ -106,6 +106,9 @@
     },
     "eslint-plugin-react": {
       "eslint": "$eslint"
+    },
+    "@oacore/design": {
+      "@mdi/svg": "$@mdi/svg"
     }
   },
   "engines": {
