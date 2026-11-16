@@ -9,7 +9,7 @@ import { firstLine, pageConsole } from './page.mjs'
 // Sentry 7 reports to the envelope endpoint (AD-023 for T-716 c3, AD-024 for T-727; Sentry 5.30:
 // .../api/0/store/?sentry_key=public&sentry_version=7)
 export const STORE =
-  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4'
+  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.browser%2F11.12.0'
 // the connect-src directive as Chromium quotes it, with the LogRocket host of CS-LR-2 (AD-035 for T-716 c3, AD-052 for T-727)
 export const CSP_CONNECT =
   "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com"

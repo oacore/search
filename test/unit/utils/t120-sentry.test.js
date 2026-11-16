@@ -1,6 +1,6 @@
 // T-120 (41 B, R-040, R-055): utils/sentry.js. The module reads SENTRY_DSN once
 // at load: without a DSN it never calls `Sentry.init`; with a DSN it calls it
-// exactly once, with `{ dsn }` and the four options of CS-SEN-3 (AD-013; only
+// exactly once, with `{ dsn }` and the three options of CS-SEN-3 (AD-013; only
 // `{ dsn }` with Sentry 5.30). It exports the SDK functions the app calls,
 // imported by name, as `Sentry` and as the default export (AD-012; the whole
 // SDK object with Sentry 5.30). `@sentry/node` is the factory spy of
@@ -15,13 +15,27 @@ const DSN = 'https://PubKey1A2b@O0.ingest.sentry.io/4504'
 // client-report envelopes, no trace headers, the integrations function
 const optionsFor = (dsn) => ({
   dsn,
-  autoSessionTracking: false,
   sendClientReports: false,
   tracePropagationTargets: [],
   integrations: expect.any(Function),
 })
-// Sentry 7 default integrations that Sentry 5.30 did not have (CS-SEN-3)
-const NOT_IN_5_30 = ['Dedupe', 'Undici', 'Context', 'Modules']
+// Sentry 11 default integrations the app drops: those Sentry 5.30 did not
+// have (CS-SEN-3) and those newer than Sentry 7
+const DROPPED = [
+  'Dedupe',
+  'NodeFetch',
+  'Context',
+  'Modules',
+  'ProcessSession',
+  'BrowserSession',
+  'ConversationId',
+  'NodeSystemError',
+  'AwsLambdaWeb',
+  'ChildProcess',
+  'WorkerThreads',
+  'CultureContext',
+  'Express',
+]
 
 // the SDK functions the app calls are this load's spy functions (AD-012)
 const expectSdkFunctions = (mod, sentry) => {
@@ -79,44 +93,62 @@ describe('T-120 @P1 utils/sentry.js', () => {
     }
   })
 
-  test('T-120 c2 @P1 with SENTRY_DSN Sentry.init is called once with exactly { dsn } and the four options of CS-SEN-3', () => {
+  test('T-120 c2 @P1 with SENTRY_DSN Sentry.init is called once with exactly { dsn } and the three options of CS-SEN-3', () => {
     const { mod, sentry } = loadWith(DSN)
     expectSdkFunctions(mod, sentry)
     expect(sentry.init).toHaveBeenCalledTimes(1)
-    // `{ dsn }` plus the four options of CS-SEN-3 (AD-013)
+    // `{ dsn }` plus the three options of CS-SEN-3 (AD-013)
     expect(sentry.init).toHaveBeenCalledWith(optionsFor(DSN))
     const options = sentry.init.mock.calls[0][0]
     expect(Object.keys(options)).toEqual([
       'dsn',
-      'autoSessionTracking',
       'sendClientReports',
       'tracePropagationTargets',
       'integrations',
     ])
-    // the integrations function returns its argument without the four
-    // integrations Sentry 5.30 did not have, the others as they are
+    // the integrations function keeps those of Sentry 7 less the four Sentry
+    // 5.30 did not have, as they are, except OnUncaughtException, which is
+    // made anew so that it exits even with other handlers registered
     const names = [
-      'InboundFilters',
+      'EventFilters',
       'FunctionToString',
+      'LinkedErrors',
+      'Dedupe',
+      'RequestData',
+      'NodeSystemError',
+      'ConversationId',
       'Console',
       'Http',
-      'Undici',
+      'NodeFetch',
       'OnUncaughtException',
       'OnUnhandledRejection',
       'ContextLines',
       'LocalVariables',
+      'AwsLambdaWeb',
       'Context',
+      'ChildProcess',
+      'WorkerThreads',
+      'ProcessSession',
       'Modules',
-      'RequestData',
-      'LinkedErrors',
-      'Dedupe',
+      'Express',
+      'BrowserApiErrors',
+      'Breadcrumbs',
+      'GlobalHandlers',
+      'HttpContext',
+      'CultureContext',
+      'BrowserSession',
     ]
     const defaults = names.map((name) => ({ name }))
     const kept = options.integrations(defaults)
     expect(kept.map(({ name }) => name)).toEqual(
-      names.filter((n) => !NOT_IN_5_30.includes(n))
+      names.filter((n) => !DROPPED.includes(n))
     )
-    kept.forEach((i) => expect(defaults).toContain(i))
+    kept
+      .filter(({ name }) => name !== 'OnUncaughtException')
+      .forEach((i) => expect(defaults).toContain(i))
+    expect(sentry.onUncaughtExceptionIntegration).toHaveBeenCalledWith({
+      exitEvenIfOtherHandlersAreRegistered: true,
+    })
     expect(Object.keys(mod)).toEqual(['Sentry', 'default'])
   })
 

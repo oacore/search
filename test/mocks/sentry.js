@@ -36,6 +36,10 @@ const create = () => {
       Debug: 'debug',
     },
     Integrations: {},
+    onUncaughtExceptionIntegration: jest.fn((options) => ({
+      name: 'OnUncaughtException',
+      options,
+    })),
     Handlers: {
       requestHandler: jest.fn(() => (req, res, next) => next()),
       errorHandler: jest.fn(() => (err, req, res, next) => next(err)),

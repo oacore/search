@@ -311,7 +311,7 @@ test.describe('T-712 @P1 remount path', () => {
   const SENTRY_FETCH =
     /^Fetch API cannot load https:\/\/o0\.ingest\.sentry\.io\/api\/0\/envelope\/\?sentry_key=public&sentry_version=7&sentry_client=sentry\.javascript\.browser%2F7\.120\.4\. Refused to connect because it violates the document's Content Security Policy\.$/
   const SENTRY_URL =
-    'https://o0.ingest.sentry.io/api/0/envelope/?sentry_key=public&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.120.4'
+    'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.browser%2F11.12.0'
   // insertions of the "Similar works" section (a client render mounts it into the DOM; the hydrated mount of a
   // hard load inserts nothing)
   const countMounts = (page) =>
