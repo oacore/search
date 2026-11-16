@@ -1,4 +1,4 @@
-// stylelint 17 config (CS-STY-1). The rules are the ones the former
+// stylelint 18 config (CS-STY-1). The rules are the ones the former
 // @oacore/stylelint-config-base 1.0.6 (stylelint-config-twbs-bootstrap 2,
 // stylelint-config-css-modules 2, stylelint-prettier recommended) gave the CSS
 // under stylelint 13, generated from
@@ -18,7 +18,9 @@
 // selector-attribute-operator-space-after,
 // selector-attribute-operator-space-before,
 // selector-pseudo-class-parentheses-space-inside, function-calc-no-invalid (the
-// spacing rules are Prettier's, checked by prettier/prettier).
+// spacing rules are Prettier's, checked by prettier/prettier). Not on
+// stylelint 18: declaration-block-single-line-max-declarations (Prettier puts
+// each declaration on its own line).
 // at-rule-empty-line-before, which stylelint-config-css-modules 4 adds, stays
 // off as before. Never run with --fix (R-049).
 module.exports = {
@@ -299,7 +301,6 @@ module.exports = {
         ignore: ['after-comment', 'inside-single-line-block'],
       },
     ],
-    'declaration-block-single-line-max-declarations': [1],
     'function-name-case': ['lower'],
     'length-zero-no-unit': [true],
     'selector-pseudo-element-colon-notation': ['double'],
