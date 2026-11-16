@@ -285,6 +285,7 @@ test('T-728 c2 @P0 pinned tuple set: keyed on the 55 C7 (1) tuple, versioned, em
     'react-18.3+next-13.5',
     'react-18.3+next-14.2',
     'react-18.3+next-15.5',
+    'react-19.2+next-15.5',
   ]).toContain(versionKey())
   expect(file.versions[versionKey()].entries).toEqual([])
   // the validator refuses message text, partial tuples, unknown codes and non-path locations

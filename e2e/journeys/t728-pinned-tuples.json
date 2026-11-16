@@ -38,6 +38,10 @@
     "react-18.3+next-15.5": {
       "recorded": "W7a (React 18.3 on Next 15.5.29), measured 2026-11-16: empty on Chromium; WebKit and Firefox DEFERRED, as in jumps 1 to 3",
       "entries": []
+    },
+    "react-19.2+next-15.5": {
+      "recorded": "W7b (React 19.2.9 on Next 15.5.29): a copy of the react-18.3+next-15.5 set",
+      "entries": []
     }
   }
 }
