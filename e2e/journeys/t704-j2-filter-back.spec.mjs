@@ -27,7 +27,7 @@ const AGGREGATIONS = [
   'language',
   'publisher',
 ]
-const NEXT_DATA = '/search/_next/data/<buildId>/search.json'
+const NEXT_DATA = '/static/search/_next/data/<buildId>/search.json'
 const STATE_KEYS = ['__N', 'as', 'key', 'options', 'url'] // AD-123
 const THESIS_URL = '/search/?q=climate+AND+documentType%3A%22thesis%22&page=1'
 const THESIS_Q = 'climate AND documentType:"thesis"'
@@ -388,9 +388,11 @@ test.describe('T-704 @P0 J2 checkbox facets, Back, Q-042', () => {
       .fill('res')
     await expect
       .poll(async () =>
-        (
-          await facetItems(page, 'type')
-        ).items.map((i) => [i.text, i.count, i.disabled])
+        (await facetItems(page, 'type')).items.map((i) => [
+          i.text,
+          i.count,
+          i.disabled,
+        ])
       )
       .toEqual([
         ['research article', '106,060', false],

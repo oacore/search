@@ -282,7 +282,7 @@ test.describe('T-712 @P1 J10 similar works and related searches', () => {
         [
           'next-data',
           'GET',
-          `/search/_next/data/<buildId>/${kind}/${to}.json?id=${to}`,
+          `/static/search/_next/data/<buildId>/${kind}/${to}.json?id=${to}`,
         ],
       ])
       // Q-055: no E8 for B; B's page keeps A's similar works and related searches (a hard load of B shows the

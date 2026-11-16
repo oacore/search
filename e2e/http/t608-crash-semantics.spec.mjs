@@ -129,9 +129,10 @@ test.describe('T-608 @P0 crash semantics', () => {
       // OnUncaughtException integration (an anonymous handler in Sentry 7, AD-014; bound in 5.30), Next 13.5's
       // `bound logError` (next/dist/server/lib/router-server.js) and the handler of pages/_app.jsx:25-27
       expect(shot.listeners).toBe(5) // AD-128, AD-183
+      // W7a: Next 15.5's start-server listener is an anonymous function ('')
       expect(shot.names).toEqual([
         DOMAIN_CLEAR,
-        'exception',
+        '',
         SENTRY_UNCAUGHT,
         'bound logError',
         APP_HANDLER,
@@ -209,9 +210,10 @@ test.describe('T-608 @P0 crash semantics', () => {
       // Next 13.5's `exception` listener, @sentry/node's OnUnhandledRejection integration (sendUnhandledPromise
       // in Sentry 7, AD-016), Next 13.5's `bound logError` and the handler of pages/_app.jsx:21-23
       expect(shot.listeners).toBe(4) // AD-129, AD-183
+      // W7a: Next 15.5's start-server listener is anonymous ('') and registers after Sentry's
       expect(shot.names).toEqual([
-        'exception',
         SENTRY_REJECTION,
+        '',
         'bound logError',
         APP_HANDLER,
       ]) // AD-129, AD-183

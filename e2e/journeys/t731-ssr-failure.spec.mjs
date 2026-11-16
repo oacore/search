@@ -122,7 +122,7 @@ test.describe('T-731 @P0 J23 SSR failure matrix', () => {
       const data = await probe(
         request,
         p2Env.baseURL,
-        `/search/_next/data/${buildId}${dataPath}`
+        `/static/search/_next/data/${buildId}${dataPath}`
       )
       const json = JSON.parse(data.body)
       rows.push([
@@ -139,7 +139,7 @@ test.describe('T-731 @P0 J23 SSR failure matrix', () => {
         row.path,
         500,
         200,
-        'application/json',
+        'application/json; charset=utf-8',
         ['statistics', '__N_SSP', 'pageProps'],
         DATA[row.path][1],
       ])
@@ -166,15 +166,15 @@ test.describe('T-731 @P0 J23 SSR failure matrix', () => {
       },
       {
         hrefs: ROWS.map(
-          (row) => `/search/_next/data/${buildId}${DATA[row.path][0]}`
+          (row) => `/static/search/_next/data/${buildId}${DATA[row.path][0]}`
         ),
       }
     )
     expect(inPage).toEqual(
       ROWS.map((row) => [
-        `/search/_next/data/${buildId}${DATA[row.path][0]}`,
+        `/static/search/_next/data/${buildId}${DATA[row.path][0]}`,
         200,
-        'application/json',
+        'application/json; charset=utf-8',
         DATA[row.path][1],
       ])
     )

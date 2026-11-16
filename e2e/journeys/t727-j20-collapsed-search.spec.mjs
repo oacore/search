@@ -125,7 +125,7 @@ test.describe('T-727 @P1 J20 collapsed search with a&b c++', () => {
           [
             'next-data',
             'GET',
-            '/search/_next/data/<buildId>/search.json?q=a&b+c++=',
+            '/static/search/_next/data/<buildId>/search.json?q=a&b+c++=',
             200,
           ],
         ].sort((a, b) => (a.join(' ') < b.join(' ') ? -1 : 1))

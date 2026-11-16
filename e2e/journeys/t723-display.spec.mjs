@@ -152,7 +152,7 @@ test.describe('T-723 @P1 /display/:id/', () => {
       [
         'next-data',
         'GET',
-        '/search/_next/data/<buildId>/outputs/2004.json?id=2004',
+        '/static/search/_next/data/<buildId>/outputs/2004.json?id=2004',
       ],
     ])
     expect(log.since(m).filter((e) => e.kind === 'next-data')[0].status).toBe(

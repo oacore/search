@@ -19,6 +19,7 @@ import {
   NORMALISATIONS,
 } from '../lib/P0-10/normalise.mjs'
 import { expectBaseline } from '../lib/P0-10/baseline.mjs'
+import { installedVersions } from '../lib/P0-12/console-pins.mjs'
 import { trackPage, settle, clientNav } from '../lib/P0-10/settle.mjs'
 import {
   serveDoiFixtures,
@@ -62,6 +63,11 @@ const CHAINS = [
     steps: [step('/outputs/2101/')],
   },
 ]
+
+// from Next 15 next/head owns every tag of <Head> (data-next-head): the head after hydration is the SSR head and
+// the Meta tags follow a client navigation (Q-069 no longer shows; W7a)
+const HEAD_MANAGED =
+  Number(String(installedVersions().next).split('.')[0]) >= 15
 
 const VANISH = ['DC.title', 'DCTERMS.abstract', 'DC.identifier', 'DC.subject']
 const SEO_META = /^meta\[name=(citation_|DC\.|DCTERMS\.)/
@@ -130,6 +136,21 @@ test.describe('T-729 @P0 post-hydration head', () => {
       expect(live.head.filter((e) => e.tag === 'title')).toEqual(
         ssr.filter((e) => e.tag === 'title')
       )
+      if (HEAD_MANAGED) {
+        // the SSR head, in order, plus the LogRocket recorder script the client inserts
+        expect(
+          l.filter(
+            (n) => n !== 'script[src=https://cdn.logr-in.com/logger-1.min.js]'
+          ),
+          `${fx.id} head = SSR head`
+        ).toEqual(s)
+        expectBaseline(
+          `t729-head-${fx.id}`,
+          { path: fx.path, ssrNames: s, ...live },
+          `${fx.id} post-hydration head = baseline`
+        )
+        return
+      }
       // DC.title, DCTERMS.abstract, DC.identifier, DC.subject and the JSON-LD vanish
       for (const name of VANISH)
         expect(countOf(l, `meta[name=${name}]`), `${fx.id} ${name}`).toBe(0)
@@ -180,10 +201,16 @@ test.describe('T-729 @P0 post-hydration head', () => {
           target.filter((e) => e.tag === 'title')
         )
         expect(await page.title()).toBe(title[0].text)
+        if (HEAD_MANAGED)
+          // ... and from Next 15 the Meta tags too
+          expect(seoMeta(live.head), `${href} SEO meta follow`).toEqual(
+            seoMeta(target)
+          )
         // ... the Meta tags do not: the SEO meta of the first hydrated page stay, the target's never appear
-        expect(seoMeta(live.head), `${href} SEO meta stale`).toEqual(
-          seoMeta(first.head)
-        )
+        else
+          expect(seoMeta(live.head), `${href} SEO meta stale`).toEqual(
+            seoMeta(first.head)
+          )
         steps.push({ href, url, title: await page.title(), ...live })
       }
       expectBaseline(

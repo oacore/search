@@ -278,7 +278,7 @@ test.describe('T-716 @P1 J14 error and empty states', () => {
       [
         'next-data',
         'GET',
-        '/search/_next/data/<buildId>/search.json?q=__status500&page=1',
+        '/static/search/_next/data/<buildId>/search.json?q=__status500&page=1',
         200,
       ],
     ])
@@ -315,7 +315,7 @@ test.describe('T-716 @P1 J14 error and empty states', () => {
       [
         'next-data',
         'GET',
-        '/search/_next/data/<buildId>/search.json?q=climate&page=1',
+        '/static/search/_next/data/<buildId>/search.json?q=climate&page=1',
         200,
       ],
     ])

@@ -38,7 +38,8 @@ const M = {
   errorCard: 'This page is not available now',
   queryError: 'Sorry, we couldn’t find any results for',
   uhoh: 'The page you were looking for could not be found',
-  providers: '<title>Data providers search</title>',
+  // the <title> tag carries data-next-head from Next 15: match from its >
+  providers: '>Data providers search</title>',
 }
 const DEFAULT_TITLE =
   'CORE – Aggregating the world’s open access research papers'
@@ -168,9 +169,11 @@ const LOG_ALLOW = [
 // empty lines); it is taken out once before LOG_ALLOW, so a second banner line, another order, another version or
 // host, or more text after the time is still red
 const NEXT_BANNER = [
-  /^ {2}▲ Next\.js 15\.5\.29$/,
-  /^ {2}- Local: {8}http:\/\/127\.0\.0\.1:\d+$/,
-  /^ {2}- Network: {6}http:\/\/127\.0\.0\.1:\d+$/,
+  // Next 15.5: three-space indent and an empty line before Starting (W7a)
+  /^ {3}▲ Next\.js 15\.5\.29$/,
+  /^ {3}- Local: {8}http:\/\/127\.0\.0\.1:\d+$/,
+  /^ {3}- Network: {6}http:\/\/127\.0\.0\.1:\d+$/,
+  /^$/,
   /^ ✓ Starting\.\.\.$/,
   /^ ✓ Ready in [\d.]+m?s$/,
 ]
@@ -217,7 +220,8 @@ const get = (origin, target) =>
 
 // body text as the user reads it: React 17's text-node separators removed
 const plain = (html) => html.replace(/<!-- -->/g, '')
-const titleOf = (html) => (/<title>([^<]*)<\/title>/.exec(html) || [])[1]
+const titleOf = (html) =>
+  (/<title(?: [^>]*)?>([^<]*)<\/title>/.exec(html) || [])[1]
 const nextDataOf = (html) => {
   const m =
     /<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s.exec(

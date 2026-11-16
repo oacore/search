@@ -332,15 +332,21 @@ export const escapeText = (s) =>
   String(s).replace(
     /["&'<>]/g,
     (c) =>
-      ({ '"': '&quot;', '&': '&amp;', "'": '&#x27;', '<': '&lt;', '>': '&gt;' }[
-        c
-      ])
+      ({
+        '"': '&quot;',
+        '&': '&amp;',
+        "'": '&#x27;',
+        '<': '&lt;',
+        '>': '&gt;',
+      })[c]
   )
 
-// the raw bytes between the first <title> and its </title> in the HTTP body (null without a title)
+// the raw bytes between the first <title> (attributes allowed: Next 15 adds data-next-head) and its </title> in
+// the HTTP body (null without a title)
 export function rawTitleBytes(body) {
-  const open = body.indexOf(Buffer.from('<title>'))
-  if (open < 0) return null
+  const re = /<title(?: [^>]*)?>/.exec(body.toString('latin1'))
+  if (!re) return null
+  const open = re.index + re[0].length
   const close = body.indexOf(Buffer.from('</title>'), open)
-  return body.subarray(open + '<title>'.length, close)
+  return body.subarray(open, close)
 }

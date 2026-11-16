@@ -138,7 +138,7 @@ test.describe('T-610 @P0 props and server output', () => {
         expect(
           [data.status, data.headers['content-type']],
           `${route.id} _next/data answer`
-        ).toEqual([200, 'application/json'])
+        ).toEqual([200, 'application/json; charset=utf-8'])
         const json = JSON.parse(data.text)
         // deep-equal (key order free): canonical JSON first, the structural diff only on a difference
         if (canonicalJson(json) !== canonicalJson(nd.props))

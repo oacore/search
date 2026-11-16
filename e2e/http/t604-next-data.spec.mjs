@@ -136,7 +136,7 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
       paths.map((path) => ({
         path,
         status: 200,
-        contentType: 'application/json',
+        contentType: 'application/json; charset=utf-8',
         ...gatewayOf(p2Env, path),
         keys: ['statistics', '__N_SSP', 'pageProps'],
         ssp: true,
@@ -186,7 +186,7 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
       json: JSON.parse(p.body),
     }).toEqual({
       status: 200,
-      contentType: 'application/json',
+      contentType: 'application/json; charset=utf-8',
       ...gatewayOf(p2Env, path),
       json: {
         statistics: STATISTICS,
@@ -303,11 +303,6 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
     expect(guardLog.pageErrors).toEqual([])
     expect(consoleLines(guardLog)).toEqual([
       [RESOURCE_404, `${p2Env.baseURL}${path}`],
-      // AD-137, AD-154, AD-172, AD-180, AD-204
-      [
-        'Error: Failed to load static props',
-        `${p2Env.baseURL}/static/search/_next/static/chunks/pages/_app-567f1dd739948905.js`,
-      ],
     ])
   })
 
@@ -333,6 +328,9 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
     )
     // the app itself would answer it: the 404 is the gateway's
     const app = await probe(request, p2Env.appURL, paths[0])
-    expect([app.status, app.contentType]).toEqual([200, 'application/json'])
+    expect([app.status, app.contentType]).toEqual([
+      200,
+      'application/json; charset=utf-8',
+    ])
   })
 })
