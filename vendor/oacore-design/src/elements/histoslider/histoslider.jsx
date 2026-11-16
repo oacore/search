@@ -8,44 +8,17 @@ import Slider from './slider'
 import styles from './histoslider.css'
 import { classNames } from '../../utils'
 
-// React 19 ignores defaultProps on function components: the same defaults are applied here (undefined props only).
-const applyDefaults = (props, defaults) => {
-  const out = { ...props }
-  Object.keys(defaults).forEach((key) => {
-    if (out[key] === undefined) out[key] = defaults[key]
-  })
-  return out
-}
-
-const defaultProps = {
-  selectedBarColor: '#EF8237',
-  rangeColor: '#b75400',
-  unselectedColor: '#E0E0E0',
-  showOnDrag: false,
-  width: 300,
-  height: 200,
-  barBorderRadius: 2,
-  barPadding: 2,
-  padding: 20,
-  sliderHeight: 20,
-  handleLabelFormat: '0.5P',
-  formatLabelFunction: undefined,
-  showLabels: false,
-}
-
-const Histoslider = (allProps) => {
-  const {
-    data,
-    width,
-    height,
-    padding,
-    sliderHeight,
-    selection: propsSelection,
-    selectFunc,
-    className,
-    ...props
-  } = applyDefaults(allProps, defaultProps)
-
+const Histoslider = ({
+  data,
+  width,
+  height,
+  padding,
+  sliderHeight,
+  selection: propsSelection,
+  selectFunc,
+  className,
+  ...props
+}) => {
   const [dragging, setDragging] = React.useState(false)
 
   const dragChange = (drag) => {
@@ -134,6 +107,22 @@ Histoslider.propTypes = {
   formatLabelFunction: PropTypes.func,
   disableHistogram: PropTypes.bool,
   showLabels: PropTypes.bool,
+}
+
+Histoslider.defaultProps = {
+  selectedBarColor: '#EF8237',
+  rangeColor: '#b75400',
+  unselectedColor: '#E0E0E0',
+  showOnDrag: false,
+  width: 300,
+  height: 200,
+  barBorderRadius: 2,
+  barPadding: 2,
+  padding: 20,
+  sliderHeight: 20,
+  handleLabelFormat: '0.5P',
+  formatLabelFunction: undefined,
+  showLabels: false,
 }
 
 export default Histoslider

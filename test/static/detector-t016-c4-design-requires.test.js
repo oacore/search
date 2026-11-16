@@ -194,9 +194,13 @@ describe('T-016 @P0 vendored design: client require edges', () => {
     expect(res.designModules).toBe(108)
     expect(res.edges).toBeGreaterThan(0)
     expect(res.unresolved).toEqual([])
-    expect(res.appTargets).toEqual([
-      'node_modules/@oacore/design/lib/elements/cookies/cookies-provider.js -> <unmapped:static/chunks/pages/_app-bb0478ce7787cb43.js:56554>',
-      'node_modules/@oacore/design/lib/hooks/use-cookies.js -> <unmapped:static/chunks/pages/_app-bb0478ce7787cb43.js:56554>',
+    // the chunk's content hash changes with every dependency bump
+    const unhashed = res.appTargets.map((t) =>
+      t.replace(/_app-[0-9a-f]+\.js/, '_app-<hash>.js')
+    )
+    expect(unhashed).toEqual([
+      'node_modules/@oacore/design/lib/elements/cookies/cookies-provider.js -> <unmapped:static/chunks/pages/_app-<hash>.js:56554>',
+      'node_modules/@oacore/design/lib/hooks/use-cookies.js -> <unmapped:static/chunks/pages/_app-<hash>.js:56554>',
     ]) // AD-138, AD-155, AD-173, AD-181, AD-205
   }, 120000)
 
