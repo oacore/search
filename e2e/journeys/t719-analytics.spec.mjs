@@ -185,9 +185,12 @@ for (const cookieState of COOKIE_STATES)
       const tracker = trackPage(page)
       await hardLoad(page, tracker, J17)
       await routeChange(page, tracker, NAV_1)
+      // Sentry 11 keeps its scopes under window.__SENTRY__[<SDK version>]
       const dsn = await page.evaluate(() => {
-        const hub = window.__SENTRY__ && window.__SENTRY__.hub
-        const client = hub && hub.getClient && hub.getClient()
+        const s = window.__SENTRY__
+        const carrier = s && s[s.version]
+        const scope = carrier && carrier.defaultCurrentScope
+        const client = scope && scope.getClient && scope.getClient()
         return client ? client.getOptions().dsn : null
       })
       expect(dsn).toBe(SENTRY_DSN)

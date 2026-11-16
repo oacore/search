@@ -50,7 +50,6 @@ const STORE = 'https://o0.ingest.sentry.io/api/0/store/'
 const ENVELOPE =
   'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.node%2F11.12.0'
 // listener function names as the preload reports them (Function.prototype.name)
-const DOMAIN_CLEAR = 'domainUncaughtExceptionClear'
 // the bound handler of @sentry/node 5.30's integrations
 const SENTRY_HANDLER = 'bound '
 // Sentry 7's handlers: an anonymous arrow function for uncaught exceptions (AD-014) and sendUnhandledPromise
@@ -128,16 +127,11 @@ test.describe('T-608 @P0 crash semantics', () => {
       // listener (next/dist/server/lib/start-server.js: it logs and keeps the process up), @sentry/node's
       // OnUncaughtException integration (an anonymous handler in Sentry 7, AD-014; bound in 5.30), Next 13.5's
       // `bound logError` (next/dist/server/lib/router-server.js) and the handler of pages/_app.jsx:25-27
-      expect(shot.listeners).toBe(5) // AD-128, AD-183
+      // W84: Sentry 11 no longer loads node:domain, so its clear handler is gone
+      expect(shot.listeners).toBe(4) // AD-128, AD-183
       // W7a: Next 15.5's start-server listener is an anonymous function ('')
       // W7c: Next 16's router-server logError is no longer bound and registers before Sentry's
-      expect(shot.names).toEqual([
-        DOMAIN_CLEAR,
-        '',
-        'logError',
-        SENTRY_UNCAUGHT,
-        APP_HANDLER,
-      ]) // AD-128, AD-183
+      expect(shot.names).toEqual(['', 'logError', SENTRY_UNCAUGHT, APP_HANDLER]) // AD-128, AD-183
       await expect.poll(() => appExit(env), { timeout: 15000 }).not.toBeNull()
       const exit = appExit(env)
       expect({ code: exit.code, signal: exit.signal }).toEqual({
@@ -167,7 +161,8 @@ test.describe('T-608 @P0 crash semantics', () => {
         {
           value: 'T-608 preload: asynchronous throw',
           level: 'fatal',
-          mechanism: { type: 'onuncaughtexception', handled: false },
+          // W84: Sentry 11 names the mechanism auto.node.onuncaughtexception
+          mechanism: { type: 'auto.node.onuncaughtexception', handled: false },
         },
       ])
     } finally {
@@ -242,7 +237,8 @@ test.describe('T-608 @P0 crash semantics', () => {
       expect(summary).toEqual([
         {
           value: 'T-608 preload: unhandled rejection',
-          mechanism: { type: 'onunhandledrejection', handled: false },
+          // W84: Sentry 11 names the mechanism auto.node.onunhandledrejection
+          mechanism: { type: 'auto.node.onunhandledrejection', handled: false },
           unhandledPromiseRejection: true,
         },
       ])
