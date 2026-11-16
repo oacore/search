@@ -17,9 +17,10 @@ module.exports = {
         },
       ],
     },
-    'postcss-custom-media': {
-      importFrom: 'main/media-queries.css',
+    '@csstools/postcss-global-data': {
+      files: ['main/media-queries.css'],
     },
+    'postcss-custom-media': {},
     'postcss-extend-rule': {},
   },
 }
