@@ -143,6 +143,8 @@ const NEXT_SWC = {
     output: { comments: false },
   },
 }
+// 16.4: the same options as 15.5 (W7c)
+NEXT_SWC[16] = NEXT_SWC[15]
 // SWC minifies with the build's own Next (the one in APP_ROOT's node_modules,
 // else the repo's) and the options of its major (40 §8 rule 7)
 const nextOfBuild = () =>
@@ -176,7 +178,11 @@ const minify = (code, minifier) => {
   const { version } = require(path.join(next, 'package.json'))
   const options = NEXT_SWC[Number(version.split('.')[0])]
   if (!options) throw new Error(`T-016 c2: no SWC options for Next ${version}`)
-  return require(path.join(next, 'dist', 'build', 'swc')).minify(code, options)
+  const swc = require(path.join(next, 'dist', 'build', 'swc'))
+  // from Next 16 the native bindings load on demand: load them first (W7c)
+  return Promise.resolve(swc.loadBindings && swc.loadBindings()).then(() =>
+    swc.minify(code, options)
+  )
 }
 const REQUIRE_CALL = /\brequire\((["'])(?:(?!\1)[^\\]|\\.)*\1\)/g
 
@@ -438,9 +444,12 @@ describe('T-016 @P0 vendored design', () => {
     )
     // W7a (Next 15.5): context.js now equal, elements/icon/index.js differs
     // by the minifier's chunk context (no source change); order not pinned
+    // W7c (Next 16.4): icon/index.js equal again, loading-bar/index.js and
+    // logo/index.js differ by the chunk context (no source change)
     expect([...res.mismatched].sort()).toEqual([
       'node_modules/@oacore/design/lib/config.js',
-      'node_modules/@oacore/design/lib/elements/icon/index.js',
+      'node_modules/@oacore/design/lib/elements/loading-bar/index.js',
+      'node_modules/@oacore/design/lib/elements/logo/index.js',
       'node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js',
       'node_modules/@oacore/design/lib/modules/header/context/actions.js',
       'node_modules/@oacore/design/lib/utils/can-use-dom.js',
@@ -579,11 +588,13 @@ describe('T-016 @P0 vendored design', () => {
       fs.writeFileSync(path.join(dir, name), JSON.stringify(map))
       const res = await analyseClient(path.join(tmp, '.next'), root, minifier)
       expect(res.designSources).toBe(designSourcesOf(map).length)
-      // W7a (Next 15.5): the victim is elements/label.js
+      // W7a (Next 15.5): the victim is elements/label.js (W7c: the chunk
+      // context mismatches of c2 above)
       expect([...res.mismatched].sort()).toEqual([
         'node_modules/@oacore/design/lib/config.js',
-        'node_modules/@oacore/design/lib/elements/icon/index.js',
         'node_modules/@oacore/design/lib/elements/label.js',
+        'node_modules/@oacore/design/lib/elements/loading-bar/index.js',
+        'node_modules/@oacore/design/lib/elements/logo/index.js',
         'node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js',
         'node_modules/@oacore/design/lib/modules/header/context/actions.js',
         'node_modules/@oacore/design/lib/utils/can-use-dom.js',

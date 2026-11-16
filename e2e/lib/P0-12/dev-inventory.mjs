@@ -220,6 +220,8 @@ async function startDev(label) {
     [
       path.join(TREE, 'node_modules', 'next', 'dist', 'bin', 'next'),
       'dev',
+      // Next 16 defaults to Turbopack; the app builds and runs with webpack (CS-N16-2)
+      ...(parseInt(versions.next, 10) >= 16 ? ['--webpack'] : []),
       '-p',
       String(PORTS.dev),
       '-H',
@@ -363,7 +365,7 @@ try {
     })
     const page = await ctx.newPage()
     const inflight = new Set()
-    const longLived = (r) => /\/_next\/webpack-hmr/.test(r.url())
+    const longLived = (r) => /\/_next\/(?:webpack-)?hmr/.test(r.url())
     page.on('request', (r) => !longLived(r) && inflight.add(r))
     page.on('requestfinished', (r) => inflight.delete(r))
     page.on('requestfailed', (r) => inflight.delete(r))

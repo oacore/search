@@ -4775,6 +4775,7 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded on Next 16.4 by AD-455 (the same key; Next 16 client code no longer adds the flat-map polyfills), 2026-11-16"
 - id: AD-440
   kind: product
   test: T-004
@@ -4786,6 +4787,7 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded on Next 16.4 by AD-456 (the same key; Next 16 client code no longer adds the flat-map polyfills), 2026-11-16"
 - id: AD-441
   kind: product
   test: T-004
@@ -4797,6 +4799,7 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded on Next 16.4 by AD-457 (the same key; Next 16 client code no longer adds the flat-map polyfills), 2026-11-16"
 - id: AD-442
   kind: product
   test: T-004
@@ -4808,6 +4811,7 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded on Next 16.4 by AD-458 (the same key; Next 16 client code no longer adds the flat-map polyfills), 2026-11-16"
 - id: AD-443
   kind: product
   test: T-004
@@ -4819,6 +4823,7 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded on Next 16.4 by AD-459 (the same key; Next 16 client code no longer adds the flat-map polyfills), 2026-11-16"
 - id: AD-444
   kind: product
   test: T-004
@@ -4830,6 +4835,7 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded on Next 16.4 by AD-460 (the same key; Next 16 client code no longer adds the flat-map polyfills), 2026-11-16"
 - id: AD-445
   kind: product
   test: T-004
@@ -4841,6 +4847,7 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded on Next 16.4 by AD-461 (the same key; Next 16 client code no longer adds the flat-map polyfills), 2026-11-16"
 - id: AD-446
   kind: product
   test: T-004
@@ -4852,6 +4859,7 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded on Next 16.4 by AD-462 (the same key; Next 16 client code no longer adds the flat-map polyfills), 2026-11-16"
 - id: AD-447
   kind: product
   test: T-004
@@ -4863,6 +4871,7 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded on Next 16.4 by AD-463 (the same key; Next 16 client code no longer adds the flat-map polyfills), 2026-11-16"
 - id: AD-448
   kind: product
   test: T-004
@@ -4874,6 +4883,7 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded on Next 16.4 by AD-464 (the same key; Next 16 client code no longer adds the flat-map polyfills), 2026-11-16"
 - id: AD-449
   kind: product
   test: T-004
@@ -4885,6 +4895,7 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded on Next 16.4 by AD-465 (the same key; Next 16 client code no longer adds the flat-map polyfills), 2026-11-16"
 - id: AD-450
   kind: product
   test: T-004
@@ -4896,6 +4907,7 @@
   step: W7a
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded on Next 16.4 by AD-466 (the same key; Next 16 client code no longer adds the flat-map polyfills), 2026-11-16"
 - id: AD-451
   kind: product
   test: T-010
@@ -4938,5 +4950,137 @@
   reason: "T-603 c1, W7a: as with Next 12 to 13.5 (AD-120, withdrawn on 14.2), Next 15.5 sends Cache-Control on the getServerSideProps 308 of `/search/` with an empty query. The redirect and its Location are unchanged. Visitor effect: none."
   ref: [OD-39, R-083, OD-31]
   step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-455
+  kind: product
+  test: T-004
+  key: "client:core-js:/"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-439 (W7a), the same key: on Next 16.4 the core-js modules are AD-439's `to` without es.array.flat-map and es.array.unscopables.flat-map (Next 16 client code no longer uses Array.prototype.flatMap). Every browser of .browserslistrc has flatMap natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7c
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-456
+  kind: product
+  test: T-004
+  key: "client:core-js:/404"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-440 (W7a), the same key: on Next 16.4 the core-js modules are AD-440's `to` without es.array.flat-map and es.array.unscopables.flat-map (Next 16 client code no longer uses Array.prototype.flatMap). Every browser of .browserslistrc has flatMap natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7c
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-457
+  kind: product
+  test: T-004
+  key: "client:core-js:/_app"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-441 (W7a), the same key: on Next 16.4 the core-js modules are AD-441's `to` without es.array.flat-map and es.array.unscopables.flat-map (Next 16 client code no longer uses Array.prototype.flatMap). Every browser of .browserslistrc has flatMap natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7c
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-458
+  kind: product
+  test: T-004
+  key: "client:core-js:/_error"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-442 (W7a), the same key: on Next 16.4 the core-js modules are AD-442's `to` without es.array.flat-map and es.array.unscopables.flat-map (Next 16 client code no longer uses Array.prototype.flatMap). Every browser of .browserslistrc has flatMap natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7c
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-459
+  kind: product
+  test: T-004
+  key: "client:core-js:/data-providers"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-443 (W7a), the same key: on Next 16.4 the core-js modules are AD-443's `to` without es.array.flat-map and es.array.unscopables.flat-map (Next 16 client code no longer uses Array.prototype.flatMap). Every browser of .browserslistrc has flatMap natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7c
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-460
+  kind: product
+  test: T-004
+  key: "client:core-js:/data-providers/[id]"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-444 (W7a), the same key: on Next 16.4 the core-js modules are AD-444's `to` without es.array.flat-map and es.array.unscopables.flat-map (Next 16 client code no longer uses Array.prototype.flatMap). Every browser of .browserslistrc has flatMap natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7c
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-461
+  kind: product
+  test: T-004
+  key: "client:core-js:/error-card"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-445 (W7a), the same key: on Next 16.4 the core-js modules are AD-445's `to` without es.array.flat-map and es.array.unscopables.flat-map (Next 16 client code no longer uses Array.prototype.flatMap). Every browser of .browserslistrc has flatMap natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7c
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-462
+  kind: product
+  test: T-004
+  key: "client:core-js:/outputs/[id]"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-446 (W7a), the same key: on Next 16.4 the core-js modules are AD-446's `to` without es.array.flat-map and es.array.unscopables.flat-map (Next 16 client code no longer uses Array.prototype.flatMap). Every browser of .browserslistrc has flatMap natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7c
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-463
+  kind: product
+  test: T-004
+  key: "client:core-js:/outputs/update"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-447 (W7a), the same key: on Next 16.4 the core-js modules are AD-447's `to` without es.array.flat-map and es.array.unscopables.flat-map (Next 16 client code no longer uses Array.prototype.flatMap). Every browser of .browserslistrc has flatMap natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7c
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-464
+  kind: product
+  test: T-004
+  key: "client:core-js:/search"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-448 (W7a), the same key: on Next 16.4 the core-js modules are AD-448's `to` without es.array.flat-map and es.array.unscopables.flat-map (Next 16 client code no longer uses Array.prototype.flatMap). Every browser of .browserslistrc has flatMap natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7c
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-465
+  kind: product
+  test: T-004
+  key: "client:core-js:/works/[id]"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-449 (W7a), the same key: on Next 16.4 the core-js modules are AD-449's `to` without es.array.flat-map and es.array.unscopables.flat-map (Next 16 client code no longer uses Array.prototype.flatMap). Every browser of .browserslistrc has flatMap natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7c
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-466
+  kind: product
+  test: T-004
+  key: "client:core-js:all-scripts"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-450 (W7a), the same key: on Next 16.4 the core-js modules are AD-450's `to` without es.array.flat-map and es.array.unscopables.flat-map (Next 16 client code no longer uses Array.prototype.flatMap). Every browser of .browserslistrc has flatMap natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7c
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'

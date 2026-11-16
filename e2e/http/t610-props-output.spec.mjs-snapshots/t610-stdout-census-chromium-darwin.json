@@ -1,10 +1,10 @@
 {
   "startup": [
-    "   ▲ Next.js 15.5.29",
-    "   - Local:        <stack>",
-    "   - Network:      <stack>",
-    " ✓ Starting...",
-    " ✓ Ready in <duration>"
+    "▲ Next.js 16.4.6",
+    "- Local:         <stack>",
+    "- Network:       <stack>",
+    "✓ Ready in <duration>",
+    "✓ Running next.config.js took <duration>"
   ],
   "sweep": [
     {
@@ -117,9 +117,12 @@
       "id": "works-4100",
       "kind": "html",
       "lines": [
-        "[Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.]",
-        " ⨯ [Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.]",
-        " ⨯ [Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.]"
+        "Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.",
+        "    at ignore-listed frames",
+        "⨯ Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.",
+        "    at ignore-listed frames",
+        "⨯ Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.",
+        "    at ignore-listed frames"
       ]
     },
     { "id": "works-4100", "kind": "data", "lines": [] },
@@ -127,9 +130,12 @@
       "id": "works-4101",
       "kind": "html",
       "lines": [
-        "[Error: Objects are not valid as a React child (found: object with keys {message}). If you meant to render a collection of children, use an array instead.]",
-        " ⨯ [Error: Objects are not valid as a React child (found: object with keys {message}). If you meant to render a collection of children, use an array instead.]",
-        " ⨯ [Error: Objects are not valid as a React child (found: object with keys {message}). If you meant to render a collection of children, use an array instead.]"
+        "Error: Objects are not valid as a React child (found: object with keys {message}). If you meant to render a collection of children, use an array instead.",
+        "    at ignore-listed frames",
+        "⨯ Error: Objects are not valid as a React child (found: object with keys {message}). If you meant to render a collection of children, use an array instead.",
+        "    at ignore-listed frames",
+        "⨯ Error: Objects are not valid as a React child (found: object with keys {message}). If you meant to render a collection of children, use an array instead.",
+        "    at ignore-listed frames"
       ]
     },
     { "id": "works-4101", "kind": "data", "lines": [] },
@@ -137,9 +143,12 @@
       "id": "works-4102",
       "kind": "html",
       "lines": [
-        "[Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.]",
-        " ⨯ [Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.]",
-        " ⨯ [Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.]"
+        "Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.",
+        "    at ignore-listed frames",
+        "⨯ Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.",
+        "    at ignore-listed frames",
+        "⨯ Error: Objects are not valid as a React child (found: [object Blob]). If you meant to render a collection of children, use an array instead.",
+        "    at ignore-listed frames"
       ]
     },
     { "id": "works-4102", "kind": "data", "lines": [] },
@@ -148,11 +157,11 @@
       "kind": "html",
       "lines": [
         "TypeError: Cannot read properties of undefined (reading 'logo')",
-        "    at ScientificOutputTemplate (.next/server/chunks/622.js:<line>:<col>)",
-        " ⨯ TypeError: Cannot read properties of undefined (reading 'logo')",
-        "    at ScientificOutputTemplate (.next/server/chunks/622.js:<line>:<col>)",
-        " ⨯ TypeError: Cannot read properties of undefined (reading 'logo')",
-        "    at ScientificOutputTemplate (.next/server/chunks/622.js:<line>:<col>)"
+        "    at ScientificOutputTemplate (.next/server/chunks/266.js:<line>:<col>)",
+        "⨯ TypeError: Cannot read properties of undefined (reading 'logo')",
+        "    at ScientificOutputTemplate (.next/server/chunks/266.js:<line>:<col>)",
+        "⨯ TypeError: Cannot read properties of undefined (reading 'logo')",
+        "    at ScientificOutputTemplate (.next/server/chunks/266.js:<line>:<col>)"
       ]
     },
     { "id": "works-4200", "kind": "data", "lines": [] },
@@ -161,14 +170,14 @@
       "kind": "html",
       "lines": [
         "TypeError: date.split is not a function",
-        "    at formatCitationDate (.next/server/chunks/622.js:<line>:<col>)",
-        "    at CitationMeta (.next/server/chunks/622.js:<line>:<col>)",
-        " ⨯ TypeError: date.split is not a function",
-        "    at formatCitationDate (.next/server/chunks/622.js:<line>:<col>)",
-        "    at CitationMeta (.next/server/chunks/622.js:<line>:<col>)",
-        " ⨯ TypeError: date.split is not a function",
-        "    at formatCitationDate (.next/server/chunks/622.js:<line>:<col>)",
-        "    at CitationMeta (.next/server/chunks/622.js:<line>:<col>)"
+        "    at formatCitationDate (.next/server/chunks/266.js:<line>:<col>)",
+        "    at CitationMeta (.next/server/chunks/266.js:<line>:<col>)",
+        "⨯ TypeError: date.split is not a function",
+        "    at formatCitationDate (.next/server/chunks/266.js:<line>:<col>)",
+        "    at CitationMeta (.next/server/chunks/266.js:<line>:<col>)",
+        "⨯ TypeError: date.split is not a function",
+        "    at formatCitationDate (.next/server/chunks/266.js:<line>:<col>)",
+        "    at CitationMeta (.next/server/chunks/266.js:<line>:<col>)"
       ]
     },
     { "id": "works-6948813", "kind": "data", "lines": [] },
@@ -177,11 +186,11 @@
       "kind": "html",
       "lines": [
         "TypeError: Cannot read properties of null (reading 'length')",
-        "    at CardDropdown (.next/server/chunks/622.js:<line>:<col>)",
-        " ⨯ TypeError: Cannot read properties of null (reading 'length')",
-        "    at CardDropdown (.next/server/chunks/622.js:<line>:<col>)",
-        " ⨯ TypeError: Cannot read properties of null (reading 'length')",
-        "    at CardDropdown (.next/server/chunks/622.js:<line>:<col>)"
+        "    at CardDropdown (.next/server/chunks/266.js:<line>:<col>)",
+        "⨯ TypeError: Cannot read properties of null (reading 'length')",
+        "    at CardDropdown (.next/server/chunks/266.js:<line>:<col>)",
+        "⨯ TypeError: Cannot read properties of null (reading 'length')",
+        "    at CardDropdown (.next/server/chunks/266.js:<line>:<col>)"
       ]
     },
     { "id": "outputs-2102", "kind": "data", "lines": [] },
@@ -190,14 +199,14 @@
       "kind": "html",
       "lines": [
         "TypeError: Cannot read properties of undefined (reading 'match')",
-        "    at httpsValidate (.next/server/chunks/622.js:<line>:<col>)",
-        "    at CardDropdown (.next/server/chunks/622.js:<line>:<col>)",
-        " ⨯ TypeError: Cannot read properties of undefined (reading 'match')",
-        "    at httpsValidate (.next/server/chunks/622.js:<line>:<col>)",
-        "    at CardDropdown (.next/server/chunks/622.js:<line>:<col>)",
-        " ⨯ TypeError: Cannot read properties of undefined (reading 'match')",
-        "    at httpsValidate (.next/server/chunks/622.js:<line>:<col>)",
-        "    at CardDropdown (.next/server/chunks/622.js:<line>:<col>)"
+        "    at httpsValidate (.next/server/chunks/266.js:<line>:<col>)",
+        "    at CardDropdown (.next/server/chunks/266.js:<line>:<col>)",
+        "⨯ TypeError: Cannot read properties of undefined (reading 'match')",
+        "    at httpsValidate (.next/server/chunks/266.js:<line>:<col>)",
+        "    at CardDropdown (.next/server/chunks/266.js:<line>:<col>)",
+        "⨯ TypeError: Cannot read properties of undefined (reading 'match')",
+        "    at httpsValidate (.next/server/chunks/266.js:<line>:<col>)",
+        "    at CardDropdown (.next/server/chunks/266.js:<line>:<col>)"
       ]
     },
     { "id": "outputs-2103", "kind": "data", "lines": [] },
@@ -207,18 +216,18 @@
       "lines": [
         "URIError: URI malformed",
         "    at decodeURI (<anonymous>)",
-        "    at DataProviders.search (.next/server/chunks/86.js:<line>:<col>)",
-        "    at DataProviders.get (.next/server/chunks/86.js:<line>:<col>)",
+        "    at DataProviders.search (.next/server/chunks/111.js:<line>:<col>)",
+        "    at DataProviders.get (.next/server/chunks/111.js:<line>:<col>)",
         "    at <unknown> (.next/server/pages/data-providers.js:<line>:<col>)",
-        " ⨯ URIError: URI malformed",
+        "⨯ URIError: URI malformed",
         "    at decodeURI (<anonymous>)",
-        "    at DataProviders.search (.next/server/chunks/86.js:<line>:<col>)",
-        "    at DataProviders.get (.next/server/chunks/86.js:<line>:<col>)",
+        "    at DataProviders.search (.next/server/chunks/111.js:<line>:<col>)",
+        "    at DataProviders.get (.next/server/chunks/111.js:<line>:<col>)",
         "    at <unknown> (.next/server/pages/data-providers.js:<line>:<col>)",
-        " ⨯ URIError: URI malformed",
+        "⨯ URIError: URI malformed",
         "    at decodeURI (<anonymous>)",
-        "    at DataProviders.search (.next/server/chunks/86.js:<line>:<col>)",
-        "    at DataProviders.get (.next/server/chunks/86.js:<line>:<col>)",
+        "    at DataProviders.search (.next/server/chunks/111.js:<line>:<col>)",
+        "    at DataProviders.get (.next/server/chunks/111.js:<line>:<col>)",
         "    at <unknown> (.next/server/pages/data-providers.js:<line>:<col>)"
       ]
     },

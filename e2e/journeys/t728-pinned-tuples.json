@@ -42,6 +42,10 @@
     "react-19.2+next-15.5": {
       "recorded": "W7b (React 19.2.9 on Next 15.5.29): a copy of the react-18.3+next-15.5 set",
       "entries": []
+    },
+    "react-19.2+next-16.4": {
+      "recorded": "W7c (React 19.2.9 on Next 16.4.6): a copy of the react-19.2+next-15.5 set",
+      "entries": []
     }
   }
 }

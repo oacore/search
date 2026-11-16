@@ -8001,6 +8001,1006 @@
           "note": "Create account on /data-providers/86/ (recorded E18 with accounts, claim row 1 of 41 §2.6), the claim POST E17 answered by the hand fixture e17-claim (201): the success modal opens and the answer is logged"
         }
       }
+    },
+    "react-19.2+next-16.4": {
+      "recorded": "W7c (React 19.2.9 on Next 16.4.6): a copy of the react-19.2+next-15.5 set",
+      "messages": {
+        "ga-search": {
+          "type": "warning",
+          "text": "Send command doesn't exist: search",
+          "cites": ["Q-071", "R-041"],
+          "note": "react-ga4 send with hitType 'search' (hooks/use-analytics.js:10-16,33): once per hard load and once per client route change, in every cookie state"
+        },
+        "ga-log": {
+          "type": "log",
+          "text": "GA",
+          "cites": ["Q-059", "R-041"],
+          "note": "console.log(\"GA\") before ReactGA.initialize, with analytics consent only (hooks/use-analytics.js:22)"
+        },
+        "logrocket-blocked": {
+          "type": "warning",
+          "text": "LogRocket: script could not load. Check that you have a valid network connection.",
+          "cites": ["Q-009", "R-026"],
+          "note": "LogRocket.init in render (pages/_app.jsx:90-91); the journey guard aborts and counts the LogRocket CDN (40 §2.4), so the SDK warns once per hard load"
+        },
+        "katex-convert": {
+          "type": "error",
+          "pattern": "^couldn`t convert string ",
+          "cites": ["Q-097", "S-7"],
+          "note": "@oacore/design MathMarkdown latexify logs a KaTeX parse failure and keeps the raw text (lib/elements/math-markdown/utils/latexify.js:29); the recorded climate page 2 holds a title with `\\sb2`"
+        },
+        "takedown-outputid": {
+          "type": "log",
+          "pattern": "^Takedown outputId => ",
+          "cites": ["Q-036", "R-037"],
+          "note": "console.log on every takedown submit (templates/output/update/index.jsx:52)"
+        },
+        "filters-fetch-error": {
+          "type": "error",
+          "text": "i: Request for https://api.core.ac.uk/v3/search/works/aggregate failed on 500",
+          "cites": ["Q-021", "R-028"],
+          "note": "store/filters.js:104 console.error(error) when the E2 aggregation fails (review:ui-flows §8.6 'error from fetchFilters on API failure'); the error is the api/errors.js InternalServerError thrown by api/index.js:80, whose name prints as the minified class name `i` on Next 14.2 (its SWC minifier mangles class names, as Terser did on Next 12; Next 13.5's kept them)"
+        },
+        "resource-500": {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+          "cites": ["R-028"],
+          "note": "Chromium's own line for a fetch answered 500 (the failing E2 of the aggregation interaction)"
+        },
+        "claim-response": {
+          "type": "log",
+          "pattern": "^\\{.*\\}$",
+          "cites": ["Q-027", "R-038"],
+          "note": "console.log(JSON.stringify(dataProvider)) of the claim POST answer (templates/data-provider/claim/claim-card.jsx:44, marked Debug), once per accepted claim"
+        }
+      },
+      "routes": {
+        "search-climate": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "search-climate-p2-all-params": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "katex-convert": 2,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "katex-convert": 2,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "katex-convert": 2,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "search-zzzzqqq": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "search-status500": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "works-1001": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "works-1001-t": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "works-4040": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "works-5000": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "outputs-2001": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "outputs-2001-oai": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "outputs-2001-search": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "outputs-4100": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "outputs-4040": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "outputs-5000": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "display-2001": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "display-2001-oai": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "outputs-update": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "data-providers": {
+          "absent": {
+            "load": {
+              "ga-search": 2,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 2,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 2,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "data-providers-add": {
+          "absent": {
+            "load": {
+              "ga-search": 2,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 2,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 2,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "provider-86": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "provider-86-query": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "static-search": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "static-search-slash": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "search-x-page0": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "search-x-page-abc": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "search-x-page1001": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "works-1001-t-odd": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "works-1001-t-repeated": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "local-index": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        },
+        "local-error-card": {
+          "absent": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential": {
+            "load": {
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          },
+          "essential+analytics": {
+            "load": {
+              "ga-log": 1,
+              "ga-search": 1,
+              "logrocket-blocked": 1
+            },
+            "change": {
+              "ga-search": 1
+            }
+          }
+        }
+      },
+      "interactions": {
+        "takedown-works-link": {
+          "route": "outputs-update",
+          "input": "https://core.ac.uk/works/1001",
+          "counts": {
+            "takedown-outputid": 1
+          },
+          "logTexts": ["Takedown outputId => undefined"],
+          "note": "a works link is not accepted (Q-036 regex): the submit logs the parsed id (undefined) and shows the error message; no request"
+        },
+        "cite-modal-open": {
+          "route": "works-1001",
+          "counts": {},
+          "bibtexEntries": 0,
+          "note": "Cite modal of /works/1001/: no console message. The review:ui-flows §8.6 line `Copying to clipboard: ...` (templates/output/citation.jsx:41) needs the copy icon of a parsed BibTeX entry; both recorded E9 answers are the APA text (the resolver keys on method, URL and body, not Accept; test/fixtures/record-plan.json works-1001.e9.bibtex), so the modal shows only its heading and the line is unreachable here (issue P0-12-15)"
+        },
+        "aggregation-500": {
+          "route": "search-climate",
+          "failUrl": "https://api.core.ac.uk/v3/search/works/aggregate",
+          "failedRequests": 1,
+          "counts": {
+            "filters-fetch-error": 1,
+            "ga-search": 1,
+            "logrocket-blocked": 1,
+            "resource-500": 1
+          },
+          "note": "hard load of /search/?q=climate (cookie state absent) with the browser's E2 aggregation answered 500"
+        },
+        "claim-success": {
+          "route": "provider-86",
+          "input": {
+            "name": "Test Claimant",
+            "email": "claimant@localhost",
+            "rationale": "claim-ok"
+          },
+          "counts": {
+            "claim-response": 1
+          },
+          "logTexts": ["{\"message\":\"Claim request accepted\"}"],
+          "note": "Create account on /data-providers/86/ (recorded E18 with accounts, claim row 1 of 41 §2.6), the claim POST E17 answered by the hand fixture e17-claim (201): the success modal opens and the answer is logged"
+        }
+      }
     }
   }
 }
