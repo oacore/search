@@ -210,6 +210,7 @@
   step: W2a
   signedOffBy: 'SIGNED: owner, 2026-10-28 (approved in the work session)'
   date: '2026-10-28'
+  withdrawn: "superseded at W84 by AD-752 (the same key; Sentry 11), 2026-11-16"
 # AD-019 (T-015, FLOORS['10.2.3'] es2015 -> es2018) was proposed at W2a and is not needed: the owner kept the
 # floor (2026-10-28) and CS-SEN-4 compiles the @sentry/* modules of the client to it. The id stays unused.
 - id: AD-020
@@ -8226,5 +8227,16 @@
   reason: "W83 (CSS tool chain): postcss-preset-env 11.6.2 and cssnano 9.9.0 write the same cascade differently: rules merged or split, numbers, calc() and colours minified, var() fallback declarations dropped where an identical var() follows, -webkit-text-decoration added, identical adjacent @media blocks merged, duplicate color-mod( declarations removed. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
   ref: [R-043, CS-PCSS-2, CS-PCSS-3, CS-PCSS-4, OD-31]
   step: W83
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-752
+  kind: product
+  test: T-004
+  key: client:sentry-packages
+  from: '@sentry/browser,@sentry/core,@sentry/hub,@sentry/minimal,@sentry/types,@sentry/utils'
+  to: '@sentry/browser,@sentry/browser-utils,@sentry/conventions,@sentry/core'
+  reason: "T-004 c1. W84: Sentry 11 splits the browser SDK into @sentry/browser, @sentry/browser-utils, @sentry/conventions and @sentry/core. Still asserted: one react and one react-dom copy, @sentry/browser bundled, @sentry/node aliased away from the client. Visitor effect: none."
+  ref: [R-040, OD-14, OD-31]
+  step: W84
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
