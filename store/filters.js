@@ -13,15 +13,15 @@ import transformFiltersData, { checkActiveItems } from 'utils/filters-transform'
 import invalidatePreviousRequests from 'utils/invalidatePreviousRequests'
 
 class Filters {
-  @observable data = []
+  data = []
 
-  @observable initialData = {}
+  initialData = {}
 
-  @observable activeFilter = {}
+  activeFilter = {}
 
-  @observable activeFilterSuggestions = []
+  activeFilterSuggestions = []
 
-  @observable aggregationsNames = [
+  aggregationsNames = [
     'fieldsOfStudy',
     'yearPublished',
     'documentType',
@@ -30,39 +30,61 @@ class Filters {
     'publisher',
   ]
 
-  @observable groupedYearDates = []
+  groupedYearDates = []
 
-  @observable isLoading = false
+  isLoading = false
 
-  @observable yearWorksCount = null
+  yearWorksCount = null
 
-  @observable isVisibleClearButton = false
+  isVisibleClearButton = false
 
   constructor() {
-    makeObservable(this, null)
+    makeObservable(this, {
+      data: observable,
+      initialData: observable,
+      activeFilter: observable,
+      activeFilterSuggestions: observable,
+      aggregationsNames: observable,
+      groupedYearDates: observable,
+      isLoading: observable,
+      yearWorksCount: observable,
+      isVisibleClearButton: observable,
+      setActiveFilter: action,
+      setIsLoading: action,
+      setIsVisibleClearButton: action,
+      setInitialData: action,
+      fetchFilters: action,
+      checkYearPublishedStatis: action,
+      setData: action,
+      toggleCheckboxFilter: action,
+      setActiveYearDate: action,
+      setGroupedYearDates: action,
+      setYearWorksCount: action,
+      setActiveFilterSuggestions: action,
+      maxYear: computed,
+      filterNamesWithoutYear: computed,
+      getFilterByValue: action,
+      reset: action,
+      routeChanged: action,
+    })
   }
 
-  @action
   setActiveFilter(filter) {
     this.activeFilter = filter
   }
 
-  @action
   setIsLoading(isLoading) {
     this.isLoading = isLoading
   }
 
-  @action
   setIsVisibleClearButton(boolean) {
     this.isVisibleClearButton = boolean || checkActiveItems(this.data)
   }
 
-  @action
   setInitialData(data) {
     this.initialData = data
   }
 
-  @action
   @invalidatePreviousRequests
   async fetchFilters(query, sortType) {
     this.setIsLoading(true)
@@ -107,7 +129,6 @@ class Filters {
     }
   }
 
-  @action
   checkYearPublishedStatis(transformFilters) {
     let filters = []
 
@@ -145,7 +166,6 @@ class Filters {
     }
   }
 
-  @action
   setData(newData) {
     this.data = newData.map((filter) => {
       sortItemsByNumberDesc(filter.items, 'count')
@@ -155,7 +175,6 @@ class Filters {
     this.setGroupedYearDates([2014, 2016, 2018])
   }
 
-  @action
   toggleCheckboxFilter(element, pathName) {
     this.setIsLoading(true)
     const { activeFilterSuggestions } = this
@@ -194,7 +213,6 @@ class Filters {
     }
   }
 
-  @action
   setActiveYearDate(yearsRange, pathName) {
     const activeFilterSuggestions = this.activeFilterSuggestions.map((item) => {
       item.checked = false
@@ -247,7 +265,6 @@ class Filters {
     this.setIsVisibleClearButton(true)
   }
 
-  @action
   setGroupedYearDates(yearFrom, yearTo = this.maxYear) {
     const datesFilter = this.data.find(
       (filter) => filter.label === 'year'
@@ -280,7 +297,6 @@ class Filters {
     this.groupedYearDates = groupedData.sort((a, b) => b.yearFrom - a.yearFrom)
   }
 
-  @action
   setYearWorksCount(yearsRange) {
     if (yearsRange) {
       this.yearWorksCount = this.activeFilterSuggestions
@@ -291,7 +307,6 @@ class Filters {
     } else this.yearWorksCount = null
   }
 
-  @action
   setActiveFilterSuggestions(items) {
     let sortedArray = []
     sortItemsByNumberDesc(items, 'count')
@@ -299,7 +314,6 @@ class Filters {
     this.activeFilterSuggestions = sortedArray
   }
 
-  @computed
   get maxYear() {
     return Math.max.apply(
       null,
@@ -309,7 +323,6 @@ class Filters {
     )
   }
 
-  @computed
   get filterNamesWithoutYear() {
     return this.aggregationsNames.filter((item) => item !== 'yearPublished')
   }
@@ -318,12 +331,10 @@ class Filters {
     return this.aggregationsNames.filter((item) => item !== 'publisher')
   }
 
-  @action
   getFilterByValue(array = this.data, key) {
     return array.find((item) => item.value === key)
   }
 
-  @action
   reset(query, pathName) {
     this.initialData = {}
     this.activeFilter = {}
@@ -342,7 +353,6 @@ class Filters {
     this.fetchFilters(query.replace(/ .*/, ''))
   }
 
-  @action
   routeChanged() {
     this.setActiveFilter({})
     this.setInitialData({})

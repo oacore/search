@@ -16,10 +16,10 @@
   "homepage": "https://github.com/oacore/search#readme",
   "dependencies": {
     "@babel/runtime": "7.29.14",
-    "@mdi/svg": "5.9.55",
+    "@mdi/svg": "7.4.47",
     "@oacore/design": "file:vendor/oacore-design",
-    "@sentry/browser": "7.120.4",
-    "@sentry/node": "7.120.4",
+    "@sentry/browser": "11.12.0",
+    "@sentry/node": "11.12.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "core-js": "3.51.0",
     "cssnano": "9.9.0",
@@ -27,8 +27,8 @@
     "leaflet": "^1.8.0",
     "leaflet.markercluster": "^1.4.1",
     "logrocket": "12.4.0",
-    "mobx": "6.16.1",
-    "mobx-react-lite": "4.1.1",
+    "mobx": "7.1.7",
+    "mobx-react-lite": "5.1.3",
     "next": "16.4.6",
     "next-images": "^1.8.1",
     "react": "19.3.1",
@@ -106,6 +106,9 @@
     },
     "eslint-plugin-react": {
       "eslint": "$eslint"
+    },
+    "@oacore/design": {
+      "@mdi/svg": "$@mdi/svg"
     }
   },
   "engines": {

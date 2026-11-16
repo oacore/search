@@ -101,8 +101,8 @@ const nextConfig = {
     if (babelRules === 0)
       throw new Error('No rule runs the Babel loader that bibtexParse.js skips')
 
-    // @sentry/browser 7 and the @sentry/core and @sentry/utils modules it
-    // brings ship ES2018 syntax (object spread), react-ga4 3 ships ES2022
+    // @sentry/browser and the @sentry modules it brings ship ES2018+ syntax
+    // (object spread, optional chaining), react-ga4 3 ships ES2022
     // (class fields), and Next compiles no node_modules code but its own, so
     // the client _app chunk would need ES2022. The client compilation compiles
     // them to the syntax of the app's own code (.browserslistrc): syntax only,

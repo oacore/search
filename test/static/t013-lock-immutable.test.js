@@ -22,7 +22,8 @@ const of = (check) => report.violations.filter((v) => v.check === check)
 describe('T-013 @P0 prod tree immutable', () => {
   test("T-013 c1 @P0 every <base'> lock entry keeps version, resolved and integrity", () => {
     expect(report.base).toMatch(/^[0-9a-f]{40}$/)
-    expect(report.oldEntries).toBeGreaterThan(1400) // AD-059; W83 (cssnano 4 tree gone)
+    // AD-059; W83: cssnano 4's tree is gone
+    expect(report.oldEntries).toBeGreaterThan(1400)
     expect(of('c1')).toEqual([])
     expect(report.moved).toEqual([])
   })

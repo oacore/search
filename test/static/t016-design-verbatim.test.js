@@ -269,6 +269,11 @@ const designSourcesOf = (map) =>
     (s, i) => DESIGN_SOURCE.test(s) && map.sourcesContent[i] !== MINI_CSS_STUB
   )
 
+// W84: the source map places segments of Sentry 11's attributes module
+// inside other modules' functions of the minified chunk, where they outvoted
+// 8 design modules; such segments do not vote
+const STRAY_SOURCE = /\/node_modules\/@sentry\/conventions\//
+
 // -> [{ file, emitted, requireName }] for every design module of one chunk
 const designModulesOf = (code, map) => {
   const lines = decodeMappings(map.mappings)
@@ -288,7 +293,8 @@ const designModulesOf = (code, map) => {
             l > p.value.loc.start.line - 1 || col >= p.value.loc.start.column
           const before =
             l < p.value.loc.end.line - 1 || col < p.value.loc.end.column
-          if (after && before) votes[src] = (votes[src] || 0) + 1
+          if (after && before && !STRAY_SOURCE.test(map.sources[src]))
+            votes[src] = (votes[src] || 0) + 1
         })
       }
       const top = Object.entries(votes).sort((a, b) => b[1] - a[1])[0]
