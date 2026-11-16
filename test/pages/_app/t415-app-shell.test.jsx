@@ -19,6 +19,9 @@ import routerMock, { setRouter } from 'next/router'
 import { render, screen, act, within } from '../../utils/render'
 import { useStore } from '../../../store'
 
+// LogRocket.init runs in production only (T-415 c4)
+jest.mock('logrocket', () => ({ init: jest.fn() }))
+
 // the shell registers process handlers when it is loaded: remember them to
 // call them, and remove them again afterwards (T-119 does the same)
 const registered = []
@@ -386,6 +389,43 @@ describe('T-415 @P1 app shell', () => {
       const fresh = render(shell())
       expect(fresh.container.querySelector('#header')).toBe(header())
       expect(header().classList.contains('header')).toBe(true)
+    })
+  })
+
+  describe('T-415 c4 @P1 RC-2 the data URL prefix follows the build\'s assetPrefix', () => {
+    // production only (NODE_ENV): the shell patches the page loader's data
+    // URLs. The azure build (assetPrefix /static/search) asks under the
+    // gateway's /static/search rule; a build without an assetPrefix (a plain
+    // `npm run build && npm start`) asks Next's own /_next/data, which no
+    // rewrite of next.config.js would reach under /static/search.
+    const DATA = '/_next/data/build-id/search.json'
+    const prefixed = (assetPrefix) => {
+      const pageLoader = { assetPrefix, getDataHref: () => DATA }
+      const env = process.env.NODE_ENV
+      process.env.NODE_ENV = 'production'
+      let view
+      try {
+        view = render(
+          <NextApp
+            Component={Page}
+            pageProps={{}}
+            statistics={STATISTICS}
+            router={{ ...routerMock, pageLoader }}
+          />
+        )
+      } finally {
+        process.env.NODE_ENV = env
+      }
+      view.unmount()
+      return pageLoader.getDataHref({})
+    }
+
+    test('T-415 c4 @P1 RC-2 no assetPrefix: the data URL stays /_next/data', () => {
+      expect(prefixed('')).toBe(DATA)
+    })
+
+    test('T-415 c4 @P1 RC-2 assetPrefix /static/search: the data URL is under /static/search', () => {
+      expect(prefixed('/static/search')).toBe(`/static/search${DATA}`)
     })
   })
 })

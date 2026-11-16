@@ -140,7 +140,10 @@ const App = ({
   if (process.env.NODE_ENV === 'production') {
     useInterceptNextDataHref({
       router: approuter,
-      namespace: '/static/search',
+      // the azure build (assetPrefix /static/search) asks under the gateway's
+      // /static/search rule; a build without an assetPrefix asks Next's own
+      // /_next/data
+      namespace: approuter?.pageLoader?.assetPrefix || '',
     })
   }
 
