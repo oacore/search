@@ -1266,7 +1266,7 @@ be3b4a55b60984e1e7359dd6bb455fce3b3e648ac7200f7b3cb71c9bd51aa0c1  e2e/visual/t80
 61ffb5ebfed85bca4086b7f6e4c7d8fd3f2a2c2cac4e453ed1c8639737b21261  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-layers-visual-darwin.json
 7d6445d7a6a12d31dcf8a139d750ad78648b4b337bf47492858ffa7668760d77  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-probes-1440-visual-darwin.json
 ae2aa9b62fa8f4878ec2e84caf292c234ccdc5f77b4e3412e88f25d329c3f39f  e2e/visual/t805-computed-styles.spec.mjs-snapshots/t805-c5-probes-375-visual-darwin.json
-1023dad1fa1974649fca9e33447769e6ebdca92bde0399103adaa2764db5e0e0  test/baseline/ACCEPTED-DIFFS.yml
+abf24f58c8b876e2a14d7090cbbdbc661efa57d5a0ad8ed2398f81996fa06499  test/baseline/ACCEPTED-DIFFS.yml
 cd1877606e52a83d605d02d4efa4ed2bfc7abe89c571959e821a681fd9a440ad  test/baseline/base-npm-ls-omit-dev.json
 039e1d937bf297e2259f7761c370bbbbdcfbf30f023added8aa3f5be9aa0054b  test/baseline/env.json
 f619edf192409fefc26b3dac8bbc957cc3d90805e413fc22342cc26e3d113bd8  test/baseline/npm-ls-all.json
