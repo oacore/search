@@ -31,7 +31,7 @@
               "f": "0:div>0:p>1:input"
             },
             "Space": {
-              "m": ["attr 0:div>0:p>1:input value=\"Hello\""],
+              "m": ["attr 0:div>0:p>1:input name=(removed) x2"],
               "f": "0:div>0:p>1:input"
             }
           }
@@ -46,7 +46,7 @@
         "      \"$\"",
         "    <span class=\"styles-addon-fHX-H styles-append-2Bs2q\">",
         "      \".00\"",
-        "    <input type=\"number\" class=\"styles-control-12Pze\" id=\"du-form-2\" placeholder=\"e.g. 10\" value=\"\">",
+        "    <input class=\"styles-control-12Pze\" id=\"du-form-2\" placeholder=\"e.g. 10\" type=\"number\">",
         "    <label class=\"styles-label-3Zc32\" for=\"du-form-2\">",
         "      \"Amount\""
       ],
@@ -141,7 +141,7 @@
         "<div>",
         "  <form aria-label=\"required form\">",
         "    <div class=\"styles-group-NqOA7 normal\" id=\"du-form-email\">",
-        "      <input type=\"email\" class=\"styles-control-12Pze\" id=\"du-form-email-control\" aria-invalid=\"false\" aria-describedby=\"du-form-email-message\" required=\"\" value=\"\">",
+        "      <input class=\"styles-control-12Pze\" id=\"du-form-email-control\" aria-invalid=\"false\" aria-describedby=\"du-form-email-message\" required=\"\" type=\"email\">",
         "      <span id=\"du-form-email-helper\" class=\"text-field-helper-2vqOg\">",
         "      <label class=\"styles-label-3Zc32\" for=\"du-form-email-control\">",
         "        \"E-mail\"",
@@ -181,7 +181,9 @@
             "dblclick": {
               "m": [
                 "attr 0:div>0:form>0:div>0:input class=\"styles-control-12Pze text-field-touched-2sKii\"",
-                "attr 0:div>0:form>0:div>0:input value=\"\"",
+                "attr 0:div>0:form>0:div>0:input name=(removed)",
+                "attr 0:div>0:form>0:div>0:input type=\"email\"",
+                "attr 0:div>0:form>0:div>0:input name=(removed)",
                 "attr 0:div>0:form>0:div>2:label class=\"styles-label-3Zc32\"",
                 "attr 0:div>0:form>0:div class=\"styles-group-NqOA7 normal text-field-touched-2sKii\""
               ],

@@ -328,7 +328,8 @@ describe('T-401 @P1 pages/search/index.jsx', () => {
       expect(headerSearchBox()).toHaveValue('zzzzqqq')
       expect(view.container.innerHTML).not.toBe('')
       expect(consoleError.mock.calls.map((c) => c[0])).toEqual([
-        'Warning: Internal React error: Expected static flag was missing. Please notify the React team.%s',
+        // React 19 drops the "Warning: " prefix and the stack placeholder
+        'Internal React error: Expected static flag was missing. Please notify the React team.',
       ]) // AD-169
     })
 
@@ -383,7 +384,8 @@ describe('T-401 @P1 pages/search/index.jsx', () => {
       expect(hasErrorCard()).toBe(true)
       expect(container.innerHTML).not.toBe('')
       expect(consoleError.mock.calls.map((c) => c[0])).toEqual([
-        'Warning: Internal React error: Expected static flag was missing. Please notify the React team.%s',
+        // React 19 drops the "Warning: " prefix and the stack placeholder
+        'Internal React error: Expected static flag was missing. Please notify the React team.',
       ]) // AD-169
     })
   })

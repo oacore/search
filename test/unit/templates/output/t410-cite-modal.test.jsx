@@ -407,9 +407,9 @@ describe('T-410 @P1 Cite modal', () => {
   })
 
   describe('T-410 c4 @P1 Q-037 malformed BibTeX throws a string in render', () => {
-    // jsdom reports an uncaught render error as a window `error` event whose
-    // `error` is the thrown value, and the act wrapper of the harness rethrows
-    // it to the caller of the click: both see the same string
+    // React 19 under act hands an uncaught render error to act, which rethrows
+    // it to the caller of the click; it no longer dispatches window `error`
+    // events or logs it there (React 17/18 did both, AD-168)
     let uncaught
     const onError = (event) => {
       uncaught.push(event.error)
@@ -440,7 +440,7 @@ describe('T-410 @P1 Cite modal', () => {
 
       expect(typeof thrown).toBe('string')
       expect(thrown).toBe('Value expected:Sept }\n for key: Sept')
-      expect(uncaught).toEqual([thrown, thrown]) // AD-168
+      expect(uncaught).toEqual([])
       // nothing is left of the button or of the page
       expect(container.innerHTML).toBe('')
       expect(dialog()).toBeNull()
@@ -450,7 +450,7 @@ describe('T-410 @P1 Cite modal', () => {
             'The above error occurred in the <CitationManager> component'
           )
         )
-      ).toBe(true)
+      ).toBe(false)
     })
 
     test('T-410 c4 @P1 unterminated values throw their own strings, and the tree is unmounted each time', () => {
@@ -470,7 +470,7 @@ describe('T-410 @P1 Cite modal', () => {
         uncaught = []
         const { container, unmount } = mountCite(citations(text))
         expect(clickCite()).toBe(expected)
-        expect(uncaught).toEqual([expected, expected]) // AD-168
+        expect(uncaught).toEqual([])
         expect(container.innerHTML).toBe('')
         unmount()
       })
