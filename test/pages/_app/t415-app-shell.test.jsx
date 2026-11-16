@@ -392,7 +392,7 @@ describe('T-415 @P1 app shell', () => {
     })
   })
 
-  describe('T-415 c4 @P1 RC-2 the data URL prefix follows the build\'s assetPrefix', () => {
+  describe("T-415 c4 @P1 RC-2 the data URL prefix follows the build's assetPrefix", () => {
     // production only (NODE_ENV): the shell patches the page loader's data
     // URLs. The azure build (assetPrefix /static/search) asks under the
     // gateway's /static/search rule; a build without an assetPrefix (a plain
