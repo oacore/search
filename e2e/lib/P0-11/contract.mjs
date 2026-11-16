@@ -57,8 +57,9 @@ export const ROUTES = [
   {
     route: 'next-data',
     class: '_next/data',
-    proxy: '/search/_next/data/{buildId}/search.json?q=climate',
-    origin: '/search/_next/data/{buildId}/search.json?q=climate',
+    // the client asks under /static/search from Next 15 (CS-N15-3); the gateway strips the prefix
+    proxy: '/static/search/_next/data/{buildId}/search.json?q=climate',
+    origin: '/_next/data/{buildId}/search.json?q=climate',
   },
   {
     route: 'public',

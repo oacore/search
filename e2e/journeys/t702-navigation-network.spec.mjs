@@ -140,7 +140,7 @@ test.describe('T-702 @P0 navigation network log', () => {
   }) => {
     const { actions } = await runSearchJourney(page, p2Env)
     const buildId = await buildIdOf(page)
-    const prefix = `${p2Env.baseURL}/search/_next/data/${buildId}/search.json?`
+    const prefix = `${p2Env.baseURL}/static/search/_next/data/${buildId}/search.json?`
     const navs = actions
       .slice(1)
       .map((a) => [
@@ -369,7 +369,7 @@ test.describe('T-702 @P0 navigation network log', () => {
         [
           'next-data',
           'GET',
-          `${p2Env.baseURL}/search/_next/data/${buildId}/outputs/2004.json?id=2004`,
+          `${p2Env.baseURL}/static/search/_next/data/${buildId}/outputs/2004.json?id=2004`,
           200,
         ],
       ])

@@ -257,7 +257,7 @@ test.describe('T-901 container contract', () => {
       ['/works/1001/', 'name="citation_title"'],
       ['/outputs/2001/', 'name="citation_title"'],
       ['/display/2001/', 'name="citation_title"'],
-      ['/data-providers/', '<title>Data providers search</title>'],
+      ['/data-providers/', '>Data providers search</title>'],
       ['/data-providers/86/', 'Open Research Online (The Open University)'],
     ]
     for (const [route, marker] of routes) {

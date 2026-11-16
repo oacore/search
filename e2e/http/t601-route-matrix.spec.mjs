@@ -90,13 +90,14 @@ test.describe('T-601 @P0 route/status matrix', () => {
     const data = await probe(
       request,
       p2Env.baseURL,
-      `/search/_next/data/${buildId}/search.json?q=climate`
+      `/static/search/_next/data/${buildId}/search.json?q=climate`
     )
+    // the client asks under /static/search from Next 15 (CS-N15-3); JSON with a charset (W7a)
     expect([
       data.status,
       data.contentType,
       data.body.includes(M.nextData),
-    ]).toEqual([200, 'application/json', true])
+    ]).toEqual([200, 'application/json; charset=utf-8', true])
   })
 
   test('T-601 c2 @P0 @wire extra list with its T-607 upstream calls', async ({

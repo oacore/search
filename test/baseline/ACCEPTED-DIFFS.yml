@@ -1289,6 +1289,7 @@
   step: W4d
   signedOffBy: 'SIGNED: owner, 2026-10-30 (jump 2 batch round 1, approved in the work session)'
   date: '2026-10-30'
+  withdrawn: "superseded on Next 15.5 by AD-451 (the same key; Next adds its assetPrefix rewrite to beforeFiles), 2026-11-16"
 - id: AD-119
   kind: product
   test: T-008
@@ -2232,6 +2233,7 @@
   step: W6d
   signedOffBy: 'SIGNED: owner, 2026-11-06 (jump 3 batch W6d rows, approved in the work session)'
   date: '2026-11-06'
+  withdrawn: "superseded on Next 15.5 by AD-439 (the same key; Next 15 client code adds flat-map, globalThis, Object.values, WeakMap and WeakSet polyfills), 2026-11-16"
 - id: AD-210
   kind: product
   test: T-004
@@ -2243,6 +2245,7 @@
   step: W6d
   signedOffBy: 'SIGNED: owner, 2026-11-06 (jump 3 batch W6d rows, approved in the work session)'
   date: '2026-11-06'
+  withdrawn: "superseded on Next 15.5 by AD-440 (the same key; Next 15 client code adds flat-map, globalThis, Object.values, WeakMap and WeakSet polyfills), 2026-11-16"
 - id: AD-211
   kind: product
   test: T-004
@@ -2254,6 +2257,7 @@
   step: W6d
   signedOffBy: 'SIGNED: owner, 2026-11-06 (jump 3 batch W6d rows, approved in the work session)'
   date: '2026-11-06'
+  withdrawn: "superseded on Next 15.5 by AD-441 (the same key; Next 15 client code adds flat-map, globalThis, Object.values, WeakMap and WeakSet polyfills), 2026-11-16"
 - id: AD-212
   kind: product
   test: T-004
@@ -2265,6 +2269,7 @@
   step: W6d
   signedOffBy: 'SIGNED: owner, 2026-11-06 (jump 3 batch W6d rows, approved in the work session)'
   date: '2026-11-06'
+  withdrawn: "superseded on Next 15.5 by AD-442 (the same key; Next 15 client code adds flat-map, globalThis, Object.values, WeakMap and WeakSet polyfills), 2026-11-16"
 - id: AD-213
   kind: product
   test: T-004
@@ -2276,6 +2281,7 @@
   step: W6d
   signedOffBy: 'SIGNED: owner, 2026-11-06 (jump 3 batch W6d rows, approved in the work session)'
   date: '2026-11-06'
+  withdrawn: "superseded on Next 15.5 by AD-443 (the same key; Next 15 client code adds flat-map, globalThis, Object.values, WeakMap and WeakSet polyfills), 2026-11-16"
 - id: AD-214
   kind: product
   test: T-004
@@ -2287,6 +2293,7 @@
   step: W6d
   signedOffBy: 'SIGNED: owner, 2026-11-06 (jump 3 batch W6d rows, approved in the work session)'
   date: '2026-11-06'
+  withdrawn: "superseded on Next 15.5 by AD-444 (the same key; Next 15 client code adds flat-map, globalThis, Object.values, WeakMap and WeakSet polyfills), 2026-11-16"
 - id: AD-215
   kind: product
   test: T-004
@@ -2298,6 +2305,7 @@
   step: W6d
   signedOffBy: 'SIGNED: owner, 2026-11-06 (jump 3 batch W6d rows, approved in the work session)'
   date: '2026-11-06'
+  withdrawn: "superseded on Next 15.5 by AD-445 (the same key; Next 15 client code adds flat-map, globalThis, Object.values, WeakMap and WeakSet polyfills), 2026-11-16"
 - id: AD-216
   kind: product
   test: T-004
@@ -2309,6 +2317,7 @@
   step: W6d
   signedOffBy: 'SIGNED: owner, 2026-11-06 (jump 3 batch W6d rows, approved in the work session)'
   date: '2026-11-06'
+  withdrawn: "superseded on Next 15.5 by AD-446 (the same key; Next 15 client code adds flat-map, globalThis, Object.values, WeakMap and WeakSet polyfills), 2026-11-16"
 - id: AD-217
   kind: product
   test: T-004
@@ -2320,6 +2329,7 @@
   step: W6d
   signedOffBy: 'SIGNED: owner, 2026-11-06 (jump 3 batch W6d rows, approved in the work session)'
   date: '2026-11-06'
+  withdrawn: "superseded on Next 15.5 by AD-447 (the same key; Next 15 client code adds flat-map, globalThis, Object.values, WeakMap and WeakSet polyfills), 2026-11-16"
 - id: AD-218
   kind: product
   test: T-004
@@ -2331,6 +2341,7 @@
   step: W6d
   signedOffBy: 'SIGNED: owner, 2026-11-06 (jump 3 batch W6d rows, approved in the work session)'
   date: '2026-11-06'
+  withdrawn: "superseded on Next 15.5 by AD-448 (the same key; Next 15 client code adds flat-map, globalThis, Object.values, WeakMap and WeakSet polyfills), 2026-11-16"
 - id: AD-219
   kind: product
   test: T-004
@@ -2342,6 +2353,7 @@
   step: W6d
   signedOffBy: 'SIGNED: owner, 2026-11-06 (jump 3 batch W6d rows, approved in the work session)'
   date: '2026-11-06'
+  withdrawn: "superseded on Next 15.5 by AD-449 (the same key; Next 15 client code adds flat-map, globalThis, Object.values, WeakMap and WeakSet polyfills), 2026-11-16"
 - id: AD-220
   kind: product
   test: T-004
@@ -2353,6 +2365,7 @@
   step: W6d
   signedOffBy: 'SIGNED: owner, 2026-11-06 (jump 3 batch W6d rows, approved in the work session)'
   date: '2026-11-06'
+  withdrawn: "superseded on Next 15.5 by AD-450 (the same key; Next 15 client code adds flat-map, globalThis, Object.values, WeakMap and WeakSet polyfills), 2026-11-16"
 - id: AD-221
   kind: product
   test: T-003
@@ -4751,3 +4764,179 @@
   step: "jump 3 midpoint, the corpus run (55 §0 (b))"
   signedOffBy: 'SIGNED: owner, 2026-11-13 (jump 3 batch midpoint D10 round, approved in the work session)'
   date: '2026-11-13'
+- id: AD-439
+  kind: product
+  test: T-004
+  key: "client:core-js:/"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.flat-map,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.array.unscopables.flat-map,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-209 (W6d), the same key: on Next 15.5 the core-js modules of the route's first-loaded scripts are AD-209's `to` plus es.array.flat-map, es.array.unscopables.flat-map, es.global-this, esnext.global-this, es.object.values, es.weak-map, es.weak-map.constructor, es.weak-set, es.weak-set.constructor: Next compiles its own client runtime with the app's Babel config (usage-based core-js imports), and Next 15's client code uses these built-ins. Nothing removed; every engine the suite runs has them natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-440
+  kind: product
+  test: T-004
+  key: "client:core-js:/404"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.flat-map,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.array.unscopables.flat-map,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-210 (W6d), the same key: on Next 15.5 the core-js modules of the route's first-loaded scripts are AD-210's `to` plus es.array.flat-map, es.array.unscopables.flat-map, es.global-this, esnext.global-this, es.object.values, es.weak-map, es.weak-map.constructor, es.weak-set, es.weak-set.constructor: Next compiles its own client runtime with the app's Babel config (usage-based core-js imports), and Next 15's client code uses these built-ins. Nothing removed; every engine the suite runs has them natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-441
+  kind: product
+  test: T-004
+  key: "client:core-js:/_app"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.flat-map,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.array.unscopables.flat-map,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-211 (W6d), the same key: on Next 15.5 the core-js modules of the route's first-loaded scripts are AD-211's `to` plus es.array.flat-map, es.array.unscopables.flat-map, es.global-this, esnext.global-this, es.object.values, es.weak-map, es.weak-map.constructor, es.weak-set, es.weak-set.constructor: Next compiles its own client runtime with the app's Babel config (usage-based core-js imports), and Next 15's client code uses these built-ins. Nothing removed; every engine the suite runs has them natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-442
+  kind: product
+  test: T-004
+  key: "client:core-js:/_error"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.flat-map,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.array.unscopables.flat-map,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-212 (W6d), the same key: on Next 15.5 the core-js modules of the route's first-loaded scripts are AD-212's `to` plus es.array.flat-map, es.array.unscopables.flat-map, es.global-this, esnext.global-this, es.object.values, es.weak-map, es.weak-map.constructor, es.weak-set, es.weak-set.constructor: Next compiles its own client runtime with the app's Babel config (usage-based core-js imports), and Next 15's client code uses these built-ins. Nothing removed; every engine the suite runs has them natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-443
+  kind: product
+  test: T-004
+  key: "client:core-js:/data-providers"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.flat-map,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.array.unscopables.flat-map,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-213 (W6d), the same key: on Next 15.5 the core-js modules of the route's first-loaded scripts are AD-213's `to` plus es.array.flat-map, es.array.unscopables.flat-map, es.global-this, esnext.global-this, es.object.values, es.weak-map, es.weak-map.constructor, es.weak-set, es.weak-set.constructor: Next compiles its own client runtime with the app's Babel config (usage-based core-js imports), and Next 15's client code uses these built-ins. Nothing removed; every engine the suite runs has them natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-444
+  kind: product
+  test: T-004
+  key: "client:core-js:/data-providers/[id]"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.flat-map,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.array.unscopables.flat-map,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-214 (W6d), the same key: on Next 15.5 the core-js modules of the route's first-loaded scripts are AD-214's `to` plus es.array.flat-map, es.array.unscopables.flat-map, es.global-this, esnext.global-this, es.object.values, es.weak-map, es.weak-map.constructor, es.weak-set, es.weak-set.constructor: Next compiles its own client runtime with the app's Babel config (usage-based core-js imports), and Next 15's client code uses these built-ins. Nothing removed; every engine the suite runs has them natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-445
+  kind: product
+  test: T-004
+  key: "client:core-js:/error-card"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.flat-map,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.array.unscopables.flat-map,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-215 (W6d), the same key: on Next 15.5 the core-js modules of the route's first-loaded scripts are AD-215's `to` plus es.array.flat-map, es.array.unscopables.flat-map, es.global-this, esnext.global-this, es.object.values, es.weak-map, es.weak-map.constructor, es.weak-set, es.weak-set.constructor: Next compiles its own client runtime with the app's Babel config (usage-based core-js imports), and Next 15's client code uses these built-ins. Nothing removed; every engine the suite runs has them natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-446
+  kind: product
+  test: T-004
+  key: "client:core-js:/outputs/[id]"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.flat-map,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.array.unscopables.flat-map,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-216 (W6d), the same key: on Next 15.5 the core-js modules of the route's first-loaded scripts are AD-216's `to` plus es.array.flat-map, es.array.unscopables.flat-map, es.global-this, esnext.global-this, es.object.values, es.weak-map, es.weak-map.constructor, es.weak-set, es.weak-set.constructor: Next compiles its own client runtime with the app's Babel config (usage-based core-js imports), and Next 15's client code uses these built-ins. Nothing removed; every engine the suite runs has them natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-447
+  kind: product
+  test: T-004
+  key: "client:core-js:/outputs/update"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.flat-map,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.array.unscopables.flat-map,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-217 (W6d), the same key: on Next 15.5 the core-js modules of the route's first-loaded scripts are AD-217's `to` plus es.array.flat-map, es.array.unscopables.flat-map, es.global-this, esnext.global-this, es.object.values, es.weak-map, es.weak-map.constructor, es.weak-set, es.weak-set.constructor: Next compiles its own client runtime with the app's Babel config (usage-based core-js imports), and Next 15's client code uses these built-ins. Nothing removed; every engine the suite runs has them natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-448
+  kind: product
+  test: T-004
+  key: "client:core-js:/search"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.flat-map,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.array.unscopables.flat-map,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-218 (W6d), the same key: on Next 15.5 the core-js modules of the route's first-loaded scripts are AD-218's `to` plus es.array.flat-map, es.array.unscopables.flat-map, es.global-this, esnext.global-this, es.object.values, es.weak-map, es.weak-map.constructor, es.weak-set, es.weak-set.constructor: Next compiles its own client runtime with the app's Babel config (usage-based core-js imports), and Next 15's client code uses these built-ins. Nothing removed; every engine the suite runs has them natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-449
+  kind: product
+  test: T-004
+  key: "client:core-js:/works/[id]"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.flat-map,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.array.unscopables.flat-map,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-219 (W6d), the same key: on Next 15.5 the core-js modules of the route's first-loaded scripts are AD-219's `to` plus es.array.flat-map, es.array.unscopables.flat-map, es.global-this, esnext.global-this, es.object.values, es.weak-map, es.weak-map.constructor, es.weak-set, es.weak-set.constructor: Next compiles its own client runtime with the app's Babel config (usage-based core-js imports), and Next 15's client code uses these built-ins. Nothing removed; every engine the suite runs has them natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-450
+  kind: product
+  test: T-004
+  key: "client:core-js:all-scripts"
+  from: "es.array.concat,es.array.filter,es.array.find,es.array.find-index,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.function.name,es.json.stringify,es.map,es.map.constructor,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.keys,es.object.to-string,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  to: "es.array.concat,es.array.fill,es.array.filter,es.array.find,es.array.find-index,es.array.flat-map,es.array.from,es.array.includes,es.array.iterator,es.array.join,es.array.map,es.array.slice,es.array.sort,es.array.splice,es.array.unscopables.flat-map,es.function.name,es.global-this,es.json.stringify,es.map,es.map.constructor,es.math.imul,es.number.constructor,es.number.is-integer,es.number.parse-int,es.object.assign,es.object.entries,es.object.from-entries,es.object.get-own-property-descriptor,es.object.get-own-property-descriptors,es.object.get-own-property-symbols,es.object.get-prototype-of,es.object.keys,es.object.to-string,es.object.values,es.promise,es.promise.all,es.promise.catch,es.promise.constructor,es.promise.finally,es.promise.race,es.promise.reject,es.promise.resolve,es.reflect.construct,es.regexp.constructor,es.regexp.exec,es.regexp.flags,es.regexp.to-string,es.set,es.set.constructor,es.string.ends-with,es.string.from-code-point,es.string.includes,es.string.iterator,es.string.link,es.string.match,es.string.repeat,es.string.replace,es.string.search,es.string.split,es.string.starts-with,es.string.sub,es.string.trim,es.symbol,es.symbol.constructor,es.symbol.description,es.symbol.for,es.symbol.iterator,es.symbol.key-for,es.weak-map,es.weak-map.constructor,es.weak-set,es.weak-set.constructor,esnext.global-this,web.dom-collections.for-each,web.dom-collections.iterator,web.set-interval,web.set-timeout,web.timers,web.url,web.url-search-params,web.url-search-params.constructor,web.url.constructor,web.url.to-json"
+  reason: "T-004 c6 (R-032), in place of AD-220 (W6d), the same key: on Next 15.5 the core-js modules of the route's first-loaded scripts are AD-220's `to` plus es.array.flat-map, es.array.unscopables.flat-map, es.global-this, esnext.global-this, es.object.values, es.weak-map, es.weak-map.constructor, es.weak-set, es.weak-set.constructor: Next compiles its own client runtime with the app's Babel config (usage-based core-js imports), and Next 15's client code uses these built-ins. Nothing removed; every engine the suite runs has them natively. Visitor effect: none."
+  ref: [R-032, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-451
+  kind: product
+  test: T-010
+  key: "phases:rewrites"
+  from: "<absent>"
+  to: "beforeFiles: /static/search/_next/:path+ , /search/_next/data/:path* | afterFiles: /static/:path* | fallback: "
+  reason: "T-010 c1 (R-002, R-068), in place of AD-118 (W4d), the same key: on Next 15.5 the routes-manifest puts the rewrite Next injects for a path assetPrefix (/static/search/_next/:path+ -> /_next/:path+, the T-010 c2 whitelist) first in beforeFiles; the app's own rewrites keep their phases and order. Visitor effect: none (the gateway strips /static/search before the app)."
+  ref: [OD-03, OD-39, R-068, R-002, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-452
+  kind: product
+  test: T-603
+  key: "next-data@origin/content-type, next-data@proxy/content-type"
+  from: "application/json"
+  to: "application/json; charset=utf-8"
+  reason: "T-603 c1, W7a: Next 15.5 answers _next/data with `application/json; charset=utf-8` (the same JSON; the client and every browser read it alike). The route class now requests the path the client uses, /static/search/_next/data via the gateway and /_next/data at the origin (CS-N15-3). Visitor effect: none."
+  ref: [OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-453
+  kind: product
+  test: T-603
+  key: "public@origin.conditional/content-security-policy, public@proxy.conditional/content-security-policy, next-static@origin.conditional/content-security-policy, next-static@proxy.conditional/content-security-policy, map@origin.conditional/content-security-policy, map@proxy.conditional/content-security-policy, icons-svg@origin.conditional/content-security-policy, icons-svg@proxy.conditional/content-security-policy"
+  from: "<absent>"
+  to: "default-src 'self' *.core.ac.uk core.ac.uk;script-src 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;script-src-elem 'self' *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data: 'unsafe-inline' 'unsafe-eval';worker-src 'self' *.logrocket.com *.lgrckt-in.com *.logr-in.com blob: data:;style-src 'self' 'unsafe-inline';img-src 'self' *.core.ac.uk core.ac.uk data: *.openstreetmap.org *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com;object-src 'none';media-src 'self' data: *.logrocket.com *.lgrckt-in.com *.logr-in.com;child-src 'self' blob: *.logrocket.com *.lgrckt-in.com *.logr-in.com"
+  reason: "T-603 c1, W7a: Next 15.5 sends the headers() of next.config.js on the 304 answers of static files too, so the conditional GETs carry the production CSP (T-603 c3 expects it). A 304 has no body: nothing a visitor sees changes."
+  ref: [R-083, S-6, OD-39, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'
+- id: AD-454
+  kind: product
+  test: T-603
+  key: "308-gssp@origin/cache-control, 308-gssp@proxy/cache-control"
+  from: "<absent>"
+  to: "private, no-cache, no-store, max-age=0, must-revalidate"
+  reason: "T-603 c1, W7a: as with Next 12 to 13.5 (AD-120, withdrawn on 14.2), Next 15.5 sends Cache-Control on the getServerSideProps 308 of `/search/` with an empty query. The redirect and its Location are unchanged. Visitor effect: none."
+  ref: [OD-39, R-083, OD-31]
+  step: W7a
+  signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-16'

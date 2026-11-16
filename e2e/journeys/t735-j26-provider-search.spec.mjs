@@ -43,7 +43,7 @@ const E13 = (q, offset, sort) =>
   `${API}/outputs?q=${q}&offset=${offset}&limit=10&sort=${sort}`
 const ACCOUNT = 'https://api.core.ac.uk/internal/data-providers/8/account'
 const DATA = (qs) =>
-  `/search/_next/data/<buildId>/data-providers/8.json?${qs}id=8`
+  `/static/search/_next/data/<buildId>/data-providers/8.json?${qs}id=8`
 // the server's calls for one render of the page (E11, E12, E13) at the E13 URL
 const sortKey = (a, b) => (a.join(' ') < b.join(' ') ? -1 : 1)
 const SERVER = (q, offset, sort) => [

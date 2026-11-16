@@ -21,7 +21,7 @@
     [
       "next-data",
       "GET",
-      "/search/_next/data/<buildId>/data-providers/8.json?id=8",
+      "/static/search/_next/data/<buildId>/data-providers/8.json?id=8",
       200
     ]
   ],
@@ -35,7 +35,7 @@
     [
       "next-data",
       "GET",
-      "/search/_next/data/<buildId>/data-providers.json",
+      "/static/search/_next/data/<buildId>/data-providers.json",
       200
     ]
   ]

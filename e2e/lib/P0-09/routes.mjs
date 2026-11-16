@@ -22,7 +22,8 @@ export const M = {
   other: 'other service',
   citation: 'name="citation_title"',
   takedown: 'Article Takedown Request',
-  providers: '<title>Data providers search</title>',
+  // the <title> tag carries data-next-head from Next 15: match from its >
+  providers: '>Data providers search</title>',
   addForm: 'Suggest a new data provider',
   provider86: 'Open Research Online (The Open University)',
   footer: 'CORE (COnnecting REpositories) is a not-for-profit service',

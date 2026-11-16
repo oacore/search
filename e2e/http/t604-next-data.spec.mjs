@@ -38,15 +38,12 @@ const RESOURCE_404 =
   'Failed to load resource: the server responded with a status of 404 (Not Found)'
 
 const overlayOf = (env) => (env.proxy && env.proxy.overlay) || null
-// the gateway decision for a /search/_next/data path: today the /search rule passes it through; with CS-OPS-1
-// its own rule strips the prefix before the app
-const gatewayOf = (env, path) =>
-  overlayOf(env) === 'cs-ops-1'
-    ? {
-        route: '/search/_next/data',
-        upstream: path.replace(/^\/search\/_next\/data/, '/_next/data'),
-      }
-    : { route: '/search', upstream: path }
+// the gateway decision for a /static/search/_next/data path: the /static/search rule strips its prefix before the
+// app, with or without CS-OPS-1 (whose rule matches /search/_next/data only)
+const gatewayOf = (env, path) => ({
+  route: '/static/search',
+  upstream: path.replace(/^\/static\/search/, ''),
+})
 
 const buildIdOf = async (request, env) => {
   const html = (await probe(request, env.baseURL, '/search/?q=climate')).body
@@ -108,8 +105,8 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
     annotate(p2Env)
     const id = await buildIdOf(request, p2Env)
     const paths = [
-      `/search/_next/data/${id}/works/1001.json`,
-      `/search/_next/data/${id}/works/1001.json?id=1001`,
+      `/static/search/_next/data/${id}/works/1001.json`,
+      `/static/search/_next/data/${id}/works/1001.json?id=1001`,
     ]
     const rows = []
     for (const path of paths) {
@@ -118,7 +115,7 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
       const app = await probe(
         request,
         p2Env.appURL,
-        path.replace(/^\/search\/_next\/data/, '/_next/data')
+        path.replace(/^\/static\/search\/_next\/data/, '/_next/data')
       )
       const json = JSON.parse(p.body)
       rows.push({
@@ -139,7 +136,7 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
       paths.map((path) => ({
         path,
         status: 200,
-        contentType: 'application/json',
+        contentType: 'application/json; charset=utf-8',
         ...gatewayOf(p2Env, path),
         keys: ['statistics', '__N_SSP', 'pageProps'],
         ssp: true,
@@ -161,7 +158,7 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
       [
         'next-data',
         'GET',
-        `${p2Env.baseURL}/search/_next/data/${id}/works/1001.json?id=1001`,
+        `${p2Env.baseURL}/static/search/_next/data/${id}/works/1001.json?id=1001`,
         200,
       ],
     ])
@@ -179,7 +176,7 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
     annotate(p2Env)
     const id = await buildIdOf(request, p2Env)
     // the empty search redirects permanently to / (Q-002); its data route answers the redirect as props
-    const path = `/search/_next/data/${id}/search.json`
+    const path = `/static/search/_next/data/${id}/search.json`
     const p = await probe(request, p2Env.baseURL, path, DEBUG)
     expect({
       status: p.status,
@@ -189,7 +186,7 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
       json: JSON.parse(p.body),
     }).toEqual({
       status: 200,
-      contentType: 'application/json',
+      contentType: 'application/json; charset=utf-8',
       ...gatewayOf(p2Env, path),
       json: {
         statistics: STATISTICS,
@@ -231,7 +228,7 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
     annotate(p2Env)
     const id = await buildIdOf(request, p2Env)
     // provider 999999999 is not in the provider map: gSSP returns notFound
-    const path = `/search/_next/data/${id}/data-providers/999999999.json?id=999999999`
+    const path = `/static/search/_next/data/${id}/data-providers/999999999.json?id=999999999`
     const p = await probe(request, p2Env.baseURL, path, DEBUG)
     expect({
       status: p.status,
@@ -272,7 +269,7 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
       .info()
       .annotations.push({ type: 'guard-expect', description: 'console' })
     annotate(p2Env)
-    const path = `/search/_next/data/${STALE}/works/1001.json?id=1001`
+    const path = `/static/search/_next/data/${STALE}/works/1001.json?id=1001`
     const p = await probe(request, p2Env.baseURL, path, DEBUG)
     // an unknown build ID is no data route: the app's 404 page as HTML
     expect({
@@ -306,11 +303,6 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
     expect(guardLog.pageErrors).toEqual([])
     expect(consoleLines(guardLog)).toEqual([
       [RESOURCE_404, `${p2Env.baseURL}${path}`],
-      // AD-137, AD-154, AD-172, AD-180, AD-204
-      [
-        'Error: Failed to load static props',
-        `${p2Env.baseURL}/static/search/_next/static/chunks/pages/_app-567f1dd739948905.js`,
-      ],
     ])
   })
 
@@ -336,6 +328,9 @@ test.describe('T-604 @P0 _next/data via the gateway prefix', () => {
     )
     // the app itself would answer it: the 404 is the gateway's
     const app = await probe(request, p2Env.appURL, paths[0])
-    expect([app.status, app.contentType]).toEqual([200, 'application/json'])
+    expect([app.status, app.contentType]).toEqual([
+      200,
+      'application/json; charset=utf-8',
+    ])
   })
 })

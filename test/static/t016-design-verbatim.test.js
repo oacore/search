@@ -129,15 +129,19 @@ const NEXT_SWC = {
     mangle: { toplevel: true, keep_classnames: true, keep_fnames: true },
   },
   14: { compress: true, mangle: true, output: { comments: false } },
-}
-// the minifier of the build: SWC when its config has swcMinify (recorded in
-// .next/required-server-files.json), else Terser (40 §8 rule 7)
-const minifierOf = (nextDir) => {
-  const file = path.join(nextDir, 'required-server-files.json')
-  return fs.existsSync(file) &&
-    JSON.parse(fs.readFileSync(file, 'utf8')).config.swcMinify === true
-    ? 'swc'
-    : 'terser'
+  // 15.5: next/dist/build/webpack/plugins/minify-webpack-plugin/src/index.js,
+  // the client compiler's options (noMangling false, disableCharFreq false)
+  15: {
+    compress: {
+      inline: 2,
+      global_defs: { 'process.env.__NEXT_PRIVATE_MINIMIZE_MACRO_FALSE': false },
+      keep_classnames: false,
+      keep_fnames: false,
+    },
+    mangle: { reserved: ['AbortSignal'], disableCharFreq: false },
+    module: 'unknown',
+    output: { comments: false },
+  },
 }
 // SWC minifies with the build's own Next (the one in APP_ROOT's node_modules,
 // else the repo's) and the options of its major (40 §8 rule 7)
@@ -151,6 +155,21 @@ const nextOfBuild = () =>
     'node_modules',
     'next'
   )
+const nextMajorOfBuild = () =>
+  Number(
+    require(path.join(nextOfBuild(), 'package.json')).version.split('.')[0]
+  )
+// the minifier of the build: SWC when its config has swcMinify (recorded in
+// .next/required-server-files.json), else Terser (40 §8 rule 7)
+// (from Next 15 SWC is the only minifier and the config has no swcMinify key)
+const minifierOf = (nextDir) => {
+  const file = path.join(nextDir, 'required-server-files.json')
+  if (!fs.existsSync(file)) return 'terser'
+  const { config } = JSON.parse(fs.readFileSync(file, 'utf8'))
+  return config.swcMinify === true || nextMajorOfBuild() >= 15
+    ? 'swc'
+    : 'terser'
+}
 const minify = (code, minifier) => {
   if (minifier !== 'swc') return terser.minify(code, NEXT_TERSER)
   const next = nextOfBuild()
@@ -208,7 +227,12 @@ const sameModule = async (
   const rewritten = fileText
     .replace(/\bprocess\.env\.NODE_ENV\b/g, '"production"')
     .replace(REQUIRE_CALL, PLACEHOLDER)
-  const wrapped = `x={a:function(module,exports,__webpack_require__){${rewritten}\n}}`
+  // from Next 15 webpack emits module functions as arrows, and the minifier
+  // treats an arrow's body differently: wrap the file in the emitted form
+  const params = 'module,exports,__webpack_require__'
+  const wrapped = /^(?:\([\w$,]*\)|[\w$]+)=>/.test(emitted)
+    ? `x={a:(${params})=>{${rewritten}\n}}`
+    : `x={a:function(${params}){${rewritten}\n}}`
   const out = await minify(wrapped, minifier)
   const fn = out.code.replace(/^x=\{a:/, '').replace(/\};?$/, '')
   const ownName = requireParam(
@@ -299,7 +323,9 @@ const analyseClient = async (nextDir, root, minifier = minifierOf(nextDir)) => {
         const r = await sameModule(m.emitted, m.requireName, fileText, minifier)
         res.modules.push(m.file)
         if (!r.equal) res.mismatched.push(m.file)
-        res.addedRequires += r.emittedRequires - r.fileRequires
+        // only additions count: from Next 15 the minifier can drop an unused
+        // require of a module whose result it can see is unused (W7a)
+        res.addedRequires += Math.max(0, r.emittedRequires - r.fileRequires)
         if (map.sourcesContent[m.index] !== fileText)
           res.sourceDiffers.push(m.file)
       }
@@ -410,9 +436,11 @@ describe('T-016 @P0 vendored design', () => {
     expect(res.modules).not.toContain(
       'node_modules/@oacore/design/lib/elements/carousel/carousel.js'
     )
-    expect(res.mismatched).toEqual([
+    // W7a (Next 15.5): context.js now equal, elements/icon/index.js differs
+    // by the minifier's chunk context (no source change); order not pinned
+    expect([...res.mismatched].sort()).toEqual([
       'node_modules/@oacore/design/lib/config.js',
-      'node_modules/@oacore/design/lib/context.js',
+      'node_modules/@oacore/design/lib/elements/icon/index.js',
       'node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js',
       'node_modules/@oacore/design/lib/modules/header/context/actions.js',
       'node_modules/@oacore/design/lib/utils/can-use-dom.js',
@@ -425,43 +453,46 @@ describe('T-016 @P0 vendored design', () => {
     // the server runs the installed package: it is external in every server
     // bundle (nothing of it is compiled for the server)
     const server = analyseServer(nextDir)
-    expect(server.bundled).toEqual([
-      'webpack://search/./node_modules/@oacore/design/lib/index.css',
-      'webpack://search/external commonjs "@oacore/design"',
-      'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
-      'webpack://search/external commonjs "@oacore/design"',
-      'webpack://search/external commonjs "@oacore/design"',
-      'webpack://search/external commonjs "@oacore/design/lib/elements/logo"',
-      'webpack://search/external commonjs "@oacore/design"',
-      'webpack://search/external commonjs "@oacore/design/lib"',
-      'webpack://search/external commonjs "@oacore/design/lib/elements"',
-      'webpack://search/external commonjs "@oacore/design/lib/utils"',
-      'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
-      'webpack://search/external commonjs "@oacore/design"',
-      'webpack://search/external commonjs "@oacore/design/lib/utils"',
-      'webpack://search/external commonjs "@oacore/design"',
-      'webpack://search/external commonjs "@oacore/design/lib"',
-      'webpack://search/external commonjs "@oacore/design"',
-      'webpack://search/external commonjs "@oacore/design"',
-      'webpack://search/external commonjs "@oacore/design/lib/elements"',
-      'webpack://search/external commonjs "@oacore/design/lib/modules"',
-      'webpack://search/external commonjs "@oacore/design/lib/utils"',
-      'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
-      'webpack://search/external commonjs "@oacore/design"',
-      'webpack://search/external commonjs "@oacore/design/lib"',
-      'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
-      'webpack://search/external commonjs "@oacore/design"',
-      'webpack://search/external commonjs "@oacore/design/lib"',
-      'webpack://search/external commonjs "@oacore/design/lib/elements"',
-      'webpack://search/external commonjs "@oacore/design/lib/modules"',
-      'webpack://search/external commonjs "@oacore/design/lib/utils"',
-      'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
-      'webpack://search/external commonjs "@oacore/design"',
-      'webpack://search/external commonjs "@oacore/design/lib/elements"',
-      'webpack://search/external commonjs "@oacore/design/lib/modules"',
-      'webpack://search/external commonjs "@oacore/design/lib/utils"',
-      'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
-    ]) // AD-061, AD-201
+    // W7a (Next 15.5): the same entries, the order not pinned
+    expect([...server.bundled].sort()).toEqual(
+      [
+        'webpack://search/./node_modules/@oacore/design/lib/index.css',
+        'webpack://search/external commonjs "@oacore/design"',
+        'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+        'webpack://search/external commonjs "@oacore/design"',
+        'webpack://search/external commonjs "@oacore/design"',
+        'webpack://search/external commonjs "@oacore/design/lib/elements/logo"',
+        'webpack://search/external commonjs "@oacore/design"',
+        'webpack://search/external commonjs "@oacore/design/lib"',
+        'webpack://search/external commonjs "@oacore/design/lib/elements"',
+        'webpack://search/external commonjs "@oacore/design/lib/utils"',
+        'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+        'webpack://search/external commonjs "@oacore/design"',
+        'webpack://search/external commonjs "@oacore/design/lib/utils"',
+        'webpack://search/external commonjs "@oacore/design"',
+        'webpack://search/external commonjs "@oacore/design/lib"',
+        'webpack://search/external commonjs "@oacore/design"',
+        'webpack://search/external commonjs "@oacore/design"',
+        'webpack://search/external commonjs "@oacore/design/lib/elements"',
+        'webpack://search/external commonjs "@oacore/design/lib/modules"',
+        'webpack://search/external commonjs "@oacore/design/lib/utils"',
+        'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+        'webpack://search/external commonjs "@oacore/design"',
+        'webpack://search/external commonjs "@oacore/design/lib"',
+        'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+        'webpack://search/external commonjs "@oacore/design"',
+        'webpack://search/external commonjs "@oacore/design/lib"',
+        'webpack://search/external commonjs "@oacore/design/lib/elements"',
+        'webpack://search/external commonjs "@oacore/design/lib/modules"',
+        'webpack://search/external commonjs "@oacore/design/lib/utils"',
+        'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+        'webpack://search/external commonjs "@oacore/design"',
+        'webpack://search/external commonjs "@oacore/design/lib/elements"',
+        'webpack://search/external commonjs "@oacore/design/lib/modules"',
+        'webpack://search/external commonjs "@oacore/design/lib/utils"',
+        'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
+      ].sort()
+    ) // AD-061, AD-201
     expect(server.externals).toEqual([]) // AD-140
   }, 300000)
 
@@ -519,7 +550,9 @@ describe('T-016 @P0 vendored design', () => {
       const map = JSON.parse(fs.readFileSync(mapFile, 'utf8'))
       const mods = designModulesOf(code, map)
       const strict = mods.filter((m) =>
-        /^function\(\w,\w,\w\)\{"use strict";/.test(m.emitted)
+        /^(?:function\(\w,\w,\w\)|\(\w,\w,\w\)=>)\{"use strict";/.test(
+          m.emitted
+        )
       )
       // the victim and the other are the first two that the comparison finds
       // equal before the edit (on an SWC build the first one is not)
@@ -546,10 +579,11 @@ describe('T-016 @P0 vendored design', () => {
       fs.writeFileSync(path.join(dir, name), JSON.stringify(map))
       const res = await analyseClient(path.join(tmp, '.next'), root, minifier)
       expect(res.designSources).toBe(designSourcesOf(map).length)
-      expect(res.mismatched).toEqual([
+      // W7a (Next 15.5): the victim is elements/label.js
+      expect([...res.mismatched].sort()).toEqual([
         'node_modules/@oacore/design/lib/config.js',
-        'node_modules/@oacore/design/lib/context.js',
-        'node_modules/@oacore/design/lib/elements/app-bar/bar.js',
+        'node_modules/@oacore/design/lib/elements/icon/index.js',
+        'node_modules/@oacore/design/lib/elements/label.js',
         'node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js',
         'node_modules/@oacore/design/lib/modules/header/context/actions.js',
         'node_modules/@oacore/design/lib/utils/can-use-dom.js',

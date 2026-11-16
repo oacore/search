@@ -268,7 +268,7 @@ test.describe('T-722 @P0 /data-providers history', () => {
     const html = await (
       await request.get('/data-providers/?q=aberystwyth')
     ).text()
-    expect(html).toContain(`<title>${TITLE}</title>`)
+    expect(html).toMatch(new RegExp(`<title(?: [^>]*)?>${TITLE}</title>`))
     expect(html).not.toContain('aberystwyth - ')
     await openProviders(page, p2Env, '/data-providers/?q=aberystwyth')
     expect(await view(page, p2Env)).toEqual({
@@ -361,7 +361,7 @@ test.describe('T-722 @P0 /data-providers history', () => {
       [
         'next-data',
         'GET',
-        '/search/_next/data/<buildId>/data-providers.json?q=birkbeck',
+        '/static/search/_next/data/<buildId>/data-providers.json?q=birkbeck',
         200,
       ],
     ])

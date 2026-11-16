@@ -351,54 +351,119 @@
       "attrs": { "content": "Riede, J.", "name": "DC.creator" }
     },
     { "tag": "meta", "attrs": { "content": "R. Vogt", "name": "DC.creator" } },
-    { "tag": "meta", "attrs": { "charset": "utf-8" } },
+    { "tag": "meta", "attrs": { "content": "Vogt, R.", "name": "DC.creator" } },
     {
       "tag": "meta",
-      "attrs": { "content": "width=device-width", "name": "viewport" }
+      "attrs": { "content": "Butale, M.", "name": "DC.creator" }
     },
     {
-      "tag": "link",
+      "tag": "meta",
+      "attrs": { "content": "J. Helmschrot", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Posada, R.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "S. Kruger", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
+      "attrs": { "content": "Muche, G.", "name": "DC.creator" }
+    },
+    {
+      "tag": "meta",
       "attrs": {
-        "href": "https://core.ac.uk/favicon/favicon-64px.png",
-        "rel": "icon",
-        "sizes": "64x64",
-        "type": "image/png"
+        "content": "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa",
+        "name": "DC.title"
       }
     },
     {
-      "tag": "link",
+      "tag": "meta",
       "attrs": {
-        "href": "https://core.ac.uk/favicon/favicon-128px.png",
-        "rel": "icon",
-        "sizes": "128x128",
-        "type": "image/png"
+        "content": "A major task of the newly established \"Southern African Science Service Centre for Climate Change and Adaptive Land Management\" (SASSCAL; www.sasscal.org) and its partners is to provide science-based environmental information and knowledge which includes the provision of consistent and reliable climate data for Southern Africa. Hence, SASSCAL, in close cooperation with the national weather authorities of Angola, Botswana, Germany and Zambia as well as partner institutions in Namibia and South Africa, supports the extension of the regional meteorological observation network and the improvement of the climate archives at national level. With the ongoing rehabilitation of existing weather stations and the new installation of fully automated weather stations (AWS), altogether 105 AWS currently provide a set of climate variables at 15, 30 and 60 min intervals respectively. These records are made available through the SASSCAL WeatherNet, an online platform providing near-real time data as well as various statistics and graphics, all in open access. This effort is complemented by the harmonization and improvement of climate data management concepts at the national weather authorities, capacity building activities and an extension of the data bases with historical climate data which are still available from different sources. These activities are performed through cooperation between regional and German institutions and will provide important information for climate service related activities",
+        "name": "DCTERMS.abstract"
       }
     },
     {
-      "tag": "link",
-      "attrs": {
-        "href": "https://core.ac.uk/favicon/favicon-256px.png",
-        "rel": "icon",
-        "sizes": "256x256",
-        "type": "image/png"
-      }
-    },
-    {
-      "tag": "link",
-      "attrs": {
-        "href": "https://core.ac.uk/favicon/favicon-512px.png",
-        "rel": "icon",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
-    },
-    {
-      "tag": "link",
-      "attrs": {
-        "href": "https://core.ac.uk/favicon/favicon.svg",
-        "rel": "icon",
-        "sizes": "any",
-        "type": "image/svg+xml"
+      "tag": "script",
+      "attrs": { "type": "application/ld+json" },
+      "jsonld": {
+        "@context": "http://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": { "@id": "https://core.ac.uk", "name": "CORE" }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@id": "https://core.ac.uk/reader/1003",
+                  "name": "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa",
+                  "image": "https://core.ac.uk/image/1003/large"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@id": "https://core.ac.uk/search?q=repositories.id:(4786)",
+                  "name": "Crossref"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "ScholarlyArticle",
+            "@id": "https://core.ac.uk/reader/1003",
+            "headline": "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa",
+            "abstract": "A major task of the newly established \"Southern African Science Service Centre for Climate Change and Adaptive Land Management\" (SASSCAL; www.sasscal.org) and its partners is to provide science-based environmental information and knowledge which includes the provision of consistent and reliable climate data for Southern Africa. Hence, SASSCAL, in close cooperation with the national weather authorities of Angola, Botswana, Germany and Zambia as well as partner institutions in Namibia and South Africa, supports the extension of the regional meteorological observation network and the improvement of the climate archives at national level. With the ongoing rehabilitation of existing weather stations and the new installation of fully automated weather stations (AWS), altogether 105 AWS currently provide a set of climate variables at 15, 30 and 60 min intervals respectively. These records are made available through the SASSCAL WeatherNet, an online platform providing near-real time data as well as various statistics and graphics, all in open access. This effort is complemented by the harmonization and improvement of climate data management concepts at the national weather authorities, capacity building activities and an extension of the data bases with historical climate data which are still available from different sources. These activities are performed through cooperation between regional and German institutions and will provide important information for climate service related activities",
+            "name": "The SASSCAL contribution to climate observation, climate data management and data rescue in Southern Africa",
+            "author": [
+              { "@type": "Person", "name": { "name": "F. Kaspar" } },
+              { "@type": "Person", "name": { "name": "M. Butale" } },
+              { "@type": "Person", "name": { "name": "de Clercq, W." } },
+              { "@type": "Person", "name": { "name": "T. Hillmann" } },
+              { "@type": "Person", "name": { "name": "Kruger, S." } },
+              { "@type": "Person", "name": { "name": "Castro Matsheka, M." } },
+              { "@type": "Person", "name": { "name": "Helmschrot, J." } },
+              { "@type": "Person", "name": { "name": "W. de Clercq" } },
+              { "@type": "Person", "name": { "name": "Seely, M." } },
+              { "@type": "Person", "name": { "name": "R. Posada" } },
+              { "@type": "Person", "name": { "name": "Hillmann, T." } },
+              { "@type": "Person", "name": { "name": "F. O. S. Neto" } },
+              { "@type": "Person", "name": { "name": "Kaspar, F." } },
+              { "@type": "Person", "name": { "name": "J. K. Kanyanga" } },
+              { "@type": "Person", "name": { "name": "M. Seely" } },
+              { "@type": "Person", "name": { "name": "Mhanda, A." } },
+              { "@type": "Person", "name": { "name": "Josenhans, K." } },
+              { "@type": "Person", "name": { "name": "J`urgens, N." } },
+              { "@type": "Person", "name": { "name": "Ribeiro, C." } },
+              { "@type": "Person", "name": { "name": "C. Ribeiro" } },
+              { "@type": "Person", "name": { "name": "Neto, F. O. S." } },
+              { "@type": "Person", "name": { "name": "G. Muche" } },
+              { "@type": "Person", "name": { "name": "Riede, J." } },
+              { "@type": "Person", "name": { "name": "R. Vogt" } },
+              { "@type": "Person", "name": { "name": "Vogt, R." } },
+              { "@type": "Person", "name": { "name": "Butale, M." } },
+              { "@type": "Person", "name": { "name": "J. Helmschrot" } },
+              { "@type": "Person", "name": { "name": "Posada, R." } },
+              { "@type": "Person", "name": { "name": "S. Kruger" } },
+              { "@type": "Person", "name": { "name": "Muche, G." } }
+            ],
+            "datePublished": "2015-01-01T00:00:00+00:00",
+            "isAccessibleForFree": true,
+            "provider": { "@type": "Organization", "name": "Crossref" },
+            "image": "https://core.ac.uk/image/1003/large",
+            "publisher": { "@type": "Organization", "name": "Copernicus-Ges." }
+          }
+        ]
       }
     },
     {

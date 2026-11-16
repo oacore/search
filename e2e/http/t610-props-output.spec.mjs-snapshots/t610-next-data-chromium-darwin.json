@@ -2,7 +2,7 @@
   {
     "id": "search-climate",
     "path": "/search/?q=climate",
-    "data": "/search/_next/data/<buildId>/search.json?q=climate",
+    "data": "/static/search/_next/data/<buildId>/search.json?q=climate",
     "page": "/search",
     "query": { "q": "climate" },
     "bytes": 143962,
@@ -28,7 +28,7 @@
   {
     "id": "search-climate-p2",
     "path": "/search/?q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26",
-    "data": "/search/_next/data/<buildId>/search.json?q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26",
+    "data": "/static/search/_next/data/<buildId>/search.json?q=climate&page=2&limit=10&sort=recent&t=fafad9968b7cd268c5fd64342bf88a26",
     "page": "/search",
     "query": {
       "q": "climate",
@@ -60,7 +60,7 @@
   {
     "id": "search-zzzzqqq",
     "path": "/search/?q=zzzzqqq",
-    "data": "/search/_next/data/<buildId>/search.json?q=zzzzqqq",
+    "data": "/static/search/_next/data/<buildId>/search.json?q=zzzzqqq",
     "page": "/search",
     "query": { "q": "zzzzqqq" },
     "bytes": 552,
@@ -98,7 +98,7 @@
   {
     "id": "search-status500",
     "path": "/search/?q=__status500",
-    "data": "/search/_next/data/<buildId>/search.json?q=__status500",
+    "data": "/static/search/_next/data/<buildId>/search.json?q=__status500",
     "page": "/search",
     "query": { "q": "__status500" },
     "bytes": 140,
@@ -111,7 +111,7 @@
   {
     "id": "search-x-page-abc",
     "path": "/search/?q=x&page=abc",
-    "data": "/search/_next/data/<buildId>/search.json?q=x&page=abc",
+    "data": "/static/search/_next/data/<buildId>/search.json?q=x&page=abc",
     "page": "/search",
     "query": { "q": "x", "page": "abc" },
     "bytes": 467,
@@ -145,7 +145,7 @@
   {
     "id": "works-1001",
     "path": "/works/1001/",
-    "data": "/search/_next/data/<buildId>/works/1001.json?id=1001",
+    "data": "/static/search/_next/data/<buildId>/works/1001.json?id=1001",
     "page": "/works/[id]",
     "query": { "id": "1001" },
     "bytes": 14209,
@@ -541,7 +541,7 @@
   {
     "id": "works-1002",
     "path": "/works/1002/",
-    "data": "/search/_next/data/<buildId>/works/1002.json?id=1002",
+    "data": "/static/search/_next/data/<buildId>/works/1002.json?id=1002",
     "page": "/works/[id]",
     "query": { "id": "1002" },
     "bytes": 4639,
@@ -689,7 +689,7 @@
   {
     "id": "works-1003",
     "path": "/works/1003/",
-    "data": "/search/_next/data/<buildId>/works/1003.json?id=1003",
+    "data": "/static/search/_next/data/<buildId>/works/1003.json?id=1003",
     "page": "/works/[id]",
     "query": { "id": "1003" },
     "bytes": 17804,
@@ -1147,7 +1147,7 @@
   {
     "id": "works-1005",
     "path": "/works/1005/",
-    "data": "/search/_next/data/<buildId>/works/1005.json?id=1005",
+    "data": "/static/search/_next/data/<buildId>/works/1005.json?id=1005",
     "page": "/works/[id]",
     "query": { "id": "1005" },
     "bytes": 14399,
@@ -1543,7 +1543,7 @@
   {
     "id": "works-1004",
     "path": "/works/1004/",
-    "data": "/search/_next/data/<buildId>/works/1004.json?id=1004",
+    "data": "/static/search/_next/data/<buildId>/works/1004.json?id=1004",
     "page": "/works/[id]",
     "query": { "id": "1004" },
     "bytes": 13002,
@@ -1939,7 +1939,7 @@
   {
     "id": "works-4040",
     "path": "/works/4040/",
-    "data": "/search/_next/data/<buildId>/works/4040.json?id=4040",
+    "data": "/static/search/_next/data/<buildId>/works/4040.json?id=4040",
     "page": "/works/[id]",
     "query": { "id": "4040" },
     "bytes": 200,
@@ -1958,7 +1958,7 @@
   {
     "id": "works-5000",
     "path": "/works/5000/",
-    "data": "/search/_next/data/<buildId>/works/5000.json?id=5000",
+    "data": "/static/search/_next/data/<buildId>/works/5000.json?id=5000",
     "page": "/works/[id]",
     "query": { "id": "5000" },
     "bytes": 200,
@@ -1977,7 +1977,7 @@
   {
     "id": "outputs-2001",
     "path": "/outputs/2001/",
-    "data": "/search/_next/data/<buildId>/outputs/2001.json?id=2001",
+    "data": "/static/search/_next/data/<buildId>/outputs/2001.json?id=2001",
     "page": "/outputs/[id]",
     "query": { "id": "2001" },
     "bytes": 4798,
@@ -2109,7 +2109,7 @@
   {
     "id": "outputs-2002",
     "path": "/outputs/2002/",
-    "data": "/search/_next/data/<buildId>/outputs/2002.json?id=2002",
+    "data": "/static/search/_next/data/<buildId>/outputs/2002.json?id=2002",
     "page": "/outputs/[id]",
     "query": { "id": "2002" },
     "bytes": 161,
@@ -2127,7 +2127,7 @@
   {
     "id": "outputs-2003",
     "path": "/outputs/2003/",
-    "data": "/search/_next/data/<buildId>/outputs/2003.json?id=2003",
+    "data": "/static/search/_next/data/<buildId>/outputs/2003.json?id=2003",
     "page": "/outputs/[id]",
     "query": { "id": "2003" },
     "bytes": 2344,
@@ -2224,7 +2224,7 @@
   {
     "id": "outputs-2004",
     "path": "/outputs/2004/",
-    "data": "/search/_next/data/<buildId>/outputs/2004.json?id=2004",
+    "data": "/static/search/_next/data/<buildId>/outputs/2004.json?id=2004",
     "page": "/outputs/[id]",
     "query": { "id": "2004" },
     "bytes": 4660,
@@ -2353,7 +2353,7 @@
   {
     "id": "outputs-2101",
     "path": "/outputs/2101/",
-    "data": "/search/_next/data/<buildId>/outputs/2101.json?id=2101",
+    "data": "/static/search/_next/data/<buildId>/outputs/2101.json?id=2101",
     "page": "/outputs/[id]",
     "query": { "id": "2101" },
     "bytes": 4777,
@@ -2485,7 +2485,7 @@
   {
     "id": "outputs-2105",
     "path": "/outputs/2105/",
-    "data": "/search/_next/data/<buildId>/outputs/2105.json?id=2105",
+    "data": "/static/search/_next/data/<buildId>/outputs/2105.json?id=2105",
     "page": "/outputs/[id]",
     "query": { "id": "2105" },
     "bytes": 4910,
@@ -2623,7 +2623,7 @@
   {
     "id": "outputs-2106",
     "path": "/outputs/2106/",
-    "data": "/search/_next/data/<buildId>/outputs/2106.json?id=2106",
+    "data": "/static/search/_next/data/<buildId>/outputs/2106.json?id=2106",
     "page": "/outputs/[id]",
     "query": { "id": "2106" },
     "bytes": 4807,
@@ -2755,7 +2755,7 @@
   {
     "id": "outputs-4100",
     "path": "/outputs/4100/",
-    "data": "/search/_next/data/<buildId>/outputs/4100.json?id=4100",
+    "data": "/static/search/_next/data/<buildId>/outputs/4100.json?id=4100",
     "page": "/outputs/[id]",
     "query": { "id": "4100" },
     "bytes": 172,
@@ -2773,7 +2773,7 @@
   {
     "id": "outputs-2001-oai",
     "path": "/outputs/2001/?source=oai",
-    "data": "/search/_next/data/<buildId>/outputs/2001.json?id=2001&source=oai",
+    "data": "/static/search/_next/data/<buildId>/outputs/2001.json?id=2001&source=oai",
     "page": "/outputs/[id]",
     "query": { "source": "oai", "id": "2001" },
     "bytes": 4798,
@@ -2905,7 +2905,7 @@
   {
     "id": "display-2001",
     "path": "/display/2001/",
-    "data": "/search/_next/data/<buildId>/outputs/2001.json?id=2001",
+    "data": "/static/search/_next/data/<buildId>/outputs/2001.json?id=2001",
     "page": "/outputs/[id]",
     "query": { "id": "2001" },
     "bytes": 4798,
@@ -3037,7 +3037,7 @@
   {
     "id": "providers",
     "path": "/data-providers/",
-    "data": "/search/_next/data/<buildId>/data-providers.json",
+    "data": "/static/search/_next/data/<buildId>/data-providers.json",
     "page": "/data-providers",
     "query": {},
     "bytes": 7034636,
@@ -3051,7 +3051,7 @@
   {
     "id": "providers-q-aberystwyth",
     "path": "/data-providers/?q=aberystwyth",
-    "data": "/search/_next/data/<buildId>/data-providers.json?q=aberystwyth",
+    "data": "/static/search/_next/data/<buildId>/data-providers.json?q=aberystwyth",
     "page": "/data-providers",
     "query": { "q": "aberystwyth" },
     "bytes": 7034653,
@@ -3065,7 +3065,7 @@
   {
     "id": "provider-86",
     "path": "/data-providers/86/",
-    "data": "/search/_next/data/<buildId>/data-providers/86.json?id=86",
+    "data": "/static/search/_next/data/<buildId>/data-providers/86.json?id=86",
     "page": "/data-providers/[id]",
     "query": { "id": "86" },
     "bytes": 57790,
@@ -3104,7 +3104,7 @@
   {
     "id": "provider-4835",
     "path": "/data-providers/4835/",
-    "data": "/search/_next/data/<buildId>/data-providers/4835.json?id=4835",
+    "data": "/static/search/_next/data/<buildId>/data-providers/4835.json?id=4835",
     "page": "/data-providers/[id]",
     "query": { "id": "4835" },
     "bytes": 200919,
@@ -3143,7 +3143,7 @@
   {
     "id": "provider-8",
     "path": "/data-providers/8/",
-    "data": "/search/_next/data/<buildId>/data-providers/8.json?id=8",
+    "data": "/static/search/_next/data/<buildId>/data-providers/8.json?id=8",
     "page": "/data-providers/[id]",
     "query": { "id": "8" },
     "bytes": 57648,
@@ -3182,7 +3182,7 @@
   {
     "id": "provider-3354",
     "path": "/data-providers/3354/",
-    "data": "/search/_next/data/<buildId>/data-providers/3354.json?id=3354",
+    "data": "/static/search/_next/data/<buildId>/data-providers/3354.json?id=3354",
     "page": "/data-providers/[id]",
     "query": { "id": "3354" },
     "bytes": 882,
@@ -3239,7 +3239,7 @@
   {
     "id": "provider-86-e13-500",
     "path": "/data-providers/86/?q=p2t610",
-    "data": "/search/_next/data/<buildId>/data-providers/86.json?id=86&q=p2t610",
+    "data": "/static/search/_next/data/<buildId>/data-providers/86.json?id=86&q=p2t610",
     "page": "/data-providers/[id]",
     "query": { "q": "p2t610", "id": "86" },
     "bytes": 4756,

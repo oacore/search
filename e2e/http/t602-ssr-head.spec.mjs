@@ -34,6 +34,11 @@ import {
   serveDoiFixtures,
   serveBrowserGaps,
 } from '../lib/P0-10/harness-gaps.mjs'
+import { installedVersions } from '../lib/P0-12/console-pins.mjs'
+
+// from Next 15 next/head owns every tag of <Head> (data-next-head; W7a)
+const HEAD_MANAGED =
+  Number(String(installedVersions().next).split('.')[0]) >= 15
 
 const S4_PAYLOAD = '</script><script>window.__PWN=1</script>'
 // Q-072 parser reports inside the full-text card: none on any page since CS-ESC-1 (W5.5) renders the card as a
@@ -366,7 +371,8 @@ test.describe('T-602 @P0 SSR head', () => {
     const raw = await load(request, p2Env, p)
     // JSON.stringify leaves `<` unescaped: the payload is in the JSON-LD text four times (breadcrumb name,
     // headline, name, abstract); every other place escapes it
-    const ldStart = raw.text.indexOf('<script type="application/ld+json">')
+    // the tag carries data-next-head from Next 15
+    const ldStart = raw.text.search(/<script type="application\/ld\+json"[ >]/)
     const headEnd = raw.text.indexOf('</head>')
     expect(raw.text.split(S4_PAYLOAD).length - 1).toBe(4)
     expect(raw.text.slice(ldStart, headEnd).split(S4_PAYLOAD).length - 1).toBe(
@@ -433,10 +439,15 @@ test.describe('T-602 @P0 SSR head', () => {
       await expect.poll(() => s.evaluate(() => window.__PWN)).toBe(1)
       await expect
         .poll(() => sandboxLog.pageErrors.map((e) => e.message))
-        .toEqual([
-          "Cannot read properties of null (reading 'content')",
-          "Cannot read properties of null (reading 'content')",
-        ]) // AD-136
+        .toEqual(
+          // from Next 15 the head manager no longer reads next-head-count: no head error (W7a)
+          HEAD_MANAGED
+            ? []
+            : [
+                "Cannot read properties of null (reading 'content')",
+                "Cannot read properties of null (reading 'content')",
+              ]
+        ) // AD-136
       // no script-src violation: script-src-elem allows 'unsafe-inline'; the one violation is the browser
       // Sentry report of that page error (connect-src, Q-096), to the envelope endpoint of Sentry 7 (AD-020;
       // the store endpoint of Sentry 5.30 before)
@@ -447,10 +458,14 @@ test.describe('T-602 @P0 SSR head', () => {
             v.blockedURI.split('?')[0],
           ])
         )
-        .toEqual([
-          ['connect-src', 'https://o0.ingest.sentry.io/api/0/envelope/'],
-          ['connect-src', 'https://o0.ingest.sentry.io/api/0/envelope/'],
-        ]) // AD-136
+        .toEqual(
+          HEAD_MANAGED
+            ? []
+            : [
+                ['connect-src', 'https://o0.ingest.sentry.io/api/0/envelope/'],
+                ['connect-src', 'https://o0.ingest.sentry.io/api/0/envelope/'],
+              ]
+        ) // AD-136
       expect(sandboxLog.unexpected).toEqual([])
       expect(sandboxLog.unmatched).toEqual([])
       // the head error has happened (the page error above): the hydrated page, compared below with the

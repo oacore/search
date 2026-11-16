@@ -152,7 +152,7 @@ test.describe('T-723 @P1 /display/:id/', () => {
       [
         'next-data',
         'GET',
-        '/search/_next/data/<buildId>/outputs/2004.json?id=2004',
+        '/static/search/_next/data/<buildId>/outputs/2004.json?id=2004',
       ],
     ])
     expect(log.since(m).filter((e) => e.kind === 'next-data')[0].status).toBe(
@@ -173,9 +173,7 @@ test.describe('T-723 @P1 /display/:id/', () => {
       '/display/2004/'
     )
     expect(await trailOf(page)).toEqual([outputsTrail(2004)[0]])
-    // W4d-18
-    expect(guardLog.consoleErrors.map((x) => x.text.split('\n')[0])).toEqual([
-      'Error: Failed to lookup route: /display/2004',
-    ])
+    // W4d-18; from Next 15 the router falls back to the document load without logging (W7a)
+    expect(guardLog.consoleErrors.map((x) => x.text.split('\n')[0])).toEqual([])
   })
 })

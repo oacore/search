@@ -201,7 +201,7 @@ test.describe('T-732 @P1 J22 /display/:id alias', () => {
         [
           'next-data',
           'GET',
-          '/search/_next/data/<buildId>/outputs/2004.json?id=2004',
+          '/static/search/_next/data/<buildId>/outputs/2004.json?id=2004',
         ],
       ],
       status: [200],
@@ -214,7 +214,7 @@ test.describe('T-732 @P1 J22 /display/:id alias', () => {
         [
           'next-data',
           'GET',
-          '/search/_next/data/<buildId>/outputs/2001.json?id=2001',
+          '/static/search/_next/data/<buildId>/outputs/2001.json?id=2001',
         ],
       ],
       status: [200],
@@ -227,7 +227,7 @@ test.describe('T-732 @P1 J22 /display/:id alias', () => {
         [
           'next-data',
           'GET',
-          '/search/_next/data/<buildId>/outputs/2004.json?id=2004',
+          '/static/search/_next/data/<buildId>/outputs/2004.json?id=2004',
         ],
       ],
       status: [200],

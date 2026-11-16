@@ -24,7 +24,7 @@ import {
 } from '../lib/P0-13/states.mjs'
 import { yearView } from '../lib/P0-13/view.mjs'
 
-const NEXT_DATA = '/search/_next/data/<buildId>/search.json'
+const NEXT_DATA = '/static/search/_next/data/<buildId>/search.json'
 const STATE_KEYS = ['__N', 'as', 'key', 'options', 'url'] // AD-124
 // the filters call while the year facet is active leaves yearPublished out (store/filters.js fetchFilters)
 const AGGREGATIONS_WITHOUT_YEAR = [

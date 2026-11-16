@@ -236,7 +236,7 @@
       {
         "kind": "next-data",
         "method": "GET",
-        "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate&page=2",
+        "url": "<origin>/static/search/_next/data/<buildId>/search.json?q=climate&page=2",
         "resourceType": "fetch",
         "headers": {
           "accept": "*/*"
@@ -253,7 +253,7 @@
       {
         "kind": "next-data",
         "method": "GET",
-        "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate&page=1&sort=recent",
+        "url": "<origin>/static/search/_next/data/<buildId>/search.json?q=climate&page=1&sort=recent",
         "resourceType": "fetch",
         "headers": {
           "accept": "*/*"
@@ -283,7 +283,7 @@
       {
         "kind": "next-data",
         "method": "GET",
-        "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate+AND+documentType%3A%22thesis%22&page=1&sort=recent",
+        "url": "<origin>/static/search/_next/data/<buildId>/search.json?q=climate+AND+documentType%3A%22thesis%22&page=1&sort=recent",
         "resourceType": "fetch",
         "headers": {
           "accept": "*/*"
@@ -326,7 +326,7 @@
       {
         "kind": "next-data",
         "method": "GET",
-        "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate&page=1&sort=recent",
+        "url": "<origin>/static/search/_next/data/<buildId>/search.json?q=climate&page=1&sort=recent",
         "resourceType": "fetch",
         "headers": {
           "accept": "*/*"
@@ -356,7 +356,7 @@
       {
         "kind": "next-data",
         "method": "GET",
-        "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate+AND+documentType%3A%22thesis%22&page=1&sort=recent",
+        "url": "<origin>/static/search/_next/data/<buildId>/search.json?q=climate+AND+documentType%3A%22thesis%22&page=1&sort=recent",
         "resourceType": "fetch",
         "headers": {
           "accept": "*/*"
@@ -386,7 +386,7 @@
       {
         "kind": "next-data",
         "method": "GET",
-        "url": "<origin>/search/_next/data/<buildId>/search.json?q=climate&page=1&sort=recent",
+        "url": "<origin>/static/search/_next/data/<buildId>/search.json?q=climate&page=1&sort=recent",
         "resourceType": "fetch",
         "headers": {
           "accept": "*/*"

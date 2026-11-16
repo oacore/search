@@ -140,7 +140,7 @@ const App = ({
   if (process.env.NODE_ENV === 'production') {
     useInterceptNextDataHref({
       router: approuter,
-      namespace: '/search',
+      namespace: '/static/search',
     })
   }
 

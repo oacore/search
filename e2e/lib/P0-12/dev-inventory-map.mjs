@@ -151,8 +151,31 @@ export const DEV_WARNING_MAP = [
     match: {
       kind: 'console',
       text: /^Failed to load resource: the server responded with a status of 404 \(Not Found\)$/,
-      resource: /^\/__nextjs_original-stack-frame$/,
+      // the overlay's endpoint is plural from Next 15 (W7a)
+      resource: /^\/__nextjs_original-stack-frames?$/,
       route: /^works-1001-t-repeated$/,
+    },
+  },
+  {
+    // Next 15's server writes the t query of the back link with `+` for the space, the client with `%20`
+    // (both decode to the same query; production keeps the server's value and prints nothing) (W7a)
+    id: 'q016-t-odd-href-hydration',
+    q: 'Q-016',
+    devOnly: true,
+    match: {
+      kind: 'hydration',
+      text: /^Warning: Prop `href` did not match\. Server: "https:\/\/core\.ac\.uk\/search\/\?\/1001\/\?t=a%26b%3Dc\+d" Client: "https:\/\/core\.ac\.uk\/search\/\?\/1001\/\?t=a%26b%3Dc%20d"/,
+    },
+  },
+  {
+    // Next 15 development warns that next/link's legacyBehavior is deprecated (templates/data-providers/
+    // result-card.jsx, templates/data-provider/pagination.jsx); production prints nothing (W7a)
+    id: 'next15-dev-link-legacybehavior',
+    issue: 'P0-12-11',
+    devOnly: true,
+    match: {
+      kind: 'console',
+      text: /^`legacyBehavior` is deprecated and will be removed in a future release\. A codemod is available to upgrade your components:/,
     },
   },
   {

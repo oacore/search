@@ -36,9 +36,10 @@ export function facts(html) {
     out.resultIds = [...body.matchAll(/href="\/data-providers\/(\d+)"/g)].map(
       (m) => Number(m[1])
     )
-    const ld = /<script type="application\/ld\+json">(.*?)<\/script>/s.exec(
-      body
-    )
+    const ld =
+      /<script type="application\/ld\+json"(?: [^>]*)?>(.*?)<\/script>/s.exec(
+        body
+      )
     out.jsonLdIds = ld
       ? JSON.parse(ld[1])
           ['@graph'].filter((g) => g['@type'] === 'SearchResultsPage')
