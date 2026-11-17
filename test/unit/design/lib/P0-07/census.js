@@ -17,6 +17,9 @@
 // Navigation is never performed by jsdom: an anchor activation or a form
 // submission that nobody prevented is recorded as an intent and then
 // prevented at the window (the last listener of the bubbling path).
+// jsdom has no setImmediate: the core-js polyfill the Babel config injected
+// into this file (useBuiltIns: 'usage') until CS-SWC-1, now imported by hand
+require('core-js/modules/web.immediate')
 const crypto = require('crypto')
 const util = require('util')
 

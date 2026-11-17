@@ -1,7 +1,10 @@
 // T-121 (41 B, R-011; Q-020, Q-091): utils/invalidatePreviousRequests.js, the
 // legacy method decorator behind Claim.retrieve, the filter, search, report and
-// similar-works fetches. It is applied with the same decorator syntax and
-// Babel config as the stores; the stores themselves are pinned elsewhere
+// similar-works fetches. It is applied as a legacy method decorator, the way
+// Babel's legacy decorators applied it (no compiler of the build or the Jest
+// transforms parses the decorator syntax since CS-SWC-1: (prototype, key,
+// descriptor), and the returned descriptor is defined on the prototype); the
+// stores themselves are pinned elsewhere
 // (T-202, T-205, T-211, T-734). Each makeStore() call decorates a new class,
 // so every class gets its own controllers.
 const http = require('http')
@@ -24,7 +27,6 @@ const makeStore = () => {
     isLoading = false
 
     // records its arguments and the aborts of the signal it receives last
-    @invalidatePreviousRequests
     run(...args) {
       const signal = args[args.length - 1]
       this.calls.push({ self: this, args })
@@ -37,13 +39,11 @@ const makeStore = () => {
       return { returned: args.length }
     }
 
-    @invalidatePreviousRequests
     other(...args) {
       this.calls.push({ self: this, args })
     }
 
     // a method with an optional parameter before the signal (Q-020)
-    @invalidatePreviousRequests
     fetchFilters(q, sortType = 'recent', signal) {
       this.calls.push({ self: this, args: [q, sortType, signal] })
       return { q, sortType, signal }
@@ -51,7 +51,6 @@ const makeStore = () => {
 
     // the shape of Claim.retrieve (store/claim.js:35-52): reset, loading on,
     // await the request, error to `error`, loading off in finally
-    @invalidatePreviousRequests
     async flow(label, request, signal) {
       this.log.push(`start ${label}`)
       this.created = null
@@ -67,6 +66,14 @@ const makeStore = () => {
         this.log.push(`end ${label}`)
       }
     }
+  }
+  for (const key of ['run', 'other', 'fetchFilters', 'flow']) {
+    const descriptor = Object.getOwnPropertyDescriptor(Store.prototype, key)
+    Object.defineProperty(
+      Store.prototype,
+      key,
+      invalidatePreviousRequests(Store.prototype, key, descriptor) || descriptor
+    )
   }
   return Store
 }

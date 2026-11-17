@@ -11,6 +11,7 @@
     "noEmit": true,
     "incremental": false,
     "isolatedModules": true,
+    "useDefineForClassFields": true,
     "erasableSyntaxOnly": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,

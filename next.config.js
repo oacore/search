@@ -22,7 +22,14 @@ const nextConfig = {
   // From Next 13 the server code is minified too
   // (experimental.serverMinification); false keeps it as 12.3.7 built it, so
   // server stack traces keep the app's names (CS-N13-9)
-  experimental: { largePageDataBytes: 0, serverMinification: false },
+  // SWC compiles the app (CS-SWC-1): the client keeps the usage-based core-js
+  // 3 polyfills the Babel config injected (`useBuiltIns: 'usage'`,
+  // `corejs: 3`) for the .browserslistrc engines (CS-BAB-5)
+  experimental: {
+    largePageDataBytes: 0,
+    serverMinification: false,
+    swcEnvOptions: { mode: 'usage', coreJs: '3' },
+  },
 
   // The page data of client navigations is fetched from /search/_next/data
   // (pages/_app.jsx, useInterceptNextDataHref). From Next 12.2 a rewrite
