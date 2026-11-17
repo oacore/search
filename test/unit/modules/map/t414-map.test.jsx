@@ -120,7 +120,7 @@ describe('T-414 @P1 map', () => {
       expect(error).toBeInstanceOf(TypeError)
       expect(error.message).toMatch(/null.*addLayer|addLayer.*null/)
       // thrown by map.jsx, the effect that adds the cluster group (map.jsx:53)
-      expect(error.stack).toContain('modules/map/map.jsx')
+      expect(error.stack).toContain('modules/map/map.tsx')
       expect(mapSpy).not.toHaveBeenCalled()
       expect(document.getElementById('map')).toBeNull()
       expect(document.querySelector('.leaflet-container')).toBeNull()

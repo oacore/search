@@ -683,7 +683,7 @@ describe('T-412 @P1 claim card', () => {
     test('T-412 c1 @P1 Q-061 in the source: nothing sets the claim modal active and sign-in-modal.jsx is imported by no file', () => {
       const root = path.join(__dirname, '../../../..')
       const card = fs.readFileSync(
-        path.join(root, 'templates/data-provider/claim/claim-card.jsx'),
+        path.join(root, 'templates/data-provider/claim/claim-card.tsx'),
         'utf8'
       )
       // the state exists ...

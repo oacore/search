@@ -203,7 +203,7 @@ describe('T-108 @P0 locale, time zone and ICU', () => {
     // defines it and its Intl.DisplayNames instance is taken from the source
     // file and evaluated; the snapshot is therefore of the app's own code.
     const SOURCE = fs.readFileSync(
-      path.join(REPO, 'templates/data-provider/index.jsx'),
+      path.join(REPO, 'templates/data-provider/index.tsx'),
       'utf8'
     )
     const BLOCK = SOURCE.slice(
@@ -211,12 +211,21 @@ describe('T-108 @P0 locale, time zone and ICU', () => {
       SOURCE.indexOf('const DataProviderTemplate')
     )
 
+    // the source is .tsx since CS-TS-4 (6.6): its type annotations are
+    // stripped before the block is evaluated
+    const JS_BLOCK = require('@babel/core').transformSync(BLOCK, {
+      filename: 'block.ts',
+      babelrc: false,
+      configFile: false,
+      presets: ['@babel/preset-typescript'],
+    }).code
+
     const loadRegionDisplayName = ({ withoutDisplayNames = false } = {}) => {
       const descriptor = Object.getOwnPropertyDescriptor(Intl, 'DisplayNames')
       if (withoutDisplayNames) delete Intl.DisplayNames
       try {
         // eslint-disable-next-line no-new-func
-        return new Function(`${BLOCK}\nreturn regionDisplayName`)()
+        return new Function(`${JS_BLOCK}\nreturn regionDisplayName`)()
       } finally {
         if (withoutDisplayNames)
           Object.defineProperty(Intl, 'DisplayNames', descriptor)
@@ -231,7 +240,7 @@ describe('T-108 @P0 locale, time zone and ICU', () => {
       expect(BLOCK).toContain(
         "new Intl.DisplayNames(['en'], { type: 'region' })"
       )
-      expect(BLOCK).toContain('const regionDisplayName = (code) => {')
+      expect(BLOCK).toContain('const regionDisplayName = (code?: any) => {')
       expect(BLOCK).toContain('code.trim().toUpperCase()')
       expect(BLOCK.trim().endsWith('}')).toBe(true)
     })

@@ -502,7 +502,9 @@ export async function run(opts = {}) {
     ? null
     : await harnessEvidence(
         harnessFiles,
-        appFiles.find((f) => f.endsWith('.jsx'))
+        // an application .tsx file since CS-TS-4 (6.6) moved every .jsx
+        appFiles.find((f) => f.endsWith('.jsx')) ||
+          appFiles.find((f) => f.endsWith('.tsx'))
       )
 
   const current = {

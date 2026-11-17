@@ -89,11 +89,15 @@ const literalIds = (text) =>
 
 const sorted = (list) => [...new Set(list)].sort()
 
-// application sources: the runtime tree of 01 §4 (`<PI>`), JS only
+// application sources: the runtime tree of 01 §4 (`<PI>`), JS and TS (CS-TS-4)
 const appSources = () =>
-  execFileSync('git', ['-C', ROOT, 'ls-files', '--', '*.js', '*.jsx'], {
-    encoding: 'utf8',
-  })
+  execFileSync(
+    'git',
+    ['-C', ROOT, 'ls-files', '--', '*.js', '*.jsx', '*.ts', '*.tsx'],
+    {
+      encoding: 'utf8',
+    }
+  )
     .split('\n')
     .filter(Boolean)
     // the vendored design is not application source (CS-DSN-2, AD-045): its

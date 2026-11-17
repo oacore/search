@@ -145,7 +145,7 @@ describe('T-005 @P0 static assets', () => {
     expect(
       Object.entries(sites).filter(([, kind]) => kind === 'not-built')
     ).toEqual([])
-    // the fifth data URI site is in templates/data-provider/logo.jsx, a
+    // the fifth data URI site is in templates/data-provider/logo.tsx, a
     // module no page imports (not in any bundle); its Default.svg is the data
     // URI module the search page bundles, so the build holds 4 data URI
     // modules for the 5 sites
@@ -155,7 +155,7 @@ describe('T-005 @P0 static assets', () => {
       )
     ).toEqual([
       [
-        'import-site-bundled:templates/data-provider/logo.jsx <- ./images/Default.svg',
+        'import-site-bundled:templates/data-provider/logo.tsx <- ./images/Default.svg',
         'no',
       ],
     ])
