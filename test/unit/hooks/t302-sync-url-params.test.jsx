@@ -4,20 +4,22 @@
 // routeChangeComplete copies the URL's keys that differ into the store
 // (size becomes a number). Q-048.U1: a URL without `q` leaves the old `q` in
 // the store and the next store-to-URL sync pushes it again. The hook is run
-// the way /data-providers runs it: Params of the data-providers schema, the
+// the way /data-providers runs it: the params of a data-providers store, the
 // router mock, window.location moved with history.replaceState.
 const nextRouter = require('next/router')
 
 const { act, renderHook } = require('../../utils/render')
 const { useFakeTimers, restoreClock } = require('../../utils/clock')
-const Params = require('../../../store/params').default
-const { schema } = require('../../../store/data-providers')
+const { createDataProvidersStore } = require('../../../store/data-providers')
 const {
   useSyncUrlParamsWithStore,
 } = require('../../../hooks/use-sync-url-params-with-store')
 
 const { router } = nextRouter
 
+// the params object of a data-providers store (the page hands it to the hook)
+const paramsOf = (params) =>
+  createDataProvidersStore({ data: [], params }).params
 const browserAt = (url) => window.history.replaceState(null, '', url)
 const mount = (params) => renderHook(() => useSyncUrlParamsWithStore(params))
 // the page is an observer: it re-renders when a param changes
@@ -49,10 +51,7 @@ describe('T-302 @P0 useSyncUrlParamsWithStore', () => {
 
   test('T-302 c1 @P0 the first sync replaces with the sorted params, shallow', () => {
     // action sorts before q before size; null params are left out
-    const params = new Params(
-      { q: 'open univ', size: '20', action: 'ADD' },
-      schema
-    )
+    const params = paramsOf({ q: 'open univ', size: '20', action: 'ADD' })
     const view = mount(params)
 
     expect(router.push).not.toHaveBeenCalled()
@@ -68,7 +67,7 @@ describe('T-302 @P0 useSyncUrlParamsWithStore', () => {
     view.unmount()
     nextRouter.setRouter({ query: { source: 'nav' } })
     router.replace.mockClear()
-    mount(new Params({}, schema))
+    mount(paramsOf({}))
     expect(Object.keys(router.replace.mock.calls[0][0].query)).toEqual([
       'source',
     ])
@@ -78,14 +77,14 @@ describe('T-302 @P0 useSyncUrlParamsWithStore', () => {
     // a browser URL that already equals the computed one: no call
     router.replace.mockClear()
     browserAt('/data-providers/?q=&size=10')
-    mount(new Params({}, schema))
+    mount(paramsOf({}))
     expect(router.replace).not.toHaveBeenCalled()
     expect(router.push).not.toHaveBeenCalled()
   })
 
   test('T-302 c1 @P0 later syncs push after 250 ms, coalesced, and an equal URL does nothing', () => {
     browserAt('/data-providers/?q=&size=10')
-    const params = new Params({}, schema)
+    const params = paramsOf({})
     const view = mount(params)
     expect(router.replace).not.toHaveBeenCalled()
     expect(router.push).not.toHaveBeenCalled()
@@ -119,7 +118,7 @@ describe('T-302 @P0 useSyncUrlParamsWithStore', () => {
   test('T-302 c1 @P0 routeChangeComplete copies the differing keys into the store (size becomes a number)', () => {
     browserAt('/data-providers/?q=x&size=10')
     nextRouter.setRouter({ asPath: '/data-providers/?q=x&size=10' })
-    const params = new Params({ q: 'x' }, schema)
+    const params = paramsOf({ q: 'x' })
     const view = mount(params)
     expect(router.replace).not.toHaveBeenCalled()
     expect(router.push).not.toHaveBeenCalled()
@@ -164,7 +163,7 @@ describe('T-302 @P0 useSyncUrlParamsWithStore', () => {
   test('T-302 c2 @P0 Q-048.U1 Back to a URL without q keeps the old q and the next sync pushes it again', () => {
     browserAt('/data-providers/?q=old&size=20')
     nextRouter.setRouter({ asPath: '/data-providers/?q=old&size=20' })
-    const params = new Params({ q: 'old', size: 20 }, schema)
+    const params = paramsOf({ q: 'old', size: 20 })
     const view = mount(params)
     expect(router.replace).not.toHaveBeenCalled()
     expect(router.push).not.toHaveBeenCalled()

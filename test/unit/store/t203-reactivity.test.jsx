@@ -12,10 +12,7 @@ const path = require('path')
 
 const mobx = require('mobx')
 
-const DataProviders = require('../../../store/data-providers').default
-const { schema } = require('../../../store/data-providers')
 const Filters = require('../../../store/filters').default
-const Params = require('../../../store/params').default
 const Root = require('../../../store/root').default
 const Search = require('../../../store/search').default
 
@@ -25,9 +22,7 @@ const { autorun, runInAction } = mobx
 
 // one fresh instance per class, constructed the way the app does
 const instances = () => ({
-  DataProviders: new DataProviders({ data: [], params: {} }),
   Filters: new Filters(),
-  Params: new Params({}, schema),
   Root: new Root({ statistics: {} }),
   Search: new Search(),
 })
@@ -124,15 +119,11 @@ describe('T-203 @P0 reactivity contract', () => {
     expect(table.Filters.filterNamesWithoutPublisher).toBe('plain-accessor')
     expect(table.Filters.fetchFilters).toBe('action')
     expect(table.Filters.getFilterByValue).toBe('action')
-    // annotation maps of Root, DataProviders and the dynamic keys of Params
+    // annotation map of Root (the ported stores are plain fields)
     expect(table.Root.search).toBe('plain')
     expect(table.Root.claim).toBe('plain')
     expect(table.Root.extend).toBe('action')
-    expect(table.DataProviders.results).toBe('computed')
-    expect(table.DataProviders.params).toBe('plain')
-    expect(table.Params.q).toBe('observable')
-    expect(table.Params.schema).toBe('plain')
-    expect(table.Params.changeParams).toBe('action')
+    expect(table.Root.dataProviders).toBe('plain')
   })
 
   test('T-203 c2 @P0 an autorun on an observable runs once per write', () => {
@@ -175,7 +166,7 @@ describe('T-203 @P0 reactivity contract', () => {
   })
 
   test('T-203 c2 @P0 computeds run once per change of their inputs', () => {
-    // Filters.maxYear needs a year facet
+    // Filters.maxYear needs a year facet (DataProviders.results: T-212)
     const filters = new Filters()
     runInAction(() => {
       filters.data = [
@@ -194,33 +185,6 @@ describe('T-203 @P0 reactivity contract', () => {
     })
     expect(seen).toEqual([2001, 2005])
     stop()
-
-    // DataProviders.results is cached inside a reaction: one search() per
-    // change of data or q, although the reaction reads it twice
-    const providers = new DataProviders({
-      data: [
-        { id: 1, name: 'Alpha' },
-        { id: 2, name: 'Beta' },
-      ],
-      params: { q: 'a' },
-    })
-    const search = jest.spyOn(providers, 'search')
-    const results = []
-    const stopResults = autorun(() => {
-      results.push(providers.results.map((p) => p.id))
-      providers.results.length // eslint-disable-line no-unused-expressions
-    })
-    expect(search).toHaveBeenCalledTimes(1)
-    runInAction(() => {
-      providers.params.q = 'be'
-    })
-    expect(search).toHaveBeenCalledTimes(2)
-    runInAction(() => {
-      providers.data.push({ id: 3, name: 'Beryl' })
-    })
-    expect(search).toHaveBeenCalledTimes(3)
-    expect(results).toEqual([[1, 2], [2], [2, 3]])
-    stopResults()
   })
 
   test('T-203 c2 @P0 an action batches its writes, an un-actioned method notifies per field', () => {

@@ -76,5 +76,8 @@ module.exports = {
     similarWorks: store(
       () => require('../../../store/similar-works').createSimilarWorksStore
     ),
+    dataProviders: store(
+      () => require('../../../store/data-providers').createDataProvidersStore
+    ),
   },
 }

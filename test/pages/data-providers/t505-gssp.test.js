@@ -29,7 +29,7 @@ const {
 } = require('../../../pages/data-providers/index')
 const { StoreProvider } = require('../../../store')
 const RootStore = require('../../../store/root').default
-const DataProviders = require('../../../store/data-providers').default
+const { createDataProvidersStore } = require('../../../store/data-providers')
 
 setupMsw()
 
@@ -267,7 +267,7 @@ describe('T-505 @P1 /data-providers getServerSideProps', () => {
         action: 'ADD',
       })
       // ... the store keeps only the schema keys, converted
-      const store = new DataProviders(props.initialState.dataProviders)
+      const store = createDataProvidersStore(props.initialState.dataProviders)
       expect(store.params.q).toBe('Eylul')
       expect(store.params.size).toBe(20)
       expect(store.params.action).toBe('ADD')
@@ -279,15 +279,17 @@ describe('T-505 @P1 /data-providers getServerSideProps', () => {
         'size',
       ])
       // q drives the results (normalized name, case-insensitive)
-      expect(store.results.map((row) => row.id)).toEqual([3354])
+      expect(
+        store.selectResults(store.getState()).map((row) => row.id)
+      ).toEqual([3354])
     })
 
     test('T-505 c2 @P1 Q-080 ?query= alone leaves q empty: the store lists all nine rows', async () => {
       const { props } = await run({ query: 'Eylul' })
-      const store = new DataProviders(props.initialState.dataProviders)
+      const store = createDataProvidersStore(props.initialState.dataProviders)
       expect(store.params.q).toBe('')
       expect(store.params.query).toBeUndefined()
-      expect(store.results).toHaveLength(9)
+      expect(store.selectResults(store.getState())).toHaveLength(9)
     })
 
     test('T-505 c2 @P1 Q-080 the server-rendered title is "Data providers search" whatever the query, q included', async () => {

@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useMemo } from 'react'
 import Head from 'next/head'
+import { useStore as useStoreApi } from 'zustand'
+import { useShallow } from 'zustand/react/shallow'
 
 import cachedData from 'data/.formap.json'
 import { observe, useStore } from 'store'
@@ -30,13 +32,23 @@ export async function getServerSideProps({ query }) {
   }
 }
 
+// what the page renders from the store, `q` through `results` and the URL
+// sync (`query` is not a param: always undefined)
+const selectPage = (state) => ({
+  action: state.params.action,
+  query: state.params.query,
+  size: state.params.size,
+  q: state.params.q,
+  data: state.data,
+})
+
 const SearchPage = observe(({ initialState }) => {
   const { dataProviders, statistics } = useStore(initialState)
-  const {
-    params: { action, query, size },
-    results,
-    data,
-  } = dataProviders
+  const { action, query, size, data } = useStoreApi(
+    dataProviders,
+    useShallow(selectPage)
+  )
+  const results = useStoreApi(dataProviders, dataProviders.selectResults)
 
   const { formRef, claim, claimStore, handleSubmitForm, getFormMessage } =
     useClaimController()

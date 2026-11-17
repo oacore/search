@@ -8,6 +8,7 @@
     "types/**/*.d.ts",
     "store/claim.ts",
     "store/report.ts",
-    "store/similar-works.ts"
+    "store/similar-works.ts",
+    "store/data-providers.ts"
   ]
 }

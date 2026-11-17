@@ -40,6 +40,7 @@ const handleOf = (spec, instance) => {
   return handle
 }
 
+// eslint-disable-next-line no-unused-vars -- the filters and search stores join
 const store = (load) => ({
   create: (spec, ...args) => handleOf(spec, new (load())(...args)),
   of: handleOf,
@@ -47,9 +48,5 @@ const store = (load) => ({
 
 module.exports = {
   name: 'mobx',
-  stores: {
-    dataProviders: store(
-      () => require('../../../store/data-providers').default
-    ),
-  },
+  stores: {},
 }

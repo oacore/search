@@ -2,7 +2,7 @@ import { makeObservable, observable, action } from 'mobx'
 
 import { createClaimStore } from './claim'
 import { createSimilarWorksStore } from './similar-works'
-import DataProviders from './data-providers'
+import { createDataProvidersStore } from './data-providers'
 import { createReportStore } from './report'
 import Search from './search'
 import Filters from './filters'
@@ -16,6 +16,7 @@ class Root {
 
   search = new Search()
 
+  // a zustand store api, a plain field until CS-ZU-7
   dataProviders = null
 
   // a zustand store api, a plain field until CS-ZU-7
@@ -25,20 +26,22 @@ class Root {
 
   statistics
 
-  constructor({ statistics }) {
+  constructor({ statistics, dataProviders }) {
     makeObservable(this, {
       statistics: observable,
-      dataProviders: observable,
       filters: observable,
       extend: action,
     })
 
     this.statistics = statistics
+    // seeded at creation (pages/_app.jsx), so the state a server render and
+    // its hydration read is the one the page renders
+    this.extend({ dataProviders })
   }
 
   extend({ dataProviders }) {
     if (!this.dataProviders && dataProviders != null)
-      this.dataProviders = new DataProviders(dataProviders)
+      this.dataProviders = createDataProvidersStore(dataProviders)
   }
 }
 

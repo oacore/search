@@ -1,12 +1,6 @@
 {
   "schema": 1,
   "classes": {
-    "DataProviders": {
-      "data": "observable",
-      "params": "plain",
-      "results": "computed",
-      "search": "plain-method"
-    },
     "Filters": {
       "activeFilter": "observable",
       "activeFilterSuggestions": "observable",
@@ -36,16 +30,9 @@
       "toggleCheckboxFilter": "action",
       "yearWorksCount": "observable"
     },
-    "Params": {
-      "action": "observable",
-      "changeParams": "action",
-      "q": "observable",
-      "schema": "plain",
-      "size": "observable"
-    },
     "Root": {
       "claim": "plain",
-      "dataProviders": "observable",
+      "dataProviders": "plain",
       "extend": "action",
       "filters": "observable",
       "report": "plain",
