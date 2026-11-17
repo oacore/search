@@ -185,10 +185,14 @@ describe('T-120 @P1 instrumentation.ts and instrumentation-client.ts', () => {
     const options = sentry.init.mock.calls[0][0]
     expect(Object.keys(options)).toEqual([
       'dsn',
+      'environment',
       'sendClientReports',
       'tracePropagationTargets',
       'integrations',
     ])
+    // present and undefined: the SDK default 'production', as @sentry/browser
+    // had, not @sentry/nextjs's NODE_ENV fallback
+    expect(options.environment).toBeUndefined()
     // the kept defaults, as they are
     const defaults = NAMES.map((name) => ({ name }))
     const kept = options.integrations(defaults)
@@ -207,6 +211,7 @@ describe('T-120 @P1 instrumentation.ts and instrumentation-client.ts', () => {
     const options = sentry.init.mock.calls[0][0]
     expect(Object.keys(options)).toEqual([
       'dsn',
+      'environment',
       'sendClientReports',
       'tracePropagationTargets',
       'integrations',
@@ -214,6 +219,8 @@ describe('T-120 @P1 instrumentation.ts and instrumentation-client.ts', () => {
       'enableOpenTelemetrySetup',
     ])
     expect(options.beforeSend).toBe(mod.dropRequestFields)
+    // @sentry/node's environment: SENTRY_ENVIRONMENT, else the SDK default
+    expect(options.environment).toBe(process.env.SENTRY_ENVIRONMENT)
     // the integrations function keeps those of Sentry 7 less the four Sentry
     // 5.30 did not have and RequestData, as they are, except
     // OnUncaughtException, made anew so that it exits even with other handlers
