@@ -27,7 +27,6 @@ module.exports = (api) => {
   ]
 
   return {
-    sourceType: 'unambiguous',
     presets,
     plugins,
     // the vendored bibtexParse.js stays untransformed, as the node_modules copy
