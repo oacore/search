@@ -39,7 +39,7 @@ export const SENTRY_DSN = 'https://public@o0.ingest.sentry.io/0'
 // T-719 c3, AD-022 for the T-720 control; Sentry 5.30 sent it to
 // .../api/0/store/?sentry_key=public&sentry_version=7)
 export const SENTRY_STORE =
-  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.nextjs%2F11.12.0'
+  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.nextjs%2F11.14.0'
 export const GA_WARNING = "Send command doesn't exist: search"
 export const LOGROCKET_WARNING =
   'LogRocket: script could not load. Check that you have a valid network connection.'

@@ -24,7 +24,7 @@ test.describe.configure({ timeout: 300000 })
 // Sentry 7 reports to the envelope endpoint (AD-026; Sentry 5.30:
 // .../api/0/store/?sentry_key=public&sentry_version=7)
 const STORE =
-  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.nextjs%2F11.12.0'
+  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.nextjs%2F11.14.0'
 // the connect-src directive as Chromium quotes it, with the LogRocket host of CS-LR-2 (AD-053 for T-730; AD-035 for T-716 c3)
 const CSP_CONNECT =
   "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com"
