@@ -8,6 +8,9 @@ import { keptIntegrations } from './utils/sentry-integrations'
 if (process.env.SENTRY_DSN) {
   init({
     dsn: process.env.SENTRY_DSN,
+    // @sentry/browser's environment: the SDK default 'production'
+    // (@sentry/nextjs would fall back to NODE_ENV and Vercel's env)
+    environment: undefined,
     sendClientReports: false,
     tracePropagationTargets: [],
     integrations: keptIntegrations,
