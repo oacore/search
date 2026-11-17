@@ -8,6 +8,9 @@ const http = require('http')
 
 const invalidatePreviousRequests =
   require('../../../utils/invalidatePreviousRequests').default
+const {
+  invalidatePreviousRequests: wrap,
+} = require('../../../utils/invalidatePreviousRequests')
 
 const makeStore = () => {
   class Store {
@@ -317,6 +320,59 @@ describe('T-121 @P0 invalidatePreviousRequests', () => {
         // the sticky error from call 1 is still there
         expect(store.error.name).toBe('AbortError')
       })
+    })
+  })
+
+  // CS-BAB-2: the wrapper the zustand stores use, created at module scope
+  describe('c5 the wrapper form (CS-BAB-2)', () => {
+    const recorder = () => {
+      const calls = []
+      const fn = wrap(function run(...args) {
+        calls.push({ self: this, args })
+        return args.length
+      })
+      return { calls, fn }
+    }
+    const signals = (calls) => calls.map(({ args }) => args[args.length - 1])
+
+    test('T-121 c5 @P0 call 2 aborts call 1, the signal comes after the arguments, this and the return value pass through', () => {
+      const { calls, fn } = recorder()
+      const self = { name: 'store' }
+      expect(fn.call(self, 'a', 'b')).toBe(3)
+      expect(fn()).toBe(1)
+      const [first, second] = signals(calls)
+      expect(first).toBeInstanceOf(AbortSignal)
+      expect(first.aborted).toBe(true)
+      expect(second.aborted).toBe(false)
+      expect(calls[0].self).toBe(self)
+      expect(calls[0].args.slice(0, 2)).toEqual(['a', 'b'])
+      expect(calls[1].args).toHaveLength(1)
+    })
+
+    test('T-121 c5 @P0 one controller per wrapped function, shared by every caller; another wrapper is independent', () => {
+      const a = recorder()
+      const b = recorder()
+      a.fn.call({ id: 1 })
+      b.fn.call({ id: 1 })
+      a.fn.call({ id: 2 })
+      expect(signals(a.calls).map((s) => s.aborted)).toEqual([true, false])
+      expect(signals(b.calls).map((s) => s.aborted)).toEqual([false])
+    })
+
+    test('T-121 c5 @P0 without AbortController the extra argument is undefined', () => {
+      const saved = global.AbortController
+      try {
+        delete global.AbortController
+        const { calls, fn } = recorder()
+        fn('x')
+        fn('y')
+        expect(calls.map(({ args }) => args)).toEqual([
+          ['x', undefined],
+          ['y', undefined],
+        ])
+      } finally {
+        global.AbortController = saved
+      }
     })
   })
 })
