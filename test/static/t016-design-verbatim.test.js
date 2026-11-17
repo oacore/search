@@ -452,10 +452,10 @@ describe('T-016 @P0 vendored design', () => {
     // by the minifier's chunk context (no source change); order not pinned
     // W7c (Next 16.4): icon/index.js equal again, loading-bar/index.js and
     // logo/index.js differ by the chunk context (no source change)
+    // 6.1 (automatic JSX runtime, CS-R19-1): logo/index.js equal again
     expect([...res.mismatched].sort()).toEqual([
       'node_modules/@oacore/design/lib/config.js',
       'node_modules/@oacore/design/lib/elements/loading-bar/index.js',
-      'node_modules/@oacore/design/lib/elements/logo/index.js',
       'node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js',
       'node_modules/@oacore/design/lib/modules/header/context/actions.js',
       'node_modules/@oacore/design/lib/utils/can-use-dom.js',
@@ -600,7 +600,6 @@ describe('T-016 @P0 vendored design', () => {
         'node_modules/@oacore/design/lib/config.js',
         'node_modules/@oacore/design/lib/elements/label.js',
         'node_modules/@oacore/design/lib/elements/loading-bar/index.js',
-        'node_modules/@oacore/design/lib/elements/logo/index.js',
         'node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js',
         'node_modules/@oacore/design/lib/modules/header/context/actions.js',
         'node_modules/@oacore/design/lib/utils/can-use-dom.js',
