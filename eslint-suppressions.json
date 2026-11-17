@@ -1,6 +1,14 @@
 {
   "modules/dropdown/index.jsx": {
+    "@next/next/no-img-element": {
+      "count": 1
+    },
     "react-hooks/rules-of-hooks": {
+      "count": 1
+    }
+  },
+  "modules/logo/index.jsx": {
+    "@next/next/no-img-element": {
       "count": 1
     }
   },
@@ -9,9 +17,54 @@
       "count": 1
     }
   },
+  "pages/error-card/index.jsx": {
+    "@next/next/no-img-element": {
+      "count": 1
+    }
+  },
   "pages/search/index.jsx": {
     "react-hooks/rules-of-hooks": {
       "count": 2
+    }
+  },
+  "templates/data-provider/index.jsx": {
+    "@next/next/no-img-element": {
+      "count": 1
+    }
+  },
+  "templates/data-provider/logo.jsx": {
+    "@next/next/no-img-element": {
+      "count": 1
+    }
+  },
+  "templates/error/query.jsx": {
+    "@next/next/no-img-element": {
+      "count": 1
+    }
+  },
+  "templates/output/card-dropdown.jsx": {
+    "@next/next/no-img-element": {
+      "count": 2
+    }
+  },
+  "templates/output/index.jsx": {
+    "@next/next/no-img-element": {
+      "count": 1
+    }
+  },
+  "templates/output/report/report-success-modal.jsx": {
+    "@next/next/no-img-element": {
+      "count": 2
+    }
+  },
+  "templates/output/update/index.jsx": {
+    "@next/next/no-img-element": {
+      "count": 2
+    }
+  },
+  "templates/search/index.jsx": {
+    "@next/next/no-img-element": {
+      "count": 3
     }
   },
   "templates/search/results.jsx": {

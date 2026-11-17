@@ -47,6 +47,7 @@
     "@babel/preset-typescript": "7.29.7",
     "@csstools/postcss-global-data": "4.0.0",
     "@eslint/js": "10.0.1",
+    "@next/eslint-plugin-next": "16.4.6",
     "@stryker-mutator/core": "10.1.1",
     "@stryker-mutator/jest-runner": "10.1.1",
     "@testing-library/dom": "10.4.2",

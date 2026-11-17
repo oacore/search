@@ -25,7 +25,8 @@
 //   c1 findings    ESLint findings of the application files (everything outside the harness scope) equal the
 //                  baseline; a difference passes only as a T-001 row of test/baseline/ACCEPTED-DIFFS.yml (42 §8,
 //                  default deny: key `<path> / <rule>`, from and to the counts, 0 = no finding). The bulk
-//                  suppressions equal the baseline's and none is stale (ESLint exit 2). stylelint findings equal the
+//                  suppressions equal the baseline's (those of the CS-LINT-5 plugin rules, @next/next/* and
+//                  @typescript-eslint/*, aside) and none is stale (ESLint exit 2). stylelint findings equal the
 //                  ratchet, and the ratchet equals the baseline less what the format-only commit resolved. Every
 //                  file of the lint scope is Prettier-formatted except the baseline's list less the format-only
 //                  commit's files. The 36 inline `eslint-disable` directives of the application files are counted.
@@ -57,6 +58,10 @@ export const SUPPRESSIONS = 'eslint-suppressions.json'
 // 41 T-001, 02 (the 38 `eslint-disable` comments): inline directives in the application files; 36 since CS-R18-4
 // and CS-R18-7 (W5.5)
 export const INLINE_DISABLES = 36 // AD-156
+// rules of the plugins CS-LINT-5 (6.2) added after the W1 capture: their
+// findings on the existing code are bulk suppressions that the baseline
+// cannot hold, so c1 compares the bulk suppressions of the other rules only
+export const LATER_PLUGIN_RULE = /^@(next\/next|typescript-eslint)\//
 export const EXPECTED_MAJORS = { eslint: 10, stylelint: 18, prettier: 3 }
 export const HARNESS_BLOCK = 'search/test-harness'
 // the harness scope: the `search/test-harness` block (files: test/**/*.js, test/**/*.jsx, e2e/**/*.js, jest.config.js)
@@ -558,7 +563,10 @@ export async function run(opts = {}) {
     },
     suppressions: {
       ...current.suppressions,
-      diff: diffEntries(base.suppressions.entries, suppressions),
+      diff: diffEntries(
+        base.suppressions.entries,
+        suppressions.filter(([, rule]) => !LATER_PLUGIN_RULE.test(rule))
+      ),
     },
     stylelint: {
       ...current.stylelint,
