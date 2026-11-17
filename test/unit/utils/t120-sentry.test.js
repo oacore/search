@@ -10,7 +10,8 @@
 // factory spy of test/setup/mocks.js. Every case loads fresh copies with
 // jest.isolateModules after setting the env, so each load gets its own spy.
 // c3 runs `register()` on the real SDK in a child process and checks what a
-// server event during an incoming request carries (SENTRY-REQDATA-1).
+// server event during an incoming request carries (SENTRY-REQDATA-1), and that
+// HTML responses get no Server-Timing header (P6-SEN-SERVER-TIMING).
 const { execFileSync } = require('node:child_process')
 const path = require('node:path')
 
@@ -282,7 +283,10 @@ describe('T-120 @P1 instrumentation.ts and instrumentation-client.ts', () => {
       [path.join(__dirname, '../lib/T-120/request-event.cjs')],
       { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], timeout: 30000 }
     )
-    const events = JSON.parse(out)
+    const { events, serverTiming } = JSON.parse(out)
+    // no Server-Timing trace header on uncached HTML responses (the server
+    // SDK before, @sentry/node 7, set none; P6-SEN-SERVER-TIMING)
+    expect(serverTiming).toEqual([null, null])
     const byValue = (v) => events.find((e) => e.exception.values[0].value === v)
     // the handler's capture, and the rejection reported once (the
     // integration's; the app handler's second capture is dropped)

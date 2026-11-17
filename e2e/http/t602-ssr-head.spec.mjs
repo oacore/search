@@ -306,6 +306,9 @@ test.describe('T-602 @P0 SSR head', () => {
     const origins = stackOrigins(p2Env)
     const validator = new HtmlValidate({
       extends: ['html-validate:recommended'],
+      // added to the recommended set after html-validate 11.16.4, the version
+      // the baseline was recorded with
+      rules: { 'presentation-role-style': 'off' },
     })
     const dupIds = (findings) => {
       const c = {}

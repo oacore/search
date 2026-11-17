@@ -4,8 +4,10 @@
 // process handler is registered on the first request, as pages/_app does. A
 // second request, with browser-like headers, captures an error in its handler
 // and leaves a rejected promise unhandled in its async chain (the app's process
-// handler and the integration report it). Prints the received event items as
-// one JSON line.
+// handler and the integration report it). Two more requests get uncached HTML
+// responses, one with implicit headers (as Next sends its documents) and one
+// through writeHead with a header object. Prints the received event items and
+// the Server-Timing header of each HTML response as one JSON line.
 const fs = require('node:fs')
 const http = require('node:http')
 const path = require('node:path')
@@ -47,6 +49,22 @@ ingest.listen(0, '127.0.0.1', async () => {
       handler = true
       process.on('unhandledRejection', (err) => Sentry.captureException(err))
     }
+    if (req.url.startsWith('/html')) {
+      const cacheControl =
+        'private, no-cache, no-store, max-age=0, must-revalidate'
+      const type = 'text/html; charset=utf-8'
+      if (req.url.startsWith('/html-writehead/')) {
+        res.writeHead(200, {
+          'Cache-Control': cacheControl,
+          'Content-Type': type,
+        })
+      } else {
+        res.setHeader('Cache-Control', cacheControl)
+        res.setHeader('Content-Type', type)
+      }
+      res.end('<html></html>')
+      return
+    }
     setTimeout(() => {
       if (req.url.startsWith('/capture/'))
         Sentry.captureException(new Error('T-120 c3 capture'))
@@ -66,10 +84,16 @@ ingest.listen(0, '127.0.0.1', async () => {
     await fetch(`${base}/`).then((r) => r.text())
     await fetch(`${base}/capture/?q=climate`, { headers }).then((r) => r.text())
     await fetch(`${base}/reject/?q=climate`, { headers }).then((r) => r.text())
+    const serverTiming = []
+    for (const p of ['/html/', '/html-writehead/']) {
+      const r = await fetch(`${base}${p}`)
+      await r.text()
+      serverTiming.push(r.headers.get('server-timing'))
+    }
     const until = Date.now() + 5000
     const done = () => {
       if (events.length >= 2 || Date.now() > until) {
-        process.stdout.write(`${JSON.stringify(events)}\n`)
+        process.stdout.write(`${JSON.stringify({ events, serverTiming })}\n`)
         process.exit(0)
       }
       setTimeout(done, 50)
