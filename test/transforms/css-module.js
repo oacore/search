@@ -1,9 +1,9 @@
 // CSS-module transform (40 §2.1): parse the module with postcss and export its
-// local names the way css-loader does with `exportLocalsConvention:
-// 'camelCase'` (next.config.js:75): the original name and, when it differs, its
-// camelCase form, both mapping to the original name. Unknown keys are undefined
-// (a plain object, never a proxy). It cannot see the build-time no-op behind
-// R-001 (T-605, T-003, T-801 do).
+// local names the way css-loader does with Next's `exportLocalsConvention:
+// 'asIs'`: each name as written, mapping to itself (CS-CSS-3 removed the
+// camelCase patch of next.config.js; camelCase stays exported for T-012).
+// Unknown keys are undefined (a plain object, never a proxy). It cannot see the
+// build-time no-op behind R-001 (T-605, T-003, T-801 do).
 const crypto = require('crypto')
 
 const postcss = require('postcss')
@@ -96,11 +96,7 @@ const localNames = (css, from) => {
 
 const exportsFor = (css, from) => {
   const out = {}
-  for (const name of localNames(css, from)) {
-    out[name] = name
-    const camel = camelCase(name)
-    if (camel !== name) out[camel] = name
-  }
+  for (const name of localNames(css, from)) out[name] = name
   return out
 }
 
@@ -115,7 +111,7 @@ module.exports = {
   getCacheKey(sourceText, sourcePath) {
     return crypto
       .createHash('sha256')
-      .update('css-module-v1\0')
+      .update('css-module-v2\0')
       .update(sourcePath)
       .update('\0')
       .update(sourceText)

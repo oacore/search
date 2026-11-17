@@ -79,9 +79,11 @@ describe('T-008 @P0 install', () => {
     // AD-004 (W0 removes 452 lock entries), to > 1700 by AD-010 and AD-011
     // (W1 replaces the lint, format and hook tools), then to > 1500 by
     // AD-134 (npm 11 of Node 24), to > 1600 by AD-058 (the Next 12 lock),
-    // then to > 1400 at W83 (cssnano 9 replaces cssnano 4's postcss 7 tree)
-    expect(dryRun.added).toBeGreaterThan(1400) // W83
-    expect(Object.keys(lock.packages).length).toBeGreaterThan(1400) // W83
+    // then to > 1400 at W83 (cssnano 9 replaces cssnano 4's postcss 7 tree),
+    // then to > 1250 at 6.9 (CS-CSS-4 uninstalls cssnano and the PostCSS
+    // plugins, 142 entries)
+    expect(dryRun.added).toBeGreaterThan(1250) // 6.9
+    expect(Object.keys(lock.packages).length).toBeGreaterThan(1250) // 6.9
 
     // the tree under APP_ROOT came from `npm ci` and the install did not
     // rewrite the lock

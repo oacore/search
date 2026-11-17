@@ -1,11 +1,11 @@
 // T-002 (41 A; R-001): CSS-module keys, from source. The 67 files that import a
-// `*.module.css` read class names as `styles.<id>`; next.config.js:45-77
-// patches css-loader to export every class under its original name and its
-// camelCase form (`exportLocalsConvention: 'camelCase'`), and 202 of the reads
-// exist only in the camelCase form. This test checks every read against the
-// keys of its module (the harness CSS-module transform models the same
-// convention, 40 §2.1). It is blind to the build no-op behind R-001 by design:
-// T-003, T-605 and T-801 see that.
+// `*.module.css` read class names as `styles.<id>` or `styles['dashed-name']`;
+// until step 6.9 next.config.js patched css-loader to also export every class
+// under its camelCase form, and 202 reads used only that form (CS-CSS-2 made
+// them dashed reads, CS-CSS-3 removed the patch). This test checks every read
+// against the keys of its module (the harness CSS-module transform models
+// Next's convention, 40 §2.1). It is blind to the build no-op behind R-001
+// by design: T-003, T-605 and T-801 see that.
 //
 // Existing bug, pinned (D1): 24 reads name a class that is not in their module
 // (`styles.modal`, `styles.ellipsis`, ...). They evaluate to `undefined`, so
@@ -242,7 +242,8 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
     expect(other.map((c) => c[1])).toEqual(
       expect.arrayContaining([
         'main/global.css',
-        '@oacore/design/lib/index.css',
+        // the frozen design CSS (CS-DSN-6, DV7)
+        '../styles/global/design/index.css',
       ])
     )
   })
@@ -271,14 +272,16 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
     expect(s.reads.filter((r) => r.kind !== 'dangling')).toHaveLength(341)
   })
 
-  test('T-002 @P0 202 reads in 48 files resolve only through the camelCase export of the css-loader patch (next.config.js:45-77, R-001)', () => {
+  // CS-CSS-2: the 202 camelCase-only reads in 48 files became
+  // styles['dashed-name']
+  test('T-002 @P0 every resolving read names its class as written; none needs the camelCase export (R-001)', () => {
     const camel = s.reads.filter((r) => r.kind === 'camelCase')
-    expect(camel).toHaveLength(202)
-    expect(new Set(camel.map((r) => r.file)).size).toBe(48) // AD-157
-    // the other 139 resolve under the original name: 135 plain ones and the 4
-    // classes that are written in camelCase in the CSS
+    expect(camel).toHaveLength(0)
+    // the 341 resolve under the original name: 337 plain or dashed ones and
+    // the 4 classes that are written in camelCase in the CSS
     const original = s.reads.filter((r) => r.kind === 'original')
-    expect(original).toHaveLength(139) // AD-157
+    expect(original).toHaveLength(341)
+    expect(original.filter((r) => /-/.test(r.key))).toHaveLength(202)
     const spelledCamel = original
       .map((r) => r.key)
       .filter((k) => /[A-Z]/.test(k))
@@ -288,35 +291,27 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
       'maintenanceBannerText',
       'memberType',
     ])
-    // each camelCase-only key is a dashed class of its module
-    camel.forEach((r) => {
-      expect(s.keys(r.css)[r.key]).toMatch(/-/)
-    })
   })
 
-  test('T-002 @P0 the key model: every dashed class is exported under its camelCase form too (kebab to camel)', () => {
-    const toCamel = (n) => n.replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase())
+  test("T-002 @P0 the key model: every class is exported under its name as written, no camelCase form (CS-CSS-3, Next's asIs convention)", () => {
     let dashed = 0
     cssModules().forEach((css) => {
       const text = fs.readFileSync(path.join(ROOT, css), 'utf8')
       const keys = exportsFor(text, css)
       Object.entries(keys).forEach(([key, original]) => {
-        // a key is its own original name or the camelCase form of it
-        if (key !== original) expect(key).toBe(toCamel(original))
+        expect(key).toBe(original)
       })
-      Object.values(keys)
-        .filter((original) => /^[a-z][a-z0-9]*(-[a-z0-9]+)+$/.test(original))
-        .forEach((original) => {
-          dashed += 1
-          expect(keys[toCamel(original)]).toBe(original)
-        })
+      dashed += Object.keys(keys).filter((k) =>
+        /^[a-z][a-z0-9]*(-[a-z0-9]+)+$/.test(k)
+      ).length
     })
     expect(dashed).toBeGreaterThan(150)
   })
 
-  test("T-002 @P0 the plan's grep figures reconcile with the member reads: 433 tokens and 221 camelCase tokens", () => {
-    // 430 = git grep -o 'styles\.[A-Za-z_]+' over the application sources
-    expect(s.tokens.all).toBe(437) // AD-110, AD-157
+  test("T-002 @P0 the plan's grep figures reconcile with the member reads: 433 tokens and 221 camelCase tokens before CS-CSS-2, 202 fewer since", () => {
+    // 430 = git grep -o 'styles\.[A-Za-z_]+' over the application sources;
+    // CS-CSS-2 turned 202 of them into styles['dashed-name']
+    expect(s.tokens.all).toBe(437 - 202) // AD-110, AD-157
     // `./styles.module.css` import paths
     expect(s.tokens.modulePath).toBe(62) // AD-157
     // styles.length and styles.map in api/outputs.js
@@ -325,10 +320,10 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
     const inComments = 4
     // AD-157
     expect(s.reads.length + inComments + s.tokens.modulePath + 2).toBe(433)
-    // 221 = the tokens spelled in camelCase: 202 + 4 + 14 reads and one
-    // commented-out token
-    expect(s.tokens.camel).toBe(221)
+    // 221 = the tokens spelled in camelCase before CS-CSS-2: 202 + 4 + 14
+    // reads and one commented-out token; the 202 are dashed reads now
+    expect(s.tokens.camel).toBe(221 - 202)
     const spelled = s.reads.filter((r) => /^[a-z]+[A-Z][A-Za-z]*$/.test(r.key))
-    expect(spelled).toHaveLength(220)
+    expect(spelled).toHaveLength(220 - 202)
   })
 })

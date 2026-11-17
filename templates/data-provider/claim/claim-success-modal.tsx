@@ -27,28 +27,30 @@ const ClaimSuccessModal = ({
   >
     <Modal.Title>Create Repository Dashboard Account</Modal.Title>
     {isDataProviderHasAccounts ? (
-      <Modal.Content tag="div" className={styles.successModalContent}>
+      <Modal.Content tag="div" className={styles['success-modal-content']}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           role="img"
-          className={styles.successImageCheck}
+          className={styles['success-image-check']}
         >
           <image href={successCheckSVG} />
         </svg>
         <p>
           We sent your request to the registered repository manager for
           approval. You will be contacted at{' '}
-          <b className={styles.successModalEmail}> {contactData.email}</b> as
-          soon repository manager approves your request.{' '}
+          <b className={styles['success-modal-email']}> {contactData.email}</b>{' '}
+          as soon repository manager approves your request.{' '}
         </p>
       </Modal.Content>
     ) : (
-      <Modal.Content tag="div" className={styles.successModalContent}>
+      <Modal.Content tag="div" className={styles['success-modal-content']}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           role="img"
           className={
-            newEmail ? styles.successImageInvitation : styles.successImageCheck
+            newEmail
+              ? styles['success-image-invitation']
+              : styles['success-image-check']
           }
         >
           <image
@@ -70,7 +72,7 @@ const ClaimSuccessModal = ({
         )}
       </Modal.Content>
     )}
-    <Modal.Footer className={styles.footerClose}>
+    <Modal.Footer className={styles['footer-close']}>
       <Button onClick={onClose} variant="contained">
         Close
       </Button>

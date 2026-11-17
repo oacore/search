@@ -6,7 +6,7 @@ import CardDropdown from './card-dropdown'
 
 const OtherVersions = ({ outputs, metadata, useOtherVersions }: any) => (
   <Card className={styles.boxes} variant="outlined">
-    <Card.Title className={styles.versionTitle} tag="h3">
+    <Card.Title className={styles['version-title']} tag="h3">
       Available Versions
     </Card.Title>
     {outputs.map((output: any) => (

@@ -58,9 +58,9 @@ const ClaimModal = ({
       <Modal.Content tag="div">
         <p>
           To give you{' '}
-          <span className={styles.backlightPrime}>instant access</span> to the
-          Repository Dashboard, we need to verify that you have ownership of the
-          repository by sending an email to the registered repository
+          <span className={styles['backlight-prime']}>instant access</span> to
+          the Repository Dashboard, we need to verify that you have ownership of
+          the repository by sending an email to the registered repository
           administrator.
         </p>
         <TextField
@@ -70,9 +70,9 @@ const ClaimModal = ({
           label="Email"
           onClick={() => setModalEditActive(true)}
           className={classNames.use(
-            styles.claimCardGroup,
-            styles.inputPointer,
-            styles.inputEmail
+            styles['claim-card-group'],
+            styles['input-pointer'],
+            styles['input-email']
           )}
           statusIcon="#pencil"
           required

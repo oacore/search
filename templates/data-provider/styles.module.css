@@ -1,3 +1,5 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable order/properties-order, property-no-vendor-prefix, value-no-vendor-prefix */
 .layout {
   z-index: 5;
   padding: var(--page-padding-y) var(--page-padding-x);
@@ -17,8 +19,14 @@
 }
 
 .sort-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   margin-top: 20px;
 }
@@ -34,7 +42,11 @@
 }
 
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-bottom: 3rem;
   gap: 2.5rem;
@@ -61,11 +73,15 @@
 }
 
 .claim-card {
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .claim-card-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
@@ -83,15 +99,22 @@
 }
 
 .card {
-  min-width: unset;
+  min-width: 0;
+  min-width: initial;
 }
 
 .result-item {
+  -webkit-transition: -webkit-filter 150ms;
+  transition: -webkit-filter 150ms;
   transition: filter 150ms;
+  transition:
+    filter 150ms,
+    -webkit-filter 150ms;
+}
 
-  & [aria-busy='true'] {
-    filter: grayscale(100%);
-  }
+.result-item [aria-busy='true'] {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 .card .map {
@@ -102,10 +125,10 @@
 
 .map-caption {
   margin-top: calc(2 * var(--card-padding-y, var(--component-padding-y)));
+}
 
-  & :empty {
-    display: none;
-  }
+.map-caption :empty {
+  display: none;
 }
 
 .no-results-found {
@@ -122,7 +145,12 @@
 }
 
 .sources-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 6px;
   margin: 16px 0 24px;
@@ -139,7 +167,8 @@
 
 .source-item:hover {
   color: #b75400;
-  text-decoration: unset;
+  text-decoration: none;
+  text-decoration: initial;
 }
 
 .active-item {
@@ -149,7 +178,8 @@
 
 .active-item:hover {
   color: #fff;
-  text-decoration: unset;
+  text-decoration: none;
+  text-decoration: initial;
 }
 
 .source-title {
@@ -162,20 +192,36 @@
 }
 
 .pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   margin-top: 2rem;
 }
 
 .pagination .arrow-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .pagination .arrow {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
@@ -190,6 +236,7 @@
 }
 
 .pagination .disabled {
+  -webkit-text-decoration: none;
   text-decoration: none;
   pointer-events: none;
   cursor: not-allowed;
@@ -201,11 +248,17 @@
 }
 
 .boxes {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .box-item {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   padding: 1rem;
 }
@@ -223,6 +276,7 @@
 
 .count {
   margin-bottom: 0.3rem;
+  font-size: 2rem;
   font-size: var(--h1-font-size, 2rem);
   font-weight: 400;
 }
@@ -233,6 +287,8 @@
 }
 
 .header-info-caption {
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   padding: 4px;
   margin-bottom: 0;
@@ -249,6 +305,7 @@
 
 .header-info-caption a:hover {
   color: var(--white);
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 

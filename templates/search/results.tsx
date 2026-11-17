@@ -107,7 +107,7 @@ const Results = ({ works, searchId }: any) => {
           id={`search-output-${id}`}
           key={`search-result-${id}`}
           variant="outlined"
-          className={styles.searchResults}
+          className={styles['search-results']}
           useLogo={!!checkBillingType()}
           searchId={searchId}
           renderRedirectLink

@@ -1,3 +1,5 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable property-no-vendor-prefix */
 /* stylelint-disable selector-max-id */
 html,
 body,
@@ -15,6 +17,7 @@ body,
 
 .leaflet-container a {
   color: var(--link-color, var(--primary));
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -29,5 +32,6 @@ body,
 
 .leaflet-container .leaflet-bar a:first-child,
 .leaflet-container .leaflet-bar a:last-child {
+  -webkit-text-decoration: none;
   text-decoration: none;
 }

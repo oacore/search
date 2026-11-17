@@ -35,7 +35,7 @@ const ReportTypeModal = observe(() => {
       hideManually
       className={styles.modal}
     >
-      <Modal.Title tag="h3" className={styles.modalTitle}>
+      <Modal.Title tag="h3" className={styles['modal-title']}>
         Which issue are you reporting?
       </Modal.Title>
       <Modal.Content>
@@ -43,23 +43,25 @@ const ReportTypeModal = observe(() => {
           <Card
             variant="outlined"
             className={classNames.use(
-              styles.cardModal,
-              styles.cardModalReportType,
+              styles['card-modal'],
+              styles['card-modal-report-type'],
               {
-                [styles.cardModalActive]: updateOption === operation,
+                [styles['card-modal-active']]: updateOption === operation,
               }
             )}
             key={id}
             onClick={() => setActiveOperation(operation)}
           >
-            <Card.Description className={styles.cardModalDescription}>
+            <Card.Description className={styles['card-modal-description']}>
               <Icon src="#account" />
-              <span className={styles.cardModalDescriptionText}>{label}</span>
+              <span className={styles['card-modal-description-text']}>
+                {label}
+              </span>
             </Card.Description>
           </Card>
         ))}
       </Modal.Content>
-      <Modal.Footer className={styles.modalFooter}>
+      <Modal.Footer className={styles['modal-footer']}>
         <Button onClick={onCloseModal} variant="text">
           Close
         </Button>

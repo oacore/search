@@ -7,7 +7,7 @@ import { THUMBNAIL_BODY_CLASS } from './thumbnail-card'
 import useHydrated from 'hooks/use-hydrated'
 
 const PLAIN = {
-  license: { keptClass: styles.licenseWrapper },
+  license: { keptClass: styles['license-wrapper'] },
   report: {},
   map: {},
 }

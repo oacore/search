@@ -70,10 +70,10 @@ const Pagination = ({ shallow, total, ...restProps }: any) => {
           from={offset + 1}
           to={offset + limit}
           total={total}
-          className={styles.resultStats}
+          className={styles['result-stats']}
         />
       </div>
-      <div className={styles.arrowPagination}>
+      <div className={styles['arrow-pagination']}>
         <div>
           <Link href={urlTo('FIRST')} passHref shallow={shallow} legacyBehavior>
             <Button

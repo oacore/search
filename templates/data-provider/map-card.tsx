@@ -15,12 +15,12 @@ const MapCard = ({
   ...restProps
 }: any) => (
   <Card
-    className={classNames.use(styles.card, styles.mapCard).join(className)}
+    className={classNames.use(styles.card, styles['map-card']).join(className)}
     tag="figure"
     {...restProps}
   >
     <Map className={styles.map} locations={[{ name, latitude, longitude }]} />
-    <figcaption className={styles.mapCaption}>{children}</figcaption>
+    <figcaption className={styles['map-caption']}>{children}</figcaption>
   </Card>
 )
 

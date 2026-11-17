@@ -63,8 +63,8 @@ const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }: any) => {
       <li>
         <Button
           onClick={onPrevious}
-          className={classNames.use(styles.paginationItem, {
-            [styles.paginationItemDisabled]: currentPage === 1,
+          className={classNames.use(styles['pagination-item'], {
+            [styles['pagination-item-disabled']]: currentPage === 1,
           })}
           disabled={currentPage === 1}
         >
@@ -74,7 +74,7 @@ const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }: any) => {
       {paginationRange.map((pageNumber: any) => {
         if (pageNumber === DOTS) {
           return (
-            <li key={Math.random() * 100} className={styles.paginationDots}>
+            <li key={Math.random() * 100} className={styles['pagination-dots']}>
               &#8230;
             </li>
           )
@@ -83,8 +83,8 @@ const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }: any) => {
         return (
           <li key={pageNumber}>
             <Button
-              className={classNames.use(styles.paginationItem, {
-                [styles.paginationItemActive]: pageNumber === currentPage,
+              className={classNames.use(styles['pagination-item'], {
+                [styles['pagination-item-active']]: pageNumber === currentPage,
               })}
               onClick={() => onPageChange(pageNumber)}
             >
@@ -95,8 +95,8 @@ const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }: any) => {
       })}
       <li>
         <Button
-          className={classNames.use(styles.paginationItem, {
-            [styles.paginationItemDisabled]: currentPage === lastPage,
+          className={classNames.use(styles['pagination-item'], {
+            [styles['pagination-item-disabled']]: currentPage === lastPage,
           })}
           onClick={onNext}
         >

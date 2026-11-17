@@ -88,7 +88,7 @@ const SearchTemplate = observe(({ data, members = [] }: any) => {
                   {data.totalHits.toLocaleString('en-GB')} research outputs
                   found
                 </p>
-                <div className={styles.actionButtons}>
+                <div className={styles['action-buttons']}>
                   <Popover
                     placement="top"
                     content="Download results in CSV"
@@ -98,9 +98,9 @@ const SearchTemplate = observe(({ data, members = [] }: any) => {
                       type="button"
                       variant="text"
                       onClick={() => search.setActiveDownloadModal(true)}
-                      className={styles.actionButton}
+                      className={styles['action-button']}
                     >
-                      <Icon src="#download" className={styles.actionIcon} />
+                      <Icon src="#download" className={styles['action-icon']} />
                     </Button>
                   </Popover>
                   <Popover
@@ -112,11 +112,11 @@ const SearchTemplate = observe(({ data, members = [] }: any) => {
                       type="button"
                       onClick={copyUrl}
                       variant="text"
-                      className={styles.actionButton}
+                      className={styles['action-button']}
                     >
                       <Icon
                         src="#share-variant"
-                        className={styles.actionIcon}
+                        className={styles['action-icon']}
                       />
                     </Button>
                   </Popover>
@@ -156,12 +156,12 @@ const SearchTemplate = observe(({ data, members = [] }: any) => {
             className={styles.logo}
           >
             {member ? (
-              <div className={styles.memberInfo}>
-                <span className={styles.memberBadge}>CORE membership</span>
-                <div className={styles.memberBody}>
-                  <div className={styles.repositoryLogoWrap}>
+              <div className={styles['member-info']}>
+                <span className={styles['member-badge']}>CORE membership</span>
+                <div className={styles['member-body']}>
+                  <div className={styles['repository-logo-wrap']}>
                     <img
-                      className={styles.repositoryLogo}
+                      className={styles['repository-logo']}
                       src={repositoryLogo || imagePlaceholder}
                       onError={(e: any) => {
                         e.target.src = imagePlaceholder
@@ -169,14 +169,14 @@ const SearchTemplate = observe(({ data, members = [] }: any) => {
                       alt={member.organisation_name || 'repository logo'}
                     />
                   </div>
-                  <div className={styles.memberMeta}>
+                  <div className={styles['member-meta']}>
                     {member.billing_type && (
-                      <p className={styles.memberBillingType}>
+                      <p className={styles['member-billing-type']}>
                         {capitalizeFirstLetter(member.billing_type)} member
                       </p>
                     )}
                     {member.organisation_name && (
-                      <p className={styles.organisationName}>
+                      <p className={styles['organisation-name']}>
                         {member.organisation_name}
                       </p>
                     )}
@@ -184,12 +184,12 @@ const SearchTemplate = observe(({ data, members = [] }: any) => {
                 </div>
               </div>
             ) : (
-              <div className={styles.memberInfo}>
-                <span className={styles.memberBadge}>CORE membership</span>
-                <div className={styles.memberBody}>
-                  <div className={styles.repositoryLogoWrap}>
+              <div className={styles['member-info']}>
+                <span className={styles['member-badge']}>CORE membership</span>
+                <div className={styles['member-body']}>
+                  <div className={styles['repository-logo-wrap']}>
                     <img
-                      className={styles.repositoryLogo}
+                      className={styles['repository-logo']}
                       src={repoPlaceholder}
                       onError={(e: any) => {
                         e.target.src = imagePlaceholder
@@ -197,11 +197,13 @@ const SearchTemplate = observe(({ data, members = [] }: any) => {
                       alt="repository logo"
                     />
                   </div>
-                  <div className={styles.memberMeta}>
-                    <p className={styles.memberBillingType}>
+                  <div className={styles['member-meta']}>
+                    <p className={styles['member-billing-type']}>
                       Type of membership
                     </p>
-                    <p className={styles.organisationName}>Organisation name</p>
+                    <p className={styles['organisation-name']}>
+                      Organisation name
+                    </p>
                   </div>
                 </div>
               </div>
@@ -213,7 +215,11 @@ const SearchTemplate = observe(({ data, members = [] }: any) => {
             rel="noopener noreferrer"
             className={styles.logo}
           >
-            <img src={coreImage} alt="core" className={styles.sidebarImage} />
+            <img
+              src={coreImage}
+              alt="core"
+              className={styles['sidebar-image']}
+            />
           </Link>
         </Search.Sidebar>
         {copyUrlStatus === 'copied' && <Notification />}

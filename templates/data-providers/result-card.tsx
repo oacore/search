@@ -14,17 +14,20 @@ const ResultCard = ({
   icon = '#office-building',
   ...restProps
 }: any) => (
-  <Search.Result className={styles.resultCard} {...restProps}>
-    <span className={styles.resultHeading}>
+  <Search.Result className={styles['result-card']} {...restProps}>
+    <span className={styles['result-heading']}>
       <Icon src={icon} aria-hidden />
       <NextLink href={`/data-providers/${repoId}`} legacyBehavior>
-        <Link className={styles.resultTitle} href={`/data-providers/${repoId}`}>
+        <Link
+          className={styles['result-title']}
+          href={`/data-providers/${repoId}`}
+        >
           {title}
         </Link>
       </NextLink>
     </span>
 
-    <MetadataList className={styles.resultMetadata}>
+    <MetadataList className={styles['result-metadata']}>
       <MetadataList.Item id="data-provider-webpage" label="webpage">
         <Link href={homePage} external icon={false}>
           {homePage}

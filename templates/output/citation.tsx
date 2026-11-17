@@ -59,16 +59,16 @@ const CitationManager = ({ data }: any) => {
       isModalOpen ? (
         <Modal
           onClose={closeModal}
-          className={classNames.use(styles.closeButton)}
+          className={classNames.use(styles['close-button'])}
         >
-          <h2 className={styles.citeTitle}>Citation</h2>
+          <h2 className={styles['cite-title']}>Citation</h2>
           {data.citations.map((cite: any) => {
             if (cite.id !== CITATION_STYLE_BIBTEX) return null
             const bibtex = bibtexParse.toJSON(cite.value)
             if (!bibtex || !bibtex[0]) return null
             return (
               <div id={`cite-${cite.id}`} className={styles.block}>
-                <div className={styles.columnText} ref={textRef}>
+                <div className={styles['column-text']} ref={textRef}>
                   <div className={styles.item}>
                     {bibtex[0].entryTags.title}
                     {bibtex[0].entryTags.journal &&
@@ -81,15 +81,15 @@ const CitationManager = ({ data }: any) => {
                       `, ISSN: ${bibtex[0].entryTags.ISSN}`}
                   </div>
                 </div>
-                <div className={styles.columnIcon}>
+                <div className={styles['column-icon']}>
                   {copySuccess ? (
                     <>
                       <Icon
                         src="#content-copy"
-                        className={`${styles.item} ${styles.copiedSuccess}`}
+                        className={`${styles.item} ${styles['copied-success']}`}
                         onClick={copyToClipboard}
                       />
-                      <div className={styles.textCopied}>copied</div>
+                      <div className={styles['text-copied']}>copied</div>
                     </>
                   ) : (
                     <Icon
@@ -113,10 +113,10 @@ const CitationManager = ({ data }: any) => {
         variant="contained"
         onClick={openModal}
         aria-pressed={isModalOpen}
-        className={styles.citeButton}
+        className={styles['cite-button']}
       >
         <Icon src="#format-quote-open" />
-        <span className={styles.citeBtn}>{data.actionLabel}</span>
+        <span className={styles['cite-btn']}>{data.actionLabel}</span>
       </Button>
       {modal}
     </>

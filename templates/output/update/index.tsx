@@ -85,7 +85,7 @@ const UpdateTemplate = observe(() => {
         <img src={takedownSVG} alt="takedown" />
       </section>
       <section className={classNames.use(styles.update, styles.container)}>
-        <div className={styles.updateDescription}>
+        <div className={styles['update-description']}>
           <p>
             To remove a paper from CORE, please search for the paper using the
             search box at the top of this page.
@@ -96,7 +96,7 @@ const UpdateTemplate = observe(() => {
             correct page.
           </p>
         </div>
-        <Form className={styles.updateLink} onSubmit={onSubmitUpdate}>
+        <Form className={styles['update-link']} onSubmit={onSubmitUpdate}>
           <p>Put link to the article here:</p>
           <TextField
             id={url}
@@ -107,7 +107,7 @@ const UpdateTemplate = observe(() => {
             required
           />
           {errorMessage && (
-            <p className={styles.errorMessage}>{errorMessage}</p>
+            <p className={styles['error-message']}>{errorMessage}</p>
           )}
 
           <Button variant="contained" disabled={isLoading}>
@@ -131,7 +131,7 @@ const UpdateTemplate = observe(() => {
         </p>
         <p> In the CORE URL box, you may enter one of the following:</p>
         <Links />
-        <p className={styles.noteWarning}>
+        <p className={styles['note-warning']}>
           Please note that the form does not accept links which start with
           &quot;https://core.ac.uk/<strong>search</strong>&quot; and
           &quot;https://core.ac.uk/<strong>works</strong>&quot;.

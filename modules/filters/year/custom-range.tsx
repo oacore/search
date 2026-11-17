@@ -5,11 +5,11 @@ import classNames from '@oacore/design/lib/utils/class-names'
 import styles from '../styles.module.css'
 
 const CustomRange = ({ count }: any) => (
-  <li className={classNames.use(styles.customRangeText, styles.label)}>
-    {count && <Icon src="#check" className={styles.labelTextActive} />}
+  <li className={classNames.use(styles['custom-range-text'], styles.label)}>
+    {count && <Icon src="#check" className={styles['label-text-active']} />}
     <p
       className={classNames.use({
-        [styles.labelTextActive]: count,
+        [styles['label-text-active']]: count,
       })}
     >
       Custom range

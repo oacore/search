@@ -529,7 +529,8 @@ describe('T-001 @P0 lint parity', () => {
     expect(report.stylelint.findings).toBe(sum(expected))
     // the ratchet holds the same rows (it may only shrink, CS-STY-1)
     expect(readJson(RATCHET).findings).toEqual(expected)
-    expect(report.stylelint.files).toBeGreaterThanOrEqual(28)
+    // 27 since CS-CSS-4 deleted main/media-queries.css (step 6.9)
+    expect(report.stylelint.files).toBeGreaterThanOrEqual(27)
     // stylelint fails the run while findings exist, as stylelint 13 did
     expect(report.stylelint.status).toBe(2)
   })

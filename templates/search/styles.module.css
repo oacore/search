@@ -1,3 +1,5 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable property-no-vendor-prefix, value-no-vendor-prefix */
 .layout {
   padding: var(--page-padding-y) var(--page-padding-x);
   margin-top: 1.5rem;
@@ -8,19 +10,34 @@
 }
 
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  /* stylelint-disable-next-line order/properties-order */
+  -ms-flex-pack: justify;
   justify-content: space-between;
   margin-bottom: 0.5rem;
 }
 
 .header p {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
 }
 
 .action-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 0;
+  -ms-flex: 0;
   flex: 0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -44,8 +61,15 @@
 }
 
 .pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  /* stylelint-disable-next-line order/properties-order */
+  -ms-flex-pack: center;
   justify-content: center;
   padding: 0;
   margin: 0;
@@ -86,7 +110,11 @@
   top: 5%;
   left: 50%;
   display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 0 2rem;
   margin-right: auto;
@@ -95,10 +123,12 @@
   color: var(--white);
   background-color: var(--gray-600);
   border-radius: 0.5rem;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
 .logo {
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -106,6 +136,7 @@
   position: relative;
   margin-top: 3rem;
   text-align: left;
+  -webkit-text-decoration: none;
   text-decoration: none;
   background-color: #fff;
   background-image: url('../data-provider/images/repoBackground.svg');
@@ -121,7 +152,11 @@
   top: -20px;
   right: -1px;
   z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 4px 8px;
   font-size: 12px;
@@ -133,13 +168,18 @@
 }
 
 .member-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 1rem;
   padding: 16px;
 }
 
 .repository-logo-wrap {
+  -ms-flex-negative: 0;
   flex-shrink: 0;
   width: 56px;
   height: 56px;
@@ -153,6 +193,7 @@
 .repository-logo {
   width: 100%;
   height: 100%;
+  -o-object-fit: contain;
   object-fit: contain;
   border-radius: 50%;
 }
@@ -196,8 +237,9 @@
   border-radius: 2px;
 }
 
-@media (--screen-until-desktop) {
+@media (max-width: 767px) {
   .header {
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
 

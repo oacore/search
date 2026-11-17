@@ -7,7 +7,7 @@ import styles from './styles.module.css'
 const AuthorLink = ({ name }: any) => (
   <Link
     href={`https://core.ac.uk/search/author:(${name})`}
-    className={styles.authorLink}
+    className={styles['author-link']}
   >
     {name.replace(',', ' ')}
   </Link>
@@ -30,12 +30,12 @@ const Authors = ({ authors }: any) => {
       <AuthorLink name={authors[1].name} />,{' '}
       <span
         className={classNames.use(
-          styles.moreAuthorsBox,
-          isExpanded && styles.moreAuthorsExpanded
+          styles['more-authors-box'],
+          isExpanded && styles['more-authors-expanded']
         )}
       >
         <Button
-          className={styles.showMore}
+          className={styles['show-more']}
           aria-controls="more-authors"
           onClick={() => setIsExpanded(true)}
           aria-hidden={isExpanded}
@@ -46,7 +46,7 @@ const Authors = ({ authors }: any) => {
         <span
           id="more-authors"
           aria-hidden={!isExpanded}
-          className={styles.moreAuthors}
+          className={styles['more-authors']}
         >
           {authors.slice(2, -1).map((author: any) => (
             <>

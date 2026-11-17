@@ -19,10 +19,10 @@ const RelatedSearches = observe(({ articleTitle }: any) => {
       {similarOutputs && (
         <>
           <h2>Related searches</h2>
-          <div className={styles.relatedSearchesResult}>
-            <Icon src="#magnify" className={styles.relatedSearchesIcon} />
+          <div className={styles['related-searches-result']}>
+            <Icon src="#magnify" className={styles['related-searches-icon']} />
             {relatedWords(articleTitle, similarOutputs).map((item: any) => (
-              <div key={item} className={styles.detachDot}>
+              <div key={item} className={styles['detach-dot']}>
                 {item === 0 ? (
                   <span>No results</span>
                 ) : (

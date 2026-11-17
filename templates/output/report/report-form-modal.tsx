@@ -60,7 +60,7 @@ const ReportFormModal = observe(({ id: outputId }: any) => {
       hideManually
       className={styles.modal}
     >
-      <Modal.Title tag="h3" className={styles.modalTitle}>
+      <Modal.Title tag="h3" className={styles['modal-title']}>
         Fill up your request
       </Modal.Title>
       <Modal.Content>
@@ -70,12 +70,15 @@ const ReportFormModal = observe(({ id: outputId }: any) => {
           onClick={setActiveReporter}
           title="Who you are"
         />
-        <Form className={styles.modalReporterForm} onSubmit={onHandleSubmit}>
+        <Form
+          className={styles['modal-reporter-form']}
+          onSubmit={onHandleSubmit}
+        >
           {reporterRole && (
             <>
               <TextField
                 id={contactName}
-                className={styles.modalReporterFormControl}
+                className={styles['modal-reporter-form-control']}
                 name={contactName}
                 {...bindName}
                 label="Name"
@@ -86,7 +89,7 @@ const ReportFormModal = observe(({ id: outputId }: any) => {
               <TextField
                 id={contactEmail}
                 label="Email"
-                className={styles.modalReporterFormControl}
+                className={styles['modal-reporter-form-control']}
                 name={contactEmail}
                 {...bindEmail}
                 placeholder="e.g. john.doe@ac.ck.uk"
@@ -107,7 +110,7 @@ const ReportFormModal = observe(({ id: outputId }: any) => {
                 placeholder=" "
                 name={contactMessage}
                 {...bindMessage}
-                className={styles.modalReporterFormControl}
+                className={styles['modal-reporter-form-control']}
                 helper={
                   <>
                     {updateOption === 'takeDownFullText'
@@ -118,7 +121,7 @@ const ReportFormModal = observe(({ id: outputId }: any) => {
               />
             </>
           )}
-          <div className={styles.modalFooter}>
+          <div className={styles['modal-footer']}>
             <Button variant="text" onClick={onCloseModal}>
               Close
             </Button>

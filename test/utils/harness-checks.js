@@ -25,12 +25,12 @@ const routerContextPathFor = (version) => {
 
 const registerProjectChecks = (project) => {
   describe(`T-012 harness self-tests (${project} project)`, () => {
-    test(`T-012 c1 @P0 real *.module.css gives kebab and camel keys, unknown key undefined (${project})`, () => {
+    test(`T-012 c1 @P0 real *.module.css gives the keys as written (no camelCase keys since CS-CSS-3), unknown key undefined (${project})`, () => {
       const styles = require('../../templates/data-providers/styles.module.css')
       expect(styles['result-card']).toBe('result-card')
-      expect(styles.resultCard).toBe('result-card')
+      expect(styles.resultCard).toBeUndefined()
       expect(styles['add-data-provider-card']).toBe('add-data-provider-card')
-      expect(styles.addDataProviderCard).toBe('add-data-provider-card')
+      expect(styles.addDataProviderCard).toBeUndefined()
       expect(styles.layout).toBe('layout')
       expect(styles.unknownKey).toBeUndefined()
       expect(Object.getPrototypeOf(styles)).toBe(Object.prototype)

@@ -43,8 +43,8 @@ const FilterItem = observe(
 
     return (
       <li
-        className={classNames.use(styles.filterBoxItem, {
-          [styles.filterBoxItemActive]: useActiveStyles && item.checked,
+        className={classNames.use(styles['filter-box-item'], {
+          [styles['filter-box-item-active']]: useActiveStyles && item.checked,
           [styles.disabled]: item.count === 0 || isLoading,
         })}
         onClick={onToggleChecked}
@@ -60,7 +60,7 @@ const FilterItem = observe(
         />
         {setIcon()}
         <label htmlFor={value} className={styles.label}>
-          <p className={styles.labelText}>
+          <p className={styles['label-text']}>
             {item.yearFrom ? `Since ${item.yearFrom}` : value}
           </p>
           <span>

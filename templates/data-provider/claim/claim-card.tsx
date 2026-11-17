@@ -111,8 +111,8 @@ const ClaimCard = ({
   })
 
   return (
-    <Card className={classNames.use(styles.claimCard, className)}>
-      <div className={classNames.use(styles.cardTitle)}>
+    <Card className={classNames.use(styles['claim-card'], className)}>
+      <div className={classNames.use(styles['card-title'])}>
         Access Repository Dashboard
       </div>
       <div>
@@ -124,7 +124,7 @@ const ClaimCard = ({
               href="https://core.ac.uk/services/repository-dashboard"
               target="_blank"
               rel="noreferrer"
-              className={styles.linkUnderline}
+              className={styles['link-underline']}
             >
               CORE Repository Dashboard!
             </a>
@@ -155,12 +155,12 @@ const ClaimCard = ({
           </>
         )}
       </div>
-      <div className={styles.claimCardActions}>
+      <div className={styles['claim-card-actions']}>
         {isDataProviderHasAccounts || dataProviderType === 'starting' ? (
           <>
             <Button
               variant="contained"
-              className={styles.claimCardAction}
+              className={styles['claim-card-action']}
               onClick={() => {
                 window.open('https://dashboard.core.ac.uk/', '_blank')
               }}
@@ -168,7 +168,7 @@ const ClaimCard = ({
               SIGN IN
             </Button>
             <Button
-              className={styles.claimCardAction}
+              className={styles['claim-card-action']}
               onClick={() => setIsClaimModalEditActive(true)}
             >
               Create account
@@ -178,7 +178,7 @@ const ClaimCard = ({
           <>
             <Button
               variant="contained"
-              className={styles.claimCardAction}
+              className={styles['claim-card-action']}
               onClick={() => {
                 window.open('https://core.ac.uk/membership', '_blank')
               }}

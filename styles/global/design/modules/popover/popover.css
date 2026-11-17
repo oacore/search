@@ -1,0 +1,11 @@
+.popover-content-3mgoY{
+  --popover-content-min-width:0;
+  min-width:0;
+  min-width:var(--popover-content-min-width);
+  font-size:.9rem;
+  color:var(--white);
+  background-color:rgba(0,0,0,.878);
+  border-radius:.3rem;
+  opacity:.8;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL25vZGVfbW9kdWxlcy9Ab2Fjb3JlL2Rlc2lnbi9zcmMvbW9kdWxlcy9wb3BvdmVyL3BvcG92ZXIuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsNkJBQThCO0VBQzlCLFdBQTJDO0VBQTNDLDBDQUEyQztFQUMzQyxlQUFnQjtFQUNoQixrQkFBbUI7RUFDbkIsaUNBQTJCO0VBQzNCLG1CQUFvQjtFQUNwQixVQUFXO0FBQ2IiLCJmaWxlIjoicG9wb3Zlci5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGVudCB7XG4gIC0tcG9wb3Zlci1jb250ZW50LW1pbi13aWR0aDogMDtcbiAgbWluLXdpZHRoOiB2YXIoLS1wb3BvdmVyLWNvbnRlbnQtbWluLXdpZHRoKTtcbiAgZm9udC1zaXplOiAuOXJlbTtcbiAgY29sb3I6IHZhcigtLXdoaXRlKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwMDAwMGUwO1xuICBib3JkZXItcmFkaXVzOiAuM3JlbTtcbiAgb3BhY2l0eTogLjg7XG59XG4iXX0= */

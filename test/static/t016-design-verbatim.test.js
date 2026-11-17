@@ -455,9 +455,10 @@ describe('T-016 @P0 vendored design', () => {
     // 6.1 (automatic JSX runtime, CS-R19-1): logo/index.js equal again
     // 6.6 (CS-TS-4, .js to .ts moves): logo/index.js differs again by the
     // chunk context (minifier names; no source change)
+    // 6.9 (CS-CSS-2/-3, the app chunk changed): loading-bar/index.js equal
+    // again
     expect([...res.mismatched].sort()).toEqual([
       'node_modules/@oacore/design/lib/config.js',
-      'node_modules/@oacore/design/lib/elements/loading-bar/index.js',
       'node_modules/@oacore/design/lib/elements/logo/index.js',
       'node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js',
       'node_modules/@oacore/design/lib/modules/header/context/actions.js',
@@ -472,9 +473,10 @@ describe('T-016 @P0 vendored design', () => {
     // bundle (nothing of it is compiled for the server)
     const server = analyseServer(nextDir)
     // W7a (Next 15.5): the same entries, the order not pinned
+    // 6.9 (CS-DSN-6, DV7): _app imports the frozen copy of the design CSS
+    // (styles/global/design), not lib/index.css
     expect([...server.bundled].sort()).toEqual(
       [
-        'webpack://search/./node_modules/@oacore/design/lib/index.css',
         'webpack://search/external commonjs "@oacore/design"',
         'webpack://search/external commonjs "@oacore/design/lib/utils/class-names"',
         'webpack://search/external commonjs "@oacore/design"',
@@ -602,7 +604,6 @@ describe('T-016 @P0 vendored design', () => {
       expect([...res.mismatched].sort()).toEqual([
         'node_modules/@oacore/design/lib/config.js',
         'node_modules/@oacore/design/lib/elements/label.js',
-        'node_modules/@oacore/design/lib/elements/loading-bar/index.js',
         'node_modules/@oacore/design/lib/elements/logo/index.js',
         'node_modules/@oacore/design/lib/elements/math-markdown/utils/hasMathMLSupport.js',
         'node_modules/@oacore/design/lib/modules/header/context/actions.js',

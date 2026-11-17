@@ -46,7 +46,7 @@ const ReportSuccessModal = observe(({ dataProvider, id }: any) => {
         return (
           <>
             <BaseText operation={updateOption} dataProvider={dataProvider} />
-            <div className={styles.modalCardSuccessText}>
+            <div className={styles['modal-card-success-text']}>
               <Icon src="#check-circle" alt="checkbox-circle" />
               <Card.Description tag="span">
                 As someone who manages <strong> {dataProvider} </strong>
@@ -79,11 +79,11 @@ const ReportSuccessModal = observe(({ dataProvider, id }: any) => {
         <Loader />
       ) : (
         <>
-          <Modal.Title tag="h3" className={styles.modalTitle}>
+          <Modal.Title tag="h3" className={styles['modal-title']}>
             Thank you!
           </Modal.Title>
           <Modal.Content>
-            <div className={styles.modalCardImage}>
+            <div className={styles['modal-card-image']}>
               {role === REPOSITORY_MANAGER ? (
                 <img src={upvoteSVG} alt="upvote" />
               ) : (
@@ -93,7 +93,7 @@ const ReportSuccessModal = observe(({ dataProvider, id }: any) => {
             <Card.Description>We have received your request.</Card.Description>
             {setTextByReporterType()}
           </Modal.Content>
-          <Modal.Footer className={styles.modalFooter}>
+          <Modal.Footer className={styles['modal-footer']}>
             <Button variant="text" onClick={onCloseModal}>
               got it
             </Button>
@@ -105,7 +105,7 @@ const ReportSuccessModal = observe(({ dataProvider, id }: any) => {
 })
 
 const BaseText = ({ operation, dataProvider }: any) => (
-  <div className={styles.modalCardSuccessText}>
+  <div className={styles['modal-card-success-text']}>
     <Icon src="#check-circle" alt="checkbox-circle" />
     <Card.Description tag="span">
       We can

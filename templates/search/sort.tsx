@@ -40,18 +40,18 @@ const Sort = ({ options, onClick, className }: any) => {
   return (
     <div className={classNames.use(styles.sort).join(className)} ref={node}>
       <div
-        className={styles.sortBox}
+        className={styles['sort-box']}
         role="presentation"
         onClick={onToggleBoxVisible}
       >
         <span>
           Sort by{' '}
-          <span className={styles.activeItem}>{activeOption?.value}</span>
+          <span className={styles['active-item']}>{activeOption?.value}</span>
         </span>
         <Icon className={styles.sortBoxIcon} src="#menu-down" />
       </div>
       {boxVisible && (
-        <ul className={classNames.use(styles.sortBoxMenu)}>
+        <ul className={classNames.use(styles['sort-box-menu'])}>
           {options.map((filterItem: any) => (
             <FilterItem
               key={filterItem.value}

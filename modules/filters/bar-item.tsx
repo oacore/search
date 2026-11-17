@@ -59,12 +59,12 @@ const FilterBarItem = observe(({ filter, pathName }: any) => {
   )
 
   return (
-    <li className={styles.barItemWrapper} ref={node}>
+    <li className={styles['bar-item-wrapper']} ref={node}>
       <div
         onClick={onToggleFilterBox}
         role="presentation"
-        className={classNames.use(styles.barItem, {
-          [styles.barItemActive]:
+        className={classNames.use(styles['bar-item'], {
+          [styles['bar-item-active']]:
             filter.label !== 'sort by' &&
             filter.items.find((item: any) => item.checked === true),
           [styles.sortBarItem]: filter.label === 'sort by',
@@ -75,9 +75,9 @@ const FilterBarItem = observe(({ filter, pathName }: any) => {
       </div>
       {isComponentVisible && (
         <ul
-          className={classNames.use(styles.filterBox, {
-            [styles.wideBox]: filter.label === 'field',
-            [styles.yearBox]: filter.label === 'year',
+          className={classNames.use(styles['filter-box'], {
+            [styles['wide-box']]: filter.label === 'field',
+            [styles['year-box']]: filter.label === 'year',
           })}
         >
           {component}

@@ -1,24 +1,39 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable property-no-vendor-prefix, value-no-vendor-prefix */
 .container {
   padding: var(--page-padding-y) var(--page-padding-x);
 }
 
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .update {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   background-color: var(--gray-100);
 }
 
 .update-description {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
 }
 
 .update-link {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   padding-left: 10rem;
 }
@@ -41,7 +56,11 @@
 }
 
 .link {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 0.5rem 1rem;
   border-left: 0.4rem solid var(--primary);
@@ -52,10 +71,14 @@
 }
 
 .label {
+  -webkit-box-flex: 0.2;
+  -ms-flex: 0.2;
   flex: 0.2;
 }
 
 .link-href {
+  -webkit-box-flex: 0.4;
+  -ms-flex: 0.4;
   flex: 0.4;
   padding-bottom: 0.5rem;
   color: var(--primary);
@@ -78,7 +101,11 @@
 }
 
 .faq {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -86,7 +113,7 @@
   margin-right: 3rem;
 }
 
-@media (--screen-until-desktop) {
+@media (max-width: 767px) {
   .update-description {
     min-width: 90vw;
   }
@@ -103,6 +130,7 @@
 
   .header,
   .faq {
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
 }
