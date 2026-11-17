@@ -9,7 +9,7 @@ import {
   findDataProvider,
 } from 'utils/data-providers-transform'
 
-const base64ImageMimeTypes = {
+const base64ImageMimeTypes: any = {
   '/9j/': 'image/jpeg',
   'iVBOR': 'image/png',
   'R0lG': 'image/gif',
@@ -17,7 +17,7 @@ const base64ImageMimeTypes = {
   'UklG': 'image/webp',
 }
 
-const getBase64ImageSrc = (logoBase64) => {
+const getBase64ImageSrc = (logoBase64?: any) => {
   if (!logoBase64) return null
 
   const logo = String(logoBase64).trim()
@@ -29,9 +29,9 @@ const getBase64ImageSrc = (logoBase64) => {
 
   const mimeType =
     base64ImageMimeTypes[
-      Object.keys(base64ImageMimeTypes).find((signature) =>
+      Object.keys(base64ImageMimeTypes).find((signature: any) =>
         normalizedLogo.startsWith(signature)
-      )
+      ) as any
     ] || 'image/png'
 
   return `data:${mimeType};base64,${normalizedLogo}`
@@ -41,7 +41,7 @@ const useSearch = () => {
   const router = useRouter()
 
   // TODO: Add debouncing when onBlur is not required any more to call this
-  const handleSearch = useCallback((query) => {
+  const handleSearch = useCallback((query: any) => {
     const url = new URL(router.asPath, 'http://unused.host')
     const q = query.trim()
 
@@ -50,7 +50,7 @@ const useSearch = () => {
     if (q === url.searchParams.get('q')) return
 
     url.searchParams.set('q', q)
-    url.searchParams.set('offset', 0)
+    url.searchParams.set('offset', 0 as any)
     router.push(url.href.slice(url.origin.length))
   })
 
@@ -60,7 +60,7 @@ const useSearch = () => {
 export async function getServerSideProps({
   params: routeParams,
   query: searchParams,
-}) {
+}: any) {
   const { id } = routeParams
   const { q = '', offset = 0, limit = 10, sort = 'recency', t } = searchParams
 
@@ -70,7 +70,7 @@ export async function getServerSideProps({
     }
   }
 
-  const data = {}
+  const data: any = {}
   try {
     const dataProvider = await fetchMetadata(id, t)
     const dataProviderStats = await fetchStats(id)
@@ -87,7 +87,7 @@ export async function getServerSideProps({
 
       logo,
     })
-  } catch (errorWithDataProvider) {
+  } catch (errorWithDataProvider: any) {
     return {
       props: {
         error: errorWithDataProvider,
@@ -110,7 +110,7 @@ export async function getServerSideProps({
       data: outputs.results,
       ...outputs,
     })
-  } catch (errorWithOutputs) {
+  } catch (errorWithOutputs: any) {
     Object.assign(data.outputs, {
       error: errorWithOutputs,
     })
@@ -121,7 +121,7 @@ export async function getServerSideProps({
   }
 }
 
-const DataProviderPage = ({ data }) => {
+const DataProviderPage = ({ data }: any) => {
   const handleSearch = useSearch()
   return <Template data={data} onSearch={handleSearch} />
 }

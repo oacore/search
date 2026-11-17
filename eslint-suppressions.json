@@ -14,7 +14,7 @@
       "count": 2
     }
   },
-  "modules/dropdown/index.jsx": {
+  "modules/dropdown/index.tsx": {
     "@next/next/no-img-element": {
       "count": 1
     },
@@ -22,67 +22,85 @@
       "count": 1
     }
   },
-  "modules/logo/index.jsx": {
+  "modules/logo/index.tsx": {
     "@next/next/no-img-element": {
       "count": 1
     }
   },
-  "pages/_app.jsx": {
+  "pages/_app.tsx": {
+    "@typescript-eslint/no-unsafe-declaration-merging": {
+      "count": 2
+    },
     "react-hooks/rules-of-hooks": {
       "count": 1
     }
   },
-  "pages/error-card/index.jsx": {
+  "pages/error-card/index.tsx": {
     "@next/next/no-img-element": {
       "count": 1
     }
   },
-  "pages/search/index.jsx": {
+  "pages/outputs/[id].tsx": {
+    "@typescript-eslint/no-unused-vars": {
+      "count": 1
+    }
+  },
+  "pages/search/index.tsx": {
     "react-hooks/rules-of-hooks": {
       "count": 2
     }
   },
-  "templates/data-provider/index.jsx": {
+  "pages/works/[id].tsx": {
+    "@typescript-eslint/no-unused-vars": {
+      "count": 1
+    }
+  },
+  "templates/data-provider/index.tsx": {
     "@next/next/no-img-element": {
       "count": 1
     }
   },
-  "templates/data-provider/logo.jsx": {
+  "templates/data-provider/logo.tsx": {
     "@next/next/no-img-element": {
       "count": 1
     }
   },
-  "templates/error/query.jsx": {
+  "templates/error/query.tsx": {
     "@next/next/no-img-element": {
       "count": 1
     }
   },
-  "templates/output/card-dropdown.jsx": {
+  "templates/output/card-dropdown.tsx": {
     "@next/next/no-img-element": {
       "count": 2
     }
   },
-  "templates/output/index.jsx": {
+  "templates/output/index.tsx": {
     "@next/next/no-img-element": {
       "count": 1
     }
   },
-  "templates/output/report/report-success-modal.jsx": {
+  "templates/output/report/report-success-modal.tsx": {
     "@next/next/no-img-element": {
       "count": 2
     }
   },
-  "templates/output/update/index.jsx": {
+  "templates/output/thumbnail-card.tsx": {
+    "@typescript-eslint/no-unused-vars": {
+      "count": 2
+    }
+  },
+  "templates/output/update/index.tsx": {
     "@next/next/no-img-element": {
       "count": 2
     }
   },
-  "templates/search/index.jsx": {
+  "templates/search/index.tsx": {
     "@next/next/no-img-element": {
       "count": 3
     }
   },
-  "templates/search/results.jsx": {
+  "templates/search/results.tsx": {
     "react-hooks/rules-of-hooks": {
       "count": 1
     }

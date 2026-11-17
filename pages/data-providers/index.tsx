@@ -13,7 +13,7 @@ import {
 import { useClaimController } from 'templates/data-providers/hooks'
 import { useSyncUrlParamsWithStore } from 'hooks/use-sync-url-params-with-store'
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({ query }: any) {
   const data = cachedData || []
 
   return {
@@ -23,7 +23,7 @@ export async function getServerSideProps({ query }) {
           data: normalizeDataProviders(data),
           params: {
             ...Object.fromEntries(
-              Object.entries(query).filter(([, v]) => v != null)
+              Object.entries(query).filter(([, v]: any) => v != null)
             ),
           },
         },
@@ -34,7 +34,7 @@ export async function getServerSideProps({ query }) {
 
 // what the page renders from the store, `q` through `results` and the URL
 // sync (`query` is not a param: always undefined)
-const selectPage = (state) => ({
+const selectPage = (state?: any) => ({
   action: state.params.action,
   query: state.params.query,
   size: state.params.size,
@@ -42,13 +42,13 @@ const selectPage = (state) => ({
   data: state.data,
 })
 
-const SearchPage = observe(({ initialState }) => {
+const SearchPage = observe(({ initialState }: any) => {
   const { dataProviders, statistics } = useStore(initialState)
   const { action, query, size, data } = useStoreApi(
     dataProviders,
     useShallow(selectPage)
   )
-  const results = useStoreApi(dataProviders, dataProviders.selectResults)
+  const results: any = useStoreApi(dataProviders, dataProviders.selectResults)
 
   const { formRef, claim, claimStore, handleSubmitForm, getFormMessage } =
     useClaimController()
@@ -58,29 +58,29 @@ const SearchPage = observe(({ initialState }) => {
   useSyncUrlParamsWithStore(dataProviders.params)
 
   const searchDataProviders = useCallback(
-    (q) => dataProviders.search(q),
+    (q: any) => dataProviders.search(q),
     [dataProviders]
   )
   const setDataProvidersSize = useCallback(
-    (s) => {
+    (s: any) => {
       dataProviders.params.size = s
     },
     [dataProviders.params.size]
   )
   const setQuery = useCallback(
-    (q) => {
+    (q: any) => {
       dataProviders.params.q = q
     },
     [dataProviders.params.q]
   )
   const handleUrlChange = useCallback(
-    (event) => {
+    (event: any) => {
       claimStore.setState({ query: event.target.value })
     },
     [claimStore]
   )
   const setShowForm = useCallback(
-    (isVisible) => {
+    (isVisible: any) => {
       dataProviders.params.action = isVisible ? 'ADD' : null
     },
     [dataProviders.params.action]

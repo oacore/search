@@ -18,8 +18,8 @@ const CITATION_STYLES = ['apa', 'bibtex']
 // Needed for clear development of the data retrieval
 // At the time of development the API was unstable
 
-const setOutputError = (error, id) => {
-  let serverError = { code: error.status }
+const setOutputError = (error?: any, id?: any) => {
+  let serverError: any = { code: error.status }
   if (error.status === 410) {
     serverError = {
       ...serverError,
@@ -40,10 +40,10 @@ const setOutputError = (error, id) => {
   return serverError
 }
 
-export async function getServerSideProps({ params: routeParams }) {
+export async function getServerSideProps({ params: routeParams }: any) {
   const { id } = routeParams
 
-  const data = {}
+  const data: any = {}
 
   try {
     const rawOutput = await fetchMetadata(id)
@@ -73,7 +73,7 @@ export async function getServerSideProps({ params: routeParams }) {
         : output.yearPublished,
       dataProvider,
     })
-  } catch (error) {
+  } catch (error: any) {
     log(error)
     const serverError = setOutputError(error, id)
     return {
@@ -90,7 +90,7 @@ export async function getServerSideProps({ params: routeParams }) {
       locale: LOCALE,
     })
     data.citations = citations
-  } catch (citationRetrievalError) {
+  } catch (citationRetrievalError: any) {
     log(citationRetrievalError)
 
     data.citations = []
@@ -101,7 +101,7 @@ export async function getServerSideProps({ params: routeParams }) {
   }
 }
 
-const ScientificOutputPage = ({ serverError, data }) => {
+const ScientificOutputPage = ({ serverError, data }: any) => {
   const { statistics } = useStore()
   const router = useRouter()
 
@@ -109,7 +109,7 @@ const ScientificOutputPage = ({ serverError, data }) => {
     statistics?.totalArticlesCount.toLocaleString('en-GB')
 
   Header.useSearchBar({
-    onQueryChanged: (searchTerm) => {
+    onQueryChanged: (searchTerm?: any) => {
       router.push(`/search/?q=${searchTerm}`)
     },
     initQuery: '',

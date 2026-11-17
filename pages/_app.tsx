@@ -22,16 +22,20 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import '@oacore/design/lib/index.css'
 import 'main/global.css'
 
-process.on('unhandledRejection', (err) => {
+process.on('unhandledRejection', (err: any) => {
   Sentry.captureException(err)
 })
 
-process.on('uncaughtException', (err) => {
+process.on('uncaughtException', (err: any) => {
   Sentry.captureException(err)
 })
 
-class ErrorBoundary extends ReactComponent {
-  componentDidUpdate(prevProps) {
+interface ErrorBoundary {
+  loadingEnded: any
+}
+
+class ErrorBoundary extends ReactComponent<any> {
+  componentDidUpdate(prevProps?: any) {
     const { loading } = this.props
     // componentDidCatch of the same commit reads it
     this.loadingEnded = prevProps.loading && !loading
@@ -40,9 +44,9 @@ class ErrorBoundary extends ReactComponent {
     })
   }
 
-  componentDidCatch(error, errorInfo) {
-    Sentry.withScope((scope) => {
-      Object.keys(errorInfo).forEach((key) => {
+  componentDidCatch(error?: any, errorInfo?: any) {
+    Sentry.withScope((scope: any) => {
+      Object.keys(errorInfo).forEach((key: any) => {
         scope.setExtra(key, errorInfo[key])
         scope.setExtra('ssr', false)
       })
@@ -69,7 +73,7 @@ class ErrorBoundary extends ReactComponent {
 // drops the next-head-count meta (S-4) went blank. Next 10.2.3 applied them in
 // a promise, outside React, and the page stayed. Keep that: the error leaves
 // the effect as a rejected promise, as it did then (CS-N12-12).
-let guardedHeadManager = null
+let guardedHeadManager: any = null
 const useHeadErrorsOutsideReact = () => {
   const headManager = useContext(HeadManagerContext)
   if (
@@ -80,16 +84,16 @@ const useHeadErrorsOutsideReact = () => {
     return
   guardedHeadManager = headManager
   const { updateHead } = headManager
-  headManager.updateHead = (head) => {
+  headManager.updateHead = (head?: any) => {
     try {
       updateHead.call(headManager, head)
-    } catch (error) {
+    } catch (error: any) {
       Promise.reject(error)
     }
   }
 }
 
-const useLoading = (initialState = false) => {
+const useLoading = (initialState: any = false) => {
   const router = useRouter()
 
   const [isLoading, setLoading] = useState(initialState)
@@ -112,11 +116,11 @@ const useLoading = (initialState = false) => {
   return isLoading
 }
 
-const useInterceptNextDataHref = ({ router, namespace }) => {
+const useInterceptNextDataHref = ({ router, namespace }: any) => {
   useEffect(() => {
     if (router.pageLoader?.getDataHref) {
       const originalGetDataHref = router.pageLoader.getDataHref
-      router.pageLoader.getDataHref = (args) => {
+      router.pageLoader.getDataHref = (args?: any) => {
         const r = originalGetDataHref.call(router.pageLoader, args)
         return r && r.startsWith('/_next/data') ? `${namespace}${r}` : r
       }
@@ -129,7 +133,7 @@ const App = ({
   pageProps,
   statistics,
   router: approuter,
-}) => {
+}: any) => {
   const router = useRouter()
   useHeadErrorsOutsideReact()
   useMarkAppHydrated()
@@ -168,7 +172,7 @@ const App = ({
   )
 }
 
-let statistics = {
+let statistics: any = {
   timestamp: Date.now(),
   data: null,
 }
@@ -183,7 +187,7 @@ let firstBrowserCall = true
 
 // TODO: Replace with getStaticProps once this is solved
 //       https://github.com/vercel/next.js/discussions/10949
-App.getInitialProps = async (appContext) => {
+App.getInitialProps = async (appContext?: any) => {
   if (typeof window !== 'undefined' && firstBrowserCall) {
     firstBrowserCall = false
     const { __NEXT_DATA__: nextData } = window
@@ -194,7 +198,7 @@ App.getInitialProps = async (appContext) => {
   await getDataProviders()
   await getMembers()
 
-  const { data } = cachedStatistics
+  const { data }: any = cachedStatistics
   if (data && Object.keys(data).length > 0) statistics = data
   else statistics = { totalArticlesCount: 'more than 356 million' }
 

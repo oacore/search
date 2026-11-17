@@ -20,11 +20,11 @@ export async function getServerSideProps({
   params: routeParams,
   query: searchParams,
   req,
-}) {
+}: any) {
   const { id } = routeParams
   const { t } = searchParams
 
-  const data = {}
+  const data: any = {}
 
   try {
     const rawWork = await fetchWork(id, t)
@@ -32,7 +32,7 @@ export async function getServerSideProps({
     const outputs = await fetchWorkOutputs(id)
 
     const transformedOutputs = await Promise.all(
-      outputs.map(async (output) => {
+      outputs.map(async (output: any) => {
         const articleWithUrls = findUrlsByType(output)
 
         const { dataProvider } = output
@@ -77,12 +77,12 @@ export async function getServerSideProps({
       outputs: transformedOutputs,
       dataProvider: workWithUrls.dataProviders[0],
       mainDataProviderLink: Object.values(mainDataProviderLink).some(
-        (link) => link !== null
+        (link: any) => link !== null
       )
         ? mainDataProviderLink
         : null,
     })
-  } catch (error) {
+  } catch (error: any) {
     log(error)
     const prevHistoryUrl = req.headers.referer ?? null
 
@@ -110,7 +110,7 @@ export async function getServerSideProps({
       locale: LOCALE,
     })
     data.citations = citations
-  } catch (citationRetrievalError) {
+  } catch (citationRetrievalError: any) {
     log(citationRetrievalError)
 
     data.citations = []
@@ -121,14 +121,14 @@ export async function getServerSideProps({
   }
 }
 
-const ScientificWorkPage = ({ serverError, data }) => {
+const ScientificWorkPage = ({ serverError, data }: any) => {
   const { statistics } = useStore()
   const router = useRouter()
 
   const totalArticlesCount =
     statistics?.totalArticlesCount.toLocaleString('en-GB')
   Header.useSearchBar({
-    onQueryChanged: (searchTerm) => {
+    onQueryChanged: (searchTerm?: any) => {
       router.push(`/search?q=${searchTerm}`)
     },
     initQuery: '',

@@ -7,8 +7,8 @@
 // and the non-null mark of `err.statusCode`), and `Head` comes from
 // `next/head` (10.2.3: `../next-server/lib/head`, the module `next/head`
 // points to). The `<title>` is one template string (CS-N13-8), so that
-// React 18's server renderer writes no `<!-- -->` into it (R-069). Nothing
-// else is changed. Not linted (eslint.config.js): it stays as Next wrote it.
+// React 18's server renderer writes no `<!-- -->` into it (R-069). CS-TS-4
+// adds `any` annotations only. Nothing else is changed. Not linted (eslint.config.js): it stays as Next wrote it.
 //
 // The MIT License (MIT)
 //
@@ -34,7 +34,7 @@
 import React from 'react'
 import Head from 'next/head'
 
-const statusCodes = {
+const statusCodes: any = {
   400: 'Bad Request',
   404: 'This page could not be found',
   405: 'Method Not Allowed',
@@ -44,7 +44,7 @@ const statusCodes = {
 function _getInitialProps({
   res,
   err,
-}) {
+}: any) {
   const statusCode =
     res && res.statusCode ? res.statusCode : err ? err.statusCode : 404
   return { statusCode }
@@ -53,7 +53,7 @@ function _getInitialProps({
 /**
  * `Error` component used for handling errors.
  */
-export default class Error extends React.Component {
+export default class Error extends React.Component<any> {
   static displayName = 'ErrorPage'
 
   static getInitialProps = _getInitialProps
@@ -83,7 +83,7 @@ export default class Error extends React.Component {
   }
 }
 
-const styles = {
+const styles: any = {
   error: {
     color: '#000',
     background: '#fff',

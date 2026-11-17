@@ -15,7 +15,7 @@ import QueryError from 'templates/error/query'
 import { transformDataProviders } from 'utils/data-providers-transform'
 import { pickFeaturedMember } from 'templates/search/utils/featured-member'
 
-export const getServerSideProps = async ({ query: searchParams }) => {
+export const getServerSideProps = async ({ query: searchParams }: any) => {
   if (Object.keys(searchParams).length === 0) {
     return {
       redirect: {
@@ -29,7 +29,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
   // const { q, page = 1, limit = 10, sort = 'recency' } = searchParams
   const { q, page = 1, limit = 10, sort = 'relevance', t } = searchParams
 
-  const data = {
+  const data: any = {
     currentPage: +page,
     query: q,
     sort,
@@ -55,7 +55,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
       if (response?.results) {
         console.time(`transformDataProviders:${reqId}`)
         const transformedWorks = await Promise.all(
-          response.results.map(async (work) => {
+          response.results.map(async (work: any) => {
             const articleWithUrls = findUrlsByType(work)
             return {
               ...articleWithUrls,
@@ -70,7 +70,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
           results: transformedWorks,
         })
       } else data.results = []
-    } catch (error) {
+    } catch (error: any) {
       log(error)
       const queryError = {
         query: q,
@@ -86,7 +86,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
   try {
     const { data: membersData } = await apiRequest('/members')
     members = (Array.isArray(membersData) ? membersData : []).filter(
-      (member) => {
+      (member: any) => {
         const orgName = member?.organisation_name?.toLowerCase() || ''
         return (
           member?.billing_type !== 'starting' &&
@@ -96,7 +96,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
         )
       }
     )
-  } catch (membersError) {
+  } catch (membersError: any) {
     log(membersError)
   }
 
@@ -110,7 +110,7 @@ export const getServerSideProps = async ({ query: searchParams }) => {
   }
 }
 
-const Search = ({ data, queryError, members }) => {
+const Search = ({ data, queryError, members }: any) => {
   const router = useRouter()
 
   const searchItem = router.query.q
@@ -122,7 +122,7 @@ const Search = ({ data, queryError, members }) => {
     statistics?.totalArticlesCount.toLocaleString('en-GB')
   Header.useSearchBar(
     {
-      onQueryChanged: (searchTerm, pathName) => {
+      onQueryChanged: (searchTerm?: any, pathName?: any) => {
         router.push({
           pathname: pathName,
           query: {
