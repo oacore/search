@@ -157,7 +157,7 @@ const App = ({
           isSearchPage={isSearchPage}
           initialState={{
             statistics,
-            dataProviders: pageProps.initialState?.dataProviders,
+            dataProviders: pageProps?.initialState?.dataProviders,
           }}
           loading={loading}
         >
