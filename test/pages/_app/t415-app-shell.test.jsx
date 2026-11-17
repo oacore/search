@@ -9,8 +9,8 @@
 // itself would have to load as production) are pinned by T-604 and T-730; the
 // statistics fallback of getInitialProps is T-119.
 //
-// `@sentry/node` is the harness factory spy (utils/sentry.js requires it, the
-// browser build swaps it for `@sentry/browser`, next.config.js:97).
+// `@sentry/nextjs` is the harness factory spy (pages/_app imports it, CS-SEN-2;
+// utils/sentry.js with @sentry/node and @sentry/browser before).
 import React from 'react'
 import { hydrateRoot } from 'react-dom/client'
 import { renderToString } from 'react-dom/server'
@@ -32,7 +32,7 @@ beforeAll(() => {
   NextApp = require('../../../pages/_app').default
   registered.push(...on.mock.calls)
   on.mockRestore()
-  ;({ Sentry } = require('../../../utils/sentry'))
+  Sentry = require('@sentry/nextjs')
 })
 afterAll(() => {
   registered.forEach(([event, handler]) =>

@@ -1,27 +1,25 @@
-// T-120 c3 child process: loads utils/sentry.js (compiled with the repo Babel
-// config) on the real @sentry/node with a DSN that points at a local listener,
-// like Next loads it with pages/_app on a first request. A second request, with
-// browser-like headers, captures an error in its handler and leaves a rejected
-// promise unhandled in its async chain (the app's process handler and the
-// integration report it). Prints the received event items as one JSON line.
+// T-120 c3 child process: runs `register()` of instrumentation.ts (compiled
+// with the Jest Babel config) on the real @sentry/nextjs with a DSN that points
+// at a local listener, as Next runs it when the server starts. The app's
+// process handler is registered on the first request, as pages/_app does. A
+// second request, with browser-like headers, captures an error in its handler
+// and leaves a rejected promise unhandled in its async chain (the app's process
+// handler and the integration report it). Prints the received event items as
+// one JSON line.
 const fs = require('node:fs')
 const http = require('node:http')
-const Module = require('node:module')
 const path = require('node:path')
 const babel = require('@babel/core')
 
 const ROOT = path.resolve(__dirname, '../../../..')
-const loadSentry = () => {
-  const file = path.join(ROOT, 'utils/sentry.js')
+// the .ts files of the setup (instrumentation.ts, utils/sentry-integrations.ts)
+require.extensions['.ts'] = (m, file) => {
   const { code } = babel.transformSync(fs.readFileSync(file, 'utf8'), {
     filename: file,
     root: ROOT,
+    configFile: path.join(ROOT, 'jest.babel.config.js'),
   })
-  const m = new Module(file, module)
-  m.filename = file
-  m.paths = Module._nodeModulePaths(path.dirname(file))
   m._compile(code, file)
-  return m.exports.Sentry
 }
 
 const events = []
@@ -38,12 +36,15 @@ const ingest = http.createServer((req, res) => {
   })
 })
 
-ingest.listen(0, '127.0.0.1', () => {
+ingest.listen(0, '127.0.0.1', async () => {
   process.env.SENTRY_DSN = `http://public@127.0.0.1:${ingest.address().port}/0`
-  let Sentry
+  process.env.NEXT_RUNTIME = 'nodejs'
+  await require(path.join(ROOT, 'instrumentation.ts')).register()
+  const Sentry = require('@sentry/nextjs')
+  let handler = false
   const app = http.createServer((req, res) => {
-    if (!Sentry) {
-      Sentry = loadSentry()
+    if (!handler) {
+      handler = true
       process.on('unhandledRejection', (err) => Sentry.captureException(err))
     }
     setTimeout(() => {

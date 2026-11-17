@@ -48,7 +48,7 @@ const SURVIVE_MS = 2 * EXIT_BOUND_MS
 const STORE = 'https://o0.ingest.sentry.io/api/0/store/'
 // Sentry 7 has no store transport: every event goes to the envelope endpoint (AD-015, AD-017)
 const ENVELOPE =
-  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.node%2F11.12.0'
+  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.nextjs%2F11.12.0'
 // listener function names as the preload reports them (Function.prototype.name)
 // the bound handler of @sentry/node 5.30's integrations
 const SENTRY_HANDLER = 'bound '
@@ -131,7 +131,9 @@ test.describe('T-608 @P0 crash semantics', () => {
       expect(shot.listeners).toBe(4) // AD-128, AD-183
       // W7a: Next 15.5's start-server listener is an anonymous function ('')
       // W7c: Next 16's router-server logError is no longer bound and registers before Sentry's
-      expect(shot.names).toEqual(['', 'logError', SENTRY_UNCAUGHT, APP_HANDLER]) // AD-128, AD-183
+      // 6.8: instrumentation.ts initialises Sentry when the server starts (CS-SEN-2), before Next's router
+      // server registers logError; pages/_app.jsx loaded it on the first page before
+      expect(shot.names).toEqual(['', SENTRY_UNCAUGHT, 'logError', APP_HANDLER]) // AD-128, AD-183
       await expect.poll(() => appExit(env), { timeout: 15000 }).not.toBeNull()
       const exit = appExit(env)
       expect({ code: exit.code, signal: exit.signal }).toEqual({

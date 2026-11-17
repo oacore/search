@@ -4,8 +4,7 @@
 // top of its file.
 jest.mock('react-ga4', () => require('../mocks/react-ga4'))
 jest.mock('logrocket', () => require('../mocks/logrocket'))
-jest.mock('@sentry/node', () => require('../mocks/sentry').create())
-jest.mock('@sentry/browser', () => require('../mocks/sentry').create())
+jest.mock('@sentry/nextjs', () => require('../mocks/sentry').create())
 jest.mock('js-file-download', () => require('../mocks/js-file-download'))
 jest.mock('../../modules/map/map', () => require('../mocks/map'))
 

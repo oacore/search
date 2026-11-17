@@ -1,6 +1,7 @@
 const path = require('path')
 
 const withImages = require('next-images')
+const { withSentryConfig } = require('@sentry/nextjs/config')
 
 const envConfig = require('./env.config')
 const cspConfig = require('./csp.config')
@@ -108,13 +109,14 @@ const nextConfig = {
     if (babelRules === 0)
       throw new Error('No rule runs the Babel loader that bibtexParse.js skips')
 
-    // @sentry/browser and the @sentry modules it brings ship ES2018+ syntax
+    // @sentry/nextjs's browser build and the @sentry modules it brings ship
+    // ES2018+ syntax
     // (object spread, optional chaining), react-ga4 3 ships ES2022
     // (class fields), and Next compiles no node_modules code but its own, so
     // the client _app chunk would need ES2022. The client compilation compiles
     // them to the syntax of the app's own code (.browserslistrc): syntax only,
     // no polyfill, no helper import, ES modules kept for tree shaking. The
-    // server keeps @sentry/node as an external require and react-ga4 as
+    // server keeps @sentry/nextjs as an external require and react-ga4 as
     // Next's external import.
     // Next 14's client main chunk also takes next/dist/lib/constants.js, which
     // Next ships as it is, with one object spread (ES2018); the rule compiles
@@ -275,7 +277,6 @@ const nextConfig = {
       'templates': path.join(__dirname, 'templates'),
       'modules': path.join(__dirname, 'modules'),
       'lib': path.join(__dirname, 'lib'),
-      '@sentry/node': isServer ? '@sentry/node' : '@sentry/browser',
       'react': path.join(__dirname, 'node_modules', 'react'),
       'react-dom': path.join(__dirname, 'node_modules', 'react-dom'),
     })
@@ -291,4 +292,43 @@ const { serverRuntimeConfig, ...config } = withImages(nextConfig)
 if (serverRuntimeConfig !== undefined)
   throw new Error('next-images set serverRuntimeConfig, which Next 16 ignores')
 
-module.exports = config
+// @sentry/nextjs (CS-SEN-2): the SDK is set up in instrumentation.ts and
+// instrumentation-client.ts. The build uploads and deletes no source maps,
+// creates and injects no release, wraps no data-fetching function, adds no
+// build-time instrumentation, route manifest or tunnel route and sends no
+// telemetry. withSentryConfig also adds its build values to `env` and trace
+// meta tags to `experimental.clientTraceMetadata`; both stay as the app had
+// them, so the inlined variables and the page head do not change. The
+// server requires the installed SDK, in instrumentation.ts as in the pages,
+// so it runs as one copy, as @sentry/node did. The browser SDK leaves out its
+// tracing code (`__SENTRY_TRACING__` false): the app samples no spans, and
+// without the flag @sentry/nextjs adds browser tracing (web-vitals, ES2022)
+// to the defaults, which the integration filter drops anyway.
+const sentryConfig = withSentryConfig(
+  {
+    ...config,
+    env: { ...config.env },
+    experimental: { ...config.experimental },
+    serverExternalPackages: ['@sentry/nextjs'],
+  },
+  {
+    silent: true,
+    telemetry: false,
+    sourcemaps: { disable: true, deleteSourcemapsAfterUpload: false },
+    release: { create: false, finalize: false },
+    buildTimeInstrumentation: false,
+    routeManifestInjection: false,
+    bundleSizeOptimizations: { excludeTracing: true },
+    webpack: {
+      autoInstrumentServerFunctions: false,
+      autoInstrumentMiddleware: false,
+      autoInstrumentAppDirectory: false,
+    },
+  }
+)
+
+module.exports = {
+  ...sentryConfig,
+  env: config.env,
+  experimental: config.experimental,
+}

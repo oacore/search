@@ -158,7 +158,7 @@ const REACT19_ERROR = (n, ...args) => {
   return REACT_ERROR(n).replace(`errors/${n} `, `errors/${n}?${query} `)
 }
 const SENTRY_ENVELOPE =
-  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.browser%2F11.12.0'
+  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.nextjs%2F11.12.0'
 const CONNECT_SRC =
   "connect-src 'self' *.core.ac.uk core.ac.uk sentry.io *.google-analytics.com *.doubleclick.net *.googletagmanager.com *.cloudflareinsights.com *.logrocket.com *.lgrckt-in.com *.logr-in.com"
 const SENTRY_REFUSED = [
