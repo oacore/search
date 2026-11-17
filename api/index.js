@@ -1,6 +1,7 @@
 import LogRocket from 'logrocket'
 
 import NetworkError from './errors'
+import { transport } from './http'
 import internalize from './internalize'
 
 // Environment variables are replaced in the bundle using the `DefinePlugin`
@@ -109,7 +110,7 @@ const processError = (error, details) => {
 }
 
 const executeRequest = ({ url, ...options }) =>
-  fetch(url, options)
+  transport(url, options)
     .then(processStatus)
     .then(
       (response) => processBody(response, { ...options }),
