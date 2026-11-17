@@ -5127,6 +5127,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-753 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-470
   kind: product
   test: T-003
@@ -5138,6 +5139,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-754 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-471
   kind: product
   test: T-003
@@ -5149,6 +5151,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-755 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-472
   kind: product
   test: T-003
@@ -5160,6 +5163,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-756 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-473
   kind: product
   test: T-003
@@ -5171,6 +5175,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-757 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-474
   kind: product
   test: T-003
@@ -5182,6 +5187,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-758 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-475
   kind: product
   test: T-003
@@ -5193,6 +5199,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-759 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-476
   kind: product
   test: T-003
@@ -5204,6 +5211,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-760 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-477
   kind: product
   test: T-003
@@ -5215,6 +5223,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-761 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-478
   kind: product
   test: T-003
@@ -5226,6 +5235,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-762 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-479
   kind: product
   test: T-003
@@ -5259,6 +5269,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-763 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-482
   kind: product
   test: T-003
@@ -5358,6 +5369,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-765 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-491
   kind: product
   test: T-003
@@ -5380,6 +5392,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-766 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-493
   kind: product
   test: T-003
@@ -5611,6 +5624,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-773 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-514
   kind: product
   test: T-003
@@ -5622,6 +5636,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-774 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-515
   kind: product
   test: T-003
@@ -6601,6 +6616,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-787 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-604
   kind: product
   test: T-003
@@ -6942,6 +6958,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-792 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-635
   kind: product
   test: T-003
@@ -6953,6 +6970,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-793 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-636
   kind: product
   test: T-003
@@ -6964,6 +6982,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-794 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-637
   kind: product
   test: T-003
@@ -6975,6 +6994,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-803 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-638
   kind: product
   test: T-003
@@ -7030,6 +7050,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-806 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-643
   kind: product
   test: T-003
@@ -7866,6 +7887,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-830 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-719
   kind: product
   test: T-003
@@ -7943,6 +7965,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-831 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-726
   kind: product
   test: T-003
@@ -8042,6 +8065,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-833 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-735
   kind: product
   test: T-003
@@ -8097,6 +8121,7 @@
   step: W83
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+  withdrawn: "superseded at 6.9 by AD-838 (the same key; pure CSS P1), 2026-11-17"
 - id: AD-740
   kind: product
   test: T-003
@@ -8240,3 +8265,949 @@
   step: W84
   signedOffBy: 'SIGNED: owner, 2026-11-16 (decided in the work session under the owner''s lean-plan delegation)'
   date: '2026-11-16'
+- id: AD-753
+  kind: product
+  test: T-003
+  key: "order:/"
+  from: "0dc51944040357464e3c9c2d9c847a917f58129face49cbd705e8e97c222621c modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*125,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*53,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*8,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*35,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*12,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*19,node_modules/slick-carousel/slick/slick-theme.css*24,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*63,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6"
+  to: "8ddd58a94c1099892fbc524e9cf010d1efc246f5bfa2b25cd050fca7737f7edd modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*124,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*51,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*7,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*33,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*11,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*18,node_modules/slick-carousel/slick/slick-theme.css*23,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*61,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-754
+  kind: product
+  test: T-003
+  key: "order:/404"
+  from: "df825e58d9fdef8bd8f7d27f7cb91a0bbc4c6ff2dc80c5de2586d61f498841e4 modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*125,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*53,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*8,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*35,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*12,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*19,node_modules/slick-carousel/slick/slick-theme.css*24,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*63,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,modules/loader/loader.module.css*7,templates/error/styles.module.css*4"
+  to: "879e90dd22b670e95fbdb7d6010ed3508afa4a04a4fd92843d33789c458d85e0 modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*124,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*51,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*7,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*33,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*11,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*18,node_modules/slick-carousel/slick/slick-theme.css*23,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*61,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,templates/error/styles.module.css*4,modules/loader/loader.module.css*7"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-755
+  kind: product
+  test: T-003
+  key: "order:/_error"
+  from: "0dc51944040357464e3c9c2d9c847a917f58129face49cbd705e8e97c222621c modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*125,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*53,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*8,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*35,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*12,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*19,node_modules/slick-carousel/slick/slick-theme.css*24,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*63,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6"
+  to: "8ddd58a94c1099892fbc524e9cf010d1efc246f5bfa2b25cd050fca7737f7edd modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*124,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*51,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*7,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*33,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*11,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*18,node_modules/slick-carousel/slick/slick-theme.css*23,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*61,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-756
+  kind: product
+  test: T-003
+  key: "order:/data-providers"
+  from: "ac8cfdb908e17cde2d9c2986f3ef0fa594ccee8529424b31597da495ec5f5663 modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*125,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*53,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*8,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*35,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*12,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*19,node_modules/slick-carousel/slick/slick-theme.css*24,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*63,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,modules/search-layout/styles.module.css*13,templates/data-providers/styles.module.css*11,modules/map/styles.module.css*5"
+  to: "454f8df9f38ce8a0fd69caa939452f26f4a626cd21090b6008caaab3d89fed6c modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*124,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*51,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*7,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*33,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*11,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*18,node_modules/slick-carousel/slick/slick-theme.css*23,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*61,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,templates/data-providers/styles.module.css*11,modules/search-layout/styles.module.css*13,modules/map/styles.module.css*4"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-757
+  kind: product
+  test: T-003
+  key: "order:/data-providers/[id]"
+  from: "f1f918d0179a5124700b088dd5e1b0147f746ef0dbc6d92f37bef029e964edb1 modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*125,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*53,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*8,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*35,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*12,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*19,node_modules/slick-carousel/slick/slick-theme.css*24,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*63,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,templates/data-provider/claim/styles.module.css*31,modules/map/styles.module.css*5,templates/data-provider/styles.module.css*46,modules/search-layout/styles.module.css*13,modules/filters/styles.module.css*56,templates/search/sort.module.css*5,templates/search/styles.module.css*34"
+  to: "b1a77d5d8341690544e0a27f82e65dbadc6501bfb5692a22c89c9cbec779f138 modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*124,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*51,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*7,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*33,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*11,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*18,node_modules/slick-carousel/slick/slick-theme.css*23,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*61,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,templates/data-provider/claim/styles.module.css*31,templates/data-provider/styles.module.css*45,modules/map/styles.module.css*4,modules/search-layout/styles.module.css*13,templates/search/sort.module.css*5,modules/filters/styles.module.css*55,templates/search/styles.module.css*34"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-758
+  kind: product
+  test: T-003
+  key: "order:/error-card"
+  from: "57b08e9a3e1d2e89f1d32625336a74c6603e8b2a405c88e2ab46fce730d939ce modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*125,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*53,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*8,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*35,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*12,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*19,node_modules/slick-carousel/slick/slick-theme.css*24,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*63,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,pages/error-card/styles.module.css*4"
+  to: "84ba446e024483ae2a598f3cc3f0de11d1c6ec178141561ab542ae737f110d4b modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*124,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*51,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*7,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*33,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*11,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*18,node_modules/slick-carousel/slick/slick-theme.css*23,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*61,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,pages/error-card/styles.module.css*4"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-759
+  kind: product
+  test: T-003
+  key: "order:/outputs/[id]"
+  from: "e2737e4de67c9138dfcf7821ff6be74b7aecacb66d1f8115cc7385a64d6ce720 modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*125,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*53,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*8,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*35,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*12,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*19,node_modules/slick-carousel/slick/slick-theme.css*24,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*63,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,modules/loader/loader.module.css*7,templates/output/styles.module.css*54,modules/notification/styles.module.css*1,modules/dropdown/styles.module.css*25,templates/output/card-dropdown.module.css*16,templates/output/thumbnail-card.module.css*17,modules/map/styles.module.css*5,templates/output/report/styles.module.css*19,templates/output/citation.module.css*12,modules/search-layout/styles.module.css*13,templates/error/styles.module.css*4"
+  to: "9cbd6378e56815b5aeb3bbbe44d6cea41f33d3ef02d130786da87bc93b09c26e modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*124,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*51,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*7,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*33,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*11,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*18,node_modules/slick-carousel/slick/slick-theme.css*23,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*61,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,templates/output/styles.module.css*54,modules/loader/loader.module.css*7,templates/output/thumbnail-card.module.css*16,templates/output/card-dropdown.module.css*16,modules/notification/styles.module.css*1,modules/dropdown/styles.module.css*25,modules/map/styles.module.css*4,templates/output/report/styles.module.css*19,templates/output/citation.module.css*12,modules/search-layout/styles.module.css*13,templates/error/styles.module.css*4"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-760
+  kind: product
+  test: T-003
+  key: "order:/outputs/update"
+  from: "bcff0af37f3fc69a520b0f7d03caeeedcde84553d7d1e6315ed3208e56fe5c3d modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*125,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*53,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*8,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*35,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*12,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*19,node_modules/slick-carousel/slick/slick-theme.css*24,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*63,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,templates/output/report/styles.module.css*19,modules/loader/loader.module.css*7,templates/output/update/styles.module.css*22"
+  to: "9b69b5bc7b41d187d92a685cb74347cb3b5cf663234f585e09e8a081e6bc3221 modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*124,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*51,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*7,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*33,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*11,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*18,node_modules/slick-carousel/slick/slick-theme.css*23,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*61,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,templates/output/report/styles.module.css*19,modules/loader/loader.module.css*7,templates/output/update/styles.module.css*22"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-761
+  kind: product
+  test: T-003
+  key: "order:/search"
+  from: "f9980cd0cc3b21dfad902590d4e09ddca856de2bbbc3d1bf9bfcfe21ab75fb10 modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*125,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*53,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*8,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*35,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*12,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*19,node_modules/slick-carousel/slick/slick-theme.css*24,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*63,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,pages/error-card/styles.module.css*4,templates/search/styles.module.css*34,templates/error/styles.module.css*4,templates/search/modals/styles.module.css*6,modules/filters/styles.module.css*56,templates/search/sort.module.css*5,modules/search-layout/styles.module.css*13,modules/filters/year/selects/styles.module.css*4"
+  to: "debddb1e5177116664d1ac8b17948b67ae37a5d6cf785a3eb2426eb870ff95f9 modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*124,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*51,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*7,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*33,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*11,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*18,node_modules/slick-carousel/slick/slick-theme.css*23,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*61,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,pages/error-card/styles.module.css*4,templates/search/styles.module.css*34,templates/error/styles.module.css*4,templates/search/modals/styles.module.css*6,templates/search/sort.module.css*5,modules/filters/styles.module.css*55,modules/search-layout/styles.module.css*13,modules/filters/year/selects/styles.module.css*4"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-762
+  kind: product
+  test: T-003
+  key: "order:/works/[id]"
+  from: "e2737e4de67c9138dfcf7821ff6be74b7aecacb66d1f8115cc7385a64d6ce720 modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*125,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*53,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*8,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*35,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*12,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*19,node_modules/slick-carousel/slick/slick-theme.css*24,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*63,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,modules/loader/loader.module.css*7,templates/output/styles.module.css*54,modules/notification/styles.module.css*1,modules/dropdown/styles.module.css*25,templates/output/card-dropdown.module.css*16,templates/output/thumbnail-card.module.css*17,modules/map/styles.module.css*5,templates/output/report/styles.module.css*19,templates/output/citation.module.css*12,modules/search-layout/styles.module.css*13,templates/error/styles.module.css*4"
+  to: "9cbd6378e56815b5aeb3bbbe44d6cea41f33d3ef02d130786da87bc93b09c26e modules/layout/styles.module.css*8,node_modules/leaflet/dist/leaflet.css*124,node_modules/leaflet.markercluster/dist/MarkerCluster.css*2,node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css*15,node_modules/sanitize.css/sanitize.css*51,node_modules/sanitize.css/forms.css*6,node_modules/sanitize.css/typography.css*2,node_modules/sanitize.css/reduce-motion.css*1,node_modules/@oacore/design/src/foundation/spacing.css*7,node_modules/@oacore/design/src/foundation/colors.css*1,node_modules/@oacore/design/src/foundation/type.css*33,node_modules/@oacore/design/src/foundation/component.css*1,node_modules/@oacore/design/src/foundation/loading.css*11,node_modules/@oacore/design/src/foundation/layout.css*2,node_modules/@oacore/design/src/elements/app-bar/styles.css*5,node_modules/@oacore/design/src/elements/button/button.css*12,node_modules/@oacore/design/src/elements/forms/text-field.css*14,node_modules/@oacore/design/src/elements/forms/styles.css*56,node_modules/@oacore/design/src/elements/label.css*5,node_modules/@oacore/design/src/elements/table/styles.css*17,node_modules/@oacore/design/src/elements/card/card.css*8,node_modules/@oacore/design/src/elements/icon/icon.css*3,node_modules/@oacore/design/src/elements/detail-list/detail-list.css*5,node_modules/@oacore/design/src/elements/loading-bar/loading-bar.css*9,node_modules/@oacore/design/src/elements/progress-spinner/styles.css*13,node_modules/@oacore/design/src/elements/message/message.css*9,node_modules/@oacore/design/src/elements/link/link.css*2,node_modules/@oacore/design/src/elements/logo/logo.css*2,node_modules/@oacore/design/src/elements/logo/group.css*3,node_modules/@oacore/design/src/elements/logo/data-provider.css*12,node_modules/@oacore/design/src/elements/metadata-list/metadata-list.css*7,node_modules/@oacore/design/src/elements/expandable-list/expandable-list.css*7,node_modules/slick-carousel/slick/slick.css*18,node_modules/slick-carousel/slick/slick-theme.css*23,node_modules/@oacore/design/src/elements/carousel/carousel.css*18,node_modules/@oacore/design/src/elements/fieldset/fieldset.css*10,node_modules/@oacore/design/src/elements/histoslider/histoslider.css*15,node_modules/@oacore/design/src/elements/footer/footer.css*35,node_modules/@oacore/design/src/elements/cookies/cookies.css*12,node_modules/katex/dist/katex.min.css*249,node_modules/@oacore/design/src/elements/switch/switch.css*12,node_modules/@oacore/design/src/modules/search-result/styles.css*28,node_modules/@oacore/design/src/modules/select/select.css*22,node_modules/@oacore/design/src/modules/popover/popover.css*1,node_modules/@oacore/design/src/modules/modal/modal.css*12,node_modules/@oacore/design/src/modules/header/styles.css*89,node_modules/@oacore/design/src/modules/header/advanced-search.css*19,node_modules/@oacore/design/src/modules/documentation-membership/styles.css*61,node_modules/@oacore/design/src/modules/documentation-membership-nav/styles.css*14,node_modules/@oacore/design/src/modules/docs-select/styles.css*7,node_modules/@oacore/design/src/modules/video/styles.css*2,node_modules/@oacore/design/src/helpers.css*1,main/global.css*6,templates/output/styles.module.css*54,modules/loader/loader.module.css*7,templates/output/thumbnail-card.module.css*16,templates/output/card-dropdown.module.css*16,modules/notification/styles.module.css*1,modules/dropdown/styles.module.css*25,modules/map/styles.module.css*4,templates/output/report/styles.module.css*19,templates/output/citation.module.css*12,modules/search-layout/styles.module.css*13,templates/error/styles.module.css*4"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-763
+  kind: product
+  test: T-003
+  key: "rule:modules/dropdown/styles.module.css | .styles_activeClass:hover | - | 0"
+  from: "-webkit-box-shadow:0 4px 4px 0 rgba(0,0,0,.25098039215686274);box-shadow:0 4px 4px 0 rgba(0,0,0,.25098039215686274)"
+  to: "-webkit-box-shadow:0 4px 4px 0 rgba(0,0,0,.25098);box-shadow:0 4px 4px 0 rgba(0,0,0,.25098)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-764
+  kind: product
+  test: T-003
+  key: "rule:modules/dropdown/styles.module.css | .styles_memberType | - | 0"
+  from: "min-width:113px;width:-webkit-max-content;width:-moz-max-content;width:max-content;background:#8bc34a;font-style:normal;font-weight:400;font-size:12px;letter-spacing:.004em;color:#fff;padding:.25rem;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end"
+  to: "min-width:113px;width:-webkit-max-content;width:-moz-max-content;width:max-content;background:#8bc34a;font-style:normal;font-weight:400;font-size:12px;letter-spacing:.004em;color:#ffffff;padding:.25rem;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-765
+  kind: product
+  test: T-003
+  key: "rule:modules/dropdown/styles.module.css | .styles_memberType:hover | - | 0"
+  from: "color:#fff;text-decoration:none"
+  to: "color:#ffffff;-webkit-text-decoration:none;text-decoration:none"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-766
+  kind: product
+  test: T-003
+  key: "rule:modules/filters/styles.module.css | .styles_bar-item | - | 0"
+  from: "-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;min-width:calc((100vw - var(--page-padding-x)*2)*var(--main-content-ratio)/7);padding:.2rem .3rem .2rem 1rem;color:var(--gray-700);cursor:pointer;border:1px solid var(--gray-300)"
+  to: "-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;min-width:calc(((100vw - var(--page-padding-x) * 2) * var(--main-content-ratio) / 7));padding:.2rem .3rem .2rem 1rem;color:var(--gray-700);cursor:pointer;border:1px solid var(--gray-300)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-767
+  kind: product
+  test: T-003
+  key: "rule:modules/map/styles.module.css | .styles_loader | - | 0"
+  from: "top:50%;left:50%;-webkit-transform:translate(-50%);transform:translate(-50%)"
+  to: "position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%);transform:translate(-50%)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-768
+  kind: product
+  test: T-003
+  key: "rule:modules/map/styles.module.css | .styles_loader,.styles_map | - | 0"
+  from: "position:absolute"
+  to: "<absent>"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-769
+  kind: product
+  test: T-003
+  key: "rule:modules/map/styles.module.css | .styles_map | - | 0"
+  from: "top:0;left:0;z-index:0;display:block;width:100%;height:100%"
+  to: "position:absolute;top:0;left:0;z-index:0;display:block;width:100%;height:100%"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-770
+  kind: product
+  test: T-003
+  key: "rule:modules/search-layout/styles.module.css | .styles_main | @media (max-width:767px) | 0"
+  from: "<absent>"
+  to: "display:contents"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-771
+  kind: product
+  test: T-003
+  key: "rule:modules/search-layout/styles.module.css | .styles_main,.styles_sidebar | @media (max-width:767px) | 0"
+  from: "display:contents"
+  to: "<absent>"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-772
+  kind: product
+  test: T-003
+  key: "rule:modules/search-layout/styles.module.css | .styles_sidebar | @media (max-width:767px) | 0"
+  from: "grid-column:1;padding-top:1rem"
+  to: "display:contents;grid-column:1;padding-top:1rem"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-773
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/elements/button/button.css | .button-button-3fr3r.button-focus-2aHkR,.button-button-3fr3r.button-focus-2aHkR:link,.button-button-3fr3r.button-focus-2aHkR:visited,.button-button-3fr3r:focus,.button-button-3fr3r:hover,.button-button-3fr3r:link:focus,.button-button-3fr3r:link:hover,.button-button-3fr3r:visited:focus,.button-button-3fr3r:visited:hover,.button-focus-2aHkR[type=button],.button-focus-2aHkR[type=reset],.button-focus-2aHkR[type=submit],[type=button]:focus,[type=button]:hover,[type=reset]:focus,[type=reset]:hover,[type=submit]:focus,[type=submit]:hover,button.button-focus-2aHkR,button:focus,button:hover | - | 0"
+  from: "--button-overlay:rgba(0,0,0,0.06666666666666667);text-decoration:none"
+  to: "--button-overlay:rgba(0,0,0,.067);-webkit-text-decoration:none;text-decoration:none"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-774
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/elements/button/button.css | :root | - | 0"
+  from: "--button-padding-y:.5rem;--button-padding-x:var(--component-padding-x,1rem);--button-pressed-shadow:inset 0 1px 2px rgba(0,0,0,0.2),inset 0 0 4px rgba(0,0,0,0.06666666666666667);--button-focus-ring:0 0 0 3px color-mod(var(--primary) alpha(25%))"
+  to: "--button-padding-y:.5rem;--button-padding-x:var(--component-padding-x,1rem);--button-pressed-shadow:inset 0 1px 2px rgba(0,0,0,.2),inset 0 0 4px rgba(0,0,0,.067);--button-focus-ring:0 0 0 3px color-mod(var(--primary) alpha(25%))"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-775
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/foundation/colors.css | :root | - | 0"
+  from: "--white:#fff;--black:#000;--gray-50:#fafafa;--gray-100:#f5f5f5;--gray-200:#eee;--gray-300:#e0e0e0;--gray-400:#bdbdbd;--gray-500:#9e9e9e;--gray-600:#757575;--gray-700:#616161;--gray-800:#424242;--gray-900:#212121;--background:0deg 0% 100%;--on-background:0deg 0% 0%;--surface:0deg 0% 100%;--on-surface:0deg 0% 0%;--on-surface-high-emphasis:.87;--on-surface-medium-emphasis:.6;--on-surface-disabled:.38;--on-surface-overlay:var(--on-surface);--primary:#b75400;--primary-light:#ef8237;--primary-dark:#812700;--primary-hsl:28deg 100% 36%;--primary-variant:18deg 100% 25%;--on-primary:0deg 0% 100%;--on-primary-high-emphasis:1;--on-primary-medium-emphasis:.74;--on-primary-disabled:.38;--on-primary-overlay:0deg 0% 100%;--success:#8bc34a;--success-light:#bef67a;--success-dark:#5a9216;--warning:#fdd835;--warning-light:#ffff6b;--warning-dark:#c6a700;--danger:#c62828;--danger-light:#ff5f52;--danger-light-background:#fff2f1;--danger-dark:#8e0000;--error:.97deg 100% 35%;--on-error:0deg 0% 100%;--elevation-00:none;--elevation-01:0 1px 3px rgba(0,0,0,0.02),0 2px 1px rgba(0,0,0,0.12),0 1px 1px rgba(0,0,0,0.14);--elevation-02:0 1px 5px rgba(0,0,0,0.02),0 3px 1px rgba(0,0,0,0.12),0 2px 2px rgba(0,0,0,0.14);--elevation-03:0 1px 8px rgba(0,0,0,0.02),0 3px 3px rgba(0,0,0,0.12),0 3px 4px rgba(0,0,0,0.14);--elevation-04:0 2px 4px rgba(0,0,0,0.02),0 1px 10px rgba(0,0,0,0.12),0 4px 5px rgba(0,0,0,0.14);--elevation-06:0 3px 5px rgba(0,0,0,0.02),0 1px 18px rgba(0,0,0,0.12),0 6px 10px rgba(0,0,0,0.14);--elevation-08:0 5px 5px rgba(0,0,0,0.02),0 3px 14px rgba(0,0,0,0.12),0 8px 10px rgba(0,0,0,0.14);--elevation-09:0 5px 6px rgba(0,0,0,0.02),0 3px 16px rgba(0,0,0,0.12),0 9px 12px rgba(0,0,0,0.14);--elevation-12:0 7px 8px rgba(0,0,0,0.02),0 5px 22px rgba(0,0,0,0.12),0 12px 17px rgba(0,0,0,0.14);--elevation-16:0 8px 10px rgba(0,0,0,0.02),0 6px 30px rgba(0,0,0,0.12),0 16px 24px rgba(0,0,0,0.14);--elevation-24:0 11px 15px rgba(0,0,0,0.02),0 9px 46px rgba(0,0,0,0.12),0 24px 38px rgba(0,0,0,0.14);--headings-color:var(--gray-900);--font-family-base:roboto,-apple-system,blinkmacsystemfont,\"Segoe UI\",\"Helvetica Neue\",arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\";--font-family-monospace:sfmono-regular,menlo,monaco,consolas,\"Liberation Mono\",\"Courier New\",monospace;--code-color:inherit;--kbd-color:var(--gray-900);--kbd-bg:var(--gray-50)"
+  to: "--white:#fff;--black:#000;--gray-50:#fafafa;--gray-100:#f5f5f5;--gray-200:#eee;--gray-300:#e0e0e0;--gray-400:#bdbdbd;--gray-500:#9e9e9e;--gray-600:#757575;--gray-700:#616161;--gray-800:#424242;--gray-900:#212121;--background:0deg 0% 100%;--on-background:0deg 0% 0%;--surface:0deg 0% 100%;--on-surface:0deg 0% 0%;--on-surface-high-emphasis:.87;--on-surface-medium-emphasis:.6;--on-surface-disabled:.38;--on-surface-overlay:var(--on-surface);--primary:#b75400;--primary-light:#ef8237;--primary-dark:#812700;--primary-hsl:28deg 100% 36%;--primary-variant:18deg 100% 25%;--on-primary:0deg 0% 100%;--on-primary-high-emphasis:1;--on-primary-medium-emphasis:.74;--on-primary-disabled:.38;--on-primary-overlay:0deg 0% 100%;--success:#8bc34a;--success-light:#bef67a;--success-dark:#5a9216;--warning:#fdd835;--warning-light:#ffff6b;--warning-dark:#c6a700;--danger:#c62828;--danger-light:#ff5f52;--danger-light-background:#fff2f1;--danger-dark:#8e0000;--error:.97deg 100% 35%;--on-error:0deg 0% 100%;--elevation-00:none;--elevation-01:0 1px 3px rgba(0,0,0,.02),0 2px 1px rgba(0,0,0,.12),0 1px 1px rgba(0,0,0,.14);--elevation-02:0 1px 5px rgba(0,0,0,.02),0 3px 1px rgba(0,0,0,.12),0 2px 2px rgba(0,0,0,.14);--elevation-03:0 1px 8px rgba(0,0,0,.02),0 3px 3px rgba(0,0,0,.12),0 3px 4px rgba(0,0,0,.14);--elevation-04:0 2px 4px rgba(0,0,0,.02),0 1px 10px rgba(0,0,0,.12),0 4px 5px rgba(0,0,0,.14);--elevation-06:0 3px 5px rgba(0,0,0,.02),0 1px 18px rgba(0,0,0,.12),0 6px 10px rgba(0,0,0,.14);--elevation-08:0 5px 5px rgba(0,0,0,.02),0 3px 14px rgba(0,0,0,.12),0 8px 10px rgba(0,0,0,.14);--elevation-09:0 5px 6px rgba(0,0,0,.02),0 3px 16px rgba(0,0,0,.12),0 9px 12px rgba(0,0,0,.14);--elevation-12:0 7px 8px rgba(0,0,0,.02),0 5px 22px rgba(0,0,0,.12),0 12px 17px rgba(0,0,0,.14);--elevation-16:0 8px 10px rgba(0,0,0,.02),0 6px 30px rgba(0,0,0,.12),0 16px 24px rgba(0,0,0,.14);--elevation-24:0 11px 15px rgba(0,0,0,.02),0 9px 46px rgba(0,0,0,.12),0 24px 38px rgba(0,0,0,.14);--headings-color:var(--gray-900);--font-family-base:roboto,-apple-system,blinkmacsystemfont,\"Segoe UI\",\"Helvetica Neue\",arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\";--font-family-monospace:sfmono-regular,menlo,monaco,consolas,\"Liberation Mono\",\"Courier New\",monospace;--code-color:inherit;--kbd-color:var(--gray-900);--kbd-bg:var(--gray-50)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-776
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/foundation/loading.css | [aria-busy=true] :empty,[aria-busy=true] img,[aria-busy=true]:empty,img[aria-busy=true] | - | 0"
+  from: "<absent>"
+  to: "min-height:1.5em;background:var(--gray-200) 100% 0 /200% 100%;background-image:linear-gradient(90deg,transparent 45%,var(--white) 50%,transparent 55%);-webkit-animation:loading-busy-1tfN6 3s ease infinite;animation:loading-busy-1tfN6 3s ease infinite"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-777
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/foundation/loading.css | [aria-busy=true] :matches(h1,h2,h3,h4,h5,h6):empty,[aria-busy=true]:matches(h1,h2,h3,h4,h5,h6):empty | - | 0"
+  from: "<absent>"
+  to: "clip-path:polygon(0 .25em,58% .25em,58% 1.25em,0 1.25em,0 1.75em,57% 1.75em,57% 2.75em,0 2.75em,0 3.25em,54% 3.25em,54% 4.25em,0 4.25em,0 4.75em,57% 4.75em,57% 5.75em,0 5.75em,0 6.25em,35% 6.25em,35% 7.25em,0 7.25em)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-778
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/foundation/loading.css | [aria-busy=true] [data-line-count=\"2\"]:empty,[aria-busy=true][data-line-count=\"2\"]:empty | - | 0"
+  from: "<absent>"
+  to: "height:3em"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-779
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/foundation/loading.css | [aria-busy=true] [data-line-count=\"3\"]:empty,[aria-busy=true][data-line-count=\"3\"]:empty | - | 0"
+  from: "<absent>"
+  to: "height:4.5em"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-780
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/foundation/loading.css | [aria-busy=true] [data-line-count=\"4\"]:empty,[aria-busy=true][data-line-count=\"4\"]:empty | - | 0"
+  from: "<absent>"
+  to: "height:6em"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-781
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/foundation/loading.css | [aria-busy=true] [data-line-count=\"5\"]:empty,[aria-busy=true][data-line-count=\"5\"]:empty | - | 0"
+  from: "<absent>"
+  to: "height:7.5em"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-782
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/foundation/loading.css | [aria-busy=true]:matches(h1,h2,h3,h4,h5,h6):empty,[aria-busy=true] :matches(h1,h2,h3,h4,h5,h6):empty | - | 0"
+  from: "clip-path:polygon(0 .25em,58% .25em,58% 1.25em,0 1.25em,0 1.75em,57% 1.75em,57% 2.75em,0 2.75em,0 3.25em,54% 3.25em,54% 4.25em,0 4.25em,0 4.75em,57% 4.75em,57% 5.75em,0 5.75em,0 6.25em,35% 6.25em,35% 7.25em,0 7.25em)"
+  to: "<absent>"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-783
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/foundation/loading.css | [aria-busy=true][data-line-count=\"2\"]:empty,[aria-busy=true] [data-line-count=\"2\"]:empty | - | 0"
+  from: "height:3em"
+  to: "<absent>"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-784
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/foundation/loading.css | [aria-busy=true][data-line-count=\"3\"]:empty,[aria-busy=true] [data-line-count=\"3\"]:empty | - | 0"
+  from: "height:4.5em"
+  to: "<absent>"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-785
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/foundation/loading.css | [aria-busy=true][data-line-count=\"4\"]:empty,[aria-busy=true] [data-line-count=\"4\"]:empty | - | 0"
+  from: "height:6em"
+  to: "<absent>"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-786
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/foundation/loading.css | [aria-busy=true][data-line-count=\"5\"]:empty,[aria-busy=true] [data-line-count=\"5\"]:empty | - | 0"
+  from: "height:7.5em"
+  to: "<absent>"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-787
+  kind: product
+  test: T-003
+  key: "rule:node_modules/@oacore/design/src/modules/modal/modal.css | :root | - | 0"
+  from: "--modal-padding-x:var(--component-padding-x,1rem);--modal-padding-y:var(--component-padding-y,1rem);--modal-background:var(--white,#fff);--modal-corner-radius:var(--component-corner-radius,2px);--modal-box-shadow:0 1px 2px rgba(0,0,0,0.25);--modal-title-color:var(--gray-800);--modal-overlay-color:rgba(0,0,0,0.5);--modal-bar-fixed-z-index:calc(var(--app-bar-fixed-z-index, 1020) + 10);--modal-close-button-size:2.5rem;--modal-close-button-padding:.5rem"
+  to: "--modal-padding-x:var(--component-padding-x,1rem);--modal-padding-y:var(--component-padding-y,1rem);--modal-background:var(--white,#fff);--modal-corner-radius:var(--component-corner-radius,2px);--modal-box-shadow:0 1px 2px rgba(0,0,0,.25);--modal-title-color:var(--gray-800);--modal-overlay-color:rgba(0,0,0,.5);--modal-bar-fixed-z-index:calc(10 + var(--app-bar-fixed-z-index, 1020));--modal-close-button-size:2.5rem;--modal-close-button-padding:.5rem"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-788
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | .katex .angl | - | 0"
+  from: "border-right:.049em solid;border-top:.049em solid;-webkit-box-sizing:border-box;box-sizing:border-box;margin-right:.03889em"
+  to: "border-right:.049em solid;border-top:.049em solid;box-sizing:border-box;margin-right:.03889em"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-789
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | .katex .fbox,.katex .fcolorbox | - | 0"
+  from: "border:.04em solid;-webkit-box-sizing:border-box;box-sizing:border-box"
+  to: "border:.04em solid;box-sizing:border-box"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-790
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | .katex .hbox,.katex .thinbox | - | 0"
+  from: "display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row"
+  to: "display:inline-flex;flex-direction:row"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-791
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | .katex .vbox | - | 0"
+  from: "-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column"
+  to: "align-items:baseline;display:inline-flex;flex-direction:column"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-792
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 11"
+  from: "font-family:\"KaTeX_SansSerif\";font-style:normal;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_SansSerif-Bold.95591a929f0d32aa282a90ba5acf81f0.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Bold.b9cd458ac6d5889ff9c388cf91b8ad51.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Bold.5b49f4993ae22d7975b413caed1a4c01.ttf) format(\"truetype\")"
+  to: "font-family:\"KaTeX_SansSerif\";font-style:normal;font-weight:700;src:url(/static/search/_next/static/media/KaTeX_SansSerif-Bold.8c5b5494.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Bold.bf59d231.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Bold.94e1e8dc.ttf) format(\"truetype\")"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-793
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 12"
+  from: "font-family:\"KaTeX_SansSerif\";font-style:italic;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_SansSerif-Italic.7d393d382f3e7fb1c637280a90a3434b.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Italic.8d593cfaa96238d5e2f8af9e11cc5a68.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Italic.b257a18c016f37ee45430f59757a0db9.ttf) format(\"truetype\")"
+  to: "font-family:\"KaTeX_SansSerif\";font-style:italic;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_SansSerif-Italic.3b1e59b3.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Italic.7c9bc82b.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Italic.b4c20c84.ttf) format(\"truetype\")"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-794
+  kind: product
+  test: T-003
+  key: "rule:node_modules/katex/dist/katex.min.css | @font-face | - | 13"
+  from: "font-family:\"KaTeX_SansSerif\";font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_SansSerif-Regular.cd5e231e0cc53b2cb2c029b09b917782.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Regular.02271ec5cb9f5b4588ac53d7efbe6de8.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Regular.2f7bc363fc5424ebda5903f74c404a99.ttf) format(\"truetype\")"
+  to: "font-family:\"KaTeX_SansSerif\";font-style:normal;font-weight:400;src:url(/static/search/_next/static/media/KaTeX_SansSerif-Regular.ba21ed5f.woff2) format(\"woff2\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Regular.74048478.woff) format(\"woff\"),url(/static/search/_next/static/media/KaTeX_SansSerif-Regular.d4d7ba48.ttf) format(\"truetype\")"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-795
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css | .leaflet-oldie .marker-cluster-large div | - | 0"
+  from: "background-color:#f18017"
+  to: "background-color:rgb(241,128,23)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-796
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css | .leaflet-oldie .marker-cluster-large | - | 0"
+  from: "background-color:#fd9c73"
+  to: "background-color:rgb(253,156,115)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-797
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css | .leaflet-oldie .marker-cluster-medium div | - | 0"
+  from: "background-color:#f0c20c"
+  to: "background-color:rgb(240,194,12)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-798
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css | .leaflet-oldie .marker-cluster-medium | - | 0"
+  from: "background-color:#f1d357"
+  to: "background-color:rgb(241,211,87)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-799
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css | .leaflet-oldie .marker-cluster-small div | - | 0"
+  from: "background-color:#6ecc39"
+  to: "background-color:rgb(110,204,57)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-800
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css | .leaflet-oldie .marker-cluster-small | - | 0"
+  from: "background-color:#b5e28c"
+  to: "background-color:rgb(181,226,140)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-801
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet.markercluster/dist/MarkerCluster.css | .leaflet-cluster-anim .leaflet-marker-icon,.leaflet-cluster-anim .leaflet-marker-shadow | - | 0"
+  from: "-webkit-transition:-webkit-transform .3s ease-out,opacity .3s ease-in;-webkit-transition:opacity .3s ease-in,-webkit-transform .3s ease-out;transition:opacity .3s ease-in,-webkit-transform .3s ease-out;transition:transform .3s ease-out,opacity .3s ease-in;transition:transform .3s ease-out,opacity .3s ease-in,-webkit-transform .3s ease-out"
+  to: "-webkit-transition:-webkit-transform .3s ease-out,opacity .3s ease-in;-moz-transition:-moz-transform .3s ease-out,opacity .3s ease-in;-o-transition:-o-transform .3s ease-out,opacity .3s ease-in;transition:transform .3s ease-out,opacity .3s ease-in"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-802
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet.markercluster/dist/MarkerCluster.css | .leaflet-cluster-spider-leg | - | 0"
+  from: "-webkit-transition:-webkit-stroke-dashoffset .3s ease-out,-webkit-stroke-opacity .3s ease-in;-webkit-transition:stroke-dashoffset .3s ease-out,stroke-opacity .3s ease-in;transition:stroke-dashoffset .3s ease-out,stroke-opacity .3s ease-in"
+  to: "-webkit-transition:-webkit-stroke-dashoffset .3s ease-out,-webkit-stroke-opacity .3s ease-in;-moz-transition:-moz-stroke-dashoffset .3s ease-out,-moz-stroke-opacity .3s ease-in;-o-transition:-o-stroke-dashoffset .3s ease-out,-o-stroke-opacity .3s ease-in;transition:stroke-dashoffset .3s ease-out,stroke-opacity .3s ease-in"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-803
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-bar a | - | 0"
+  from: "background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000"
+  to: "background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:black"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-804
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-bar | - | 0"
+  from: "-webkit-box-shadow:0 1px 5px rgba(0,0,0,.65);box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px"
+  to: "box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-805
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-container .leaflet-control-attribution | - | 0"
+  from: "background:#fff;background:hsla(0,0%,100%,.8);margin:0"
+  to: "background:#fff;background:rgba(255,255,255,.8);margin:0"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-806
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-container a | - | 1"
+  from: "color:#0078a8"
+  to: "color:#0078A8"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-807
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle | - | 0"
+  from: "<absent>"
+  to: "display:none"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-808
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-control-layers | - | 0"
+  from: "-webkit-box-shadow:0 1px 5px rgba(0,0,0,.4);box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px"
+  to: "box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-809
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-control-layers-expanded .leaflet-control-layers-toggle,.leaflet-control-layers .leaflet-control-layers-list | - | 0"
+  from: "display:none"
+  to: "<absent>"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-810
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-control-scale-line | - | 0"
+  from: "border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-webkit-box-sizing:border-box;box-sizing:border-box;background:hsla(0,0%,100%,.8);text-shadow:1px 1px #fff"
+  to: "border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-811
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable | - | 0"
+  from: "cursor:move;cursor:-webkit-grabbing;cursor:grabbing"
+  to: "cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-812
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-fade-anim .leaflet-popup | - | 0"
+  from: "opacity:0;-webkit-transition:opacity .2s linear;transition:opacity .2s linear"
+  to: "opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-813
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-grab | - | 0"
+  from: "cursor:-webkit-grab;cursor:grab"
+  to: "cursor:-webkit-grab;cursor:-moz-grab;cursor:grab"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-814
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile | - | 0"
+  from: "-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-drag:none"
+  to: "-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-815
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile | - | 0"
+  from: "-webkit-transition:none;transition:none"
+  to: "-webkit-transition:none;-moz-transition:none;transition:none"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-816
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-popup-content-wrapper,.leaflet-popup-tip | - | 0"
+  from: "background:#fff;color:#333;-webkit-box-shadow:0 3px 14px rgba(0,0,0,.4);box-shadow:0 3px 14px rgba(0,0,0,.4)"
+  to: "background:white;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-817
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-popup-tip | - | 0"
+  from: "width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);transform:rotate(45deg)"
+  to: "width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-818
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-tile | - | 0"
+  from: "-webkit-filter:inherit;filter:inherit;visibility:hidden"
+  to: "filter:inherit;visibility:hidden"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-819
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-tile::-moz-selection | - | 0"
+  from: "background:transparent"
+  to: "<absent>"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-820
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-tooltip | - | 0"
+  from: "position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;-webkit-box-shadow:0 1px 3px rgba(0,0,0,.4);box-shadow:0 1px 3px rgba(0,0,0,.4)"
+  to: "position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-821
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers | - | 0"
+  from: "-webkit-box-shadow:none;box-shadow:none"
+  to: "box-shadow:none"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-822
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-zoom-anim .leaflet-zoom-animated | - | 0"
+  from: "-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1),-webkit-transform .25s cubic-bezier(0,0,.25,1)"
+  to: "-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-823
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-zoom-animated | - | 0"
+  from: "-webkit-transform-origin:0 0;transform-origin:0 0"
+  to: "-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-824
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-zoom-box | - | 0"
+  from: "width:0;height:0;-webkit-box-sizing:border-box;box-sizing:border-box;z-index:800"
+  to: "width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-825
+  kind: product
+  test: T-003
+  key: "rule:node_modules/leaflet/dist/leaflet.css | .leaflet-zoom-box | - | 1"
+  from: "border:2px dotted #38f;background:hsla(0,0%,100%,.5)"
+  to: "border:2px dotted #38f;background:rgba(255,255,255,.5)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-826
+  kind: product
+  test: T-003
+  key: "rule:templates/data-provider/styles.module.css | .styles_caption | - | 0"
+  from: "font-size:1rem"
+  to: "font-size:1rem;font-weight:400"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-827
+  kind: product
+  test: T-003
+  key: "rule:templates/data-provider/styles.module.css | .styles_count | - | 0"
+  from: "margin-bottom:.3rem;font-size:2rem;font-size:var(--h1-font-size,2rem)"
+  to: "margin-bottom:.3rem;font-size:2rem;font-size:var(--h1-font-size,2rem);font-weight:400"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-828
+  kind: product
+  test: T-003
+  key: "rule:templates/output/citation.module.css | .citation_copied-success | - | 0"
+  from: "<absent>"
+  to: "color:var(--primary)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-829
+  kind: product
+  test: T-003
+  key: "rule:templates/output/citation.module.css | .citation_copied-success,.citation_text-copied | - | 0"
+  from: "color:var(--primary)"
+  to: "<absent>"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-830
+  kind: product
+  test: T-003
+  key: "rule:templates/output/citation.module.css | .citation_text-copied | - | 0"
+  from: "position:absolute;top:20px;right:7px;font-size:.6rem"
+  to: "position:absolute;top:20px;right:7px;font-size:.6rem;color:var(--primary)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-831
+  kind: product
+  test: T-003
+  key: "rule:templates/output/styles.module.css | .styles_author-link | - | 0"
+  from: "text-decoration:underline"
+  to: "color:var(--gray-800);-webkit-text-decoration:underline;text-decoration:underline"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-832
+  kind: product
+  test: T-003
+  key: "rule:templates/output/styles.module.css | .styles_author-link,.styles_pdf-size | - | 0"
+  from: "color:var(--gray-800)"
+  to: "<absent>"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-833
+  kind: product
+  test: T-003
+  key: "rule:templates/output/styles.module.css | .styles_output-container | - | 0"
+  from: "grid-template-columns:calc((100vw - 4rem)*var(--main-content-ratio)) 1fr!important;padding-right:var(--page-padding-x)"
+  to: "padding-right:var(--page-padding-x);grid-template-columns:calc((100vw - 2 * 2rem) * var(--main-content-ratio)) 1fr!important"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-834
+  kind: product
+  test: T-003
+  key: "rule:templates/output/styles.module.css | .styles_pdf-size | - | 0"
+  from: "<absent>"
+  to: "color:var(--gray-800)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-835
+  kind: product
+  test: T-003
+  key: "rule:templates/output/thumbnail-card.module.css | .thumbnail-card_body | - | 0"
+  from: "--outline:0.12;display:block;margin:0;border-top:1px solid var(--gray-100)"
+  to: "--outline:0.12;display:block;padding:.5rem 1rem;margin:0;border-top:1px solid var(--gray-100)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-836
+  kind: product
+  test: T-003
+  key: "rule:templates/output/thumbnail-card.module.css | .thumbnail-card_body,.thumbnail-card_disabled | - | 0"
+  from: "padding:.5rem 1rem"
+  to: "<absent>"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-837
+  kind: product
+  test: T-003
+  key: "rule:templates/output/thumbnail-card.module.css | .thumbnail-card_disabled | - | 0"
+  from: "font-style:italic;color:var(--gray-500)"
+  to: "padding:.5rem 1rem;font-style:italic;color:var(--gray-500)"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
+- id: AD-838
+  kind: product
+  test: T-003
+  key: "rule:templates/output/thumbnail-card.module.css | .thumbnail-card_image>img | - | 0"
+  from: "display:block;width:100%;height:100%;-o-object-fit:cover;object-fit:cover;border-radius:var(--component-border-radius) var(--component-border-radius) 0 0;border-radius:var(--card-border-radius,var(--component-border-radius)) var(--card-border-radius,var(--component-border-radius)) 0 0"
+  to: "display:block;width:100%;height:100%;-o-object-fit:cover;object-fit:cover;border-radius:var(--card-border-radius,var(--component-border-radius)) var(--card-border-radius,var(--component-border-radius)) 0 0"
+  reason: "T-003 c1. Step 6.9 (pure CSS P1: CS-DSN-6, CS-CSS-1..4, CS-N12-10): the design CSS is frozen from the former PostCSS chain, the app CSS carries the preset-env output by hand, and the chain and the cssnano-simple 2.0.0 minimizer are gone, so Next's own minifier writes the same cascade differently: rules merged by cssnano 9 are split again, selector lists sorted, numbers, calc() and colours minified differently, per-page key order changed accordingly. Package CSS (leaflet, leaflet.markercluster, katex) is served as published: no autoprefixer additions for engines outside the browserslist and no cssnano 9 merges. T-801 and T-802 are 0 px on Chromium. Visitor effect: none."
+  ref: [R-086, OD-33, OD-37, OD-31]
+  step: '6.9'
+  signedOffBy: 'SIGNED: owner, 2026-11-17 (decided in the work session under the owner''s lean-plan delegation)'
+  date: '2026-11-17'
