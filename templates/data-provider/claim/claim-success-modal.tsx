@@ -15,7 +15,7 @@ const ClaimSuccessModal = ({
   onClose,
   newEmail,
   contactData,
-}) => (
+}: any) => (
   <Modal
     aria-label="Claim success modal"
     onClose={() => {

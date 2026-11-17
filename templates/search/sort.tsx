@@ -7,9 +7,9 @@ import styles from './sort.module.css'
 import useOutsideClick from 'hooks/use-outside-click'
 import FilterItem from 'modules/filters/filter-item'
 
-const Sort = ({ options, onClick, className }) => {
+const Sort = ({ options, onClick, className }: any) => {
   const [boxVisible, setBoxVisible] = useState(false)
-  const [activeOption, setActiveOption] = useState()
+  const [activeOption, setActiveOption] = useState<any>()
 
   const node = useRef()
 
@@ -23,14 +23,14 @@ const Sort = ({ options, onClick, className }) => {
     setBoxVisible(!boxVisible)
   }
 
-  const onHandleChange = (option) => {
+  const onHandleChange = (option?: any) => {
     onClick(option)
     setActiveOption(option)
     hideFilterBox()
   }
 
   useEffect(() => {
-    const activeItem = options.find((item) => item.checked === true) || {
+    const activeItem = options.find((item: any) => item.checked === true) || {
       ...options[0],
       checked: true,
     }
@@ -52,7 +52,7 @@ const Sort = ({ options, onClick, className }) => {
       </div>
       {boxVisible && (
         <ul className={classNames.use(styles.sortBoxMenu)}>
-          {options.map((filterItem) => (
+          {options.map((filterItem: any) => (
             <FilterItem
               key={filterItem.value}
               value={filterItem.value}

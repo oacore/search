@@ -6,7 +6,7 @@ import styles from './styles.module.css'
 
 import Map from 'modules/map'
 
-const MapCard = ({ id, metadata }) => (
+const MapCard = ({ id, metadata }: any) => (
   <Card id={id} variant="outlined" className={classNames.use(styles.card)}>
     <Map
       className={styles.map}

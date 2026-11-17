@@ -5,12 +5,12 @@ import { classNames } from '@oacore/design/lib/utils'
 import bibtexParse from '../../vendor/bibtex-parse-js/bibtexParse'
 import styles from './citation.module.css'
 
-const useModal = (initialState = false) => {
+const useModal = (initialState: any = false) => {
   const [isOpen, setOpen] = useState(initialState)
 
   const toggleOpen = useCallback(
-    (newState) => {
-      setOpen((prevState) => {
+    (newState: any) => {
+      setOpen((prevState: any) => {
         if (newState != null) return newState
         return !prevState
       })
@@ -21,10 +21,10 @@ const useModal = (initialState = false) => {
   return [isOpen, toggleOpen]
 }
 
-const CitationManager = ({ data }) => {
+const CitationManager = ({ data }: any) => {
   const CITATION_STYLE_BIBTEX = 'bibtex'
-  const textRef = useRef(null)
-  const [copySuccess, setCopySuccess] = useState('')
+  const textRef = useRef<any>(null)
+  const [copySuccess, setCopySuccess] = useState<any>('')
 
   const copyToClipboard = () => {
     if (
@@ -41,7 +41,7 @@ const CitationManager = ({ data }) => {
         console.log(`Copying to clipboard: ${copyText}`)
         setCopySuccess(true)
       },
-      (err) => {
+      (err: any) => {
         console.error('Async: Could not copy text: ', err)
       }
     )
@@ -62,7 +62,7 @@ const CitationManager = ({ data }) => {
           className={classNames.use(styles.closeButton)}
         >
           <h2 className={styles.citeTitle}>Citation</h2>
-          {data.citations.map((cite) => {
+          {data.citations.map((cite: any) => {
             if (cite.id !== CITATION_STYLE_BIBTEX) return null
             const bibtex = bibtexParse.toJSON(cite.value)
             if (!bibtex || !bibtex[0]) return null

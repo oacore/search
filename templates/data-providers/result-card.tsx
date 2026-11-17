@@ -13,7 +13,7 @@ const ResultCard = ({
   country,
   icon = '#office-building',
   ...restProps
-}) => (
+}: any) => (
   <Search.Result className={styles.resultCard} {...restProps}>
     <span className={styles.resultHeading}>
       <Icon src={icon} aria-hidden />

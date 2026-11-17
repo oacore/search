@@ -5,7 +5,7 @@ import styles from './styles.module.css'
 
 import Loader from 'modules/loader'
 
-const Error404 = ({ error }) => {
+const Error404 = ({ error }: any) => {
   if (!error) return <Loader />
 
   return (

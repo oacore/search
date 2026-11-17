@@ -18,14 +18,14 @@ const Metadata = ({
   publishedDate,
   doi,
   uniqueDoiArray,
-}) => {
+}: any) => {
   const timeZone = useDateTimeZone([publishedDate], PUBLICATION_DATE)
 
   return (
     <MetadataList className={styles.metadata}>
       <MetadataList.Item id="metadata-authors" label="Authors">
         <ExpandableList>
-          {authors.map(({ name }) => (
+          {authors.map(({ name }: any) => (
             <ExpandableList.Item
               key={name}
               id="author"
@@ -56,7 +56,7 @@ const Metadata = ({
       {doi && (
         <MetadataList.Item id="doi" label="Doi">
           <ExpandableList>
-            {uniqueDoiArray.map((doiItem) => (
+            {uniqueDoiArray.map((doiItem: any) => (
               <ExpandableList.Item
                 key={doiItem}
                 id="doi"

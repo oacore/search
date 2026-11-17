@@ -19,7 +19,7 @@ const PLAIN = {
 // classes. The card is no longer an anchor, so these are now set after mount,
 // on a page load of a card that used to be one. The report card leaves them
 // at its first update.
-const repairedLook = ({ id, hasReader }) => {
+const repairedLook = ({ id, hasReader }: any) => {
   const bodyId = `full-text-thumbnail-${id}-body`
   if (hasReader) {
     return {
@@ -47,7 +47,7 @@ const useRepairedSidebar = ({
   fulltextStatus,
   readerUrl,
   useOtherVersions,
-}) => {
+}: any) => {
   const hydrated = useHydrated()
   const [look] = useState(() =>
     !hydrated && !useOtherVersions && fulltextStatus !== 'disabled'

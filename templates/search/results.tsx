@@ -8,9 +8,11 @@ import { checkType } from '../../utils/data-providers-transform'
 import { formatDate } from 'utils/helpers'
 import useDateTimeZone from 'hooks/use-date-time-zone'
 
-const Results = ({ works, searchId }) => {
+const Results = ({ works, searchId }: any) => {
   const timeZone = useDateTimeZone(
-    works.map(({ publishedDate }) => publishedDate && new Date(publishedDate))
+    works.map(
+      ({ publishedDate }: any) => publishedDate && new Date(publishedDate)
+    )
   )
 
   return works.map(
@@ -28,10 +30,10 @@ const Results = ({ works, searchId }) => {
       download: downloadLink,
       thumbnail_m: thumbnailLink,
       display: displayLink,
-    }) => {
+    }: any) => {
       const memberType = checkType(dataProviders?.[0]?.id)
-      const fullTextLink = links.find((l) => l.type === 'download')?.url
-      const metadataLink = links.find((l) => l.type === 'display')?.url
+      const fullTextLink = links.find((l: any) => l.type === 'download')?.url
+      const metadataLink = links.find((l: any) => l.type === 'display')?.url
       const router = useRouter()
 
       // eslint-disable-next-line no-nested-ternary
@@ -45,7 +47,11 @@ const Results = ({ works, searchId }) => {
         memberType?.billing_type === 'supporting' ||
         memberType?.billing_type === 'sustaining'
 
-      const generateMetadataLink = (baseLink, propSearchId, propId) => {
+      const generateMetadataLink = (
+        baseLink?: any,
+        propSearchId?: any,
+        propId?: any
+      ) => {
         if (!propSearchId) return baseLink
 
         const pos = router.asPath.indexOf('?')
@@ -64,7 +70,7 @@ const Results = ({ works, searchId }) => {
         modifiedReaderLink: innerModifiedReaderLink,
         searchId: innerSearchId,
         id: innerId,
-      }) => {
+      }: any) => {
         if (innerFullTextLink) return innerFullTextLink
         if (
           (innerFullTextLink && innerFullTextLink.includes('core')) ||

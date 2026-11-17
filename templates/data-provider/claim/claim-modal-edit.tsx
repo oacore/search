@@ -5,7 +5,7 @@ import { classNames } from '@oacore/design/lib/utils'
 import useInput from '../hooks/use-input'
 import styles from './styles.module.css'
 
-const ClaimModalEdit = (props) => {
+const ClaimModalEdit = (props?: any) => {
   const {
     contactData,
     setModalActive,
@@ -35,12 +35,12 @@ const ClaimModalEdit = (props) => {
     focus: focusRationale,
   } = useInput('', 'contactRationale')
 
-  const handleBackSubmit = (evt) => {
+  const handleBackSubmit = (evt?: any) => {
     evt.preventDefault()
     setModalEditActive(false)
   }
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = (evt?: any) => {
     evt.preventDefault()
 
     // eslint-disable-next-line prefer-const

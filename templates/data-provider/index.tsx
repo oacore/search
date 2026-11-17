@@ -25,9 +25,9 @@ import useHydrated from 'hooks/use-hydrated'
 const countryName =
   typeof Intl.DisplayNames != 'undefined'
     ? new Intl.DisplayNames(['en'], { type: 'region' })
-    : { of: (v) => v }
+    : { of: (v?: any) => v }
 
-const regionDisplayName = (code) => {
+const regionDisplayName = (code?: any) => {
   if (code == null || typeof code !== 'string') return ''
   const normalized = code.trim().toUpperCase()
   if (!normalized) return ''
@@ -42,7 +42,7 @@ const regionDisplayName = (code) => {
 // the render that hydrates the caption prints the name the server printed, read
 // from its HTML, and the browser's name after mount. A component of its own: a
 // render of the template fetches again in ClaimCard (Q-027).
-const RegionName = ({ provider, code }) => {
+const RegionName = ({ provider, code }: any) => {
   const hydrated = useHydrated()
   const [serverName] = useState(() => {
     if (hydrated || typeof document === 'undefined') return null
@@ -54,7 +54,12 @@ const RegionName = ({ provider, code }) => {
   return !hydrated && serverName !== null ? serverName : regionDisplayName(code)
 }
 
-const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
+const DataProviderTemplate = ({
+  data,
+  onSearch,
+  className,
+  ...restProps
+}: any) => {
   const { outputs } = data
   // read, not subscribed: this template is no observer (a render of it
   // fetches again in ClaimCard, Q-027)
@@ -74,7 +79,7 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
     search.setQuery(data.query)
   }, [data.sort, data.results, data.query])
 
-  const onHandleChangeSortOptions = (option) => {
+  const onHandleChangeSortOptions = (option?: any) => {
     search.setActiveSortOptionData(option, `/data-providers/${data.id}`)
   }
 
@@ -87,11 +92,11 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
 
   const dataSourcesWithNames = Array.isArray(checkProvider?.repo_id)
     ? checkProvider.repo_id
-        .map((item) => ({ item, linked: findDataProvider(item) }))
-        .filter(({ linked }) => Boolean(linked?.name))
+        .map((item: any) => ({ item, linked: findDataProvider(item) }))
+        .filter(({ linked }: any) => Boolean(linked?.name))
     : []
 
-  const truncate = (str, maxLength) => {
+  const truncate = (str?: any, maxLength?: any) => {
     if (str.length <= maxLength) return str
     return `${str.substring(0, maxLength)}...`
   }
@@ -169,7 +174,7 @@ const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
           <div>
             <h3 className={styles.dataSources}>Data sources:</h3>
             <div className={styles.sourcesWrapper}>
-              {dataSourcesWithNames.map(({ item, linked }) => (
+              {dataSourcesWithNames.map(({ item, linked }: any) => (
                 <a
                   key={item}
                   href={`/data-providers/${item}`}

@@ -8,7 +8,7 @@ import styles from './styles.module.css'
 
 import Search from 'modules/search-layout'
 
-const getEnabledActions = ({ offset, limit, total }) => ({
+const getEnabledActions = ({ offset, limit, total }: any) => ({
   loadMore: limit < total,
   previous: offset > 0,
   next: offset + limit < total,
@@ -16,16 +16,22 @@ const getEnabledActions = ({ offset, limit, total }) => ({
   last: offset + limit < total,
 })
 
-const Pagination = ({ shallow, total, ...restProps }) => {
+const Pagination = ({ shallow, total, ...restProps }: any) => {
   const router = useRouter()
   const base = router.asPath
   const url = new URL(base, 'http://unused.host')
-  const limit = Number.parseInt(url.searchParams.get('limit') ?? 10, 10)
-  const offset = Number.parseInt(url.searchParams.get('offset') ?? 0, 10)
+  const limit = Number.parseInt(
+    url.searchParams.get('limit') ?? (10 as any),
+    10
+  )
+  const offset = Number.parseInt(
+    url.searchParams.get('offset') ?? (0 as any),
+    10
+  )
 
-  const urlTo = (action) => {
+  const urlTo = (action?: any) => {
     const targetUrl = new URL(url)
-    let targetOffset = offset
+    let targetOffset: any = offset
 
     switch (action) {
       case 'MORE':

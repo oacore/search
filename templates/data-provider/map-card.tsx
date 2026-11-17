@@ -13,7 +13,7 @@ const MapCard = ({
   latitude,
   longitude,
   ...restProps
-}) => (
+}: any) => (
   <Card
     className={classNames.use(styles.card, styles.mapCard).join(className)}
     tag="figure"

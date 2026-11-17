@@ -12,7 +12,7 @@ import useDateTimeZone from 'hooks/use-date-time-zone'
 import Notification from 'modules/notification'
 import DropDown from 'modules/dropdown'
 
-const httpsValidate = (sourceFulltextUrls) => {
+const httpsValidate = (sourceFulltextUrls?: any) => {
   let url = sourceFulltextUrls
   if (url === null) return sourceFulltextUrls
   if (typeof url === 'object') url = url.join('')
@@ -39,8 +39,8 @@ const CardDropdown = ({
   metadata,
   doi,
   useOtherVersions,
-}) => {
-  const [copyUrlStatus, copyUrl] = useCopyToClipboard(oai)
+}: any) => {
+  const [copyUrlStatus, copyUrl]: any = useCopyToClipboard(oai)
   const [isTooltipVisible, setIsTooltipVisible] = useState(false)
 
   const handleMouseEnter = () => {
@@ -92,7 +92,7 @@ const CardDropdown = ({
       subtitleLinkText
     )
 
-  const EllipsisText = (text) =>
+  const EllipsisText = (text?: any) =>
     text?.length > 30 ? `${text.substring(0, 30)}...` : text
 
   const renderOAI = (
@@ -117,7 +117,7 @@ const CardDropdown = ({
         <Icon
           src="#content-copy"
           className={styles.iconCopy}
-          onClick={(e) => {
+          onClick={(e: any) => {
             e.stopPropagation()
             copyUrl()
           }}

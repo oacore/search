@@ -4,10 +4,10 @@ import { classNames } from '@oacore/design/lib/utils'
 
 import styles from './styles.module.css'
 
-const numberWithCommas = (num) =>
+const numberWithCommas = (num?: any) =>
   num?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
-const MetaBox = ({ className, countMetadata, countFullText }) => (
+const MetaBox = ({ className, countMetadata, countFullText }: any) => (
   <Card className={classNames.use(styles.meta).join(className)}>
     <div className={styles.boxes}>
       <div className={styles.boxItem}>

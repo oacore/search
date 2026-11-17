@@ -5,11 +5,11 @@ const DataProviderOutputsSearch = ({
   initQuery = '',
   onQueryChanged,
   ...restProps
-}) => {
+}: any) => {
   const [value, setValue] = useState(initQuery)
   const [isInitialised, setIsInitialised] = useState(false)
 
-  const handleOnChange = (data) => {
+  const handleOnChange = (data?: any) => {
     // TODO: Consider this having in @oacore/design
     // prevent firing callback in initialisation (we have the data prefetched
     // on the server side already
@@ -21,7 +21,7 @@ const DataProviderOutputsSearch = ({
     if (onQueryChanged != null) onQueryChanged(data.value)
   }
 
-  const handleOnInput = (data) => {
+  const handleOnInput = (data?: any) => {
     setValue(data.value)
   }
 

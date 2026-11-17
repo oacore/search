@@ -11,7 +11,7 @@ const ClaimModal = ({
   setModalActive,
   setModalEditActive,
   onContinueClick,
-}) => {
+}: any) => {
   const {
     value: emailFirst,
     element: contactEmailFirst,
@@ -33,7 +33,7 @@ const ClaimModal = ({
     focus: focusRationale,
   } = useInput('', 'contactRationale')
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = (evt?: any) => {
     evt.preventDefault()
 
     const modalEdit = false

@@ -1,4 +1,4 @@
-const generateMetadata = (results) =>
+const generateMetadata = (results?: any) =>
   JSON.stringify({
     '@context': 'http://schema.org',
     '@graph': [
@@ -27,7 +27,7 @@ const generateMetadata = (results) =>
         '@type': 'SearchResultsPage',
         'mainEntity': {
           '@type': 'ItemList',
-          'itemListElement': results.map((el, index) => ({
+          'itemListElement': results.map((el: any, index: any) => ({
             '@type': 'ListItem',
             'position': index,
             'item': {

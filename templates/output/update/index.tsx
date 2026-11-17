@@ -14,7 +14,7 @@ import takedownSVG from './images/takedown.svg'
 import { observe } from 'store'
 import useInput from 'hooks/use-input'
 
-const selectUpdate = (state) => ({
+const selectUpdate = (state?: any) => ({
   isModalReportTypeActive: state.isModalReportTypeActive,
   isModalReportFormActive: state.isModalReportFormActive,
   isModalReportSuccessActive: state.isModalReportSuccessActive,
@@ -43,13 +43,15 @@ const UpdateTemplate = observe(() => {
     bind: bindUrl,
   } = useInput('outputUrl')
 
-  const onSubmitUpdate = (evt) => {
+  const onSubmitUpdate = (evt?: any) => {
     evt.preventDefault()
 
     const regexStringPatterns =
+      // @ts-expect-error the `s` flag needs ES2018; Next sets target ES2017
       /(http(s)?:\/\/)?core.ac.uk\/(outputs|display|download|download\/pdf)\/\d+|^\d+$/s
     // /(http(s)?:\/\/)?core.ac.uk\/(outputs|display|download)\/\d+|^\d+$/s
     // /(http(s)?:\/\/)?core.ac.uk\/(display|download\/pdf)\/\d+|^\d+$/s
+    // @ts-expect-error the `s` flag, as above
     const regexNumberPattern = /\d+/s
 
     const outputId = url

@@ -10,24 +10,24 @@ import { formatNumber } from 'utils/format-number'
 import Search from 'modules/search-layout'
 import Map from 'modules/map'
 
-const { countries } = en
+const { countries }: any = en
 
-const filterAndMapDataProviders = (dataProviders) =>
+const filterAndMapDataProviders = (dataProviders?: any) =>
   dataProviders
     .filter(
-      ({ name, dataProviderLocation }) =>
+      ({ name, dataProviderLocation }: any) =>
         dataProviderLocation?.latitude != null &&
         dataProviderLocation?.longitude != null &&
         name
     )
-    ?.map(({ id, name, dataProviderLocation }) => ({
+    ?.map(({ id, name, dataProviderLocation }: any) => ({
       name,
       href: `/data-providers/${id}`,
       latitude: dataProviderLocation?.latitude,
       longitude: dataProviderLocation?.longitude,
     }))
 
-const getCountryName = (code) => {
+const getCountryName = (code?: any) => {
   const countryName = countries[String(code).toUpperCase()]
   return Array.isArray(countryName) ? countryName[0] : countryName
 }
@@ -40,7 +40,7 @@ const SearchResults = ({
   dataProvidersSize,
   setDataProvidersOffset,
   children,
-}) => {
+}: any) => {
   const scrollPosition = useRef(0)
   useIsomorphicLayoutEffect(() => {
     window.scroll(0, scrollPosition.current)
@@ -72,7 +72,7 @@ const SearchResults = ({
 
   return (
     <Search.Main>
-      {results?.slice(0, dataProvidersSize)?.map((el) => (
+      {results?.slice(0, dataProvidersSize)?.map((el: any) => (
         <ResultCard
           key={el.id}
           repoId={el.id}
@@ -111,11 +111,11 @@ const DataProvidersSearchTemplate = React.memo(
     formRef,
     totalArticlesCount,
     ...formProps
-  }) => {
+  }: any) => {
     const getSuggestions = useCallback(
-      (term) => {
+      (term: any) => {
         const matches = searchDataProviders(encodeURI(term))
-        return matches?.slice(0, 10)?.map((dataProvider) => ({
+        return matches?.slice(0, 10)?.map((dataProvider: any) => ({
           id: dataProvider.id,
           value: dataProvider.name,
           icon: '#magnify',

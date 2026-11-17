@@ -23,7 +23,7 @@ const FullTextThumbnail = ({
   providerId,
   metadata,
   ...passProps
-}) => {
+}: any) => {
   const downloadPDF = () => {
     const pdfUrl = data.download
     const link = document.createElement('a')

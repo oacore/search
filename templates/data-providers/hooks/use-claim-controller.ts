@@ -10,7 +10,7 @@ import useDebouncedEffect from 'hooks/use-debounced-effect'
 
 // the claim fields the page renders: the page re-renders when one of them
 // changes (`duplicated` is not among them, it is read with the message)
-const selectClaim = (state) => ({
+const selectClaim = (state?: any) => ({
   query: state.query,
   created: state.created,
   error: state.error,
@@ -18,7 +18,7 @@ const selectClaim = (state) => ({
 })
 
 const useClaimController = () => {
-  const formRef = useRef(null)
+  const formRef = useRef<any>(null)
   const router = useRouter()
   const { claim: claimStore } = useStore()
   const claim = useStoreApi(claimStore, useShallow(selectClaim))

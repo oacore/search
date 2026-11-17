@@ -4,7 +4,7 @@ import { classNames } from '@oacore/design/lib/utils'
 import defaultLogoSVG from './images/Default.svg'
 import styles from './styles.module.css'
 
-const Logo = ({ className }) => (
+const Logo = ({ className }: any) => (
   <div className={classNames.use(styles.repositoryLogo).join(className)}>
     <img src={defaultLogoSVG} alt="Data provider logo" />
   </div>

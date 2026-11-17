@@ -47,15 +47,15 @@ const ScientificOutputTemplate = ({
   },
   useOtherVersions = false,
   ...passProps
-}) => {
+}: any) => {
   const router = useRouter()
 
   const includeOai = router.asPath.includes('source=oai')
-  const [uniqueDoiArray, setUiqueDoiArray] = useState([])
+  const [uniqueDoiArray, setUiqueDoiArray] = useState<any>([])
   const [oaiModal, setOaiModal] = useState(includeOai)
 
-  const modalRef = useRef(null)
-  const repaired = useRepairedSidebar({
+  const modalRef = useRef<any>(null)
+  const repaired: any = useRepairedSidebar({
     id,
     fulltextStatus,
     readerUrl,
@@ -66,7 +66,7 @@ const ScientificOutputTemplate = ({
     setOaiModal(false)
   }
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = (event?: any) => {
     if (modalRef.current && !modalRef.current.contains(event.target))
       closeModal()
   }
@@ -74,7 +74,8 @@ const ScientificOutputTemplate = ({
   useEffect(() => {
     const doiArray = [doi]
 
-    if (outputs) doiArray.push(...outputs.map((item) => item.doi.toLowerCase()))
+    if (outputs)
+      doiArray.push(...outputs.map((item: any) => item.doi.toLowerCase()))
 
     setUiqueDoiArray([...new Set(doiArray)])
   }, [])

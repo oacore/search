@@ -7,7 +7,7 @@ import styles from './styles.module.css'
 
 import { usePagination, DOTS } from 'hooks/use-pagination'
 
-const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }) => {
+const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }: any) => {
   const [currentPage, setCurrentPage] = React.useState(urlPage)
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }) => {
 
   const router = useRouter()
 
-  const onPageChange = (number) => {
+  const onPageChange = (number?: any) => {
     router.push({
       pathname: '/search',
       query: {
@@ -27,7 +27,7 @@ const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }) => {
     setCurrentPage(number)
   }
 
-  const paginationRange = usePagination({
+  const paginationRange: any = usePagination({
     currentPage,
     totalCount,
     siblingCount,
@@ -48,7 +48,7 @@ const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }) => {
     onPageChange(currentPage - 1)
   }
 
-  const setPageValue = (pageNumber) => {
+  const setPageValue = (pageNumber?: any) => {
     let pageValue = ''
 
     if (pageNumber === 1 && currentPage >= 5) pageValue = 'first'
@@ -71,7 +71,7 @@ const Pagination = ({ totalCount, pageSize, siblingCount, urlPage }) => {
           <Icon src="#chevron-left" />
         </Button>
       </li>
-      {paginationRange.map((pageNumber) => {
+      {paginationRange.map((pageNumber: any) => {
         if (pageNumber === DOTS) {
           return (
             <li key={Math.random() * 100} className={styles.paginationDots}>

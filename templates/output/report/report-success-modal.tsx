@@ -14,13 +14,13 @@ const REPOSITORY_MANAGER = 'repositoryManager'
 
 const TAKE_DOWN_OPTION = 'takeDownFullText'
 
-const selectSuccess = (state) => ({
+const selectSuccess = (state?: any) => ({
   role: state.role,
   updateOption: state.updateOption,
   isLoading: state.isLoading,
 })
 
-const ReportSuccessModal = observe(({ dataProvider, id }) => {
+const ReportSuccessModal = observe(({ dataProvider, id }: any) => {
   const router = useRouter()
 
   const {
@@ -104,7 +104,7 @@ const ReportSuccessModal = observe(({ dataProvider, id }) => {
   )
 })
 
-const BaseText = ({ operation, dataProvider }) => (
+const BaseText = ({ operation, dataProvider }: any) => (
   <div className={styles.modalCardSuccessText}>
     <Icon src="#check-circle" alt="checkbox-circle" />
     <Card.Description tag="span">

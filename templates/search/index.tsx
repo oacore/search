@@ -29,13 +29,13 @@ import {
 } from 'templates/search/utils/featured-member'
 
 // the fields this template renders (an observer read these)
-const selectSearch = (state) => ({
+const selectSearch = (state?: any) => ({
   isLoading: state.isLoading,
   sortOptions: state.sortOptions,
   activeDownloadModal: state.activeDownloadModal,
 })
 
-const SearchTemplate = observe(({ data, members = [] }) => {
+const SearchTemplate = observe(({ data, members = [] }: any) => {
   const router = useRouter()
   const { search: searchStore } = useStore()
   const search = {
@@ -62,11 +62,11 @@ const SearchTemplate = observe(({ data, members = [] }) => {
     search.setQuery(data.query)
   }, [data])
 
-  const onHandleChangeSortOptions = (option) => {
+  const onHandleChangeSortOptions = (option?: any) => {
     search.setActiveSortOption(option, '/search')
   }
 
-  const getRedirectUrl = (providerId) => {
+  const getRedirectUrl = (providerId?: any) => {
     if (providerId === 0) return 'https://core.ac.uk/sponsorship'
 
     if (providerId) return `https://core.ac.uk/data-providers/${providerId}`
@@ -163,7 +163,7 @@ const SearchTemplate = observe(({ data, members = [] }) => {
                     <img
                       className={styles.repositoryLogo}
                       src={repositoryLogo || imagePlaceholder}
-                      onError={(e) => {
+                      onError={(e: any) => {
                         e.target.src = imagePlaceholder
                       }}
                       alt={member.organisation_name || 'repository logo'}
@@ -191,7 +191,7 @@ const SearchTemplate = observe(({ data, members = [] }) => {
                     <img
                       className={styles.repositoryLogo}
                       src={repoPlaceholder}
-                      onError={(e) => {
+                      onError={(e: any) => {
                         e.target.src = imagePlaceholder
                       }}
                       alt="repository logo"

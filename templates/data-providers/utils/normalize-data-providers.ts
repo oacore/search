@@ -1,10 +1,10 @@
-const normalize = (string) =>
+const normalize = (string?: any) =>
   string.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 
-const normalizeDataProviders = (dataProviders) =>
+const normalizeDataProviders = (dataProviders?: any) =>
   dataProviders
-    .filter((el) => el.name)
-    .map((el) => ({
+    .filter((el: any) => el.name)
+    .map((el: any) => ({
       ...el,
       normalizedName: normalize(el.name || ''),
       normalizedInstitutionName: normalize(el.institutionName || ''),

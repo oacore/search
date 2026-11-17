@@ -7,7 +7,7 @@ import { classNames } from '@oacore/design/lib/utils'
 import useInput from '../hooks/use-input'
 import styles from './styles.module.css'
 
-const SignInModal = ({ className, setModalActive, onSignInClick }) => {
+const SignInModal = ({ className, setModalActive, onSignInClick }: any) => {
   const {
     value: userEmail,
     element: elemUserEmail,
@@ -21,7 +21,7 @@ const SignInModal = ({ className, setModalActive, onSignInClick }) => {
     focus: focusPassword,
   } = useInput('', 'elemPassword')
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = (evt?: any) => {
     evt.preventDefault()
 
     if (userEmail && password) onSignInClick({ userEmail, password })

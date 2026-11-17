@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const useInput = (initialValue, initialElem) => {
+const useInput = (initialValue?: any, initialElem?: any) => {
   const [value, setValue] = useState(initialValue)
   const [element] = useState(initialElem)
 
@@ -10,13 +10,13 @@ const useInput = (initialValue, initialElem) => {
     setValue,
     reset: () => setValue(''),
     focus: () => {
-      const elem = document.getElementById(element)
+      const elem: any = document.getElementById(element)
       elem.firstChild.focus()
       elem.firstChild.blur()
     },
     bind: {
       value,
-      onChange: (event) => {
+      onChange: (event?: any) => {
         setValue(event.target.value)
       },
     },

@@ -1,10 +1,10 @@
 import { useCallback, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-const useStateToUrlEffect = ({ query, size, showForm }) => {
+const useStateToUrlEffect = ({ query, size, showForm }: any) => {
   const router = useRouter()
   const setUrlParams = useCallback(
-    (params) => {
+    (params: any) => {
       const url = {
         pathname: '/data-providers',
         query: {
@@ -21,7 +21,7 @@ const useStateToUrlEffect = ({ query, size, showForm }) => {
 
   // reflect state to URL
   useEffect(() => {
-    const params = {
+    const params: any = {
       query,
       size,
     }

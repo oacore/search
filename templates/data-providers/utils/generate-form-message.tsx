@@ -1,7 +1,7 @@
 import { Link } from '@oacore/design'
 import React from 'react'
 
-const searchUrlFor = (id) =>
+const searchUrlFor = (id?: any) =>
   `https://core.ac.uk/search?q=repositories.id:(${id})`
 
 const HARVESTED_BY_CORE = 'https://core.ac.uk/faq#harvested-by-CORE-snippet'
@@ -10,7 +10,7 @@ const SUPPORT_EMAIL = decodeURIComponent(
   SUPPORT_EMAIL_URL.slice('mailto:'.length)
 )
 
-const generateFormMessage = ({ created, duplicated, error }) => {
+const generateFormMessage = ({ created, duplicated, error }: any) => {
   if (error) {
     return {
       helper: (

@@ -23,13 +23,13 @@ const LoadingError = () => (
   </div>
 )
 
-const selectSimilarWorks = (state) => ({
+const selectSimilarWorks = (state?: any) => ({
   similarOutputs: state.similarOutputs,
   isLoading: state.isLoading,
   error: state.error,
 })
 
-const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
+const SimilarWorks = observe(({ articleId, useOtherVersions }: any) => {
   const { similarWorks } = useStore()
   const { similarOutputs, isLoading, error } = useStoreApi(
     similarWorks,
@@ -57,10 +57,14 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
             yearPublished,
             dataProviders,
             links,
-          }) => {
-            const downloadLink = links.find((l) => l.type === 'download')?.url
-            const readerLink = links.find((l) => l.type === 'reader')?.url
-            const metadataLink = links.find((l) => l.type === 'similar')?.url
+          }: any) => {
+            const downloadLink = links.find(
+              (l: any) => l.type === 'download'
+            )?.url
+            const readerLink = links.find((l: any) => l.type === 'reader')?.url
+            const metadataLink = links.find(
+              (l: any) => l.type === 'similar'
+            )?.url
             const memberType = checkType(dataProviders[0].id)
 
             const checkBillingType = () =>

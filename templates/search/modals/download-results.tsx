@@ -29,9 +29,9 @@ const downloadVariants = [
 const DownloadResultModal = observe(() => {
   const { search: searchStore } = useStore()
   const search = searchStore.getState()
-  const isLoading = useStoreApi(searchStore, (state) => state.isLoading)
+  const isLoading = useStoreApi(searchStore, (state: any) => state.isLoading)
 
-  const onChange = (value) => {
+  const onChange = (value?: any) => {
     search.setActiveLimit(value)
   }
 

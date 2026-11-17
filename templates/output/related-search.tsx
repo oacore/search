@@ -7,11 +7,11 @@ import styles from './styles.module.css'
 import { observe, useStore } from 'store'
 import relatedWords from 'utils/related-words'
 
-const RelatedSearches = observe(({ articleTitle }) => {
+const RelatedSearches = observe(({ articleTitle }: any) => {
   const { similarWorks } = useStore()
   const similarOutputs = useStoreApi(
     similarWorks,
-    (state) => state.similarOutputs
+    (state: any) => state.similarOutputs
   )
 
   return (
@@ -21,7 +21,7 @@ const RelatedSearches = observe(({ articleTitle }) => {
           <h2>Related searches</h2>
           <div className={styles.relatedSearchesResult}>
             <Icon src="#magnify" className={styles.relatedSearchesIcon} />
-            {relatedWords(articleTitle, similarOutputs).map((item) => (
+            {relatedWords(articleTitle, similarOutputs).map((item: any) => (
               <div key={item} className={styles.detachDot}>
                 {item === 0 ? (
                   <span>No results</span>

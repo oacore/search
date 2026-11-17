@@ -10,8 +10,8 @@ import ClaimSuccessModal from './claim-success-modal'
 import fetchClaim from '../../../api/claim'
 import fetchDataProviderAccounts from '../../../api/data-provider-accounts'
 
-export async function getClaim({ params: claimParams }) {
-  const data = {}
+export async function getClaim({ params: claimParams }: any) {
+  const data: any = {}
   let {
     id,
     setIsClaimSuccessModalActive,
@@ -48,7 +48,7 @@ export async function getClaim({ params: claimParams }) {
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(dataProvider)) // Debug
     setIsClaimSuccessModalActive(true)
-  } catch (errorWithDataProvider) {
+  } catch (errorWithDataProvider: any) {
     return {
       props: {
         error: errorWithDataProvider,
@@ -66,8 +66,8 @@ export async function getClaim({ params: claimParams }) {
   }
 }
 
-export async function getDataProviderAccounts({ params }) {
-  const data = {}
+export async function getDataProviderAccounts({ params }: any) {
+  const data: any = {}
   let { id, setIsDataProviderHasAccounts } = params
   try {
     const dataProviderAccounts = await fetchDataProviderAccounts({ id })
@@ -76,7 +76,7 @@ export async function getDataProviderAccounts({ params }) {
     data.accounts = {
       [id]: dataProviderAccounts,
     }
-  } catch (errorWithDataProvider) {
+  } catch (errorWithDataProvider: any) {
     return {
       props: {
         error: errorWithDataProvider,
@@ -98,7 +98,7 @@ const ClaimCard = ({
   contactData,
   isDataProviderHasAccounts,
   setIsDataProviderHasAccounts,
-}) => {
+}: any) => {
   const [isClaimModalActive, setIsClaimModalActive] = useState(false)
   const [isClaimModalEditActive, setIsClaimModalEditActive] = useState(false)
   const [isSignInModalActive, setIsSignInModalActive] = useState(false)
@@ -193,7 +193,7 @@ const ClaimCard = ({
             contactData={contactData}
             setModalActive={setIsClaimModalActive}
             setModalEditActive={setIsClaimModalEditActive}
-            onContinueClick={(options) =>
+            onContinueClick={(options: any) =>
               getClaim({
                 params: {
                   id,
@@ -216,7 +216,7 @@ const ClaimCard = ({
             setModalActive={setIsClaimModalActive}
             setModalEditActive={setIsClaimModalEditActive}
             isDataProviderHasAccounts={isDataProviderHasAccounts}
-            onContinueClick={(options) =>
+            onContinueClick={(options: any) =>
               getClaim({
                 params: {
                   id,

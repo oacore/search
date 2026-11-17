@@ -5,10 +5,17 @@ import styles from './styles.module.css'
 
 const AddDataProviderForm = React.forwardRef(
   (
-    { url, onSubmit, onUrlChange, message, setShowForm, isFormValid = false },
-    ref
+    {
+      url,
+      onSubmit,
+      onUrlChange,
+      message,
+      setShowForm,
+      isFormValid = false,
+    }: any,
+    ref: any
   ) => {
-    const handleSubmit = (event) => {
+    const handleSubmit = (event?: any) => {
       event.preventDefault()
       if (onSubmit) onSubmit(event)
     }

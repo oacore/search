@@ -4,12 +4,12 @@ import { Card } from '@oacore/design/lib/elements'
 import styles from './styles.module.css'
 import CardDropdown from './card-dropdown'
 
-const OtherVersions = ({ outputs, metadata, useOtherVersions }) => (
+const OtherVersions = ({ outputs, metadata, useOtherVersions }: any) => (
   <Card className={styles.boxes} variant="outlined">
     <Card.Title className={styles.versionTitle} tag="h3">
       Available Versions
     </Card.Title>
-    {outputs.map((output) => (
+    {outputs.map((output: any) => (
       <CardDropdown
         {...output}
         dataProviderId={output.dataProvider.id}

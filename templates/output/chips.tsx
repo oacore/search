@@ -4,7 +4,7 @@ import React from 'react'
 
 import styles from './styles.module.css'
 
-const Chip = ({ children, className, variant = 'text', ...htmlProps }) => (
+const Chip = ({ children, className, variant = 'text', ...htmlProps }: any) => (
   <span
     className={classNames.use(
       styles.chip,

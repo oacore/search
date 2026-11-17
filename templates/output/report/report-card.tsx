@@ -12,13 +12,13 @@ import { observe } from 'store'
 
 export const REPORT_CARD_CLASS = styles.reportCard
 
-const selectModals = (state) => ({
+const selectModals = (state?: any) => ({
   isModalReportTypeActive: state.isModalReportTypeActive,
   isModalReportFormActive: state.isModalReportFormActive,
   isModalReportSuccessActive: state.isModalReportSuccessActive,
 })
 
-const ReportCard = observe(({ id, dataProvider, repaired }) => {
+const ReportCard = observe(({ id, dataProvider, repaired }: any) => {
   const {
     report: {
       isModalReportTypeActive,

@@ -8,7 +8,7 @@ import styles from './styles.module.css'
 
 import { observe } from 'store'
 
-const selectOperation = (state) => ({ updateOption: state.updateOption })
+const selectOperation = (state?: any) => ({ updateOption: state.updateOption })
 
 const ReportTypeModal = observe(() => {
   const {
@@ -39,7 +39,7 @@ const ReportTypeModal = observe(() => {
         Which issue are you reporting?
       </Modal.Title>
       <Modal.Content>
-        {UPDATE_OPTIONS.map(({ operation, id, label }) => (
+        {UPDATE_OPTIONS.map(({ operation, id, label }: any) => (
           <Card
             variant="outlined"
             className={classNames.use(
