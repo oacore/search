@@ -13,7 +13,7 @@ const relatedWords = (title?: any, similarOutputs: any = []) => {
   const cleanTitle = title.replace(/['"`“”,.!:]+/g, '')
   const titleArray = cleanTitle.split(' ')
 
-  const topicsTitle = []
+  const topicsTitle: any[] = []
   let i = 0
   titleArray.forEach((item: any, index: any, array: any) => {
     if (
@@ -29,7 +29,7 @@ const relatedWords = (title?: any, similarOutputs: any = []) => {
     }
   })
 
-  const topicsResult = []
+  const topicsResult: any[] = []
   i = 0
   similarOutputs.forEach((item: any) => {
     topicsTitle.forEach((topicsTitleItem: any) => {

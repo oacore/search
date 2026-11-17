@@ -24,7 +24,7 @@ const useAnalytics = () => {
       // console.log(process.env.GA_TRACKING_CODE)
       console.log('GA')
 
-      ReactGA.initialize(process.env.GA_TRACKING_CODE)
+      ReactGA.initialize(process.env.GA_TRACKING_CODE!)
     } else if (analyticsAllowed) {
       window.ga = (...args: any[]) =>
         // We want to have logging in the development environment

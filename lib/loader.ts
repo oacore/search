@@ -30,7 +30,7 @@ class Loader {
       const internal = internalize(url)
       const res = await fetch(internal.url, {
         signal: controller.signal,
-        headers: internal.headers,
+        headers: internal.headers as any,
       })
       if (res.status >= 400) throw new Error(`Bad status ${res.status}`)
       const data = await res.json()
