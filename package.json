@@ -169,7 +169,7 @@
     "test:image": "bash test/ops/t901.sh"
   },
   "lint-staged": {
-    "*.{js,jsx}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --no-warn-ignored",
       "prettier --write"
     ],
