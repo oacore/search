@@ -72,13 +72,6 @@
       "setWorks": "action",
       "sortOptions": "observable",
       "works": "observable"
-    },
-    "SimilarWorks": {
-      "error": "observable",
-      "fetchSimilar": "action",
-      "isLoading": "observable",
-      "reset": "plain-method",
-      "similarOutputs": "observable"
     }
   }
 }

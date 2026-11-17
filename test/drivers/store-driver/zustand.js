@@ -73,5 +73,8 @@ module.exports = {
   stores: {
     claim: store(() => require('../../../store/claim').createClaimStore),
     report: store(() => require('../../../store/report').createReportStore),
+    similarWorks: store(
+      () => require('../../../store/similar-works').createSimilarWorksStore
+    ),
   },
 }

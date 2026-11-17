@@ -18,7 +18,6 @@ const Filters = require('../../../store/filters').default
 const Params = require('../../../store/params').default
 const Root = require('../../../store/root').default
 const Search = require('../../../store/search').default
-const SimilarWorks = require('../../../store/similar-works').default
 
 const BASELINE = path.join(__dirname, '__baseline__', 't203-reactivity.json')
 
@@ -31,7 +30,6 @@ const instances = () => ({
   Params: new Params({}, schema),
   Root: new Root({ statistics: {} }),
   Search: new Search(),
-  SimilarWorks: new SimilarWorks(),
 })
 
 const descriptorOf = (instance, name) => {
@@ -119,8 +117,6 @@ describe('T-203 @P0 reactivity contract', () => {
       expect(table.Search[name]).toBe('plain-method')
     expect(table.Search.downloadResults).toBe('action')
     expect(table.Search.sortOptions).toBe('observable')
-    expect(table.SimilarWorks.reset).toBe('plain-method')
-    expect(table.SimilarWorks.fetchSimilar).toBe('action')
     // legacy decorators of Filters
     expect(table.Filters.data).toBe('observable')
     expect(table.Filters.maxYear).toBe('computed')
@@ -238,27 +234,10 @@ describe('T-203 @P0 reactivity contract', () => {
       return { state, dispose }
     }
 
-    // SimilarWorks.reset is not annotated: three writes, three runs, and the
-    // dev-mode strict-mode warning for each write to an observed field
-    const similar = new SimilarWorks()
-    runInAction(() => {
-      similar.similarOutputs = [{ id: 1 }]
-      similar.isLoading = true
-      similar.error = true
-    })
-    let probe = observedRuns(similar, ['similarOutputs', 'isLoading', 'error'])
-    similar.reset()
-    expect(probe.state.runs).toBe(4)
-    expect(warn).toHaveBeenCalledTimes(3)
-    for (const [message] of warn.mock.calls)
-      expect(message).toMatch(MOBX_STRICT)
-    probe.dispose()
-
     // Search.setActiveLimit and setActiveDownloadModal: a single field each,
     // one run and one warning
-    warn.mockClear()
     const search = new Search()
-    probe = observedRuns(search, ['activeLimit', 'activeDownloadModal'])
+    let probe = observedRuns(search, ['activeLimit', 'activeDownloadModal'])
     search.setActiveLimit(25)
     search.setActiveDownloadModal(true)
     expect(probe.state.runs).toBe(3)

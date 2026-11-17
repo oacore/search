@@ -19,7 +19,6 @@ const { toJS } = require('mobx')
 const { setupMsw } = require('../../utils/msw')
 const { waitFor: baseWaitFor } = require('../../utils/render')
 const Filters = require('../../../store/filters').default
-const SimilarWorks = require('../../../store/similar-works').default
 const { driverFor } = require('../../drivers/store-driver')
 
 jest.setTimeout(30000)
@@ -225,7 +224,7 @@ describe('T-211 @P1 Filters and SimilarWorks race (Q-021)', () => {
   })
 
   test('T-211 @P1 SimilarWorks: the recommendation answer that arrives last wins', async () => {
-    const outcome = (similar) => toJS(similar.similarOutputs)
+    const outcome = (similar) => similar.plain(similar.get('similarOutputs'))
     // an output page (3 outputs) and a works page (5 works, resultType work):
     // the recorded answers differ in count and ids. The template calls
     // fetchSimilar(id, params) with `params` false on an output page
@@ -233,8 +232,8 @@ describe('T-211 @P1 Filters and SimilarWorks race (Q-021)', () => {
     // third argument
     const WORK = { resultType: 'work' }
     const alone = async (id, params) => {
-      const similar = new SimilarWorks()
-      await similar.fetchSimilar(id, params)
+      const similar = driverFor('similarWorks').create()
+      await similar.call('fetchSimilar', id, params)
       return outcome(similar)
     }
     const expectedA = await alone(2001, false)
@@ -250,25 +249,25 @@ describe('T-211 @P1 Filters and SimilarWorks race (Q-021)', () => {
     gates['core:2001'] = gate()
     gates['core:1001'] = gate()
 
-    const similar = new SimilarWorks()
-    const a = similar.fetchSimilar(2001, false)
-    const b = similar.fetchSimilar(1001, WORK)
+    const similar = driverFor('similarWorks').create()
+    const a = similar.call('fetchSimilar', 2001, false)
+    const b = similar.call('fetchSimilar', 1001, WORK)
     await waitFor(() => expect(arrivals).toEqual(['core:2001', 'core:1001']))
     // the second call reset the first one's state and started its own
-    expect(similar.isLoading).toBe(true)
-    expect(similar.similarOutputs).toBeNull()
+    expect(similar.get('isLoading')).toBe(true)
+    expect(similar.get('similarOutputs')).toBeNull()
 
     // 1001 (the later call) answers first
     gates['core:1001'].release()
     await b
-    expect(similar.isLoading).toBe(false)
-    expect(similar.error).toBe(false)
+    expect(similar.get('isLoading')).toBe(false)
+    expect(similar.get('error')).toBe(false)
     expect(outcome(similar)).toEqual(expectedB)
 
     // 2001 (the earlier call) answers last and replaces it
     gates['core:2001'].release()
     await a
-    expect(similar.isLoading).toBe(false)
+    expect(similar.get('isLoading')).toBe(false)
     expect(outcome(similar)).toEqual(expectedA)
 
     // no signal went to fetch: nothing was cancelled
@@ -282,9 +281,9 @@ describe('T-211 @P1 Filters and SimilarWorks race (Q-021)', () => {
   })
 
   test("T-211 @P1 SimilarWorks: an earlier call that fails last sets error next to the later call's outputs", async () => {
-    const alone = new SimilarWorks()
-    await alone.fetchSimilar(1001, { resultType: 'work' })
-    const expectedB = toJS(alone.similarOutputs)
+    const alone = driverFor('similarWorks').create()
+    await alone.call('fetchSimilar', 1001, { resultType: 'work' })
+    const expectedB = alone.plain(alone.get('similarOutputs'))
     expect(expectedB).toHaveLength(5)
 
     arrivals.length = 0
@@ -293,19 +292,19 @@ describe('T-211 @P1 Filters and SimilarWorks race (Q-021)', () => {
     // outputs-2006 is the recorded 404 answer of the recommender
     gates['core:2006'] = gate()
 
-    const similar = new SimilarWorks()
-    const a = similar.fetchSimilar(2006, false)
-    const b = similar.fetchSimilar(1001, { resultType: 'work' })
+    const similar = driverFor('similarWorks').create()
+    const a = similar.call('fetchSimilar', 2006, false)
+    const b = similar.call('fetchSimilar', 1001, { resultType: 'work' })
     await b
-    expect(toJS(similar.similarOutputs)).toEqual(expectedB)
-    expect(similar.error).toBe(false)
+    expect(similar.plain(similar.get('similarOutputs'))).toEqual(expectedB)
+    expect(similar.get('error')).toBe(false)
 
     gates['core:2006'].release()
     await a
     // the stale failure sets the flag; the later outputs stay
-    expect(similar.error).toBe(true)
-    expect(toJS(similar.similarOutputs)).toEqual(expectedB)
-    expect(similar.isLoading).toBe(false)
+    expect(similar.get('error')).toBe(true)
+    expect(similar.plain(similar.get('similarOutputs'))).toEqual(expectedB)
+    expect(similar.get('isLoading')).toBe(false)
   })
 
   test('T-211 @P1 only Claim.retrieve cancels: the first E16 request is aborted by the second call', async () => {
