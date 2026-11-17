@@ -34,6 +34,19 @@ const KNOWN_ROUTES = [
 ]
 
 const list = (xs) => xs.join(',')
+// CS-TS-4 (6.6) moved these modules from .js to .ts (git mv, type
+// annotations only): their sites are counted under the reference's names
+const MOVED = {
+  'lib/loader.ts': 'lib/loader.js',
+  'api/index.ts': 'api/index.js',
+}
+const sitesOf = (build, scripts, needle) =>
+  Object.fromEntries(
+    Object.entries(literalSites(build, scripts, needle)).map(([k, n]) => [
+      MOVED[k] || k,
+      n,
+    ])
+  )
 
 function derive(build) {
   const client = build.clientScripts()
@@ -55,13 +68,13 @@ function derive(build) {
     Object.keys(serverRoots).filter((n) => n.startsWith('@sentry/'))
   )
   entries['client:readFileSync'] = JSON.stringify(
-    literalSites(build, client, READ_FILE_SYNC)
+    sitesOf(build, client, READ_FILE_SYNC)
   )
   entries['server:readFileSync'] = JSON.stringify(
-    literalSites(build, server, READ_FILE_SYNC)
+    sitesOf(build, server, READ_FILE_SYNC)
   )
   entries['client:api-key-placeholder'] = JSON.stringify(
-    literalSites(build, client, API_KEY_PLACEHOLDER)
+    sitesOf(build, client, API_KEY_PLACEHOLDER)
   )
   entries['pages-manifest'] = list(Object.keys(build.pagesManifest()).sort())
   return { entries }

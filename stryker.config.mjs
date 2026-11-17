@@ -81,10 +81,10 @@ export const EXCLUDED_MUTATORS = []
 
 // the core files of 55 C2 (>= 90% each); an entry ending in `/` is a folder (all its files as one)
 export const CORE = [
-  'api/index.js',
-  'api/internalize.js',
-  'utils/filters-transform.js',
-  'store/filters.js',
+  'api/index.ts',
+  'api/internalize.ts',
+  'utils/filters-transform.ts',
+  'store/filters.ts',
   'hooks/use-sync-url-params-with-store/',
 ]
 

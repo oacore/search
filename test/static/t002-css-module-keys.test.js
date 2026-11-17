@@ -43,7 +43,9 @@ const sourceFiles = () =>
     '--exclude-standard',
     '--',
     '*.js',
-    '*.jsx'
+    '*.jsx',
+    '*.ts',
+    '*.tsx'
   ).filter(
     // the vendored design is not application source (CS-DSN-2, AD-044); its
     // installed copy under node_modules is left out as before
@@ -144,7 +146,10 @@ const scan = () => {
     out.tokens.camel += count(src, /styles\.[a-z]+[A-Z][A-Za-z]*/g)
     const { program } = parse(src, {
       sourceType: 'module',
-      plugins: PARSER_PLUGINS,
+      // CS-TS-4 (6.6): the moved .ts/.tsx sources carry type annotations
+      plugins: /\.tsx?$/.test(file)
+        ? [...PARSER_PLUGINS, 'typescript']
+        : PARSER_PLUGINS,
     })
     const bindings = importsOf(file, program, out)
     if (!bindings.size) {

@@ -708,7 +708,7 @@ describe('T-412 @P1 claim card', () => {
         for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
           const full = path.join(dir, entry.name)
           if (entry.isDirectory()) walk(full)
-          else if (/\.(js|jsx)$/.test(entry.name)) {
+          else if (/\.(js|jsx|ts|tsx)$/.test(entry.name)) {
             const source = fs.readFileSync(full, 'utf8')
             if (/sign-in-modal/.test(source))
               imports.push(path.relative(root, full))

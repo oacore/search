@@ -1,0 +1,24 @@
+import apiRequest from './index'
+
+// eslint-disable-next-line camelcase
+const fetchWork = async (id?: any, search_id?: any) => {
+  const split = search_id?.split('-')
+  const isUndefined = split?.some((item: any) => item === undefined)
+  const url = new URL(
+    // eslint-disable-next-line camelcase
+    `/v3/works/${id}${!isUndefined || search_id ? `?t=${search_id}` : ''}`,
+    process.env.API_URL
+  ).href
+
+  const { data } = await apiRequest(url)
+  return data
+}
+
+const fetchWorkOutputs = async (id?: any) => {
+  const url = new URL(`/v3/works/${id}/outputs`, process.env.API_URL).href
+
+  const { data } = await apiRequest(url)
+
+  return data
+}
+export { fetchWork, fetchWorkOutputs }

@@ -83,6 +83,18 @@ const LINT5_SUPPRESSIONS = [
   ['templates/output/update/index.jsx', 2],
   ['templates/search/index.jsx', 3],
 ].map(([f, n]) => [f, '@next/next/no-img-element', n])
+// typescript-eslint recommended on the files CS-TS-4 (6.6) moved to .ts/.tsx:
+// bulk suppressions, statements untouched
+const TS4_SUPPRESSIONS = [
+  ['api/search.ts', '@typescript-eslint/no-require-imports', 1],
+  [
+    'hooks/use-sync-url-params-with-store/index.ts',
+    '@typescript-eslint/no-unused-vars',
+    2,
+  ],
+  ['lib/loader.ts', '@typescript-eslint/no-unsafe-declaration-merging', 2],
+  ['utils/data-providers-transform.ts', '@typescript-eslint/no-unused-vars', 1],
+]
 // stylelint 17 on unchanged code: the same (path, rule, count) as stylelint 13
 const STYLELINT_FINDINGS = [
   ['modules/layout/styles.module.css', 'order/properties-order', 1],
@@ -240,6 +252,14 @@ const tally = (pairs) => {
   )
 }
 const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8'))
+// CS-TS-4 (6.6): a table path whose .js/.jsx file was moved to .ts/.tsx
+// (git mv) names the moved file
+const renamed = (p) => {
+  if (!/\.jsx?$/.test(p) || fs.existsSync(path.join(ROOT, p))) return p
+  const to = p.replace(/\.js(x?)$/, '.ts$1')
+  return fs.existsSync(path.join(ROOT, to)) ? to : p
+}
+const current = (rows) => rows.map(([f, ...rest]) => [renamed(f), ...rest])
 
 // the differences of a run from a literal table as {key, from, to}: key
 // `<path> / <rule>`, counts as strings (0 = no finding)
@@ -278,6 +298,8 @@ const appFiles = () =>
       '--',
       '*.js',
       '*.jsx',
+      '*.ts',
+      '*.tsx',
     ],
     { encoding: 'utf8', maxBuffer: 1 << 26 }
   )
@@ -410,7 +432,7 @@ describe('T-001 @P0 lint parity', () => {
     expect(base.tools.stylelint).toBe(report.tools.stylelint)
     expect(base.tools.prettier).toBe(report.tools.prettier)
     // the script reads the same baseline
-    expect(report.baseline.eslint.entries).toEqual(ESLINT_FINDINGS)
+    expect(report.baseline.eslint.entries).toEqual(current(ESLINT_FINDINGS))
     expect(report.baseline.stylelint.entries).toEqual(STYLELINT_FINDINGS)
   })
 
@@ -434,7 +456,7 @@ describe('T-001 @P0 lint parity', () => {
   })
 
   test('T-001 c1 @P0 ESLint findings of the application files equal the baseline (path, rule, count)', () => {
-    const diffs = differences(ESLINT_FINDINGS, report.eslint.entries)
+    const diffs = differences(current(ESLINT_FINDINGS), report.eslint.entries)
     expect(diffs.filter((d) => !coveredBy(d))).toEqual([])
     expect(report.eslint.ledger.uncovered).toEqual([])
     // the script finds the same differences and accepts them by the same rows
@@ -460,7 +482,11 @@ describe('T-001 @P0 lint parity', () => {
         Object.entries(rules).map(([r, v]) => [f, r, v.count])
       )
     )
-    const expected = sortRows([...SUPPRESSIONS, ...LINT5_SUPPRESSIONS])
+    const expected = sortRows([
+      ...SUPPRESSIONS,
+      ...LINT5_SUPPRESSIONS,
+      ...TS4_SUPPRESSIONS,
+    ])
     expect(rows).toEqual(expected)
     expect(report.suppressions.entries).toEqual(expected)
     expect(report.suppressions.diff).toEqual({
@@ -525,10 +551,10 @@ describe('T-001 @P0 lint parity', () => {
   test('T-001 c1 @P0 36 inline eslint-disable directives in 29 application files', () => {
     const scan = inlineDirectives()
     expect(scan.comments).toBe(36) // AD-156
-    expect(scan.rows).toEqual(INLINE_DISABLES)
+    expect(scan.rows).toEqual(sortRows(current(INLINE_DISABLES)))
     // the script counts the same directives
     expect(report.disables.total).toBe(36) // AD-156
-    expect(report.disables.entries).toEqual(INLINE_DISABLES)
+    expect(report.disables.entries).toEqual(sortRows(current(INLINE_DISABLES)))
     expect(report.disables.files).toBe(29) // AD-156
     // none of them is a blanket disable
     expect(INLINE_DISABLES.filter((e) => e[1] === '*')).toEqual([])

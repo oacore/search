@@ -1,4 +1,19 @@
 {
+  "api/search.ts": {
+    "@typescript-eslint/no-require-imports": {
+      "count": 1
+    }
+  },
+  "hooks/use-sync-url-params-with-store/index.ts": {
+    "@typescript-eslint/no-unused-vars": {
+      "count": 2
+    }
+  },
+  "lib/loader.ts": {
+    "@typescript-eslint/no-unsafe-declaration-merging": {
+      "count": 2
+    }
+  },
   "modules/dropdown/index.jsx": {
     "@next/next/no-img-element": {
       "count": 1
@@ -69,6 +84,11 @@
   },
   "templates/search/results.jsx": {
     "react-hooks/rules-of-hooks": {
+      "count": 1
+    }
+  },
+  "utils/data-providers-transform.ts": {
+    "@typescript-eslint/no-unused-vars": {
       "count": 1
     }
   }

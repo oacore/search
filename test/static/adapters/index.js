@@ -208,7 +208,7 @@ function sourceImageImports(root = ROOT) {
       const p = path.join(dir, e.name)
       if (e.isDirectory()) {
         if (!skip(dir, e.name)) visit(p)
-      } else if (/\.jsx?$/.test(e.name)) files.push(p)
+      } else if (/\.[jt]sx?$/.test(e.name)) files.push(p)
     }
   }
   visit(root)
