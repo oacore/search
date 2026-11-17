@@ -131,7 +131,9 @@ test.describe('T-608 @P0 crash semantics', () => {
       expect(shot.listeners).toBe(4) // AD-128, AD-183
       // W7a: Next 15.5's start-server listener is an anonymous function ('')
       // W7c: Next 16's router-server logError is no longer bound and registers before Sentry's
-      expect(shot.names).toEqual(['', 'logError', SENTRY_UNCAUGHT, APP_HANDLER]) // AD-128, AD-183
+      // 6.8: instrumentation.ts initialises Sentry when the server starts (CS-SEN-2), before Next's router
+      // server registers logError; pages/_app.jsx loaded it on the first page before
+      expect(shot.names).toEqual(['', SENTRY_UNCAUGHT, 'logError', APP_HANDLER]) // AD-128, AD-183
       await expect.poll(() => appExit(env), { timeout: 15000 }).not.toBeNull()
       const exit = appExit(env)
       expect({ code: exit.code, signal: exit.signal }).toEqual({
