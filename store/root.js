@@ -4,7 +4,7 @@ import { createClaimStore } from './claim'
 import { createSimilarWorksStore } from './similar-works'
 import { createDataProvidersStore } from './data-providers'
 import { createReportStore } from './report'
-import Search from './search'
+import { createSearchStore } from './search'
 import Filters from './filters'
 
 class Root {
@@ -14,7 +14,8 @@ class Root {
   // a zustand store api, a plain field until CS-ZU-7
   similarWorks = createSimilarWorksStore()
 
-  search = new Search()
+  // a zustand store api, a plain field until CS-ZU-7
+  search = createSearchStore()
 
   // a zustand store api, a plain field until CS-ZU-7
   dataProviders = null

@@ -182,11 +182,11 @@ describe('T-409 @P1 CSV download modal', () => {
   test('T-409 c1 @P1 the modal shows the title, the text and three sizes, "Current page" first and highlighted', async () => {
     await mountPage()
     expect(dialog()).toBeNull()
-    expect(store.search.activeLimit).toBe(10)
-    expect(store.search.activeDownloadModal).toBe(false)
+    expect(store.search.getState().activeLimit).toBe(10)
+    expect(store.search.getState().activeDownloadModal).toBe(false)
 
     await openModal()
-    expect(store.search.activeDownloadModal).toBe(true)
+    expect(store.search.getState().activeDownloadModal).toBe(true)
     const modal = within(dialog())
     expect(modal.getByRole('heading', { level: 3 }).textContent).toBe(TITLE)
     expect(
@@ -212,15 +212,15 @@ describe('T-409 @P1 CSV download modal', () => {
     await openModal()
 
     await user().click(screen.getByText(TOP100))
-    expect(store.search.activeLimit).toBe(100)
+    expect(store.search.getState().activeLimit).toBe(100)
     expect(actives()).toEqual([TOP100])
 
     await user().click(screen.getByText(ALL))
-    expect(store.search.activeLimit).toBe(1000)
+    expect(store.search.getState().activeLimit).toBe(1000)
     expect(actives()).toEqual([ALL])
 
     await user().click(screen.getByText(CURRENT))
-    expect(store.search.activeLimit).toBe(10)
+    expect(store.search.getState().activeLimit).toBe(10)
     expect(actives()).toEqual([CURRENT])
 
     // choosing is not downloading
@@ -250,8 +250,8 @@ describe('T-409 @P1 CSV download modal', () => {
     expect(await blob.text()).toBe(csvAnswer(10).body.toString('utf8'))
     // the modal is closed for good and the store is idle
     expect(dialog()).toBeNull()
-    expect(store.search.activeDownloadModal).toBe(false)
-    expect(store.search.isLoading).toBe(false)
+    expect(store.search.getState().activeDownloadModal).toBe(false)
+    expect(store.search.getState().isLoading).toBe(false)
   })
 
   test('T-409 c2 @P1 the top-100 choice goes into the body as limit 100', async () => {
@@ -287,9 +287,9 @@ describe('T-409 @P1 CSV download modal', () => {
     expect(error.mock.calls[0][0].status).toBe(400)
     expect(FileDownload).not.toHaveBeenCalled()
     expect(dialog()).toBeNull()
-    expect(store.search.isLoading).toBe(false)
+    expect(store.search.getState().isLoading).toBe(false)
     // the limit stays, so the next Download would ask for 1000 again
-    expect(store.search.activeLimit).toBe(1000)
+    expect(store.search.getState().activeLimit).toBe(1000)
   })
 
   test('T-409 c3 @P1 Q-056: the modal closes when Download is clicked, before the request is answered', async () => {
@@ -301,10 +301,10 @@ describe('T-409 @P1 CSV download modal', () => {
     // the request is on the wire and unanswered ...
     await waitFor(() => expect(posts).toHaveLength(1))
     expect(FileDownload).not.toHaveBeenCalled()
-    expect(store.search.isLoading).toBe(true)
+    expect(store.search.getState().isLoading).toBe(true)
     // ... but the modal is already gone: onSubmit sets the flag to undefined
     expect(dialog()).toBeNull()
-    expect(store.search.activeDownloadModal).toBeUndefined()
+    expect(store.search.getState().activeDownloadModal).toBeUndefined()
     // the page shows the progress bar instead
     expect(
       view.container.querySelector('[class*="loading-bar"]')
@@ -314,8 +314,8 @@ describe('T-409 @P1 CSV download modal', () => {
     release.resolve()
     release = null
     await waitFor(() => expect(FileDownload).toHaveBeenCalledTimes(1))
-    await waitFor(() => expect(store.search.isLoading).toBe(false))
-    expect(store.search.activeDownloadModal).toBe(false)
+    await waitFor(() => expect(store.search.getState().isLoading).toBe(false))
+    expect(store.search.getState().activeDownloadModal).toBe(false)
     expect(dialog()).toBeNull()
   })
 
@@ -329,7 +329,7 @@ describe('T-409 @P1 CSV download modal', () => {
 
     // nothing stops the user from opening the modal once more
     await openModal()
-    expect(store.search.isLoading).toBe(true)
+    expect(store.search.getState().isLoading).toBe(true)
     expect(submit()).toBeDisabled()
     expect(cancel()).toBeEnabled()
     await user().click(submit())
@@ -339,9 +339,9 @@ describe('T-409 @P1 CSV download modal', () => {
     release.resolve()
     release = null
     await waitFor(() => expect(FileDownload).toHaveBeenCalledTimes(1))
-    await waitFor(() => expect(store.search.isLoading).toBe(false))
+    await waitFor(() => expect(store.search.getState().isLoading).toBe(false))
     expect(dialog()).toBeNull()
-    expect(store.search.activeDownloadModal).toBe(false)
+    expect(store.search.getState().activeDownloadModal).toBe(false)
     expect(posts).toHaveLength(1)
   })
 
@@ -352,13 +352,13 @@ describe('T-409 @P1 CSV download modal', () => {
     await user().click(submit())
     await settle()
     expect(dialog()).toBeNull()
-    expect(store.search.activeLimit).toBe(100)
+    expect(store.search.getState().activeLimit).toBe(100)
 
     await openModal()
     // the Fieldset starts again from its first item ...
     expect(actives()).toEqual([CURRENT])
     // ... the store does not
-    expect(store.search.activeLimit).toBe(100)
+    expect(store.search.getState().activeLimit).toBe(100)
 
     // so a download without choosing asks for 100 under "Current page"
     await user().click(submit())
@@ -380,13 +380,13 @@ describe('T-409 @P1 CSV download modal', () => {
     fireEvent.keyDown(dlg, { key: 'Escape', code: 'Escape', keyCode: 27 })
     fireEvent.keyDown(dlg, { key: 'Esc', keyCode: 27 })
     expect(dialog()).not.toBeNull()
-    expect(store.search.activeDownloadModal).toBe(true)
+    expect(store.search.getState().activeDownloadModal).toBe(true)
 
     // a click on the backdrop (the dialog's parent), and on the document
     fireEvent.click(dlg.parentElement)
     fireEvent.click(document.body)
     expect(dialog()).not.toBeNull()
-    expect(store.search.activeDownloadModal).toBe(true)
+    expect(store.search.getState().activeDownloadModal).toBe(true)
     expect(posts).toEqual([])
   })
 
@@ -418,8 +418,8 @@ describe('T-409 @P1 CSV download modal', () => {
     await user().click(cancel())
 
     expect(dialog()).toBeNull()
-    expect(store.search.activeDownloadModal).toBe(false)
-    expect(store.search.isLoading).toBe(false)
+    expect(store.search.getState().activeDownloadModal).toBe(false)
+    expect(store.search.getState().isLoading).toBe(false)
     await settle()
     expect(posts).toEqual([])
     expect(started).toBe(before)
@@ -432,7 +432,7 @@ describe('T-409 @P1 CSV download modal', () => {
     await user().click(screen.getByText(TOP100))
     await user().click(cancel())
     expect(dialog()).toBeNull()
-    expect(store.search.activeLimit).toBe(100)
+    expect(store.search.getState().activeLimit).toBe(100)
     expect(posts).toEqual([])
 
     await openModal()

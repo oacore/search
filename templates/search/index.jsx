@@ -3,6 +3,8 @@ import { Button, Icon, Link, LoadingBar } from '@oacore/design/lib/elements'
 import { Popover } from '@oacore/design/lib/modules'
 import classNames from '@oacore/design/lib/utils/class-names'
 import { useRouter } from 'next/router'
+import { useStore as useStoreApi } from 'zustand'
+import { useShallow } from 'zustand/react/shallow'
 
 import Pagination from './pagination'
 import Results from './results'
@@ -26,9 +28,20 @@ import {
   getMemberRepoId,
 } from 'templates/search/utils/featured-member'
 
+// the fields this template renders (an observer read these)
+const selectSearch = (state) => ({
+  isLoading: state.isLoading,
+  sortOptions: state.sortOptions,
+  activeDownloadModal: state.activeDownloadModal,
+})
+
 const SearchTemplate = observe(({ data, members = [] }) => {
   const router = useRouter()
-  const { search } = useStore()
+  const { search: searchStore } = useStore()
+  const search = {
+    ...searchStore.getState(),
+    ...useStoreApi(searchStore, useShallow(selectSearch)),
+  }
   const { width } = useWindowSize()
   const member = members[0] || null
   const dataProviderId = getMemberRepoId(member)

@@ -48,7 +48,6 @@ const store = (load) => ({
 module.exports = {
   name: 'mobx',
   stores: {
-    search: store(() => require('../../../store/search').default),
     filters: store(() => require('../../../store/filters').default),
   },
 }

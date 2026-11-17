@@ -56,7 +56,10 @@ const RegionName = ({ provider, code }) => {
 
 const DataProviderTemplate = ({ data, onSearch, className, ...restProps }) => {
   const { outputs } = data
-  const { search } = useStore()
+  // read, not subscribed: this template is no observer (a render of it
+  // fetches again in ClaimCard, Q-027)
+  const { search: searchStore } = useStore()
+  const search = searchStore.getState()
   const [isDataProviderHasAccounts, setIsDataProviderHasAccounts] =
     useState(false)
 

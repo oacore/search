@@ -230,8 +230,10 @@ describe('T-401 @P1 pages/search/index.jsx', () => {
       expect(
         container.querySelectorAll('[id^="work-search-output-"]')
       ).toHaveLength(props.data.results.length)
-      expect(store.search.query).toBe('climate')
-      expect(store.search.works).toHaveLength(props.data.results.length)
+      expect(store.search.getState().query).toBe('climate')
+      expect(store.search.getState().works).toHaveLength(
+        props.data.results.length
+      )
     })
 
     test('T-401 c1 @P1 one result is a page of results: the template shows it, not "no results"', async () => {

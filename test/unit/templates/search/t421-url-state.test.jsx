@@ -31,7 +31,8 @@ import {
 } from '../../../utils/render'
 import RootStore from '../../../../store/root'
 import Filters from '../../../../store/filters'
-import SearchStore from '../../../../store/search'
+import { createSearchStore } from '../../../../store/search'
+import live from '../../../drivers/store-driver/live'
 import { getServerSideProps } from '../../../../pages/search'
 import SearchTemplate from '../../../../templates/search'
 import Pagination from '../../../../templates/search/pagination'
@@ -297,7 +298,7 @@ describe('T-421 @P1 URL state from a non-default state', () => {
             state.sort ? `&sort=${state.sort}` : ''
           }`,
         })
-        expect(store.search.query).toBe(state.q)
+        expect(store.search.getState().query).toBe(state.q)
 
         await user.click(actionButtons()[0])
         await user.click(screen.getByRole('button', { name: 'Download' }))
@@ -308,7 +309,7 @@ describe('T-421 @P1 URL state from a non-default state', () => {
           { q: state.q, accept: 'text/csv', limit: 10 },
         ])
         expect(FileDownload.mock.calls[0][1]).toBe('results.csv')
-        expect(store.search.isLoading).toBe(false)
+        expect(store.search.getState().isLoading).toBe(false)
       })
     })
 
@@ -325,7 +326,7 @@ describe('T-421 @P1 URL state from a non-default state', () => {
         'publisher:"Oregon State University"',
       ].join(' AND ')
       const posts = captureCsvPosts()
-      const search = new SearchStore()
+      const search = live(createSearchStore())
       search.setQuery(q)
       for (const limit of [10, 100]) {
         search.setActiveLimit(limit)

@@ -14,7 +14,6 @@ const mobx = require('mobx')
 
 const Filters = require('../../../store/filters').default
 const Root = require('../../../store/root').default
-const Search = require('../../../store/search').default
 
 const BASELINE = path.join(__dirname, '__baseline__', 't203-reactivity.json')
 
@@ -24,7 +23,6 @@ const { autorun, runInAction } = mobx
 const instances = () => ({
   Filters: new Filters(),
   Root: new Root({ statistics: {} }),
-  Search: new Search(),
 })
 
 const descriptorOf = (instance, name) => {
@@ -83,9 +81,6 @@ const different = (current) => {
 }
 const isPrimitive = (v) => v === null || typeof v !== 'object'
 
-const MOBX_STRICT =
-  /^\[MobX\] Since strict-mode is enabled, changing \(observed\) observable values without using an action is not allowed\. Tried to modify: /
-
 describe('T-203 @P0 reactivity contract', () => {
   afterEach(() => jest.restoreAllMocks())
 
@@ -102,16 +97,8 @@ describe('T-203 @P0 reactivity contract', () => {
     expect(baseline.schema).toBe(1)
     expect(table).toEqual(baseline.classes)
 
-    // facts the table must hold, whatever was recorded (41: un-actioned
-    // Search methods; the ported stores are T-212's)
-    for (const name of [
-      'setActiveLimit',
-      'setActiveDownloadModal',
-      'setActiveSortOptionData',
-    ])
-      expect(table.Search[name]).toBe('plain-method')
-    expect(table.Search.downloadResults).toBe('action')
-    expect(table.Search.sortOptions).toBe('observable')
+    // facts the table must hold, whatever was recorded (the ported stores,
+    // Search included, are T-212's)
     // legacy decorators of Filters
     expect(table.Filters.data).toBe('observable')
     expect(table.Filters.maxYear).toBe('computed')
@@ -185,39 +172,5 @@ describe('T-203 @P0 reactivity contract', () => {
     })
     expect(seen).toEqual([2001, 2005])
     stop()
-  })
-
-  test('T-203 c2 @P0 an action batches its writes, an un-actioned method notifies per field', () => {
-    const warn = jest.spyOn(console, 'warn').mockImplementation(() => {})
-    const observedRuns = (instance, names) => {
-      const state = { runs: 0 }
-      const dispose = autorun(() => {
-        names.forEach((name) => instance[name])
-        state.runs += 1
-      })
-      return { state, dispose }
-    }
-
-    // Search.setActiveLimit and setActiveDownloadModal: a single field each,
-    // one run and one warning
-    const search = new Search()
-    let probe = observedRuns(search, ['activeLimit', 'activeDownloadModal'])
-    search.setActiveLimit(25)
-    search.setActiveDownloadModal(true)
-    expect(probe.state.runs).toBe(3)
-    expect(search.activeLimit).toBe(25)
-    expect(search.activeDownloadModal).toBe(true)
-    expect(warn).toHaveBeenCalledTimes(2)
-    for (const [message] of warn.mock.calls)
-      expect(message).toMatch(MOBX_STRICT)
-    probe.dispose()
-
-    // the annotated Search.setQuery does not warn
-    warn.mockClear()
-    probe = observedRuns(search, ['query'])
-    search.setQuery('climate')
-    expect(probe.state.runs).toBe(2)
-    expect(warn).not.toHaveBeenCalled()
-    probe.dispose()
   })
 })

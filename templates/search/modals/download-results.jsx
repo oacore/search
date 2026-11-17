@@ -1,6 +1,7 @@
 import { Modal } from '@oacore/design/lib/modules'
 import React from 'react'
 import { Button, Fieldset } from '@oacore/design/lib/elements'
+import { useStore as useStoreApi } from 'zustand'
 
 import styles from './styles.module.css'
 
@@ -26,7 +27,9 @@ const downloadVariants = [
 ]
 
 const DownloadResultModal = observe(() => {
-  const { search } = useStore()
+  const { search: searchStore } = useStore()
+  const search = searchStore.getState()
+  const isLoading = useStoreApi(searchStore, (state) => state.isLoading)
 
   const onChange = (value) => {
     search.setActiveLimit(value)
@@ -65,11 +68,7 @@ const DownloadResultModal = observe(() => {
         >
           Cancel
         </Button>
-        <Button
-          onClick={onSubmit}
-          variant="contained"
-          disabled={search.isLoading}
-        >
+        <Button onClick={onSubmit} variant="contained" disabled={isLoading}>
           Download
         </Button>
       </Modal.Footer>

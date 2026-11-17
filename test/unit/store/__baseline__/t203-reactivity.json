@@ -39,26 +39,6 @@
       "search": "plain",
       "similarWorks": "plain",
       "statistics": "observable"
-    },
-    "Search": {
-      "activeDownloadModal": "observable",
-      "activeLimit": "observable",
-      "dataProviders": "observable",
-      "downloadResults": "action",
-      "isLoading": "observable",
-      "query": "observable",
-      "reset": "action",
-      "setActiveDownloadModal": "plain-method",
-      "setActiveLimit": "plain-method",
-      "setActiveSortOption": "action",
-      "setActiveSortOptionData": "plain-method",
-      "setIsLoading": "action",
-      "setQuery": "action",
-      "setSortOptions": "action",
-      "setWorkDataProviders": "action",
-      "setWorks": "action",
-      "sortOptions": "observable",
-      "works": "observable"
     }
   }
 }
