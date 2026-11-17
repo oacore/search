@@ -3,7 +3,7 @@ import { makeObservable, observable, action } from 'mobx'
 import { createClaimStore } from './claim'
 import SimilarWorks from './similar-works'
 import DataProviders from './data-providers'
-import Report from './report'
+import { createReportStore } from './report'
 import Search from './search'
 import Filters from './filters'
 
@@ -17,7 +17,8 @@ class Root {
 
   dataProviders = null
 
-  report = new Report()
+  // a zustand store api, a plain field until CS-ZU-7
+  report = createReportStore()
 
   filters = new Filters()
 

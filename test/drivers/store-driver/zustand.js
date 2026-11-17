@@ -72,5 +72,6 @@ module.exports = {
   name: 'zustand',
   stores: {
     claim: store(() => require('../../../store/claim').createClaimStore),
+    report: store(() => require('../../../store/report').createReportStore),
   },
 }

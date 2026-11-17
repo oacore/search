@@ -16,7 +16,6 @@ const DataProviders = require('../../../store/data-providers').default
 const { schema } = require('../../../store/data-providers')
 const Filters = require('../../../store/filters').default
 const Params = require('../../../store/params').default
-const Report = require('../../../store/report').default
 const Root = require('../../../store/root').default
 const Search = require('../../../store/search').default
 const SimilarWorks = require('../../../store/similar-works').default
@@ -30,7 +29,6 @@ const instances = () => ({
   DataProviders: new DataProviders({ data: [], params: {} }),
   Filters: new Filters(),
   Params: new Params({}, schema),
-  Report: new Report(),
   Root: new Root({ statistics: {} }),
   Search: new Search(),
   SimilarWorks: new SimilarWorks(),
@@ -112,7 +110,7 @@ describe('T-203 @P0 reactivity contract', () => {
     expect(table).toEqual(baseline.classes)
 
     // facts the table must hold, whatever was recorded (41: un-actioned
-    // Search/Report methods; the ported stores are T-212's)
+    // Search methods; the ported stores are T-212's)
     for (const name of [
       'setActiveLimit',
       'setActiveDownloadModal',
@@ -121,9 +119,6 @@ describe('T-203 @P0 reactivity contract', () => {
       expect(table.Search[name]).toBe('plain-method')
     expect(table.Search.downloadResults).toBe('action')
     expect(table.Search.sortOptions).toBe('observable')
-    expect(table.Report.submit).toBe('plain-method')
-    expect(table.Report.fetchOutput).toBe('plain-method')
-    expect(table.Report.reset).toBe('action')
     expect(table.SimilarWorks.reset).toBe('plain-method')
     expect(table.SimilarWorks.fetchSimilar).toBe('action')
     // legacy decorators of Filters
@@ -243,28 +238,6 @@ describe('T-203 @P0 reactivity contract', () => {
       return { state, dispose }
     }
 
-    // Report.reset is an annotated action: one run
-    const report = new Report()
-    const reportFields = Object.keys(generate().Report).filter(
-      (n) => generate().Report[n] === 'observable'
-    )
-    runInAction(() => {
-      report.output = { id: 1 }
-      report.updateOption = 'takeDownFullText'
-      report.role = 'author'
-      report.isLoading = true
-      report.error = 'failed'
-      report.isModalReportTypeActive = true
-      report.isModalReportFormActive = true
-      report.isModalReportSuccessActive = true
-    })
-    let probe = observedRuns(report, reportFields)
-    report.reset()
-    expect(probe.state.runs).toBe(2)
-    probe.dispose()
-
-    expect(warn).not.toHaveBeenCalled()
-
     // SimilarWorks.reset is not annotated: three writes, three runs, and the
     // dev-mode strict-mode warning for each write to an observed field
     const similar = new SimilarWorks()
@@ -273,7 +246,7 @@ describe('T-203 @P0 reactivity contract', () => {
       similar.isLoading = true
       similar.error = true
     })
-    probe = observedRuns(similar, ['similarOutputs', 'isLoading', 'error'])
+    let probe = observedRuns(similar, ['similarOutputs', 'isLoading', 'error'])
     similar.reset()
     expect(probe.state.runs).toBe(4)
     expect(warn).toHaveBeenCalledTimes(3)

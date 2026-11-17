@@ -48,7 +48,7 @@ const NOT_ACCEPTED =
   'Links starting with https://core.ac.uk/<strong>works</strong> or ' +
   'https://core.ac.uk/<strong>search</strong> are not accepted. Please see ' +
   'below types of links you can use or contact us.'
-// store/report.js:7-8
+// store/report.ts (ERROR_MESSAGE)
 const API_ERROR =
   /^We couldn’t perform the action\. For any issue contact \w+@core\.science$/
 
@@ -101,7 +101,7 @@ const typeUrl = (value) => fireEvent.change(urlInput(), { target: { value } })
 const submitUrl = async (store, value) => {
   typeUrl(value)
   fireEvent.click(submitButton())
-  await waitFor(() => expect(store.report.isLoading).toBe(false))
+  await waitFor(() => expect(store.report.getState().isLoading).toBe(false))
 }
 
 const outputRequests = () =>
@@ -158,7 +158,7 @@ describe('T-411 @P0 takedown page and report modals', () => {
       expect(log.mock.calls).toEqual([['Takedown outputId => undefined']])
       expect(requests).toEqual([])
       expect(errorParagraph(container).innerHTML).toBe(NOT_ACCEPTED)
-      expect(store.report.isModalReportTypeActive).toBe(false)
+      expect(store.report.getState().isModalReportTypeActive).toBe(false)
     })
   })
 
@@ -182,7 +182,7 @@ describe('T-411 @P0 takedown page and report modals', () => {
       ['works', 'search']
     )
     // the store holds a React element, not a string (R-037)
-    expect(typeof store.report.error).toBe('object')
+    expect(typeof store.report.getState().error).toBe('object')
   })
 
   test('T-411 c2 @P0 a later valid submit clears the error before the request goes out', async () => {
@@ -192,7 +192,7 @@ describe('T-411 @P0 takedown page and report modals', () => {
     typeUrl('2001')
     fireEvent.click(submitButton())
     expect(errorParagraph(container)).toBeNull()
-    await waitFor(() => expect(store.report.isLoading).toBe(false))
+    await waitFor(() => expect(store.report.getState().isLoading).toBe(false))
     expect(outputRequests()).toEqual([`GET ${API}/v3/outputs/2001`])
   })
 
@@ -207,12 +207,12 @@ describe('T-411 @P0 takedown page and report modals', () => {
       name: 'Problem-type-modal',
     })
     expect(outputRequests()).toEqual([`GET ${API}/v3/outputs/2001`])
-    expect(store.report.output.id).toBe(2001)
-    expect(store.report.output.dataProvider.name).toBe(
+    expect(store.report.getState().output.id).toBe(2001)
+    expect(store.report.getState().output.dataProvider.name).toBe(
       'Open Research Online (Open)'
     )
-    // the full text is dropped from the stored output (store/report.js:72)
-    expect('fullText' in store.report.output).toBe(false)
+    // the full text is dropped from the stored output (fetchOutput)
+    expect('fullText' in store.report.getState().output).toBe(false)
     expect(typeModal.querySelector('h3').textContent).toBe(
       'Which issue are you reporting?'
     )
@@ -226,7 +226,7 @@ describe('T-411 @P0 takedown page and report modals', () => {
 
     // 2. an option enables Continue, which swaps the type for the form modal
     await user.click(screen.getByText('The document should not be published'))
-    expect(store.report.updateOption).toBe('takeDownFullText')
+    expect(store.report.getState().updateOption).toBe('takeDownFullText')
     expect(options[0].className.split(' ')).toContain('card-modal-active')
     expect(proceed.disabled).toBe(false)
     await user.click(proceed)
@@ -247,7 +247,7 @@ describe('T-411 @P0 takedown page and report modals', () => {
 
     // 3. a role reveals the fields; Submit sends the report and closes the form
     await user.click(screen.getByText('Author'))
-    expect(store.report.role).toBe('author')
+    expect(store.report.getState().role).toBe('author')
     await user.type(screen.getByLabelText('Name'), REPORTER.name)
     await user.type(screen.getByLabelText('Email'), REPORTER.email)
     await user.type(screen.getByLabelText('Comment'), 'report-ok')
@@ -281,9 +281,9 @@ describe('T-411 @P0 takedown page and report modals', () => {
     // 5. "got it" closes the modal and resets the whole report
     await user.click(screen.getByRole('button', { name: 'got it' }))
     expect(screen.queryByRole('dialog')).toBe(null)
-    expect(store.report.output).toEqual({})
-    expect(store.report.updateOption).toBe(null)
-    expect(store.report.role).toBe(null)
+    expect(store.report.getState().output).toEqual({})
+    expect(store.report.getState().updateOption).toBe(null)
+    expect(store.report.getState().role).toBe(null)
     expect(routerMock.push).not.toHaveBeenCalled()
   })
 
@@ -305,7 +305,7 @@ describe('T-411 @P0 takedown page and report modals', () => {
     await user.click(screen.getByRole('button', { name: 'got it' }))
     expect(routerMock.push).toHaveBeenCalledTimes(1)
     expect(routerMock.push).toHaveBeenCalledWith('/outputs/2001')
-    expect(store.report.output).toEqual({})
+    expect(store.report.getState().output).toEqual({})
   })
 
   test('T-411 c3 @P0 chain: Close on the type modal ends it without further requests', async () => {
@@ -316,7 +316,7 @@ describe('T-411 @P0 takedown page and report modals', () => {
     await dialog('Problem-type-modal')
     await user.click(screen.getByRole('button', { name: 'Close' }))
     expect(screen.queryByRole('dialog')).toBe(null)
-    expect(store.report.output).toEqual({})
+    expect(store.report.getState().output).toEqual({})
     expect(requests).toEqual([`GET ${API}/v3/outputs/2001`])
     // the typed link stays in the field
     expect(urlInput().value).toBe('2001')
@@ -333,7 +333,7 @@ describe('T-411 @P0 takedown page and report modals', () => {
     const modal = await screen.findByRole('dialog', {
       name: 'Problem-form-modal',
     })
-    expect(store.report.updateOption).toBe('issueWithContent')
+    expect(store.report.getState().updateOption).toBe('issueWithContent')
 
     const active = () =>
       [...modal.querySelectorAll('fieldset > div > div')]
@@ -342,14 +342,14 @@ describe('T-411 @P0 takedown page and report modals', () => {
     // highlighted ...
     expect(active()).toEqual(['Repository manager'])
     // ... but not chosen
-    expect(store.report.role).toBe(null)
+    expect(store.report.getState().role).toBe(null)
     expect(screen.getByRole('button', { name: 'Submit' }).disabled).toBe(true)
     expect(modal.querySelector('input')).toBeNull()
     expect(modal.querySelector('textarea')).toBeNull()
 
     // a click on the highlighted item is what sets the role
     await user.click(screen.getByText('Repository manager'))
-    expect(store.report.role).toBe('repositoryManager')
+    expect(store.report.getState().role).toBe('repositoryManager')
     expect(screen.getByRole('button', { name: 'Submit' }).disabled).toBe(false)
     expect(modal.querySelectorAll('input')).toHaveLength(2)
     expect(active()).toEqual(['Repository manager'])
@@ -371,21 +371,23 @@ describe('T-411 @P0 takedown page and report modals', () => {
     await user.type(screen.getByLabelText('Comment'), 'report-fail')
     await user.click(screen.getByRole('button', { name: 'Submit' }))
 
-    await waitFor(() => expect(store.report.error).toMatch(API_ERROR))
-    await waitFor(() => expect(store.report.isLoading).toBe(false))
+    await waitFor(() =>
+      expect(store.report.getState().error).toMatch(API_ERROR)
+    )
+    await waitFor(() => expect(store.report.getState().isLoading).toBe(false))
     expect(e10Bodies).toHaveLength(1)
     // the form modal closed at Submit, nothing else opens
     expect(screen.queryByRole('dialog')).toBe(null)
-    expect(store.report.isModalReportSuccessActive).toBe(false)
+    expect(store.report.getState().isModalReportSuccessActive).toBe(false)
     expect(errorParagraph(container).textContent).toMatch(API_ERROR)
   })
 
   test('T-411 c4 @P0 Q-060: the modals never render the report error', async () => {
     // the design portal mounts one microtask after its effect (CS-R19-8)
     const store = new RootStore({ statistics: {} })
-    store.report.error = 'report failed'
-    store.report.updateOption = 'takeDownFullText'
-    store.report.role = 'author'
+    store.report.setState({ error: 'report failed' })
+    store.report.setState({ updateOption: 'takeDownFullText' })
+    store.report.setState({ role: 'author' })
     const wrappers = [withRouter(), withStore(store)]
     const form = render(<ReportFormModal id={2001} />, { wrappers })
     expect(
@@ -404,7 +406,7 @@ describe('T-411 @P0 takedown page and report modals', () => {
     const { store, container } = mountPage()
     await submitUrl(store, 'https://core.ac.uk/outputs/990001')
     expect(outputRequests()).toEqual([`GET ${API}/v3/outputs/990001`])
-    expect(store.report.error).toMatch(API_ERROR)
+    expect(store.report.getState().error).toMatch(API_ERROR)
     expect(errorParagraph(container).textContent).toMatch(API_ERROR)
     expect(screen.queryByRole('dialog')).toBe(null)
   })

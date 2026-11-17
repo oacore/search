@@ -12,6 +12,12 @@ import { observe } from 'store'
 
 export const REPORT_CARD_CLASS = styles.reportCard
 
+const selectModals = (state) => ({
+  isModalReportTypeActive: state.isModalReportTypeActive,
+  isModalReportFormActive: state.isModalReportFormActive,
+  isModalReportSuccessActive: state.isModalReportSuccessActive,
+})
+
 const ReportCard = observe(({ id, dataProvider, repaired }) => {
   const {
     report: {
@@ -20,7 +26,7 @@ const ReportCard = observe(({ id, dataProvider, repaired }) => {
       isModalReportSuccessActive,
     },
     setIsModalReportTypeActive,
-  } = useReportController()
+  } = useReportController(selectModals)
 
   // the classes of a page load last until the card's first update (Q-072)
   const firstId = useRef(id)

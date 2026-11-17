@@ -3,5 +3,10 @@
   "compilerOptions": {
     "strict": true
   },
-  "include": ["next-env.d.ts", "types/**/*.d.ts", "store/claim.ts"]
+  "include": [
+    "next-env.d.ts",
+    "types/**/*.d.ts",
+    "store/claim.ts",
+    "store/report.ts"
+  ]
 }

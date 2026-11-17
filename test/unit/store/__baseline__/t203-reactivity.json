@@ -43,19 +43,6 @@
       "schema": "plain",
       "size": "observable"
     },
-    "Report": {
-      "error": "observable",
-      "fetchOutput": "plain-method",
-      "isLoading": "observable",
-      "isModalReportFormActive": "observable",
-      "isModalReportSuccessActive": "observable",
-      "isModalReportTypeActive": "observable",
-      "output": "observable",
-      "reset": "action",
-      "role": "observable",
-      "submit": "plain-method",
-      "updateOption": "observable"
-    },
     "Root": {
       "claim": "plain",
       "dataProviders": "observable",
