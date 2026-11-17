@@ -9,6 +9,11 @@
       "count": 2
     }
   },
+  "lib/loader.ts": {
+    "@typescript-eslint/no-unsafe-declaration-merging": {
+      "count": 2
+    }
+  },
   "modules/dropdown/index.jsx": {
     "@next/next/no-img-element": {
       "count": 1

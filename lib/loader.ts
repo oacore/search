@@ -9,20 +9,20 @@ import { internalize } from '../api/internalize'
 const FETCH_TIMEOUT_MS = 3000
 
 class Loader {
-  constructor(url, fileName) {
+  constructor(url?: any, fileName?: any) {
     this.baseUrl = url
     // path.resolve already yields an absolute path against process.cwd() (/app).
     this.fileName = path.resolve(fileName)
   }
 
   // eslint-disable-next-line class-methods-use-this
-  log(...args) {
+  log(...args: any[]) {
     if (process.env.NODE_ENV !== 'production')
       // eslint-disable-next-line no-console
       console.log(...args)
   }
 
-  async fetchData(url) {
+  async fetchData(url?: any) {
     const controller = new AbortController()
     const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)
     try {
@@ -44,17 +44,17 @@ class Loader {
     try {
       // this.fileName is already absolute — do NOT join with __dirname.
       return JSON.parse(fs.readFileSync(this.fileName, 'utf8'))
-    } catch (error) {
+    } catch (error: any) {
       this.log('data cache not initialized', error.message)
       return null
     }
   }
 
-  writeCache(data) {
+  writeCache(data?: any) {
     try {
       fs.writeFileSync(this.fileName, JSON.stringify(data), 'utf8')
       this.log('Wrote to data cache')
-    } catch (error) {
+    } catch (error: any) {
       this.log('Error writing data to file', error.message)
     }
   }
@@ -70,11 +70,16 @@ class Loader {
       const data = await this.fetchData(this.baseUrl)
       this.writeCache(data)
       return data
-    } catch (error) {
+    } catch (error: any) {
       this.log('live fetch failed, rendering without it', error.message)
       return null
     }
   }
+}
+
+interface Loader {
+  baseUrl: any
+  fileName: any
 }
 
 export default Loader
