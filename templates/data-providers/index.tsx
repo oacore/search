@@ -87,7 +87,7 @@ const SearchResults = ({
             scrollPosition.current = window.scrollY
             setDataProvidersOffset(dataProvidersSize + 10)
           }}
-          className={styles.loadMore}
+          className={styles['load-more']}
         >
           Load more
         </Button>
@@ -155,7 +155,7 @@ const DataProvidersSearchTemplate = React.memo(
           <div
             id="add-new-data-provider"
             key="add-new-data-provider"
-            className={styles.addDataProvider}
+            className={styles['add-data-provider']}
           >
             {showAddDataProviderForm ? (
               <AddDataProviderForm

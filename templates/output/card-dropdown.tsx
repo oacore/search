@@ -83,7 +83,7 @@ const CardDropdown = ({
       <Tag
         href={coreDownloadUrl || sourceFulltextUrls || '#'}
         className={classNames.use(styles.link, {
-          [styles.linkDisabled]: !coreDownloadUrl && !sourceFulltextUrls,
+          [styles['link-disabled']]: !coreDownloadUrl && !sourceFulltextUrls,
         })}
       >
         {subtitleLinkText}
@@ -97,7 +97,7 @@ const CardDropdown = ({
 
   const renderOAI = (
     <Card.Description className={classNames.use(styles.identifier)} tag="span">
-      <div className={styles.innerIdentifier}>
+      <div className={styles['inner-identifier']}>
         <img
           src={getAssetsPath('/static/images/oai.svg')}
           alt="oai"
@@ -116,7 +116,7 @@ const CardDropdown = ({
       <div>
         <Icon
           src="#content-copy"
-          className={styles.iconCopy}
+          className={styles['icon-copy']}
           onClick={(e: any) => {
             e.stopPropagation()
             copyUrl()
@@ -158,11 +158,11 @@ const CardDropdown = ({
             className={classNames.use(styles.identifier)}
             tag="span"
           >
-            <div className={styles.innerIdentifier}>
+            <div className={styles['inner-identifier']}>
               <img
                 src={getAssetsPath('/static/images/oai.svg')}
                 alt="oai"
-                className={styles.oaiLogo}
+                className={styles['oai-logo']}
               />
               <a
                 className={styles.ellipsis}
@@ -176,7 +176,7 @@ const CardDropdown = ({
             <div>
               <Icon
                 src="#content-copy"
-                className={styles.iconCopy}
+                className={styles['icon-copy']}
                 onClick={copyUrl}
               />
               {copyUrlStatus === 'copied' && <Notification text="Copied" />}
@@ -191,7 +191,7 @@ const CardDropdown = ({
         {checkBillingType && makeVisible ? (
           <a
             href="https://core.ac.uk/membership"
-            className={styles.memberHighlight}
+            className={styles['member-highlight']}
           >
             Provided by our {capitalizeFirstLetter(memberType?.billing_type)}{' '}
             member

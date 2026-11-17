@@ -31,9 +31,9 @@ const Facet = ({ label }: any) => {
   useOutsideClick(node, hideFilterBox)
 
   return (
-    <li className={styles.barItemWrapper} ref={node}>
+    <li className={styles['bar-item-wrapper']} ref={node}>
       <div
-        className={classNames.use(styles.barItem)}
+        className={classNames.use(styles['bar-item'])}
         onClick={toggleVisibleComponent}
         role="presentation"
       >
@@ -46,14 +46,14 @@ const Facet = ({ label }: any) => {
 }
 
 const Box = () => (
-  <div className={classNames.use(styles.filterBox, styles.loadingBox)}>
+  <div className={classNames.use(styles['filter-box'], styles['loading-box'])}>
     <ProgressSpinner />
     <span>Loading</span>
   </div>
 )
 
 const LoadingBlock = () => (
-  <div className={styles.loadingBlock}>
+  <div className={styles['loading-block']}>
     {FILTERS_LABELS.map((item: any) => (
       <Facet label={item} key={item} />
     ))}

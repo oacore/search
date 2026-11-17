@@ -74,7 +74,7 @@ const DropDown = ({
         className={classNames
           .use({
             [styles.activeClass]: checkBillingType && !makeVisible,
-            [styles.cardItem]: useOtherVersions,
+            [styles['card-item']]: useOtherVersions,
           })
           .join(className)}
       >
@@ -93,23 +93,26 @@ const DropDown = ({
         <div className={styles.header}>
           <div className={styles.content}>
             <div
-              className={classNames.use(styles.headerWrapper, {
-                [styles.headerWrapperClickable]: useExpandButton,
+              className={classNames.use(styles['header-wrapper'], {
+                [styles['header-wrapper-clickable']]: useExpandButton,
               })}
             >
               {/* eslint-disable-next-line max-len */}
               {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-              <div className={styles.itemWrapper} onClick={redirectToProviders}>
+              <div
+                className={styles['item-wrapper']}
+                onClick={redirectToProviders}
+              >
                 <DataProviderLogo
                   imageSrc={checkBillingType ? getLogoLink() : ''}
                   useDefault
                   alt={title}
                   size="md"
                 />
-                <div className={styles.innerWrapper}>
+                <div className={styles['inner-wrapper']}>
                   <Card.Title
                     className={classNames.use(styles.title, {
-                      [styles.titleColored]: !activeArticle,
+                      [styles['title-colored']]: !activeArticle,
                     })}
                     tag="h3"
                   >
@@ -117,7 +120,7 @@ const DropDown = ({
                   </Card.Title>
                 </div>
                 <img
-                  className={styles.redirectImg}
+                  className={styles['redirect-img']}
                   src={redirect}
                   alt="redirect"
                 />
@@ -125,14 +128,14 @@ const DropDown = ({
             </div>
             <Card.Description
               className={classNames.use(styles.subtitle, {
-                [styles.oaiTitle]: renderOAI,
+                [styles['oai-title']]: renderOAI,
               })}
               tag="span"
             >
               {outputRedirect && (
                 <Button
                   onClick={redirectOnClick}
-                  className={styles.actionButton}
+                  className={styles['action-button']}
                   variant="outlined"
                 >
                   See this paper in CORE
@@ -143,13 +146,19 @@ const DropDown = ({
                   className={styles.ellipsis}
                   href={`https://api.core.ac.uk/oai/${oai}`}
                 >
-                  <Button className={styles.actionButton} variant="outlined">
+                  <Button
+                    className={styles['action-button']}
+                    variant="outlined"
+                  >
                     Go to the repository landing page
                   </Button>
                 </a>
               ) : (
                 <a className={styles.ellipsis} href={`https://doi.org/${doi}`}>
-                  <Button className={styles.actionButton} variant="outlined">
+                  <Button
+                    className={styles['action-button']}
+                    variant="outlined"
+                  >
                     Go to the repository landing page
                   </Button>
                 </a>
@@ -164,7 +173,10 @@ const DropDown = ({
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Button className={styles.actionButton} variant="outlined">
+                  <Button
+                    className={styles['action-button']}
+                    variant="outlined"
+                  >
                     Download from data provider
                   </Button>
                 </a>
@@ -174,7 +186,10 @@ const DropDown = ({
                   content="We don't have a full text link from this data provider"
                   className={styles.popover}
                 >
-                  <Button className={styles.disabledButton} variant="outlined">
+                  <Button
+                    className={styles['disabled-button']}
+                    variant="outlined"
+                  >
                     Download from data provider
                   </Button>
                 </Popover>

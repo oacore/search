@@ -12,13 +12,13 @@ import Loader from 'modules/loader'
 
 const LoadingError = () => (
   <div className={styles.error}>
-    <p className={styles.errorText}>
+    <p className={styles['error-text']}>
       Sorry, we are unable to process this request at the moment
     </p>
     <Icon
       src="#emoticon-sad-outline"
       alt="emotion"
-      className={styles.errorIcon}
+      className={styles['error-icon']}
     />
   </div>
 )

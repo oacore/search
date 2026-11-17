@@ -63,7 +63,7 @@ const YearSelects = observe(({ years, onSelect }: any) => {
   }
 
   return (
-    <div className={styles.yearSelects}>
+    <div className={styles['year-selects']}>
       <span className={styles.label}>from</span>
       <YearSelectItem
         onSelect={setEndOptions}

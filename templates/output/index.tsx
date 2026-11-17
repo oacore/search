@@ -106,11 +106,11 @@ const ScientificOutputTemplate = ({
   const resultSearch = `https://core.ac.uk/search/?${linkPath.slice(pos + 7)}`
 
   return (
-    <Search {...passProps} className={styles.outputContainer}>
+    <Search {...passProps} className={styles['output-container']}>
       {oaiModal && !useOtherVersions && (
-        <div ref={modalRef} className={styles.oaiModal}>
+        <div ref={modalRef} className={styles['oai-modal']}>
           <h3 className={styles.oaiModalTitle}>Repository landing page</h3>
-          <div className={styles.oaiModalText}>
+          <div className={styles['oai-modal-text']}>
             We are not able to resolve this{' '}
             <a href="https://oai.core.ac.uk">OAI</a> Identifier to the
             repository landing page. If you are the repository manager for this
@@ -120,7 +120,7 @@ const ScientificOutputTemplate = ({
             </a>{' '}
             and adjust the settings.
           </div>
-          <div className={styles.oaiModalButtons}>
+          <div className={styles['oai-modal-buttons']}>
             <Button
               onClick={() => {
                 window.open(
@@ -140,7 +140,7 @@ const ScientificOutputTemplate = ({
       )}
       <Search.Main>
         <div className={styles.background}>
-          <div className={styles.navigationTrail}>
+          <div className={styles['navigation-trail']}>
             <a href={resultSearch} target="_blank" rel="noreferrer">
               Search results
             </a>
@@ -158,7 +158,7 @@ const ScientificOutputTemplate = ({
           </div>
           <div className={styles.info}>
             {documentType && (
-              <span className={styles.documentType}>{documentType}</span>
+              <span className={styles['document-type']}>{documentType}</span>
             )}
             {oai && (
               <div className={styles.oai}>
@@ -193,7 +193,7 @@ const ScientificOutputTemplate = ({
             {useOtherVersions && mainDataProviderLink && (
               <Button
                 variant="outlined"
-                className={styles.actionButton}
+                className={styles['action-button']}
                 tag="a"
                 target="_blank"
                 href={mainDataProviderLink.link}
@@ -205,13 +205,13 @@ const ScientificOutputTemplate = ({
             )}
           </div>
         </div>
-        <div className={styles.containerMain}>
+        <div className={styles['container-main']}>
           <section id="abstract" className={styles.abstract}>
             <h2>Abstract</h2>
             {abstract ? (
               <MathMarkdown>{abstract}</MathMarkdown>
             ) : (
-              <span className={styles.abstractEmpty}>
+              <span className={styles['abstract-empty']}>
                 Abstract is not available.
               </span>
             )}
@@ -221,7 +221,7 @@ const ScientificOutputTemplate = ({
           <RelatedSearch articleId={id} articleTitle={title} />
         </div>
       </Search.Main>
-      <Search.Sidebar className={styles.containerSidebar}>
+      <Search.Sidebar className={styles['container-sidebar']}>
         <FullTextThumbnail
           id={`full-text-thumbnail-${id}`}
           href={readerUrl}
@@ -276,7 +276,7 @@ const ScientificOutputTemplate = ({
         )}
         {license && (
           <Card tag={KeptDiv} variant="outlined" {...repaired.license}>
-            Licence: <span className={styles.licenseType}>{license}</span>
+            Licence: <span className={styles['license-type']}>{license}</span>
           </Card>
         )}
       </Search.Sidebar>

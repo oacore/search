@@ -21,7 +21,7 @@ const Links = () => (
     {links.map(({ id, label, link }: any) => (
       <li className={styles.link} key={id}>
         <span className={styles.label}> {label}</span>
-        <Link href={link} target="blank" className={styles.linkHref}>
+        <Link href={link} target="blank" className={styles['link-href']}>
           {link}
         </Link>
       </li>

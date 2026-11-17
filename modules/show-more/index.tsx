@@ -27,7 +27,7 @@ const ShowMore = ({
     <div className={classNames.use(isVisible && styles.visible, className)}>
       <button
         type="button"
-        className={classNames.use(styles.showMore)}
+        className={classNames.use(styles['show-more'])}
         onClick={() => setIsVisible(!isVisible)}
         aria-expanded={isVisible}
         aria-controls={`${id}-more`}

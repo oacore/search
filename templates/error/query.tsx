@@ -4,7 +4,7 @@ import styles from './styles.module.css'
 import notFoundSvg from './images/notFound.svg'
 
 const QueryError = ({ query }: any) => (
-  <div className={styles.notFound}>
+  <div className={styles['not-found']}>
     <img src={notFoundSvg} alt="No results found" />
     <h2>Sorry, we couldn’t find any results for “{query}”.</h2>
     <p>

@@ -9,7 +9,7 @@ const Error404 = ({ error }: any) => {
   if (!error) return <Loader />
 
   return (
-    <article className={styles.errorContainer}>
+    <article className={styles['error-container']}>
       <section className={styles.error}>
         <h1>Uh-oh</h1>
         <p>{error.message}</p>

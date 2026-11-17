@@ -10,20 +10,20 @@ const numberWithCommas = (num?: any) =>
 const MetaBox = ({ className, countMetadata, countFullText }: any) => (
   <Card className={classNames.use(styles.meta).join(className)}>
     <div className={styles.boxes}>
-      <div className={styles.boxItem}>
+      <div className={styles['box-item']}>
         <Card.Title className={styles.count}>
           {countFullText ? numberWithCommas(countFullText) : 0}
         </Card.Title>
         <span className={styles.caption}>full texts</span>
       </div>
-      <div className={styles.boxItem}>
+      <div className={styles['box-item']}>
         <Card.Title className={styles.count}>
           {countMetadata ? numberWithCommas(countMetadata) : 0}
         </Card.Title>
         <span className={styles.caption}>metadata records</span>
       </div>
     </div>
-    <div className={styles.updateDate}>Updated in last 30 days.</div>
+    <div className={styles['update-date']}>Updated in last 30 days.</div>
   </Card>
 )
 

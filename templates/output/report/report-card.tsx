@@ -10,7 +10,7 @@ import { KeptDiv, KeptP } from '../kept-element'
 
 import { observe } from 'store'
 
-export const REPORT_CARD_CLASS = styles.reportCard
+export const REPORT_CARD_CLASS = styles['report-card']
 
 const selectModals = (state?: any) => ({
   isModalReportTypeActive: state.isModalReportTypeActive,
@@ -48,12 +48,12 @@ const ReportCard = observe(({ id, dataProvider, repaired }: any) => {
       className={REPORT_CARD_CLASS}
       {...look?.card}
     >
-      <Card.Title className={styles.reportCardText}>
+      <Card.Title className={styles['report-card-text']}>
         Having an issue?
       </Card.Title>
       <Card.Description
         tag={KeptP}
-        className={styles.reportCardText}
+        className={styles['report-card-text']}
         {...look?.description}
       >
         Is data on this page outdated, violates copyrights or anything else?
@@ -62,7 +62,7 @@ const ReportCard = observe(({ id, dataProvider, repaired }: any) => {
       </Card.Description>
       <Card.Footer
         tag={KeptDiv}
-        className={styles.reportCardFooter}
+        className={styles['report-card-footer']}
         {...look?.footer}
       >
         <Button onClick={() => setIsModalReportTypeActive(true)}>Report</Button>

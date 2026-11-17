@@ -110,10 +110,10 @@ const DataProviderTemplate = ({
         <header className={styles.header}>
           <DataProviderLogo alt={data.name} imageSrc={data.logo} size="lg" />
           <div className={styles.headerInfo}>
-            <h1 className={styles.headerInfoTitle}>{renderName()}</h1>
-            <span className={styles.subHeaderInfo}>{data.name}</span>
+            <h1 className={styles['header-info-title']}>{renderName()}</h1>
+            <span className={styles['sub-header-info']}>{data.name}</span>
             <h5
-              className={classNames.use(styles.headerInfoCaption, {
+              className={classNames.use(styles['header-info-caption'], {
                 [styles.headerInfoCaptionColor]: !isDataProviderHasAccounts,
               })}
             >
@@ -145,8 +145,8 @@ const DataProviderTemplate = ({
         {/*  styleProp */}
         {/*  pathName={`/data-providers/${data.id}`} */}
         {/* /> */}
-        <div className={styles.sortWrapper}>
-          <span className={styles.searchTotal}>
+        <div className={styles['sort-wrapper']}>
+          <span className={styles['search-total']}>
             {data.outputs.totalHits} research outputs found
           </span>
           <Sort
@@ -157,12 +157,12 @@ const DataProviderTemplate = ({
         </div>
         <Results works={outputs?.results || []} />
         {outputs.data && outputs.data.length === 0 && outputs.error == null && (
-          <div className={styles.noResultsFound}>
+          <div className={styles['no-results-found']}>
             This data provider has not articles yet.
           </div>
         )}
         {outputs.error != null && (
-          <div className={styles.noResultsFound}>
+          <div className={styles['no-results-found']}>
             An error occured. Try to reload the page in a bit or contact us.
           </div>
         )}
@@ -172,20 +172,20 @@ const DataProviderTemplate = ({
       <Search.Sidebar tag="aside">
         {dataSourcesWithNames.length > 0 ? (
           <div>
-            <h3 className={styles.dataSources}>Data sources:</h3>
-            <div className={styles.sourcesWrapper}>
+            <h3 className={styles['data-sources']}>Data sources:</h3>
+            <div className={styles['sources-wrapper']}>
               {dataSourcesWithNames.map(({ item, linked }: any) => (
                 <a
                   key={item}
                   href={`/data-providers/${item}`}
-                  className={classNames.use(styles.sourceItem, {
-                    [styles.activeItem]: +data.id === +item,
+                  className={classNames.use(styles['source-item'], {
+                    [styles['active-item']]: +data.id === +item,
                   })}
                 >
                   {+data.id === +item && (
                     <img src={arrowRight} alt="arrowRight" />
                   )}
-                  <span title={linked.name} className={styles.sourceTitle}>
+                  <span title={linked.name} className={styles['source-title']}>
                     {truncate(linked.name, 40)}
                   </span>
                 </a>

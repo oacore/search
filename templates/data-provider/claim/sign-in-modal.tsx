@@ -35,7 +35,7 @@ const SignInModal = ({ className, setModalActive, onSignInClick }: any) => {
     <Modal
       aria-labelledby="login-to-dashboard-modal"
       onClose={() => setModalActive(false)}
-      className={classNames.use(styles.modalSignIn, className)}
+      className={classNames.use(styles['modal-sign-in'], className)}
     >
       <Modal.Title id="login-to-dashboard-modal">Sign in</Modal.Title>
       <Modal.Content tag="div">

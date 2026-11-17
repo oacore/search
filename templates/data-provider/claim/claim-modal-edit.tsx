@@ -81,7 +81,7 @@ const ClaimModalEdit = (props?: any) => {
         ) : (
           <p>
             To give you{' '}
-            <span className={styles.backlightPrime}>instant access</span> to
+            <span className={styles['backlight-prime']}>instant access</span> to
             Repository Dashboard, we need to verify that you have ownership of
             of the repository by sending an email to the registered repository
             administrator.
@@ -95,7 +95,7 @@ const ClaimModalEdit = (props?: any) => {
           placeholder="You need enter email."
           required
           {...bindEmail}
-          className={classNames.use(styles.claimCardGroup)}
+          className={classNames.use(styles['claim-card-group'])}
           helper={
             isDataProviderHasAccounts ? 'Your institutional email address.' : ''
           }
@@ -107,7 +107,9 @@ const ClaimModalEdit = (props?: any) => {
             If there is no registered repository adminstrator email or you do
             not have have access to the the registered email address, then you
             can change the email address. However, this means that a{' '}
-            <span className={styles.backlightPrime}>manual verification</span>{' '}
+            <span className={styles['backlight-prime']}>
+              manual verification
+            </span>{' '}
             process will be used and it might take a few days to give you
             access.
           </div>
@@ -120,7 +122,7 @@ const ClaimModalEdit = (props?: any) => {
           placeholder="How would you like to be called?"
           required
           {...bindName}
-          className={classNames.use(styles.claimCardGroup)}
+          className={classNames.use(styles['claim-card-group'])}
           helper={<> </>}
         />
         <TextField
@@ -138,7 +140,10 @@ const ClaimModalEdit = (props?: any) => {
         {isDataProviderHasAccounts ? (
           ''
         ) : (
-          <Button onClick={handleBackSubmit} className={styles.buttonRevers}>
+          <Button
+            onClick={handleBackSubmit}
+            className={styles['button-revers']}
+          >
             Back
           </Button>
         )}

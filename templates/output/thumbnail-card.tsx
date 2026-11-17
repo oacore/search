@@ -65,13 +65,13 @@ const FullTextThumbnail = ({
       )}
       {href && (
         <div>
-          <div className={styles.buttonContainer}>
+          <div className={styles['button-container']}>
             <Button variant="contained" href={href} tag="a">
               Open in the Core reader{' '}
               <Icon src="#open-in-new" className={styles.icon} />
             </Button>
           </div>
-          <div className={styles.downloadContainer}>
+          <div className={styles['download-container']}>
             <Button
               className={styles.download}
               target="_blank"

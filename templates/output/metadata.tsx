@@ -35,7 +35,7 @@ const Metadata = ({
             >
               <a
                 href={`https://core.ac.uk/search?q=authors:(${name})`}
-                className={styles.authorLink}
+                className={styles['author-link']}
               >
                 {(name || '').replace(/([^,]*),\s(.*)/, '$2 $1')}
               </a>

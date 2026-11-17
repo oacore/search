@@ -39,7 +39,7 @@ const Search = observe(() => {
       name="search-filter"
       label="Search"
       size="small"
-      className={styles.textField}
+      className={styles['text-field']}
       statusIcon="#magnify"
     />
   )

@@ -13,7 +13,10 @@ const ResultStats = ({
   total,
   ...restProps
 }: any) => (
-  <Tag className={classNames.use(styles.resultStats, className)} {...restProps}>
+  <Tag
+    className={classNames.use(styles['result-stats'], className)}
+    {...restProps}
+  >
     Showing {formatNumber(from)}-{formatNumber(to)} of {formatNumber(total)}
   </Tag>
 )

@@ -46,11 +46,11 @@ const CopyableInput = ({ id, value }: any) => {
 
   return (
     <Form.Group tag="div" className={styles.group}>
-      <Form.Addon place="append" className={styles.appendIcon}>
+      <Form.Addon place="append" className={styles['append-icon']}>
         <Popover placement="top" content={tooltipText} visible={isTooltipShown}>
           <Button
             type="button"
-            className={styles.copyButton}
+            className={styles['copy-button']}
             onClick={copyToClipboard}
             onMouseEnter={() => dispatchTooltip('show')}
             onMouseLeave={() => dispatchTooltip('hide')}

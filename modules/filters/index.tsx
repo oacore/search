@@ -47,12 +47,12 @@ const FiltersBar = observe(
     return (
       <div
         className={classNames.use(styles.container, {
-          [styles.searchContainer]: styleProp,
+          [styles['search-container']]: styleProp,
         })}
       >
         <Button
           type="button"
-          className={classNames.use(styles.button, styles.toggleButton)}
+          className={classNames.use(styles.button, styles['toggle-button'])}
           onClick={onToggleFiltersBar}
         >
           Filters
@@ -60,7 +60,7 @@ const FiltersBar = observe(
         <ul
           className={classNames
             .use(styles.bar, {
-              [styles.searchBar]: styleProp,
+              [styles['search-bar']]: styleProp,
               [styles.expanded]: visibleFiltersBar,
             })
             .join(className)}
@@ -78,7 +78,10 @@ const FiltersBar = observe(
                   type="button"
                   variant="text"
                   onClick={onHandleClickClear}
-                  className={classNames.use(styles.clearButton, styles.button)}
+                  className={classNames.use(
+                    styles['clear-button'],
+                    styles.button
+                  )}
                 >
                   Clear all filters
                 </Button>

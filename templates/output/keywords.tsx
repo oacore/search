@@ -6,9 +6,9 @@ import styles from './styles.module.css'
 const Keywords = ({ tags = [], tag: Tag = 'div', ...htmlProps }: any) => (
   <Tag {...htmlProps}>
     {tags && tags.length > 0 && (
-      <Icon src="#tag" alt="" className={styles.keywordsIcon} />
+      <Icon src="#tag" alt="" className={styles['keywords-icon']} />
     )}
-    <ul className={styles.keywordsList}>
+    <ul className={styles['keywords-list']}>
       {tags.map((k: any) => (
         <li key={k}>
           <a

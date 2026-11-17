@@ -21,7 +21,7 @@ const AddDataProviderForm = React.forwardRef(
     }
 
     return (
-      <Card className={styles.addDataProviderCard}>
+      <Card className={styles['add-data-provider-card']}>
         <h3>Suggest a new data provider</h3>
         <form ref={ref} onSubmit={handleSubmit}>
           <TextField
@@ -37,7 +37,7 @@ const AddDataProviderForm = React.forwardRef(
             statusIcon
             required
           />
-          <div className={styles.submitSection}>
+          <div className={styles['submit-section']}>
             <Button
               title={message?.finishButtonTitle}
               type="submit"

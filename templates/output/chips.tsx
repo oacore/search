@@ -18,17 +18,17 @@ const Chip = ({ children, className, variant = 'text', ...htmlProps }: any) => (
 )
 
 const Chips = () => (
-  <MetadataList className={styles.chipsList}>
+  <MetadataList className={styles['chips-list']}>
     <MetadataList.Item
       id="publication-type"
       label="Publication type"
-      className={styles.chipsItem}
+      className={styles['chips-item']}
     >
       <Chip variant="contained" style={{ marginRight: '0.5rem' }}>
         Proceedings article
       </Chip>
     </MetadataList.Item>
-    <MetadataList.Item id="doi" label="DOI" className={styles.chipsItem}>
+    <MetadataList.Item id="doi" label="DOI" className={styles['chips-item']}>
       <Chip>10.1145/2910896.2925448</Chip>
     </MetadataList.Item>
   </MetadataList>
