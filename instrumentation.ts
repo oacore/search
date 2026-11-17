@@ -17,6 +17,10 @@ export async function register() {
     await import('@sentry/nextjs')
   init({
     dsn: process.env.SENTRY_DSN,
+    // @sentry/node's environment: SENTRY_ENVIRONMENT, else the SDK default
+    // 'production' (@sentry/nextjs would fall back to Vercel's env and
+    // NODE_ENV)
+    environment: process.env.SENTRY_ENVIRONMENT,
     // no client-report envelopes and no trace headers on outgoing requests
     // (sessions: see below)
     sendClientReports: false,
