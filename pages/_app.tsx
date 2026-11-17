@@ -19,7 +19,7 @@ import Main from 'main'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet.markercluster/dist/MarkerCluster.css'
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
-import '@oacore/design/lib/index.css'
+import '../styles/global/design/index.css'
 import 'main/global.css'
 
 process.on('unhandledRejection', (err: any) => {

@@ -1,0 +1,37 @@
+/*!
+ * Spacing
+ *
+ * Based on Bootstrap Reboot.
+ * Bootstrap is licensed MIT. https://github.com/twbs/bootstrap
+ */
+
+:root{
+  --spacer:1.5rem;
+}
+address,blockquote,dl,figure,h1,h2,h3,h4,h5,h6,ol,p,ul{
+  margin:1.5rem 0;
+  margin:var(--spacer, 1rem) 0;
+}
+
+ol ol,ol ul,ul ol,ul ul{
+  margin-top:0;
+  margin-bottom:0;
+}
+pre{
+  display:block;
+  margin:1.5rem;
+  margin:var(--spacer, 1rem);
+  overflow:auto;
+}
+
+img,svg{
+  vertical-align:middle;
+}
+:first-child{
+  margin-top:0;
+}
+
+:last-child{
+  margin-bottom:0;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL25vZGVfbW9kdWxlcy9Ab2Fjb3JlL2Rlc2lnbi9zcmMvZm91bmRhdGlvbi9zcGFjaW5nLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7RUFLRTs7QUFFRjtFQUNFLGVBQWdCO0FBQ2xCO0FBd0JBO0VBR0UsZUFBNkI7RUFBN0IsNEJBQTZCO0FBQy9COztBQUVBO0VBSUUsWUFBYTtFQUNiLGVBQWdCO0FBQ2xCO0FBR0E7RUFDRSxhQUFjO0VBQ2QsYUFBMkI7RUFBM0IsMEJBQTJCO0VBQzNCLGFBQWM7QUFDaEI7O0FBT0E7RUFFRSxxQkFBc0I7QUFDeEI7QUFHQTtFQUNFLFlBQWE7QUFDZjs7QUFFQTtFQUNFLGVBQWdCO0FBQ2xCIiwiZmlsZSI6InNwYWNpbmcuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyohXG4gKiBTcGFjaW5nXG4gKlxuICogQmFzZWQgb24gQm9vdHN0cmFwIFJlYm9vdC5cbiAqIEJvb3RzdHJhcCBpcyBsaWNlbnNlZCBNSVQuIGh0dHBzOi8vZ2l0aHViLmNvbS90d2JzL2Jvb3RzdHJhcFxuICovXG5cbjpyb290IHtcbiAgLS1zcGFjZXI6IDEuNXJlbTtcbn1cblxuaDEsXG5oMixcbmgzLFxuaDQsXG5oNSxcbmg2IHtcbiAgbWFyZ2luOiB2YXIoLS1zcGFjZXIsIDFyZW0pIDA7XG59XG5cbnAge1xuICBtYXJnaW46IHZhcigtLXNwYWNlciwgMXJlbSkgMDtcbn1cblxuYWRkcmVzcyB7XG4gIG1hcmdpbjogdmFyKC0tc3BhY2VyLCAxcmVtKSAwO1xufVxuXG5ibG9ja3F1b3RlIHtcbiAgbWFyZ2luOiB2YXIoLS1zcGFjZXIsIDFyZW0pIDA7XG59XG5cbi8qIExpc3RzICovXG5vbCxcbnVsLFxuZGwge1xuICBtYXJnaW46IHZhcigtLXNwYWNlciwgMXJlbSkgMDtcbn1cblxub2wgb2wsXG51bCB1bCxcbm9sIHVsLFxudWwgb2wge1xuICBtYXJnaW4tdG9wOiAwO1xuICBtYXJnaW4tYm90dG9tOiAwO1xufVxuXG4vKiBDb2RlICovXG5wcmUge1xuICBkaXNwbGF5OiBibG9jaztcbiAgbWFyZ2luOiB2YXIoLS1zcGFjZXIsIDFyZW0pO1xuICBvdmVyZmxvdzogYXV0bztcbn1cblxuLyogRmlndXJlcyAqL1xuZmlndXJlIHtcbiAgbWFyZ2luOiB2YXIoLS1zcGFjZXIsIDFyZW0pIDA7XG59XG5cbmltZyxcbnN2ZyB7XG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG59XG5cbi8qIE1hcmdpbiBmaXggKi9cbjpmaXJzdC1jaGlsZCB7XG4gIG1hcmdpbi10b3A6IDA7XG59XG5cbjpsYXN0LWNoaWxkIHtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbn1cbiJdfQ== */

@@ -1,0 +1,26 @@
+/*
+* 1. Remove animations when motion is reduced (opinionated).
+* 2. Remove fixed background attachments when motion is reduced (opinionated).
+* 3. Remove timed scrolling behaviors when motion is reduced (opinionated).
+* 4. Remove transitions when motion is reduced (opinionated).
+*/
+
+@media(prefers-reduced-motion:reduce) {
+  *,:after,:before {
+    -webkit-animation-delay: -1ms !important;
+            animation-delay: -1ms !important; /* 1 */
+    -webkit-animation-duration: 1ms !important;
+            animation-duration: 1ms !important; /* 1 */
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important; /* 1 */
+    background-attachment: scroll !important;
+    background-attachment: initial !important; /* 2 */
+    scroll-behavior: auto !important; /* 3 */
+    -webkit-transition-delay: 0s !important;
+            transition-delay: 0s !important; /* 4 */
+    -webkit-transition-duration: 0s !important;
+            transition-duration: 0s !important; /* 4 */
+  }
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL25vZGVfbW9kdWxlcy9zYW5pdGl6ZS5jc3MvcmVkdWNlLW1vdGlvbi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7O0NBS0M7O0FBRUQ7RUFDRTtJQUdFLHdDQUFnQztZQUFoQyxnQ0FBZ0MsRUFBRSxNQUFNO0lBQ3hDLDBDQUFrQztZQUFsQyxrQ0FBa0MsRUFBRSxNQUFNO0lBQzFDLCtDQUF1QztZQUF2Qyx1Q0FBdUMsRUFBRSxNQUFNO0lBQy9DLHdDQUF5QztJQUF6Qyx5Q0FBeUMsRUFBRSxNQUFNO0lBQ2pELGdDQUFnQyxFQUFFLE1BQU07SUFDeEMsdUNBQStCO1lBQS9CLCtCQUErQixFQUFFLE1BQU07SUFDdkMsMENBQWtDO1lBQWxDLGtDQUFrQyxFQUFFLE1BQU07RUFDNUM7QUFDRiIsImZpbGUiOiJyZWR1Y2UtbW90aW9uLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4qIDEuIFJlbW92ZSBhbmltYXRpb25zIHdoZW4gbW90aW9uIGlzIHJlZHVjZWQgKG9waW5pb25hdGVkKS5cbiogMi4gUmVtb3ZlIGZpeGVkIGJhY2tncm91bmQgYXR0YWNobWVudHMgd2hlbiBtb3Rpb24gaXMgcmVkdWNlZCAob3BpbmlvbmF0ZWQpLlxuKiAzLiBSZW1vdmUgdGltZWQgc2Nyb2xsaW5nIGJlaGF2aW9ycyB3aGVuIG1vdGlvbiBpcyByZWR1Y2VkIChvcGluaW9uYXRlZCkuXG4qIDQuIFJlbW92ZSB0cmFuc2l0aW9ucyB3aGVuIG1vdGlvbiBpcyByZWR1Y2VkIChvcGluaW9uYXRlZCkuXG4qL1xuXG5AbWVkaWEgKHByZWZlcnMtcmVkdWNlZC1tb3Rpb246IHJlZHVjZSkge1xuICAqLFxuICA6OmJlZm9yZSxcbiAgOjphZnRlciB7XG4gICAgYW5pbWF0aW9uLWRlbGF5OiAtMW1zICFpbXBvcnRhbnQ7IC8qIDEgKi9cbiAgICBhbmltYXRpb24tZHVyYXRpb246IDFtcyAhaW1wb3J0YW50OyAvKiAxICovXG4gICAgYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogMSAhaW1wb3J0YW50OyAvKiAxICovXG4gICAgYmFja2dyb3VuZC1hdHRhY2htZW50OiBpbml0aWFsICFpbXBvcnRhbnQ7IC8qIDIgKi9cbiAgICBzY3JvbGwtYmVoYXZpb3I6IGF1dG8gIWltcG9ydGFudDsgLyogMyAqL1xuICAgIHRyYW5zaXRpb24tZGVsYXk6IDBzICFpbXBvcnRhbnQ7IC8qIDQgKi9cbiAgICB0cmFuc2l0aW9uLWR1cmF0aW9uOiAwcyAhaW1wb3J0YW50OyAvKiA0ICovXG4gIH1cbn1cbiJdfQ== */
