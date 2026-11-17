@@ -4,7 +4,9 @@
 // tsconfig.json compiler options), cut to the keys @swc/core reads. Its pass
 // set must equal the babel-jest run's.
 const path = require('path')
+
 const { getJestSWCOptions } = require('next/dist/build/swc/options')
+
 const base = require('./jest.config')
 const { compilerOptions } = require('./tsconfig.json')
 
