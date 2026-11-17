@@ -4,8 +4,10 @@
 // (the plugins, order and options of postcss.config.js, loaded the way Next loads them). From then on the build
 // needs no PostCSS plugin for it: custom media and @extend are resolved, autoprefixer output is written.
 //
-// Usage: node scripts/freeze-design-css.mjs   (from the repository root; needs the chain's plugins installed,
-// i.e. the tree before CS-CSS-4 removed them)
+// Usage: node scripts/freeze-design-css.mjs   (from the repository root). It needs the chain of the tree it was
+// written for: postcss.config.js and its plugins before CS-CSS-4 removed them (git history); on a later tree it
+// would copy the files unprocessed. The heading rules of foundation/type.css carry a later hand edit (step 6.9,
+// the cssnano-simple 2.0.0 merges written out); a re-run would drop it.
 //
 // Walk: @oacore/design/lib/index.css and every file its @import rules reach, in import order: the lib files keep
 // their path under styles/global/design/; `~package/file` imports (sanitize.css, slick-carousel) go to
