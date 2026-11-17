@@ -437,6 +437,16 @@ export async function run(opts = {}) {
   const capture = Boolean(opts.capture)
   const baselineFile = opts.baseline || DEFAULT_BASELINE
   const base = capture ? null : mapRenamed(readJson(baselineFile))
+  // in a moved .ts/.tsx file the TypeScript block reports the W1
+  // no-unused-vars finding as @typescript-eslint/no-unused-vars (CS-TS-4)
+  if (base)
+    base.eslint.entries = base.eslint.entries.map(([p, rule, n]) => [
+      p,
+      rule === 'no-unused-vars' && /\.tsx?$/.test(p)
+        ? '@typescript-eslint/no-unused-vars'
+        : rule,
+      n,
+    ])
   const ratchetFile = ratchet.DEFAULT_RATCHET
   const ledgerRows = fs.existsSync(DEFAULT_LEDGER)
     ? parseLedger(fs.readFileSync(DEFAULT_LEDGER, 'utf8'))
@@ -492,7 +502,9 @@ export async function run(opts = {}) {
     ? null
     : await harnessEvidence(
         harnessFiles,
-        appFiles.find((f) => f.endsWith('.jsx'))
+        // an application .tsx file since CS-TS-4 (6.6) moved every .jsx
+        appFiles.find((f) => f.endsWith('.jsx')) ||
+          appFiles.find((f) => f.endsWith('.tsx'))
       )
 
   const current = {

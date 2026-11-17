@@ -94,6 +94,14 @@ const TS4_SUPPRESSIONS = [
   ],
   ['lib/loader.ts', '@typescript-eslint/no-unsafe-declaration-merging', 2],
   ['utils/data-providers-transform.ts', '@typescript-eslint/no-unused-vars', 1],
+  ['pages/_app.tsx', '@typescript-eslint/no-unsafe-declaration-merging', 2],
+  ['pages/outputs/[id].tsx', '@typescript-eslint/no-unused-vars', 1],
+  ['pages/works/[id].tsx', '@typescript-eslint/no-unused-vars', 1],
+  [
+    'templates/output/thumbnail-card.tsx',
+    '@typescript-eslint/no-unused-vars',
+    2,
+  ],
 ]
 // stylelint 17 on unchanged code: the same (path, rule, count) as stylelint 13
 const STYLELINT_FINDINGS = [
@@ -260,6 +268,16 @@ const renamed = (p) => {
   return fs.existsSync(path.join(ROOT, to)) ? to : p
 }
 const current = (rows) => rows.map(([f, ...rest]) => [renamed(f), ...rest])
+// in a moved file the TypeScript block reports the W1 no-unused-vars finding
+// as @typescript-eslint/no-unused-vars (scripts/lint-parity.mjs)
+const currentFindings = (rows) =>
+  current(rows).map(([f, rule, n]) => [
+    f,
+    rule === 'no-unused-vars' && /\.tsx?$/.test(f)
+      ? '@typescript-eslint/no-unused-vars'
+      : rule,
+    n,
+  ])
 
 // the differences of a run from a literal table as {key, from, to}: key
 // `<path> / <rule>`, counts as strings (0 = no finding)
@@ -432,7 +450,9 @@ describe('T-001 @P0 lint parity', () => {
     expect(base.tools.stylelint).toBe(report.tools.stylelint)
     expect(base.tools.prettier).toBe(report.tools.prettier)
     // the script reads the same baseline
-    expect(report.baseline.eslint.entries).toEqual(current(ESLINT_FINDINGS))
+    expect(report.baseline.eslint.entries).toEqual(
+      currentFindings(ESLINT_FINDINGS)
+    )
     expect(report.baseline.stylelint.entries).toEqual(STYLELINT_FINDINGS)
   })
 
@@ -456,7 +476,10 @@ describe('T-001 @P0 lint parity', () => {
   })
 
   test('T-001 c1 @P0 ESLint findings of the application files equal the baseline (path, rule, count)', () => {
-    const diffs = differences(current(ESLINT_FINDINGS), report.eslint.entries)
+    const diffs = differences(
+      currentFindings(ESLINT_FINDINGS),
+      report.eslint.entries
+    )
     expect(diffs.filter((d) => !coveredBy(d))).toEqual([])
     expect(report.eslint.ledger.uncovered).toEqual([])
     // the script finds the same differences and accepts them by the same rows
@@ -483,8 +506,8 @@ describe('T-001 @P0 lint parity', () => {
       )
     )
     const expected = sortRows([
-      ...SUPPRESSIONS,
-      ...LINT5_SUPPRESSIONS,
+      ...current(SUPPRESSIONS),
+      ...current(LINT5_SUPPRESSIONS),
       ...TS4_SUPPRESSIONS,
     ])
     expect(rows).toEqual(expected)

@@ -2,7 +2,7 @@
   "name": "search",
   "version": "1.0.2",
   "description": "CORE's search interface",
-  "main": "pages/index.js",
+  "main": "pages/index.ts",
   "private": true,
   "repository": {
     "type": "git",

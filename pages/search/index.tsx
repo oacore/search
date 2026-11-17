@@ -1,0 +1,163 @@
+import React from 'react'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { Header } from '@oacore/design/lib/modules'
+
+import ErrorCard from '../error-card'
+
+import { findUrlsByType } from 'utils/helpers'
+import log from 'utils/logger'
+import { fetchWorks } from 'api/search'
+import apiRequest from 'api'
+import { useStore } from 'store'
+import Template from 'templates/search'
+import QueryError from 'templates/error/query'
+import { transformDataProviders } from 'utils/data-providers-transform'
+import { pickFeaturedMember } from 'templates/search/utils/featured-member'
+
+export const getServerSideProps = async ({ query: searchParams }: any) => {
+  if (Object.keys(searchParams).length === 0) {
+    return {
+      redirect: {
+        permanent: true,
+        destination: '/',
+      },
+      props: {},
+    }
+  }
+  // TODO for nice response
+  // const { q, page = 1, limit = 10, sort = 'recency' } = searchParams
+  const { q, page = 1, limit = 10, sort = 'relevance', t } = searchParams
+
+  const data: any = {
+    currentPage: +page,
+    query: q,
+    sort,
+  }
+
+  if (page <= 1000) {
+    const offset = page - 1 > 0 ? (page - 1) * 10 : page - 1
+
+    const body = {
+      q,
+      offset,
+      limit,
+      t,
+      exclude: ['fullText'],
+      sort: sort === 'recent' ? 'recency' : sort,
+    }
+    const reqId = `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`
+    try {
+      console.time(`fetchWorks:${reqId}`)
+      const response = await fetchWorks(body)
+      console.timeEnd(`fetchWorks:${reqId}`)
+
+      if (response?.results) {
+        console.time(`transformDataProviders:${reqId}`)
+        const transformedWorks = await Promise.all(
+          response.results.map(async (work: any) => {
+            const articleWithUrls = findUrlsByType(work)
+            return {
+              ...articleWithUrls,
+              dataProviders: await transformDataProviders(work.dataProviders),
+            }
+          })
+        )
+        console.timeEnd(`transformDataProviders:${reqId}`)
+
+        Object.assign(data, {
+          ...response,
+          results: transformedWorks,
+        })
+      } else data.results = []
+    } catch (error: any) {
+      log(error)
+      const queryError = {
+        query: q,
+        status: error?.status ?? null,
+      }
+      return {
+        props: { queryError },
+      }
+    }
+  } else data.results = []
+
+  let members = []
+  try {
+    const { data: membersData } = await apiRequest('/members')
+    members = (Array.isArray(membersData) ? membersData : []).filter(
+      (member: any) => {
+        const orgName = member?.organisation_name?.toLowerCase() || ''
+        return (
+          member?.billing_type !== 'starting' &&
+          orgName &&
+          !orgName.includes('test') &&
+          !orgName.includes('demo')
+        )
+      }
+    )
+  } catch (membersError: any) {
+    log(membersError)
+  }
+
+  const featuredMember = pickFeaturedMember(members)
+
+  return {
+    props: {
+      data,
+      members: featuredMember ? [featuredMember] : [],
+    },
+  }
+}
+
+const Search = ({ data, queryError, members }: any) => {
+  const router = useRouter()
+
+  const searchItem = router.query.q
+
+  if (queryError?.status) return <ErrorCard />
+
+  const { statistics } = useStore()
+  const totalArticlesCount =
+    statistics?.totalArticlesCount.toLocaleString('en-GB')
+  Header.useSearchBar(
+    {
+      onQueryChanged: (searchTerm?: any, pathName?: any) => {
+        router.push({
+          pathname: pathName,
+          query: {
+            ...router.query,
+            q: searchTerm,
+            page: 1,
+          },
+        })
+      },
+      useAdvancedSearch: true,
+      initQuery: data?.query,
+      searchBarProps: {
+        label: `Search ${totalArticlesCount} from papers around the world`,
+        placeholder: `Search ${totalArticlesCount} from papers around the world`,
+        prependIcon: '#magnify',
+        changeOnBlur: false,
+      },
+    },
+    { isHidden: false }
+  )
+
+  return (
+    <div>
+      {data?.results?.length >= 1 ? (
+        <>
+          <Head>
+            <title>Search CORE</title>
+          </Head>
+          <Template data={data} members={members} />
+        </>
+      ) : (
+        <QueryError query={searchItem} />
+      )}
+    </div>
+  )
+}
+
+export default Search

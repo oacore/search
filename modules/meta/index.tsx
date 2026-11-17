@@ -1,0 +1,164 @@
+import React from 'react'
+
+const DCMeta = ({
+  data: { title, authors, abstract, downloadLink, year, oai, subjects },
+}: any) => (
+  <>
+    {downloadLink && <meta name="DC.format" content={downloadLink} />}
+    {(authors || []).map(({ name }: any) => (
+      <meta key={name} name="DC.creator" content={name} />
+    ))}
+    {title && <meta name="DC.title" content={title} />}
+    {abstract && <meta name="DCTERMS.abstract" content={abstract} />}
+    {year && <meta name="DC.issued" content={year} />}
+    {oai && <meta name="DC.identifier" content={oai} />}
+    {(subjects || []).map((subject: any) => (
+      <meta key={subject} name="DC.subject" content={subject} />
+    ))}
+  </>
+)
+
+// publishedDate may arrive as an ISO string, a bare year (string or number),
+// a Date, or garbage; never throw during SSR.
+const formatCitationDate = (date?: any) => {
+  let value = date
+  if (value instanceof Date) {
+    if (Number.isNaN(value.getTime())) return null
+    value = value.toISOString()
+  }
+  if (typeof value === 'number') value = String(value)
+  if (typeof value !== 'string') return null
+
+  const match = value.trim().match(/^(\d{4})(?:-(\d{1,2})(?:-(\d{1,2}))?)?/)
+  if (!match) return null
+
+  const [, year, month, day] = match
+  if (!month) return year
+  if (!day) return `${year}/${Number(month)}`
+  return `${year}/${Number(month)}/${day}`
+}
+
+const CitationMeta = ({
+  data: { title, authors, downloadLink, year, publishedDate },
+}: any) => {
+  const publicationDate =
+    (publishedDate && formatCitationDate(publishedDate)) || year
+
+  return (
+    <>
+      {downloadLink && <meta name="citation_pdf_url" content={downloadLink} />}
+      {title && <meta name="citation_title" content={title} />}
+      {(authors || []).map(({ name }: any) => (
+        <meta key={name} name="citation_author" content={name} />
+      ))}
+      {publicationDate && (
+        <meta name="citation_publication_date" content={publicationDate} />
+      )}
+    </>
+  )
+}
+
+const addEllipsis = (text?: any, max?: any) =>
+  text.length <= max ? text : `${text.substring(0, max - 3)}...`
+
+const structuredMetadata = ({
+  id,
+  title,
+  authors,
+  abstract,
+  publisher,
+  publishedDate,
+  dataProvider,
+}: any) => {
+  const ld = {
+    '@context': 'http://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'item': {
+              '@id': 'https://core.ac.uk',
+              'name': 'CORE',
+            },
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'item': {
+              '@id': `https://core.ac.uk/reader/${id}`,
+              'name': title,
+              'image': `https://core.ac.uk/image/${id}/large`,
+            },
+          },
+        ],
+      },
+      {
+        '@type': 'ScholarlyArticle',
+        '@id': `https://core.ac.uk/reader/${id}`,
+        'headline': addEllipsis(title || '', 110),
+        'abstract': abstract || undefined,
+        'name': title,
+        'author': (authors || []).map((author: any) => ({
+          '@type': 'Person',
+          'name': author,
+        })),
+        'datePublished': publishedDate || '',
+        'isAccessibleForFree': true,
+        'provider': {
+          '@type': 'Organization',
+          'name': dataProvider.name || '',
+        },
+        'image': `https://core.ac.uk/image/${id}/large`,
+        'publisher': {
+          '@type': 'Organization',
+          'name': publisher || '',
+        },
+      },
+    ],
+  }
+
+  if (dataProvider.id) {
+    const foundedElem: any = ld['@graph'].find(
+      (item: any) => item['@type'] === 'BreadcrumbList'
+    )
+    foundedElem.itemListElement.push({
+      '@type': 'ListItem',
+      'position': 3,
+      'item': {
+        '@id': `${
+          dataProvider.id
+            ? `https://core.ac.uk/search?q=repositories.id:(${dataProvider.id})`
+            : null
+        }`,
+        'name': dataProvider.name || 'Unknown',
+      },
+    })
+  }
+
+  return JSON.stringify(ld)
+}
+
+// Intentionally embedding JSON-LD
+/* eslint-disable react/no-danger */
+const LinkedData = ({ data }: any) => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: structuredMetadata(data),
+    }}
+  />
+)
+/* eslint-enable react/no-danger */
+
+const Meta = ({ data }: any) => (
+  <>
+    <CitationMeta data={data} />
+    <DCMeta data={data} />
+    <LinkedData data={data} />
+  </>
+)
+
+export default Meta

@@ -179,29 +179,29 @@ const scan = () => {
 // 24 reads of a class that its module does not define (existing bug, D1):
 // [file, key, reads]
 const PINNED_DANGLING = [
-  ['modules/dropdown/index.jsx', 'ellipsis', 2],
-  ['modules/filters/bar-item.jsx', 'barItemIcon', 1],
-  ['modules/filters/bar-item.jsx', 'sortBarItem', 1],
-  ['modules/filters/loading-block.jsx', 'barItemIcon', 1],
-  ['templates/data-provider/claim/claim-modal-edit.jsx', 'modal', 1],
-  ['templates/data-provider/claim/claim-success-modal.jsx', 'modal', 1],
-  ['templates/data-provider/index.jsx', 'headerInfo', 1],
-  ['templates/data-provider/index.jsx', 'headerInfoCaptionColor', 1],
-  ['templates/data-provider/index.jsx', 'headerInfoCaptionLink', 1],
-  ['templates/data-provider/index.jsx', 'headerInfoCaptionLinkColor', 1],
-  ['templates/data-provider/logo.jsx', 'repositoryLogo', 1],
-  ['templates/output/card-dropdown.jsx', 'dropdownContent', 1],
-  ['templates/output/index.jsx', 'oaiLogo', 1],
-  ['templates/output/index.jsx', 'oaiModalTitle', 1],
-  ['templates/output/report/report-form-modal.jsx', 'modal', 1],
-  ['templates/output/report/report-success-modal.jsx', 'customLink', 1],
-  ['templates/output/report/report-success-modal.jsx', 'modal', 1],
-  ['templates/output/report/report-type-modal.jsx', 'modal', 1],
-  ['templates/output/similar-works.jsx', 'searchResult', 1],
-  ['templates/search/index.jsx', 'more', 1],
-  ['templates/search/index.jsx', 'sort', 1],
-  ['templates/search/modals/download-results.jsx', 'modal', 1],
-  ['templates/search/sort.jsx', 'sortBoxIcon', 1],
+  ['modules/dropdown/index.tsx', 'ellipsis', 2],
+  ['modules/filters/bar-item.tsx', 'barItemIcon', 1],
+  ['modules/filters/bar-item.tsx', 'sortBarItem', 1],
+  ['modules/filters/loading-block.tsx', 'barItemIcon', 1],
+  ['templates/data-provider/claim/claim-modal-edit.tsx', 'modal', 1],
+  ['templates/data-provider/claim/claim-success-modal.tsx', 'modal', 1],
+  ['templates/data-provider/index.tsx', 'headerInfo', 1],
+  ['templates/data-provider/index.tsx', 'headerInfoCaptionColor', 1],
+  ['templates/data-provider/index.tsx', 'headerInfoCaptionLink', 1],
+  ['templates/data-provider/index.tsx', 'headerInfoCaptionLinkColor', 1],
+  ['templates/data-provider/logo.tsx', 'repositoryLogo', 1],
+  ['templates/output/card-dropdown.tsx', 'dropdownContent', 1],
+  ['templates/output/index.tsx', 'oaiLogo', 1],
+  ['templates/output/index.tsx', 'oaiModalTitle', 1],
+  ['templates/output/report/report-form-modal.tsx', 'modal', 1],
+  ['templates/output/report/report-success-modal.tsx', 'customLink', 1],
+  ['templates/output/report/report-success-modal.tsx', 'modal', 1],
+  ['templates/output/report/report-type-modal.tsx', 'modal', 1],
+  ['templates/output/similar-works.tsx', 'searchResult', 1],
+  ['templates/search/index.tsx', 'more', 1],
+  ['templates/search/index.tsx', 'sort', 1],
+  ['templates/search/modals/download-results.tsx', 'modal', 1],
+  ['templates/search/sort.tsx', 'sortBoxIcon', 1],
 ]
 
 // reads grouped by (file, key), sorted
@@ -225,9 +225,10 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
     s = scan()
   }, 120000)
 
-  test('T-002 @P0 67 files import a *.module.css (all .jsx, default imports): the 26 CSS modules of the repository', () => {
+  test('T-002 @P0 67 files import a *.module.css (all .tsx, default imports): the 26 CSS modules of the repository', () => {
     expect(s.importers).toHaveLength(67) // AD-157
-    expect(s.importers.filter((i) => !/\.jsx$/.test(i.file))).toEqual([])
+    // CS-TS-4 (6.6): the importers are .tsx since the move
+    expect(s.importers.filter((i) => !/\.tsx$/.test(i.file))).toEqual([])
     // one CSS module per importer
     expect(s.importers.filter((i) => i.css.length !== 1)).toEqual([])
     expect([...s.modules].sort()).toEqual(cssModules())
@@ -235,7 +236,7 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
     // other CSS imports: the global ones of pages/_app.jsx, without bindings
     const other = s.otherCssImports
     expect(other.map((c) => c[0])).toEqual(
-      Array(other.length).fill('pages/_app.jsx')
+      Array(other.length).fill('pages/_app.tsx')
     )
     expect(other.filter((c) => c[2] !== 0)).toEqual([])
     expect(other.map((c) => c[1])).toEqual(
@@ -250,7 +251,7 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
     expect(s.reads).toHaveLength(365) // AD-157
     expect(s.dynamic).toEqual([
       {
-        file: 'modules/logo/index.jsx',
+        file: 'modules/logo/index.tsx',
         css: 'modules/logo/styles.module.css',
         expr: 'styles[size]',
       },
