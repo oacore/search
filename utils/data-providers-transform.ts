@@ -2,8 +2,8 @@ import cachedMembers from 'data/.members.json'
 import cachedDataProviders from 'data/.formap.json'
 import { fetchLogo } from 'api/data-provider'
 
-function checkMembership(dataProviderId) {
-  return cachedMembers.find((item) => {
+function checkMembership(dataProviderId?: any) {
+  return cachedMembers.find((item: any) => {
     if (Array.isArray(item.repo_id)) {
       return (
         item.repo_id.includes(dataProviderId) && item.billingType !== 'starting'
@@ -14,28 +14,28 @@ function checkMembership(dataProviderId) {
   })
 }
 
-function checkDataProvider(dataProviderId) {
-  return cachedMembers.find((item) => {
+function checkDataProvider(dataProviderId?: any) {
+  return cachedMembers.find((item: any) => {
     if (Array.isArray(item.repo_id))
       return item.repo_id.includes(dataProviderId)
     return +item.repo_id === +dataProviderId
   })
 }
 
-const checkLogo = async (dataProviderId, logoUrl) => {
+const checkLogo = async (dataProviderId?: any, logoUrl?: any) => {
   const isMember = !!checkMembership(dataProviderId)
   if (!isMember) return null
   try {
     await fetchLogo(logoUrl)
     return logoUrl
-  } catch (error) {
+  } catch (error: any) {
     return null
   }
 }
 
-function checkType(dataProviderId) {
+function checkType(dataProviderId?: any) {
   // TODO To many requests to this function
-  return cachedMembers.find((item) => {
+  return cachedMembers.find((item: any) => {
     if (Array.isArray(item.repo_id))
       return item.repo_id.includes(dataProviderId?.toString())
     return +item.repo_id === +dataProviderId
@@ -60,10 +60,10 @@ function checkType(dataProviderId) {
 //   return transformedData
 // }
 
-const transformDataProviders = async (dataProviders) => {
+const transformDataProviders = async (dataProviders?: any) => {
   const transformedData = await Promise.all(
-    dataProviders.map(async ({ url, id }) => {
-      const dataProvider = cachedDataProviders.find((dp) => dp.id === +id)
+    dataProviders.map(async ({ url, id }: any) => {
+      const dataProvider = cachedDataProviders.find((dp: any) => dp.id === +id)
 
       return {
         url,
@@ -75,10 +75,11 @@ const transformDataProviders = async (dataProviders) => {
   return transformedData
 }
 
-const findDataProvider = (id) => cachedDataProviders.find((dp) => dp.id === +id)
+const findDataProvider = (id?: any) =>
+  cachedDataProviders.find((dp: any) => dp.id === +id)
 
-function checkUniversity(dataProviderId) {
-  const member = cachedMembers.find((item) => {
+function checkUniversity(dataProviderId?: any) {
+  const member: any = cachedMembers.find((item: any) => {
     if (Array.isArray(item.repo_id)) {
       return (
         item.repo_id.includes(dataProviderId.toString()) &&
@@ -90,7 +91,7 @@ function checkUniversity(dataProviderId) {
   let universityName = member?.organisationName
   if (!universityName) {
     const dataProvider = cachedDataProviders.find(
-      (dp) => dp.id === +dataProviderId
+      (dp: any) => dp.id === +dataProviderId
     )
 
     if (dataProvider && dataProvider.institutionName)

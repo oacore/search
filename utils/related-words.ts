@@ -2,18 +2,20 @@ const lenghtWordLimit = 3
 const topicsInclude = ['OU', 'EU', 'SNP']
 
 // Set unique items in array
-function uniqElementsArray(a = []) {
-  return a.sort().filter((item, pos, ary) => !pos || item !== ary[pos - 1])
+function uniqElementsArray(a: any = []) {
+  return a
+    .sort()
+    .filter((item: any, pos: any, ary: any) => !pos || item !== ary[pos - 1])
 }
 
 // Return items from `title` which are match with `similarOutputs`
-const relatedWords = (title, similarOutputs = []) => {
+const relatedWords = (title?: any, similarOutputs: any = []) => {
   const cleanTitle = title.replace(/['"`“”,.!:]+/g, '')
   const titleArray = cleanTitle.split(' ')
 
   const topicsTitle = []
   let i = 0
-  titleArray.forEach((item, index, array) => {
+  titleArray.forEach((item: any, index: any, array: any) => {
     if (
       item.length > lenghtWordLimit ||
       (item.length <= lenghtWordLimit && topicsInclude.includes(item))
@@ -29,8 +31,8 @@ const relatedWords = (title, similarOutputs = []) => {
 
   const topicsResult = []
   i = 0
-  similarOutputs.forEach((item) => {
-    topicsTitle.forEach((topicsTitleItem) => {
+  similarOutputs.forEach((item: any) => {
+    topicsTitle.forEach((topicsTitleItem: any) => {
       if (item.title.indexOf(topicsTitleItem) !== -1) {
         topicsResult[i] = topicsTitleItem
         i += 1

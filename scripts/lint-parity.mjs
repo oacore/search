@@ -63,6 +63,22 @@ export const INLINE_DISABLES = 36 // AD-156
 // cannot hold, so c1 compares the bulk suppressions of the other rules only
 export const LATER_PLUGIN_RULE = /^@(next\/next|typescript-eslint)\//
 export const EXPECTED_MAJORS = { eslint: 10, stylelint: 18, prettier: 3 }
+// CS-TS-4 (6.6): an application file moved from .js/.jsx to .ts/.tsx (git mv)
+// keeps its baseline entries under the new path
+export const renamedPath = (p) => {
+  if (!/\.jsx?$/.test(p) || fs.existsSync(path.join(ROOT, p))) return p
+  const to = p.replace(/\.js(x?)$/, '.ts$1')
+  return fs.existsSync(path.join(ROOT, to)) ? to : p
+}
+const mapRenamed = (v) => {
+  if (typeof v === 'string') return renamedPath(v)
+  if (Array.isArray(v)) return v.map(mapRenamed)
+  if (v && typeof v === 'object')
+    return Object.fromEntries(
+      Object.entries(v).map(([k, x]) => [k, mapRenamed(x)])
+    )
+  return v
+}
 export const HARNESS_BLOCK = 'search/test-harness'
 // the harness scope: the `search/test-harness` block (files: test/**/*.js, test/**/*.jsx, e2e/**/*.js, jest.config.js)
 export const isHarnessPath = (p) =>
@@ -420,7 +436,7 @@ export async function run(opts = {}) {
 
   const capture = Boolean(opts.capture)
   const baselineFile = opts.baseline || DEFAULT_BASELINE
-  const base = capture ? null : readJson(baselineFile)
+  const base = capture ? null : mapRenamed(readJson(baselineFile))
   const ratchetFile = ratchet.DEFAULT_RATCHET
   const ledgerRows = fs.existsSync(DEFAULT_LEDGER)
     ? parseLedger(fs.readFileSync(DEFAULT_LEDGER, 'utf8'))

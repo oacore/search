@@ -1,6 +1,6 @@
 export const formatNumber = (
-  number,
-  { locale = 'en-GB', maximumFractionDigits = 2, ...restOptions } = {}
+  number?: any,
+  { locale = 'en-GB', maximumFractionDigits = 2, ...restOptions }: any = {}
 ) => {
   const numberConverted = new Intl.NumberFormat(locale, {
     maximumFractionDigits,

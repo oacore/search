@@ -71,5 +71,10 @@
     "react-hooks/rules-of-hooks": {
       "count": 1
     }
+  },
+  "utils/data-providers-transform.ts": {
+    "@typescript-eslint/no-unused-vars": {
+      "count": 1
+    }
   }
 }

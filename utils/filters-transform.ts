@@ -1,15 +1,17 @@
 import languagesData from '../data/languages.json'
 import { sortItemsByValueIndex } from './sort'
 
-export const checkActiveItems = (filters) => {
+export const checkActiveItems = (filters?: any) => {
   const isActiveItems = filters
-    .filter((filter) => filter.label !== 'sort by')
-    .find((filter) => filter.items.find((item) => item.checked === true))
+    .filter((filter: any) => filter.label !== 'sort by')
+    .find((filter: any) =>
+      filter.items.find((item: any) => item.checked === true)
+    )
 
   return isActiveItems
 }
 
-const setFilterLabels = (value) => {
+const setFilterLabels = (value?: any) => {
   let label = ''
 
   switch (value) {
@@ -39,16 +41,21 @@ const setFilterLabels = (value) => {
   return label
 }
 
-const transformFiltersData = (initialObject, newObject, labelValues, query) => {
-  const isObject = (val) => typeof val === 'object' && val // required for "null" comparison
+const transformFiltersData = (
+  initialObject?: any,
+  newObject?: any,
+  labelValues?: any,
+  query?: any
+) => {
+  const isObject = (val?: any) => typeof val === 'object' && val // required for "null" comparison
 
   // eslint-disable-next-line no-param-reassign
   if (!newObject) newObject = JSON.parse(JSON.stringify(initialObject))
 
-  function compare(obj1 = {}, obj2 = {}) {
-    const output = {}
+  function compare(obj1: any = {}, obj2: any = {}) {
+    const output: any = {}
     const merged = { ...obj1, ...obj2 }
-    Object.keys(merged).map((key) => {
+    Object.keys(merged).map((key: any) => {
       const value1 = obj1[key]
       const value2 = obj2[key]
 
@@ -65,14 +72,14 @@ const transformFiltersData = (initialObject, newObject, labelValues, query) => {
   const comparedData = compare(initialObject, newObject)
 
   const arrayOfObj = Object.entries(comparedData)
-    .map((e) => ({
+    .map((e: any) => ({
       value: e[0],
       items: e[1],
     }))
-    .map((filter) => ({ ...filter, label: setFilterLabels(filter.value) }))
+    .map((filter: any) => ({ ...filter, label: setFilterLabels(filter.value) }))
 
-  const filters = arrayOfObj.map((obj) => {
-    const items = Object.entries(obj.items).map((e) => ({
+  const filters = arrayOfObj.map((obj: any) => {
+    const items = Object.entries(obj.items).map((e: any) => ({
       value: e[0].replace(/['"]+/g, ''),
       count: e[1],
     }))
@@ -85,11 +92,11 @@ const transformFiltersData = (initialObject, newObject, labelValues, query) => {
 
   sortItemsByValueIndex(filters, labelValues, 'value')
   filters
-    .find((item) => item.value === 'language')
-    .items.map((filter) => {
+    .find((item: any) => item.value === 'language')
+    .items.map((filter: any) => {
       filter.code = filter.value
       const founded = languagesData.find(
-        (language) => language.code === filter.code.toLowerCase()
+        (language: any) => language.code === filter.code.toLowerCase()
       )
 
       if (founded) filter.value = founded.name
@@ -97,16 +104,16 @@ const transformFiltersData = (initialObject, newObject, labelValues, query) => {
       return filter.value
     })
 
-  const founded = filters.find((item) => item.value === 'yearPublished')
+  const founded = filters.find((item: any) => item.value === 'yearPublished')
   if (founded) {
-    founded.items.map((filter) => {
+    founded.items.map((filter: any) => {
       filter.value = parseInt(filter.value, 10)
       return filter
     })
   }
 
-  filters.map((filter) => {
-    filter.items = filter.items.map((item) => ({
+  filters.map((filter: any) => {
+    filter.items = filter.items.map((item: any) => ({
       ...item,
       checked:
         item.value.toString() !== '' &&

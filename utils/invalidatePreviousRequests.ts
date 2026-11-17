@@ -5,10 +5,10 @@
 // Called as the legacy method decorator of the MobX stores, (target, key,
 // descriptor), it puts that wrapper around the method: one per decorated
 // method, shared by all instances of the class.
-const wrap = (originalMethod) => {
-  let controller
+const wrap = (originalMethod?: any) => {
+  let controller: any
 
-  return function decorator(...args) {
+  return function decorator(this: any, ...args: any[]) {
     if (controller) controller.abort()
     controller =
       typeof AbortController != 'undefined' ? new AbortController() : null
@@ -17,7 +17,11 @@ const wrap = (originalMethod) => {
   }
 }
 
-export default function invalidate(target, propertyKey, descriptor) {
+export default function invalidate(
+  target?: any,
+  propertyKey?: any,
+  descriptor?: any
+) {
   if (!descriptor) return wrap(target)
 
   descriptor.value = wrap(descriptor.value)
