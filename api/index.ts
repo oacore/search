@@ -15,26 +15,26 @@ const API_URL = process.env.API_URL
 const API_KEY = process.env.API_KEY
 /* eslint-enable prefer-destructuring */
 
-const prepareUrl = (pathname, base = API_URL) => {
+const prepareUrl = (pathname?: any, base: any = API_URL) => {
   const url = /^\w+:\/\//.test(pathname) ? pathname : `${base}${pathname}`
   return new URL(url)
 }
 
-const prepareParams = ({ url, searchParams }) =>
+const prepareParams = ({ url, searchParams }: any) =>
   new URLSearchParams([
     ...Array.from(url.searchParams.entries()),
     ...Array.from(new URLSearchParams(searchParams).entries()),
-  ])
+  ] as any)
 
-const prepareMethod = ({ method = 'GET' }) => method.toUpperCase()
+const prepareMethod = ({ method = 'GET' }: any) => method.toUpperCase()
 
-const prepareBody = ({ method, body }) => {
+const prepareBody = ({ method, body }: any) => {
   if (!['GET', 'HEAD'].includes(method))
     return typeof body == 'object' ? JSON.stringify(body) : body
   return null
 }
 
-const prepareHeaders = ({ headers: customHeaders, body }) => {
+const prepareHeaders = ({ headers: customHeaders, body }: any) => {
   const defaultHeaders = {
     Accept: 'application/json',
     Authorization: `Bearer ${API_KEY}`,
@@ -51,8 +51,8 @@ const prepareHeaders = ({ headers: customHeaders, body }) => {
   }
 }
 
-const prepareRequest = (init) => {
-  const request = {}
+const prepareRequest = (init?: any) => {
+  const request: any = {}
 
   request.url = prepareUrl(init.url, API_URL)
   request.url.search = prepareParams({ ...init, url: request.url })
@@ -74,9 +74,11 @@ const prepareRequest = (init) => {
   return { ...init, ...request }
 }
 
-const processStatus = (response) => {
+const processStatus = (response?: any) => {
   if (response.status >= 400) {
-    const StatusError = NetworkError.getErrorFromStatusCode(response.status)
+    const StatusError = (NetworkError as any).getErrorFromStatusCode(
+      response.status
+    )
     throw new StatusError(
       `Request for ${response.url} failed on ${response.status}`,
       response
@@ -86,7 +88,7 @@ const processStatus = (response) => {
   return response
 }
 
-const processBody = (response, { method }) => {
+const processBody = (response: any, { method }: any) => {
   const { status, headers } = response
   const type = headers.get('Content-Type')
 
@@ -94,14 +96,14 @@ const processBody = (response, { method }) => {
     /application\/([\w.-]\+)?json/g.test(type) && method !== 'HEAD'
       ? response.json()
       : response.blob()
-  ).then((data) => ({ data, type, status, headers }))
+  ).then((data: any) => ({ data, type, status, headers }))
 }
 
-const processError = (error, details) => {
+const processError = (error?: any, details?: any) => {
   const { response } = error
   if (response == null) throw error // re-throwing if nothing to process
 
-  return processBody(response, details).then((body) => {
+  return processBody(response, details).then((body: any) => {
     Object.assign(error, body)
 
     // re-throwing after processing
@@ -109,18 +111,18 @@ const processError = (error, details) => {
   })
 }
 
-const executeRequest = ({ url, ...options }) =>
+const executeRequest = ({ url, ...options }: any) =>
   transport(url, options)
     .then(processStatus)
     .then(
-      (response) => processBody(response, { ...options }),
-      (error) => {
+      (response: any) => processBody(response, { ...options }),
+      (error: any) => {
         LogRocket.captureException(error)
         return processError(error, { ...options })
       }
     )
 // For POST requests use variable - "body" and method:"POST"
-const performRequest = (url, options) => {
+const performRequest = (url?: any, options?: any) => {
   const request = prepareRequest({ url, ...options })
   return executeRequest(request)
 }

@@ -3,9 +3,10 @@
 import request from './index'
 
 const NO_INTERNAL = process.env.API_URL.replace('/internal', '')
-const apiRequest = (url, ...args) => request(`${NO_INTERNAL}${url}`, ...args)
+const apiRequest = (url?: any, ...args: any[]) =>
+  request(`${NO_INTERNAL}${url}`, ...args)
 
-const fetchSignIn = async (params) => {
+const fetchSignIn = async (params?: any) => {
   // eslint-disable-next-line camelcase
   const { email, password, remember_me } = params
   const body = { email, password, remember_me }

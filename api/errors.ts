@@ -1,10 +1,10 @@
 /* eslint-disable max-classes-per-file */
 
 class NetworkError extends Error {
-  constructor(message, response) {
+  constructor(message?: any, response?: any) {
     super(message)
     this.name = this.constructor.name
-    this.response = response
+    ;(this as any).response = response
   }
 }
 
@@ -16,7 +16,7 @@ export class BadRequestError extends NetworkError {}
 export class InternalServerError extends NetworkError {}
 export class NotAcceptableError extends NetworkError {}
 
-export const fromStatusCode = (statusCode) => {
+export const fromStatusCode = (statusCode?: any) => {
   if (statusCode === 401) return UnauthorizedError
   if (statusCode === 402) return PaymentRequiredError
   if (statusCode === 403) return ForbiddenError
@@ -27,6 +27,6 @@ export const fromStatusCode = (statusCode) => {
   return NetworkError
 }
 
-NetworkError.getErrorFromStatusCode = fromStatusCode
+;(NetworkError as any).getErrorFromStatusCode = fromStatusCode
 
 export default NetworkError

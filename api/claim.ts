@@ -1,8 +1,8 @@
 import request from './index'
 
-const apiRequest = (url, ...args) => request(`${url}`, ...args)
+const apiRequest = (url?: any, ...args: any[]) => request(`${url}`, ...args)
 
-const fetchClaim = async (params) => {
+const fetchClaim = async (params?: any) => {
   const { id, isDataProviderHasAccounts } = params
   let { name, email, rationale } = params
 

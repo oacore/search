@@ -1,4 +1,9 @@
 {
+  "api/search.ts": {
+    "@typescript-eslint/no-require-imports": {
+      "count": 1
+    }
+  },
   "modules/dropdown/index.jsx": {
     "@next/next/no-img-element": {
       "count": 1

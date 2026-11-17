@@ -13,7 +13,7 @@
 // unchanged so behaviour falls back to the normal public host.
 const isServer = typeof window === 'undefined'
 
-export const internalize = (inputUrl) => {
+export const internalize = (inputUrl?: any) => {
   const base = isServer ? process.env.Internal_API : undefined
   const hostHeader = isServer ? process.env.Internal_API_HOST : undefined
   if (!base || !hostHeader) return { url: inputUrl, headers: {} }

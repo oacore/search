@@ -1,8 +1,8 @@
 import request from './index'
 
-const apiRequest = (url, ...args) => request(`${url}`, ...args)
+const apiRequest = (url?: any, ...args: any[]) => request(`${url}`, ...args)
 
-const fetchDataProviderAccounts = async (params) => {
+const fetchDataProviderAccounts = async (params?: any) => {
   const { id } = params
 
   const { data } = await apiRequest(`/data-providers/${id}/account`, {

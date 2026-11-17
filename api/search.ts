@@ -2,10 +2,10 @@ import apiRequest from './index'
 
 const FileDownload = require('js-file-download')
 
-export const fetchWorks = async (body) => {
+export const fetchWorks = async (body?: any) => {
   const { t } = body
   const split = t?.split('-')
-  const isUndefined = split?.some((item) => item === undefined)
+  const isUndefined = split?.some((item: any) => item === undefined)
   const url = new URL(
     `/v3/search/works${!isUndefined || t ? `?t=${t}` : ''}`,
     process.env.API_URL
@@ -27,7 +27,7 @@ export const fetchWorks = async (body) => {
   }
 }
 
-export const fetchAggregations = async (body) => {
+export const fetchAggregations = async (body?: any) => {
   const url = new URL(`/v3/search/works/aggregate`, process.env.API_URL).href
   const { data: aggregations } = await apiRequest(url, {
     body: {
@@ -39,11 +39,11 @@ export const fetchAggregations = async (body) => {
   return aggregations
 }
 
-export const downloadResultsInCSV = async (body) => {
+export const downloadResultsInCSV = async (body?: any) => {
   const url = new URL(`/v3/search/works`, process.env.API_URL).href
 
   await apiRequest(url, {
     body,
     method: 'POST',
-  }).then(({ data }) => FileDownload(data, 'results.csv'))
+  }).then(({ data }: any) => FileDownload(data, 'results.csv'))
 }
