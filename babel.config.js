@@ -9,7 +9,8 @@ module.exports = (api) => {
         corejs: 3,
       },
     ],
-    '@babel/react',
+    ['@babel/preset-react', { runtime: 'automatic' }],
+    ['@babel/preset-typescript', { onlyRemoveTypeImports: true }],
   ]
   const plugins = [
     '@babel/plugin-proposal-export-default-from',
