@@ -10,7 +10,7 @@
 // process.
 const path = require('path')
 
-const Sentry = require('@sentry/node')
+const Sentry = require('@sentry/nextjs')
 
 const { setupMsw } = require('../../utils/msw')
 

@@ -1,5 +1,5 @@
-// @sentry/node and @sentry/browser factory spies (40 §2.1); one fresh object
-// per mocked module.
+// @sentry/nextjs factory spy (40 §2.1; @sentry/node and @sentry/browser until
+// CS-SEN-2); one fresh object per mocked module.
 const create = () => {
   const scope = {
     setTag: jest.fn(),

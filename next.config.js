@@ -300,7 +300,10 @@ if (serverRuntimeConfig !== undefined)
 // meta tags to `experimental.clientTraceMetadata`; both stay as the app had
 // them, so the inlined variables and the page head do not change. The
 // server requires the installed SDK, in instrumentation.ts as in the pages,
-// so it runs as one copy, as @sentry/node did.
+// so it runs as one copy, as @sentry/node did. The browser SDK leaves out its
+// tracing code (`__SENTRY_TRACING__` false): the app samples no spans, and
+// without the flag @sentry/nextjs adds browser tracing (web-vitals, ES2022)
+// to the defaults, which the integration filter drops anyway.
 const sentryConfig = withSentryConfig(
   {
     ...config,
@@ -315,6 +318,7 @@ const sentryConfig = withSentryConfig(
     release: { create: false, finalize: false },
     buildTimeInstrumentation: false,
     routeManifestInjection: false,
+    bundleSizeOptimizations: { excludeTracing: true },
     webpack: {
       autoInstrumentServerFunctions: false,
       autoInstrumentMiddleware: false,
