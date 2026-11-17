@@ -298,12 +298,15 @@ if (serverRuntimeConfig !== undefined)
 // build-time instrumentation, route manifest or tunnel route and sends no
 // telemetry. withSentryConfig also adds its build values to `env` and trace
 // meta tags to `experimental.clientTraceMetadata`; both stay as the app had
-// them, so the inlined variables and the page head do not change.
+// them, so the inlined variables and the page head do not change. The
+// server requires the installed SDK, in instrumentation.ts as in the pages,
+// so it runs as one copy, as @sentry/node did.
 const sentryConfig = withSentryConfig(
   {
     ...config,
     env: { ...config.env },
     experimental: { ...config.experimental },
+    serverExternalPackages: ['@sentry/nextjs'],
   },
   {
     silent: true,
