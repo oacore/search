@@ -51,6 +51,33 @@ const SPECS = {
     computed: ['results'],
     plain: [],
   },
+  search: {
+    reactive: [
+      'works',
+      'query',
+      'isLoading',
+      'dataProviders',
+      'sortOptions',
+      'activeLimit',
+      'activeDownloadModal',
+    ],
+    plain: [],
+  },
+  filters: {
+    reactive: [
+      'data',
+      'initialData',
+      'activeFilter',
+      'activeFilterSuggestions',
+      'aggregationsNames',
+      'groupedYearDates',
+      'isLoading',
+      'yearWorksCount',
+      'isVisibleClearButton',
+    ],
+    computed: ['maxYear', 'filterNamesWithoutYear'],
+    plain: [],
+  },
 }
 
 const DRIVERS = [zustand, mobx]
