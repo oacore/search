@@ -9,6 +9,7 @@ const handleOf = (spec, api) => {
   const read = (field, state = api.getState()) => {
     if (isPlain(field)) return api[field]
     if (field === 'results') return api.selectResults(state)
+    if (api.select && field in api.select) return api.select[field](state)
     const param = split(field)
     return param ? state.params[param] : state[field]
   }
@@ -79,5 +80,7 @@ module.exports = {
     dataProviders: store(
       () => require('../../../store/data-providers').createDataProvidersStore
     ),
+    search: store(() => require('../../../store/search').createSearchStore),
+    filters: store(() => require('../../../store/filters').createFiltersStore),
   },
 }

@@ -6,7 +6,6 @@
 // identical aggregation POSTs, a refined query keeps stale buckets with count
 // 0).
 import React from 'react'
-import { configure } from 'mobx'
 import routerMock, { setRouter } from 'next/router'
 
 import { setupMsw } from '../../../utils/msw'
@@ -23,7 +22,6 @@ import FiltersBar from '../../../../modules/filters'
 
 // store writes after `await` outside an action raise a dev-only MobX warning
 // that the production build of MobX does not print (findings/03 §2.3)
-configure({ enforceActions: 'never' })
 
 jest.setTimeout(30000)
 
@@ -101,7 +99,7 @@ const mount = (query = 'climate', sortType = 'relevance') => {
 }
 
 const idle = (store) =>
-  waitFor(() => expect(store.filters.isLoading).toBe(false))
+  waitFor(() => expect(store.filters.getState().isLoading).toBe(false))
 
 const bar = (container) => container.querySelector('ul.bar')
 
@@ -150,8 +148,8 @@ describe('T-403 @P0 filters bar', () => {
       )
     ).toEqual(['Field', 'Year', 'Type', 'Author', 'Language', 'Publisher'])
     expect(screen.queryByText('Clear all filters')).toBeNull()
-    expect(store.filters.isLoading).toBe(true)
-    expect(Object.keys(store.filters.initialData)).toHaveLength(0)
+    expect(store.filters.getState().isLoading).toBe(true)
+    expect(Object.keys(store.filters.getState().initialData)).toHaveLength(0)
 
     // a facet of the block opens a box with a spinner and "Loading", and closes
     // again on the second click
@@ -282,7 +280,9 @@ describe('T-403 @P0 filters bar', () => {
     expect(head(container, 'type').classList.contains('bar-item-active')).toBe(
       true
     )
-    expect(store.filters.data[2].items.filter((i) => i.checked)).toHaveLength(1)
+    expect(
+      store.filters.getState().data[2].items.filter((i) => i.checked)
+    ).toHaveLength(1)
     // no aggregation request until the route changes
     expect(posts).toHaveLength(1)
   })
@@ -321,7 +321,7 @@ describe('T-403 @P0 filters bar', () => {
 
     await user.click(box.querySelector('li.filter-box-item'))
 
-    expect(store.filters.isLoading).toBe(true)
+    expect(store.filters.getState().isLoading).toBe(true)
     const after = itemsOf(box)
     expect(after.length).toBeGreaterThan(1)
     expect(after.map((i) => i.count)).toEqual(after.map(() => '...'))
@@ -343,7 +343,7 @@ describe('T-403 @P0 filters bar', () => {
 
     const release = hold()
     rerender('climate change')
-    expect(store.filters.isLoading).toBe(true)
+    expect(store.filters.getState().isLoading).toBe(true)
     expect(itemsOf(box).map((i) => i.count)).toEqual(before.map(() => '...'))
 
     release()
@@ -360,7 +360,7 @@ describe('T-403 @P0 filters bar', () => {
     const plain = mount('climate')
     await idle(plain.store)
     expect(screen.queryByText('Clear all filters')).toBeNull()
-    expect(plain.store.filters.isVisibleClearButton).toBeFalsy()
+    expect(plain.store.filters.getState().isVisibleClearButton).toBeFalsy()
     plain.unmount()
 
     setRouter({ query: { q: THESIS_QUERY, page: '1' } })
@@ -375,7 +375,7 @@ describe('T-403 @P0 filters bar', () => {
     // the last child of the list, after the six facets
     expect(bar(checked.container).lastElementChild).toBe(clear)
     expect(facetLabels(checked.container)).toEqual(LABELS)
-    expect(checked.store.filters.isVisibleClearButton).toBeTruthy()
+    expect(checked.store.filters.getState().isVisibleClearButton).toBeTruthy()
   })
 
   test('T-403 c5 @P0 Clear all filters appears as soon as an item is toggled on', async () => {
@@ -511,9 +511,9 @@ describe('T-403 @P0 filters bar', () => {
     await waitFor(() => expect(posts).toHaveLength(2))
     await idle(store)
     // no reset happened: the first answer is still the initial data
-    expect(Object.keys(store.filters.initialData.fieldsOfStudy)).toHaveLength(
-      Object.keys(base.fieldsOfStudy).length
-    )
+    expect(
+      Object.keys(store.filters.getState().initialData.fieldsOfStudy)
+    ).toHaveLength(Object.keys(base.fieldsOfStudy).length)
 
     const box = await openFacet(user, container, 'field')
     const items = itemsOf(box)

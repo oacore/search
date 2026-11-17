@@ -3,12 +3,15 @@
 // and the CSV flow (E3) on the recorded answers of scenario search-csv.
 // js-file-download is the harness factory spy (callable: api/search.js reads it
 // with require() and calls it).
-const { toJS } = require('mobx')
 const FileDownload = require('js-file-download')
 const nextRouter = require('next/router')
 
 const { setupMsw } = require('../../utils/msw')
-const Search = require('../../../store/search').default
+const { createSearchStore } = require('../../../store/search')
+const live = require('../../drivers/store-driver/live')
+
+// the state is plain since the zustand port (CS-ZU-5)
+const toJS = (value) => value
 
 const { server, resolver, http } = setupMsw()
 
@@ -44,7 +47,7 @@ describe('T-204 @P0 Search store', () => {
   afterEach(() => jest.restoreAllMocks())
 
   test('T-204 @P0 setSortOptions marks the chosen option, setActiveSortOption pushes it', () => {
-    const search = new Search()
+    const search = live(createSearchStore())
     expect(toJS(search.sortOptions)).toEqual([])
     search.setSortOptions('recent')
     expect(toJS(search.sortOptions)).toEqual([
@@ -62,7 +65,7 @@ describe('T-204 @P0 Search store', () => {
       { value: 'relevance', checked: false },
     ])
     // the options are copies: another store is not affected
-    const other = new Search()
+    const other = live(createSearchStore())
     other.setSortOptions('recent')
     expect(search.sortOptions.some((o) => o.checked)).toBe(false)
 
@@ -82,7 +85,7 @@ describe('T-204 @P0 Search store', () => {
   })
 
   test('T-204 @P0 Q-043 data-provider sort: both options push relevance, id is deleted, offset kept', () => {
-    const search = new Search()
+    const search = live(createSearchStore())
     const makeQuery = () => ({
       id: '5',
       q: 'climate',
@@ -148,7 +151,7 @@ describe('T-204 @P0 Search store', () => {
 
   test('T-204 @P0 CSV download: body {q, accept, limit}, results.csv, modal closes, loading ends', async () => {
     trackCsv()
-    const search = new Search()
+    const search = live(createSearchStore())
     search.setQuery('climate')
     search.setActiveDownloadModal(true)
     expect(search.activeLimit).toBe(10)
@@ -186,7 +189,7 @@ describe('T-204 @P0 Search store', () => {
   test('T-204 @P0 CSV download error: console.error, loading ends, modal stays open', async () => {
     trackCsv()
     const error = jest.spyOn(console, 'error').mockImplementation(() => {})
-    const search = new Search()
+    const search = live(createSearchStore())
     // reset() sets the limit to 1000, which the API refuses (400)
     search.reset()
     expect(search.activeLimit).toBe(1000)

@@ -11,7 +11,6 @@
 //    effect stores after the first render are not shown until something else
 //    re-renders it: the menu is empty.
 import React from 'react'
-import { configure } from 'mobx'
 import routerMock, { setRouter } from 'next/router'
 
 import { setupMsw } from '../../utils/msw'
@@ -33,7 +32,6 @@ import DataProviderTemplate from '../../../templates/data-provider'
 
 // store writes after `await` outside an action raise a dev-only MobX warning
 // that the production build of MobX does not print (findings/03 §2.3)
-configure({ enforceActions: 'never' })
 
 jest.setTimeout(30000)
 
@@ -150,7 +148,7 @@ describe('T-408 @P1 Sort', () => {
       // the box shows the active option; the menu is closed until it is clicked
       expect(activeLabel()).toBe('recent')
       expect(menu(container)).toBeNull()
-      expect(store.search.sortOptions.map((o) => o.value)).toEqual([
+      expect(store.search.getState().sortOptions.map((o) => o.value)).toEqual([
         'recent',
         'relevance',
       ])
@@ -197,12 +195,12 @@ describe('T-408 @P1 Sort', () => {
       // the menu closes, the box shows the choice, the store marks it
       expect(menu(container)).toBeNull()
       expect(activeLabel()).toBe('relevance')
-      expect(store.search.sortOptions.map((o) => [o.value, o.checked])).toEqual(
-        [
-          ['recent', false],
-          ['relevance', true],
-        ]
-      )
+      expect(
+        store.search.getState().sortOptions.map((o) => [o.value, o.checked])
+      ).toEqual([
+        ['recent', false],
+        ['relevance', true],
+      ])
 
       // the other way: the value is pushed as it is (no inversion here); the
       // reopened menu shows the choice made before
@@ -306,12 +304,12 @@ describe('T-408 @P1 Sort', () => {
       expect('id' in routerQuery).toBe(false)
       expect(router.query).toBe(routerQuery)
       // the option shown as chosen is the one that was clicked
-      expect(store.search.sortOptions.map((o) => [o.value, o.checked])).toEqual(
-        [
-          ['recent', true],
-          ['relevance', false],
-        ]
-      )
+      expect(
+        store.search.getState().sortOptions.map((o) => [o.value, o.checked])
+      ).toEqual([
+        ['recent', true],
+        ['relevance', false],
+      ])
 
       // "relevance" pushes relevance as well, with the same offset
       await user.click(sortBox())
@@ -321,12 +319,12 @@ describe('T-408 @P1 Sort', () => {
         pathname: '/data-providers/86',
         query: { q: '', offset: '20', sort: 'relevance', page: 1 },
       })
-      expect(store.search.sortOptions.map((o) => [o.value, o.checked])).toEqual(
-        [
-          ['recent', false],
-          ['relevance', true],
-        ]
-      )
+      expect(
+        store.search.getState().sortOptions.map((o) => [o.value, o.checked])
+      ).toEqual([
+        ['recent', false],
+        ['relevance', true],
+      ])
     })
 
     test('T-408 c2 @P1 the pushed query keeps every other parameter, and offset is not reset by page: 1', async () => {
@@ -354,7 +352,7 @@ describe('T-408 @P1 Sort', () => {
       const { container, store } = await mountProvider({ accounts: [] })
 
       // the effect stored the options ...
-      expect(store.search.sortOptions.map((o) => o.value)).toEqual([
+      expect(store.search.getState().sortOptions.map((o) => o.value)).toEqual([
         'recent',
         'relevance',
       ])
@@ -371,16 +369,16 @@ describe('T-408 @P1 Sort', () => {
       const { container, store } = await mountProvider({
         accounts: [],
         // the search page stored its options with "recent" checked
-        prepare: (fresh) => fresh.search.setSortOptions('recent'),
+        prepare: (fresh) => fresh.search.getState().setSortOptions('recent'),
       })
 
       // the provider's effect stored options without a checked one ...
-      expect(store.search.sortOptions.map((o) => [o.value, o.checked])).toEqual(
-        [
-          ['recent', false],
-          ['relevance', false],
-        ]
-      )
+      expect(
+        store.search.getState().sortOptions.map((o) => [o.value, o.checked])
+      ).toEqual([
+        ['recent', false],
+        ['relevance', false],
+      ])
       // ... but the template was not re-rendered, so the box still shows the
       // option that was checked when it rendered, and so does the menu
       expect(activeLabel()).toBe('recent')

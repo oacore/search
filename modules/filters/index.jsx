@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { Button } from '@oacore/design/lib/elements'
 import { classNames } from '@oacore/design/lib/utils'
+import { useStore as useStoreApi } from 'zustand'
+import { useShallow } from 'zustand/react/shallow'
 
 import styles from './styles.module.css'
 import FilterBarItem from './bar-item'
@@ -8,11 +10,23 @@ import LoadingBlock from './loading-block'
 
 import { observe, useStore } from 'store'
 
+// the fields the bar renders (an observer read these)
+const selectBar = (state) => ({
+  isLoading: state.isLoading,
+  initialData: state.initialData,
+  data: state.data,
+  isVisibleClearButton: state.isVisibleClearButton,
+})
+
 const FiltersBar = observe(
   ({ className, query: initialQuery, sortType, styleProp }) => {
     const [visibleFiltersBar, setVisibleFiltersBar] = React.useState(false)
     const [query, setQuery] = React.useState(initialQuery)
-    const { filters } = useStore()
+    const { filters: filtersStore } = useStore()
+    const filters = {
+      ...filtersStore.getState(),
+      ...useStoreApi(filtersStore, useShallow(selectBar)),
+    }
 
     useEffect(() => {
       if (!initialQuery?.includes(query)) {

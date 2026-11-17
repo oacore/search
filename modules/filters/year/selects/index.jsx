@@ -1,11 +1,20 @@
 import React from 'react'
+import { useStore as useStoreApi } from 'zustand'
+import { useShallow } from 'zustand/react/shallow'
 
 import styles from './styles.module.css'
 import YearSelectItem from './item'
 
-import { observe } from 'store'
+import { observe, useStore } from 'store'
 
 const YearSelects = observe(({ years, onSelect }) => {
+  // what an observer read: the years (the store's suggestions, sorted and
+  // written in place) and their values
+  const { filters } = useStore()
+  useStoreApi(
+    filters,
+    useShallow(() => [years, ...years, ...years.map((item) => item.value)])
+  )
   const [minOptions, setMinOptions] = React.useState(years)
   const [maxOptions, setMaxOptions] = React.useState(years)
 

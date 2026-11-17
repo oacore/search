@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 import { TextField } from '@oacore/design/lib'
+import { useStore as useStoreApi } from 'zustand'
+import { useShallow } from 'zustand/react/shallow'
 
 import styles from './styles.module.css'
 
 import { useStore, observe } from 'store'
 
 const Search = observe(() => {
-  const { filters } = useStore()
+  const { filters: filtersStore } = useStore()
+  const filters = filtersStore.getState()
 
   const [value, setValue] = useState('')
 
-  const filterItems = filters.activeFilter.items
+  const [, filterItems] = useStoreApi(
+    filtersStore,
+    useShallow((state) => [state.activeFilter, state.activeFilter.items])
+  )
 
   const handleOnInput = (e) => {
     const inputValue = e.target.value

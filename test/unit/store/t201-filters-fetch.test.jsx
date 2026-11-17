@@ -6,12 +6,14 @@
 // `false`, P0-05 issue); the year facet of the recorded answers carries junk
 // keys (1..10000), so `maxYear` is 10000 and the "since" buckets sum every
 // year from 2014/2016/2018 upwards.
-const { toJS } = require('mobx')
+// the state is plain since the zustand port (CS-ZU-6)
+const toJS = (value) => value
 const Router = require('next/router').default
 
 const { setupMsw } = require('../../utils/msw')
 const { waitFor } = require('../../utils/render')
-const Filters = require('../../../store/filters').default
+const { createFiltersStore } = require('../../../store/filters')
+const live = require('../../drivers/store-driver/live')
 
 const { server, resolver, http, HttpResponse } = setupMsw()
 
@@ -79,7 +81,7 @@ describe('T-201 @P0 Filters fetch', () => {
 
   test('T-201 c1 @P0 first fetch stores initialData, the next fetch diffs against it', async () => {
     track()
-    const filters = new Filters()
+    const filters = live(createFiltersStore())
     const climate = recorded('climate')
 
     const first = filters.fetchFilters('climate', 'relevance')
@@ -164,7 +166,7 @@ describe('T-201 @P0 Filters fetch', () => {
 
   test('T-201 c2 @P0 year facet open requests five aggregations, without yearPublished', async () => {
     track()
-    const filters = new Filters()
+    const filters = live(createFiltersStore())
     await filters.fetchFilters('climate', 'relevance')
     expect(filters.filterNamesWithoutYear).toEqual(WITHOUT_YEAR)
 
@@ -193,7 +195,7 @@ describe('T-201 @P0 Filters fetch', () => {
 
   test('T-201 c3 @P0 zero years are kept: an all-zero year answer keeps the previous year items', async () => {
     track()
-    const filters = new Filters()
+    const filters = live(createFiltersStore())
     await filters.fetchFilters('climate', 'relevance')
     const yearsBefore = toJS(facet(filters, 'yearPublished').items)
     const groupedBefore = toJS(filters.groupedYearDates)
@@ -206,7 +208,7 @@ describe('T-201 @P0 Filters fetch', () => {
     expect(toJS(filters.groupedYearDates)).toEqual(groupedBefore)
 
     // and a year bucket missing from a non-zero answer stays listed with 0
-    const other = new Filters()
+    const other = live(createFiltersStore())
     await other.fetchFilters('climate', 'relevance')
     await other.fetchFilters('climate change', 'relevance')
     const years = facet(other, 'yearPublished').items
@@ -228,7 +230,7 @@ describe('T-201 @P0 Filters fetch', () => {
       aggregations.authors.unknown = 1
       return HttpResponse.json({ aggregations })
     })
-    const filters = new Filters()
+    const filters = live(createFiltersStore())
     await filters.fetchFilters('climate', 'relevance')
     const type = facet(filters, 'documentType').items
     expect(type.slice(0, 3).map((i) => [i.value, i.count])).toEqual([
@@ -258,7 +260,7 @@ describe('T-201 @P0 Filters fetch', () => {
   test('T-201 c5 @P0 E2 answering 500 logs the error and leaves the store empty', async () => {
     track()
     const error = jest.spyOn(console, 'error').mockImplementation(() => {})
-    const filters = new Filters()
+    const filters = live(createFiltersStore())
     const pending = filters.fetchFilters('__status500', 'relevance')
     expect(filters.isLoading).toBe(true)
     await pending
@@ -279,7 +281,7 @@ describe('T-201 @P0 Filters fetch', () => {
     require('next/router').setRouter({
       query: { q: THESIS_Q, sort: 'relevance', page: '1' },
     })
-    const filters = new Filters()
+    const filters = live(createFiltersStore())
     await filters.fetchFilters(THESIS_Q, 'relevance')
     expect(filters.isVisibleClearButton).toBeTruthy()
     calls.length = 0
@@ -312,7 +314,7 @@ describe('T-201 @P0 Filters fetch', () => {
 
   test('T-201 c7 @P0 a refined q keeps the stale buckets with count 0 (Q-092)', async () => {
     track()
-    const filters = new Filters()
+    const filters = live(createFiltersStore())
     const first = recorded('climate')
     const refined = recorded('climate change')
     await filters.fetchFilters('climate', 'relevance')

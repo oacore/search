@@ -15,7 +15,6 @@
 //    included (store/search.js:122), for each filter kind the bar writes.
 // c4 "Copy url" copies `https://core.ac.uk` + `asPath`, every parameter kept.
 import React from 'react'
-import { configure } from 'mobx'
 import routerMock, { setRouter } from 'next/router'
 import FileDownload from 'js-file-download'
 
@@ -30,8 +29,9 @@ import {
   withStore,
 } from '../../../utils/render'
 import RootStore from '../../../../store/root'
-import Filters from '../../../../store/filters'
-import SearchStore from '../../../../store/search'
+import { createFiltersStore } from '../../../../store/filters'
+import { createSearchStore } from '../../../../store/search'
+import live from '../../../drivers/store-driver/live'
 import { getServerSideProps } from '../../../../pages/search'
 import SearchTemplate from '../../../../templates/search'
 import Pagination from '../../../../templates/search/pagination'
@@ -39,7 +39,6 @@ import Pagination from '../../../../templates/search/pagination'
 // the stores write outside actions while the templates observe them, which
 // MobX 6 reports with a dev-only console.warn that its production build does
 // not print (findings/03 §2.3); switching the check off changes no transition
-configure({ enforceActions: 'never' })
 
 jest.setTimeout(30000)
 
@@ -247,7 +246,9 @@ describe('T-421 @P1 URL state from a non-default state', () => {
       await waitFor(() =>
         expect(screen.getByText(/research outputs found/)).toBeInTheDocument()
       )
-      await waitFor(() => expect(store.filters.isLoading).toBe(false))
+      await waitFor(() =>
+        expect(store.filters.getState().isLoading).toBe(false)
+      )
       await settle()
       return view
     }
@@ -277,7 +278,9 @@ describe('T-421 @P1 URL state from a non-default state', () => {
       await user.click(
         screen.getByRole('button', { name: 'Clear all filters' })
       )
-      await waitFor(() => expect(store.filters.isLoading).toBe(false))
+      await waitFor(() =>
+        expect(store.filters.getState().isLoading).toBe(false)
+      )
       // Q-042: the first word of q stays; the bar passes no pathname
       expect(pushes()).toStrictEqual([
         { pathname: undefined, query: { ...FULL, q: 'climate', page: 1 } },
@@ -297,7 +300,7 @@ describe('T-421 @P1 URL state from a non-default state', () => {
             state.sort ? `&sort=${state.sort}` : ''
           }`,
         })
-        expect(store.search.query).toBe(state.q)
+        expect(store.search.getState().query).toBe(state.q)
 
         await user.click(actionButtons()[0])
         await user.click(screen.getByRole('button', { name: 'Download' }))
@@ -308,7 +311,7 @@ describe('T-421 @P1 URL state from a non-default state', () => {
           { q: state.q, accept: 'text/csv', limit: 10 },
         ])
         expect(FileDownload.mock.calls[0][1]).toBe('results.csv')
-        expect(store.search.isLoading).toBe(false)
+        expect(store.search.getState().isLoading).toBe(false)
       })
     })
 
@@ -325,7 +328,7 @@ describe('T-421 @P1 URL state from a non-default state', () => {
         'publisher:"Oregon State University"',
       ].join(' AND ')
       const posts = captureCsvPosts()
-      const search = new SearchStore()
+      const search = live(createSearchStore())
       search.setQuery(q)
       for (const limit of [10, 100]) {
         search.setActiveLimit(limit)
@@ -372,7 +375,7 @@ describe('T-421 @P1 URL state from a non-default state', () => {
     test('T-421 c2 @P1 a year range keeps every other router query key, its clause is appended to the filtered q, page goes to 1', async () => {
       // the year push reads the open facet of the filters store
       // (store/filters.js:198-246); its suggestions come from the recorded E2
-      const filters = new Filters()
+      const filters = live(createFiltersStore())
       await filters.fetchFilters('climate', 'relevance')
       const year = filters.data.find((f) => f.value === 'yearPublished')
       filters.setActiveFilter(year)

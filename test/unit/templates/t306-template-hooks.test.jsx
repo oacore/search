@@ -12,7 +12,6 @@
 // report and year hooks run against the recorded and hand fixtures through
 // MSW.
 import React from 'react'
-import { configure } from 'mobx'
 import routerMock, { setRouter } from 'next/router'
 
 import { setupMsw } from '../../utils/msw'
@@ -26,6 +25,7 @@ import {
 } from '../../utils/render'
 import { useFakeTimers, restoreClock, FIXED_NOW } from '../../utils/clock'
 import RootStore from '../../../store/root'
+import live from '../../drivers/store-driver/live'
 import { observe } from '../../../store'
 import useClaimController from '../../../templates/data-providers/hooks/use-claim-controller'
 import useReportController from '../../../templates/output/hooks/use-report-controller'
@@ -35,7 +35,6 @@ import useYearFilterController from '../../../modules/filters/year/hooks/use-yea
 // which MobX 6 reports with a dev-only console.warn for observed values that
 // the production build of MobX does not print. Switching the check off changes
 // no state transition.
-configure({ enforceActions: 'never' })
 
 jest.setTimeout(30000)
 
@@ -67,9 +66,6 @@ const waitFor = (callback, options) =>
 const router = routerMock
 
 const newStore = () => new RootStore({ statistics: {} })
-
-// the current state of a zustand store, read field by field
-const live = (api) => new Proxy({}, { get: (_, key) => api.getState()[key] })
 
 // the report fields a component can select
 const REPORT_FIELDS = [
@@ -428,12 +424,12 @@ describe('T-306 @P1 template hooks', () => {
     // a store with the recorded `climate` facets and the year facet open
     const openYearFacet = async () => {
       const store = newStore()
-      await store.filters.fetchFilters('climate', 'relevance')
-      const yearFacet = store.filters.data.find(
-        (facet) => facet.value === 'yearPublished'
-      )
-      store.filters.setActiveFilter(yearFacet)
-      store.filters.setActiveFilterSuggestions(yearFacet.items)
+      await store.filters.getState().fetchFilters('climate', 'relevance')
+      const yearFacet = store.filters
+        .getState()
+        .data.find((facet) => facet.value === 'yearPublished')
+      store.filters.getState().setActiveFilter(yearFacet)
+      store.filters.getState().setActiveFilterSuggestions(yearFacet.items)
       return store
     }
     const mount = (store) =>
@@ -451,7 +447,7 @@ describe('T-306 @P1 template hooks', () => {
       expect(new Date().getFullYear()).toBe(2026)
 
       const store = await openYearFacet()
-      const suggestions = store.filters.activeFilterSuggestions
+      const suggestions = store.filters.getState().activeFilterSuggestions
       // the recorded year facet has junk keys on both sides of the bounds
       const values = suggestions.map((s) => s.value)
       expect(Math.min(...values)).toBeLessThan(1950)
@@ -470,7 +466,8 @@ describe('T-306 @P1 template hooks', () => {
       expect(axis.map((b) => b.x0)).toEqual(
         suggestions.map((s) => s.value).filter((v) => v >= 1950 && v <= 2026)
       )
-      expect(result.current.filters).toBe(store.filters)
+      // the hook hands the store's current state (it was the MobX instance)
+      expect(result.current.filters).toBe(store.filters.getState())
       expect(result.current.selection).toBeNull()
     })
 
@@ -478,9 +475,11 @@ describe('T-306 @P1 template hooks', () => {
       const realReact = require('react')
       const realStore = require('../../../store')
       const store = newStore()
-      store.filters.activeFilterSuggestions = [
-        1949, 1950, 2026, 2027, 2030, 2031,
-      ].map((value) => ({ value, count: 1, checked: false }))
+      store.filters.setState({
+        activeFilterSuggestions: [1949, 1950, 2026, 2027, 2030, 2031].map(
+          (value) => ({ value, count: 1, checked: false })
+        ),
+      })
       const years = (hook) => {
         const view = renderHook(() => hook(), {
           wrappers: [withRouter(), withStore(store)],
@@ -519,7 +518,7 @@ describe('T-306 @P1 template hooks', () => {
 
     test('T-306 @P1 year: loadFilter turns the checked years into the histogram selection', async () => {
       const store = await openYearFacet()
-      const { filters } = store
+      const filters = live(store.filters)
       const check = (...years) =>
         filters.activeFilterSuggestions.forEach((s) => {
           s.checked = years.includes(s.value)
@@ -572,7 +571,7 @@ describe('T-306 @P1 template hooks', () => {
 
     test('T-306 @P1 year: a "since" preset runs to the highest year of the facet, junk keys included', async () => {
       const store = await openYearFacet()
-      const { filters } = store
+      const filters = live(store.filters)
       const { result } = mount(store)
       const preset = filters.groupedYearDates.find((g) => g.yearFrom === 2018)
       const { maxYear } = filters

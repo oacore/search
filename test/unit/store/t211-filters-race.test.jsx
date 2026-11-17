@@ -14,11 +14,13 @@
 // outputs-2001/2002/2006, E16 scenario e16-claim-form). Each outcome is
 // compared with the state a sequential run of the winning call alone produces
 // on a fresh store.
-const { toJS } = require('mobx')
+// the state is plain since the zustand port (CS-ZU-6)
+const toJS = (value) => value
 
 const { setupMsw } = require('../../utils/msw')
 const { waitFor: baseWaitFor } = require('../../utils/render')
-const Filters = require('../../../store/filters').default
+const { createFiltersStore } = require('../../../store/filters')
+const live = require('../../drivers/store-driver/live')
 const { driverFor } = require('../../drivers/store-driver')
 
 jest.setTimeout(30000)
@@ -106,7 +108,7 @@ const filtersState = (filters) =>
 // the state after the first fetch ("climate") and then one more fetch of `q`,
 // one after the other
 const sequential = async (q) => {
-  const filters = new Filters()
+  const filters = live(createFiltersStore())
   await filters.fetchFilters(CLIMATE, SORT)
   await filters.fetchFilters(q, SORT)
   return filtersState(filters)
@@ -123,7 +125,7 @@ describe('T-211 @P1 Filters and SimilarWorks race (Q-021)', () => {
     arrivals.length = 0
     fetchSpy.mockClear()
 
-    const filters = new Filters()
+    const filters = live(createFiltersStore())
     await filters.fetchFilters(CLIMATE, SORT)
     const primed = filtersState(filters)
     arrivals.length = 0
@@ -168,7 +170,7 @@ describe('T-211 @P1 Filters and SimilarWorks race (Q-021)', () => {
   test('T-211 @P1 Filters: with the answers released the other way round the call issued last wins', async () => {
     const expectedB = await sequential(CHANGE_Q)
 
-    const filters = new Filters()
+    const filters = live(createFiltersStore())
     await filters.fetchFilters(CLIMATE, SORT)
     arrivals.length = 0
 
@@ -191,7 +193,7 @@ describe('T-211 @P1 Filters and SimilarWorks race (Q-021)', () => {
     const error = jest.spyOn(console, 'error').mockImplementation(() => {})
     const expectedB = await sequential(CHANGE_Q)
 
-    const filters = new Filters()
+    const filters = live(createFiltersStore())
     await filters.fetchFilters(CLIMATE, SORT)
     arrivals.length = 0
 
