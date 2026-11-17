@@ -4,7 +4,7 @@ import classNames from '@oacore/design/lib/utils/class-names'
 
 import styles from '../styles.module.css'
 
-const CustomRange = ({ count }) => (
+const CustomRange = ({ count }: any) => (
   <li className={classNames.use(styles.customRangeText, styles.label)}>
     {count && <Icon src="#check" className={styles.labelTextActive} />}
     <p

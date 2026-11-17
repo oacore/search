@@ -8,7 +8,7 @@ const initialTooltipState = {
   tooltipText: "Copy API endpoint to your clipboard'",
 }
 
-const tooltipReducer = (state, action) => {
+const tooltipReducer = (state?: any, action?: any) => {
   switch (action) {
     case 'hide':
       return initialTooltipState
@@ -21,7 +21,7 @@ const tooltipReducer = (state, action) => {
   }
 }
 
-const CopyableInput = ({ id, value }) => {
+const CopyableInput = ({ id, value }: any) => {
   const inputRef = useRef(null)
   const [{ tooltipText, isTooltipShown }, dispatchTooltip] = useReducer(
     tooltipReducer,
@@ -36,7 +36,7 @@ const CopyableInput = ({ id, value }) => {
       return
 
     dispatchTooltip('copied')
-    const copyText = inputRef.current
+    const copyText: any = inputRef.current
 
     copyText.select()
     copyText.setSelectionRange(0, value.length)

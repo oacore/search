@@ -9,7 +9,7 @@ const DataProviderLogo = ({
   imageSrc,
   size = 'md',
   useDefault = true,
-}) => (
+}: any) => (
   <div
     className={classNames.use(styles.circle, styles[size], {
       [styles.hidden]: !useDefault,

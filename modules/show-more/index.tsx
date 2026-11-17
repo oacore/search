@@ -3,7 +3,7 @@ import { classNames } from '@oacore/design/lib/utils'
 
 import styles from './styles.module.css'
 
-const More = ({ children, className, tag: Tag = 'div', ...htmlProps }) => (
+const More = ({ children, className, tag: Tag = 'div', ...htmlProps }: any) => (
   <Tag
     className={classNames.use(styles.more, className)}
     role="region"
@@ -14,7 +14,12 @@ const More = ({ children, className, tag: Tag = 'div', ...htmlProps }) => (
   </Tag>
 )
 
-const ShowMore = ({ id, children, className, defaultVisibility = false }) => {
+const ShowMore = ({
+  id,
+  children,
+  className,
+  defaultVisibility = false,
+}: any) => {
   const [isVisible, setIsVisible] = useState(defaultVisibility)
   const childrenArray = React.Children.toArray(children)
 
@@ -29,7 +34,7 @@ const ShowMore = ({ id, children, className, defaultVisibility = false }) => {
       >
         {childrenArray.slice(0, -1)}
       </button>
-      {React.cloneElement(childrenArray[childrenArray.length - 1], {
+      {React.cloneElement(childrenArray[childrenArray.length - 1] as any, {
         id: `${id}-more`,
       })}
     </div>

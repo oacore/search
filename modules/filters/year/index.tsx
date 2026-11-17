@@ -24,7 +24,7 @@ const YearFilter = observe(() => {
 
   return (
     <>
-      {filters.groupedYearDates.map((groupedYearDate, index) => (
+      {filters.groupedYearDates.map((groupedYearDate: any, index: any) => (
         <FilterItem
           // eslint-disable-next-line react/no-array-index-key
           key={`${index}-${groupedYearDate.count}`}

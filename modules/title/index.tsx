@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import { classNames } from '@oacore/design/lib/utils'
 
-const Title = ({ children, hidden = false, tag: Tag = 'h1' }) => {
+const Title = ({ children, hidden = false, tag: Tag = 'h1' }: any) => {
   if (!(typeof children === 'string'))
     throw new Error('Unsupported children for Title component')
 

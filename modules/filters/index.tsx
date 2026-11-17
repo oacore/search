@@ -11,7 +11,7 @@ import LoadingBlock from './loading-block'
 import { observe, useStore } from 'store'
 
 // the fields the bar renders (an observer read these)
-const selectBar = (state) => ({
+const selectBar = (state?: any) => ({
   isLoading: state.isLoading,
   initialData: state.initialData,
   data: state.data,
@@ -19,7 +19,7 @@ const selectBar = (state) => ({
 })
 
 const FiltersBar = observe(
-  ({ className, query: initialQuery, sortType, styleProp }) => {
+  ({ className, query: initialQuery, sortType, styleProp }: any) => {
     const [visibleFiltersBar, setVisibleFiltersBar] = React.useState(false)
     const [query, setQuery] = React.useState(initialQuery)
     const { filters: filtersStore } = useStore()
@@ -70,7 +70,7 @@ const FiltersBar = observe(
             <LoadingBlock />
           ) : (
             <>
-              {filters.data.map((filter) => (
+              {filters.data.map((filter: any) => (
                 <FilterBarItem key={filter.value} filter={filter} />
               ))}
               {filters.isVisibleClearButton && (

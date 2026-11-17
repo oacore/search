@@ -17,13 +17,13 @@ const markerIcon = L.icon({
   popupAnchor: [0, -32],
 })
 
-const CustomMap = ({ locations }) => {
+const CustomMap = ({ locations }: any) => {
   const [visibleMarkers, setVisibleMarkers] = useState([])
-  const mapRef = useRef(null)
+  const mapRef = useRef<any>(null)
 
   const loadVisibleMarkers = () => {
     const bounds = mapRef.current.getBounds()
-    const inViewMarkers = locations.filter((loc) =>
+    const inViewMarkers = locations.filter((loc: any) =>
       bounds.contains(new L.LatLng(loc.latitude, loc.longitude))
     )
     setVisibleMarkers(inViewMarkers)
@@ -66,7 +66,7 @@ const CustomMap = ({ locations }) => {
   useEffect(() => {
     const markerClusterGroup = new L.MarkerClusterGroup()
     // Create and add markers
-    visibleMarkers.forEach(({ name, href, latitude, longitude }) => {
+    visibleMarkers.forEach(({ name, href, latitude, longitude }: any) => {
       const marker = L.marker([latitude, longitude], {
         icon: markerIcon,
       }).bindPopup(href ? `<a href=${href} target="_blank">${name}</a>` : name)

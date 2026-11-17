@@ -4,8 +4,8 @@ import FilterItem from '../filter-item'
 import Search from '../search'
 import YearFilter from '../year'
 
-const setFilterBox = (label, filters, onChange) => {
-  let component
+const setFilterBox = (label?: any, filters?: any, onChange?: any) => {
+  let component: any
   switch (label) {
     case 'year': {
       component = <YearFilter />
@@ -16,7 +16,7 @@ const setFilterBox = (label, filters, onChange) => {
       component = (
         <>
           <Search />
-          {filters.map((item) => (
+          {filters.map((item: any) => (
             <FilterItem
               key={
                 `${item.value}-${item.count}` || `${item.code}-${item.count}`

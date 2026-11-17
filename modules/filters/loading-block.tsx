@@ -15,7 +15,7 @@ const FILTERS_LABELS = [
   'Publisher',
 ]
 
-const Facet = ({ label }) => {
+const Facet = ({ label }: any) => {
   const [isComponentVisible, setIsComponentVisible] = useState(false)
 
   const node = useRef()
@@ -54,7 +54,7 @@ const Box = () => (
 
 const LoadingBlock = () => (
   <div className={styles.loadingBlock}>
-    {FILTERS_LABELS.map((item) => (
+    {FILTERS_LABELS.map((item: any) => (
       <Facet label={item} key={item} />
     ))}
   </div>

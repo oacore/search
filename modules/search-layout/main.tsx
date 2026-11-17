@@ -3,7 +3,7 @@ import { classNames } from '@oacore/design/lib/utils'
 
 import styles from './styles.module.css'
 
-const Main = ({ children, className, tag: Tag = 'div', ...restProps }) => (
+const Main = ({ children, className, tag: Tag = 'div', ...restProps }: any) => (
   <Tag className={classNames.use(styles.main, className)} {...restProps}>
     {children}
   </Tag>

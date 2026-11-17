@@ -16,13 +16,13 @@ const FilterItem = observe(
     item,
     useActiveStyles,
     onChangeFunction,
-  }) => {
+  }: any) => {
     const { filters } = useStore()
     // what an observer read: isLoading and the item's own fields, which the
     // store writes in place
     const [isLoading] = useStoreApi(
       filters,
-      useShallow((state) => [
+      useShallow((state: any) => [
         state.isLoading,
         item.checked,
         item.count,
@@ -30,7 +30,7 @@ const FilterItem = observe(
       ])
     )
 
-    const onToggleChecked = (e) => {
+    const onToggleChecked = (e?: any) => {
       e.preventDefault()
       onChangeFunction(item)
     }

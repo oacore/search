@@ -4,7 +4,7 @@ import { classNames } from '@oacore/design/lib/utils'
 
 import styles from './styles.module.css'
 
-const AuthorLink = ({ name }) => (
+const AuthorLink = ({ name }: any) => (
   <Link
     href={`https://core.ac.uk/search/author:(${name})`}
     className={styles.authorLink}
@@ -13,10 +13,10 @@ const AuthorLink = ({ name }) => (
   </Link>
 )
 
-const Authors = ({ authors }) => {
+const Authors = ({ authors }: any) => {
   const [isExpanded, setIsExpanded] = useState(false)
   if (authors.length <= 3) {
-    return authors.map((author, index) => (
+    return authors.map((author: any, index: any) => (
       <>
         <AuthorLink name={author.name} />
         {index < authors.length - 1 ? ', ' : ''}
@@ -48,7 +48,7 @@ const Authors = ({ authors }) => {
           aria-hidden={!isExpanded}
           className={styles.moreAuthors}
         >
-          {authors.slice(2, -1).map((author) => (
+          {authors.slice(2, -1).map((author: any) => (
             <>
               <AuthorLink name={author.name} />,{' '}
             </>

@@ -12,16 +12,16 @@ const MIN_YEAR = 1950
 // what the year box's observer read while rendering: the suggestions with
 // their values and counts, the grouped years with their counts and values,
 // and the year count; in-place writes come with a notification
-const selectYear = (state) => {
+const selectYear = (state?: any) => {
   const read = [
     state.activeFilterSuggestions,
     state.groupedYearDates,
     state.yearWorksCount,
   ]
-  state.activeFilterSuggestions.forEach((item) =>
+  state.activeFilterSuggestions.forEach((item: any) =>
     read.push(item, item.value, item.count)
   )
-  state.groupedYearDates.forEach((item) =>
+  state.groupedYearDates.forEach((item: any) =>
     read.push(item, item.count, item.value)
   )
   return read
@@ -35,7 +35,7 @@ const useYearFilterController = () => {
 
   const loadFilter = () => {
     const activeYears = filters.activeFilterSuggestions.filter(
-      (item) => item.checked === true
+      (item: any) => item.checked === true
     )
 
     const activeYearsMinValue = findMinValueInArray(activeYears, 'value')
@@ -49,17 +49,17 @@ const useYearFilterController = () => {
 
   const yearsAxis = filters.activeFilterSuggestions
     .filter(
-      (suggestion) =>
+      (suggestion: any) =>
         suggestion.value >= MIN_YEAR && suggestion.value <= MAX_YEAR
     )
-    .map((suggestion) => ({
+    .map((suggestion: any) => ({
       x0: suggestion.value,
       x: suggestion.value + 1,
       y: suggestion.count,
     }))
 
-  const onSelectActiveFilterItem = (selectedItem) => {
-    let yearsRange
+  const onSelectActiveFilterItem = (selectedItem?: any) => {
+    let yearsRange: any
     if (selectedItem.yearFrom) {
       // the computed maxYear of the MobX store
       const maxYear = filtersStore.select.maxYear(filtersStore.getState())

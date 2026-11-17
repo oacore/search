@@ -14,16 +14,16 @@ import { observe, useStore } from 'store'
 // each one's value and count, unless the year box renders them) and the
 // checked state of the facet's items; their in-place writes and sorts come
 // with a notification, so the flat list changes with them
-const selectItem = (filter) => (state) => {
+const selectItem = (filter?: any) => (state?: any) => {
   const suggestions = state.activeFilterSuggestions
   const read = [suggestions, filter.items]
-  filter.items.forEach((item) => read.push(item, item.checked))
+  filter.items.forEach((item: any) => read.push(item, item.checked))
   if (filter.label !== 'year')
-    suggestions.forEach((item) => read.push(item, item.value, item.count))
+    suggestions.forEach((item: any) => read.push(item, item.value, item.count))
   return read
 }
 
-const FilterBarItem = observe(({ filter, pathName }) => {
+const FilterBarItem = observe(({ filter, pathName }: any) => {
   const [isComponentVisible, setIsComponentVisible] = useState(false)
 
   const node = useRef()
@@ -48,7 +48,7 @@ const FilterBarItem = observe(({ filter, pathName }) => {
 
   useOutsideClick(node, hideFilterBox)
 
-  const onChangeFiltersWithCheckbox = (element) => {
+  const onChangeFiltersWithCheckbox = (element?: any) => {
     filters.toggleCheckboxFilter(element, pathName)
   }
 
@@ -66,7 +66,7 @@ const FilterBarItem = observe(({ filter, pathName }) => {
         className={classNames.use(styles.barItem, {
           [styles.barItemActive]:
             filter.label !== 'sort by' &&
-            filter.items.find((item) => item.checked === true),
+            filter.items.find((item: any) => item.checked === true),
           [styles.sortBarItem]: filter.label === 'sort by',
         })}
       >

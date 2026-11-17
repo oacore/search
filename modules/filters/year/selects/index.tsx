@@ -7,13 +7,13 @@ import YearSelectItem from './item'
 
 import { observe, useStore } from 'store'
 
-const YearSelects = observe(({ years, onSelect }) => {
+const YearSelects = observe(({ years, onSelect }: any) => {
   // what an observer read: the years (the store's suggestions, sorted and
   // written in place) and their values
   const { filters } = useStore()
   useStoreApi(
     filters,
-    useShallow(() => [years, ...years, ...years.map((item) => item.value)])
+    useShallow(() => [years, ...years, ...years.map((item: any) => item.value)])
   )
   const [minOptions, setMinOptions] = React.useState(years)
   const [maxOptions, setMaxOptions] = React.useState(years)
@@ -23,25 +23,25 @@ const YearSelects = observe(({ years, onSelect }) => {
 
   const MIN_YEAR = Math.min.apply(
     null,
-    years.map((item) => item.value)
+    years.map((item: any) => item.value)
   )
 
   const MAX_YEAR = Math.max.apply(
     null,
-    years.map((item) => item.value)
+    years.map((item: any) => item.value)
   )
   React.useEffect(() => {
     setSelectedStartYear(MIN_YEAR)
     setSelectedEndYear(MAX_YEAR)
   }, [])
 
-  const handleSelect = (start, end) => {
+  const handleSelect = (start?: any, end?: any) => {
     if (start !== 0 && end !== 0) if (onSelect) onSelect([start, end + 1])
   }
 
-  const setStartOptions = (selectedValue) => {
+  const setStartOptions = (selectedValue?: any) => {
     setMinOptions(
-      years.map((item) => ({
+      years.map((item: any) => ({
         ...item,
         disabled: item.value > selectedValue,
       }))
@@ -51,9 +51,9 @@ const YearSelects = observe(({ years, onSelect }) => {
     handleSelect(selectedStartYear, selectedValue)
   }
 
-  const setEndOptions = (selectedValue) => {
+  const setEndOptions = (selectedValue?: any) => {
     setMaxOptions(
-      years.map((item) => ({
+      years.map((item: any) => ({
         ...item,
         disabled: item.value < selectedValue,
       }))
@@ -67,12 +67,12 @@ const YearSelects = observe(({ years, onSelect }) => {
       <span className={styles.label}>from</span>
       <YearSelectItem
         onSelect={setEndOptions}
-        options={minOptions.slice().sort((a, b) => a.value - b.value)}
+        options={minOptions.slice().sort((a: any, b: any) => a.value - b.value)}
       />
       <span className={styles.label}>to</span>
       <YearSelectItem
         onSelect={setStartOptions}
-        options={maxOptions.slice().sort((a, b) => b.value - a.value)}
+        options={maxOptions.slice().sort((a: any, b: any) => b.value - a.value)}
       />
     </div>
   )

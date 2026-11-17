@@ -6,7 +6,7 @@ import AppBar from './app-bar'
 // import MaintenanceBanner from './maintenance-banner'
 import styles from './styles.module.css'
 
-const Layout = ({ children, loading, isSearchPage }) => (
+const Layout = ({ children, loading, isSearchPage }: any) => (
   <Container>
     {loading && <LoadingBar fixed />}
     <AppBar className={isSearchPage ? styles.header : null} />

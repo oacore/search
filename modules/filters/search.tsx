@@ -15,14 +15,14 @@ const Search = observe(() => {
 
   const [, filterItems] = useStoreApi(
     filtersStore,
-    useShallow((state) => [state.activeFilter, state.activeFilter.items])
+    useShallow((state: any) => [state.activeFilter, state.activeFilter.items])
   )
 
-  const handleOnInput = (e) => {
+  const handleOnInput = (e?: any) => {
     const inputValue = e.target.value
     setValue(inputValue)
 
-    const results = filterItems.filter((obj) =>
+    const results = filterItems.filter((obj: any) =>
       obj.value.toLowerCase().includes(inputValue.toLowerCase())
     )
 

@@ -2,17 +2,17 @@ import React from 'react'
 
 const DCMeta = ({
   data: { title, authors, abstract, downloadLink, year, oai, subjects },
-}) => (
+}: any) => (
   <>
     {downloadLink && <meta name="DC.format" content={downloadLink} />}
-    {(authors || []).map(({ name }) => (
+    {(authors || []).map(({ name }: any) => (
       <meta key={name} name="DC.creator" content={name} />
     ))}
     {title && <meta name="DC.title" content={title} />}
     {abstract && <meta name="DCTERMS.abstract" content={abstract} />}
     {year && <meta name="DC.issued" content={year} />}
     {oai && <meta name="DC.identifier" content={oai} />}
-    {(subjects || []).map((subject) => (
+    {(subjects || []).map((subject: any) => (
       <meta key={subject} name="DC.subject" content={subject} />
     ))}
   </>
@@ -20,7 +20,7 @@ const DCMeta = ({
 
 // publishedDate may arrive as an ISO string, a bare year (string or number),
 // a Date, or garbage; never throw during SSR.
-const formatCitationDate = (date) => {
+const formatCitationDate = (date?: any) => {
   let value = date
   if (value instanceof Date) {
     if (Number.isNaN(value.getTime())) return null
@@ -40,7 +40,7 @@ const formatCitationDate = (date) => {
 
 const CitationMeta = ({
   data: { title, authors, downloadLink, year, publishedDate },
-}) => {
+}: any) => {
   const publicationDate =
     (publishedDate && formatCitationDate(publishedDate)) || year
 
@@ -48,7 +48,7 @@ const CitationMeta = ({
     <>
       {downloadLink && <meta name="citation_pdf_url" content={downloadLink} />}
       {title && <meta name="citation_title" content={title} />}
-      {(authors || []).map(({ name }) => (
+      {(authors || []).map(({ name }: any) => (
         <meta key={name} name="citation_author" content={name} />
       ))}
       {publicationDate && (
@@ -58,7 +58,7 @@ const CitationMeta = ({
   )
 }
 
-const addEllipsis = (text, max) =>
+const addEllipsis = (text?: any, max?: any) =>
   text.length <= max ? text : `${text.substring(0, max - 3)}...`
 
 const structuredMetadata = ({
@@ -69,7 +69,7 @@ const structuredMetadata = ({
   publisher,
   publishedDate,
   dataProvider,
-}) => {
+}: any) => {
   const ld = {
     '@context': 'http://schema.org',
     '@graph': [
@@ -101,7 +101,7 @@ const structuredMetadata = ({
         'headline': addEllipsis(title || '', 110),
         'abstract': abstract || undefined,
         'name': title,
-        'author': (authors || []).map((author) => ({
+        'author': (authors || []).map((author: any) => ({
           '@type': 'Person',
           'name': author,
         })),
@@ -121,8 +121,8 @@ const structuredMetadata = ({
   }
 
   if (dataProvider.id) {
-    const foundedElem = ld['@graph'].find(
-      (item) => item['@type'] === 'BreadcrumbList'
+    const foundedElem: any = ld['@graph'].find(
+      (item: any) => item['@type'] === 'BreadcrumbList'
     )
     foundedElem.itemListElement.push({
       '@type': 'ListItem',
@@ -143,7 +143,7 @@ const structuredMetadata = ({
 
 // Intentionally embedding JSON-LD
 /* eslint-disable react/no-danger */
-const LinkedData = ({ data }) => (
+const LinkedData = ({ data }: any) => (
   <script
     type="application/ld+json"
     dangerouslySetInnerHTML={{
@@ -153,7 +153,7 @@ const LinkedData = ({ data }) => (
 )
 /* eslint-enable react/no-danger */
 
-const Meta = ({ data }) => (
+const Meta = ({ data }: any) => (
   <>
     <CitationMeta data={data} />
     <DCMeta data={data} />

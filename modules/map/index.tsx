@@ -9,7 +9,7 @@ const Map = dynamic(() => import('./map'), {
 })
 
 const RepositoriesMap = React.memo(
-  ({ className, tag: Tag = 'div', ...passProps }) => (
+  ({ className, tag: Tag = 'div', ...passProps }: any) => (
     <Tag className={classNames.use(styles.container).join(className)}>
       <Map {...passProps} />
     </Tag>

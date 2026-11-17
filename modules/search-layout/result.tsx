@@ -4,7 +4,7 @@ import { Card } from '@oacore/design'
 
 import styles from './styles.module.css'
 
-const Result = ({ children, className, tag = 'div', ...restProps }) => (
+const Result = ({ children, className, tag = 'div', ...restProps }: any) => (
   <Card
     tag={tag}
     className={classNames.use(styles.result, className)}

@@ -30,7 +30,7 @@ const DropDown = ({
   oai,
   doi,
   useOtherVersions,
-}) => {
+}: any) => {
   const [logoFetched, setLogoFetched] = useState('')
 
   // eslint-disable-next-line consistent-return
@@ -56,7 +56,7 @@ const DropDown = ({
               `Failed to fetch logo. Status: ${response.status}`
             )
           }
-        } catch (err) {
+        } catch (err: any) {
           console.error(err)
           LogRocket.captureException(err)
         }
