@@ -34,6 +34,16 @@ const KNOWN_ROUTES = [
 ]
 
 const list = (xs) => xs.join(',')
+// the @sentry/* packages of the client bundle since CS-SEN-2 (6.8):
+// @sentry/nextjs's browser build, without its tracing code
+const SENTRY_CLIENT_PACKAGES = [
+  '@sentry/browser',
+  '@sentry/browser-utils',
+  '@sentry/conventions',
+  '@sentry/core',
+  '@sentry/nextjs',
+  '@sentry/react',
+].join(',')
 // CS-TS-4 (6.6) moved these modules from .js to .ts (git mv, type
 // annotations only): their sites are counted under the reference's names
 const MOVED = {
@@ -110,19 +120,25 @@ describe('T-004 @P0 bundles', () => {
     expect(a['client:roots:@sentry/browser']).toBe(
       'node_modules/@sentry/browser'
     )
-    // the alias of next.config.js:97 sends @sentry/node to the browser SDK
+    // the browser build of @sentry/nextjs (CS-SEN-2) brings the browser SDK
+    // through @sentry/react; @sentry/node stays out (next.config.js:97
+    // aliased it to @sentry/browser before)
     expect(a['client:roots:@sentry/node']).toBe('')
-    compare(['client:roots:', 'client:sentry-packages', 'client:externals'])
+    expect(a['client:sentry-packages']).toBe(SENTRY_CLIENT_PACKAGES)
+    compare([
+      'client:roots:react',
+      'client:roots:@sentry/node',
+      'client:externals',
+    ])
   })
 
-  test('T-004 c2 @P0 server: only @sentry/node, external (Q-065: Next 10 externalises it before the alias)', () => {
+  test('T-004 c2 @P0 server: only @sentry/nextjs, external (Q-065: Next 10 externalised @sentry/node before the alias)', () => {
     const a = actual.entries
-    // every server module that loads Sentry requires the external
-    // @sentry/node; no @sentry/* module is bundled (the only `@sentry/browser`
-    // text in the server output is the comment of utils/sentry.js:1)
-    expect(a['server:sentry-externals']).toBe('@sentry/node')
+    // every server module that loads Sentry (the pages through pages/_app,
+    // instrumentation.ts) requires the external @sentry/nextjs (CS-SEN-2;
+    // @sentry/node before); no @sentry/* module is bundled
+    expect(a['server:sentry-externals']).toBe('@sentry/nextjs')
     expect(a['server:sentry-bundled']).toBe('')
-    compare(['server:sentry-'])
   })
 
   test('T-004 c3 @P0 no new readFileSync of lib/loader.js in the bundles', () => {

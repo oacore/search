@@ -147,12 +147,14 @@ const registerWith = (dsn, runtime = 'nodejs') =>
 
 describe('T-120 @P1 instrumentation.ts and instrumentation-client.ts', () => {
   test('T-120 c1 @P1 without SENTRY_DSN (absent or empty) Sentry.init is not called, on the server or in the browser', async () => {
-    for (const dsn of [undefined, '']) {
-      const { sentry } = await registerWith(dsn)
+    const servers = [await registerWith(undefined), await registerWith('')]
+    servers.forEach(({ sentry }) => {
       expect(sentry.init).toBeDefined()
       expect(sentry.init).not.toHaveBeenCalled()
+    })
+    ;[undefined, ''].forEach((dsn) =>
       expect(loadClient(dsn).init).not.toHaveBeenCalled()
-    }
+    )
   })
 
   test('T-120 c1 @P1 the browser reads the DSN at load: setting it after the import does not initialise the SDK', () => {
