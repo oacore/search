@@ -3,12 +3,14 @@
 // Router.push (router mock); the string surgery on `q` is pinned as it is:
 // Q-040 add/remove by substring, Q-041 greedy year regex, Q-042 "Clear all"
 // keeps the first word, Q-020 the AbortSignal lands in `sortType`.
-const { toJS } = require('mobx')
+// the state is plain since the zustand port (CS-ZU-6)
+const toJS = (value) => value
 const nextRouter = require('next/router')
 
 const { setupMsw } = require('../../utils/msw')
 const { waitFor } = require('../../utils/render')
-const Filters = require('../../../store/filters').default
+const { createFiltersStore } = require('../../../store/filters')
+const live = require('../../drivers/store-driver/live')
 
 const transformFiltersData = require('utils/filters-transform').default
 
@@ -58,7 +60,7 @@ const facet = (filters, value) => filters.data.find((f) => f.value === value)
 
 // a store after the first E2 of "climate" with one facet open
 const opened = async (facetValue) => {
-  const filters = new Filters()
+  const filters = live(createFiltersStore())
   await filters.fetchFilters('climate', 'relevance')
   const filter = facet(filters, facetValue)
   filters.setActiveFilter(filter)
@@ -216,7 +218,7 @@ describe('T-202 @P0 Filters URL algebra', () => {
   })
 
   test('T-202 c3 @P0 reset(undefined) pushes, then throws', () => {
-    const filters = new Filters()
+    const filters = live(createFiltersStore())
     nextRouter.setRouter({ query: { q: 'climate', page: '2' } })
 
     expect(() => filters.reset(undefined, '/search')).toThrow(TypeError)
@@ -242,7 +244,7 @@ describe('T-202 @P0 Filters URL algebra', () => {
     const year = await opened('yearPublished')
     year.setActiveYearDate([2000, 2001])
     nextRouter.setRouter({ query: { q: 'climate', page: '5' } })
-    const cleared = new Filters()
+    const cleared = live(createFiltersStore())
     cleared.reset('climate')
     await settled(cleared)
 

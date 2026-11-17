@@ -12,7 +12,6 @@ const path = require('path')
 
 const mobx = require('mobx')
 
-const Filters = require('../../../store/filters').default
 const Root = require('../../../store/root').default
 
 const BASELINE = path.join(__dirname, '__baseline__', 't203-reactivity.json')
@@ -21,7 +20,6 @@ const { autorun, runInAction } = mobx
 
 // one fresh instance per class, constructed the way the app does
 const instances = () => ({
-  Filters: new Filters(),
   Root: new Root({ statistics: {} }),
 })
 
@@ -99,13 +97,6 @@ describe('T-203 @P0 reactivity contract', () => {
 
     // facts the table must hold, whatever was recorded (the ported stores,
     // Search included, are T-212's)
-    // legacy decorators of Filters
-    expect(table.Filters.data).toBe('observable')
-    expect(table.Filters.maxYear).toBe('computed')
-    expect(table.Filters.filterNamesWithoutYear).toBe('computed')
-    expect(table.Filters.filterNamesWithoutPublisher).toBe('plain-accessor')
-    expect(table.Filters.fetchFilters).toBe('action')
-    expect(table.Filters.getFilterByValue).toBe('action')
     // annotation map of Root (the ported stores are plain fields)
     expect(table.Root.search).toBe('plain')
     expect(table.Root.claim).toBe('plain')
@@ -150,27 +141,5 @@ describe('T-203 @P0 reactivity contract', () => {
         Object.values(c).filter((k) => k === 'observable')
       ).length
     )
-  })
-
-  test('T-203 c2 @P0 computeds run once per change of their inputs', () => {
-    // Filters.maxYear needs a year facet (DataProviders.results: T-212)
-    const filters = new Filters()
-    runInAction(() => {
-      filters.data = [
-        { label: 'year', items: [{ value: 2001 }, { value: 1999 }] },
-      ]
-    })
-    const seen = []
-    const stop = autorun(() => seen.push(filters.maxYear))
-    runInAction(() => {
-      filters.data = [{ label: 'year', items: [{ value: 2005 }] }]
-    })
-    expect(seen).toEqual([2001, 2005])
-    // same maximum: the computed value is equal, the autorun does not run
-    runInAction(() => {
-      filters.data = [{ label: 'year', items: [{ value: 2005 }, { value: 7 }] }]
-    })
-    expect(seen).toEqual([2001, 2005])
-    stop()
   })
 })

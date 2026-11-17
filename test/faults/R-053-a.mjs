@@ -19,13 +19,18 @@ export default async ({ env, page: seed }) => {
       await hydrated(page)
       await page.locator('button:has-text("Cite")').first().click()
       await page.waitForFunction(
-        () => !document.getElementById('__next') || document.getElementById('__next').innerText.length === 0
+        () =>
+          !document.getElementById('__next') ||
+          document.getElementById('__next').innerText.length === 0
       )
       await page.waitForTimeout(1000)
       const lines = log.console.filter(
         (m) => m.type === 'error' && /Unterminated value/.test(m.text)
       )
-      return lines.length > 0 && lines.every((m) => /^TypeError: Unterminated value/.test(m.text))
+      return (
+        lines.length > 0 &&
+        lines.every((m) => /^TypeError: Unterminated value/.test(m.text))
+      )
     })
   } finally {
     await control(env, 'DELETE', `/rules?id=${rule.id}`)

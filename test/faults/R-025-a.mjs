@@ -18,9 +18,13 @@ export default async ({ env }) => {
   const root = path.join(env.build.dir, '.next', 'static')
   const holders = walk(root)
     .filter((f) => f.endsWith('.js.map'))
-    .filter((f) => JSON.parse(fs.readFileSync(f, 'utf8')).sources.includes(MODULE))
+    .filter((f) =>
+      JSON.parse(fs.readFileSync(f, 'utf8')).sources.includes(MODULE)
+    )
     .map((f) => path.relative(root, f))
-  process.stderr.write(`[R-025-a] chunks holding ${MODULE}: ${holders.join(', ')}\n`)
+  process.stderr.write(
+    `[R-025-a] chunks holding ${MODULE}: ${holders.join(', ')}\n`
+  )
   return (
     holders.length > 0 &&
     holders.every((f) => !f.startsWith(`chunks${path.sep}pages${path.sep}`))

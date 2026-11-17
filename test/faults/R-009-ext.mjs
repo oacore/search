@@ -4,9 +4,9 @@
 export default async ({ env, request }) => {
   const res = await request.get(`${env.baseURL}/search/?q=climate`)
   const html = await res.text()
-  const hrefs = [...html.matchAll(/<link rel="stylesheet" href="([^"]+)"/g)].map(
-    (m) => m[1]
-  )
+  const hrefs = [
+    ...html.matchAll(/<link rel="stylesheet" href="([^"]+)"/g),
+  ].map((m) => m[1])
   if (!hrefs.length) return false
   let unresolved = 0
   for (const href of hrefs) {

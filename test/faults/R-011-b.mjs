@@ -74,7 +74,9 @@ export default async ({ env }) => {
     await page.waitForLoadState('networkidle').catch(() => {})
     const after = await page.locator(labels).allTextContents()
     // the loading block lists Field, Year, Type, Author, Language, Publisher; the loaded bar the lower-case facets
-    return whilePending.length === 0 && after.length === 6 && after[0] === 'field'
+    return (
+      whilePending.length === 0 && after.length === 6 && after[0] === 'field'
+    )
   } catch (error) {
     console.error(`R-011-b: ${error.message}`)
     return false

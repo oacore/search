@@ -7,7 +7,9 @@ export default async ({ env, page: seed }) =>
     // the store writes its defaults into the URL once hydrated
     await page.waitForFunction(() => location.search === '?q=&size=10')
     const entries = await history(page)
-    const sync = entries.filter((e) => /\/data-providers\/\?q=&size=10$/.test(e.url))
+    const sync = entries.filter((e) =>
+      /\/data-providers\/\?q=&size=10$/.test(e.url)
+    )
     const extraEntries = await page.evaluate(() => history.length)
     return (
       sync.length === 1 &&

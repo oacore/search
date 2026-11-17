@@ -6,10 +6,14 @@ export default async ({ env, page: seed }) =>
   run('R-052-a', seed, env, {}, async ({ page }) => {
     await page.goto('/search/?q=climate', { waitUntil: 'domcontentloaded' })
     await hydrated(page)
-    const next = page.locator('ul button:has(svg use[href$="#chevron-right"])').last()
+    const next = page
+      .locator('ul button:has(svg use[href$="#chevron-right"])')
+      .last()
     await next.waitFor()
     await next.scrollIntoViewIfNeeded()
-    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
+    await page.evaluate(() =>
+      window.scrollTo(0, document.documentElement.scrollHeight)
+    )
     await sleep(500)
     const before = await page.evaluate(() => window.scrollY)
     await next.click()

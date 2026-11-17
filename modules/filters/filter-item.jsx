@@ -1,6 +1,8 @@
 import React from 'react'
 import { Icon } from '@oacore/design/lib'
 import classNames from '@oacore/design/lib/utils/class-names'
+import { useStore as useStoreApi } from 'zustand'
+import { useShallow } from 'zustand/react/shallow'
 
 import styles from './styles.module.css'
 
@@ -16,6 +18,17 @@ const FilterItem = observe(
     onChangeFunction,
   }) => {
     const { filters } = useStore()
+    // what an observer read: isLoading and the item's own fields, which the
+    // store writes in place
+    const [isLoading] = useStoreApi(
+      filters,
+      useShallow((state) => [
+        state.isLoading,
+        item.checked,
+        item.count,
+        item.yearFrom,
+      ])
+    )
 
     const onToggleChecked = (e) => {
       e.preventDefault()
@@ -27,8 +40,6 @@ const FilterItem = observe(
       if (item.checked) return <Icon src={checkedIcon} />
       if (unCheckedIcon) return <Icon src={unCheckedIcon} />
     }
-
-    const { isLoading } = filters
 
     return (
       <li

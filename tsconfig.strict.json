@@ -11,6 +11,7 @@
     "store/similar-works.ts",
     "store/data-providers.ts",
     "store/batch.ts",
-    "store/search.ts"
+    "store/search.ts",
+    "store/filters.ts"
   ]
 }

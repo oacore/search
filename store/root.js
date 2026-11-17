@@ -5,7 +5,7 @@ import { createSimilarWorksStore } from './similar-works'
 import { createDataProvidersStore } from './data-providers'
 import { createReportStore } from './report'
 import { createSearchStore } from './search'
-import Filters from './filters'
+import { createFiltersStore } from './filters'
 
 class Root {
   // a zustand store api, a plain field until CS-ZU-7
@@ -23,7 +23,8 @@ class Root {
   // a zustand store api, a plain field until CS-ZU-7
   report = createReportStore()
 
-  filters = new Filters()
+  // a zustand store api, a plain field until CS-ZU-7
+  filters = createFiltersStore()
 
   statistics
 

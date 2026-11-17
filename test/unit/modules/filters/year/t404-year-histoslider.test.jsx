@@ -74,10 +74,10 @@ const SLIDER_HEIGHT = 20
 // the store as FilterBarItem leaves it after a click on the "year" label
 const yearStore = async () => {
   const store = new RootStore({ statistics: {} })
-  await store.filters.fetchFilters('climate', 'relevance')
-  const year = store.filters.data.find((f) => f.label === 'year')
-  store.filters.setActiveFilter(year)
-  store.filters.setActiveFilterSuggestions(year.items)
+  await store.filters.getState().fetchFilters('climate', 'relevance')
+  const year = store.filters.getState().data.find((f) => f.label === 'year')
+  store.filters.getState().setActiveFilter(year)
+  store.filters.getState().setActiveFilterSuggestions(year.items)
   return store
 }
 

@@ -81,5 +81,6 @@ module.exports = {
       () => require('../../../store/data-providers').createDataProvidersStore
     ),
     search: store(() => require('../../../store/search').createSearchStore),
+    filters: store(() => require('../../../store/filters').createFiltersStore),
   },
 }

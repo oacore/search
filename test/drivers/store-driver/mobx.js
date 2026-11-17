@@ -40,6 +40,7 @@ const handleOf = (spec, instance) => {
   return handle
 }
 
+// eslint-disable-next-line no-unused-vars -- every store is ported
 const store = (load) => ({
   create: (spec, ...args) => handleOf(spec, new (load())(...args)),
   of: handleOf,
@@ -47,7 +48,5 @@ const store = (load) => ({
 
 module.exports = {
   name: 'mobx',
-  stores: {
-    filters: store(() => require('../../../store/filters').default),
-  },
+  stores: {},
 }

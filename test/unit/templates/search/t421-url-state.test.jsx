@@ -30,7 +30,7 @@ import {
   withStore,
 } from '../../../utils/render'
 import RootStore from '../../../../store/root'
-import Filters from '../../../../store/filters'
+import { createFiltersStore } from '../../../../store/filters'
 import { createSearchStore } from '../../../../store/search'
 import live from '../../../drivers/store-driver/live'
 import { getServerSideProps } from '../../../../pages/search'
@@ -248,7 +248,9 @@ describe('T-421 @P1 URL state from a non-default state', () => {
       await waitFor(() =>
         expect(screen.getByText(/research outputs found/)).toBeInTheDocument()
       )
-      await waitFor(() => expect(store.filters.isLoading).toBe(false))
+      await waitFor(() =>
+        expect(store.filters.getState().isLoading).toBe(false)
+      )
       await settle()
       return view
     }
@@ -278,7 +280,9 @@ describe('T-421 @P1 URL state from a non-default state', () => {
       await user.click(
         screen.getByRole('button', { name: 'Clear all filters' })
       )
-      await waitFor(() => expect(store.filters.isLoading).toBe(false))
+      await waitFor(() =>
+        expect(store.filters.getState().isLoading).toBe(false)
+      )
       // Q-042: the first word of q stays; the bar passes no pathname
       expect(pushes()).toStrictEqual([
         { pathname: undefined, query: { ...FULL, q: 'climate', page: 1 } },
@@ -373,7 +377,7 @@ describe('T-421 @P1 URL state from a non-default state', () => {
     test('T-421 c2 @P1 a year range keeps every other router query key, its clause is appended to the filtered q, page goes to 1', async () => {
       // the year push reads the open facet of the filters store
       // (store/filters.js:198-246); its suggestions come from the recorded E2
-      const filters = new Filters()
+      const filters = live(createFiltersStore())
       await filters.fetchFilters('climate', 'relevance')
       const year = filters.data.find((f) => f.value === 'yearPublished')
       filters.setActiveFilter(year)
