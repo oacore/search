@@ -78,8 +78,10 @@ const createParams = (
     configurable: true,
     writable: true,
     value: ({ ...changed }: Record<string, any>) => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { schema: _, ...assignedParams } = params
+      // every own enumerable key but schema, as `{ schema, ...rest }` did
+      const assignedParams = Object.fromEntries(
+        Object.entries(params).filter(([key]) => key !== 'schema')
+      )
 
       const newParams = convertAndValidate({
         schema: params.schema,

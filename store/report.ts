@@ -52,8 +52,10 @@ const fetchOutput = invalidatePreviousRequests(
     store.setState({ isLoading: true })
     try {
       const rawOutput = await fetchMetadata(id)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { fullText: _, ...output } = rawOutput
+      // every own key but fullText, as `{ fullText: _, ...output }` did
+      const output = Object.fromEntries(
+        Object.entries(rawOutput).filter(([key]) => key !== 'fullText')
+      )
       store.setState({ output })
       store.setState({ isModalReportTypeActive: true })
     } catch {
