@@ -1,10 +1,9 @@
 diff --git a/Dockerfile b/Dockerfile
-index 4e41d9a..e8c48b9 100644
 --- a/Dockerfile
 +++ b/Dockerfile
-@@ -22,8 +22,6 @@ ENV NODE_ENV=$NODE_ENV
+@@ -21,8 +21,6 @@
+ ENV NODE_ENV=$NODE_ENV
  ENV APP_ENV=$APP_ENV
- ENV NODE_OPTIONS="--openssl-legacy-provider"
  RUN npm run build && \
 -    cp public/design/icons.svg public/icons.svg && \
 -    mkdir -p public/images && \

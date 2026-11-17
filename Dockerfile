@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:24.18.1-alpine
 ARG BUILD_TARGET=azure
 ARG SENTRY_DSN
 ARG NODE_ENV=production
@@ -16,11 +16,10 @@ ENV SENTRY_DSN=$SENTRY_DSN \
 WORKDIR /app
 COPY . .
 RUN printf "@oacore:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=%s\n" "$NPM_TOKEN" > .npmrc
-RUN npm ci --include=dev --legacy-peer-deps || npm install --include=dev --legacy-peer-deps
+RUN npm ci --include=dev --legacy-peer-deps --install-links || npm install --include=dev --legacy-peer-deps --install-links
 RUN rm -f .npmrc
 ENV NODE_ENV=$NODE_ENV
 ENV APP_ENV=$APP_ENV
-ENV NODE_OPTIONS="--openssl-legacy-provider"
 RUN npm run build && \
     cp public/design/icons.svg public/icons.svg && \
     mkdir -p public/images && \

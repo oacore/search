@@ -1,6 +1,6 @@
 # Lean track: final summary
 
-Summary for the owner of the lean track, from the jump 3 tip `3c934e9` (React 18, Next 14) to the tip of `upgrade/jump5-deps-latest` (2026-11-16). It covers jump 4 (W7a, W7b, W7c), jump 5 (groups W81 to W84) and the stabilise step (W9). It follows `.p2-work/LEAN-PLAN.md`: no sign-off rounds, decisions made during the work and noted in the commit messages. Nothing was pushed or deployed, and no Docker was used. `git diff 3c934e9 -- .github kube Dockerfile .dockerignore` is empty.
+Summary for the owner of the lean track, from the jump 3 tip `3c934e9` (React 18, Next 14) to the tip of `upgrade/jump5-deps-latest` (2026-11-16). It covers jump 4 (W7a, W7b, W7c), jump 5 (groups W81 to W84) and the stabilise step (W9). It follows `.p2-work/LEAN-PLAN.md`: no sign-off rounds, decisions made during the work and noted in the commit messages. Nothing was pushed or deployed, and no Docker was used. `git diff 3c934e9 -- .github kube .dockerignore` is empty; the Dockerfile changed once, on 2026-11-17, at the owner's request (§7).
 
 ## 1. Final versions
 
@@ -88,12 +88,18 @@ Not run: WebKit and Firefox (these projects exist only inside the runner contain
 
 ## 6. Open items
 
-- **T-104 c2 (red).** Jest runs on Node 24, but `Dockerfile:1` still says `FROM node:18-alpine`. Next 16 needs Node 20.9 or later. To fix it, raise the base image to Node 24 (`node:24-alpine`). This is a DevOps change for the owner.
+- **T-104 c2: closed on 2026-11-17.** The owner asked for the Dockerfile change after the track: `Dockerfile:1` is now `FROM node:24.18.1-alpine`, the Node version every build and test of the track ran on. See §7.
+- **Build warnings (information).** The client build prints two "Attempted import error" warnings for `onUncaughtExceptionIntegration` and `httpIntegration`, because the client bundle swaps `@sentry/node` for `@sentry/browser`. Both are used only under `!process.browser`, so the client never calls them. The build still succeeds.
 
 ## 7. Before the deploy (owner)
 
-- **Node base image:** `Dockerfile:1` to Node 24 (closes T-104 c2). Check memory with it (`kube/prod/deployment.yaml`, `--max-old-space-size=1024`, limit 768Mi). Check whether `ENV NODE_OPTIONS="--openssl-legacy-provider"` (`Dockerfile:23`) is still wanted; the track's builds ran without it.
-- **Image install:** keep `npm ci --include=dev` (`cssnano-simple` is a devDependency that the build needs). The lock holds Next 16's musl SWC binaries, and the image's `npm run build` already uses `--webpack` through `package.json`.
+- **Dockerfile: done on 2026-11-17, at the owner's request.** Three changes:
+  - `FROM node:24.18.1-alpine` (was `node:18-alpine`). This closes T-104 c2.
+  - `npm ci` and its `npm install` fallback both add `--install-links`. The vendored design package needs it: without the flag `npm ci` stops, and the fallback would link the folder and rewrite the lock.
+  - `ENV NODE_OPTIONS="--openssl-legacy-provider"` is removed. Only Next 10 with webpack needed it, and the track's builds ran without it from Next 12 on.
+
+  `--include=dev` stays, because `cssnano-simple` is a devDependency the build needs. The image steps were rehearsed on the host, since no Docker is used: on a clean export and Node 24.18.1, `npm ci` with the new flags exited 0 without the fallback and left the lock unchanged, and the design package was installed as a real folder. The build (`build:test`, without the flag) and `next start` worked, serving `/icons.svg`, `/images/...` and the pages. The real image build is still unproven: it is alpine, while the host is macOS.
+- **Memory on Node 24 (check at the deploy, `kube/` not changed).** In the track's measurements a Node 24 process peaked at 604 to 784 MiB in the 69-request sweep, while `kube/prod/deployment.yaml` has a 768Mi limit, a 512Mi request and `--max-old-space-size=1024`. Watch RSS and OOMKilled restarts in the first 48 h. If restarts show up, raise the limit or add `--max-semi-space-size=16` to `NODE_OPTIONS` (details: `docs/upgrade/20-change-sites.md`, "Memory on Node 24").
 - **Gateway:** page data now goes through the existing `/static/search` rule (`/static/search/_next/data/...` is stripped to `/_next/data/...`). Prod and stage must keep building with `BUILD_TARGET=azure`. No gateway edit is needed. During jump 4, some page-data requests on today's prod reached another build and answered 404 (`.p2-work/jump4/notes.md`). That happens with the old path too.
 - **Mention sweep before the push:** the last row of `.p2-work/LEAN-PLAN.md`'s order. Check the branch's commit messages and `docs/` for mentions of the tools used in the work, and strip any you find. A scan of `3c934e9..HEAD` and of `docs/`, `scripts/`, `test/` and `e2e/` on 2026-11-16 found none. The sweep is still the owner's last step.
 - Push and deploy only after the items above.
