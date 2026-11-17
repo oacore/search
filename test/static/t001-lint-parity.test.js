@@ -68,6 +68,21 @@ const SUPPRESSIONS = [
   ['pages/search/index.jsx', 'react-hooks/rules-of-hooks', 2],
   ['templates/search/results.jsx', 'react-hooks/rules-of-hooks', 1],
 ]
+// @next/eslint-plugin-next recommended (CS-LINT-5, 6.2) on the existing
+// code: bulk suppressions, source untouched
+const LINT5_SUPPRESSIONS = [
+  ['modules/dropdown/index.jsx', 1],
+  ['modules/logo/index.jsx', 1],
+  ['pages/error-card/index.jsx', 1],
+  ['templates/data-provider/index.jsx', 1],
+  ['templates/data-provider/logo.jsx', 1],
+  ['templates/error/query.jsx', 1],
+  ['templates/output/card-dropdown.jsx', 2],
+  ['templates/output/index.jsx', 1],
+  ['templates/output/report/report-success-modal.jsx', 2],
+  ['templates/output/update/index.jsx', 2],
+  ['templates/search/index.jsx', 3],
+].map(([f, n]) => [f, '@next/next/no-img-element', n])
 // stylelint 17 on unchanged code: the same (path, rule, count) as stylelint 13
 const STYLELINT_FINDINGS = [
   ['modules/layout/styles.module.css', 'order/properties-order', 1],
@@ -438,15 +453,21 @@ describe('T-001 @P0 lint parity', () => {
     expect(report.eslint.appFiles).toBeGreaterThanOrEqual(157)
   })
 
-  test('T-001 c1 @P0 the bulk suppressions are the five rules-of-hooks findings and none is stale (CS-LINT-2)', () => {
+  test('T-001 c1 @P0 the bulk suppressions are the five rules-of-hooks findings (CS-LINT-2) and the no-img-element findings (CS-LINT-5), and none is stale', () => {
     const file = readJson(path.join(ROOT, 'eslint-suppressions.json'))
     const rows = sortRows(
       Object.entries(file).flatMap(([f, rules]) =>
         Object.entries(rules).map(([r, v]) => [f, r, v.count])
       )
     )
-    expect(rows).toEqual(SUPPRESSIONS)
-    expect(report.suppressions.entries).toEqual(SUPPRESSIONS)
+    const expected = sortRows([...SUPPRESSIONS, ...LINT5_SUPPRESSIONS])
+    expect(rows).toEqual(expected)
+    expect(report.suppressions.entries).toEqual(expected)
+    expect(report.suppressions.diff).toEqual({
+      added: [],
+      removed: [],
+      changed: [],
+    })
     expect(report.suppressions.stale).toBe(false)
   })
 
@@ -523,7 +544,7 @@ describe('T-001 @P0 lint parity', () => {
     )
     expect(JSON.stringify(pkg.scripts)).not.toMatch(/--fix/)
     // the pre-commit hook (CS-HUS-1): ESLint and stylelint report, only
-    // Prettier writes, and only JS and JSON; lint-staged reads the root
+    // Prettier writes, and only JS, TS and JSON; lint-staged reads the root
     // config only, never the vendored design's .lintstagedrc (CS-DSN-2,
     // AD-042)
     expect(pkg.scripts.prepare).toBe('husky')
@@ -531,7 +552,7 @@ describe('T-001 @P0 lint parity', () => {
       fs.readFileSync(path.join(ROOT, '.husky/pre-commit'), 'utf8').trim()
     ).toBe('npx lint-staged --config package.json')
     expect(pkg['lint-staged']).toEqual({
-      '*.{js,jsx}': ['eslint --no-warn-ignored', 'prettier --write'],
+      '*.{js,jsx,ts,tsx}': ['eslint --no-warn-ignored', 'prettier --write'],
       '*.css': ['stylelint', 'prettier --check'],
       '*.json': 'prettier --write',
     })
