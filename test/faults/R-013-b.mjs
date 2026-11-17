@@ -1,9 +1,7 @@
 // R-013-b: the raw HTML of the data providers search holds <a> inside <a> in the result card
 export default async ({ env, request }) => {
   try {
-    const res = await request.get(
-      `${env.baseURL}/data-providers/?q=aberystwyth`
-    )
+    const res = await request.get(`${env.baseURL}/data-providers/?q=aberystwyth`)
     if (res.status() !== 200) return false
     const html = await res.text()
     const nested =

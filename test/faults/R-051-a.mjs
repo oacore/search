@@ -4,8 +4,7 @@
 import { run, sleep, hydrated } from './R-018-expect-lib.mjs'
 
 // the router writes a space as + in the data request
-const ENCODED =
-  /\/_next\/data\/[^/]+\/search\.json\?q=C%23(%20|\+)%26(%20|\+)C%2B%2B$/
+const ENCODED = /\/_next\/data\/[^/]+\/search\.json\?q=C%23(%20|\+)%26(%20|\+)C%2B%2B$/
 
 export default async ({ env, page: seed }) =>
   run('R-051-a', seed, env, {}, async ({ page, log }) => {

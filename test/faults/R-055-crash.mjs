@@ -11,9 +11,7 @@ import { spawn } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
-const { runtimeNode } = await import(
-  path.join(HERE, '..', '..', 'scripts', 'build-parity.mjs')
-)
+const { runtimeNode } = await import(path.join(HERE, '..', '..', 'scripts', 'build-parity.mjs'))
 
 const PRELOAD = `// seeded-fault probe: raise a fatal condition on SIGUSR2
 process.on('SIGUSR2', () => {
@@ -30,10 +28,7 @@ const get = (url, timeoutMs = 60000) =>
       const chunks = []
       res.on('data', (c) => chunks.push(c))
       res.on('end', () =>
-        resolve({
-          status: res.statusCode,
-          body: Buffer.concat(chunks).toString('utf8'),
-        })
+        resolve({ status: res.statusCode, body: Buffer.concat(chunks).toString('utf8') })
       )
     })
     req.on('timeout', () => req.destroy(new Error('timeout')))
@@ -73,8 +68,7 @@ export async function crashProbe(env, kind, { settleMs = 5000 } = {}) {
         HOME: process.env.HOME,
         TZ: 'UTC',
         ...env.appEnv,
-        NODE_OPTIONS:
-          `${env.appEnv.NODE_OPTIONS || ''} --require ${preload}`.trim(),
+        NODE_OPTIONS: `${env.appEnv.NODE_OPTIONS || ''} --require ${preload}`.trim(),
         P2_CRASH_KIND: kind,
       },
       stdio: ['ignore', 'pipe', 'pipe'],
@@ -101,11 +95,7 @@ export async function crashProbe(env, kind, { settleMs = 5000 } = {}) {
     }
     const warm = await get(`${base}/search/?q=climate`)
     if (exited || warm.status !== 200)
-      return {
-        error: `probe app not usable (warm-up ${warm.status})`,
-        tail,
-        exited: !!exited,
-      }
+      return { error: `probe app not usable (warm-up ${warm.status})`, tail, exited: !!exited }
     await sleep(500)
     const since = Math.max(0, ...(await records(env)).map((r) => r.seq))
     child.kill('SIGUSR2')
@@ -114,9 +104,7 @@ export async function crashProbe(env, kind, { settleMs = 5000 } = {}) {
     const sentry = (await records(env)).filter(
       (r) => r.seq > since && /(^|\.)sentry\.io$/.test(new URL(r.url).hostname)
     )
-    const healthyAfter = exited
-      ? false
-      : (await get(`${base}/api/healthz/`, 5000)).status === 200
+    const healthyAfter = exited ? false : (await get(`${base}/api/healthz/`, 5000)).status === 200
     return {
       exited: !!exited,
       code: exited ? exited.code : null,

@@ -150,8 +150,8 @@ const walk = (dir) =>
           e.isDirectory()
             ? walk(path.join(dir, e.name))
             : e.name.endsWith('.json')
-              ? [path.join(dir, e.name)]
-              : []
+            ? [path.join(dir, e.name)]
+            : []
         )
     : []
 

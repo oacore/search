@@ -19,10 +19,7 @@ export default async ({ env, page: seed }) =>
       .click()
     await sleep(1500)
     const active = await page.evaluate(
-      (sel) =>
-        Array.from(document.querySelectorAll(sel)).map((e) =>
-          e.innerText.trim()
-        ),
+      (sel) => Array.from(document.querySelectorAll(sel)).map((e) => e.innerText.trim()),
       ACTIVE
     )
     const requested = held.length

@@ -8,10 +8,7 @@ export default async ({ env, page: seed }) =>
     await page.goto('/data-providers/8/', { waitUntil: 'domcontentloaded' })
     await hydrated(page)
     await sleep(3000)
-    await page
-      .getByText(/^Sort by/)
-      .first()
-      .click()
+    await page.getByText(/^Sort by/).first().click()
     await sleep(300)
     const box = await page.evaluate(() => {
       const text = (e) => e.textContent.replace(/\s+/g, ' ').trim()

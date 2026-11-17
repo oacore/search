@@ -19,8 +19,8 @@ if (file && typeof globalThis.fetch === 'function') {
       typeof init.body === 'string'
         ? init.body
         : init.body
-          ? '[non-string body]'
-          : ''
+        ? '[non-string body]'
+        : ''
     fs.appendFileSync(
       file,
       `${JSON.stringify({

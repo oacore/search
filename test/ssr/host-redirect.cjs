@@ -24,8 +24,8 @@ if (typeof globalThis.fetch === 'function') {
       init && init.headers
         ? init.headers
         : typeof input === 'object' && input.headers
-          ? input.headers
-          : undefined
+        ? input.headers
+        : undefined
     )
     headers.set('x-p2-forwarded-host', url.host)
     headers.set('x-p2-forwarded-proto', url.protocol.replace(':', ''))
