@@ -90,7 +90,9 @@ export async function getServerSideProps({
       code: error.status,
       message:
         error.status === 410
-          ? error.data
+          ? (typeof error.data === 'string' && error.data) ||
+            (typeof error.data?.message === 'string' && error.data.message) ||
+            `The work with ID ${id} has been disabled`
           : `The page you were looking for could not be found`,
       prevHistoryUrl,
     }
