@@ -1,14 +1,11 @@
-// T-107 (41 B, R-018): utils/validation.js `convertAndValidate` and the MobX
-// wrapper store/params.js, findings/06 §3.4. The table rows use the real
-// data-providers schema (store/data-providers.js:5-20). Pins today's
+// T-107 (41 B, R-018): utils/validation.js `convertAndValidate`, findings/06
+// §3.4 (the params of the data-providers store are T-212's). The table rows
+// use the real data-providers schema (store/data-providers.ts). Pins today's
 // behaviour, quirks included: an empty size string converts to 0 and is
 // valid, a case-different action falls back to the default, an invalid
 // change falls back to the schema default (never to the previous value),
 // and a missing default makes an invalid value throw.
-const { autorun, isAction, isObservableProp } = require('mobx')
-
 const validationModule = require('../../../utils/validation')
-const Params = require('../../../store/params').default
 const { schema } = require('../../../store/data-providers')
 
 const { convertAndValidate } = validationModule
@@ -202,93 +199,6 @@ describe('T-107 @P1 validation and params (findings/06 §3.4)', () => {
       expect(() => convertAndValidate({ schema, params: undefined })).toThrow(
         TypeError
       )
-    })
-  })
-
-  describe('store/params.js', () => {
-    test('T-107 @P1 the constructor keeps the schema and exposes only the schema keys, observable', () => {
-      const params = new Params(
-        { q: 'abc', size: '20', action: 'ADD', extra: 1 },
-        schema
-      )
-      expect(params.schema).toBe(schema)
-      expect(Object.keys(params)).toEqual(['schema', 'q', 'size', 'action'])
-      expect({ q: params.q, size: params.size, action: params.action }).toEqual(
-        {
-          q: 'abc',
-          size: 20,
-          action: 'ADD',
-        }
-      )
-      expect('extra' in params).toBe(false)
-      expect(isObservableProp(params, 'q')).toBe(true)
-      expect(isObservableProp(params, 'size')).toBe(true)
-      expect(isObservableProp(params, 'action')).toBe(true)
-      expect(isObservableProp(params, 'schema')).toBe(false)
-      expect(isAction(params.changeParams)).toBe(true)
-    })
-
-    test('T-107 @P1 an empty params object gives the schema defaults', () => {
-      const params = new Params({}, schema)
-      expect({ q: params.q, size: params.size, action: params.action }).toEqual(
-        {
-          q: '',
-          size: 10,
-          action: null,
-        }
-      )
-    })
-
-    test('T-107 @P1 changeParams merges the current values with the new ones and validates the result', () => {
-      const params = new Params({ q: 'abc', size: '20', action: 'ADD' }, schema)
-      params.changeParams({ size: '30' })
-      expect({ q: params.q, size: params.size, action: params.action }).toEqual(
-        {
-          q: 'abc',
-          size: 30,
-          action: 'ADD',
-        }
-      )
-      params.changeParams({ q: 'new', foo: 1 })
-      expect({ q: params.q, size: params.size, action: params.action }).toEqual(
-        {
-          q: 'new',
-          size: 30,
-          action: 'ADD',
-        }
-      )
-      // extra keys never reach the store
-      expect('foo' in params).toBe(false)
-      expect(Object.keys(params)).toEqual(['schema', 'q', 'size', 'action'])
-    })
-
-    test('T-107 @P1 changeParams with an invalid value falls back to the schema default, not to the previous value', () => {
-      const params = new Params({ q: 'abc', size: '20', action: 'ADD' }, schema)
-      params.changeParams({ size: 'abc' })
-      expect(params.size).toBe(10)
-      params.changeParams({ action: 'x' })
-      expect(params.action).toBeNull()
-      expect(params.q).toBe('abc')
-    })
-
-    test('T-107 @P1 changeParams applies all changed keys in one action: one autorun run per call', () => {
-      const params = new Params({}, schema)
-      const seen = []
-      const dispose = autorun(() => {
-        seen.push([params.q, params.size, params.action])
-      })
-      params.changeParams({ q: 'z', size: '33', action: 'ADD' })
-      dispose()
-      expect(seen).toEqual([
-        ['', 10, null],
-        ['z', 33, 'ADD'],
-      ])
-    })
-
-    test('T-107 @P1 changeParams without an argument is a TypeError; the constructor without params too', () => {
-      const params = new Params({}, schema)
-      expect(() => params.changeParams()).toThrow(TypeError)
-      expect(() => new Params(undefined, schema)).toThrow(TypeError)
     })
   })
 })

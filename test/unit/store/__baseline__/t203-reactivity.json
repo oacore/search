@@ -1,22 +1,6 @@
 {
   "schema": 1,
   "classes": {
-    "Claim": {
-      "created": "observable",
-      "duplicated": "plain",
-      "error": "observable",
-      "isLoading": "observable",
-      "query": "observable",
-      "request": "observable",
-      "reset": "action",
-      "retrieve": "action"
-    },
-    "DataProviders": {
-      "data": "observable",
-      "params": "plain",
-      "results": "computed",
-      "search": "plain-method"
-    },
     "Filters": {
       "activeFilter": "observable",
       "activeFilterSuggestions": "observable",
@@ -46,29 +30,9 @@
       "toggleCheckboxFilter": "action",
       "yearWorksCount": "observable"
     },
-    "Params": {
-      "action": "observable",
-      "changeParams": "action",
-      "q": "observable",
-      "schema": "plain",
-      "size": "observable"
-    },
-    "Report": {
-      "error": "observable",
-      "fetchOutput": "plain-method",
-      "isLoading": "observable",
-      "isModalReportFormActive": "observable",
-      "isModalReportSuccessActive": "observable",
-      "isModalReportTypeActive": "observable",
-      "output": "observable",
-      "reset": "action",
-      "role": "observable",
-      "submit": "plain-method",
-      "updateOption": "observable"
-    },
     "Root": {
-      "claim": "observable",
-      "dataProviders": "observable",
+      "claim": "plain",
+      "dataProviders": "plain",
       "extend": "action",
       "filters": "observable",
       "report": "plain",
@@ -95,13 +59,6 @@
       "setWorks": "action",
       "sortOptions": "observable",
       "works": "observable"
-    },
-    "SimilarWorks": {
-      "error": "observable",
-      "fetchSimilar": "action",
-      "isLoading": "observable",
-      "reset": "plain-method",
-      "similarOutputs": "observable"
     }
   }
 }

@@ -128,9 +128,9 @@ const posts = () => requests.filter((r) => r.startsWith(`POST ${E16}`))
 const enter = async (store, value) => {
   const before = posts().length
   fireEvent.change(urlInput(), { target: { value } })
-  await waitFor(() => expect(store.claim.query).toBe(value))
+  await waitFor(() => expect(store.claim.getState().query).toBe(value))
   await waitFor(() => expect(posts().length).toBe(before + 1))
-  await waitFor(() => expect(store.claim.isLoading).toBe(false))
+  await waitFor(() => expect(store.claim.getState().isLoading).toBe(false))
 }
 
 // a boundary of the test (the app's own has no fallback, Q-010: T-415)
@@ -203,13 +203,13 @@ describe('T-413 @P1 add-provider form', () => {
       fireEvent.change(urlInput(), {
         target: { value: 'https://created.example.org/' },
       })
-      await waitFor(() => expect(store.claim.isLoading).toBe(true))
+      await waitFor(() => expect(store.claim.getState().isLoading).toBe(true))
       expect(variantOf(field())).toBe('progress')
       expect(iconOf(field())).toBe('spinner')
       expect(helper().textContent).toBe('')
       expect(finishButton().disabled).toBe(true)
       release()
-      await waitFor(() => expect(store.claim.isLoading).toBe(false))
+      await waitFor(() => expect(store.claim.getState().isLoading).toBe(false))
       expect(variantOf(field())).toBe('success')
       expect(iconOf(field())).toBe('check')
       expect(urlInput().getAttribute('aria-invalid')).toBe('false')
@@ -239,16 +239,16 @@ describe('T-413 @P1 add-provider form', () => {
       expect(helper().querySelectorAll('a')).toHaveLength(2)
       expect(finishButton().disabled).toBe(false)
       expect(finishButton().hasAttribute('title')).toBe(false)
-      expect(store.claim.created.id).toBe(990001)
+      expect(store.claim.getState().created.id).toBe(990001)
     })
 
     test('T-413 c1 @P1 created: Finish clears the field, drops the provider and returns to the neutral message', async () => {
       const { store } = await mountPage()
       await enter(store, 'https://created.example.org/')
       fireEvent.click(finishButton())
-      await waitFor(() => expect(store.claim.created).toBeNull())
+      await waitFor(() => expect(store.claim.getState().created).toBeNull())
       expect(urlInput().value).toBe('')
-      expect(store.claim.query).toBe('')
+      expect(store.claim.getState().query).toBe('')
       expect(helper().textContent).toBe(NEUTRAL)
       expect(variantOf(field())).toBe('normal')
       expect(iconOf(field())).toBeNull()
@@ -332,7 +332,7 @@ describe('T-413 @P1 add-provider form', () => {
         )
         expect(support.textContent).toBe(SUPPORT_EMAIL)
         expect(finishButton().disabled).toBe(true)
-        expect(store.claim.error.status).toBe(status)
+        expect(store.claim.getState().error.status).toBe(status)
       }
     )
 
@@ -344,7 +344,7 @@ describe('T-413 @P1 add-provider form', () => {
       expect(iconOf(field())).toBe('alert-circle-outline')
       expect(urlInput().getAttribute('aria-invalid')).toBe('true')
       expect(helper().textContent.startsWith('We cannot detect')).toBe(true)
-      expect(store.claim.error.status).toBeUndefined()
+      expect(store.claim.getState().error.status).toBeUndefined()
     })
 
     test('T-413 c1 @P1 the field value is the claim query as typed; the next settled value replaces the message', async () => {
@@ -383,7 +383,7 @@ describe('T-413 @P1 add-provider form', () => {
       await waitFor(() =>
         expect(urlInput().value).toBe('https://created.example.org/')
       )
-      await waitFor(() => expect(store.claim.created).not.toBeNull())
+      await waitFor(() => expect(store.claim.getState().created).not.toBeNull())
       expect(posts()).toEqual([`POST ${E16}`])
       expect(routerMock.query).toEqual({
         dataProviderUrl: 'https://created.example.org/',
@@ -496,7 +496,7 @@ describe('T-413 @P1 add-provider form', () => {
       fireEvent.change(urlInput(), {
         target: { value: 'https://duplicate-text.example.org/' },
       })
-      await waitFor(() => expect(store.claim.isLoading).toBe(true))
+      await waitFor(() => expect(store.claim.getState().isLoading).toBe(true))
       // while loading the message is the progress variant: no parse yet
       expect(variantOf(field())).toBe('progress')
       expect(iconOf(field())).toBe('spinner')

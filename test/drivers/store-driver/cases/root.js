@@ -1,29 +1,7 @@
-// T-209 (41 C, R-004, R-018, R-073): store isolation in its own file, node
-// project, jest.isolateModules (store/index.jsx computes isServer and calls
-// enableStaticRendering at load, 40 §7 rule 6). client = `window` defined while
-// the store modules load. React's scheduler (loaded through mobx-react-lite ->
-// react-dom) then picks MessageChannel, whose port would keep the node process
-// alive; hiding MessageChannel during the load makes it use its timer branch
-// instead.
-const loadStore = ({ client = false } = {}) => {
-  const savedChannel = global.MessageChannel
-  if (client) {
-    global.window = {}
-    global.MessageChannel = undefined
-  }
-  let mod
-  try {
-    jest.isolateModules(() => {
-      mod = require('../../../store')
-    })
-  } finally {
-    if (client) {
-      delete global.window
-      global.MessageChannel = savedChannel
-    }
-  }
-  return mod
-}
+// T-212 root cases: T-209 (store isolation). `load({ client })` loads
+// store/index.jsx in jest.isolateModules, with `window` defined while it
+// loads for the client; the sub-stores are read through their drivers.
+const { driverFor } = require('..')
 
 const providers = [
   {
@@ -40,9 +18,12 @@ const providers = [
   },
 ]
 
-describe('T-209 @P0 store isolation', () => {
+module.exports = ({ load }) => {
+  const dp = (root) => driverFor('dataProviders').of(root.dataProviders)
+  const ids = (h) => h.get('results').map((p) => p.id)
+
   test('T-209 c1 @P0 server: a new store per call and concurrent states isolated', async () => {
-    const { initStore } = loadStore()
+    const { initStore } = load()
     const a = initStore({ statistics: { totalArticlesCount: 1 } })
     const b = initStore({ statistics: { totalArticlesCount: 2 } })
     expect(a).not.toBe(b)
@@ -57,16 +38,16 @@ describe('T-209 @P0 store isolation', () => {
         b.extend({ dataProviders: { data: providers, params: { q: 'beta' } } })
       ),
     ])
-    expect(a.dataProviders.params.q).toBe('alpha')
-    expect(b.dataProviders.params.q).toBe('beta')
-    expect(a.dataProviders.results.map((p) => p.id)).toEqual([1])
-    expect(b.dataProviders.results.map((p) => p.id)).toEqual([2])
-    expect(a.search).not.toBe(b.search)
-    expect(a.filters).not.toBe(b.filters)
+    expect(dp(a).get('params.q')).toBe('alpha')
+    expect(dp(b).get('params.q')).toBe('beta')
+    expect(ids(dp(a))).toEqual([1])
+    expect(ids(dp(b))).toEqual([2])
+    for (const name of ['claim', 'report', 'similarWorks', 'search', 'filters'])
+      expect([name, a[name] === b[name]]).toEqual([name, false])
   })
 
   test('T-209 c2 @P0 client: one singleton store, later initial data ignored', () => {
-    const { initStore } = loadStore({ client: true })
+    const { initStore } = load({ client: true })
     const a = initStore({ statistics: { totalArticlesCount: 1 } })
     const b = initStore({ statistics: { totalArticlesCount: 2 } })
     expect(b).toBe(a)
@@ -74,15 +55,15 @@ describe('T-209 @P0 store isolation', () => {
   })
 
   test('T-209 c3 @P0 Q-048.U3: a client revisit keeps the old /data-providers params (extend acts once)', () => {
-    const { initStore } = loadStore({ client: true })
+    const { initStore } = load({ client: true })
     const store = initStore({ statistics: {} })
     store.extend({ dataProviders: { data: providers, params: { q: 'alpha' } } })
     store.extend({ dataProviders: { data: providers, params: { q: 'beta' } } })
-    expect(store.dataProviders.params.q).toBe('alpha')
-    expect(store.dataProviders.results.map((p) => p.id)).toEqual([1])
+    expect(dp(store).get('params.q')).toBe('alpha')
+    expect(ids(dp(store))).toEqual([1])
     // null never creates the sub-store
-    const fresh = loadStore({ client: true }).initStore({ statistics: {} })
+    const fresh = load({ client: true }).initStore({ statistics: {} })
     fresh.extend({ dataProviders: null })
     expect(fresh.dataProviders).toBeNull()
   })
-})
+}

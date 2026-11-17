@@ -335,7 +335,9 @@ describe('T-410 @P1 Cite modal', () => {
         wrappers: [withRouter(), withStore(store)],
       })
       // the similar works are fetched on mount: wait for the card to settle
-      await waitFor(() => expect(store.similarWorks.isLoading).toBe(false))
+      await waitFor(() =>
+        expect(store.similarWorks.getState().isLoading).toBe(false)
+      )
       await act(async () => {
         await new Promise((resolve) => {
           setTimeout(resolve, 50)

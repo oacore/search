@@ -14,6 +14,15 @@ import takedownSVG from './images/takedown.svg'
 import { observe } from 'store'
 import useInput from 'hooks/use-input'
 
+const selectUpdate = (state) => ({
+  isModalReportTypeActive: state.isModalReportTypeActive,
+  isModalReportFormActive: state.isModalReportFormActive,
+  isModalReportSuccessActive: state.isModalReportSuccessActive,
+  output: state.output,
+  error: state.error,
+  isLoading: state.isLoading,
+})
+
 const UpdateTemplate = observe(() => {
   const {
     report: {
@@ -26,7 +35,7 @@ const UpdateTemplate = observe(() => {
     },
     getMetadata,
     setErrorMessage,
-  } = useReportController()
+  } = useReportController(selectUpdate)
 
   const {
     value: url,

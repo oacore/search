@@ -8,11 +8,11 @@
 // clock is set before any import: test/setup/env-clock.js freezes Date at
 // 2026-01-15, MAX_YEAR is 2026, and a module loaded later keeps the value it
 // got). The stores are the real ones. The claim hook runs under fake timers
-// with `claim.retrieve` replaced by a spy (the store itself is T-205); the
+// with `claim.retrieve` replaced by a spy (the store itself is T-212's); the
 // report and year hooks run against the recorded and hand fixtures through
 // MSW.
 import React from 'react'
-import { configure, toJS } from 'mobx'
+import { configure } from 'mobx'
 import routerMock, { setRouter } from 'next/router'
 
 import { setupMsw } from '../../utils/msw'
@@ -68,6 +68,24 @@ const router = routerMock
 
 const newStore = () => new RootStore({ statistics: {} })
 
+// the current state of a zustand store, read field by field
+const live = (api) => new Proxy({}, { get: (_, key) => api.getState()[key] })
+
+// the report fields a component can select
+const REPORT_FIELDS = [
+  'output',
+  'updateOption',
+  'role',
+  'isLoading',
+  'error',
+  'isModalReportTypeActive',
+  'isModalReportFormActive',
+  'isModalReportSuccessActive',
+]
+const selectNone = () => ({})
+const selectReport = (state) =>
+  Object.fromEntries(REPORT_FIELDS.map((key) => [key, state[key]]))
+
 describe('T-306 @P1 template hooks', () => {
   describe('useClaimController', () => {
     const URL_A = 'https://a.example.org/'
@@ -90,11 +108,8 @@ describe('T-306 @P1 template hooks', () => {
       store = newStore()
       page = {}
       retrieve = jest.fn()
-      // an own property shadows the store's action
-      Object.defineProperty(store.claim, 'retrieve', {
-        value: retrieve,
-        configurable: true,
-      })
+      // the spy replaces the store's action
+      store.claim.setState({ retrieve })
       form = {
         dataProviderUrl: {
           checkValidity: jest.fn(() => true),
@@ -110,7 +125,7 @@ describe('T-306 @P1 template hooks', () => {
     }
     const type = (value) =>
       act(() => {
-        store.claim.query = value
+        store.claim.setState({ query: value })
       })
     const wait = (ms) =>
       act(() => {
@@ -144,7 +159,7 @@ describe('T-306 @P1 template hooks', () => {
       expect(retrieve).toHaveBeenCalledTimes(1)
       wait(1)
       expect(retrieve).toHaveBeenCalledTimes(2)
-      expect(store.claim.query).toBe(`${URL_B}oai`)
+      expect(store.claim.getState().query).toBe(`${URL_B}oai`)
 
       // the same value again is no change: nothing runs
       type(`${URL_B}oai`)
@@ -188,7 +203,7 @@ describe('T-306 @P1 template hooks', () => {
       setRouter({ query: { dataProviderUrl: URL_A } })
       mount()
       // the effect copied the address into the store; the page re-rendered
-      expect(store.claim.query).toBe(URL_A)
+      expect(store.claim.getState().query).toBe(URL_A)
       expect(page.query).toBe(URL_A)
       wait(499)
       expect(retrieve).not.toHaveBeenCalled()
@@ -199,19 +214,19 @@ describe('T-306 @P1 template hooks', () => {
       setRouter({ query: {} })
       type(URL_B)
       wait(500)
-      expect(store.claim.query).toBe(URL_B)
+      expect(store.claim.getState().query).toBe(URL_B)
     })
 
     test('T-306 @P1 claim: submitting resets the query only after a created provider; the message follows the claim state', () => {
       mount()
       const { claim } = store
       const { handleSubmitForm, getFormMessage } = page.controller
-      expect(page.controller.claim).toBe(claim)
+      expect(page.controller.claimStore).toBe(claim)
 
       // Enter pressed before anything was created: nothing happens
       type(URL_A)
       handleSubmitForm()
-      expect(claim.query).toBe(URL_A)
+      expect(claim.getState().query).toBe(URL_A)
       expect(getFormMessage().variant).toBe('normal')
       expect(getFormMessage().helper).toBe(
         'It can be any resource, home page or an OAI-PMH endpoint'
@@ -219,16 +234,18 @@ describe('T-306 @P1 template hooks', () => {
 
       // the message variants of the claim state (data-providers/utils)
       act(() => {
-        claim.error = new Error('no repository')
+        claim.setState({ error: new Error('no repository') })
       })
       expect(getFormMessage().variant).toBe('error')
       act(() => {
-        claim.reset()
-        claim.created = { id: 1, name: 'Example', email: 'a@localhost' }
+        claim.getState().reset()
+        claim.setState({
+          created: { id: 1, name: 'Example', email: 'a@localhost' },
+        })
       })
       expect(getFormMessage().variant).toBe('success')
       act(() => {
-        claim.reset()
+        claim.getState().reset()
         claim.duplicated = {
           message: JSON.stringify({ existingDataProviders: [] }),
         }
@@ -237,15 +254,17 @@ describe('T-306 @P1 template hooks', () => {
 
       // a created provider: submit clears the claim and the query
       act(() => {
-        claim.reset()
-        claim.created = { id: 1, name: 'Example', email: 'a@localhost' }
+        claim.getState().reset()
+        claim.setState({
+          created: { id: 1, name: 'Example', email: 'a@localhost' },
+        })
       })
       expect(page.controller.handleSubmitForm).toBe(handleSubmitForm)
       act(() => {
         page.controller.handleSubmitForm()
       })
-      expect(claim.created).toBeNull()
-      expect(claim.query).toBe('')
+      expect(claim.getState().created).toBeNull()
+      expect(claim.getState().query).toBe('')
       // the cleared query cancels the call that the typed address had pending;
       // the empty query returns early
       wait(500)
@@ -266,7 +285,7 @@ describe('T-306 @P1 template hooks', () => {
 
     const mount = () => {
       const store = newStore()
-      const view = renderHook(() => useReportController(), {
+      const view = renderHook(() => useReportController(selectNone), {
         wrappers: [withRouter(), withStore(store)],
       })
       return { store, ...view }
@@ -287,8 +306,10 @@ describe('T-306 @P1 template hooks', () => {
     test('T-306 @P1 report: the setters write the report store and resetReport clears them', () => {
       const { store, result } = mount()
       const hook = result.current
-      const { report } = store
-      expect(hook.report).toBe(report)
+      const report = live(store.report)
+      // the probe selects nothing, so it never re-renders (it is not an
+      // observer either)
+      expect(hook.report).toEqual({})
       expect(Object.keys(hook).sort()).toEqual(
         [
           'getMetadata',
@@ -322,7 +343,7 @@ describe('T-306 @P1 template hooks', () => {
       expect(report.isModalReportFormActive).toBe(true)
 
       hook.resetReport()
-      expect(toJS(report)).toEqual({
+      expect(selectReport(store.report.getState())).toEqual({
         output: {},
         updateOption: null,
         role: null,
@@ -336,7 +357,7 @@ describe('T-306 @P1 template hooks', () => {
 
     test('T-306 @P1 report: handleSubmitForm posts the form with the chosen operation and role (E10) and opens the success modal', async () => {
       const { store, result } = mount()
-      const { report } = store
+      const report = live(store.report)
       result.current.setActiveOperation('takeDownFullText')
       result.current.setActiveReporter('author')
 
@@ -359,7 +380,7 @@ describe('T-306 @P1 template hooks', () => {
 
     test('T-306 @P1 report: a failed submit sets the error message and no success modal', async () => {
       const { store, result } = mount()
-      const { report } = store
+      const report = live(store.report)
       result.current.setActiveOperation('takeDownFullText')
       result.current.setActiveReporter('author')
 
@@ -374,7 +395,7 @@ describe('T-306 @P1 template hooks', () => {
 
     test('T-306 @P1 report: getMetadata fetches the output (E5) without its fullText and opens the type modal', async () => {
       const { store, result } = mount()
-      const { report } = store
+      const report = live(store.report)
       const requests = []
       server.events.on('request:start', ({ request }) => {
         requests.push(`${request.method} ${request.url}`)

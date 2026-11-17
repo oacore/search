@@ -34,7 +34,8 @@
     "next-images": "^1.8.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "react-ga4": "3.0.1"
+    "react-ga4": "3.0.1",
+    "zustand": "5.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.29.13",

@@ -8,6 +8,8 @@ import styles from './styles.module.css'
 
 import { observe } from 'store'
 
+const selectOperation = (state) => ({ updateOption: state.updateOption })
+
 const ReportTypeModal = observe(() => {
   const {
     report: { updateOption },
@@ -15,7 +17,7 @@ const ReportTypeModal = observe(() => {
     resetReport,
     setIsModalReportTypeActive,
     setIsModalReportFormActive,
-  } = useReportController()
+  } = useReportController(selectOperation)
 
   const onShowFormModal = () => {
     setIsModalReportTypeActive(false)

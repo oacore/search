@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { Icon, SearchResult } from '@oacore/design'
+import { useStore as useStoreApi } from 'zustand'
+import { useShallow } from 'zustand/react/shallow'
 
 import styles from './styles.module.css'
 import { checkType } from '../../utils/data-providers-transform'
@@ -21,13 +23,22 @@ const LoadingError = () => (
   </div>
 )
 
+const selectSimilarWorks = (state) => ({
+  similarOutputs: state.similarOutputs,
+  isLoading: state.isLoading,
+  error: state.error,
+})
+
 const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
   const { similarWorks } = useStore()
-  const { similarOutputs, isLoading, error } = similarWorks
+  const { similarOutputs, isLoading, error } = useStoreApi(
+    similarWorks,
+    useShallow(selectSimilarWorks)
+  )
   const params = useOtherVersions && { resultType: 'work' }
 
   useEffect(() => {
-    similarWorks.fetchSimilar(articleId, params)
+    similarWorks.getState().fetchSimilar(articleId, params)
   }, [])
 
   return (

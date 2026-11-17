@@ -14,6 +14,12 @@ const REPOSITORY_MANAGER = 'repositoryManager'
 
 const TAKE_DOWN_OPTION = 'takeDownFullText'
 
+const selectSuccess = (state) => ({
+  role: state.role,
+  updateOption: state.updateOption,
+  isLoading: state.isLoading,
+})
+
 const ReportSuccessModal = observe(({ dataProvider, id }) => {
   const router = useRouter()
 
@@ -21,7 +27,7 @@ const ReportSuccessModal = observe(({ dataProvider, id }) => {
     report: { role, updateOption, isLoading },
     resetReport,
     setIsModalReportSuccessActive,
-  } = useReportController()
+  } = useReportController(selectSuccess)
 
   const onCloseModal = () => {
     setIsModalReportSuccessActive(false)

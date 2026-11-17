@@ -8,6 +8,11 @@ import { useReportController } from '../hooks'
 import { observe } from 'store'
 import useInput from 'hooks/use-input'
 
+const selectReporter = (state) => ({
+  role: state.role,
+  updateOption: state.updateOption,
+})
+
 const ReportFormModal = observe(({ id: outputId }) => {
   const {
     value: name,
@@ -33,7 +38,7 @@ const ReportFormModal = observe(({ id: outputId }) => {
     setIsModalReportFormActive,
     handleSubmitForm,
     resetReport,
-  } = useReportController()
+  } = useReportController(selectReporter)
 
   const onHandleSubmit = (evt) => {
     evt.preventDefault()

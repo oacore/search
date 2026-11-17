@@ -1,5 +1,6 @@
 import React from 'react'
 import { Icon } from '@oacore/design'
+import { useStore as useStoreApi } from 'zustand'
 
 import styles from './styles.module.css'
 
@@ -8,7 +9,10 @@ import relatedWords from 'utils/related-words'
 
 const RelatedSearches = observe(({ articleTitle }) => {
   const { similarWorks } = useStore()
-  const { similarOutputs } = similarWorks
+  const similarOutputs = useStoreApi(
+    similarWorks,
+    (state) => state.similarOutputs
+  )
 
   return (
     <>

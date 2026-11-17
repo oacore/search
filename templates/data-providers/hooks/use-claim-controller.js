@@ -1,38 +1,61 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
+import { useStore as useStoreApi } from 'zustand'
+import { useShallow } from 'zustand/react/shallow'
 
 import { generateFormMessage } from '../utils'
 
 import { useStore } from 'store'
 import useDebouncedEffect from 'hooks/use-debounced-effect'
 
+// the claim fields the page renders: the page re-renders when one of them
+// changes (`duplicated` is not among them, it is read with the message)
+const selectClaim = (state) => ({
+  query: state.query,
+  created: state.created,
+  error: state.error,
+  isLoading: state.isLoading,
+})
+
 const useClaimController = () => {
   const formRef = useRef(null)
   const router = useRouter()
-  const { claim } = useStore()
+  const { claim: claimStore } = useStore()
+  const claim = useStoreApi(claimStore, useShallow(selectClaim))
 
-  const resetClaim = useCallback(() => claim.reset({ query: true }), [])
+  const resetClaim = useCallback(
+    () => claimStore.getState().reset({ query: true }),
+    []
+  )
 
-  const getFormMessage = useCallback(() => generateFormMessage(claim), [claim])
+  const getFormMessage = useCallback(
+    () =>
+      generateFormMessage({
+        created: claimStore.getState().created,
+        duplicated: claimStore.duplicated,
+        error: claimStore.getState().error,
+      }),
+    [claimStore]
+  )
 
   const handleSubmitForm = useCallback(() => {
     // Form most likely submitted by pressing Enter key in Safari
-    if (!claim.created) return
+    if (!claimStore.getState().created) return
 
     // Resetting the query string after adding the data provider
     resetClaim()
-  }, [claim])
+  }, [claimStore])
 
   useDebouncedEffect(
     () => {
-      if (claim.query === '' || !formRef.current) return
+      if (claimStore.getState().query === '' || !formRef.current) return
 
       if (!formRef.current.dataProviderUrl.checkValidity()) {
         formRef.current.dataProviderUrl.reportValidity()
         return
       }
 
-      claim.retrieve()
+      claimStore.getState().retrieve()
     },
     [claim.query],
     500
@@ -40,12 +63,13 @@ const useClaimController = () => {
 
   useEffect(() => {
     if (router.query?.dataProviderUrl)
-      claim.query = router.query?.dataProviderUrl
+      claimStore.setState({ query: router.query?.dataProviderUrl })
   }, [router.query?.dataProviderUrl])
 
   return {
     formRef,
     claim,
+    claimStore,
     handleSubmitForm,
     getFormMessage,
   }

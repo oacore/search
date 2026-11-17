@@ -155,7 +155,10 @@ const App = ({
       <ErrorBoundary loading={loading}>
         <Main
           isSearchPage={isSearchPage}
-          initialState={{ statistics }}
+          initialState={{
+            statistics,
+            dataProviders: pageProps?.initialState?.dataProviders,
+          }}
           loading={loading}
         >
           <PageComponent {...pageProps} />

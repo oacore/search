@@ -1,43 +1,51 @@
 import React from 'react'
+import { useStore as useStoreApi } from 'zustand'
+import { useShallow } from 'zustand/react/shallow'
 
 import { useStore } from 'store'
 
-const useReportController = () => {
-  const { report } = useStore()
+// `select` picks the report fields the component renders: it re-renders when
+// one of them changes
+const useReportController = (select) => {
+  const { report: reportStore } = useStore()
+  const report = useStoreApi(reportStore, useShallow(select))
 
   const setActiveOperation = React.useCallback((updateOption) => {
-    report.updateOption = updateOption
+    reportStore.setState({ updateOption })
   })
 
   const setActiveReporter = React.useCallback((role) => {
-    report.role = role
+    reportStore.setState({ role })
   })
 
   const handleSubmitForm = (data) => {
-    report.submit(data)
+    reportStore.getState().submit(data)
   }
 
   const setIsModalReportTypeActive = React.useCallback((boolean) => {
-    report.isModalReportTypeActive = boolean
+    reportStore.setState({ isModalReportTypeActive: boolean })
   })
 
   const setIsModalReportFormActive = React.useCallback((boolean) => {
-    report.isModalReportFormActive = boolean
+    reportStore.setState({ isModalReportFormActive: boolean })
   })
 
   const setIsModalReportSuccessActive = React.useCallback((boolean) => {
-    report.isModalReportSuccessActive = boolean
+    reportStore.setState({ isModalReportSuccessActive: boolean })
   })
 
   const getMetadata = (id) => {
-    report.fetchOutput(id)
+    reportStore.getState().fetchOutput(id)
   }
 
   const setErrorMessage = (message) => {
-    report.error = message
+    reportStore.setState({ error: message })
   }
 
-  const resetReport = React.useCallback(() => report.reset(), [])
+  const resetReport = React.useCallback(
+    () => reportStore.getState().reset(),
+    []
+  )
 
   return {
     report,
