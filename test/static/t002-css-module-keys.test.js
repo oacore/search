@@ -4,8 +4,8 @@
 // under its camelCase form, and 202 reads used only that form (CS-CSS-2 made
 // them dashed reads, CS-CSS-3 removed the patch). This test checks every read
 // against the keys of its module (the harness CSS-module transform models
-// Next's convention, 40 §2.1). It is blind to the build no-op behind R-001 by design:
-// T-003, T-605 and T-801 see that.
+// Next's convention, 40 §2.1). It is blind to the build no-op behind R-001
+// by design: T-003, T-605 and T-801 see that.
 //
 // Existing bug, pinned (D1): 24 reads name a class that is not in their module
 // (`styles.modal`, `styles.ellipsis`, ...). They evaluate to `undefined`, so
@@ -272,7 +272,9 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
     expect(s.reads.filter((r) => r.kind !== 'dangling')).toHaveLength(341)
   })
 
-  test("T-002 @P0 every resolving read names its class as written (CS-CSS-2: the 202 camelCase-only reads in 48 files became styles['dashed-name']); none needs the camelCase export (R-001)", () => {
+  // CS-CSS-2: the 202 camelCase-only reads in 48 files became
+  // styles['dashed-name']
+  test('T-002 @P0 every resolving read names its class as written; none needs the camelCase export (R-001)', () => {
     const camel = s.reads.filter((r) => r.kind === 'camelCase')
     expect(camel).toHaveLength(0)
     // the 341 resolve under the original name: 337 plain or dashed ones and
