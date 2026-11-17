@@ -5,8 +5,11 @@
 // ordered raw headers, body), the response the caller sees (status,
 // statusText, ok, url and its enumerability, headers, body as text / JSON /
 // Blob type) and the rejection (class, name, message, cause, own keys,
-// JSON form). `fetch` vs `fetch` is the harness check (old vs old).
+// JSON form). `fetch` vs `fetch` is the harness check (old vs old);
+// `transport` is api/http.ts (CS-AX-1).
 const http = require('http')
+
+const { transport } = require('../../../api/http')
 
 const startServer = () =>
   new Promise((resolve) => {
@@ -148,7 +151,7 @@ const describeResponse = async (response, read) => {
 describe('T-122 @P0 transport differential', () => {
   let server
   let deadPort
-  const impls = { fetch: (url, init) => fetch(url, init) }
+  const impls = { fetch: (url, init) => fetch(url, init), transport }
 
   beforeAll(async () => {
     server = await startServer()
