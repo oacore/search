@@ -18,18 +18,31 @@ const DCMeta = ({
   </>
 )
 
+// publishedDate may arrive as an ISO string, a bare year (string or number),
+// a Date, or garbage; never throw during SSR.
 const formatCitationDate = (date) => {
-  const [year, month, day] = date.split('T')[0].split('-')
+  let value = date
+  if (value instanceof Date) {
+    if (Number.isNaN(value.getTime())) return null
+    value = value.toISOString()
+  }
+  if (typeof value === 'number') value = String(value)
+  if (typeof value !== 'string') return null
 
+  const match = value.trim().match(/^(\d{4})(?:-(\d{1,2})(?:-(\d{1,2}))?)?/)
+  if (!match) return null
+
+  const [, year, month, day] = match
+  if (!month) return year
+  if (!day) return `${year}/${Number(month)}`
   return `${year}/${Number(month)}/${day}`
 }
 
 const CitationMeta = ({
   data: { title, authors, downloadLink, year, publishedDate },
 }) => {
-  const publicationDate = publishedDate
-    ? formatCitationDate(publishedDate)
-    : year
+  const publicationDate =
+    (publishedDate && formatCitationDate(publishedDate)) || year
 
   return (
     <>
