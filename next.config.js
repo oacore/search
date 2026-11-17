@@ -114,12 +114,14 @@ const nextConfig = {
     // that one file too, so the client floor stays ES2015 (CS-N14-2).
     // Next 15/16's main chunk adds next/dist/lib/route-pattern-normalizer.js,
     // also with an object spread (RC-1).
+    // axios (api/http.ts, CS-AX-1) ships ES2018+ in its browser build.
     if (!isServer) {
       rules.push({
         test: /\.m?js$/,
         include: [
           /[\\/]node_modules[\\/]@sentry[\\/]/,
           /[\\/]node_modules[\\/]react-ga4[\\/]/,
+          /[\\/]node_modules[\\/]axios[\\/]/,
           /[\\/]node_modules[\\/]next[\\/]dist[\\/]lib[\\/]constants\.js$/,
           /[\\/]node_modules[\\/]next[\\/]dist[\\/]lib[\\/]route-pattern-normalizer\.js$/,
         ],
