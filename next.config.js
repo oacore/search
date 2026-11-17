@@ -224,41 +224,6 @@ const nextConfig = {
       }
     }
 
-    // TODO: Remove once https://github.com/zeit/next.js/issues/10584 is solved and released
-    // CSS modules also export every class under its camelCase name
-    // (css-loader `exportLocalsConvention`). Visit every rule, nested `oneOf`
-    // and `rules` lists included, and patch each css-loader with `modules`
-    // options in a rule whose RegExp `test` accepts 'file.module.css'. Rules
-    // with any other `test` (a string path, a function, none) are skipped. The
-    // build stops when nothing was patched, since the pages would otherwise
-    // lose most of their class names.
-    let cssModuleLoaders = 0
-    const patchCssModuleRule = (rule) => {
-      if (!rule || typeof rule !== 'object') return
-      const nested = [...(rule.oneOf || []), ...(rule.rules || [])]
-      nested.forEach(patchCssModuleRule)
-      const tests = Array.isArray(rule.test) ? rule.test : [rule.test]
-      const isCssModuleRule = tests.some(
-        (test) => test instanceof RegExp && test.test('file.module.css')
-      )
-      if (!isCssModuleRule || !Array.isArray(rule.use)) return
-      rule.use.forEach((use) => {
-        if (
-          use &&
-          typeof use.loader === 'string' &&
-          /[\\/]css-loader[\\/]/.test(use.loader) &&
-          use.options &&
-          use.options.modules
-        ) {
-          use.options.modules.exportLocalsConvention = 'camelCase'
-          cssModuleLoaders += 1
-        }
-      })
-    }
-    rules.forEach(patchCssModuleRule)
-    if (cssModuleLoaders === 0)
-      throw new Error('The camelCase CSS-module patch matched no css-loader')
-
     // TODO: Enable 3th party source maps once we use Sentry
     // config.module.rules.push({
     //   test: /\.js$/,

@@ -1,10 +1,10 @@
 // T-002 (41 A; R-001): CSS-module keys, from source. The 67 files that import a
-// `*.module.css` read class names as `styles.<id>`; next.config.js:45-77
-// patches css-loader to export every class under its original name and its
-// camelCase form (`exportLocalsConvention: 'camelCase'`), and 202 of the reads
-// exist only in the camelCase form. This test checks every read against the
-// keys of its module (the harness CSS-module transform models the same
-// convention, 40 §2.1). It is blind to the build no-op behind R-001 by design:
+// `*.module.css` read class names as `styles.<id>` or `styles['dashed-name']`;
+// until step 6.9 next.config.js patched css-loader to also export every class
+// under its camelCase form, and 202 reads used only that form (CS-CSS-2 made
+// them dashed reads, CS-CSS-3 removed the patch). This test checks every read
+// against the keys of its module (the harness CSS-module transform models
+// Next's convention, 40 §2.1). It is blind to the build no-op behind R-001 by design:
 // T-003, T-605 and T-801 see that.
 //
 // Existing bug, pinned (D1): 24 reads name a class that is not in their module
@@ -291,22 +291,17 @@ describe('T-002 @P0 CSS-module keys (source)', () => {
     ])
   })
 
-  test('T-002 @P0 the key model: every dashed class is exported under its camelCase form too (kebab to camel)', () => {
-    const toCamel = (n) => n.replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase())
+  test("T-002 @P0 the key model: every class is exported under its name as written, no camelCase form (CS-CSS-3, Next's asIs convention)", () => {
     let dashed = 0
     cssModules().forEach((css) => {
       const text = fs.readFileSync(path.join(ROOT, css), 'utf8')
       const keys = exportsFor(text, css)
       Object.entries(keys).forEach(([key, original]) => {
-        // a key is its own original name or the camelCase form of it
-        if (key !== original) expect(key).toBe(toCamel(original))
+        expect(key).toBe(original)
       })
-      Object.values(keys)
-        .filter((original) => /^[a-z][a-z0-9]*(-[a-z0-9]+)+$/.test(original))
-        .forEach((original) => {
-          dashed += 1
-          expect(keys[toCamel(original)]).toBe(original)
-        })
+      dashed += Object.keys(keys).filter((k) =>
+        /^[a-z][a-z0-9]*(-[a-z0-9]+)+$/.test(k)
+      ).length
     })
     expect(dashed).toBeGreaterThan(150)
   })
