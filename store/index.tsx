@@ -4,9 +4,9 @@ import RootStore from './root'
 
 const isServer = typeof window === 'undefined'
 
-let store = null
+let store: any = null
 
-export const initStore = (initialData) => {
+export const initStore = (initialData?: any) => {
   // on the server-side a new instance is created for each page request
   // as we don't want to mix between users/requests, etc.
   if (isServer) return new RootStore(initialData)
@@ -18,13 +18,13 @@ export const initStore = (initialData) => {
 }
 
 const StoreContext = createContext({})
-export const StoreProvider = ({ children, store: storeInner }) => (
+export const StoreProvider = ({ children, store: storeInner }: any) => (
   <StoreContext.Provider value={storeInner}>{children}</StoreContext.Provider>
 )
 
-export const useStore = (initialState) => {
+export const useStore = (initialState?: any) => {
   const isInitialized = useRef(false)
-  const storeContext = useContext(StoreContext)
+  const storeContext: any = useContext(StoreContext)
 
   if (isInitialized.current === false && initialState) {
     storeContext.extend(initialState)
@@ -34,15 +34,15 @@ export const useStore = (initialState) => {
   return storeContext
 }
 
-export const useInitStore = (initialState) =>
+export const useInitStore = (initialState?: any) =>
   useMemo(() => initStore(initialState), [])
 
 // The render boundary MobX's observer gave a component (React.memo, inside a
 // wrapper component) stays, so the components render as often as before;
 // what a component subscribes to is its zustand selectors.
-export const observe = (Component) => {
+export const observe = (Component?: any) => {
   const ObservableComponent = memo(Component)
-  return (props) => <ObservableComponent {...props} />
+  return (props?: any) => <ObservableComponent {...props} />
 }
 
 export default StoreProvider

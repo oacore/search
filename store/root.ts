@@ -15,7 +15,7 @@ class Root {
 
   search = createSearchStore()
 
-  dataProviders = null
+  dataProviders: any = null
 
   report = createReportStore()
 
@@ -23,14 +23,14 @@ class Root {
 
   statistics
 
-  constructor({ statistics, dataProviders }) {
+  constructor({ statistics, dataProviders }: any) {
     this.statistics = statistics
     // seeded at creation (pages/_app.jsx), so the state a server render and
     // its hydration read is the one the page renders
     this.extend({ dataProviders })
   }
 
-  extend({ dataProviders }) {
+  extend({ dataProviders }: any) {
     if (!this.dataProviders && dataProviders != null)
       this.dataProviders = createDataProvidersStore(dataProviders)
   }
