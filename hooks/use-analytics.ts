@@ -7,13 +7,16 @@ const useAnalytics = () => {
   const analyticsAllowed = useCookie('analytics_cookies_allowed')
 
   const router = useRouter()
-  const reportPageview = useCallback((url, title, type = 'search') => {
-    ReactGA.send({
-      hitType: type,
-      page: url,
-      title: `Search | ${window.location.search.substring(1)}`,
-    })
-  }, [])
+  const reportPageview = useCallback(
+    (url: any, title?: any, type: any = 'search') => {
+      ReactGA.send({
+        hitType: type,
+        page: url,
+        title: `Search | ${window.location.search.substring(1)}`,
+      })
+    },
+    []
+  )
 
   useEffect(() => {
     if (analyticsAllowed && process.env.NODE_ENV === 'production') {
@@ -23,7 +26,7 @@ const useAnalytics = () => {
 
       ReactGA.initialize(process.env.GA_TRACKING_CODE)
     } else if (analyticsAllowed) {
-      window.ga = (...args) =>
+      window.ga = (...args: any[]) =>
         // We want to have logging in the development environment
         // eslint-disable-next-line no-console
         console.log(`ga(${JSON.stringify(args).slice(1, -1)})`)

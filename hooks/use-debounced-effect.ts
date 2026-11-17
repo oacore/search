@@ -1,6 +1,10 @@
 import { useEffect, useRef } from 'react'
 
-const useDebouncedEffect = (callback, deps = [], delay = 250) => {
+const useDebouncedEffect = (
+  callback?: any,
+  deps: any = [],
+  delay: any = 250
+) => {
   const firstUpdate = useRef(true)
   useEffect(() => {
     if (firstUpdate.current) {

@@ -2,10 +2,10 @@ import { useMemo } from 'react'
 
 export const DOTS = '...'
 
-const range = (start, end) => {
+const range = (start?: any, end?: any) => {
   const length = end - start + 1
 
-  return Array.from({ length }, (_, idx) => idx + start)
+  return Array.from({ length }, (_: any, idx: any) => idx + start)
 }
 
 export const usePagination = ({
@@ -13,7 +13,7 @@ export const usePagination = ({
   pageSize,
   siblingCount = 2,
   currentPage,
-}) => {
+}: any) => {
   // Max pages count = 1000
   // eslint-disable-next-line consistent-return
   const paginationRange = useMemo(() => {

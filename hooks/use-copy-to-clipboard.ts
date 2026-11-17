@@ -1,6 +1,6 @@
 import React from 'react'
 
-const useCopyToClipboard = (text, notifyTimeout = 2500) => {
+const useCopyToClipboard = (text?: any, notifyTimeout: any = 2500) => {
   const [copyStatus, setCopyStatus] = React.useState('inactive')
   const copy = React.useCallback(() => {
     navigator.clipboard.writeText(text).then(

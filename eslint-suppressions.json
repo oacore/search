@@ -4,6 +4,11 @@
       "count": 1
     }
   },
+  "hooks/use-sync-url-params-with-store/index.ts": {
+    "@typescript-eslint/no-unused-vars": {
+      "count": 2
+    }
+  },
   "modules/dropdown/index.jsx": {
     "@next/next/no-img-element": {
       "count": 1

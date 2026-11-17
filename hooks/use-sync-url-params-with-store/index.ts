@@ -3,13 +3,13 @@ import { useRouter } from 'next/router'
 
 import useDebouncedEffect from 'hooks/use-debounced-effect'
 
-export const useSyncUrlParamsWithStore = (paramsInstance) => {
+export const useSyncUrlParamsWithStore = (paramsInstance?: any) => {
   const router = useRouter()
   const setUrlParams = () => {
     const { schema, ...params } = paramsInstance
 
     const newParams = Object.entries(params).filter(
-      ([, value]) => value != null
+      ([, value]: any) => value != null
     )
 
     const { pathname: pathnameUrl } = new URL(
@@ -21,7 +21,7 @@ export const useSyncUrlParamsWithStore = (paramsInstance) => {
       window.location.origin
     )
 
-    const urlParams = new URLSearchParams(newParams)
+    const urlParams = new URLSearchParams(newParams as any)
 
     urlParams.sort()
 
@@ -35,7 +35,7 @@ export const useSyncUrlParamsWithStore = (paramsInstance) => {
       updateParams(
         {
           pathname: `${pathnameAs}`,
-          query: { ...router.query, ...urlParams },
+          query: { ...router.query, ...(urlParams as any) },
         },
         `${pathnameUrl}?${urlParams.toString()}`,
 
@@ -44,12 +44,12 @@ export const useSyncUrlParamsWithStore = (paramsInstance) => {
     }
   }
 
-  const handleRouteChange = (nextUrl) => {
+  const handleRouteChange = (nextUrl?: any) => {
     const { schema, ...params } = paramsInstance
     const { searchParams } = new URL(nextUrl, window.location.origin)
 
     const newParams = Array.from(searchParams.entries()).filter(
-      ([key, value]) =>
+      ([key, value]: any) =>
         // We want to compare like it because URLSearch params doesn't
         // automatically convert param (e.g. size) to number.
         // eslint-disable-next-line eqeqeq
@@ -74,8 +74,8 @@ export const useSyncUrlParamsWithStore = (paramsInstance) => {
     },
     Object.keys(paramsInstance)
       .sort()
-      .filter((key) => key !== 'schema')
-      .map((key) => paramsInstance[key])
+      .filter((key: any) => key !== 'schema')
+      .map((key: any) => paramsInstance[key])
   )
 }
 

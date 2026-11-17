@@ -10,7 +10,7 @@ import { formatDate } from 'utils/helpers'
 // component prints, as it passes them to formatDate with `options`. A component
 // mounted later, by a client navigation, is browser-local from its first render
 // and does not render again for it.
-const useDateTimeZone = (dates, options) => {
+const useDateTimeZone = (dates?: any, options?: any) => {
   const hydrating = useRef(!isAppHydrated())
   const [, setChanged] = useState(false)
 
@@ -19,7 +19,7 @@ const useDateTimeZone = (dates, options) => {
     hydrating.current = false
     if (
       dates.some(
-        (date) =>
+        (date: any) =>
           date &&
           formatDate(date, { ...options, timeZone: 'UTC' }) !==
             formatDate(date, options)
