@@ -7,8 +7,8 @@
 // and the non-null mark of `err.statusCode`), and `Head` comes from
 // `next/head` (10.2.3: `../next-server/lib/head`, the module `next/head`
 // points to). The `<title>` is one template string (CS-N13-8), so that
-// React 18's server renderer writes no `<!-- -->` into it (R-069). CS-TS-4
-// adds `any` annotations only. Nothing else is changed. Not linted (eslint.config.js): it stays as Next wrote it.
+// React 18's server renderer writes no `<!-- -->` into it (R-069). Nothing
+// else is changed. Not linted (eslint.config.js): it stays as Next wrote it.
 //
 // The MIT License (MIT)
 //
