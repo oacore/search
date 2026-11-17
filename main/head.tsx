@@ -5,7 +5,7 @@ const Head = () => (
   <NextHead>
     <title>CORE – Aggregating the world’s open access research papers</title>
 
-    {['64', '128', '256', '512'].map((size) => (
+    {['64', '128', '256', '512'].map((size: any) => (
       <link
         key={size}
         rel="icon"

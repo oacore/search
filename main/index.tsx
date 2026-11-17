@@ -24,7 +24,7 @@ const CookiesAfterMount = () => {
   return mounted ? <CookiesPopup /> : null
 }
 
-const Main = ({ children, initialState, loading, isSearchPage }) => {
+const Main = ({ children, initialState, loading, isSearchPage }: any) => {
   const store = useInitStore(initialState)
 
   useAnalytics()
