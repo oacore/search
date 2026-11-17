@@ -8,9 +8,8 @@ const http = require('http')
 
 const invalidatePreviousRequests =
   require('../../../utils/invalidatePreviousRequests').default
-const {
-  invalidatePreviousRequests: wrap,
-} = require('../../../utils/invalidatePreviousRequests')
+// the wrapper form: invalidatePreviousRequests(fn)
+const wrap = (fn) => invalidatePreviousRequests(fn)
 
 const makeStore = () => {
   class Store {
