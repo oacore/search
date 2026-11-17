@@ -1,8 +1,11 @@
 // Jest configuration of the parity harness (docs/upgrade/40-test-strategy.md
-// §2.1). babel-jest with the unchanged root babel.config.js; never next/jest.
+// §2.1). babel-jest with jest.babel.config.js (CS-SWC-1); never next/jest.
+// jest.swc.config.js runs the same projects through @swc/jest.
 // Every project carries its own transform, transformIgnorePatterns,
 // moduleNameMapper and setupFiles: a top-level transform is ignored by
 // projects.
+const path = require('path')
+
 const esmAllowList = require('./test/esm-allow-list.json')
 
 const escape = (s) =>
@@ -29,12 +32,14 @@ const shared = {
     '\\.module\\.css$': '<rootDir>/test/transforms/css-module.js',
     '\\.(png|jpe?g|gif|svg|webp|ico|bmp)$':
       '<rootDir>/test/transforms/file-url.js',
-    '\\.[jt]sx?$': 'babel-jest',
+    '\\.[jt]sx?$': [
+      'babel-jest',
+      { configFile: path.join(__dirname, 'jest.babel.config.js') },
+    ],
   },
   // one pattern (T-012 c2): node_modules except the ESM allow-list, and the
-  // vendored bibtexParse.js, which babel.config.js ignores (CS-BIB-1);
-  // babel-jest refuses a file Babel ignores, so Jest loads it untransformed,
-  // as the build does
+  // vendored bibtexParse.js, which the build leaves untransformed (CS-BIB-1),
+  // so Jest loads it untransformed too
   transformIgnorePatterns: [
     `/node_modules/(?!(?:${allowed})/)|/vendor/bibtex-parse-js/`,
   ],
