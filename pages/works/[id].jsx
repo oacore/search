@@ -88,9 +88,13 @@ export async function getServerSideProps({
 
     const serverError = {
       code: error.status,
+      // error.data is the parsed 410 body (JSON object or Blob), never render
+      // it directly: React throws #31 on objects and the page turns into a 500.
       message:
         error.status === 410
-          ? error.data
+          ? (typeof error.data === 'string' && error.data) ||
+            (typeof error.data?.message === 'string' && error.data.message) ||
+            `The work with ID ${id} has been disabled`
           : `The page you were looking for could not be found`,
       prevHistoryUrl,
     }
