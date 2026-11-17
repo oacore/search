@@ -14,6 +14,13 @@ module.exports = (api) => {
   ]
   const plugins = [
     '@babel/plugin-proposal-export-default-from',
+    [
+      '@babel/plugin-proposal-decorators',
+      {
+        legacy: true,
+      },
+    ],
+    '@babel/plugin-transform-class-properties',
     '@babel/plugin-syntax-dynamic-import',
     'add-react-displayname',
     '@babel/plugin-transform-runtime',
