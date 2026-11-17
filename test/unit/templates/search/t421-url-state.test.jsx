@@ -15,7 +15,6 @@
 //    included (store/search.js:122), for each filter kind the bar writes.
 // c4 "Copy url" copies `https://core.ac.uk` + `asPath`, every parameter kept.
 import React from 'react'
-import { configure } from 'mobx'
 import routerMock, { setRouter } from 'next/router'
 import FileDownload from 'js-file-download'
 
@@ -40,7 +39,6 @@ import Pagination from '../../../../templates/search/pagination'
 // the stores write outside actions while the templates observe them, which
 // MobX 6 reports with a dev-only console.warn that its production build does
 // not print (findings/03 §2.3); switching the check off changes no transition
-configure({ enforceActions: 'never' })
 
 jest.setTimeout(30000)
 

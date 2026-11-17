@@ -14,7 +14,6 @@
 //    modal renders; that unmounts the tree. Two of the four recorded doi.org
 //    answers are of that kind (`month=Sept`, `month=July`).
 import React from 'react'
-import { configure } from 'mobx'
 import { setRouter } from 'next/router'
 
 import { setupMsw } from '../../../utils/msw'
@@ -37,7 +36,6 @@ import { getServerSideProps } from '../../../../pages/outputs/[id]'
 // an action, which MobX 6 reports with a dev-only console.warn that the
 // production build of MobX does not print (findings/03 §2.3). Switching the
 // check off changes no state transition.
-configure({ enforceActions: 'never' })
 
 jest.setTimeout(30000)
 

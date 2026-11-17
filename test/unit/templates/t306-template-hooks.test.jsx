@@ -12,7 +12,6 @@
 // report and year hooks run against the recorded and hand fixtures through
 // MSW.
 import React from 'react'
-import { configure } from 'mobx'
 import routerMock, { setRouter } from 'next/router'
 
 import { setupMsw } from '../../utils/msw'
@@ -36,7 +35,6 @@ import useYearFilterController from '../../../modules/filters/year/hooks/use-yea
 // which MobX 6 reports with a dev-only console.warn for observed values that
 // the production build of MobX does not print. Switching the check off changes
 // no state transition.
-configure({ enforceActions: 'never' })
 
 jest.setTimeout(30000)
 

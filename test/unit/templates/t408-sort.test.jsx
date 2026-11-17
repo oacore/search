@@ -11,7 +11,6 @@
 //    effect stores after the first render are not shown until something else
 //    re-renders it: the menu is empty.
 import React from 'react'
-import { configure } from 'mobx'
 import routerMock, { setRouter } from 'next/router'
 
 import { setupMsw } from '../../utils/msw'
@@ -33,7 +32,6 @@ import DataProviderTemplate from '../../../templates/data-provider'
 
 // store writes after `await` outside an action raise a dev-only MobX warning
 // that the production build of MobX does not print (findings/03 §2.3)
-configure({ enforceActions: 'never' })
 
 jest.setTimeout(30000)
 

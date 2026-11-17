@@ -1,6 +1,6 @@
 // T-212 store-driver contract (41 C; docs/upgrade/70-phase6.md §2.4, §3.5).
 // The store cases (cases/*.js) talk to a store only through a handle, so the
-// same cases run on the MobX classes and on their zustand ports:
+// same cases ran on the MobX classes and run on their zustand ports:
 //
 //   const h = driverFor('claim').create(...args)
 //   h.get(field)          current value ('params.q' reads a param, 'results'
@@ -16,11 +16,9 @@
 //   h.spy(method)         jest.spyOn on the method the computed calls
 //   h.params()            the params object handed to useSyncUrlParamsWithStore
 //
-// A store has one driver at a time: MobX until its port, zustand after it
-// (a MobX store file is deleted by its port, 70 §0 rule 5). The cases hold
-// the MobX results as literals, so the port passes the same cases with the
-// same results.
-const mobx = require('./mobx')
+// The cases ran on the MobX classes until each port (a MobX store file was
+// deleted by its port, 70 §0 rule 5) and hold the MobX results as literals;
+// since CS-ZU-8 the zustand driver is the only one.
 const zustand = require('./zustand')
 
 // fields per store: reactive ones notify, plain ones never do (§2.4 (1))
@@ -80,7 +78,7 @@ const SPECS = {
   },
 }
 
-const DRIVERS = [zustand, mobx]
+const DRIVERS = [zustand]
 
 const driverFor = (store) => {
   const driver = DRIVERS.find((d) => d.stores[store])

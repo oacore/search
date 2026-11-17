@@ -14,7 +14,6 @@
 //    button, and leaves `overflow: unset` on the body.
 // c4 Cancel closes the modal and sends nothing.
 import React from 'react'
-import { configure } from 'mobx'
 import { setRouter } from 'next/router'
 import FileDownload from 'js-file-download'
 
@@ -38,7 +37,6 @@ import SearchTemplate from '../../../../templates/search'
 // template observes it, which MobX 6 reports with a dev-only console.warn that
 // the production build of MobX does not print (findings/03 §2.3). Switching the
 // check off changes no state transition.
-configure({ enforceActions: 'never' })
 
 jest.setTimeout(30000)
 

@@ -6,7 +6,6 @@
 // and Q-078 (the form highlights "Repository manager" while `role` is null and
 // Submit stays disabled).
 import React from 'react'
-import { configure } from 'mobx'
 import routerMock, { setRouter } from 'next/router'
 
 import { setupMsw } from '../../../../utils/msw'
@@ -27,7 +26,6 @@ import ReportTypeModal from '../../../../../templates/output/report/report-type-
 // The report store writes after `await` outside an action (findings/03 §2.3),
 // which MobX 6 reports with a dev-only console.warn that the production build
 // of MobX does not print. Switching the check off changes no state transition.
-configure({ enforceActions: 'never' })
 
 jest.setTimeout(30000)
 

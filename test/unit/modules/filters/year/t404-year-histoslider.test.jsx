@@ -7,7 +7,6 @@
 // resolve `defaultProps`, which React 19 stops doing for `jsx()`.
 import React from 'react'
 import { jsx } from 'react/jsx-runtime'
-import { configure } from 'mobx'
 import routerMock, { setRouter } from 'next/router'
 import { Histoslider } from '@oacore/design/lib/elements'
 
@@ -25,7 +24,6 @@ import YearFilter from '../../../../../modules/filters/year'
 
 // store writes after `await` outside an action raise a dev-only MobX warning
 // that the production build of MobX does not print (findings/03 §2.3)
-configure({ enforceActions: 'never' })
 
 jest.setTimeout(30000)
 

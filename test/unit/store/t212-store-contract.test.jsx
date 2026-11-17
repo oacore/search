@@ -1,11 +1,10 @@
 // T-212 (41 C, R-004, R-011, R-030, R-073): the store-driver contract. The
 // store cases of T-203, T-205, T-206, T-207 and T-208 (and the params rows of
 // T-107, the Search and Filters rows of T-204, T-201, T-202, T-211) run on
-// test/drivers/store-driver: on the MobX class until a store is ported, on
-// its zustand store after (70 §3.5), with the same literals. The MobX stores
-// write after `await` outside an action, which MobX reports with
-// a dev-only console.warn (the production build prints nothing); those
-// warnings, and only those, are allowed here.
+// test/drivers/store-driver. They ran on the MobX classes first and hold
+// those results as literals; since CS-ZU-8 every store is a zustand store
+// (70 §3.5). The MobX stores reported their writes after `await` outside an
+// action with a dev-only console.warn; the zustand stores warn nothing.
 const { setupMsw } = require('../../utils/msw')
 const { driverFor } = require('../../drivers/store-driver')
 
@@ -20,17 +19,13 @@ const CASES = {
   filters: require('../../drivers/store-driver/cases/filters'),
 }
 
-const MOBX_STRICT =
-  /^\[MobX\] Since strict-mode is enabled, changing \(observed\) observable values without using an action is not allowed\. Tried to modify: /
-
 describe('T-212 @P0 store-driver contract', () => {
   let warn
   beforeEach(() => {
     warn = jest.spyOn(console, 'warn').mockImplementation(() => {})
   })
   afterEach(() => {
-    for (const [message] of warn.mock.calls)
-      expect(message).toMatch(MOBX_STRICT)
+    expect(warn).not.toHaveBeenCalled()
     jest.restoreAllMocks()
   })
 

@@ -6,7 +6,6 @@
 // identical aggregation POSTs, a refined query keeps stale buckets with count
 // 0).
 import React from 'react'
-import { configure } from 'mobx'
 import routerMock, { setRouter } from 'next/router'
 
 import { setupMsw } from '../../../utils/msw'
@@ -23,7 +22,6 @@ import FiltersBar from '../../../../modules/filters'
 
 // store writes after `await` outside an action raise a dev-only MobX warning
 // that the production build of MobX does not print (findings/03 §2.3)
-configure({ enforceActions: 'never' })
 
 jest.setTimeout(30000)
 
