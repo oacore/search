@@ -48,7 +48,16 @@ const shared = {
     '^(?!.*\\.module\\.css$).+\\.css$': '<rootDir>/test/mocks/style.js',
     [`^(${ALIASES.join('|')})(/.*)?$`]: '<rootDir>/$1$2',
   },
-  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'cjs', 'mjs', 'node'],
+  moduleFileExtensions: [
+    'js',
+    'jsx',
+    'ts',
+    'tsx',
+    'json',
+    'cjs',
+    'mjs',
+    'node',
+  ],
   // admits allow-listed packages that ship `.mjs` (VF-07)
   resolver: '<rootDir>/test/esm-resolver.js',
   setupFiles: ['<rootDir>/test/setup/env-clock.js'],
