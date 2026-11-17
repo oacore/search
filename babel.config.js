@@ -10,6 +10,7 @@ module.exports = (api) => {
       },
     ],
     '@babel/react',
+    ['@babel/preset-typescript', { onlyRemoveTypeImports: true }],
   ]
   const plugins = [
     '@babel/plugin-proposal-export-default-from',
@@ -26,6 +27,7 @@ module.exports = (api) => {
   ]
 
   return {
+    sourceType: 'unambiguous',
     presets,
     plugins,
     // the vendored bibtexParse.js stays untransformed, as the node_modules copy
