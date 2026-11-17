@@ -1,10 +1,14 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable property-no-vendor-prefix */
 .container {
   position: relative;
   width: 100%;
   padding: 0 0 50%;
   background: var(--gray-100);
+}
 
-  @media (orientation: portrait) {
+@media (orientation: portrait) {
+  .container {
     padding-bottom: 100%;
   }
 }
@@ -23,5 +27,6 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%);
   transform: translate(-50%);
 }

@@ -1,10 +1,14 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable property-no-vendor-prefix, value-no-vendor-prefix */
 .submit-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 2rem;
+}
 
-  & > *:not(:first-child) {
-    margin-left: 1rem;
-  }
+.submit-section > *:not(:first-child) {
+  margin-left: 1rem;
 }
 
 .result-card {
@@ -19,6 +23,8 @@
 }
 
 .result-heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -42,6 +48,7 @@
 .add-data-provider-card {
   background: transparent;
   border: 1px solid var(--gray-200);
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 

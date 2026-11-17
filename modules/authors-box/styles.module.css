@@ -1,5 +1,8 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable property-no-vendor-prefix */
 .author-link {
   color: var(--gray-800);
+  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 

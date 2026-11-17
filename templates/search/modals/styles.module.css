@@ -1,3 +1,5 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable value-no-vendor-prefix */
 .title {
   border-bottom: none;
 }
@@ -8,7 +10,11 @@
 }
 
 .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
   margin-top: 0.5rem;
   border-top: none;

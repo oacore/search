@@ -1,6 +1,9 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable declaration-block-no-duplicate-properties, order/properties-order, property-no-vendor-prefix, value-no-vendor-prefix */
 /* stylelint-disable declaration-no-important */
 .card {
-  min-width: unset;
+  min-width: 0;
+  min-width: initial;
 }
 
 .card:not(:first-child) {
@@ -21,6 +24,7 @@
 
 .author-link {
   color: var(--gray-800);
+  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
@@ -130,6 +134,7 @@
   background: #fff;
   border: 1px solid #b75400;
   border-radius: 2px;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -138,7 +143,11 @@
 }
 
 .oai-modal-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
   gap: 8px;
 }
@@ -171,7 +180,10 @@
 }
 
 .navigation-trail {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   gap: 0.4rem;
   margin-bottom: 1rem;
@@ -184,7 +196,7 @@
   color: #424242;
 }
 
-@media (--screen-until-desktop) {
+@media (max-width: 767px) {
   .output-container {
     grid-template-columns: 1fr !important;
   }
@@ -203,7 +215,10 @@
 }
 
 .related-searches-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding: 1rem;
   border: 1px solid hsl(var(--card-color, var(--on-surface)) / 0.12);
@@ -218,6 +233,7 @@
 }
 
 .detach-dot::after {
+  color: #000;
   color: var(--body-color, #000);
   content: '\2000•\2000';
   opacity: 0.38;
@@ -235,7 +251,10 @@
 .boxes {
   padding: 0;
   margin-top: 1rem;
-  box-shadow: unset;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-shadow: initial;
+  box-shadow: initial;
 }
 
 .version-title {
@@ -247,6 +266,8 @@
 }
 
 .action-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   max-width: 50rem;
 }
@@ -264,30 +285,48 @@
 }
 
 .abstract-empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
   color: var(--gray-400);
 }
 
 .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .oai {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   gap: 0.5rem;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   color: var(--primary);
 }
 
 .license-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 24px;
   font-size: 16px;
@@ -300,6 +339,8 @@
 }
 
 .license-type {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   padding: 0 6px;
   border-radius: 2px;

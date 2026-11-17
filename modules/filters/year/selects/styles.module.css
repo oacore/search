@@ -1,3 +1,5 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable order/properties-order, value-no-vendor-prefix */
 .year-selects {
   display: none;
   padding: 1rem 0;
@@ -19,10 +21,16 @@
   color: var(--gray-800);
 }
 
-@media (--screen-until-desktop) {
+@media (max-width: 767px) {
   .year-selects {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
   }
 }

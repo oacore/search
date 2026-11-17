@@ -1,36 +1,48 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable order/properties-order, property-no-vendor-prefix, value-no-vendor-prefix */
 .circle {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 
   padding: 0.1rem;
   border: 1px solid var(--primary);
   border-radius: 50%;
+}
 
-  &::before {
-    position: absolute;
-    z-index: -1;
-    content: ' ';
-    border: 2px solid var(--gray-300);
-    border-radius: 50%;
-    inset: 0;
-  }
+.circle::before {
+  position: absolute;
+  z-index: -1;
+  content: ' ';
+  border: 2px solid var(--gray-300);
+  border-radius: 50%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 
-  & .image {
-    color: var(--gray-700);
-    object-fit: contain;
-  }
+.circle .image {
+  color: var(--gray-700);
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 
 .md {
   width: 50px;
   height: 50px;
+}
 
-  & .image {
-    width: 35px;
-    height: 35px;
-  }
+.md .image {
+  width: 35px;
+  height: 35px;
 }
 
 .hidden {

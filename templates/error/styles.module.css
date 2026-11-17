@@ -1,3 +1,5 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable property-no-vendor-prefix */
 .error-container {
   height: 100vh;
 }
@@ -6,6 +8,7 @@
   position: absolute;
   top: 40%;
   left: 50%;
+  -webkit-transform: translate(-50%, -60%);
   transform: translate(-50%, -60%);
 }
 

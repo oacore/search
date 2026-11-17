@@ -1,10 +1,16 @@
+/* Prefixed and fallback declarations as postcss-preset-env wrote them (CS-CSS-1) */
+/* stylelint-disable property-no-vendor-prefix, value-no-vendor-prefix */
 .sort {
   position: relative;
   z-index: 10;
 }
 
 .sort-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   width: 13rem;
   padding: 0.2rem 1rem;
@@ -25,6 +31,7 @@
   width: 13rem;
   padding: 0;
   background-color: var(--white);
+  -webkit-box-shadow: var(--elevation-04);
   box-shadow: var(--elevation-04);
 }
 
