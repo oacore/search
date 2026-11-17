@@ -48,7 +48,7 @@ const SURVIVE_MS = 2 * EXIT_BOUND_MS
 const STORE = 'https://o0.ingest.sentry.io/api/0/store/'
 // Sentry 7 has no store transport: every event goes to the envelope endpoint (AD-015, AD-017)
 const ENVELOPE =
-  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.nextjs%2F11.12.0'
+  'https://o0.ingest.sentry.io/api/0/envelope/?sentry_version=7&sentry_key=public&sentry_client=sentry.javascript.nextjs%2F11.14.0'
 // listener function names as the preload reports them (Function.prototype.name)
 // the bound handler of @sentry/node 5.30's integrations
 const SENTRY_HANDLER = 'bound '
