@@ -36,17 +36,13 @@ const recordedText = (url) => resolver.resolve('GET', url).body.toString('utf8')
 // Node's fetch parses JSON in the realm of the Node process, while this file
 // and the page run in the Jest sandbox realm: an array of the answer is then
 // not `instanceof Array` of the page (pages/outputs/[id].jsx:57), unlike in
-// the server process, where Next and fetch share one realm. The answers are
-// parsed again here, in the realm of the page, so the check sees what it sees
-// in production.
-const sameRealm = (response) =>
-  new Proxy(response, {
-    get(target, prop) {
-      if (prop === 'json') return async () => JSON.parse(await target.text())
-      const value = Reflect.get(target, prop)
-      return typeof value === 'function' ? value.bind(target) : value
-    },
-  })
+// the server process, where Next and fetch share one realm. Response bodies
+// are parsed again here, in the realm of the page, so the check sees what it
+// sees in production (on Response.prototype: the transport of api/http.ts
+// hands the app its own Response, not the one fetch returned).
+const sameRealmJson = async function sameRealmJson() {
+  return JSON.parse(await this.text())
+}
 
 // a request the fixtures cannot answer is a 502 naming its triple: no test may
 // depend on one by accident
@@ -63,7 +59,8 @@ beforeEach(() => {
   const mswFetch = global.fetch
   fetchSpy = jest
     .spyOn(global, 'fetch')
-    .mockImplementation(async (...args) => sameRealm(await mswFetch(...args)))
+    .mockImplementation((...args) => mswFetch(...args))
+  jest.spyOn(Response.prototype, 'json').mockImplementation(sameRealmJson)
   jest.spyOn(console, 'log').mockImplementation(() => {})
 })
 afterEach(() => {
