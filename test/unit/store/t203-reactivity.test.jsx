@@ -6,12 +6,12 @@
 // an `autorun` per observable and counts its runs per write. From 6.0 this
 // row is rewritten through T-212 (store-driver contract); until then it is the
 // MobX-API oracle for decorators (store/filters.js) and annotation maps.
+// A store leaves this file with its zustand port; its rows are T-212's.
 const fs = require('fs')
 const path = require('path')
 
 const mobx = require('mobx')
 
-const Claim = require('../../../store/claim').default
 const DataProviders = require('../../../store/data-providers').default
 const { schema } = require('../../../store/data-providers')
 const Filters = require('../../../store/filters').default
@@ -27,7 +27,6 @@ const { autorun, runInAction } = mobx
 
 // one fresh instance per class, constructed the way the app does
 const instances = () => ({
-  Claim: new Claim(),
   DataProviders: new DataProviders({ data: [], params: {} }),
   Filters: new Filters(),
   Params: new Params({}, schema),
@@ -112,11 +111,8 @@ describe('T-203 @P0 reactivity contract', () => {
     expect(baseline.schema).toBe(1)
     expect(table).toEqual(baseline.classes)
 
-    // facts the table must hold, whatever was recorded (41: non-observable
-    // Claim.duplicated, un-actioned Search/Report methods)
-    expect(table.Claim.duplicated).toBe('plain')
-    expect(table.Claim.created).toBe('observable')
-    expect(table.Claim.retrieve).toBe('action')
+    // facts the table must hold, whatever was recorded (41: un-actioned
+    // Search/Report methods; the ported stores are T-212's)
     for (const name of [
       'setActiveLimit',
       'setActiveDownloadModal',
@@ -139,7 +135,7 @@ describe('T-203 @P0 reactivity contract', () => {
     expect(table.Filters.getFilterByValue).toBe('action')
     // annotation maps of Root, DataProviders and the dynamic keys of Params
     expect(table.Root.search).toBe('plain')
-    expect(table.Root.claim).toBe('observable')
+    expect(table.Root.claim).toBe('plain')
     expect(table.Root.extend).toBe('action')
     expect(table.DataProviders.results).toBe('computed')
     expect(table.DataProviders.params).toBe('plain')
@@ -185,21 +181,6 @@ describe('T-203 @P0 reactivity contract', () => {
         Object.values(c).filter((k) => k === 'observable')
       ).length
     )
-
-    // a field that is not observable never notifies (Claim.duplicated)
-    const claim = new Claim()
-    let runs = 0
-    const dispose = autorun(() => {
-      // eslint-disable-next-line no-unused-expressions
-      claim.duplicated
-      runs += 1
-    })
-    runInAction(() => {
-      claim.duplicated = { message: '{}' }
-    })
-    expect(runs).toBe(1)
-    expect(claim.duplicated).toEqual({ message: '{}' })
-    dispose()
   })
 
   test('T-203 c2 @P0 computeds run once per change of their inputs', () => {
@@ -262,7 +243,7 @@ describe('T-203 @P0 reactivity contract', () => {
       return { state, dispose }
     }
 
-    // Report.reset and Claim.reset are annotated actions: one run
+    // Report.reset is an annotated action: one run
     const report = new Report()
     const reportFields = Object.keys(generate().Report).filter(
       (n) => generate().Report[n] === 'observable'
@@ -282,26 +263,6 @@ describe('T-203 @P0 reactivity contract', () => {
     expect(probe.state.runs).toBe(2)
     probe.dispose()
 
-    const claim = new Claim()
-    runInAction(() => {
-      claim.query = 'q'
-      claim.request = {}
-      claim.created = {}
-      claim.error = new Error('x')
-      claim.isLoading = true
-    })
-    probe = observedRuns(claim, [
-      'query',
-      'request',
-      'created',
-      'error',
-      'isLoading',
-    ])
-    claim.reset()
-    // reset() without arguments keeps `query`: four fields change in one run
-    expect(probe.state.runs).toBe(2)
-    expect(claim.query).toBe('q')
-    probe.dispose()
     expect(warn).not.toHaveBeenCalled()
 
     // SimilarWorks.reset is not annotated: three writes, three runs, and the

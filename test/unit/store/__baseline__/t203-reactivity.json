@@ -1,16 +1,6 @@
 {
   "schema": 1,
   "classes": {
-    "Claim": {
-      "created": "observable",
-      "duplicated": "plain",
-      "error": "observable",
-      "isLoading": "observable",
-      "query": "observable",
-      "request": "observable",
-      "reset": "action",
-      "retrieve": "action"
-    },
     "DataProviders": {
       "data": "observable",
       "params": "plain",
@@ -67,7 +57,7 @@
       "updateOption": "observable"
     },
     "Root": {
-      "claim": "observable",
+      "claim": "plain",
       "dataProviders": "observable",
       "extend": "action",
       "filters": "observable",

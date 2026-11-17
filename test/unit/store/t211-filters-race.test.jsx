@@ -20,7 +20,7 @@ const { setupMsw } = require('../../utils/msw')
 const { waitFor: baseWaitFor } = require('../../utils/render')
 const Filters = require('../../../store/filters').default
 const SimilarWorks = require('../../../store/similar-works').default
-const Claim = require('../../../store/claim').default
+const { driverFor } = require('../../drivers/store-driver')
 
 jest.setTimeout(30000)
 
@@ -317,12 +317,13 @@ describe('T-211 @P1 Filters and SimilarWorks race (Q-021)', () => {
     gates[first] = gate()
     gates[second] = gate()
 
-    const claim = new Claim()
-    claim.query = first
-    const a = claim.retrieve()
+    // through the store driver (T-212): the claim store is ported
+    const claim = driverFor('claim').create()
+    claim.write('query', first)
+    const a = claim.call('retrieve')
     await waitFor(() => expect(arrivals).toEqual([first]))
-    claim.query = second
-    const b = claim.retrieve()
+    claim.write('query', second)
+    const b = claim.call('retrieve')
     await waitFor(() => expect(arrivals).toEqual([first, second]))
 
     // both calls handed a signal to fetch, and the first one was aborted by
@@ -338,15 +339,15 @@ describe('T-211 @P1 Filters and SimilarWorks race (Q-021)', () => {
     await Promise.all([a, b])
     // the aborted call ended on its AbortError, which sticks (T-205, Q-091);
     // the second call's 409 answer is `duplicated`
-    expect(claim.error.name).toBe('AbortError')
-    expect(toJS(claim.duplicated)).toEqual({
+    expect(claim.get('error').name).toBe('AbortError')
+    expect(claim.plain(claim.get('duplicated'))).toEqual({
       message: JSON.stringify({
         existingDataProviders: [
           { id: 86, name: 'Open Research Online (Open)' },
         ],
       }),
     })
-    expect(claim.created).toBeNull()
-    expect(claim.isLoading).toBe(false)
+    expect(claim.get('created')).toBeNull()
+    expect(claim.get('isLoading')).toBe(false)
   })
 })

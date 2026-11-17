@@ -38,7 +38,7 @@ const SearchPage = observe(({ initialState }) => {
     data,
   } = dataProviders
 
-  const { formRef, claim, handleSubmitForm, getFormMessage } =
+  const { formRef, claim, claimStore, handleSubmitForm, getFormMessage } =
     useClaimController()
 
   const initialAction = useMemo(() => dataProviders.params.action, [])
@@ -63,9 +63,9 @@ const SearchPage = observe(({ initialState }) => {
   )
   const handleUrlChange = useCallback(
     (event) => {
-      claim.query = event.target.value
+      claimStore.setState({ query: event.target.value })
     },
-    [claim]
+    [claimStore]
   )
   const setShowForm = useCallback(
     (isVisible) => {

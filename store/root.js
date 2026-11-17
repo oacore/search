@@ -1,6 +1,6 @@
 import { makeObservable, observable, action } from 'mobx'
 
-import Claim from './claim'
+import { createClaimStore } from './claim'
 import SimilarWorks from './similar-works'
 import DataProviders from './data-providers'
 import Report from './report'
@@ -8,7 +8,8 @@ import Search from './search'
 import Filters from './filters'
 
 class Root {
-  claim = new Claim()
+  // a zustand store api, a plain field until CS-ZU-7
+  claim = createClaimStore()
 
   similarWorks = new SimilarWorks()
 
@@ -26,7 +27,6 @@ class Root {
     makeObservable(this, {
       statistics: observable,
       dataProviders: observable,
-      claim: observable,
       filters: observable,
       extend: action,
     })

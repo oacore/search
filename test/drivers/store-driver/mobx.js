@@ -48,7 +48,6 @@ const store = (load) => ({
 module.exports = {
   name: 'mobx',
   stores: {
-    claim: store(() => require('../../../store/claim').default),
     report: store(() => require('../../../store/report').default),
     similarWorks: store(() => require('../../../store/similar-works').default),
     dataProviders: store(
