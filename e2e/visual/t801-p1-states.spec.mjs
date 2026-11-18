@@ -321,10 +321,11 @@ test.describe('V30 1440', () => {
 })
 
 // ---------- V31: the 500 page (1440, 375; dark subset) ----------
-// Next's _error inside the layout, triggered by work 6948813 (empty publishedDate, Q-073 a: the server render
-// throws). The document and the error page each log one console error (declared and asserted).
+// Next's _error inside the layout, triggered by work 4200 (dataProviders [], Q-073 b: the server render throws;
+// work 6948813, used before, renders with 200 since the owner fix 978c6e4). The document and the error page
+// each log one console error (declared and asserted).
 
-const FIVE_HUNDRED = '/works/6948813/'
+const FIVE_HUNDRED = '/works/4200/'
 const open500 = async (page, guardLog) => {
   expectGuard('console')
   await setFixedTime(page)

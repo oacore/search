@@ -112,8 +112,9 @@ export const ROUTES = [
   {
     route: '500',
     class: '500',
-    proxy: '/works/6948813/',
-    origin: '/works/6948813/',
+    // W-nodp: W-emptydate (6948813) renders with 200 since the owner fix 978c6e4
+    proxy: '/works/4200/',
+    origin: '/works/4200/',
   },
   {
     route: 'healthz',

@@ -56,7 +56,7 @@ const ERR_500 =
 const CONSOLE_PINS = {
   'search-climate-p2-all-params': [KATEX],
   'search-foo-404': [DOC_404],
-  'works-4100-500': [DOC_500, ERR_500],
+  'works-4200-500': [DOC_500, ERR_500],
 }
 
 const signature = (rec) => () => `${rec.responses.length}:${rec.failed.length}`

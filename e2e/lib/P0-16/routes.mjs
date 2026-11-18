@@ -32,6 +32,8 @@ export const ROUTES = [
   r('works-1001-t', `/works/1001/?t=${SEARCH_ID}-1001`, 'req-P0-09'),
   r('works-4040', '/works/4040/', 'works-4040'),
   r('works-5000', '/works/5000/', 'works-5000'),
+  // the disabled-work view since the owner fix 978c6e4 (before: the 500 page)
+  r('works-4100', '/works/4100/', 'works-4100'),
   r('outputs-2001', '/outputs/2001/', 'outputs-2001'),
   r('outputs-2001-oai', '/outputs/2001/?source=oai', 'outputs-2001'),
   r('outputs-4100', '/outputs/4100/', 'outputs-4100'),
@@ -63,7 +65,8 @@ export const ROUTES = [
   r('local-error-card', '/error-card/', '-', 'allow'),
   // error pages that still run the app's scripts and styles
   r('search-foo-404', '/search/foo/', '-', 'gateway', { status: 404 }),
-  r('works-4100-500', '/works/4100/', 'works-4100', 'gateway', { status: 500 }),
+  // W-nodp: still the SSR 500 page (works 4100 renders with 200 since 978c6e4)
+  r('works-4200-500', '/works/4200/', 'works-4200', 'gateway', { status: 500 }),
 ]
 
 export const MODALS = [

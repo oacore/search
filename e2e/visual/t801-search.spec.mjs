@@ -337,7 +337,8 @@ for (const w of [1440, 375]) {
         ['update', '/outputs/update/', 200],
         ['provider', '/data-providers/86/', 200],
         ['404', '/works/', 404],
-        ['500', '/works/6948813/', 500],
+        // W-nodp; W-emptydate (6948813) renders with 200 since the owner fix 978c6e4
+        ['500', '/works/4200/', 500],
         ['error-card', new URL('/error-card/', p2Env.allowURL).href, 200],
       ]
       for (const [id, path, status] of routes) {
