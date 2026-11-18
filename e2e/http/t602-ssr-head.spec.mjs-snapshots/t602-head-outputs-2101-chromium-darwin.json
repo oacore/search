@@ -43,10 +43,7 @@
       },
       {
         "tag": "meta",
-        "attrs": {
-          "content": "2001/NaN/undefined",
-          "name": "citation_publication_date"
-        }
+        "attrs": { "content": "2001", "name": "citation_publication_date" }
       },
       {
         "tag": "meta",

@@ -54,9 +54,57 @@
     "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
   },
   {
+    "ruleId": "long-title",
+    "severity": 2,
+    "selector": "head > ?",
+    "message": "title text cannot be longer than 70 characters"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > meta[name=citation_title]",
+    "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > meta[name=citation_author]",
+    "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > meta[name=citation_publication_date]",
+    "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > meta[name=DC.creator]",
+    "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > meta[name=DC.title]",
+    "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "head > meta[name=DCTERMS.abstract]",
+    "message": "Expected omitted end tag <meta> instead of self-closing element <meta/>"
+  },
+  {
     "ruleId": "void-style",
     "severity": 2,
     "selector": "head > link[rel=preconnect]",
+    "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "html > body > link",
     "message": "Expected omitted end tag <link> instead of self-closing element <link/>"
   },
   {
@@ -132,28 +180,124 @@
     "message": "Duplicate ID \"about-title\""
   },
   {
-    "ruleId": "no-inline-style",
+    "ruleId": "aria-label-misuse",
     "severity": 2,
-    "selector": "#__next > div > main > div",
-    "message": "Inline style is not allowed"
+    "selector": "#__next > div > main > div > div:nth-child(1) > div:nth-child(1) > dl > div:nth-child(1) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#author",
+    "message": "Attribute \"itemProp\" should be lowercase"
+  },
+  {
+    "ruleId": "attr-case",
+    "severity": 2,
+    "selector": "#author",
+    "message": "Attribute \"itemType\" should be lowercase"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(1) > div:nth-child(1) > dl > div:nth-child(2) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "aria-label-misuse",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(1) > div:nth-child(1) > dl > div:nth-child(3) > dd",
+    "message": "\"aria-labelledby\" is strictly allowed but is not recommended to be used on this element"
+  },
+  {
+    "ruleId": "no-trailing-whitespace",
+    "severity": 2,
+    "selector": null,
+    "message": "Trailing whitespace"
   },
   {
     "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#__next > div > main > div > div > style",
-    "message": "<style> element is not permitted as content under <div>"
+    "selector": "#full-text-thumbnail-6948813-title",
+    "message": "<h2> element is not permitted as content under <span>"
   },
   {
-    "ruleId": "no-inline-style",
+    "ruleId": "element-permitted-content",
     "severity": 2,
-    "selector": "#__next > div > main > div > div > div",
-    "message": "Inline style is not allowed"
+    "selector": "#full-text-thumbnail-6948813 > div",
+    "message": "<div> element is not permitted as content under <span>"
   },
   {
-    "ruleId": "no-inline-style",
+    "ruleId": "attribute-misuse",
     "severity": 2,
-    "selector": "#__next > div > main > div > div > div > h2",
-    "message": "Inline style is not allowed"
+    "selector": "#full-text-thumbnail-6948813 > div > div:nth-child(2) > a",
+    "message": "\"target\" attribute cannot be used on <a> in this context: requires \"href\" attribute to be present"
+  },
+  {
+    "ruleId": "attribute-misuse",
+    "severity": 2,
+    "selector": "#full-text-thumbnail-6948813 > div > div:nth-child(2) > a",
+    "message": "\"download\" attribute cannot be used on <a> in this context: requires \"href\" attribute to be present"
+  },
+  {
+    "ruleId": "attribute-empty-style",
+    "severity": 2,
+    "selector": "#full-text-thumbnail-6948813 > div > div:nth-child(2) > a",
+    "message": "Attribute \"download\" should omit value"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div > div:nth-child(1) > div > div > div > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "no-implicit-button-type",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div > div:nth-child(1) > div > span > button",
+    "message": "<button> is missing recommended \"type\" attribute"
+  },
+  {
+    "ruleId": "no-implicit-button-type",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div > div:nth-child(1) > div > span > a > button",
+    "message": "<button> is missing recommended \"type\" attribute"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div > div:nth-child(1) > div > span > a > button",
+    "message": "<button> element is not permitted as a descendant of <a>"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div > div:nth-child(1) > div > span > div",
+    "message": "<div> element is not permitted as content under <span>"
+  },
+  {
+    "ruleId": "no-implicit-button-type",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div > div:nth-child(1) > div > span > div > button",
+    "message": "<button> is missing recommended \"type\" attribute"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div > div:nth-child(1) > div > span > span > div:nth-child(1)",
+    "message": "<div> element is not permitted as content under <span>"
+  },
+  {
+    "ruleId": "void-style",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div > div:nth-child(1) > div > span > span > div:nth-child(1) > img",
+    "message": "Expected omitted end tag <img> instead of self-closing element <img/>"
+  },
+  {
+    "ruleId": "element-permitted-content",
+    "severity": 2,
+    "selector": "#__next > div > main > div > div:nth-child(2) > div > div > div:nth-child(1) > div > span > span > div:nth-child(2)",
+    "message": "<div> element is not permitted as content under <span>"
   },
   {
     "ruleId": "element-permitted-content",

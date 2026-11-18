@@ -40,7 +40,7 @@ export const STATUS_ROWS = [
   [`/works/1001?t=${T}-1001`, 308, `/works/1001/?t=${T}-1001`],
   [`/works/1001/?t=${T}-1001`, 200],
   ['/works/4040/', 200],
-  ['/works/4100/', 500],
+  ['/works/4100/', 200], // 500 before the owner fix 978c6e4
   ['/works/5000/', 200],
   ['/works/', 404],
   ['/outputs/2001', 308, '/outputs/2001/'],

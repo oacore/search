@@ -1,9 +1,9 @@
 {
   "path": "/works/4100/",
-  "status": 500,
+  "status": 200,
   "location": null,
   "contentType": "text/html; charset=utf-8",
-  "titleRaw": ": An unexpected error has occurred",
+  "titleRaw": "CORE – Aggregating the world’s open access research papers",
   "htmlAttrs": {},
   "head": {
     "seo": [
@@ -11,9 +11,12 @@
         "tag": "title",
         "attrs": {},
         "childNodes": [
-          { "type": "text", "data": ": An unexpected error has occurred" }
+          {
+            "type": "text",
+            "data": "CORE – Aggregating the world’s open access research papers"
+          }
         ],
-        "text": ": An unexpected error has occurred"
+        "text": "CORE – Aggregating the world’s open access research papers"
       }
     ],
     "favicons": [

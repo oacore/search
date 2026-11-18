@@ -56,7 +56,7 @@ const ERR_500 =
 const CONSOLE_PINS = {
   'search-climate-p2-all-params': [KATEX],
   'search-foo-404': [DOC_404],
-  'works-4100-500': [DOC_500, ERR_500],
+  'works-4200-500': [DOC_500, ERR_500],
 }
 
 const signature = (rec) => () => `${rec.responses.length}:${rec.failed.length}`
@@ -139,7 +139,7 @@ test.describe('T-721 c1 routes', () => {
           guardLog.consoleErrors
             .map((e) => e.text.split('\n')[0])
             .filter((t) => !pinned.some((re) => re.test(t)))
-        ).toEqual([]) // AD-112, AD-228
+        ).toEqual([]) // AD-112, AD-228 (keyed works-4100-500; the route is works-4200-500 since the owner fix 978c6e4)
       }
       const refs = await expectHtmlAssets(request, p2Env, html, page.url())
       test

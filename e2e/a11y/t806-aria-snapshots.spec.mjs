@@ -389,13 +389,14 @@ test.describe('T-806 global desktop', () => {
   test('T-806 @P1 ARIA global 500 page', async ({ page, guardLog }) => {
     expectGuard('console')
     await setFixedTime(page)
-    const { response } = await open(page, '/works/6948813/')
+    // W-nodp; W-emptydate (6948813) renders with 200 since the owner fix 978c6e4
+    const { response } = await open(page, '/works/4200/')
     expect(response.status()).toBe(500)
     await expect(
       page.getByText('An unexpected error has occurred.')
     ).toBeVisible()
     expect(consoleTexts(guardLog)).toEqual([CONSOLE_500]) // AD-115, AD-231
-    await check(page, 'g-500', '/works/6948813/', DESKTOP)
+    await check(page, 'g-500', '/works/4200/', DESKTOP)
   })
 
   test.describe('first visit', () => {
