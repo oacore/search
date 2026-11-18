@@ -132,30 +132,6 @@
     "message": "Duplicate ID \"about-title\""
   },
   {
-    "ruleId": "no-inline-style",
-    "severity": 2,
-    "selector": "#__next > div > main > div",
-    "message": "Inline style is not allowed"
-  },
-  {
-    "ruleId": "element-permitted-content",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div > style",
-    "message": "<style> element is not permitted as content under <div>"
-  },
-  {
-    "ruleId": "no-inline-style",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div > div",
-    "message": "Inline style is not allowed"
-  },
-  {
-    "ruleId": "no-inline-style",
-    "severity": 2,
-    "selector": "#__next > div > main > div > div > div > h2",
-    "message": "Inline style is not allowed"
-  },
-  {
     "ruleId": "element-permitted-content",
     "severity": 2,
     "selector": "#footer > div:nth-child(1) > menu > div:nth-child(1)",

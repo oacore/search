@@ -58,6 +58,7 @@ const NESTED_IN_CARD = {
   'works-1003': 0,
   'works-1004': 0,
   'works-1005': 0,
+  'works-6948813': 0,
   'outputs-2001': 0,
   'outputs-2003': 0,
   'outputs-2004': 0,

@@ -15,7 +15,6 @@ import {
   C3_ROWS,
   C4_ROWS,
   M,
-  ERROR_TITLE,
   probe,
   view,
   expected,
@@ -140,11 +139,24 @@ test.describe('T-601 @P0 route/status matrix', () => {
     const actual = []
     for (const row of C3_ROWS) {
       const p = await probe(request, p2Env.baseURL, row.path)
-      actual.push([row.fixture, p.status, p.title, p.text.includes(M.error500)])
+      actual.push([
+        row.fixture,
+        p.status,
+        p.title,
+        p.text.includes(row.marker),
+        p.text.includes(M.error500),
+      ])
     }
-    // Next's built-in error page in the layout (no pages/_error, Q-098), title as on 10.2.3
+    // the 500 rows: Next's built-in error page in the layout (no pages/_error, Q-098), title as on 10.2.3;
+    // W-410-* and W-emptydate render their page with 200 since the owner fix 978c6e4
     expect(actual).toEqual(
-      C3_ROWS.map((row) => [row.fixture, 500, ERROR_TITLE, true])
+      C3_ROWS.map((row) => [
+        row.fixture,
+        row.status,
+        row.title,
+        true,
+        row.status === 500,
+      ])
     )
   })
 

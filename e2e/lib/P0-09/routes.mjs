@@ -125,10 +125,10 @@ export const C1_ROWS = [
   ),
   page(
     '/works/4100/',
-    500,
-    ERROR_TITLE,
-    M.error500,
-    'API 410 body rendered -> React #31 -> 500 (Q-001, Q-098)'
+    200,
+    DEFAULT_TITLE,
+    'The work with ID 4100 has been disabled',
+    'works 410 = string, 200 (Q-001; owner fix 978c6e4, was React #31 -> 500)'
   ),
   page(
     '/works/5000/',
@@ -384,37 +384,54 @@ export const C2_ROWS = [
   },
 ]
 
-// T-601 c3 / T-731: the SSR 500 fixtures (41 §2.6; Q-001, Q-073, Q-098)
+// T-601 c3 / T-731: the SSR 500 fixtures (41 §2.6; Q-001, Q-073, Q-098). The owner fix 978c6e4 (intended) made
+// W-410-* and W-emptydate render: a 410 message is always a string and a numeric publishedDate is formatted, so
+// they answer 200 with the page they show; `status`, `title` and `marker` are what each one answers now
+const SSR_500 = { status: 500, title: ERROR_TITLE, marker: M.error500 }
+export const W_EMPTYDATE_TITLE =
+  'Review of \\u3ci\\u3eThe American West: A New Interpretive History\\u3c/i\\u3e By Robert V. Hine and John Mack\nFaragher - CORE'
 export const C3_ROWS = [
   {
     path: '/works/4101/',
     fixture: 'W-410-json',
-    note: '410 with a JSON object body (Q-001)',
+    note: '410 with a JSON object body: its message string, 200 (Q-001, 978c6e4)',
+    status: 200,
+    title: DEFAULT_TITLE,
+    marker: 'Work with identifier 4101 has been disabled.',
   },
   {
     path: '/works/4102/',
     fixture: 'W-410-text',
-    note: '410 with a text body (Q-001)',
+    note: '410 with a text body: the fixed disabled text, 200 (Q-001, 978c6e4)',
+    status: 200,
+    title: DEFAULT_TITLE,
+    marker: 'The work with ID 4102 has been disabled',
   },
   {
     path: '/works/6948813/',
     fixture: 'W-emptydate',
-    note: 'publishedDate "" + numeric yearPublished (Q-073 (a))',
+    note: 'publishedDate "" + numeric yearPublished: the work page, 200 (Q-073 (a), 978c6e4)',
+    status: 200,
+    title: W_EMPTYDATE_TITLE,
+    marker: M.citation,
   },
   {
     path: '/works/4200/',
     fixture: 'W-nodp',
     note: 'dataProviders [] (Q-073 (b))',
+    ...SSR_500,
   },
   {
     path: '/outputs/2102/',
     fixture: 'O-nofulltext (null)',
     note: 'no download link, sourceFulltextUrls null (Q-073 (c))',
+    ...SSR_500,
   },
   {
     path: '/outputs/2103/',
     fixture: 'O-nofulltext (absent)',
     note: 'no download link, sourceFulltextUrls absent (Q-073 (c))',
+    ...SSR_500,
   },
 ]
 

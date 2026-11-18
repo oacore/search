@@ -323,13 +323,14 @@ describe('T-502 @P0 /works/[id] getServerSideProps', () => {
         expect(empty.props.serverError.prevHistoryUrl).toBe('')
       })
 
-      test('T-502 c1 @P0 Q-001 W-410-json (work 4101): message is the parsed JSON body, an object', async () => {
+      // 978c6e4 (owner fix, intended): on 410 the message is always a string,
+      // the body if a string, else body.message if a string, else a fixed text
+      test('T-502 c1 @P0 Q-001 W-410-json (work 4101): message is the message string of the parsed JSON body', async () => {
         const { props } = await run(4101)
         expect(props.serverError.code).toBe(410)
-        expect(props.serverError.message).toEqual({
-          message: 'Work with identifier 4101 has been disabled.',
-        })
-        expect(typeof props.serverError.message).toBe('object')
+        expect(props.serverError.message).toBe(
+          'Work with identifier 4101 has been disabled.'
+        )
         expect(Object.keys(props.serverError)).toEqual([
           'code',
           'message',
@@ -338,19 +339,18 @@ describe('T-502 @P0 /works/[id] getServerSideProps', () => {
       })
 
       test.each([
-        [4102, 'W-410-text', /^text\/plain/],
-        [4100, 'text/html answer', /^text\/html/],
+        [4102, 'W-410-text'],
+        [4100, 'text/html answer'],
       ])(
-        'T-502 c1 @P0 Q-001 work %d (%s): message is a Blob of the body, not a string',
-        async (id, _label, type) => {
+        'T-502 c1 @P0 Q-001 work %d (%s): the body is a Blob, message is the fixed disabled text',
+        async (id) => {
+          // a text/* answer gives a Blob body; 978c6e4 no longer passes it on
           const { props } = await run(id)
-          const { message } = props.serverError
-          expect(props.serverError.code).toBe(410)
-          expect(typeof message).toBe('object')
-          expect(Object.prototype.toString.call(message)).toBe('[object Blob]')
-          expect(message.type).toMatch(type)
-          const text = await message.text()
-          expect(text).toContain(`${id} has been disabled`)
+          expect(props.serverError).toStrictEqual({
+            code: 410,
+            message: `The work with ID ${id} has been disabled`,
+            prevHistoryUrl: null,
+          })
         }
       )
 
@@ -402,11 +402,11 @@ describe('T-502 @P0 /works/[id] getServerSideProps', () => {
         expect(sentLines()).toEqual([`GET ${E4(1001)}`, `GET ${E5(1001)}`])
       })
 
-      test('T-502 c1 @P0 E5 answers 410: the message is its body here too', async () => {
+      test('T-502 c1 @P0 E5 answers 410: the message is its body message string here too', async () => {
         answer(E5(1001), { message: 'outputs gone' }, { status: 410 })
         const { props } = await run(1001)
         expect(props.serverError.code).toBe(410)
-        expect(props.serverError.message).toEqual({ message: 'outputs gone' })
+        expect(props.serverError.message).toBe('outputs gone')
       })
     })
 

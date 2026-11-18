@@ -112,14 +112,17 @@ export const T602_PAGES = [
   { id: 'works-4040', path: '/works/4040/', type: 'default', status: 200 },
   { id: 'works-5000', path: '/works/5000/', type: 'default', status: 200 },
   { id: 'outputs-4100', path: '/outputs/4100/', type: 'default', status: 200 },
-  { id: 'works-4100', path: '/works/4100/', type: 'next-error', status: 500 },
-  { id: 'works-4101', path: '/works/4101/', type: 'next-error', status: 500 },
-  { id: 'works-4102', path: '/works/4102/', type: 'next-error', status: 500 },
+  // works 410 variants: the disabled-work view with 200 since the owner fix 978c6e4 (before: 500)
+  { id: 'works-4100', path: '/works/4100/', type: 'default', status: 200 },
+  { id: 'works-4101', path: '/works/4101/', type: 'default', status: 200 },
+  { id: 'works-4102', path: '/works/4102/', type: 'default', status: 200 },
+  // W-emptydate: the work page with 200 since 978c6e4 (before: 500)
   {
     id: 'works-6948813',
     path: '/works/6948813/',
-    type: 'next-error',
-    status: 500,
+    type: 'works',
+    status: 200,
+    api: `${API}/works/6948813?t=undefined`,
   },
   { id: 'works-4200', path: '/works/4200/', type: 'next-error', status: 500 },
   {
@@ -144,6 +147,7 @@ export const CITATION_DATE = {
   'works-1003': '2015/1/01',
   'works-1004': '2023/3/14',
   'works-1005': '2023/3/14',
+  'works-6948813': '2001',
   'outputs-2001': '2012/1/01',
   'outputs-2003': '2023/NaN/undefined',
   'outputs-2004': '2012/1/01',
@@ -268,7 +272,7 @@ export const E13_FAILURE = {
 }
 
 // every route of T-610 c2/c3/c4: the 200-routes plus the redirect, 404 and 500 answers (gssp: the _next/data
-// JSON stays 200 where the direct URL is 500, Q-073)
+// JSON stays 200 where the direct URL is 500, Q-073; works 4100-4102 and 6948813 answer 200 since 978c6e4)
 export const ROUTES_ALL = [
   ...ROUTES_200,
   { id: 'search-empty', path: '/search/' },

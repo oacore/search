@@ -3,18 +3,32 @@
 // other two 500 routes of T-601 (works 4100, Q-001; /data-providers/?q=100%25, Q-028, Q-073 (d)). c1: a hard
 // load answers 500 with Next's built-in error page inside the app layout and its 10.2.3 title (no
 // pages/_error, Q-098); c2: the client data route of the same URL answers 200 JSON (the failure happens while
-// rendering, after gSSP). Tables: e2e/lib/P0-09/routes.mjs.
+// rendering, after gSSP). Since the owner fix 978c6e4, W-410-*, W-emptydate and works 4100 render with 200: c1
+// keeps the rows that still answer 500, c2 pins every row's direct status. Tables: e2e/lib/P0-09/routes.mjs.
 import { test, expect } from '../lib/P0-09/fixtures.mjs'
 import { C3_ROWS, ERROR_TITLE, M, probe } from '../lib/P0-09/routes.mjs'
 import { netLog } from '../lib/P0-09/netlog.mjs'
 import { trackPage, settle } from '../lib/P0-09/settle.mjs'
 
-// path, client data route under /search/_next/data/<buildId>, the pageProps keys of its JSON
-const ROWS = [
-  ...C3_ROWS.map((r) => ({ path: r.path, fixture: r.fixture })),
-  { path: '/works/4100/', fixture: 'Works 4100 (API 410)' },
-  { path: '/data-providers/?q=100%25', fixture: 'q=100% (URIError)' },
+// path, client data route under /search/_next/data/<buildId>, the pageProps keys of its JSON; status: the
+// direct answer (W-410-*, W-emptydate and works 4100 render with 200 since the owner fix 978c6e4)
+const ALL_ROWS = [
+  ...C3_ROWS.map((r) => ({
+    path: r.path,
+    fixture: r.fixture,
+    status: r.status,
+  })),
+  { path: '/works/4100/', fixture: 'Works 4100 (API 410)', status: 200 },
+  {
+    path: '/data-providers/?q=100%25',
+    fixture: 'q=100% (URIError)',
+    status: 500,
+  },
 ]
+// c1: the rows that still answer 500
+const ROWS = ALL_ROWS.filter((r) => r.status === 500).map(
+  ({ path, fixture }) => ({ path, fixture })
+)
 const DATA = {
   '/works/4101/': ['/works/4101.json?id=4101', ['serverError']],
   '/works/4102/': ['/works/4102.json?id=4102', ['serverError']],
@@ -116,7 +130,7 @@ test.describe('T-731 @P0 J23 SSR failure matrix', () => {
       .body
     const buildId = /"buildId":"([^"]+)"/.exec(html)[1]
     const rows = []
-    for (const row of ROWS) {
+    for (const row of ALL_ROWS) {
       const [dataPath] = DATA[row.path]
       const direct = await probe(request, p2Env.baseURL, row.path)
       const data = await probe(
@@ -135,9 +149,9 @@ test.describe('T-731 @P0 J23 SSR failure matrix', () => {
       ])
     }
     expect(rows).toEqual(
-      ROWS.map((row) => [
+      ALL_ROWS.map((row) => [
         row.path,
-        500,
+        row.status,
         200,
         'application/json; charset=utf-8',
         ['statistics', '__N_SSP', 'pageProps'],
@@ -165,13 +179,13 @@ test.describe('T-731 @P0 J23 SSR failure matrix', () => {
         return out
       },
       {
-        hrefs: ROWS.map(
+        hrefs: ALL_ROWS.map(
           (row) => `/static/search/_next/data/${buildId}${DATA[row.path][0]}`
         ),
       }
     )
     expect(inPage).toEqual(
-      ROWS.map((row) => [
+      ALL_ROWS.map((row) => [
         `/static/search/_next/data/${buildId}${DATA[row.path][0]}`,
         200,
         'application/json; charset=utf-8',
