@@ -140,7 +140,7 @@ export const T602_PAGES = [
 ]
 
 // citation_publication_date as formatCitationDate prints it (Q-053): month de-padded, day not; a bare year
-// string gives `YYYY/NaN/undefined`; no publishedDate and no year: no tag
+// gives `YYYY` since the owner fix 978c6e4 (before: `YYYY/NaN/undefined`); no publishedDate and no year: no tag
 export const CITATION_DATE = {
   'works-1001': '2023/3/14',
   'works-1002': null,
@@ -149,9 +149,9 @@ export const CITATION_DATE = {
   'works-1005': '2023/3/14',
   'works-6948813': '2001',
   'outputs-2001': '2012/1/01',
-  'outputs-2003': '2023/NaN/undefined',
+  'outputs-2003': '2023',
   'outputs-2004': '2012/1/01',
-  'outputs-2101': '2001/NaN/undefined',
+  'outputs-2101': '2001',
   'outputs-2105': '2012/1/01',
   'outputs-2106': '2012/1/01',
 }

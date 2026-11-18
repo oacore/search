@@ -80,10 +80,7 @@
       },
       {
         "tag": "meta",
-        "attrs": {
-          "content": "2023/NaN/undefined",
-          "name": "citation_publication_date"
-        }
+        "attrs": { "content": "2023", "name": "citation_publication_date" }
       },
       {
         "tag": "meta",
@@ -256,10 +253,7 @@
       },
       {
         "tag": "meta",
-        "attrs": {
-          "content": "2023/NaN/undefined",
-          "name": "citation_publication_date"
-        }
+        "attrs": { "content": "2023", "name": "citation_publication_date" }
       },
       {
         "tag": "meta",
