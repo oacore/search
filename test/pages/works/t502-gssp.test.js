@@ -339,13 +339,25 @@ describe('T-502 @P0 /works/[id] getServerSideProps', () => {
       })
 
       test.each([
-        [4102, 'W-410-text'],
-        [4100, 'text/html answer'],
+        [4102, 'W-410-text', /^text\/plain/],
+        [4100, 'text/html answer', /^text\/html/],
       ])(
         'T-502 c1 @P0 Q-001 work %d (%s): the body is a Blob, message is the fixed disabled text',
-        async (id) => {
-          // a text/* answer gives a Blob body; 978c6e4 no longer passes it on
+        async (id, _label, type) => {
+          // a text/* answer gives a Blob body; 978c6e4 no longer passes it on.
+          // The recorded E4 answer is that text/* type, so the body is a Blob
+          const recordedE4 = resolver.resolve('GET', E4(id))
+          expect(recordedE4.status).toBe(410)
+          const contentType = recordedE4.headers
+            .filter(([n]) => n.toLowerCase() === 'content-type')
+            .map(([, v]) => v)
+          expect(contentType).toHaveLength(1)
+          expect(contentType[0]).toMatch(type)
+          expect(recordedE4.body.toString('utf8')).toContain(
+            `${id} has been disabled`
+          )
           const { props } = await run(id)
+          expect(sentLines()).toEqual([`GET ${E4(id)}`])
           expect(props.serverError).toStrictEqual({
             code: 410,
             message: `The work with ID ${id} has been disabled`,

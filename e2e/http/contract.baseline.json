@@ -2348,7 +2348,7 @@
       "case": "GET",
       "method": "GET",
       "request-headers": { "connection": "keep-alive" },
-      "url": "/works/6948813/",
+      "url": "/works/4200/",
       "expect": {
         "status": 500,
         "headers": {
@@ -2375,7 +2375,7 @@
       "case": "HEAD",
       "method": "HEAD",
       "request-headers": { "connection": "keep-alive" },
-      "url": "/works/6948813/",
+      "url": "/works/4200/",
       "expect": {
         "status": 500,
         "headers": {
@@ -2404,7 +2404,7 @@
         "connection": "keep-alive",
         "if-none-match": "<etag of the GET>"
       },
-      "url": "/works/6948813/",
+      "url": "/works/4200/",
       "expect": {
         "status": 304,
         "headers": {
@@ -2430,7 +2430,7 @@
         "connection": "keep-alive",
         "accept-encoding": "br, gzip"
       },
-      "url": "/works/6948813/",
+      "url": "/works/4200/",
       "expect": {
         "status": 500,
         "headers": {
@@ -2457,7 +2457,7 @@
       "case": "GET",
       "method": "GET",
       "request-headers": { "connection": "keep-alive" },
-      "url": "/works/6948813/",
+      "url": "/works/4200/",
       "expect": {
         "status": 500,
         "headers": {
@@ -2484,7 +2484,7 @@
       "case": "HEAD",
       "method": "HEAD",
       "request-headers": { "connection": "keep-alive" },
-      "url": "/works/6948813/",
+      "url": "/works/4200/",
       "expect": {
         "status": 500,
         "headers": {
@@ -2513,7 +2513,7 @@
         "connection": "keep-alive",
         "if-none-match": "<etag of the GET>"
       },
-      "url": "/works/6948813/",
+      "url": "/works/4200/",
       "expect": {
         "status": 304,
         "headers": {
@@ -2539,7 +2539,7 @@
         "connection": "keep-alive",
         "accept-encoding": "br, gzip"
       },
-      "url": "/works/6948813/",
+      "url": "/works/4200/",
       "expect": {
         "status": 500,
         "headers": {

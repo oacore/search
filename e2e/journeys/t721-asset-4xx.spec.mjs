@@ -139,7 +139,7 @@ test.describe('T-721 c1 routes', () => {
           guardLog.consoleErrors
             .map((e) => e.text.split('\n')[0])
             .filter((t) => !pinned.some((re) => re.test(t)))
-        ).toEqual([]) // AD-112, AD-228
+        ).toEqual([]) // AD-112, AD-228 (keyed works-4100-500; the route is works-4200-500 since the owner fix 978c6e4)
       }
       const refs = await expectHtmlAssets(request, p2Env, html, page.url())
       test
