@@ -17,11 +17,23 @@ const markerIcon = L.icon({
   popupAnchor: [0, -32],
 })
 
-const CustomMap = ({ locations }) => {
+const isValidLocation = (loc) =>
+  loc != null &&
+  loc.latitude !== null &&
+  loc.longitude !== null &&
+  loc.latitude !== '' &&
+  loc.longitude !== '' &&
+  Number.isFinite(Number(loc.latitude)) &&
+  Number.isFinite(Number(loc.longitude))
+
+const CustomMap = ({ locations: rawLocations }) => {
+  // Drop entries without coordinates; Leaflet throws on them
+  const locations = (rawLocations || []).filter(isValidLocation)
   const [visibleMarkers, setVisibleMarkers] = useState([])
   const mapRef = useRef(null)
 
   const loadVisibleMarkers = () => {
+    if (!mapRef.current) return
     const bounds = mapRef.current.getBounds()
     const inViewMarkers = locations.filter((loc) =>
       bounds.contains(new L.LatLng(loc.latitude, loc.longitude))
@@ -47,6 +59,7 @@ const CustomMap = ({ locations }) => {
       // Handle map movements to load new markers
       mapRef.current.on(KEY_MOVE, loadVisibleMarkers)
     }
+    if (!mapRef.current) return undefined
 
     // Initialize marker cluster group
     const markerClusterGroup = new L.MarkerClusterGroup()
@@ -64,6 +77,7 @@ const CustomMap = ({ locations }) => {
   }, [])
 
   useEffect(() => {
+    if (!mapRef.current) return undefined
     const markerClusterGroup = new L.MarkerClusterGroup()
     // Create and add markers
     visibleMarkers.forEach(({ name, href, latitude, longitude }) => {

@@ -77,7 +77,7 @@ const CardDropdown = ({
     dateValue != null ? formatDate(new Date(dateValue)) : null
 
   const subtitleText =
-    coreDownloadUrl?.length > 0 || sourceFulltextUrls.length > 0 ? (
+    coreDownloadUrl?.length > 0 || sourceFulltextUrls?.length > 0 ? (
       <Tag
         href={coreDownloadUrl || sourceFulltextUrls || '#'}
         className={classNames.use(styles.link, {
