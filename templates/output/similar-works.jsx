@@ -50,7 +50,7 @@ const SimilarWorks = observe(({ articleId, useOtherVersions }) => {
             const downloadLink = links.find((l) => l.type === 'download')?.url
             const readerLink = links.find((l) => l.type === 'reader')?.url
             const metadataLink = links.find((l) => l.type === 'similar')?.url
-            const memberType = checkType(dataProviders[0].id)
+            const memberType = checkType(dataProviders?.[0]?.id)
 
             const checkBillingType = () =>
               memberType?.billing_type === 'supporting' ||

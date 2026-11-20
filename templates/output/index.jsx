@@ -24,7 +24,7 @@ const ScientificOutputTemplate = ({
     abstract,
     publisher,
     publishedDate,
-    dataProvider,
+    dataProvider: rawDataProvider,
     updatedDate,
     sourceFulltextUrls,
     fulltextStatus,
@@ -45,6 +45,8 @@ const ScientificOutputTemplate = ({
   ...passProps
 }) => {
   const router = useRouter()
+  // Works without a data provider pass null; render without provider details.
+  const dataProvider = rawDataProvider || {}
 
   const includeOai = router.asPath.includes('source=oai')
   const [uniqueDoiArray, setUiqueDoiArray] = useState([])
@@ -64,9 +66,10 @@ const ScientificOutputTemplate = ({
   useEffect(() => {
     const doiArray = [doi]
 
-    if (outputs) doiArray.push(...outputs.map((item) => item.doi.toLowerCase()))
+    if (outputs)
+      doiArray.push(...outputs.map((item) => item.doi?.toLowerCase()))
 
-    setUiqueDoiArray([...new Set(doiArray)])
+    setUiqueDoiArray([...new Set(doiArray.filter(Boolean))])
   }, [])
 
   useEffect(() => {

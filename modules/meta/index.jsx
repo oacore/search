@@ -39,8 +39,9 @@ const structuredMetadata = ({
   abstract,
   publisher,
   publishedDate,
-  dataProvider,
+  dataProvider: rawDataProvider,
 }) => {
+  const dataProvider = rawDataProvider || {}
   const ld = {
     '@context': 'http://schema.org',
     '@graph': [

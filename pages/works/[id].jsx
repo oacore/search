@@ -75,7 +75,12 @@ export async function getServerSideProps({
           workWithUrls.sourceFulltextUrls[0]) ||
         null,
       outputs: transformedOutputs,
-      dataProvider: workWithUrls.dataProviders[0],
+      // A work can come back with `dataProviders: []`; fall back to the first
+      // output's provider so the template never gets `undefined`.
+      dataProvider:
+        workWithUrls.dataProviders?.[0] ??
+        transformedOutputs[0]?.dataProvider ??
+        null,
       mainDataProviderLink: Object.values(mainDataProviderLink).some(
         (link) => link !== null
       )
